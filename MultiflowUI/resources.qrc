@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/image/file.png</file>
+        <file>resources/image/icon.jpeg</file>
+        <file>resources/image/background.png</file>
+        <file>resources/image/Well.png</file>
+        <file>resources/image/source.png</file>
+        <file>resources/image/sink.png</file>
+        <file>resources/image/flowline.png</file>
+        <file>resources/image/linepointer.png</file>
+        <file>resources/image/pointer.png</file>
+        <file>resources/image/background2.png</file>
+        <file>resources/image/delete.png</file>
+        <file>resources/image/junction.png</file>
+        <file>resources/image/background3.png</file>
+        <file>resources/image/ESP.png</file>
+        <file>resources/image/header.png</file>
+        <file>resources/image/PCP.png</file>
+    </qresource>
+</RCC>
