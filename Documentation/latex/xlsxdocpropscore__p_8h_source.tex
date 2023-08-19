@@ -1,0 +1,70 @@
+\doxysection{xlsxdocpropscore\+\_\+p.\+h}
+\hypertarget{xlsxdocpropscore__p_8h_source}{}\label{xlsxdocpropscore__p_8h_source}\index{MultiflowUI/xlsx/xlsxdocpropscore\_p.h@{MultiflowUI/xlsx/xlsxdocpropscore\_p.h}}
+\mbox{\hyperlink{xlsxdocpropscore__p_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ XLSXDOCPROPSCORE\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ XLSXDOCPROPSCORE\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ W\ A\ R\ N\ I\ N\ G}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ This\ file\ is\ not\ part\ of\ the\ Qt\ Xlsx\ API.\ \ It\ exists\ for\ the\ convenience}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ of\ the\ Qt\ Xlsx.\ \ This\ header\ file\ may\ change\ from}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ version\ to\ version\ without\ notice,\ or\ even\ be\ removed.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ We\ mean\ it.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxabstractooxmlfile_8h}{xlsxabstractooxmlfile.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <QMap>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <QStringList>}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }QIODevice;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core}{DocPropsCore}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_abstract_o_o_xml_file}{AbstractOOXmlFile}}}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core}{DocPropsCore}}(\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{CreateFlag}}\ flag);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ setProperty(\textcolor{keyword}{const}\ QString\ \&name,\ \textcolor{keyword}{const}\ QString\ \&value);}
+\DoxyCodeLine{00054\ \ \ \ \ QString\ property(\textcolor{keyword}{const}\ QString\ \&name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ QStringList\ propertyNames()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ saveToXmlFile(QIODevice\ *device)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ loadFromXmlFile(QIODevice\ *device);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ QMap<QString,\ QString>\ m\_properties;}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXDOCPROPSCORE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,129 @@
+\doxysection{TArrow Class Reference}
+\hypertarget{class_t_arrow}{}\label{class_t_arrow}\index{TArrow@{TArrow}}
+
+
+{\ttfamily \#include $<$tarrow.\+h$>$}
+
+Inheritance diagram for TArrow\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_t_arrow}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{class_t_arrow_af6286de92c0566d2172b98faf9d40f94af211981b1989d2c18ffdba181adcea9f}{Type}} = User\+Type + 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_arrow_a0e3eb5fba3caa62b4551740126c1a947}{TArrow}} (\mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*}start\+Item, \mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*}end\+Item, QGraphics\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\mbox{\hyperlink{class_t_arrow_a6f50d8f0b1ac0bf5d5a095114d3b2d5e}{\texorpdfstring{$\sim$}{\string~}\+TArrow}} ()
+\item 
+int \mbox{\hyperlink{class_t_arrow_a97df7999e5493feb98ed3151a363cd1c}{type}} () const override
+\item 
+\mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_t_arrow_aa1ebeb82a0208e75a87070965b9a0b8a}{get\+Start\+Item}} ()
+\item 
+\mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_t_arrow_a5077af9dd4f1d808d0522c2c27e23cf2}{get\+End\+Item}} ()
+\item 
+void \mbox{\hyperlink{class_t_arrow_a0b917faa3c4f46c43e4576e1bef36715}{update\+Position}} ()
+\item 
+QRectF \mbox{\hyperlink{class_t_arrow_a504cf136f22228170bd576860fe034bc}{bounding\+Rect}} () const override
+\item 
+QPainter\+Path \mbox{\hyperlink{class_t_arrow_a1e1496bb9156bf7da70c4e99b028952f}{shape}} () const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_arrow_a57a5ff9f6a7167960098652427fde917}{paint}} (QPainter \texorpdfstring{$\ast$}{*}painter, const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}option, QWidget \texorpdfstring{$\ast$}{*}widget) override
+\item 
+void \mbox{\hyperlink{class_t_arrow_a1e5e279d655be60eff270e977ee9024c}{mouse\+Double\+Click\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_t_arrow_af6286de92c0566d2172b98faf9d40f94}\label{class_t_arrow_af6286de92c0566d2172b98faf9d40f94} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Type@{Type}!TArrow@{TArrow}}\index{TArrow@{TArrow}!Type@{Type}}}\Hypertarget{class_t_arrow_af6286de92c0566d2172b98faf9d40f94af211981b1989d2c18ffdba181adcea9f}\label{class_t_arrow_af6286de92c0566d2172b98faf9d40f94af211981b1989d2c18ffdba181adcea9f} 
+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_t_arrow_a0e3eb5fba3caa62b4551740126c1a947}\label{class_t_arrow_a0e3eb5fba3caa62b4551740126c1a947} 
+\index{TArrow@{TArrow}!TArrow@{TArrow}}
+\index{TArrow@{TArrow}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{TArrow()}{TArrow()}}
+{\footnotesize\ttfamily TArrow\+::\+TArrow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*}}]{start\+Item,  }\item[{\mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*}}]{end\+Item,  }\item[{QGraphics\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_arrow_a6f50d8f0b1ac0bf5d5a095114d3b2d5e}\label{class_t_arrow_a6f50d8f0b1ac0bf5d5a095114d3b2d5e} 
+\index{TArrow@{TArrow}!````~TArrow@{\texorpdfstring{$\sim$}{\string~}TArrow}}
+\index{````~TArrow@{\texorpdfstring{$\sim$}{\string~}TArrow}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TArrow()}{\string~TArrow()}}
+{\footnotesize\ttfamily TArrow\+::\texorpdfstring{$\sim$}{\string~}\+TArrow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_arrow_a504cf136f22228170bd576860fe034bc}\label{class_t_arrow_a504cf136f22228170bd576860fe034bc} 
+\index{TArrow@{TArrow}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{boundingRect()}{boundingRect()}}
+{\footnotesize\ttfamily QRectF TArrow\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_arrow_a5077af9dd4f1d808d0522c2c27e23cf2}\label{class_t_arrow_a5077af9dd4f1d808d0522c2c27e23cf2} 
+\index{TArrow@{TArrow}!getEndItem@{getEndItem}}
+\index{getEndItem@{getEndItem}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{getEndItem()}{getEndItem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*} TArrow\+::get\+End\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_arrow_aa1ebeb82a0208e75a87070965b9a0b8a}\label{class_t_arrow_aa1ebeb82a0208e75a87070965b9a0b8a} 
+\index{TArrow@{TArrow}!getStartItem@{getStartItem}}
+\index{getStartItem@{getStartItem}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{getStartItem()}{getStartItem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*} TArrow\+::get\+Start\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_arrow_a1e5e279d655be60eff270e977ee9024c}\label{class_t_arrow_a1e5e279d655be60eff270e977ee9024c} 
+\index{TArrow@{TArrow}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{mouseDoubleClickEvent()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void TArrow\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_arrow_a57a5ff9f6a7167960098652427fde917}\label{class_t_arrow_a57a5ff9f6a7167960098652427fde917} 
+\index{TArrow@{TArrow}!paint@{paint}}
+\index{paint@{paint}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void TArrow\+::paint (\begin{DoxyParamCaption}\item[{QPainter \texorpdfstring{$\ast$}{*}}]{painter,  }\item[{const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}}]{option,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{widget }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_arrow_a1e1496bb9156bf7da70c4e99b028952f}\label{class_t_arrow_a1e1496bb9156bf7da70c4e99b028952f} 
+\index{TArrow@{TArrow}!shape@{shape}}
+\index{shape@{shape}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily QPainter\+Path TArrow\+::shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_arrow_a97df7999e5493feb98ed3151a363cd1c}\label{class_t_arrow_a97df7999e5493feb98ed3151a363cd1c} 
+\index{TArrow@{TArrow}!type@{type}}
+\index{type@{type}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily int TArrow\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+\Hypertarget{class_t_arrow_a0b917faa3c4f46c43e4576e1bef36715}\label{class_t_arrow_a0b917faa3c4f46c43e4576e1bef36715} 
+\index{TArrow@{TArrow}!updatePosition@{updatePosition}}
+\index{updatePosition@{updatePosition}!TArrow@{TArrow}}
+\doxysubsubsection{\texorpdfstring{updatePosition()}{updatePosition()}}
+{\footnotesize\ttfamily void TArrow\+::update\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tarrow_8h}{tarrow.\+h}}\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tarrow_8cpp}{tarrow.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,124 @@
+\doxysection{TFlowline\+Item Class Reference}
+\hypertarget{class_t_flowline_item}{}\label{class_t_flowline_item}\index{TFlowlineItem@{TFlowlineItem}}
+
+
+{\ttfamily \#include $<$tflowlineitem.\+h$>$}
+
+Inheritance diagram for TFlowline\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_t_flowline_item}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc}{Type}} = User\+Type + Multiflow\+\_\+\+TYPE\+::Flowline
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_flowline_item_ac8f369ba6094506e66d96c428be2bdeb}{flow\+Item\+Change}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_flowline_item_aeffb77afe378c1dc66b488310e4d9043}{TFlowline\+Item}} (QString flowline\+Name=\"{}flowline\"{}, QGraphics\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+QRectF \mbox{\hyperlink{class_t_flowline_item_a1fe7d40ff205ac1abf39fbd665e714d2}{bounding\+Rect}} () const override
+\item 
+void \mbox{\hyperlink{class_t_flowline_item_add24905f6ae52b271d1018606bf62729}{paint}} (QPainter \texorpdfstring{$\ast$}{*}painter, const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}option, QWidget \texorpdfstring{$\ast$}{*}widget) override
+\item 
+int \mbox{\hyperlink{class_t_flowline_item_ade20d918d74a2253f9380119d1ed7848}{get\+Id}} ()
+\item 
+QString \mbox{\hyperlink{class_t_flowline_item_ab14e41ff31278639670106dc7dfc22d8}{get\+Name}} ()
+\item 
+int \mbox{\hyperlink{class_t_flowline_item_aba6a4874a95a8f46673d26a6dec6e4aa}{type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+QVariant \mbox{\hyperlink{class_t_flowline_item_a37324cd7d1373d94c574cd1e6a1cdc88}{item\+Change}} (Graphics\+Item\+Change change, const QVariant \&value) override
+\item 
+void \mbox{\hyperlink{class_t_flowline_item_a95378622e03320e126766e5970912f70}{mouse\+Double\+Click\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78}\label{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Type@{Type}!TFlowlineItem@{TFlowlineItem}}\index{TFlowlineItem@{TFlowlineItem}!Type@{Type}}}\Hypertarget{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc}\label{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc} 
+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_t_flowline_item_aeffb77afe378c1dc66b488310e4d9043}\label{class_t_flowline_item_aeffb77afe378c1dc66b488310e4d9043} 
+\index{TFlowlineItem@{TFlowlineItem}!TFlowlineItem@{TFlowlineItem}}
+\index{TFlowlineItem@{TFlowlineItem}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{TFlowlineItem()}{TFlowlineItem()}}
+{\footnotesize\ttfamily TFlowline\+Item\+::\+TFlowline\+Item (\begin{DoxyParamCaption}\item[{QString}]{flowline\+Name = {\ttfamily \"{}flowline\"{}},  }\item[{QGraphics\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_flowline_item_a1fe7d40ff205ac1abf39fbd665e714d2}\label{class_t_flowline_item_a1fe7d40ff205ac1abf39fbd665e714d2} 
+\index{TFlowlineItem@{TFlowlineItem}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{boundingRect()}{boundingRect()}}
+{\footnotesize\ttfamily QRectF TFlowline\+Item\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_flowline_item_ac8f369ba6094506e66d96c428be2bdeb}\label{class_t_flowline_item_ac8f369ba6094506e66d96c428be2bdeb} 
+\index{TFlowlineItem@{TFlowlineItem}!flowItemChange@{flowItemChange}}
+\index{flowItemChange@{flowItemChange}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{flowItemChange}{flowItemChange}}
+{\footnotesize\ttfamily void TFlowline\+Item\+::flow\+Item\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\Hypertarget{class_t_flowline_item_ade20d918d74a2253f9380119d1ed7848}\label{class_t_flowline_item_ade20d918d74a2253f9380119d1ed7848} 
+\index{TFlowlineItem@{TFlowlineItem}!getId@{getId}}
+\index{getId@{getId}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int TFlowline\+Item\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_flowline_item_ab14e41ff31278639670106dc7dfc22d8}\label{class_t_flowline_item_ab14e41ff31278639670106dc7dfc22d8} 
+\index{TFlowlineItem@{TFlowlineItem}!getName@{getName}}
+\index{getName@{getName}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily QString TFlowline\+Item\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_flowline_item_a37324cd7d1373d94c574cd1e6a1cdc88}\label{class_t_flowline_item_a37324cd7d1373d94c574cd1e6a1cdc88} 
+\index{TFlowlineItem@{TFlowlineItem}!itemChange@{itemChange}}
+\index{itemChange@{itemChange}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{itemChange()}{itemChange()}}
+{\footnotesize\ttfamily QVariant TFlowline\+Item\+::item\+Change (\begin{DoxyParamCaption}\item[{Graphics\+Item\+Change}]{change,  }\item[{const QVariant \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_flowline_item_a95378622e03320e126766e5970912f70}\label{class_t_flowline_item_a95378622e03320e126766e5970912f70} 
+\index{TFlowlineItem@{TFlowlineItem}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{mouseDoubleClickEvent()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void TFlowline\+Item\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_flowline_item_add24905f6ae52b271d1018606bf62729}\label{class_t_flowline_item_add24905f6ae52b271d1018606bf62729} 
+\index{TFlowlineItem@{TFlowlineItem}!paint@{paint}}
+\index{paint@{paint}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void TFlowline\+Item\+::paint (\begin{DoxyParamCaption}\item[{QPainter \texorpdfstring{$\ast$}{*}}]{painter,  }\item[{const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}}]{option,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{widget }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_flowline_item_aba6a4874a95a8f46673d26a6dec6e4aa}\label{class_t_flowline_item_aba6a4874a95a8f46673d26a6dec6e4aa} 
+\index{TFlowlineItem@{TFlowlineItem}!type@{type}}
+\index{type@{type}!TFlowlineItem@{TFlowlineItem}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily int TFlowline\+Item\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tflowlineitem_8h}{tflowlineitem.\+h}}\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tflowlineitem_8cpp}{tflowlineitem.\+cpp}}\end{DoxyCompactItemize}

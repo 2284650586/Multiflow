@@ -1,0 +1,48 @@
+\doxysection{twellitem.\+h}
+\hypertarget{twellitem_8h_source}{}\label{twellitem_8h_source}\index{MultiflowUI/TView/twellitem.h@{MultiflowUI/TView/twellitem.h}}
+\mbox{\hyperlink{twellitem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TWELLITEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TWELLITEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsPixmapItem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msource_8h}{entity/msource.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{common.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_well_item}{TWellItem}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_well_item_a33b42011756b5a78d97a10b0214bfddeaafb4a732318e445b144f1bb30bb87724}{Type}}\ =\ UserType\ +\ Multiflow\_TYPE::Well\ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_t_well_item}{TWellItem}}(QString\ wellName\ =\ \textcolor{stringliteral}{"{}well"{}},\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ QString\ wellName;}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_m_source}{MSource}}\ well;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_well_item_adbdb02f4773763fcee8cdfd76576b576}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_well_item_aa94c928c0343feadd43e9ce493f4ee42}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_well_item_a0b2c8df1af3a8ed81f6f68da46257657}{getId}}();}
+\DoxyCodeLine{00025\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_well_item_ad00f7decb973057d76dbda94c1735918}{getName}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_well_item_a3832b12334abce008628952e04a0800f}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_well_item_a33b42011756b5a78d97a10b0214bfddeaafb4a732318e445b144f1bb30bb87724}{Type}};\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ signals:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_well_item_ab1f11a6755ef1a3c913b20674daffc81}{wellItemChange}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00035\ \ \ \ \ QVariant\ \mbox{\hyperlink{class_t_well_item_a1d98101566084f988922eb37d5150aa8}{itemChange}}(GraphicsItemChange\ change,\ \textcolor{keyword}{const}\ QVariant\ \&value)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_well_item_af5898b304cc196de7fa6d53e7f77d9c3}{mouseDoubleClickEvent}}(QGraphicsSceneMouseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TWELLITEM\_H}}
+
+\end{DoxyCode}

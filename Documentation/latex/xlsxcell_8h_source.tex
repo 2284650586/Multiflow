@@ -1,0 +1,85 @@
+\doxysection{xlsxcell.\+h}
+\hypertarget{xlsxcell_8h_source}{}\label{xlsxcell_8h_source}\index{MultiflowUI/xlsx/xlsxcell.h@{MultiflowUI/xlsx/xlsxcell.h}}
+\mbox{\hyperlink{xlsxcell_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ QXLSX\_XLSXCELL\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ QXLSX\_XLSXCELL\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxformat_8h}{xlsxformat.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <QVariant>}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \mbox{\hyperlink{namespace_q_t___b_e_g_i_n___n_a_m_e_s_p_a_c_e___x_l_s_x}{QT\_BEGIN\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_worksheet}{Worksheet}};}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_format}{Format}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_formula}{CellFormula}};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_private}{CellPrivate}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }WorksheetPrivate;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \mbox{\hyperlink{class_cell}{Cell}}}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ Q\_DECLARE\_PRIVATE(\mbox{\hyperlink{class_cell}{Cell}})}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd}{CellType}}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaf642cb660d4e278132e1ad11044f5428}{BooleanType}},\ \textcolor{comment}{//\ t="{}b"{}}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdac8f83e2f37b22de2867de6b2502eebaf}{NumberType}},\ \textcolor{comment}{//\ t="{}n"{}\ (default)}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaebeb655fff143e808a93cbbed7f4df15}{ErrorType}},\ \textcolor{comment}{//\ t="{}e"{}}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda637b037d0000f4093cc23e68c5e2058c}{SharedStringType}},\ \textcolor{comment}{//\ t="{}s"{}}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda5c37041745dfcb9d961bcee0bfb2c4b3}{StringType}},\ \textcolor{comment}{//\ t="{}str"{}}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ InlineStringType\ \textcolor{comment}{//\ t="{}inlineStr"{}}}
+\DoxyCodeLine{00051\ \ \ \ \ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ CellType\ cellType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ QVariant\ value()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ format()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasFormula()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_cell_formula}{CellFormula}}\ formula()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDateTime()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \ \ \ \ QDateTime\ dateTime()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ isRichString()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_cell}{\string~Cell}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_worksheet}{Worksheet}};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }WorksheetPrivate;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}(\textcolor{keyword}{const}\ QVariant\ \&data\ =\ QVariant(),\ \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd}{CellType}}\ type\ =\ NumberType,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format\ =\ \mbox{\hyperlink{class_format}{Format}}(),\ \mbox{\hyperlink{class_worksheet}{Worksheet}}\ *parent\ =\ 0);}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell}{Cell}}\ *\textcolor{keyword}{const}\ cell);}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_cell_private}{CellPrivate}}\ *\textcolor{keyword}{const}\ d\_ptr;}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \mbox{\hyperlink{xlsxglobal_8h_a6a896dcec83cee81dc9f1051c3ce0f6e}{QT\_END\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QXLSX\_XLSXCELL\_H}}
+
+\end{DoxyCode}

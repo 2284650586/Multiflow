@@ -1,0 +1,136 @@
+\doxysection{QXlsx\+::Drawing Class Reference}
+\hypertarget{class_q_xlsx_1_1_drawing}{}\label{class_q_xlsx_1_1_drawing}\index{QXlsx::Drawing@{QXlsx::Drawing}}
+
+
+{\ttfamily \#include $<$xlsxdrawing\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Drawing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_xlsx_1_1_drawing}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_a20536a32b663acb58e760a02af806386}{Drawing}} (\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_q_xlsx_1_1_drawing_a884d13e40b9b3f9122d517b5f6f409d3}{sheet}}, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_a03d5155c3ffaa1aaac8b0e3e4722ab5c}{\texorpdfstring{$\sim$}{\string~}\+Drawing}} ()
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_a6b7443cee79bc69076b8d9791be4eb0b}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_drawing_a44e6524374588b4f845cb79cafa913d5}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_a884d13e40b9b3f9122d517b5f6f409d3}{sheet}}
+\item 
+\mbox{\hyperlink{class_workbook}{Workbook}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_a739d286afd2cbbab0cf30c0f4b9c1cb2}{workbook}}
+\item 
+QList$<$ \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor}{Drawing\+Anchor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_drawing_ae9c023ea0053329607f23e895caca649}{anchors}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_a20536a32b663acb58e760a02af806386}\label{class_q_xlsx_1_1_drawing_a20536a32b663acb58e760a02af806386} 
+\index{QXlsx::Drawing@{QXlsx::Drawing}!Drawing@{Drawing}}
+\index{Drawing@{Drawing}!QXlsx::Drawing@{QXlsx::Drawing}}
+\doxysubsubsection{\texorpdfstring{Drawing()}{Drawing()}}
+{\footnotesize\ttfamily QXlsx\+::\+Drawing\+::\+Drawing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*}}]{sheet,  }\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}}}]{flag }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_a03d5155c3ffaa1aaac8b0e3e4722ab5c}\label{class_q_xlsx_1_1_drawing_a03d5155c3ffaa1aaac8b0e3e4722ab5c} 
+\index{QXlsx::Drawing@{QXlsx::Drawing}!````~Drawing@{\texorpdfstring{$\sim$}{\string~}Drawing}}
+\index{````~Drawing@{\texorpdfstring{$\sim$}{\string~}Drawing}!QXlsx::Drawing@{QXlsx::Drawing}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Drawing()}{\string~Drawing()}}
+{\footnotesize\ttfamily QXlsx\+::\+Drawing\+::\texorpdfstring{$\sim$}{\string~}\+Drawing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_a44e6524374588b4f845cb79cafa913d5}\label{class_q_xlsx_1_1_drawing_a44e6524374588b4f845cb79cafa913d5} 
+\index{QXlsx::Drawing@{QXlsx::Drawing}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!QXlsx::Drawing@{QXlsx::Drawing}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Drawing\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_drawing_a6b7443cee79bc69076b8d9791be4eb0b}\label{class_q_xlsx_1_1_drawing_a6b7443cee79bc69076b8d9791be4eb0b} 
+\index{QXlsx::Drawing@{QXlsx::Drawing}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!QXlsx::Drawing@{QXlsx::Drawing}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{Abstract\+OOXml\+File}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_ae9c023ea0053329607f23e895caca649}\label{class_q_xlsx_1_1_drawing_ae9c023ea0053329607f23e895caca649} 
+\index{QXlsx::Drawing@{QXlsx::Drawing}!anchors@{anchors}}
+\index{anchors@{anchors}!QXlsx::Drawing@{QXlsx::Drawing}}
+\doxysubsubsection{\texorpdfstring{anchors}{anchors}}
+{\footnotesize\ttfamily QList$<$\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor}{Drawing\+Anchor}} \texorpdfstring{$\ast$}{*}$>$ QXlsx\+::\+Drawing\+::anchors}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_a884d13e40b9b3f9122d517b5f6f409d3}\label{class_q_xlsx_1_1_drawing_a884d13e40b9b3f9122d517b5f6f409d3} 
+\index{QXlsx::Drawing@{QXlsx::Drawing}!sheet@{sheet}}
+\index{sheet@{sheet}!QXlsx::Drawing@{QXlsx::Drawing}}
+\doxysubsubsection{\texorpdfstring{sheet}{sheet}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}}\texorpdfstring{$\ast$}{*} QXlsx\+::\+Drawing\+::sheet}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_a739d286afd2cbbab0cf30c0f4b9c1cb2}\label{class_q_xlsx_1_1_drawing_a739d286afd2cbbab0cf30c0f4b9c1cb2} 
+\index{QXlsx::Drawing@{QXlsx::Drawing}!workbook@{workbook}}
+\index{workbook@{workbook}!QXlsx::Drawing@{QXlsx::Drawing}}
+\doxysubsubsection{\texorpdfstring{workbook}{workbook}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_workbook}{Workbook}}\texorpdfstring{$\ast$}{*} QXlsx\+::\+Drawing\+::workbook}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdrawing__p_8h}{xlsxdrawing\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdrawing_8cpp}{xlsxdrawing.\+cpp}}\end{DoxyCompactItemize}

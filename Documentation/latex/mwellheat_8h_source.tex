@@ -1,0 +1,129 @@
+\doxysection{mwellheat.\+h}
+\hypertarget{mwellheat_8h_source}{}\label{mwellheat_8h_source}\index{MultiflowUI/entity/component/well/mwellheat.h@{MultiflowUI/entity/component/well/mwellheat.h}}
+\mbox{\hyperlink{mwellheat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MWELLHEAT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MWELLHEAT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_h_t_c_calculate}{HTCCalculate}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_h_t_c_calculate_acb47573b27ea3d14f7ba06e93c84581b}{HTCCalculate}}(\textcolor{keywordtype}{double}\ MD,\ \textcolor{keywordtype}{double}\ groundDensity,\ \textcolor{keywordtype}{double}\ groundK,\ \textcolor{keywordtype}{double}\ groundCp);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_h_t_c_calculate_acb47573b27ea3d14f7ba06e93c84581b}{HTCCalculate}}()\{\}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_calculate_a0956f370a2568ef88d81d83f697ddcda}{getMD}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_calculate_a1edf4332914c6f0c5955521f78ca3ce5}{setMD}}(\textcolor{keywordtype}{double}\ newMD);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_calculate_aca15e41300aceb3cf7e40552fa1589d5}{getGroundDensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_calculate_a8ac67df65094e256b799eda8343db6cb}{setGroundDensity}}(\textcolor{keywordtype}{double}\ newGroundDensity);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_calculate_a37841f0f9625872177163a1ffa26135a}{getGroundK}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_calculate_aa4efc20b4d246b1b6797bea6d69c3fd3}{setGroundK}}(\textcolor{keywordtype}{double}\ newGroundK);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_calculate_a0bb8b7e768446205b7e13dc9793c5c52}{getGroundCp}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_calculate_a80106f141706508a0ec8134dd91a71ea}{setGroundCp}}(\textcolor{keywordtype}{double}\ newGroundCp);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ MD;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ groundDensity;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ groundK;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ groundCp;}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult}{HTCCalATIMult}}\ \{}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_a9042b4149bde30b3d1798379c17f1ccf}{HTCCalATIMult}}()\ \{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_a9042b4149bde30b3d1798379c17f1ccf}{HTCCalATIMult}}(\textcolor{keywordtype}{double}\ MD,\ \textcolor{keywordtype}{double}\ ambientTemperature,\ \textcolor{keywordtype}{double}\ groundDensity,\ \textcolor{keywordtype}{double}\ groundK,\ \textcolor{keywordtype}{double}\ gourndCp);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_addd8ead44342fa4856aee629905f92bd}{getMD}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_a30a81d7dc6c9b5a27deb8506e35d43d3}{setMD}}(\textcolor{keywordtype}{double}\ newMD);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_a8e113195e03196569e146e68d7ae5b63}{getAmbientTemperature}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_a8d998a76603b63c4d75d64300acbda1b}{setAmbientTemperature}}(\textcolor{keywordtype}{double}\ newAmbientTemperature);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_acc6cc9b65fb51813d9ea2650cc132bf6}{getGroundDensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_abe7c3889c8e593b183fea9f9dfd34749}{setGroundDensity}}(\textcolor{keywordtype}{double}\ newGroundDensity);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_ace4bb8f96f5eba4a81ff8a05403ce38c}{getGroundK}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_a1fde63e7b400f74b6cfefb2083cc8942}{setGroundK}}(\textcolor{keywordtype}{double}\ newGroundK);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_ada33b6ed4b272ef27a06b0df626c60a0}{getGourndCp}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult_a18850da99953bfe7edf633c7d803208f}{setGourndCp}}(\textcolor{keywordtype}{double}\ newGourndCp);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{double}\ MD;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ ambientTemperature;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{double}\ groundDensity;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{double}\ groundK;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{double}\ gourndCp;}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_mult_a_t_i_mult}{UMultATIMult}}\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_u_mult_a_t_i_mult_ac65678bf2ff53445339e7e43a5d5088f}{UMultATIMult}}(\textcolor{keywordtype}{double}\ MD,\ \textcolor{keywordtype}{double}\ ambientTemperature,\ \textcolor{keywordtype}{double}\ UValue);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_u_mult_a_t_i_mult_ac65678bf2ff53445339e7e43a5d5088f}{UMultATIMult}}()\ \{\}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_u_mult_a_t_i_mult_a0a62fb2f729a92358ec17287ad25df36}{getMD}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_mult_a_t_i_mult_ad1060a1308f10617f9acdcb7e4f5ddb9}{setMD}}(\textcolor{keywordtype}{double}\ newMD);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_u_mult_a_t_i_mult_a5542e5787be52826d89afb59023bfe34}{getAmbientTemperature}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_mult_a_t_i_mult_ae50ceacd7331d5004efc422725dfe94f}{setAmbientTemperature}}(\textcolor{keywordtype}{double}\ newAmbientTemperature);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_u_mult_a_t_i_mult_a837d6386d8713ab7c0e7957cb6cbb043}{getUValue}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_mult_a_t_i_mult_a090d63e9c1eaa51951e1fd2ffdb164bf}{setUValue}}(\textcolor{keywordtype}{double}\ newUValue);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ MD;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ ambientTemperature;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ UValue;}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well_heat}{MWellHeat}}}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_m_well_heat_ac018c6948e40fa83301326560be3cc36}{MWellHeat}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_m_well_heat_a15085ae6495efbbf8fa9809ad9169888}{\string~MWellHeat}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_heat_a6efbed895b3e60f59b69259c4f631b8c}{getHeatTransferCoefficient}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a19234b58d955c6e2dc3bf4ff3b8a8023}{setHeatTransferCoefficient}}(\textcolor{keyword}{const}\ QString\ \&newHeatTransferCoefficient);}
+\DoxyCodeLine{00084\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_heat_ae1deb56d53bb356a71f128401465e76e}{getUValutInput}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a03ef6f00af2f198c31ecb51091db563f}{setUValutInput}}(\textcolor{keyword}{const}\ QString\ \&newUValutInput);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_heat_a5e513f1b2b66e16ec798983be98f9b85}{getAverageUValue}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_aed5774577e1728e35cb691c38fbba593}{setAverageUValue}}(\textcolor{keywordtype}{double}\ newAverageUValue);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_heat_a1b04e7adf921ff3b340ab7b8043d3648}{getAmbientTemperatureInput}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a087748cc84e28aec23bae316ba724dee}{setAmbientTemperatureInput}}(\textcolor{keywordtype}{double}\ newAmbientTemperatureInput);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_heat_a168e7930160eaa1caac1b4710e6d642c}{getSoilTemperatureWellhead}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_aeea0a20c07d3c3a1eaf5e2ac14d6a092}{setSoilTemperatureWellhead}}(\textcolor{keywordtype}{double}\ newSoilTemperatureWellhead);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_heat_a64e5bf71ea32774af1bd46e3b97f41fe}{getTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a0e6bfe0ad89d7b708c4c0a1c24903cff}{setTime}}(\textcolor{keywordtype}{double}\ newTime);}
+\DoxyCodeLine{00094\ \ \ \ \ QList<HTCCalculate\ *>\ \mbox{\hyperlink{class_m_well_heat_ab1fcbf76ba2d79211b8b6eb0f49362ad}{getHtcCalculateList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a75f3f1e7faa642ae35c01d9da3fbde5b}{setHtcCalculateList}}(\textcolor{keyword}{const}\ QList<HTCCalculate\ *>\ \&newHtcCalculateList);}
+\DoxyCodeLine{00096\ \ \ \ \ QList<HTCCalATIMult\ *>\ \mbox{\hyperlink{class_m_well_heat_a8a0640fc0a375d71e9e7fee05626caad}{getHtcCalATIMultList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a14bb0232a738519d6fe69ce8ead9305f}{setHtcCalATIMultList}}(\textcolor{keyword}{const}\ QList<HTCCalATIMult\ *>\ \&newHtcCalATIMultList);}
+\DoxyCodeLine{00098\ \ \ \ \ QList<UMultATIMult\ *>\ \mbox{\hyperlink{class_m_well_heat_a58e0d5a827462e95a99b51053fca5962}{getUMultATIMultList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_ab08556e25781e4c2bb86935e44cee95f}{setUMultATIMultList}}(\textcolor{keyword}{const}\ QList<UMultATIMult\ *>\ \&newUMultATIMultList);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a4db5ec199007b9679bcdb5ea252399e9}{addHtcCal}}(\mbox{\hyperlink{class_h_t_c_calculate}{HTCCalculate}}\ *para)\ \{htcCalculateList.append(para);\}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_abaf8e41f27dee661456adfe5560c9c3a}{addHtcCalAtiMul}}(\mbox{\hyperlink{class_h_t_c_cal_a_t_i_mult}{HTCCalATIMult}}\ *para)\ \{htcCalATIMultList.append(para);\}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_ab38c77f360fc768c79f95c67ac1e2071}{addUMultAtiMul}}(\mbox{\hyperlink{class_u_mult_a_t_i_mult}{UMultATIMult}}\ *para)\ \{uMultATIMultList.append(para);\}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_af6dec190f355c6c1816f52f48ab2d870}{clearHtcCalList}}()\{qDeleteAll(htcCalculateList);\ htcCalculateList.clear();\}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a5040a7679c2147fac10db13c738a20dd}{clearHtcCalAtiMultList}}()\{qDeleteAll(htcCalATIMultList);\ htcCalATIMultList.clear();\}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_heat_a6f2321e3a0c66f68bd0e7fa4d3bf5b34}{clearUMultAtiMultList}}()\{qDeleteAll(uMultATIMultList);\ uMultATIMultList.clear();\}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00111\ \ \ \ \ QString\ heatTransferCoefficient;\ \ \ \ \ \ \ \ \textcolor{comment}{//Specify\ \ \ Calculate}}
+\DoxyCodeLine{00112\ \ \ \ \ QString\ UValutInput;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Single\ \ \ \ Multiple}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{double}\ averageUValue;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{double}\ ambientTemperatureInput;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Single\ \ \ \ Multiple}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{double}\ soilTemperatureWellhead;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{double}\ time;}
+\DoxyCodeLine{00117\ \ \ \ \ QList<HTCCalculate*>\ htcCalculateList;}
+\DoxyCodeLine{00118\ \ \ \ \ QList<HTCCalATIMult*>\ htcCalATIMultList;}
+\DoxyCodeLine{00119\ \ \ \ \ QList<UMultATIMult*>\ uMultATIMultList;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MWELLHEAT\_H}}
+
+\end{DoxyCode}

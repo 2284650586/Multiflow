@@ -1,0 +1,157 @@
+\doxysection{QXlsx\+::Relationships Class Reference}
+\hypertarget{class_q_xlsx_1_1_relationships}{}\label{class_q_xlsx_1_1_relationships}\index{QXlsx::Relationships@{QXlsx::Relationships}}
+
+
+{\ttfamily \#include $<$xlsxrelationships\+\_\+p.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_relationships_ad9a2a8e83fb22115062a94cbe11b09b1}{Relationships}} ()
+\item 
+QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a94b10141917078a6cc72058ac2f91fba}{document\+Relationships}} (const QString \&relative\+Type) const
+\item 
+QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a389e04351a69cd27ec7a3724be1be618}{package\+Relationships}} (const QString \&relative\+Type) const
+\item 
+QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a000681eda7e3dde424c90c8356c00942}{ms\+Package\+Relationships}} (const QString \&relative\+Type) const
+\item 
+QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a16ddb87bad18b3a455d736d3e05b6c6a}{worksheet\+Relationships}} (const QString \&relative\+Type) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a1ba3489d8c8e40b7658c65ad61bd7c5d}{add\+Document\+Relationship}} (const QString \&relative\+Type, const QString \&target)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a25f6c530d2caaa29d9c1c7a0b9b7f647}{add\+Package\+Relationship}} (const QString \&relative\+Type, const QString \&target)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a7c432d4e2a40760104a78aec3c5c99fd}{add\+Ms\+Package\+Relationship}} (const QString \&relative\+Type, const QString \&target)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a7d43d103100fdb294cc8ea136c38f7c2}{add\+Worksheet\+Relationship}} (const QString \&relative\+Type, const QString \&target, const QString \&target\+Mode=QString())
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a13b228fa224d420ea45326f2c326cde6}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\item 
+QByte\+Array \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a00d945b6a5a9563903c18e48f0036fba}{save\+To\+Xml\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_relationships_ac218d380320d476f454432e0a120b5ca}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_relationships_ac896e5aa7758d17a7c0ffc173cde9e0c}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a008a7f68ad42f4dda9af43a1f5715d0b}{get\+Relationship\+By\+Id}} (const QString \&id) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_relationships_ad6fae260ec18a92d17ba77a7bcca291a}{clear}} ()
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_relationships_a145c345f7eb39d4bfc0f83f9a32d03b5}{count}} () const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_relationships_ab67563d3ee73f1663954b6b9c641dcf2}{is\+Empty}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_relationships_ad9a2a8e83fb22115062a94cbe11b09b1}\label{class_q_xlsx_1_1_relationships_ad9a2a8e83fb22115062a94cbe11b09b1} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!Relationships@{Relationships}}
+\index{Relationships@{Relationships}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{Relationships()}{Relationships()}}
+{\footnotesize\ttfamily QXlsx\+::\+Relationships\+::\+Relationships (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_relationships_a1ba3489d8c8e40b7658c65ad61bd7c5d}\label{class_q_xlsx_1_1_relationships_a1ba3489d8c8e40b7658c65ad61bd7c5d} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!addDocumentRelationship@{addDocumentRelationship}}
+\index{addDocumentRelationship@{addDocumentRelationship}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{addDocumentRelationship()}{addDocumentRelationship()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Relationships\+::add\+Document\+Relationship (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type,  }\item[{const QString \&}]{target }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a7c432d4e2a40760104a78aec3c5c99fd}\label{class_q_xlsx_1_1_relationships_a7c432d4e2a40760104a78aec3c5c99fd} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!addMsPackageRelationship@{addMsPackageRelationship}}
+\index{addMsPackageRelationship@{addMsPackageRelationship}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{addMsPackageRelationship()}{addMsPackageRelationship()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Relationships\+::add\+Ms\+Package\+Relationship (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type,  }\item[{const QString \&}]{target }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a25f6c530d2caaa29d9c1c7a0b9b7f647}\label{class_q_xlsx_1_1_relationships_a25f6c530d2caaa29d9c1c7a0b9b7f647} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!addPackageRelationship@{addPackageRelationship}}
+\index{addPackageRelationship@{addPackageRelationship}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{addPackageRelationship()}{addPackageRelationship()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Relationships\+::add\+Package\+Relationship (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type,  }\item[{const QString \&}]{target }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a7d43d103100fdb294cc8ea136c38f7c2}\label{class_q_xlsx_1_1_relationships_a7d43d103100fdb294cc8ea136c38f7c2} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!addWorksheetRelationship@{addWorksheetRelationship}}
+\index{addWorksheetRelationship@{addWorksheetRelationship}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{addWorksheetRelationship()}{addWorksheetRelationship()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Relationships\+::add\+Worksheet\+Relationship (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type,  }\item[{const QString \&}]{target,  }\item[{const QString \&}]{target\+Mode = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_ad6fae260ec18a92d17ba77a7bcca291a}\label{class_q_xlsx_1_1_relationships_ad6fae260ec18a92d17ba77a7bcca291a} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!clear@{clear}}
+\index{clear@{clear}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Relationships\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a145c345f7eb39d4bfc0f83f9a32d03b5}\label{class_q_xlsx_1_1_relationships_a145c345f7eb39d4bfc0f83f9a32d03b5} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!count@{count}}
+\index{count@{count}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily int QXlsx\+::\+Relationships\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a94b10141917078a6cc72058ac2f91fba}\label{class_q_xlsx_1_1_relationships_a94b10141917078a6cc72058ac2f91fba} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!documentRelationships@{documentRelationships}}
+\index{documentRelationships@{documentRelationships}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{documentRelationships()}{documentRelationships()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ QXlsx\+::\+Relationships\+::document\+Relationships (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a008a7f68ad42f4dda9af43a1f5715d0b}\label{class_q_xlsx_1_1_relationships_a008a7f68ad42f4dda9af43a1f5715d0b} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!getRelationshipById@{getRelationshipById}}
+\index{getRelationshipById@{getRelationshipById}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{getRelationshipById()}{getRelationshipById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} QXlsx\+::\+Relationships\+::get\+Relationship\+By\+Id (\begin{DoxyParamCaption}\item[{const QString \&}]{id }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_ab67563d3ee73f1663954b6b9c641dcf2}\label{class_q_xlsx_1_1_relationships_ab67563d3ee73f1663954b6b9c641dcf2} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Relationships\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_ac896e5aa7758d17a7c0ffc173cde9e0c}\label{class_q_xlsx_1_1_relationships_ac896e5aa7758d17a7c0ffc173cde9e0c} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!loadFromXmlData@{loadFromXmlData}}
+\index{loadFromXmlData@{loadFromXmlData}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlData()}{loadFromXmlData()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Relationships\+::load\+From\+Xml\+Data (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_ac218d380320d476f454432e0a120b5ca}\label{class_q_xlsx_1_1_relationships_ac218d380320d476f454432e0a120b5ca} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Relationships\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a000681eda7e3dde424c90c8356c00942}\label{class_q_xlsx_1_1_relationships_a000681eda7e3dde424c90c8356c00942} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!msPackageRelationships@{msPackageRelationships}}
+\index{msPackageRelationships@{msPackageRelationships}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{msPackageRelationships()}{msPackageRelationships()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ QXlsx\+::\+Relationships\+::ms\+Package\+Relationships (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a389e04351a69cd27ec7a3724be1be618}\label{class_q_xlsx_1_1_relationships_a389e04351a69cd27ec7a3724be1be618} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!packageRelationships@{packageRelationships}}
+\index{packageRelationships@{packageRelationships}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{packageRelationships()}{packageRelationships()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ QXlsx\+::\+Relationships\+::package\+Relationships (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a00d945b6a5a9563903c18e48f0036fba}\label{class_q_xlsx_1_1_relationships_a00d945b6a5a9563903c18e48f0036fba} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!saveToXmlData@{saveToXmlData}}
+\index{saveToXmlData@{saveToXmlData}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{saveToXmlData()}{saveToXmlData()}}
+{\footnotesize\ttfamily QByte\+Array QXlsx\+::\+Relationships\+::save\+To\+Xml\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a13b228fa224d420ea45326f2c326cde6}\label{class_q_xlsx_1_1_relationships_a13b228fa224d420ea45326f2c326cde6} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Relationships\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_relationships_a16ddb87bad18b3a455d736d3e05b6c6a}\label{class_q_xlsx_1_1_relationships_a16ddb87bad18b3a455d736d3e05b6c6a} 
+\index{QXlsx::Relationships@{QXlsx::Relationships}!worksheetRelationships@{worksheetRelationships}}
+\index{worksheetRelationships@{worksheetRelationships}!QXlsx::Relationships@{QXlsx::Relationships}}
+\doxysubsubsection{\texorpdfstring{worksheetRelationships()}{worksheetRelationships()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{Xlsx\+Relationship}} $>$ QXlsx\+::\+Relationships\+::worksheet\+Relationships (\begin{DoxyParamCaption}\item[{const QString \&}]{relative\+Type }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxrelationships__p_8h}{xlsxrelationships\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxrelationships_8cpp}{xlsxrelationships.\+cpp}}\end{DoxyCompactItemize}

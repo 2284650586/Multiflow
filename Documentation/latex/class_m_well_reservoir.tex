@@ -1,0 +1,196 @@
+\doxysection{MWell\+Reservoir Class Reference}
+\hypertarget{class_m_well_reservoir}{}\label{class_m_well_reservoir}\index{MWellReservoir@{MWellReservoir}}
+
+
+{\ttfamily \#include $<$mwellreservoir.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{Reservoir\+Fluid\+Type}} \{ \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa1f31bb431a7edb5fa3c877f809c6f4fb}{Liquid}}
+, \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaac182bdb9a1693111a222e358e40a6093}{Gas}}
+, \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa2d6418072f6c66932845d2a1c92f0921}{Mass}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_well_reservoir_a7103136541a01c1a5d039b67eb50c84a}{MWell\+Reservoir}} ()
+\item 
+\mbox{\hyperlink{class_m_well_reservoir_a493e204375c5c71a5eb253ed61e44281}{MWell\+Reservoir}} (\mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{Reservoir\+Fluid\+Type}} fluid\+Type, double fluid\+Density, double fluid\+Viscosity, double reservoir\+Pressure, double reservoir\+Temperature, double reservoir\+Watercut)
+\item 
+QString \mbox{\hyperlink{class_m_well_reservoir_ae6ab80027cf5e1006fefc1b4ea55cc4d}{get\+Id}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_a5e1ad6644d57cff42c3b6957ef3bb622}{set\+Id}} (const QString \&new\+Id)
+\item 
+QString \mbox{\hyperlink{class_m_well_reservoir_a766f51ccc0cd5527b7d70dd846b5c1f2}{get\+Well\+Id}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_adcf36a7e7d09684c8e1eacd4b08ff2bb}{set\+Well\+Id}} (const QString \&new\+Well\+Id)
+\item 
+\mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{Reservoir\+Fluid\+Type}} \mbox{\hyperlink{class_m_well_reservoir_a8e182db5281dc1fdbdfb532202f0058d}{get\+Fluid\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_acd02d6fbbef58aa9eb6afce7f3f5f13d}{set\+Fluid\+Type}} (\mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{Reservoir\+Fluid\+Type}} new\+Fluid\+Type)
+\item 
+double \mbox{\hyperlink{class_m_well_reservoir_a236d67cefc887f03cb70cb60aa75aa5b}{get\+Fluid\+Density}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_ac88ebd47b71c279c399f284c1f89abc2}{set\+Fluid\+Density}} (double new\+Fluid\+Density)
+\item 
+double \mbox{\hyperlink{class_m_well_reservoir_a20d25f85666b26e3af0cbc1c822060ed}{get\+Fluid\+Viscosity}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_a1a7b8f53220e59426d1d7171f1c295a5}{set\+Fluid\+Viscosity}} (double new\+Fluid\+Viscosity)
+\item 
+double \mbox{\hyperlink{class_m_well_reservoir_a939d0ec13c3b2757d03943d8bdd2e3a6}{get\+Reservoir\+Pressure}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_aab67d932e04323310e44dc179b8f6c32}{set\+Reservoir\+Pressure}} (double new\+Reservoir\+Pressure)
+\item 
+double \mbox{\hyperlink{class_m_well_reservoir_a869bd589f95497667b0edc01855f28a2}{get\+Reservoir\+Temperature}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_a74fca9357a0c7f4613664c97f34b2fbd}{set\+Reservoir\+Temperature}} (double new\+Reservoir\+Temperature)
+\item 
+double \mbox{\hyperlink{class_m_well_reservoir_ae1826a0105bba7e91b49cad743180f3e}{get\+Reservoir\+Watercut}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_reservoir_a8fc6a82213836fb5d88ee940cec08632}{set\+Reservoir\+Watercut}} (double new\+Reservoir\+Watercut)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}\label{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa} 
+\index{MWellReservoir@{MWellReservoir}!ReservoirFluidType@{ReservoirFluidType}}
+\index{ReservoirFluidType@{ReservoirFluidType}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{ReservoirFluidType}{ReservoirFluidType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{MWell\+Reservoir\+::\+Reservoir\+Fluid\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Liquid@{Liquid}!MWellReservoir@{MWellReservoir}}\index{MWellReservoir@{MWellReservoir}!Liquid@{Liquid}}}\Hypertarget{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa1f31bb431a7edb5fa3c877f809c6f4fb}\label{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa1f31bb431a7edb5fa3c877f809c6f4fb} 
+Liquid&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Gas@{Gas}!MWellReservoir@{MWellReservoir}}\index{MWellReservoir@{MWellReservoir}!Gas@{Gas}}}\Hypertarget{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaac182bdb9a1693111a222e358e40a6093}\label{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaac182bdb9a1693111a222e358e40a6093} 
+Gas&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mass@{Mass}!MWellReservoir@{MWellReservoir}}\index{MWellReservoir@{MWellReservoir}!Mass@{Mass}}}\Hypertarget{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa2d6418072f6c66932845d2a1c92f0921}\label{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa2d6418072f6c66932845d2a1c92f0921} 
+Mass&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_well_reservoir_a7103136541a01c1a5d039b67eb50c84a}\label{class_m_well_reservoir_a7103136541a01c1a5d039b67eb50c84a} 
+\index{MWellReservoir@{MWellReservoir}!MWellReservoir@{MWellReservoir}}
+\index{MWellReservoir@{MWellReservoir}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{MWellReservoir()}{MWellReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily MWell\+Reservoir\+::\+MWell\+Reservoir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_a493e204375c5c71a5eb253ed61e44281}\label{class_m_well_reservoir_a493e204375c5c71a5eb253ed61e44281} 
+\index{MWellReservoir@{MWellReservoir}!MWellReservoir@{MWellReservoir}}
+\index{MWellReservoir@{MWellReservoir}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{MWellReservoir()}{MWellReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily MWell\+Reservoir\+::\+MWell\+Reservoir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{MWell\+Reservoir\+::\+Reservoir\+Fluid\+Type}}}]{fluid\+Type,  }\item[{double}]{fluid\+Density,  }\item[{double}]{fluid\+Viscosity,  }\item[{double}]{reservoir\+Pressure,  }\item[{double}]{reservoir\+Temperature,  }\item[{double}]{reservoir\+Watercut }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_well_reservoir_a236d67cefc887f03cb70cb60aa75aa5b}\label{class_m_well_reservoir_a236d67cefc887f03cb70cb60aa75aa5b} 
+\index{MWellReservoir@{MWellReservoir}!getFluidDensity@{getFluidDensity}}
+\index{getFluidDensity@{getFluidDensity}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getFluidDensity()}{getFluidDensity()}}
+{\footnotesize\ttfamily double MWell\+Reservoir\+::get\+Fluid\+Density (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_a8e182db5281dc1fdbdfb532202f0058d}\label{class_m_well_reservoir_a8e182db5281dc1fdbdfb532202f0058d} 
+\index{MWellReservoir@{MWellReservoir}!getFluidType@{getFluidType}}
+\index{getFluidType@{getFluidType}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getFluidType()}{getFluidType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{MWell\+Reservoir\+::\+Reservoir\+Fluid\+Type}} MWell\+Reservoir\+::get\+Fluid\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_a20d25f85666b26e3af0cbc1c822060ed}\label{class_m_well_reservoir_a20d25f85666b26e3af0cbc1c822060ed} 
+\index{MWellReservoir@{MWellReservoir}!getFluidViscosity@{getFluidViscosity}}
+\index{getFluidViscosity@{getFluidViscosity}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getFluidViscosity()}{getFluidViscosity()}}
+{\footnotesize\ttfamily double MWell\+Reservoir\+::get\+Fluid\+Viscosity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_ae6ab80027cf5e1006fefc1b4ea55cc4d}\label{class_m_well_reservoir_ae6ab80027cf5e1006fefc1b4ea55cc4d} 
+\index{MWellReservoir@{MWellReservoir}!getId@{getId}}
+\index{getId@{getId}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily QString MWell\+Reservoir\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_a939d0ec13c3b2757d03943d8bdd2e3a6}\label{class_m_well_reservoir_a939d0ec13c3b2757d03943d8bdd2e3a6} 
+\index{MWellReservoir@{MWellReservoir}!getReservoirPressure@{getReservoirPressure}}
+\index{getReservoirPressure@{getReservoirPressure}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getReservoirPressure()}{getReservoirPressure()}}
+{\footnotesize\ttfamily double MWell\+Reservoir\+::get\+Reservoir\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_a869bd589f95497667b0edc01855f28a2}\label{class_m_well_reservoir_a869bd589f95497667b0edc01855f28a2} 
+\index{MWellReservoir@{MWellReservoir}!getReservoirTemperature@{getReservoirTemperature}}
+\index{getReservoirTemperature@{getReservoirTemperature}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getReservoirTemperature()}{getReservoirTemperature()}}
+{\footnotesize\ttfamily double MWell\+Reservoir\+::get\+Reservoir\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_ae1826a0105bba7e91b49cad743180f3e}\label{class_m_well_reservoir_ae1826a0105bba7e91b49cad743180f3e} 
+\index{MWellReservoir@{MWellReservoir}!getReservoirWatercut@{getReservoirWatercut}}
+\index{getReservoirWatercut@{getReservoirWatercut}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getReservoirWatercut()}{getReservoirWatercut()}}
+{\footnotesize\ttfamily double MWell\+Reservoir\+::get\+Reservoir\+Watercut (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_a766f51ccc0cd5527b7d70dd846b5c1f2}\label{class_m_well_reservoir_a766f51ccc0cd5527b7d70dd846b5c1f2} 
+\index{MWellReservoir@{MWellReservoir}!getWellId@{getWellId}}
+\index{getWellId@{getWellId}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{getWellId()}{getWellId()}}
+{\footnotesize\ttfamily QString MWell\+Reservoir\+::get\+Well\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_reservoir_ac88ebd47b71c279c399f284c1f89abc2}\label{class_m_well_reservoir_ac88ebd47b71c279c399f284c1f89abc2} 
+\index{MWellReservoir@{MWellReservoir}!setFluidDensity@{setFluidDensity}}
+\index{setFluidDensity@{setFluidDensity}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setFluidDensity()}{setFluidDensity()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Fluid\+Density (\begin{DoxyParamCaption}\item[{double}]{new\+Fluid\+Density }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_acd02d6fbbef58aa9eb6afce7f3f5f13d}\label{class_m_well_reservoir_acd02d6fbbef58aa9eb6afce7f3f5f13d} 
+\index{MWellReservoir@{MWellReservoir}!setFluidType@{setFluidType}}
+\index{setFluidType@{setFluidType}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setFluidType()}{setFluidType()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Fluid\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{Reservoir\+Fluid\+Type}}}]{new\+Fluid\+Type }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_a1a7b8f53220e59426d1d7171f1c295a5}\label{class_m_well_reservoir_a1a7b8f53220e59426d1d7171f1c295a5} 
+\index{MWellReservoir@{MWellReservoir}!setFluidViscosity@{setFluidViscosity}}
+\index{setFluidViscosity@{setFluidViscosity}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setFluidViscosity()}{setFluidViscosity()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Fluid\+Viscosity (\begin{DoxyParamCaption}\item[{double}]{new\+Fluid\+Viscosity }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_a5e1ad6644d57cff42c3b6957ef3bb622}\label{class_m_well_reservoir_a5e1ad6644d57cff42c3b6957ef3bb622} 
+\index{MWellReservoir@{MWellReservoir}!setId@{setId}}
+\index{setId@{setId}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Id (\begin{DoxyParamCaption}\item[{const QString \&}]{new\+Id }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_aab67d932e04323310e44dc179b8f6c32}\label{class_m_well_reservoir_aab67d932e04323310e44dc179b8f6c32} 
+\index{MWellReservoir@{MWellReservoir}!setReservoirPressure@{setReservoirPressure}}
+\index{setReservoirPressure@{setReservoirPressure}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setReservoirPressure()}{setReservoirPressure()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Reservoir\+Pressure (\begin{DoxyParamCaption}\item[{double}]{new\+Reservoir\+Pressure }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_a74fca9357a0c7f4613664c97f34b2fbd}\label{class_m_well_reservoir_a74fca9357a0c7f4613664c97f34b2fbd} 
+\index{MWellReservoir@{MWellReservoir}!setReservoirTemperature@{setReservoirTemperature}}
+\index{setReservoirTemperature@{setReservoirTemperature}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setReservoirTemperature()}{setReservoirTemperature()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Reservoir\+Temperature (\begin{DoxyParamCaption}\item[{double}]{new\+Reservoir\+Temperature }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_a8fc6a82213836fb5d88ee940cec08632}\label{class_m_well_reservoir_a8fc6a82213836fb5d88ee940cec08632} 
+\index{MWellReservoir@{MWellReservoir}!setReservoirWatercut@{setReservoirWatercut}}
+\index{setReservoirWatercut@{setReservoirWatercut}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setReservoirWatercut()}{setReservoirWatercut()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Reservoir\+Watercut (\begin{DoxyParamCaption}\item[{double}]{new\+Reservoir\+Watercut }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_reservoir_adcf36a7e7d09684c8e1eacd4b08ff2bb}\label{class_m_well_reservoir_adcf36a7e7d09684c8e1eacd4b08ff2bb} 
+\index{MWellReservoir@{MWellReservoir}!setWellId@{setWellId}}
+\index{setWellId@{setWellId}!MWellReservoir@{MWellReservoir}}
+\doxysubsubsection{\texorpdfstring{setWellId()}{setWellId()}}
+{\footnotesize\ttfamily void MWell\+Reservoir\+::set\+Well\+Id (\begin{DoxyParamCaption}\item[{const QString \&}]{new\+Well\+Id }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/entity/component/well/\mbox{\hyperlink{mwellreservoir_8h}{mwellreservoir.\+h}}\item 
+Multiflow\+UI/entity/component/well/\mbox{\hyperlink{mwellreservoir_8cpp}{mwellreservoir.\+cpp}}\end{DoxyCompactItemize}

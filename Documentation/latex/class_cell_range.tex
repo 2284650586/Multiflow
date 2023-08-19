@@ -1,0 +1,236 @@
+\doxysection{Cell\+Range Class Reference}
+\hypertarget{class_cell_range}{}\label{class_cell_range}\index{CellRange@{CellRange}}
+
+
+For a range \"{}\+A1\+:\+B2\"{} or single cell \"{}\+A1\"{} \textbackslash{}inmodule Qt\+Xlsx.  
+
+
+
+
+{\ttfamily \#include $<$xlsxcellrange.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_range_a642e10dc297ab084ec53a63927508977}{Cell\+Range}} ()
+\item 
+\mbox{\hyperlink{class_cell_range_aa018d03cd161413a0a36dc2a4e6cb79f}{Cell\+Range}} (int \mbox{\hyperlink{class_cell_range_aa004a0c7a882e317540327f65ecdad3c}{first\+Row}}, int \mbox{\hyperlink{class_cell_range_abe953acd27bff31b1cc432294d1eb3e2}{first\+Column}}, int \mbox{\hyperlink{class_cell_range_a902389633d08a6d18bd79a888eb46ca9}{last\+Row}}, int \mbox{\hyperlink{class_cell_range_ac98d626e6e5b8a8a8bd5d4e4324726ca}{last\+Column}})
+\item 
+\mbox{\hyperlink{class_cell_range_a85bed7ad8248aa45cf6d2a2958833443}{Cell\+Range}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&\mbox{\hyperlink{class_cell_range_af0ca6a9234117067aaed012613ff42ac}{top\+Left}}, const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&\mbox{\hyperlink{class_cell_range_a9458904696a5706f5c869ea8f1973209}{bottom\+Right}})
+\item 
+\mbox{\hyperlink{class_cell_range_a940ba65a202db7a24cae6c84fdd52e7f}{Cell\+Range}} (const QString \&range)
+\item 
+\mbox{\hyperlink{class_cell_range_ad20e57e58be9050e1d4caedbb6009d9b}{Cell\+Range}} (const char \texorpdfstring{$\ast$}{*}range)
+\item 
+\mbox{\hyperlink{class_cell_range_a43f6dbaad2ab12fad8763745cbc38c18}{Cell\+Range}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&other)
+\item 
+\mbox{\hyperlink{class_cell_range_a004adc2916ab939ad3e9010b8693037e}{\texorpdfstring{$\sim$}{\string~}\+Cell\+Range}} ()
+\item 
+QString \mbox{\hyperlink{class_cell_range_a93943bcf37cfc70059c68e0837f06c23}{to\+String}} (bool row\+\_\+abs=false, bool col\+\_\+abs=false) const
+\item 
+bool \mbox{\hyperlink{class_cell_range_a59a5cd18513d79713118a188cd543a7b}{is\+Valid}} () const
+\item 
+void \mbox{\hyperlink{class_cell_range_aa616c35471de3bc412c532f86d031708}{set\+First\+Row}} (int row)
+\item 
+void \mbox{\hyperlink{class_cell_range_acf5285fb33518e36565a7a94d6f8401a}{set\+Last\+Row}} (int row)
+\item 
+void \mbox{\hyperlink{class_cell_range_af29a2829170391fa4f8cf93585b34781}{set\+First\+Column}} (int col)
+\item 
+void \mbox{\hyperlink{class_cell_range_abc2f777344e568efa405fa74b9eccc33}{set\+Last\+Column}} (int col)
+\item 
+int \mbox{\hyperlink{class_cell_range_aa004a0c7a882e317540327f65ecdad3c}{first\+Row}} () const
+\item 
+int \mbox{\hyperlink{class_cell_range_a902389633d08a6d18bd79a888eb46ca9}{last\+Row}} () const
+\item 
+int \mbox{\hyperlink{class_cell_range_abe953acd27bff31b1cc432294d1eb3e2}{first\+Column}} () const
+\item 
+int \mbox{\hyperlink{class_cell_range_ac98d626e6e5b8a8a8bd5d4e4324726ca}{last\+Column}} () const
+\item 
+int \mbox{\hyperlink{class_cell_range_a7b4a061f3d55327a1d26aaf5ad0119d4}{row\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_cell_range_aec6c5241b0fd6af9df89dda2f9bba367}{column\+Count}} () const
+\item 
+\mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \mbox{\hyperlink{class_cell_range_af0ca6a9234117067aaed012613ff42ac}{top\+Left}} () const
+\item 
+\mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \mbox{\hyperlink{class_cell_range_a8e425491d78841a72c1a494b6b9e3217}{top\+Right}} () const
+\item 
+\mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \mbox{\hyperlink{class_cell_range_a3c432ed0b086c40c6f9e7e3492e4640a}{bottom\+Left}} () const
+\item 
+\mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \mbox{\hyperlink{class_cell_range_a9458904696a5706f5c869ea8f1973209}{bottom\+Right}} () const
+\item 
+bool \mbox{\hyperlink{class_cell_range_a4dbd2f1ed628206130ee8179088856cd}{operator==}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_cell_range_abf80338738c18f83c0998965f7b3f447}{operator!=}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&other) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+For a range \"{}\+A1\+:\+B2\"{} or single cell \"{}\+A1\"{} \textbackslash{}inmodule Qt\+Xlsx. 
+
+The \doxylink{class_cell_range}{Cell\+Range} class stores the top left and bottom right rows and columns of a range in a worksheet. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cell_range_a642e10dc297ab084ec53a63927508977}\label{class_cell_range_a642e10dc297ab084ec53a63927508977} 
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{CellRange()}{CellRange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily Cell\+Range\+::\+Cell\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructs an range, i.\+e. a range whose \doxylink{class_cell_range_a7b4a061f3d55327a1d26aaf5ad0119d4}{row\+Count()} and \doxylink{class_cell_range_aec6c5241b0fd6af9df89dda2f9bba367}{column\+Count()} are 0. \Hypertarget{class_cell_range_aa018d03cd161413a0a36dc2a4e6cb79f}\label{class_cell_range_aa018d03cd161413a0a36dc2a4e6cb79f} 
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{CellRange()}{CellRange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily Cell\+Range\+::\+Cell\+Range (\begin{DoxyParamCaption}\item[{int}]{top,  }\item[{int}]{left,  }\item[{int}]{bottom,  }\item[{int}]{right }\end{DoxyParamCaption})}
+
+Constructs the range from the given {\itshape top}, {\itshape left}, {\itshape bottom} and {\itshape right} rows and columns.
+
+\begin{DoxySeeAlso}{See also}
+top\+Row(), left\+Column(), bottom\+Row(), right\+Column() 
+\end{DoxySeeAlso}
+\Hypertarget{class_cell_range_a85bed7ad8248aa45cf6d2a2958833443}\label{class_cell_range_a85bed7ad8248aa45cf6d2a2958833443} 
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{CellRange()}{CellRange()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily Cell\+Range\+::\+Cell\+Range (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{top\+Left,  }\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{bottom\+Right }\end{DoxyParamCaption})}
+
+\Hypertarget{class_cell_range_a940ba65a202db7a24cae6c84fdd52e7f}\label{class_cell_range_a940ba65a202db7a24cae6c84fdd52e7f} 
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{CellRange()}{CellRange()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily Cell\+Range\+::\+Cell\+Range (\begin{DoxyParamCaption}\item[{const QString \&}]{range }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Constructs the range form the given {\itshape range} string. \Hypertarget{class_cell_range_ad20e57e58be9050e1d4caedbb6009d9b}\label{class_cell_range_ad20e57e58be9050e1d4caedbb6009d9b} 
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{CellRange()}{CellRange()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily Cell\+Range\+::\+Cell\+Range (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{range }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Constructs the range form the given {\itshape range} string. \Hypertarget{class_cell_range_a43f6dbaad2ab12fad8763745cbc38c18}\label{class_cell_range_a43f6dbaad2ab12fad8763745cbc38c18} 
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\index{CellRange@{CellRange}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{CellRange()}{CellRange()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily Cell\+Range\+::\+Cell\+Range (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{other }\end{DoxyParamCaption})}
+
+Constructs a the range by copying the given {\itshape other} range. \Hypertarget{class_cell_range_a004adc2916ab939ad3e9010b8693037e}\label{class_cell_range_a004adc2916ab939ad3e9010b8693037e} 
+\index{CellRange@{CellRange}!````~CellRange@{\texorpdfstring{$\sim$}{\string~}CellRange}}
+\index{````~CellRange@{\texorpdfstring{$\sim$}{\string~}CellRange}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CellRange()}{\string~CellRange()}}
+{\footnotesize\ttfamily Cell\+Range\+::\texorpdfstring{$\sim$}{\string~}\+Cell\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the range. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cell_range_a3c432ed0b086c40c6f9e7e3492e4640a}\label{class_cell_range_a3c432ed0b086c40c6f9e7e3492e4640a} 
+\index{CellRange@{CellRange}!bottomLeft@{bottomLeft}}
+\index{bottomLeft@{bottomLeft}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{bottomLeft()}{bottomLeft()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} Cell\+Range\+::bottom\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_a9458904696a5706f5c869ea8f1973209}\label{class_cell_range_a9458904696a5706f5c869ea8f1973209} 
+\index{CellRange@{CellRange}!bottomRight@{bottomRight}}
+\index{bottomRight@{bottomRight}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{bottomRight()}{bottomRight()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} Cell\+Range\+::bottom\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_aec6c5241b0fd6af9df89dda2f9bba367}\label{class_cell_range_aec6c5241b0fd6af9df89dda2f9bba367} 
+\index{CellRange@{CellRange}!columnCount@{columnCount}}
+\index{columnCount@{columnCount}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{columnCount()}{columnCount()}}
+{\footnotesize\ttfamily int Cell\+Range\+::column\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_abe953acd27bff31b1cc432294d1eb3e2}\label{class_cell_range_abe953acd27bff31b1cc432294d1eb3e2} 
+\index{CellRange@{CellRange}!firstColumn@{firstColumn}}
+\index{firstColumn@{firstColumn}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{firstColumn()}{firstColumn()}}
+{\footnotesize\ttfamily int Cell\+Range\+::first\+Column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_aa004a0c7a882e317540327f65ecdad3c}\label{class_cell_range_aa004a0c7a882e317540327f65ecdad3c} 
+\index{CellRange@{CellRange}!firstRow@{firstRow}}
+\index{firstRow@{firstRow}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{firstRow()}{firstRow()}}
+{\footnotesize\ttfamily int Cell\+Range\+::first\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_a59a5cd18513d79713118a188cd543a7b}\label{class_cell_range_a59a5cd18513d79713118a188cd543a7b} 
+\index{CellRange@{CellRange}!isValid@{isValid}}
+\index{isValid@{isValid}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Cell\+Range\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true if the Range is valid. \Hypertarget{class_cell_range_ac98d626e6e5b8a8a8bd5d4e4324726ca}\label{class_cell_range_ac98d626e6e5b8a8a8bd5d4e4324726ca} 
+\index{CellRange@{CellRange}!lastColumn@{lastColumn}}
+\index{lastColumn@{lastColumn}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{lastColumn()}{lastColumn()}}
+{\footnotesize\ttfamily int Cell\+Range\+::last\+Column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_a902389633d08a6d18bd79a888eb46ca9}\label{class_cell_range_a902389633d08a6d18bd79a888eb46ca9} 
+\index{CellRange@{CellRange}!lastRow@{lastRow}}
+\index{lastRow@{lastRow}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{lastRow()}{lastRow()}}
+{\footnotesize\ttfamily int Cell\+Range\+::last\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_abf80338738c18f83c0998965f7b3f447}\label{class_cell_range_abf80338738c18f83c0998965f7b3f447} 
+\index{CellRange@{CellRange}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Cell\+Range\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_a4dbd2f1ed628206130ee8179088856cd}\label{class_cell_range_a4dbd2f1ed628206130ee8179088856cd} 
+\index{CellRange@{CellRange}!operator==@{operator==}}
+\index{operator==@{operator==}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Cell\+Range\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_a7b4a061f3d55327a1d26aaf5ad0119d4}\label{class_cell_range_a7b4a061f3d55327a1d26aaf5ad0119d4} 
+\index{CellRange@{CellRange}!rowCount@{rowCount}}
+\index{rowCount@{rowCount}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{rowCount()}{rowCount()}}
+{\footnotesize\ttfamily int Cell\+Range\+::row\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_af29a2829170391fa4f8cf93585b34781}\label{class_cell_range_af29a2829170391fa4f8cf93585b34781} 
+\index{CellRange@{CellRange}!setFirstColumn@{setFirstColumn}}
+\index{setFirstColumn@{setFirstColumn}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{setFirstColumn()}{setFirstColumn()}}
+{\footnotesize\ttfamily void Cell\+Range\+::set\+First\+Column (\begin{DoxyParamCaption}\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_aa616c35471de3bc412c532f86d031708}\label{class_cell_range_aa616c35471de3bc412c532f86d031708} 
+\index{CellRange@{CellRange}!setFirstRow@{setFirstRow}}
+\index{setFirstRow@{setFirstRow}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{setFirstRow()}{setFirstRow()}}
+{\footnotesize\ttfamily void Cell\+Range\+::set\+First\+Row (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_abc2f777344e568efa405fa74b9eccc33}\label{class_cell_range_abc2f777344e568efa405fa74b9eccc33} 
+\index{CellRange@{CellRange}!setLastColumn@{setLastColumn}}
+\index{setLastColumn@{setLastColumn}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{setLastColumn()}{setLastColumn()}}
+{\footnotesize\ttfamily void Cell\+Range\+::set\+Last\+Column (\begin{DoxyParamCaption}\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_acf5285fb33518e36565a7a94d6f8401a}\label{class_cell_range_acf5285fb33518e36565a7a94d6f8401a} 
+\index{CellRange@{CellRange}!setLastRow@{setLastRow}}
+\index{setLastRow@{setLastRow}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{setLastRow()}{setLastRow()}}
+{\footnotesize\ttfamily void Cell\+Range\+::set\+Last\+Row (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_af0ca6a9234117067aaed012613ff42ac}\label{class_cell_range_af0ca6a9234117067aaed012613ff42ac} 
+\index{CellRange@{CellRange}!topLeft@{topLeft}}
+\index{topLeft@{topLeft}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{topLeft()}{topLeft()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} Cell\+Range\+::top\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_a8e425491d78841a72c1a494b6b9e3217}\label{class_cell_range_a8e425491d78841a72c1a494b6b9e3217} 
+\index{CellRange@{CellRange}!topRight@{topRight}}
+\index{topRight@{topRight}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{topRight()}{topRight()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} Cell\+Range\+::top\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_range_a93943bcf37cfc70059c68e0837f06c23}\label{class_cell_range_a93943bcf37cfc70059c68e0837f06c23} 
+\index{CellRange@{CellRange}!toString@{toString}}
+\index{toString@{toString}!CellRange@{CellRange}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily QString Cell\+Range\+::to\+String (\begin{DoxyParamCaption}\item[{bool}]{row\+\_\+abs = {\ttfamily false},  }\item[{bool}]{col\+\_\+abs = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+Convert the range to string notation, such as \"{}\+A1\+:\+B5\"{}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcellrange_8h}{xlsxcellrange.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcellrange_8cpp}{xlsxcellrange.\+cpp}}\end{DoxyCompactItemize}

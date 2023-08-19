@@ -1,0 +1,436 @@
+\doxysection{Conditional\+Formatting Class Reference}
+\hypertarget{class_conditional_formatting}{}\label{class_conditional_formatting}\index{ConditionalFormatting@{ConditionalFormatting}}
+
+
+Conditional formatting for single cell or ranges \textbackslash{}inmodule Qt\+Xlsx.  
+
+
+
+
+{\ttfamily \#include $<$xlsxconditionalformatting.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Highlight\+Rule\+Type}} \{ \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca96afb54d72ef221067ea15d1093b4d1b}{Highlight\+\_\+\+Less\+Than}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca47612adc17a71cabbb7dbeac980c1d25}{Highlight\+\_\+\+Less\+Than\+Or\+Equal}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca3db2c7dedb5eabddc649c7e87c0a08a0}{Highlight\+\_\+\+Equal}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca972eeb7b0049e951cb1c121a6a90d065}{Highlight\+\_\+\+Not\+Equal}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca985935cd7e5a842e74331bfc2f20f78c}{Highlight\+\_\+\+Greater\+Than\+Or\+Equal}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caba894ebcbc78fe44cf47bbd1a28c5fff}{Highlight\+\_\+\+Greater\+Than}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca11b032af0dcb3d4575ac932cb1dd484e}{Highlight\+\_\+\+Between}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cabf9f40c87d72ee9a8bbf3b7560e23bf4}{Highlight\+\_\+\+Not\+Between}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cad0b10ae831f004b162b3340818820202}{Highlight\+\_\+\+Contains\+Text}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caaf515d3f4ae82e1f2d0b727fc3057965}{Highlight\+\_\+\+Not\+Contains\+Text}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca51a0c1543b1da331075127f4b2971fe2}{Highlight\+\_\+\+Begins\+With}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca4ff0b4f49946f897367829b34b9a6ee0}{Highlight\+\_\+\+Ends\+With}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca26f871d40c0df60246dcbad322e9314f}{Highlight\+\_\+\+Time\+Period}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caf3227d4f260c5ad3e7d2a19d38e6111b}{Highlight\+\_\+\+Duplicate}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca60c0c86ca312ab95d51c2916e0bc78f4}{Highlight\+\_\+\+Unique}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caac714e592e3a40c0436ac01be5311749}{Highlight\+\_\+\+Blanks}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca3f1bf5fe8ef59eeedb8ca40f75aab425}{Highlight\+\_\+\+No\+Blanks}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca080a454a6ae9d9eb80571b35cd4744b7}{Highlight\+\_\+\+Errors}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6cfcd12d3335f047763967cf1f942c0c}{Highlight\+\_\+\+No\+Errors}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca99c31d2bc719ff91d98dfb1a0ff8af71}{Highlight\+\_\+\+Top}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6be1fe0b56d3ec1a023e80e5e6b7d329}{Highlight\+\_\+\+Top\+Percent}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cad2707dea2201769b45ea13192ecd71fd}{Highlight\+\_\+\+Bottom}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca1b0bdf0d34a760eec94492d5c3a66765}{Highlight\+\_\+\+Bottom\+Percent}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca019640507c3cd6507ab15038d70dbb00}{Highlight\+\_\+\+Above\+Average}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca59abdcbd49cb294d1a48f6ca5ea132fe}{Highlight\+\_\+\+Above\+Or\+Equal\+Average}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca11ecbb19ceea65183a30b56789b10b09}{Highlight\+\_\+\+Above\+Std\+Dev1}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca8313c47eb1a99975f7f1ccaca901bfdd}{Highlight\+\_\+\+Above\+Std\+Dev2}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca502a9522ff385cc08741c3ddec2460d6}{Highlight\+\_\+\+Above\+Std\+Dev3}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca59fe5721f4f77090ede776099fecb1c7}{Highlight\+\_\+\+Below\+Average}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caa4207e3b3893d05474601c9b8bf24a03}{Highlight\+\_\+\+Below\+Or\+Equal\+Average}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6b6530da3a12699ac6d53b57d281644b}{Highlight\+\_\+\+Below\+Std\+Dev1}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cab782aef3a35945cd66c3af9a801988f4}{Highlight\+\_\+\+Below\+Std\+Dev2}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cabbd295c311a09212f0e4d721f9b432de}{Highlight\+\_\+\+Below\+Std\+Dev3}}
+, \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca5ab176d10fddc520b64d00fbbe389869}{Highlight\+\_\+\+Expression}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{Value\+Object\+Type}} \{ \newline
+\mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8ae9b5384202202aa33434cec844b07ece}{VOT\+\_\+\+Formula}}
+, \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a6357f4a44b54775279ef1fb7c9a4a35b}{VOT\+\_\+\+Max}}
+, \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8abde6d79495e28dcc20217be06f574389}{VOT\+\_\+\+Min}}
+, \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a277c887f12c5c148c8e0fe208549d086}{VOT\+\_\+\+Num}}
+, \newline
+\mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a0d77e907b1d7209f605f0f2250d3aa9d}{VOT\+\_\+\+Percent}}
+, \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a1449ee9db7b2e897ad0af4ecd833fb98}{VOT\+\_\+\+Percentile}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_conditional_formatting_afe070ea8da4f81f9e7476152ede73f60}{Conditional\+Formatting}} ()
+\item 
+\mbox{\hyperlink{class_conditional_formatting_aeb6867c3a8f68b07dc1053cc697bef75}{Conditional\+Formatting}} (const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&other)
+\item 
+\mbox{\hyperlink{class_conditional_formatting_a19bf533c251c01b9d4232e7020b930d1}{\texorpdfstring{$\sim$}{\string~}\+Conditional\+Formatting}} ()
+\item 
+bool \mbox{\hyperlink{class_conditional_formatting_af60131b40ca239617851da629fcf179e}{add\+Highlight\+Cells\+Rule}} (\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Highlight\+Rule\+Type}} type, const \mbox{\hyperlink{class_format}{Format}} \&format, bool stop\+If\+True=false)
+\item 
+bool \mbox{\hyperlink{class_conditional_formatting_ac13bdf3354946b488def52190b6e4964}{add\+Highlight\+Cells\+Rule}} (\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Highlight\+Rule\+Type}} type, const QString \&formula1, const \mbox{\hyperlink{class_format}{Format}} \&format, bool stop\+If\+True=false)
+\item 
+bool \mbox{\hyperlink{class_conditional_formatting_ad65c1bf2dd547fc9bf4b619f8c890c0c}{add\+Highlight\+Cells\+Rule}} (\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Highlight\+Rule\+Type}} type, const QString \&formula1, const QString \&formula2, const \mbox{\hyperlink{class_format}{Format}} \&format, bool stop\+If\+True=false)
+\item 
+bool \mbox{\hyperlink{class_conditional_formatting_a9a37d595dcfb82b576e108c1c961e4b6}{add\+Data\+Bar\+Rule}} (const QColor \&color, bool show\+Data=true, bool stop\+If\+True=false)
+\item 
+bool \mbox{\hyperlink{class_conditional_formatting_a35afe6685aebeebd9e0329c84c0d1c5a}{add\+Data\+Bar\+Rule}} (const QColor \&color, \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{Value\+Object\+Type}} type1, const QString \&val1, \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{Value\+Object\+Type}} type2, const QString \&val2, bool show\+Data=true, bool stop\+If\+True=false)
+\item 
+bool \mbox{\hyperlink{class_conditional_formatting_aa8ed3023f2f37c2d3cf77e5c2ea2372b}{add2\+Color\+Scale\+Rule}} (const QColor \&min\+Color, const QColor \&max\+Color, bool stop\+If\+True=false)
+\item 
+bool \mbox{\hyperlink{class_conditional_formatting_adcdc2c67603c11c2c87c8d97384940ca}{add3\+Color\+Scale\+Rule}} (const QColor \&min\+Color, const QColor \&mid\+Color, const QColor \&max\+Color, bool stop\+If\+True=false)
+\item 
+QList$<$ \mbox{\hyperlink{class_cell_range}{Cell\+Range}} $>$ \mbox{\hyperlink{class_conditional_formatting_a15d6e81bf4f6767a86147c5b3efb9ce1}{ranges}} () const
+\item 
+void \mbox{\hyperlink{class_conditional_formatting_a4727733a7c5da3f2818e2dd94438b173}{add\+Cell}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&cell)
+\item 
+void \mbox{\hyperlink{class_conditional_formatting_aa67da6ee3e7af11c8648a4fabaa11caa}{add\+Cell}} (int row, int col)
+\item 
+void \mbox{\hyperlink{class_conditional_formatting_a323bb5df4d8e280cca23c24367d3ab77}{add\+Range}} (int first\+Row, int first\+Col, int last\+Row, int last\+Col)
+\item 
+void \mbox{\hyperlink{class_conditional_formatting_a66d5b7ed557610ccbaace7ad172720c3}{add\+Range}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range)
+\item 
+\mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \& \mbox{\hyperlink{class_conditional_formatting_a7ab30e03126749753752f8915ab658c7}{operator=}} (const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_conditional_formatting_afd9c7929d30c425c6c52a03cdee91578}{Worksheet}}
+\item 
+class \mbox{\hyperlink{class_conditional_formatting_aa784a55dc8ebb2890cc166aac3ca5778}{\+::\+Conditional\+Formatting\+Test}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Conditional formatting for single cell or ranges \textbackslash{}inmodule Qt\+Xlsx. 
+
+The conditional formatting can be applied to a single cell or ranges of cells. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c} 
+\index{ConditionalFormatting@{ConditionalFormatting}!HighlightRuleType@{HighlightRuleType}}
+\index{HighlightRuleType@{HighlightRuleType}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{HighlightRuleType}{HighlightRuleType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Conditional\+Formatting\+::\+Highlight\+Rule\+Type}}}
+
+\textbackslash{}value Highlight\+\_\+\+Less\+Than \textbackslash{}value Highlight\+\_\+\+Less\+Than\+Or\+Equal \textbackslash{}value Highlight\+\_\+\+Equal \textbackslash{}value Highlight\+\_\+\+Not\+Equal \textbackslash{}value Highlight\+\_\+\+Greater\+Than\+Or\+Equal \textbackslash{}value Highlight\+\_\+\+Greater\+Than \textbackslash{}value Highlight\+\_\+\+Between \textbackslash{}value Highlight\+\_\+\+Not\+Between
+
+\textbackslash{}value Highlight\+\_\+\+Contains\+Text \textbackslash{}value Highlight\+\_\+\+Not\+Contains\+Text \textbackslash{}value Highlight\+\_\+\+Begins\+With \textbackslash{}value Highlight\+\_\+\+Ends\+With
+
+\textbackslash{}value Highlight\+\_\+\+Time\+Period
+
+\textbackslash{}value Highlight\+\_\+\+Duplicate \textbackslash{}value Highlight\+\_\+\+Unique
+
+\textbackslash{}value Highlight\+\_\+\+Blanks \textbackslash{}value Highlight\+\_\+\+No\+Blanks \textbackslash{}value Highlight\+\_\+\+Errors \textbackslash{}value Highlight\+\_\+\+No\+Errors
+
+\textbackslash{}value Highlight\+\_\+\+Top \textbackslash{}value Highlight\+\_\+\+Top\+Percent \textbackslash{}value Highlight\+\_\+\+Bottom \textbackslash{}value Highlight\+\_\+\+Bottom\+Percent
+
+\textbackslash{}value Highlight\+\_\+\+Above\+Average \textbackslash{}value Highlight\+\_\+\+Above\+Or\+Equal\+Average \textbackslash{}value Highlight\+\_\+\+Below\+Average \textbackslash{}value Highlight\+\_\+\+Below\+Or\+Equal\+Average \textbackslash{}value Highlight\+\_\+\+Above\+Std\+Dev1 \textbackslash{}value Highlight\+\_\+\+Above\+Std\+Dev2 \textbackslash{}value Highlight\+\_\+\+Above\+Std\+Dev3 \textbackslash{}value Highlight\+\_\+\+Below\+Std\+Dev1 \textbackslash{}value Highlight\+\_\+\+Below\+Std\+Dev2 \textbackslash{}value Highlight\+\_\+\+Below\+Std\+Dev3
+
+\textbackslash{}value Highlight\+\_\+\+Expression \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_LessThan@{Highlight\_LessThan}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_LessThan@{Highlight\_LessThan}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca96afb54d72ef221067ea15d1093b4d1b}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca96afb54d72ef221067ea15d1093b4d1b} 
+Highlight\+\_\+\+Less\+Than&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_LessThanOrEqual@{Highlight\_LessThanOrEqual}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_LessThanOrEqual@{Highlight\_LessThanOrEqual}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca47612adc17a71cabbb7dbeac980c1d25}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca47612adc17a71cabbb7dbeac980c1d25} 
+Highlight\+\_\+\+Less\+Than\+Or\+Equal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Equal@{Highlight\_Equal}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Equal@{Highlight\_Equal}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca3db2c7dedb5eabddc649c7e87c0a08a0}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca3db2c7dedb5eabddc649c7e87c0a08a0} 
+Highlight\+\_\+\+Equal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_NotEqual@{Highlight\_NotEqual}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_NotEqual@{Highlight\_NotEqual}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca972eeb7b0049e951cb1c121a6a90d065}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca972eeb7b0049e951cb1c121a6a90d065} 
+Highlight\+\_\+\+Not\+Equal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_GreaterThanOrEqual@{Highlight\_GreaterThanOrEqual}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_GreaterThanOrEqual@{Highlight\_GreaterThanOrEqual}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca985935cd7e5a842e74331bfc2f20f78c}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca985935cd7e5a842e74331bfc2f20f78c} 
+Highlight\+\_\+\+Greater\+Than\+Or\+Equal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_GreaterThan@{Highlight\_GreaterThan}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_GreaterThan@{Highlight\_GreaterThan}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caba894ebcbc78fe44cf47bbd1a28c5fff}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caba894ebcbc78fe44cf47bbd1a28c5fff} 
+Highlight\+\_\+\+Greater\+Than&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Between@{Highlight\_Between}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Between@{Highlight\_Between}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca11b032af0dcb3d4575ac932cb1dd484e}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca11b032af0dcb3d4575ac932cb1dd484e} 
+Highlight\+\_\+\+Between&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_NotBetween@{Highlight\_NotBetween}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_NotBetween@{Highlight\_NotBetween}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cabf9f40c87d72ee9a8bbf3b7560e23bf4}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cabf9f40c87d72ee9a8bbf3b7560e23bf4} 
+Highlight\+\_\+\+Not\+Between&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_ContainsText@{Highlight\_ContainsText}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_ContainsText@{Highlight\_ContainsText}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cad0b10ae831f004b162b3340818820202}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cad0b10ae831f004b162b3340818820202} 
+Highlight\+\_\+\+Contains\+Text&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_NotContainsText@{Highlight\_NotContainsText}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_NotContainsText@{Highlight\_NotContainsText}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caaf515d3f4ae82e1f2d0b727fc3057965}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caaf515d3f4ae82e1f2d0b727fc3057965} 
+Highlight\+\_\+\+Not\+Contains\+Text&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_BeginsWith@{Highlight\_BeginsWith}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_BeginsWith@{Highlight\_BeginsWith}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca51a0c1543b1da331075127f4b2971fe2}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca51a0c1543b1da331075127f4b2971fe2} 
+Highlight\+\_\+\+Begins\+With&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_EndsWith@{Highlight\_EndsWith}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_EndsWith@{Highlight\_EndsWith}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca4ff0b4f49946f897367829b34b9a6ee0}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca4ff0b4f49946f897367829b34b9a6ee0} 
+Highlight\+\_\+\+Ends\+With&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_TimePeriod@{Highlight\_TimePeriod}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_TimePeriod@{Highlight\_TimePeriod}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca26f871d40c0df60246dcbad322e9314f}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca26f871d40c0df60246dcbad322e9314f} 
+Highlight\+\_\+\+Time\+Period&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Duplicate@{Highlight\_Duplicate}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Duplicate@{Highlight\_Duplicate}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caf3227d4f260c5ad3e7d2a19d38e6111b}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caf3227d4f260c5ad3e7d2a19d38e6111b} 
+Highlight\+\_\+\+Duplicate&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Unique@{Highlight\_Unique}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Unique@{Highlight\_Unique}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca60c0c86ca312ab95d51c2916e0bc78f4}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca60c0c86ca312ab95d51c2916e0bc78f4} 
+Highlight\+\_\+\+Unique&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Blanks@{Highlight\_Blanks}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Blanks@{Highlight\_Blanks}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caac714e592e3a40c0436ac01be5311749}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caac714e592e3a40c0436ac01be5311749} 
+Highlight\+\_\+\+Blanks&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_NoBlanks@{Highlight\_NoBlanks}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_NoBlanks@{Highlight\_NoBlanks}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca3f1bf5fe8ef59eeedb8ca40f75aab425}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca3f1bf5fe8ef59eeedb8ca40f75aab425} 
+Highlight\+\_\+\+No\+Blanks&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Errors@{Highlight\_Errors}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Errors@{Highlight\_Errors}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca080a454a6ae9d9eb80571b35cd4744b7}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca080a454a6ae9d9eb80571b35cd4744b7} 
+Highlight\+\_\+\+Errors&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_NoErrors@{Highlight\_NoErrors}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_NoErrors@{Highlight\_NoErrors}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6cfcd12d3335f047763967cf1f942c0c}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6cfcd12d3335f047763967cf1f942c0c} 
+Highlight\+\_\+\+No\+Errors&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Top@{Highlight\_Top}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Top@{Highlight\_Top}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca99c31d2bc719ff91d98dfb1a0ff8af71}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca99c31d2bc719ff91d98dfb1a0ff8af71} 
+Highlight\+\_\+\+Top&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_TopPercent@{Highlight\_TopPercent}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_TopPercent@{Highlight\_TopPercent}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6be1fe0b56d3ec1a023e80e5e6b7d329}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6be1fe0b56d3ec1a023e80e5e6b7d329} 
+Highlight\+\_\+\+Top\+Percent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Bottom@{Highlight\_Bottom}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Bottom@{Highlight\_Bottom}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cad2707dea2201769b45ea13192ecd71fd}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cad2707dea2201769b45ea13192ecd71fd} 
+Highlight\+\_\+\+Bottom&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_BottomPercent@{Highlight\_BottomPercent}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_BottomPercent@{Highlight\_BottomPercent}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca1b0bdf0d34a760eec94492d5c3a66765}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca1b0bdf0d34a760eec94492d5c3a66765} 
+Highlight\+\_\+\+Bottom\+Percent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_AboveAverage@{Highlight\_AboveAverage}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_AboveAverage@{Highlight\_AboveAverage}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca019640507c3cd6507ab15038d70dbb00}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca019640507c3cd6507ab15038d70dbb00} 
+Highlight\+\_\+\+Above\+Average&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_AboveOrEqualAverage@{Highlight\_AboveOrEqualAverage}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_AboveOrEqualAverage@{Highlight\_AboveOrEqualAverage}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca59abdcbd49cb294d1a48f6ca5ea132fe}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca59abdcbd49cb294d1a48f6ca5ea132fe} 
+Highlight\+\_\+\+Above\+Or\+Equal\+Average&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_AboveStdDev1@{Highlight\_AboveStdDev1}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_AboveStdDev1@{Highlight\_AboveStdDev1}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca11ecbb19ceea65183a30b56789b10b09}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca11ecbb19ceea65183a30b56789b10b09} 
+Highlight\+\_\+\+Above\+Std\+Dev1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_AboveStdDev2@{Highlight\_AboveStdDev2}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_AboveStdDev2@{Highlight\_AboveStdDev2}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca8313c47eb1a99975f7f1ccaca901bfdd}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca8313c47eb1a99975f7f1ccaca901bfdd} 
+Highlight\+\_\+\+Above\+Std\+Dev2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_AboveStdDev3@{Highlight\_AboveStdDev3}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_AboveStdDev3@{Highlight\_AboveStdDev3}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca502a9522ff385cc08741c3ddec2460d6}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca502a9522ff385cc08741c3ddec2460d6} 
+Highlight\+\_\+\+Above\+Std\+Dev3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_BelowAverage@{Highlight\_BelowAverage}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_BelowAverage@{Highlight\_BelowAverage}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca59fe5721f4f77090ede776099fecb1c7}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca59fe5721f4f77090ede776099fecb1c7} 
+Highlight\+\_\+\+Below\+Average&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_BelowOrEqualAverage@{Highlight\_BelowOrEqualAverage}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_BelowOrEqualAverage@{Highlight\_BelowOrEqualAverage}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caa4207e3b3893d05474601c9b8bf24a03}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8caa4207e3b3893d05474601c9b8bf24a03} 
+Highlight\+\_\+\+Below\+Or\+Equal\+Average&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_BelowStdDev1@{Highlight\_BelowStdDev1}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_BelowStdDev1@{Highlight\_BelowStdDev1}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6b6530da3a12699ac6d53b57d281644b}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca6b6530da3a12699ac6d53b57d281644b} 
+Highlight\+\_\+\+Below\+Std\+Dev1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_BelowStdDev2@{Highlight\_BelowStdDev2}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_BelowStdDev2@{Highlight\_BelowStdDev2}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cab782aef3a35945cd66c3af9a801988f4}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cab782aef3a35945cd66c3af9a801988f4} 
+Highlight\+\_\+\+Below\+Std\+Dev2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_BelowStdDev3@{Highlight\_BelowStdDev3}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_BelowStdDev3@{Highlight\_BelowStdDev3}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cabbd295c311a09212f0e4d721f9b432de}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8cabbd295c311a09212f0e4d721f9b432de} 
+Highlight\+\_\+\+Below\+Std\+Dev3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Highlight\_Expression@{Highlight\_Expression}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!Highlight\_Expression@{Highlight\_Expression}}}\Hypertarget{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca5ab176d10fddc520b64d00fbbe389869}\label{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8ca5ab176d10fddc520b64d00fbbe389869} 
+Highlight\+\_\+\+Expression&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}\label{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8} 
+\index{ConditionalFormatting@{ConditionalFormatting}!ValueObjectType@{ValueObjectType}}
+\index{ValueObjectType@{ValueObjectType}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{ValueObjectType}{ValueObjectType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{Conditional\+Formatting\+::\+Value\+Object\+Type}}}
+
+\textbackslash{}value VOT\+\_\+\+Formula \textbackslash{}value VOT\+\_\+\+Max \textbackslash{}value VOT\+\_\+\+Min \textbackslash{}value VOT\+\_\+\+Num \textbackslash{}value VOT\+\_\+\+Percent \textbackslash{}value VOT\+\_\+\+Percentile \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VOT\_Formula@{VOT\_Formula}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!VOT\_Formula@{VOT\_Formula}}}\Hypertarget{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8ae9b5384202202aa33434cec844b07ece}\label{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8ae9b5384202202aa33434cec844b07ece} 
+VOT\+\_\+\+Formula&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VOT\_Max@{VOT\_Max}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!VOT\_Max@{VOT\_Max}}}\Hypertarget{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a6357f4a44b54775279ef1fb7c9a4a35b}\label{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a6357f4a44b54775279ef1fb7c9a4a35b} 
+VOT\+\_\+\+Max&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VOT\_Min@{VOT\_Min}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!VOT\_Min@{VOT\_Min}}}\Hypertarget{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8abde6d79495e28dcc20217be06f574389}\label{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8abde6d79495e28dcc20217be06f574389} 
+VOT\+\_\+\+Min&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VOT\_Num@{VOT\_Num}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!VOT\_Num@{VOT\_Num}}}\Hypertarget{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a277c887f12c5c148c8e0fe208549d086}\label{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a277c887f12c5c148c8e0fe208549d086} 
+VOT\+\_\+\+Num&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VOT\_Percent@{VOT\_Percent}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!VOT\_Percent@{VOT\_Percent}}}\Hypertarget{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a0d77e907b1d7209f605f0f2250d3aa9d}\label{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a0d77e907b1d7209f605f0f2250d3aa9d} 
+VOT\+\_\+\+Percent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VOT\_Percentile@{VOT\_Percentile}!ConditionalFormatting@{ConditionalFormatting}}\index{ConditionalFormatting@{ConditionalFormatting}!VOT\_Percentile@{VOT\_Percentile}}}\Hypertarget{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a1449ee9db7b2e897ad0af4ecd833fb98}\label{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8a1449ee9db7b2e897ad0af4ecd833fb98} 
+VOT\+\_\+\+Percentile&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_conditional_formatting_afe070ea8da4f81f9e7476152ede73f60}\label{class_conditional_formatting_afe070ea8da4f81f9e7476152ede73f60} 
+\index{ConditionalFormatting@{ConditionalFormatting}!ConditionalFormatting@{ConditionalFormatting}}
+\index{ConditionalFormatting@{ConditionalFormatting}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{ConditionalFormatting()}{ConditionalFormatting()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Conditional\+Formatting\+::\+Conditional\+Formatting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construct a conditional formatting object \Hypertarget{class_conditional_formatting_aeb6867c3a8f68b07dc1053cc697bef75}\label{class_conditional_formatting_aeb6867c3a8f68b07dc1053cc697bef75} 
+\index{ConditionalFormatting@{ConditionalFormatting}!ConditionalFormatting@{ConditionalFormatting}}
+\index{ConditionalFormatting@{ConditionalFormatting}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{ConditionalFormatting()}{ConditionalFormatting()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Conditional\+Formatting\+::\+Conditional\+Formatting (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&}]{other }\end{DoxyParamCaption})}
+
+Constructs a copy of {\itshape other}. \Hypertarget{class_conditional_formatting_a19bf533c251c01b9d4232e7020b930d1}\label{class_conditional_formatting_a19bf533c251c01b9d4232e7020b930d1} 
+\index{ConditionalFormatting@{ConditionalFormatting}!````~ConditionalFormatting@{\texorpdfstring{$\sim$}{\string~}ConditionalFormatting}}
+\index{````~ConditionalFormatting@{\texorpdfstring{$\sim$}{\string~}ConditionalFormatting}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ConditionalFormatting()}{\string~ConditionalFormatting()}}
+{\footnotesize\ttfamily Conditional\+Formatting\+::\texorpdfstring{$\sim$}{\string~}\+Conditional\+Formatting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroy the object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_conditional_formatting_aa8ed3023f2f37c2d3cf77e5c2ea2372b}\label{class_conditional_formatting_aa8ed3023f2f37c2d3cf77e5c2ea2372b} 
+\index{ConditionalFormatting@{ConditionalFormatting}!add2ColorScaleRule@{add2ColorScaleRule}}
+\index{add2ColorScaleRule@{add2ColorScaleRule}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{add2ColorScaleRule()}{add2ColorScaleRule()}}
+{\footnotesize\ttfamily bool Conditional\+Formatting\+::add2\+Color\+Scale\+Rule (\begin{DoxyParamCaption}\item[{const QColor \&}]{min\+Color,  }\item[{const QColor \&}]{max\+Color,  }\item[{bool}]{stop\+If\+True = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Add a color\+Scale rule with the given {\itshape min\+Color}, {\itshape max\+Color} and {\itshape stop\+If\+True}. Return false if failed. \Hypertarget{class_conditional_formatting_adcdc2c67603c11c2c87c8d97384940ca}\label{class_conditional_formatting_adcdc2c67603c11c2c87c8d97384940ca} 
+\index{ConditionalFormatting@{ConditionalFormatting}!add3ColorScaleRule@{add3ColorScaleRule}}
+\index{add3ColorScaleRule@{add3ColorScaleRule}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{add3ColorScaleRule()}{add3ColorScaleRule()}}
+{\footnotesize\ttfamily bool Conditional\+Formatting\+::add3\+Color\+Scale\+Rule (\begin{DoxyParamCaption}\item[{const QColor \&}]{min\+Color,  }\item[{const QColor \&}]{mid\+Color,  }\item[{const QColor \&}]{max\+Color,  }\item[{bool}]{stop\+If\+True = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Add a color\+Scale rule with the given {\itshape min\+Color}, {\itshape mid\+Color}, {\itshape max\+Color} and {\itshape stop\+If\+True}. Return false if failed. \Hypertarget{class_conditional_formatting_a4727733a7c5da3f2818e2dd94438b173}\label{class_conditional_formatting_a4727733a7c5da3f2818e2dd94438b173} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addCell@{addCell}}
+\index{addCell@{addCell}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Conditional\+Formatting\+::add\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{cell }\end{DoxyParamCaption})}
+
+Add the {\itshape cell} on which the conditional formatting will apply to. \Hypertarget{class_conditional_formatting_aa67da6ee3e7af11c8648a4fabaa11caa}\label{class_conditional_formatting_aa67da6ee3e7af11c8648a4fabaa11caa} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addCell@{addCell}}
+\index{addCell@{addCell}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Conditional\+Formatting\+::add\+Cell (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Add the cell({\itshape row}, {\itshape col}) on which the conditional formatting will apply to. \Hypertarget{class_conditional_formatting_a9a37d595dcfb82b576e108c1c961e4b6}\label{class_conditional_formatting_a9a37d595dcfb82b576e108c1c961e4b6} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addDataBarRule@{addDataBarRule}}
+\index{addDataBarRule@{addDataBarRule}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addDataBarRule()}{addDataBarRule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Conditional\+Formatting\+::add\+Data\+Bar\+Rule (\begin{DoxyParamCaption}\item[{const QColor \&}]{color,  }\item[{bool}]{show\+Data = {\ttfamily true},  }\item[{bool}]{stop\+If\+True = {\ttfamily false} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Add a data\+Bar rule with the given {\itshape color}, {\itshape show\+Data} and {\itshape stop\+If\+True}. \Hypertarget{class_conditional_formatting_a35afe6685aebeebd9e0329c84c0d1c5a}\label{class_conditional_formatting_a35afe6685aebeebd9e0329c84c0d1c5a} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addDataBarRule@{addDataBarRule}}
+\index{addDataBarRule@{addDataBarRule}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addDataBarRule()}{addDataBarRule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Conditional\+Formatting\+::add\+Data\+Bar\+Rule (\begin{DoxyParamCaption}\item[{const QColor \&}]{color,  }\item[{\mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{Value\+Object\+Type}}}]{type1,  }\item[{const QString \&}]{val1,  }\item[{\mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{Value\+Object\+Type}}}]{type2,  }\item[{const QString \&}]{val2,  }\item[{bool}]{show\+Data = {\ttfamily true},  }\item[{bool}]{stop\+If\+True = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Add a data\+Bar rule with the given {\itshape color}, {\itshape type1}, {\itshape val1} , {\itshape type2}, {\itshape val2}, {\itshape show\+Data} and {\itshape stop\+If\+True}. Return false if failed. \Hypertarget{class_conditional_formatting_af60131b40ca239617851da629fcf179e}\label{class_conditional_formatting_af60131b40ca239617851da629fcf179e} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addHighlightCellsRule@{addHighlightCellsRule}}
+\index{addHighlightCellsRule@{addHighlightCellsRule}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addHighlightCellsRule()}{addHighlightCellsRule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Conditional\+Formatting\+::add\+Highlight\+Cells\+Rule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Highlight\+Rule\+Type}}}]{type,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format,  }\item[{bool}]{stop\+If\+True = {\ttfamily false} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Add a hightlight rule with the given {\itshape type} {\itshape format} and {\itshape stop\+If\+True}. \Hypertarget{class_conditional_formatting_ac13bdf3354946b488def52190b6e4964}\label{class_conditional_formatting_ac13bdf3354946b488def52190b6e4964} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addHighlightCellsRule@{addHighlightCellsRule}}
+\index{addHighlightCellsRule@{addHighlightCellsRule}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addHighlightCellsRule()}{addHighlightCellsRule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool Conditional\+Formatting\+::add\+Highlight\+Cells\+Rule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Highlight\+Rule\+Type}}}]{type,  }\item[{const QString \&}]{formula,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format,  }\item[{bool}]{stop\+If\+True = {\ttfamily false} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Add a hightlight rule with the given {\itshape type}, {\itshape formula}, {\itshape format} and {\itshape stop\+If\+True}. Return false if failed. \Hypertarget{class_conditional_formatting_ad65c1bf2dd547fc9bf4b619f8c890c0c}\label{class_conditional_formatting_ad65c1bf2dd547fc9bf4b619f8c890c0c} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addHighlightCellsRule@{addHighlightCellsRule}}
+\index{addHighlightCellsRule@{addHighlightCellsRule}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addHighlightCellsRule()}{addHighlightCellsRule()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Conditional\+Formatting\+::add\+Highlight\+Cells\+Rule (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_conditional_formatting_ac34b970478e14fc8670ef2893fa49c8c}{Highlight\+Rule\+Type}}}]{type,  }\item[{const QString \&}]{formula1,  }\item[{const QString \&}]{formula2,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format,  }\item[{bool}]{stop\+If\+True = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Add a hightlight rule with the given {\itshape type}, {\itshape formula1}, {\itshape formula2}, {\itshape format} and {\itshape stop\+If\+True}. Return false if failed. \Hypertarget{class_conditional_formatting_a66d5b7ed557610ccbaace7ad172720c3}\label{class_conditional_formatting_a66d5b7ed557610ccbaace7ad172720c3} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addRange@{addRange}}
+\index{addRange@{addRange}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addRange()}{addRange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Conditional\+Formatting\+::add\+Range (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range }\end{DoxyParamCaption})}
+
+Add the {\itshape range} on which the conditional formatting will apply to. \Hypertarget{class_conditional_formatting_a323bb5df4d8e280cca23c24367d3ab77}\label{class_conditional_formatting_a323bb5df4d8e280cca23c24367d3ab77} 
+\index{ConditionalFormatting@{ConditionalFormatting}!addRange@{addRange}}
+\index{addRange@{addRange}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{addRange()}{addRange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Conditional\+Formatting\+::add\+Range (\begin{DoxyParamCaption}\item[{int}]{first\+Row,  }\item[{int}]{first\+Col,  }\item[{int}]{last\+Row,  }\item[{int}]{last\+Col }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Add the range({\itshape first\+Row}, {\itshape first\+Col}, {\itshape last\+Row}, {\itshape last\+Col}) on which the conditional formatting will apply to. \Hypertarget{class_conditional_formatting_a7ab30e03126749753752f8915ab658c7}\label{class_conditional_formatting_a7ab30e03126749753752f8915ab658c7} 
+\index{ConditionalFormatting@{ConditionalFormatting}!operator=@{operator=}}
+\index{operator=@{operator=}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \& Conditional\+Formatting\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&}]{other }\end{DoxyParamCaption})}
+
+Assigns {\itshape other} to this conditional formatting and returns a reference to this conditional formatting. \Hypertarget{class_conditional_formatting_a15d6e81bf4f6767a86147c5b3efb9ce1}\label{class_conditional_formatting_a15d6e81bf4f6767a86147c5b3efb9ce1} 
+\index{ConditionalFormatting@{ConditionalFormatting}!ranges@{ranges}}
+\index{ranges@{ranges}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{ranges()}{ranges()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_cell_range}{Cell\+Range}} $>$ Conditional\+Formatting\+::ranges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the ranges on which the validation will be applied. 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_conditional_formatting_aa784a55dc8ebb2890cc166aac3ca5778}\label{class_conditional_formatting_aa784a55dc8ebb2890cc166aac3ca5778} 
+\index{ConditionalFormatting@{ConditionalFormatting}!::ConditionalFormattingTest@{::ConditionalFormattingTest}}
+\index{::ConditionalFormattingTest@{::ConditionalFormattingTest}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{::ConditionalFormattingTest}{::ConditionalFormattingTest}}
+{\footnotesize\ttfamily friend class \+::\+Conditional\+Formatting\+Test\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_conditional_formatting_afd9c7929d30c425c6c52a03cdee91578}\label{class_conditional_formatting_afd9c7929d30c425c6c52a03cdee91578} 
+\index{ConditionalFormatting@{ConditionalFormatting}!Worksheet@{Worksheet}}
+\index{Worksheet@{Worksheet}!ConditionalFormatting@{ConditionalFormatting}}
+\doxysubsubsection{\texorpdfstring{Worksheet}{Worksheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_worksheet}{Worksheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxconditionalformatting_8h}{xlsxconditionalformatting.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxconditionalformatting_8cpp}{xlsxconditionalformatting.\+cpp}}\end{DoxyCompactItemize}

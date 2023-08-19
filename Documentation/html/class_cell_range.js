@@ -1,0 +1,28 @@
+var class_cell_range =
+[
+    [ "CellRange", "class_cell_range.html#a642e10dc297ab084ec53a63927508977", null ],
+    [ "CellRange", "class_cell_range.html#aa018d03cd161413a0a36dc2a4e6cb79f", null ],
+    [ "CellRange", "class_cell_range.html#a85bed7ad8248aa45cf6d2a2958833443", null ],
+    [ "CellRange", "class_cell_range.html#a940ba65a202db7a24cae6c84fdd52e7f", null ],
+    [ "CellRange", "class_cell_range.html#ad20e57e58be9050e1d4caedbb6009d9b", null ],
+    [ "CellRange", "class_cell_range.html#a43f6dbaad2ab12fad8763745cbc38c18", null ],
+    [ "~CellRange", "class_cell_range.html#a004adc2916ab939ad3e9010b8693037e", null ],
+    [ "bottomLeft", "class_cell_range.html#a3c432ed0b086c40c6f9e7e3492e4640a", null ],
+    [ "bottomRight", "class_cell_range.html#a9458904696a5706f5c869ea8f1973209", null ],
+    [ "columnCount", "class_cell_range.html#aec6c5241b0fd6af9df89dda2f9bba367", null ],
+    [ "firstColumn", "class_cell_range.html#abe953acd27bff31b1cc432294d1eb3e2", null ],
+    [ "firstRow", "class_cell_range.html#aa004a0c7a882e317540327f65ecdad3c", null ],
+    [ "isValid", "class_cell_range.html#a59a5cd18513d79713118a188cd543a7b", null ],
+    [ "lastColumn", "class_cell_range.html#ac98d626e6e5b8a8a8bd5d4e4324726ca", null ],
+    [ "lastRow", "class_cell_range.html#a902389633d08a6d18bd79a888eb46ca9", null ],
+    [ "operator!=", "class_cell_range.html#abf80338738c18f83c0998965f7b3f447", null ],
+    [ "operator==", "class_cell_range.html#a4dbd2f1ed628206130ee8179088856cd", null ],
+    [ "rowCount", "class_cell_range.html#a7b4a061f3d55327a1d26aaf5ad0119d4", null ],
+    [ "setFirstColumn", "class_cell_range.html#af29a2829170391fa4f8cf93585b34781", null ],
+    [ "setFirstRow", "class_cell_range.html#aa616c35471de3bc412c532f86d031708", null ],
+    [ "setLastColumn", "class_cell_range.html#abc2f777344e568efa405fa74b9eccc33", null ],
+    [ "setLastRow", "class_cell_range.html#acf5285fb33518e36565a7a94d6f8401a", null ],
+    [ "topLeft", "class_cell_range.html#af0ca6a9234117067aaed012613ff42ac", null ],
+    [ "topRight", "class_cell_range.html#a8e425491d78841a72c1a494b6b9e3217", null ],
+    [ "toString", "class_cell_range.html#a93943bcf37cfc70059c68e0837f06c23", null ]
+];

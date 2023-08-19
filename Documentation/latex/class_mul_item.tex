@@ -1,0 +1,185 @@
+\doxysection{Mul\+Item Class Reference}
+\hypertarget{class_mul_item}{}\label{class_mul_item}\index{MulItem@{MulItem}}
+
+
+{\ttfamily \#include $<$mulitem.\+h$>$}
+
+Inheritance diagram for Mul\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mul_item}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{class_mul_item_a62bbb8dee9300dee523a7f67608b609caab940abbbf5205e367194f6741cd81b9}{Type}} = User\+Type + 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mul_item_a3d375ff78b11eaa44491b71cb3301036}{Mul\+Item}} (\mbox{\hyperlink{common_8h_abaa8a12bf165b6351b4c61af85663250}{Multiflow\+Kind}} \mbox{\hyperlink{class_mul_item_ad75bc1a69574c11c71c094f979c14765}{type}}, QString item\+Name, QGraphics\+Pixmap\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\mbox{\hyperlink{class_mul_item_a40ac1ba6b8d35fbe5b4f95df4a43e9c7}{\texorpdfstring{$\sim$}{\string~}\+Mul\+Item}} ()
+\item 
+QRectF \mbox{\hyperlink{class_mul_item_a1491f7ecc7caf087865075b544b5960a}{bounding\+Rect}} () const override
+\item 
+void \mbox{\hyperlink{class_mul_item_a8a2ef6c77c07189ca9bd47db9eb07f43}{paint}} (QPainter \texorpdfstring{$\ast$}{*}painter, const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}option, QWidget \texorpdfstring{$\ast$}{*}widget) override
+\item 
+QPainter\+Path \mbox{\hyperlink{class_mul_item_aba2f83d6dccbb3e58a28eaf9e40330a4}{shape}} () const override
+\item 
+int \mbox{\hyperlink{class_mul_item_ad75bc1a69574c11c71c094f979c14765}{type}} () const override
+\item 
+int \mbox{\hyperlink{class_mul_item_a0cbd0dc43cb9e311898f8195c0b43df2}{Mul\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_mul_item_a73787d813601b8c18f2f48f0e3aeb2a0}{add\+Arrow}} (\mbox{\hyperlink{class_t_arrow}{TArrow}} \texorpdfstring{$\ast$}{*}arrow)
+\item 
+void \mbox{\hyperlink{class_mul_item_a2c7dcb0fbe33209a1b53c33331efe962}{remove\+Arrow}} (\mbox{\hyperlink{class_t_arrow}{TArrow}} \texorpdfstring{$\ast$}{*}arrow)
+\item 
+void \mbox{\hyperlink{class_mul_item_a9828251df6f5bc8aa89b19efd974004e}{remove\+Arrows}} ()
+\item 
+void \mbox{\hyperlink{class_mul_item_a7cd1b2bc3859c12473e4f148de5d4ea7}{set\+Item\+Name}} (QString name)
+\item 
+QString \mbox{\hyperlink{class_mul_item_aeefcee0506b12ae9528060a0f66377fb}{get\+Item\+Name}} ()
+\item 
+int \mbox{\hyperlink{class_mul_item_a2b2b94a2edf439861d700ae56fa8ae5e}{get\+Arrow\+Num}} ()
+\item 
+int \mbox{\hyperlink{class_mul_item_a47fb7ac0689d25b6fedf432a5b9749f5}{get\+Start\+Arrow\+Num}} ()
+\item 
+int \mbox{\hyperlink{class_mul_item_a941147670d7ca1835a1f49fa4fa287e8}{get\+End\+Arrow\+Num}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+QVariant \mbox{\hyperlink{class_mul_item_a424a4936be41b65265aad75e643484fd}{item\+Change}} (Graphics\+Item\+Change change, const QVariant \&value) override
+\item 
+void \mbox{\hyperlink{class_mul_item_a77e035a7a4e0361f725b249fbb4986f1}{mouse\+Double\+Click\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_mul_item_a62bbb8dee9300dee523a7f67608b609c}\label{class_mul_item_a62bbb8dee9300dee523a7f67608b609c} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Type@{Type}!MulItem@{MulItem}}\index{MulItem@{MulItem}!Type@{Type}}}\Hypertarget{class_mul_item_a62bbb8dee9300dee523a7f67608b609caab940abbbf5205e367194f6741cd81b9}\label{class_mul_item_a62bbb8dee9300dee523a7f67608b609caab940abbbf5205e367194f6741cd81b9} 
+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_mul_item_a3d375ff78b11eaa44491b71cb3301036}\label{class_mul_item_a3d375ff78b11eaa44491b71cb3301036} 
+\index{MulItem@{MulItem}!MulItem@{MulItem}}
+\index{MulItem@{MulItem}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{MulItem()}{MulItem()}}
+{\footnotesize\ttfamily Mul\+Item\+::\+Mul\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{common_8h_abaa8a12bf165b6351b4c61af85663250}{Multiflow\+Kind}}}]{type,  }\item[{QString}]{item\+Name,  }\item[{QGraphics\+Pixmap\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mul_item_a40ac1ba6b8d35fbe5b4f95df4a43e9c7}\label{class_mul_item_a40ac1ba6b8d35fbe5b4f95df4a43e9c7} 
+\index{MulItem@{MulItem}!````~MulItem@{\texorpdfstring{$\sim$}{\string~}MulItem}}
+\index{````~MulItem@{\texorpdfstring{$\sim$}{\string~}MulItem}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MulItem()}{\string~MulItem()}}
+{\footnotesize\ttfamily Mul\+Item\+::\texorpdfstring{$\sim$}{\string~}\+Mul\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mul_item_a73787d813601b8c18f2f48f0e3aeb2a0}\label{class_mul_item_a73787d813601b8c18f2f48f0e3aeb2a0} 
+\index{MulItem@{MulItem}!addArrow@{addArrow}}
+\index{addArrow@{addArrow}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{addArrow()}{addArrow()}}
+{\footnotesize\ttfamily void Mul\+Item\+::add\+Arrow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_arrow}{TArrow}} \texorpdfstring{$\ast$}{*}}]{arrow }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mul_item_a1491f7ecc7caf087865075b544b5960a}\label{class_mul_item_a1491f7ecc7caf087865075b544b5960a} 
+\index{MulItem@{MulItem}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{boundingRect()}{boundingRect()}}
+{\footnotesize\ttfamily QRectF Mul\+Item\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_mul_item_a2b2b94a2edf439861d700ae56fa8ae5e}\label{class_mul_item_a2b2b94a2edf439861d700ae56fa8ae5e} 
+\index{MulItem@{MulItem}!getArrowNum@{getArrowNum}}
+\index{getArrowNum@{getArrowNum}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{getArrowNum()}{getArrowNum()}}
+{\footnotesize\ttfamily int Mul\+Item\+::get\+Arrow\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mul_item_a941147670d7ca1835a1f49fa4fa287e8}\label{class_mul_item_a941147670d7ca1835a1f49fa4fa287e8} 
+\index{MulItem@{MulItem}!getEndArrowNum@{getEndArrowNum}}
+\index{getEndArrowNum@{getEndArrowNum}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{getEndArrowNum()}{getEndArrowNum()}}
+{\footnotesize\ttfamily int Mul\+Item\+::get\+End\+Arrow\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mul_item_aeefcee0506b12ae9528060a0f66377fb}\label{class_mul_item_aeefcee0506b12ae9528060a0f66377fb} 
+\index{MulItem@{MulItem}!getItemName@{getItemName}}
+\index{getItemName@{getItemName}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{getItemName()}{getItemName()}}
+{\footnotesize\ttfamily QString Mul\+Item\+::get\+Item\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mul_item_a47fb7ac0689d25b6fedf432a5b9749f5}\label{class_mul_item_a47fb7ac0689d25b6fedf432a5b9749f5} 
+\index{MulItem@{MulItem}!getStartArrowNum@{getStartArrowNum}}
+\index{getStartArrowNum@{getStartArrowNum}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{getStartArrowNum()}{getStartArrowNum()}}
+{\footnotesize\ttfamily int Mul\+Item\+::get\+Start\+Arrow\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mul_item_a424a4936be41b65265aad75e643484fd}\label{class_mul_item_a424a4936be41b65265aad75e643484fd} 
+\index{MulItem@{MulItem}!itemChange@{itemChange}}
+\index{itemChange@{itemChange}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{itemChange()}{itemChange()}}
+{\footnotesize\ttfamily QVariant Mul\+Item\+::item\+Change (\begin{DoxyParamCaption}\item[{Graphics\+Item\+Change}]{change,  }\item[{const QVariant \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_mul_item_a77e035a7a4e0361f725b249fbb4986f1}\label{class_mul_item_a77e035a7a4e0361f725b249fbb4986f1} 
+\index{MulItem@{MulItem}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{mouseDoubleClickEvent()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void Mul\+Item\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_mul_item_a0cbd0dc43cb9e311898f8195c0b43df2}\label{class_mul_item_a0cbd0dc43cb9e311898f8195c0b43df2} 
+\index{MulItem@{MulItem}!MulType@{MulType}}
+\index{MulType@{MulType}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{MulType()}{MulType()}}
+{\footnotesize\ttfamily int Mul\+Item\+::\+Mul\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mul_item_a8a2ef6c77c07189ca9bd47db9eb07f43}\label{class_mul_item_a8a2ef6c77c07189ca9bd47db9eb07f43} 
+\index{MulItem@{MulItem}!paint@{paint}}
+\index{paint@{paint}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void Mul\+Item\+::paint (\begin{DoxyParamCaption}\item[{QPainter \texorpdfstring{$\ast$}{*}}]{painter,  }\item[{const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}}]{option,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{widget }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_mul_item_a2c7dcb0fbe33209a1b53c33331efe962}\label{class_mul_item_a2c7dcb0fbe33209a1b53c33331efe962} 
+\index{MulItem@{MulItem}!removeArrow@{removeArrow}}
+\index{removeArrow@{removeArrow}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{removeArrow()}{removeArrow()}}
+{\footnotesize\ttfamily void Mul\+Item\+::remove\+Arrow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_arrow}{TArrow}} \texorpdfstring{$\ast$}{*}}]{arrow }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mul_item_a9828251df6f5bc8aa89b19efd974004e}\label{class_mul_item_a9828251df6f5bc8aa89b19efd974004e} 
+\index{MulItem@{MulItem}!removeArrows@{removeArrows}}
+\index{removeArrows@{removeArrows}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{removeArrows()}{removeArrows()}}
+{\footnotesize\ttfamily void Mul\+Item\+::remove\+Arrows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mul_item_a7cd1b2bc3859c12473e4f148de5d4ea7}\label{class_mul_item_a7cd1b2bc3859c12473e4f148de5d4ea7} 
+\index{MulItem@{MulItem}!setItemName@{setItemName}}
+\index{setItemName@{setItemName}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{setItemName()}{setItemName()}}
+{\footnotesize\ttfamily void Mul\+Item\+::set\+Item\+Name (\begin{DoxyParamCaption}\item[{QString}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mul_item_aba2f83d6dccbb3e58a28eaf9e40330a4}\label{class_mul_item_aba2f83d6dccbb3e58a28eaf9e40330a4} 
+\index{MulItem@{MulItem}!shape@{shape}}
+\index{shape@{shape}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily QPainter\+Path Mul\+Item\+::shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_mul_item_ad75bc1a69574c11c71c094f979c14765}\label{class_mul_item_ad75bc1a69574c11c71c094f979c14765} 
+\index{MulItem@{MulItem}!type@{type}}
+\index{type@{type}!MulItem@{MulItem}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily int Mul\+Item\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{mulitem_8h}{mulitem.\+h}}\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{mulitem_8cpp}{mulitem.\+cpp}}\end{DoxyCompactItemize}

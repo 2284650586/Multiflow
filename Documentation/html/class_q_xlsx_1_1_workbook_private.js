@@ -1,0 +1,28 @@
+var class_q_xlsx_1_1_workbook_private =
+[
+    [ "WorkbookPrivate", "class_q_xlsx_1_1_workbook_private.html#afffb88962958aa029b6f63afc04eb87a", null ],
+    [ "activesheetIndex", "class_q_xlsx_1_1_workbook_private.html#add5b9a08866de33a090016178300e39b", null ],
+    [ "chartFiles", "class_q_xlsx_1_1_workbook_private.html#aad5561db19f1069e25e205744ed49518", null ],
+    [ "date1904", "class_q_xlsx_1_1_workbook_private.html#a34d50163532b572d95a20aba0aebfcd2", null ],
+    [ "defaultDateFormat", "class_q_xlsx_1_1_workbook_private.html#a0cf151d2674df3ed638428d2cb03c192", null ],
+    [ "definedNamesList", "class_q_xlsx_1_1_workbook_private.html#af94b5b10506dc83e0031ce36b2ad9b51", null ],
+    [ "externalLinks", "class_q_xlsx_1_1_workbook_private.html#a2bfc61b383992faa695689eae35cffe4", null ],
+    [ "firstsheet", "class_q_xlsx_1_1_workbook_private.html#a34a5752f974eaf16afc0a0bf8c1f9079", null ],
+    [ "html_to_richstring_enabled", "class_q_xlsx_1_1_workbook_private.html#ad36477f191d8d8524176ad0be7c09294", null ],
+    [ "last_chartsheet_index", "class_q_xlsx_1_1_workbook_private.html#a2c12efa97d4765026d50878ea3b2e220", null ],
+    [ "last_sheet_id", "class_q_xlsx_1_1_workbook_private.html#a515fd3935940f5962ea24caecfd59f37", null ],
+    [ "last_worksheet_index", "class_q_xlsx_1_1_workbook_private.html#ad47a2e7cd82ddfab7327c940867a7e91", null ],
+    [ "mediaFiles", "class_q_xlsx_1_1_workbook_private.html#a8caacccad4b27243da57285ad14efa84", null ],
+    [ "sharedStrings", "class_q_xlsx_1_1_workbook_private.html#abafa9a652e5df1fcb7b73c3ccf9b1966", null ],
+    [ "sheetNames", "class_q_xlsx_1_1_workbook_private.html#a015ce30d183d00c482cac23c6d3235b4", null ],
+    [ "sheets", "class_q_xlsx_1_1_workbook_private.html#a701549e3cf661febb49b530f5a13f4a8", null ],
+    [ "strings_to_hyperlinks_enabled", "class_q_xlsx_1_1_workbook_private.html#a9435c1dec96f81ef2618b02c5574b443", null ],
+    [ "strings_to_numbers_enabled", "class_q_xlsx_1_1_workbook_private.html#a1fd965760e242473093125728e6d40bf", null ],
+    [ "styles", "class_q_xlsx_1_1_workbook_private.html#a84bd31e179c210225d8f40eba3dbfee9", null ],
+    [ "table_count", "class_q_xlsx_1_1_workbook_private.html#aeea2c5920a5df6ef0731078d6914d2b0", null ],
+    [ "theme", "class_q_xlsx_1_1_workbook_private.html#af4c61efb11788e658f2bb9ae1154dae8", null ],
+    [ "window_height", "class_q_xlsx_1_1_workbook_private.html#a984f478cfe18bd598bb18d4d806fd47e", null ],
+    [ "window_width", "class_q_xlsx_1_1_workbook_private.html#a0e4b764ba66997972d415b47fd3b8125", null ],
+    [ "x_window", "class_q_xlsx_1_1_workbook_private.html#aabe98bd70969e195a3f09c4adc6722a3", null ],
+    [ "y_window", "class_q_xlsx_1_1_workbook_private.html#ad12d29c4468b0efc3d03b16c6e4c685c", null ]
+];

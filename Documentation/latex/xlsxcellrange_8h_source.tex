@@ -1,0 +1,86 @@
+\doxysection{xlsxcellrange.\+h}
+\hypertarget{xlsxcellrange_8h_source}{}\label{xlsxcellrange_8h_source}\index{MultiflowUI/xlsx/xlsxcellrange.h@{MultiflowUI/xlsx/xlsxcellrange.h}}
+\mbox{\hyperlink{xlsxcellrange_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ QXLSX\_XLSXCELLRANGE\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ QXLSX\_XLSXCELLRANGE\_H}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxcellreference_8h}{xlsxcellreference.h}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \mbox{\hyperlink{namespace_q_t___b_e_g_i_n___n_a_m_e_s_p_a_c_e___x_l_s_x}{QT\_BEGIN\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \mbox{\hyperlink{class_cell_range}{CellRange}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}(\textcolor{keywordtype}{int}\ firstRow,\ \textcolor{keywordtype}{int}\ firstColumn,\ \textcolor{keywordtype}{int}\ lastRow,\ \textcolor{keywordtype}{int}\ lastColumn);}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&topLeft,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&bottomRight);}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}(\textcolor{keyword}{const}\ QString\ \&range);}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *range);}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&other);}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{\string~CellRange}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ QString\ toString(\textcolor{keywordtype}{bool}\ row\_abs\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ col\_abs\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ isValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cell_range_aa616c35471de3bc412c532f86d031708}{setFirstRow}}(\textcolor{keywordtype}{int}\ row)\ \{\ top\ =\ row;\ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cell_range_acf5285fb33518e36565a7a94d6f8401a}{setLastRow}}(\textcolor{keywordtype}{int}\ row)\ \{\ bottom\ =\ row;\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cell_range_af29a2829170391fa4f8cf93585b34781}{setFirstColumn}}(\textcolor{keywordtype}{int}\ col)\ \{\ left\ =\ col;\ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cell_range_abc2f777344e568efa405fa74b9eccc33}{setLastColumn}}(\textcolor{keywordtype}{int}\ col)\ \{\ right\ =\ col;\ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_range_aa004a0c7a882e317540327f65ecdad3c}{firstRow}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ top;\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_range_a902389633d08a6d18bd79a888eb46ca9}{lastRow}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ bottom;\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_range_abe953acd27bff31b1cc432294d1eb3e2}{firstColumn}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ left;\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_range_ac98d626e6e5b8a8a8bd5d4e4324726ca}{lastColumn}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ right;\ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_range_a7b4a061f3d55327a1d26aaf5ad0119d4}{rowCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ bottom\ -\/\ top\ +\ 1;\ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_range_aec6c5241b0fd6af9df89dda2f9bba367}{columnCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ right\ -\/\ left\ +\ 1;\ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \mbox{\hyperlink{class_cell_range_af0ca6a9234117067aaed012613ff42ac}{topLeft}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}(top,\ left);\ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \mbox{\hyperlink{class_cell_range_a8e425491d78841a72c1a494b6b9e3217}{topRight}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}(top,\ right);\ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \mbox{\hyperlink{class_cell_range_a3c432ed0b086c40c6f9e7e3492e4640a}{bottomLeft}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}(bottom,\ left);\ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \mbox{\hyperlink{class_cell_range_a9458904696a5706f5c869ea8f1973209}{bottomRight}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}(bottom,\ right);\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cell_range_a4dbd2f1ed628206130ee8179088856cd}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ top\ ==\ other.top\ \&\&\ bottom\ ==\ other.bottom\ \&\&\ left\ ==\ other.left}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ right\ ==\ other.right;}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cell_range_abf80338738c18f83c0998965f7b3f447}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00066\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ top\ !=\ other.top\ ||\ bottom\ !=\ other.bottom\ ||\ left\ !=\ other.left}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ ||\ right\ !=\ other.right;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ init(\textcolor{keyword}{const}\ QString\ \&range);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ top,\ left,\ bottom,\ right;}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \mbox{\hyperlink{xlsxglobal_8h_a6a896dcec83cee81dc9f1051c3ce0f6e}{QT\_END\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \mbox{\hyperlink{xlsxcellrange_8h_a4ef4c7924495bde2645ae299c1a9cb58}{Q\_DECLARE\_TYPEINFO}}(QXlsx::CellRange,\ Q\_MOVABLE\_TYPE);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QXLSX\_XLSXCELLRANGE\_H}}
+
+\end{DoxyCode}

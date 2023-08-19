@@ -1,0 +1,173 @@
+\doxysection{Cell Class Reference}
+\hypertarget{class_cell}{}\label{class_cell}\index{Cell@{Cell}}
+
+
+The \doxylink{class_cell}{Cell} class provides a API that is used to handle the worksheet cell.  
+
+
+
+
+{\ttfamily \#include $<$xlsxcell.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd}{Cell\+Type}} \{ \newline
+\mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaf642cb660d4e278132e1ad11044f5428}{Boolean\+Type}}
+, \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdac8f83e2f37b22de2867de6b2502eebaf}{Number\+Type}}
+, \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaebeb655fff143e808a93cbbed7f4df15}{Error\+Type}}
+, \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda637b037d0000f4093cc23e68c5e2058c}{Shared\+String\+Type}}
+, \newline
+\mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda5c37041745dfcb9d961bcee0bfb2c4b3}{String\+Type}}
+, \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdacb49ceea508d827f457217b290c65606}{Inline\+String\+Type}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd}{Cell\+Type}} \mbox{\hyperlink{class_cell_a469673cb9ec1094d84d2dbc42f8bf1c8}{cell\+Type}} () const
+\item 
+QVariant \mbox{\hyperlink{class_cell_a7b8bbb1b5765effeafa29994c16b54c4}{value}} () const
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_cell_ab8ba14846eba0ebc07f07c61166541f3}{format}} () const
+\item 
+bool \mbox{\hyperlink{class_cell_acb264ee648a904c49d54dc51bde00c33}{has\+Formula}} () const
+\item 
+\mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \mbox{\hyperlink{class_cell_a867a5684785745ab285de237ea34e72c}{formula}} () const
+\item 
+bool \mbox{\hyperlink{class_cell_af4a0b949cedd009091ee86855d5aea35}{is\+Date\+Time}} () const
+\item 
+QDate\+Time \mbox{\hyperlink{class_cell_a469296284fcb7e0bb4926be141e158ba}{date\+Time}} () const
+\item 
+bool \mbox{\hyperlink{class_cell_aa494ba03cbca7a7ec321c99e5defac92}{is\+Rich\+String}} () const
+\item 
+\mbox{\hyperlink{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}{\texorpdfstring{$\sim$}{\string~}\+Cell}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_cell_afd9c7929d30c425c6c52a03cdee91578}{Worksheet}}
+\item 
+class \mbox{\hyperlink{class_cell_aa3edc4b8a1670a2d51d3928c922ff490}{Worksheet\+Private}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_cell}{Cell} class provides a API that is used to handle the worksheet cell. 
+
+\textbackslash{}inmodule Qt\+Xlsx  
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd}\label{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd} 
+\index{Cell@{Cell}!CellType@{CellType}}
+\index{CellType@{CellType}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{CellType}{CellType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd}{Cell\+::\+Cell\+Type}}}
+
+\textbackslash{}value Boolean\+Type Boolean type \textbackslash{}value Number\+Type Number type, can be blank or used with forumula \textbackslash{}value Error\+Type Error type \textbackslash{}value Shared\+String\+Type Shared string type \textbackslash{}value String\+Type String type, can be used with forumula \textbackslash{}value Inline\+String\+Type Inline string type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BooleanType@{BooleanType}!Cell@{Cell}}\index{Cell@{Cell}!BooleanType@{BooleanType}}}\Hypertarget{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaf642cb660d4e278132e1ad11044f5428}\label{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaf642cb660d4e278132e1ad11044f5428} 
+Boolean\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NumberType@{NumberType}!Cell@{Cell}}\index{Cell@{Cell}!NumberType@{NumberType}}}\Hypertarget{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdac8f83e2f37b22de2867de6b2502eebaf}\label{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdac8f83e2f37b22de2867de6b2502eebaf} 
+Number\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ErrorType@{ErrorType}!Cell@{Cell}}\index{Cell@{Cell}!ErrorType@{ErrorType}}}\Hypertarget{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaebeb655fff143e808a93cbbed7f4df15}\label{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdaebeb655fff143e808a93cbbed7f4df15} 
+Error\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SharedStringType@{SharedStringType}!Cell@{Cell}}\index{Cell@{Cell}!SharedStringType@{SharedStringType}}}\Hypertarget{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda637b037d0000f4093cc23e68c5e2058c}\label{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda637b037d0000f4093cc23e68c5e2058c} 
+Shared\+String\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StringType@{StringType}!Cell@{Cell}}\index{Cell@{Cell}!StringType@{StringType}}}\Hypertarget{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda5c37041745dfcb9d961bcee0bfb2c4b3}\label{class_cell_a17f4fc9beca099930fcbf72a4c9b59bda5c37041745dfcb9d961bcee0bfb2c4b3} 
+String\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{InlineStringType@{InlineStringType}!Cell@{Cell}}\index{Cell@{Cell}!InlineStringType@{InlineStringType}}}\Hypertarget{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdacb49ceea508d827f457217b290c65606}\label{class_cell_a17f4fc9beca099930fcbf72a4c9b59bdacb49ceea508d827f457217b290c65606} 
+Inline\+String\+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}\label{class_cell_a9fa559f7a28e2b4336c6879ca09304d8} 
+\index{Cell@{Cell}!````~Cell@{\texorpdfstring{$\sim$}{\string~}Cell}}
+\index{````~Cell@{\texorpdfstring{$\sim$}{\string~}Cell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Cell()}{\string~Cell()}}
+{\footnotesize\ttfamily Cell\+::\texorpdfstring{$\sim$}{\string~}\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the \doxylink{class_cell}{Cell} and cleans up. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cell_a469673cb9ec1094d84d2dbc42f8bf1c8}\label{class_cell_a469673cb9ec1094d84d2dbc42f8bf1c8} 
+\index{Cell@{Cell}!cellType@{cellType}}
+\index{cellType@{cellType}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{cellType()}{cellType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_a17f4fc9beca099930fcbf72a4c9b59bd}{Cell\+::\+Cell\+Type}} Cell\+::cell\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the data\+Type of this \doxylink{class_cell}{Cell} \Hypertarget{class_cell_a469296284fcb7e0bb4926be141e158ba}\label{class_cell_a469296284fcb7e0bb4926be141e158ba} 
+\index{Cell@{Cell}!dateTime@{dateTime}}
+\index{dateTime@{dateTime}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{dateTime()}{dateTime()}}
+{\footnotesize\ttfamily QDate\+Time Cell\+::date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the data time value. \Hypertarget{class_cell_ab8ba14846eba0ebc07f07c61166541f3}\label{class_cell_ab8ba14846eba0ebc07f07c61166541f3} 
+\index{Cell@{Cell}!format@{format}}
+\index{format@{format}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{format()}{format()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} Cell\+::format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the style used by this \doxylink{class_cell}{Cell}. If no style used, 0 will be returned. \Hypertarget{class_cell_a867a5684785745ab285de237ea34e72c}\label{class_cell_a867a5684785745ab285de237ea34e72c} 
+\index{Cell@{Cell}!formula@{formula}}
+\index{formula@{formula}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{formula()}{formula()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} Cell\+::formula (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the formula contents if the data\+Type is Formula \Hypertarget{class_cell_acb264ee648a904c49d54dc51bde00c33}\label{class_cell_acb264ee648a904c49d54dc51bde00c33} 
+\index{Cell@{Cell}!hasFormula@{hasFormula}}
+\index{hasFormula@{hasFormula}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{hasFormula()}{hasFormula()}}
+{\footnotesize\ttfamily bool Cell\+::has\+Formula (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true if the cell has one formula. \Hypertarget{class_cell_af4a0b949cedd009091ee86855d5aea35}\label{class_cell_af4a0b949cedd009091ee86855d5aea35} 
+\index{Cell@{Cell}!isDateTime@{isDateTime}}
+\index{isDateTime@{isDateTime}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{isDateTime()}{isDateTime()}}
+{\footnotesize\ttfamily bool Cell\+::is\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether the value is probably a date\+Time or not \Hypertarget{class_cell_aa494ba03cbca7a7ec321c99e5defac92}\label{class_cell_aa494ba03cbca7a7ec321c99e5defac92} 
+\index{Cell@{Cell}!isRichString@{isRichString}}
+\index{isRichString@{isRichString}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{isRichString()}{isRichString()}}
+{\footnotesize\ttfamily bool Cell\+::is\+Rich\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether the cell is probably a rich string or not \Hypertarget{class_cell_a7b8bbb1b5765effeafa29994c16b54c4}\label{class_cell_a7b8bbb1b5765effeafa29994c16b54c4} 
+\index{Cell@{Cell}!value@{value}}
+\index{value@{value}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily QVariant Cell\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the data content of this \doxylink{class_cell}{Cell} 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_cell_afd9c7929d30c425c6c52a03cdee91578}\label{class_cell_afd9c7929d30c425c6c52a03cdee91578} 
+\index{Cell@{Cell}!Worksheet@{Worksheet}}
+\index{Worksheet@{Worksheet}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Worksheet}{Worksheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_worksheet}{Worksheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_cell_aa3edc4b8a1670a2d51d3928c922ff490}\label{class_cell_aa3edc4b8a1670a2d51d3928c922ff490} 
+\index{Cell@{Cell}!WorksheetPrivate@{WorksheetPrivate}}
+\index{WorksheetPrivate@{WorksheetPrivate}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{WorksheetPrivate}{WorksheetPrivate}}
+{\footnotesize\ttfamily friend class Worksheet\+Private\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcell_8h}{xlsxcell.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcell_8cpp}{xlsxcell.\+cpp}}\end{DoxyCompactItemize}

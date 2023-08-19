@@ -1,0 +1,50 @@
+\doxysection{tsourceitem.\+h}
+\hypertarget{tsourceitem_8h_source}{}\label{tsourceitem_8h_source}\index{MultiflowUI/TView/tsourceitem.h@{MultiflowUI/TView/tsourceitem.h}}
+\mbox{\hyperlink{tsourceitem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TSOURCEITEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TSOURCEITEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsPixmapItem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msource_8h}{entity/msource.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{common.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_source_item}{TSourceItem}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_source_item_a1a32b472852522ae22275f0edfcd774cad118d6a26385e3469c00a560b8cd5a8c}{Type}}\ =\ UserType\ +\ Multiflow\_TYPE::Source\ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_t_source_item}{TSourceItem}}(QString\ sourceName\ =\ \textcolor{stringliteral}{"{}source"{}},\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interfac}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_m_source}{MSource}}\ source;}
+\DoxyCodeLine{00020\ \ \ \ \ QString\ sourceName;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_source_item_a7b124a3deb8dd0f16b7862e5f721a2bd}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_source_item_a97be2951035982da4ca5187042e7478e}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_source_item_a0e659af26e74951584caa8f674d67632}{getId}}();}
+\DoxyCodeLine{00027\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_source_item_aaaa3e687238793f3b26e8e1b121308af}{getName}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_source_item_a01e4ec3f899527c39907d6905978e700}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_source_item_a1a32b472852522ae22275f0edfcd774cad118d6a26385e3469c00a560b8cd5a8c}{Type}};\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ signals:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_source_item_aff233231fc773e9262f84704992fdfd3}{sourceItemChange}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00037\ \ \ \ \ QVariant\ \mbox{\hyperlink{class_t_source_item_a7b119080f61a70cc0a6cfbb32379f2bf}{itemChange}}(GraphicsItemChange\ change,\ \textcolor{keyword}{const}\ QVariant\ \&value)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_source_item_aac91115bbd4f90670580cb622e2db259}{mouseDoubleClickEvent}}(QGraphicsSceneMouseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TSOURCEITEM\_H}}
+
+\end{DoxyCode}

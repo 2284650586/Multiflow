@@ -1,0 +1,545 @@
+\doxysection{QXlsx\+::Worksheet\+Private Class Reference}
+\hypertarget{class_q_xlsx_1_1_worksheet_private}{}\label{class_q_xlsx_1_1_worksheet_private}\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+
+
+{\ttfamily \#include $<$xlsxworksheet\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Worksheet\+Private\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_q_xlsx_1_1_worksheet_private}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_afc0280e8184f95248ab88bd653dbcea3}{Worksheet\+Private}} (\mbox{\hyperlink{class_worksheet}{Worksheet}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Worksheet\+::\+Create\+Flag}} \mbox{\hyperlink{class_abstract_o_o_xml_file_private_a28eec6ceaba312dc990ea0c5bbb5724d}{flag}})
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_afbb2cbb0487bee003baa0c3a6f52d4ae}{\texorpdfstring{$\sim$}{\string~}\+Worksheet\+Private}} ()
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a37b0508eaef636e15516c09143675bf6}{check\+Dimensions}} (int row, int col, bool ignore\+\_\+row=false, bool ignore\+\_\+col=false)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_af867e1d4cdcf305e42e6d313fbf7c18c}{cell\+Format}} (int row, int col) const
+\item 
+QString \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_acc0cdb0d18e33a2693c09fc68d90262e}{generate\+Dimension\+String}} () const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a17a39f66cb3b4e0443ff0f3765013302}{calculate\+Spans}} () const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a9b501a12404ebbf64d10befa7c705987}{split\+Cols\+Info}} (int col\+First, int col\+Last)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a6c304ff32585bf32d902b29243b72453}{validate\+Dimension}} ()
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ab82e9be52ed59ce1689b487cc4d9bc92}{save\+Xml\+Sheet\+Data}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a2fc74f21eb80c707585166bc901cd295}{save\+Xml\+Cell\+Data}} (QXml\+Stream\+Writer \&writer, int row, int col, QShared\+Pointer$<$ \mbox{\hyperlink{class_cell}{Cell}} $>$ cell) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ad2d741176a8b3c29b4f065f98e4a7ac6}{save\+Xml\+Merge\+Cells}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ab15c4cf631599ca35cd1a518f18f436c}{save\+Xml\+Hyperlinks}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_af7984aaa32089822fab4c73d4b86b0e7}{save\+Xml\+Drawings}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a7f7552886350e6047ff85a3c39b47e20}{save\+Xml\+Data\+Validations}} (QXml\+Stream\+Writer \&writer) const
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a2c1e8b8d69756a03cad35d9c1b1651c8}{row\+Pixels\+Size}} (int row) const
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a49a6788f83cbd8e2a9e24e97a7fceb87}{col\+Pixels\+Size}} (int col) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a593b7e749dcce7e32a215b1601c8d60a}{load\+Xml\+Sheet\+Data}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a86abc423cc50a9f2e8f72fd1d20ffc99}{load\+Xml\+Columns\+Info}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_aa5050c9e4d0bf59aaefaea4a2d504f85}{load\+Xml\+Merge\+Cells}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a0716296de22db3803dd5f2e7302d5124}{load\+Xml\+Data\+Validations}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a87ad67039498eadd808afdcd6d4a1000}{load\+Xml\+Sheet\+Format\+Props}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_afae169d9f31978ae07fb52b1f75b954a}{load\+Xml\+Sheet\+Views}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a77017d4e2ac6469fdedfaeadfbcc73af}{load\+Xml\+Hyperlinks}} (QXml\+Stream\+Reader \&reader)
+\item 
+QList$<$ QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info}{Xlsx\+Row\+Info}} $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a247301aae5ccb4726e468248d96dd486}{get\+Row\+Info\+List}} (int row\+First, int row\+Last)
+\item 
+QList$<$ QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info}{Xlsx\+Column\+Info}} $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a2a9f89fbffd49741b1b359c576d7af51}{get\+Column\+Info\+List}} (int col\+First, int col\+Last)
+\item 
+QList$<$ int $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_aee993a98a83906c4ba310de8c8dfe551}{get\+Column\+Indexes}} (int col\+First, int col\+Last)
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_af51bdc745caec0623e8047a3789e4839}{is\+Column\+Range\+Valid}} (int col\+First, int col\+Last)
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_shared_strings}{Shared\+Strings}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a7261a78c353a7ebc097f390ad1757bd7}{shared\+Strings}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private}{QXlsx\+::\+Abstract\+Sheet\+Private}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_a965c68442ae31ee2f4cf8e788ff5ea1a}{Abstract\+Sheet\+Private}} (\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*}p, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Abstract\+Sheet\+::\+Create\+Flag}} \mbox{\hyperlink{class_abstract_o_o_xml_file_private_a28eec6ceaba312dc990ea0c5bbb5724d}{flag}})
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_a6df4e3897bd489a1593cf786c307f07e}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+Sheet\+Private}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private_a2ff46462c9b2b11763707571f2fcc4ef}{Abstract\+OOXml\+File\+Private}} (\mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}} \texorpdfstring{$\ast$}{*}q, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Abstract\+OOXml\+File\+::\+Create\+Flag}} \mbox{\hyperlink{class_abstract_o_o_xml_file_private_a28eec6ceaba312dc990ea0c5bbb5724d}{flag}})
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_private_adfdcbf88c3fb90cce23e848864e61d84}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File\+Private}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QMap$<$ int, QMap$<$ int, QShared\+Pointer$<$ \mbox{\hyperlink{class_cell}{Cell}} $>$ $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a98de321e315cc4fbd901a5fa999958c1}{cell\+Table}}
+\item 
+QMap$<$ int, QMap$<$ int, QString $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ab40366c412579e15ab0bbe106b466a43}{comments}}
+\item 
+QMap$<$ int, QMap$<$ int, QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data}{Xlsx\+Hyperlink\+Data}} $>$ $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ac97337835555c14963ab6bff1df0a013}{url\+Table}}
+\item 
+QList$<$ \mbox{\hyperlink{class_cell_range}{Cell\+Range}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a09be56c50a324f6d961b1cafea5bac4c}{merges}}
+\item 
+QMap$<$ int, QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info}{Xlsx\+Row\+Info}} $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a1b3a550774ddace74ce144c5b0ae2f24}{rows\+Info}}
+\item 
+QMap$<$ int, QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info}{Xlsx\+Column\+Info}} $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a235df6e2058e5d402faf21d2e42b02ac}{cols\+Info}}
+\item 
+QMap$<$ int, QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info}{Xlsx\+Column\+Info}} $>$ $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a02b85316ab153e8e166f7313e72cdf3c}{cols\+Info\+Helper}}
+\item 
+QList$<$ \mbox{\hyperlink{class_data_validation}{Data\+Validation}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_adbf599e8d33b57dfca5b00b69ccad55f}{data\+Validations\+List}}
+\item 
+QList$<$ \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a211ec353291c2f8011fd37cb6ccca3fb}{conditional\+Formatting\+List}}
+\item 
+QMap$<$ int, \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a60571ecebba4e7f4041559e9ba4760b0}{shared\+Formula\+Map}}
+\item 
+\mbox{\hyperlink{class_cell_range}{Cell\+Range}} \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_abc1058b39a8ba97d3fe3b7c9a54655dd}{dimension}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a0af539ff08b947639a8d8f91b7efa589}{previous\+\_\+row}}
+\item 
+QMap$<$ int, QString $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_af4cf4fc673e57c8eb19d5560e8be1996}{row\+\_\+spans}}
+\item 
+QMap$<$ int, double $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a6924ab107f9b8fe373e7a525cac03ff9}{row\+\_\+sizes}}
+\item 
+QMap$<$ int, double $>$ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a51a1994130322245c9b2fcab1244bb1b}{col\+\_\+sizes}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ae2af7baeda426f4b777e53061c110ff2}{outline\+\_\+row\+\_\+level}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a15102cd98eab93669e42eb13c060dcaf}{outline\+\_\+col\+\_\+level}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a3eca39a235e79d1a449ac1c4f59f55ed}{default\+\_\+row\+\_\+height}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ad77fca43d7983076fa3394784ca96b21}{default\+\_\+row\+\_\+zeroed}}
+\item 
+\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props}{Xlsx\+Sheet\+Format\+Props}} \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a980dc81262af721bbe1ab80310d67d9f}{sheet\+Format\+Props}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ab26a3ce46ab1248ab47f0e3bd5d71dc7}{window\+Protection}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a478685354e344d50c7e812a3e98d9907}{show\+Formulas}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_abd8b865e2da38618c78d0c727d40990e}{show\+Grid\+Lines}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a20b2d2fd4afc64db07fd5dd9e95b23f9}{show\+Row\+Col\+Headers}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ad0d779f22ac65ffb1ac3c407a295e12b}{show\+Zeros}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a62cc0f75ae08b37f43be4afd7817c1b7}{right\+To\+Left}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_aaa01c82386324fa6294494132337529e}{tab\+Selected}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a553ba5d2c443dd247ec26384543d5c2c}{show\+Ruler}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a859e44768665723c19688a4f7e8118e3}{show\+Outline\+Symbols}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a5452f81a1a6d79f75b158c9e32a2de9f}{show\+White\+Space}}
+\item 
+QRegular\+Expression \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a4f3e0f845ae66a5d92fefbbefe513a2f}{url\+Pattern}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private}{QXlsx\+::\+Abstract\+Sheet\+Private}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_workbook}{Workbook}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_abc031211642375a3ce20b88480b2f343}{workbook}}
+\item 
+QShared\+Pointer$<$ \mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_a492fac5d62ed865c357f1830b37c83b7}{drawing}}
+\item 
+QString \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_a5c4c783538053657159115db450d4a87}{name}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_ad3c5351472e28d2c390fe49be8c3567c}{id}}
+\item 
+\mbox{\hyperlink{class_abstract_sheet_a50de6274f4fe05ac3b83d4604ce40372}{Abstract\+Sheet\+::\+Sheet\+State}} \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_a0c13e2fdf1249d89d3b939698eb917b9}{sheet\+State}}
+\item 
+\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}} \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private_a025a622e5fa2bcbe6dadc1adc8ac61ee}{type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}}}
+\begin{DoxyCompactItemize}
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_private_a8b664c2882372eba6be39bfab41ccd5c}{file\+Path\+In\+Package}}
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_private_afda208f8264795515573e50a9c40c5b4}{relationships}}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Abstract\+OOXml\+File\+::\+Create\+Flag}} \mbox{\hyperlink{class_abstract_o_o_xml_file_private_a28eec6ceaba312dc990ea0c5bbb5724d}{flag}}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_private_ae15c8d65361834a86112f85177716a35}{q\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_afc0280e8184f95248ab88bd653dbcea3}\label{class_q_xlsx_1_1_worksheet_private_afc0280e8184f95248ab88bd653dbcea3} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!WorksheetPrivate@{WorksheetPrivate}}
+\index{WorksheetPrivate@{WorksheetPrivate}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{WorksheetPrivate()}{WorksheetPrivate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_aa1299937615f7a8aaf39c6fddaab761c}{QT\+\_\+\+BEGIN\+\_\+\+NAMESPACE\+\_\+\+XLSX}} Worksheet\+Private\+::\+Worksheet\+Private (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_worksheet}{Worksheet}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Worksheet\+::\+Create\+Flag}}}]{flag }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_afbb2cbb0487bee003baa0c3a6f52d4ae}\label{class_q_xlsx_1_1_worksheet_private_afbb2cbb0487bee003baa0c3a6f52d4ae} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!````~WorksheetPrivate@{\texorpdfstring{$\sim$}{\string~}WorksheetPrivate}}
+\index{````~WorksheetPrivate@{\texorpdfstring{$\sim$}{\string~}WorksheetPrivate}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}WorksheetPrivate()}{\string~WorksheetPrivate()}}
+{\footnotesize\ttfamily Worksheet\+Private\+::\texorpdfstring{$\sim$}{\string~}\+Worksheet\+Private (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a17a39f66cb3b4e0443ff0f3765013302}\label{class_q_xlsx_1_1_worksheet_private_a17a39f66cb3b4e0443ff0f3765013302} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!calculateSpans@{calculateSpans}}
+\index{calculateSpans@{calculateSpans}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{calculateSpans()}{calculateSpans()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::calculate\+Spans (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_af867e1d4cdcf305e42e6d313fbf7c18c}\label{class_q_xlsx_1_1_worksheet_private_af867e1d4cdcf305e42e6d313fbf7c18c} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!cellFormat@{cellFormat}}
+\index{cellFormat@{cellFormat}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{cellFormat()}{cellFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} Worksheet\+Private\+::cell\+Format (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a37b0508eaef636e15516c09143675bf6}\label{class_q_xlsx_1_1_worksheet_private_a37b0508eaef636e15516c09143675bf6} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!checkDimensions@{checkDimensions}}
+\index{checkDimensions@{checkDimensions}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{checkDimensions()}{checkDimensions()}}
+{\footnotesize\ttfamily int Worksheet\+Private\+::check\+Dimensions (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{bool}]{ignore\+\_\+row = {\ttfamily false},  }\item[{bool}]{ignore\+\_\+col = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a49a6788f83cbd8e2a9e24e97a7fceb87}\label{class_q_xlsx_1_1_worksheet_private_a49a6788f83cbd8e2a9e24e97a7fceb87} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!colPixelsSize@{colPixelsSize}}
+\index{colPixelsSize@{colPixelsSize}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{colPixelsSize()}{colPixelsSize()}}
+{\footnotesize\ttfamily int Worksheet\+Private\+::col\+Pixels\+Size (\begin{DoxyParamCaption}\item[{int}]{col }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_acc0cdb0d18e33a2693c09fc68d90262e}\label{class_q_xlsx_1_1_worksheet_private_acc0cdb0d18e33a2693c09fc68d90262e} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!generateDimensionString@{generateDimensionString}}
+\index{generateDimensionString@{generateDimensionString}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{generateDimensionString()}{generateDimensionString()}}
+{\footnotesize\ttfamily QString Worksheet\+Private\+::generate\+Dimension\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_aee993a98a83906c4ba310de8c8dfe551}\label{class_q_xlsx_1_1_worksheet_private_aee993a98a83906c4ba310de8c8dfe551} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!getColumnIndexes@{getColumnIndexes}}
+\index{getColumnIndexes@{getColumnIndexes}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{getColumnIndexes()}{getColumnIndexes()}}
+{\footnotesize\ttfamily QList$<$ int $>$ Worksheet\+Private\+::get\+Column\+Indexes (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a2a9f89fbffd49741b1b359c576d7af51}\label{class_q_xlsx_1_1_worksheet_private_a2a9f89fbffd49741b1b359c576d7af51} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!getColumnInfoList@{getColumnInfoList}}
+\index{getColumnInfoList@{getColumnInfoList}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{getColumnInfoList()}{getColumnInfoList()}}
+{\footnotesize\ttfamily QList$<$ QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info}{Xlsx\+Column\+Info}} $>$ $>$ Worksheet\+Private\+::get\+Column\+Info\+List (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a247301aae5ccb4726e468248d96dd486}\label{class_q_xlsx_1_1_worksheet_private_a247301aae5ccb4726e468248d96dd486} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!getRowInfoList@{getRowInfoList}}
+\index{getRowInfoList@{getRowInfoList}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{getRowInfoList()}{getRowInfoList()}}
+{\footnotesize\ttfamily QList$<$ QShared\+Pointer$<$ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info}{Xlsx\+Row\+Info}} $>$ $>$ Worksheet\+Private\+::get\+Row\+Info\+List (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_af51bdc745caec0623e8047a3789e4839}\label{class_q_xlsx_1_1_worksheet_private_af51bdc745caec0623e8047a3789e4839} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!isColumnRangeValid@{isColumnRangeValid}}
+\index{isColumnRangeValid@{isColumnRangeValid}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{isColumnRangeValid()}{isColumnRangeValid()}}
+{\footnotesize\ttfamily bool Worksheet\+Private\+::is\+Column\+Range\+Valid (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a86abc423cc50a9f2e8f72fd1d20ffc99}\label{class_q_xlsx_1_1_worksheet_private_a86abc423cc50a9f2e8f72fd1d20ffc99} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!loadXmlColumnsInfo@{loadXmlColumnsInfo}}
+\index{loadXmlColumnsInfo@{loadXmlColumnsInfo}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{loadXmlColumnsInfo()}{loadXmlColumnsInfo()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::load\+Xml\+Columns\+Info (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a0716296de22db3803dd5f2e7302d5124}\label{class_q_xlsx_1_1_worksheet_private_a0716296de22db3803dd5f2e7302d5124} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!loadXmlDataValidations@{loadXmlDataValidations}}
+\index{loadXmlDataValidations@{loadXmlDataValidations}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{loadXmlDataValidations()}{loadXmlDataValidations()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::load\+Xml\+Data\+Validations (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a77017d4e2ac6469fdedfaeadfbcc73af}\label{class_q_xlsx_1_1_worksheet_private_a77017d4e2ac6469fdedfaeadfbcc73af} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!loadXmlHyperlinks@{loadXmlHyperlinks}}
+\index{loadXmlHyperlinks@{loadXmlHyperlinks}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{loadXmlHyperlinks()}{loadXmlHyperlinks()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::load\+Xml\+Hyperlinks (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_aa5050c9e4d0bf59aaefaea4a2d504f85}\label{class_q_xlsx_1_1_worksheet_private_aa5050c9e4d0bf59aaefaea4a2d504f85} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!loadXmlMergeCells@{loadXmlMergeCells}}
+\index{loadXmlMergeCells@{loadXmlMergeCells}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{loadXmlMergeCells()}{loadXmlMergeCells()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::load\+Xml\+Merge\+Cells (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a593b7e749dcce7e32a215b1601c8d60a}\label{class_q_xlsx_1_1_worksheet_private_a593b7e749dcce7e32a215b1601c8d60a} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!loadXmlSheetData@{loadXmlSheetData}}
+\index{loadXmlSheetData@{loadXmlSheetData}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{loadXmlSheetData()}{loadXmlSheetData()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::load\+Xml\+Sheet\+Data (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a87ad67039498eadd808afdcd6d4a1000}\label{class_q_xlsx_1_1_worksheet_private_a87ad67039498eadd808afdcd6d4a1000} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!loadXmlSheetFormatProps@{loadXmlSheetFormatProps}}
+\index{loadXmlSheetFormatProps@{loadXmlSheetFormatProps}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{loadXmlSheetFormatProps()}{loadXmlSheetFormatProps()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::load\+Xml\+Sheet\+Format\+Props (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_afae169d9f31978ae07fb52b1f75b954a}\label{class_q_xlsx_1_1_worksheet_private_afae169d9f31978ae07fb52b1f75b954a} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!loadXmlSheetViews@{loadXmlSheetViews}}
+\index{loadXmlSheetViews@{loadXmlSheetViews}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{loadXmlSheetViews()}{loadXmlSheetViews()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::load\+Xml\+Sheet\+Views (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a2c1e8b8d69756a03cad35d9c1b1651c8}\label{class_q_xlsx_1_1_worksheet_private_a2c1e8b8d69756a03cad35d9c1b1651c8} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!rowPixelsSize@{rowPixelsSize}}
+\index{rowPixelsSize@{rowPixelsSize}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{rowPixelsSize()}{rowPixelsSize()}}
+{\footnotesize\ttfamily int Worksheet\+Private\+::row\+Pixels\+Size (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a2fc74f21eb80c707585166bc901cd295}\label{class_q_xlsx_1_1_worksheet_private_a2fc74f21eb80c707585166bc901cd295} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!saveXmlCellData@{saveXmlCellData}}
+\index{saveXmlCellData@{saveXmlCellData}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{saveXmlCellData()}{saveXmlCellData()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::save\+Xml\+Cell\+Data (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer,  }\item[{int}]{row,  }\item[{int}]{col,  }\item[{QShared\+Pointer$<$ \mbox{\hyperlink{class_cell}{Cell}} $>$}]{cell }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a7f7552886350e6047ff85a3c39b47e20}\label{class_q_xlsx_1_1_worksheet_private_a7f7552886350e6047ff85a3c39b47e20} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!saveXmlDataValidations@{saveXmlDataValidations}}
+\index{saveXmlDataValidations@{saveXmlDataValidations}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{saveXmlDataValidations()}{saveXmlDataValidations()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::save\+Xml\+Data\+Validations (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_af7984aaa32089822fab4c73d4b86b0e7}\label{class_q_xlsx_1_1_worksheet_private_af7984aaa32089822fab4c73d4b86b0e7} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!saveXmlDrawings@{saveXmlDrawings}}
+\index{saveXmlDrawings@{saveXmlDrawings}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{saveXmlDrawings()}{saveXmlDrawings()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::save\+Xml\+Drawings (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ab15c4cf631599ca35cd1a518f18f436c}\label{class_q_xlsx_1_1_worksheet_private_ab15c4cf631599ca35cd1a518f18f436c} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!saveXmlHyperlinks@{saveXmlHyperlinks}}
+\index{saveXmlHyperlinks@{saveXmlHyperlinks}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{saveXmlHyperlinks()}{saveXmlHyperlinks()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::save\+Xml\+Hyperlinks (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ad2d741176a8b3c29b4f065f98e4a7ac6}\label{class_q_xlsx_1_1_worksheet_private_ad2d741176a8b3c29b4f065f98e4a7ac6} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!saveXmlMergeCells@{saveXmlMergeCells}}
+\index{saveXmlMergeCells@{saveXmlMergeCells}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{saveXmlMergeCells()}{saveXmlMergeCells()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::save\+Xml\+Merge\+Cells (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ab82e9be52ed59ce1689b487cc4d9bc92}\label{class_q_xlsx_1_1_worksheet_private_ab82e9be52ed59ce1689b487cc4d9bc92} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!saveXmlSheetData@{saveXmlSheetData}}
+\index{saveXmlSheetData@{saveXmlSheetData}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{saveXmlSheetData()}{saveXmlSheetData()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::save\+Xml\+Sheet\+Data (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const}
+
+Todo\+: support custom\+Height from info struct Todo\+: where does this magic number \textquotesingle{}15\textquotesingle{} come from?\Hypertarget{class_q_xlsx_1_1_worksheet_private_a7261a78c353a7ebc097f390ad1757bd7}\label{class_q_xlsx_1_1_worksheet_private_a7261a78c353a7ebc097f390ad1757bd7} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!sharedStrings@{sharedStrings}}
+\index{sharedStrings@{sharedStrings}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{sharedStrings()}{sharedStrings()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings}{Shared\+Strings}} \texorpdfstring{$\ast$}{*} Worksheet\+Private\+::shared\+Strings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a9b501a12404ebbf64d10befa7c705987}\label{class_q_xlsx_1_1_worksheet_private_a9b501a12404ebbf64d10befa7c705987} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!splitColsInfo@{splitColsInfo}}
+\index{splitColsInfo@{splitColsInfo}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{splitColsInfo()}{splitColsInfo()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::split\+Cols\+Info (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a6c304ff32585bf32d902b29243b72453}\label{class_q_xlsx_1_1_worksheet_private_a6c304ff32585bf32d902b29243b72453} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!validateDimension@{validateDimension}}
+\index{validateDimension@{validateDimension}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{validateDimension()}{validateDimension()}}
+{\footnotesize\ttfamily void Worksheet\+Private\+::validate\+Dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a98de321e315cc4fbd901a5fa999958c1}\label{class_q_xlsx_1_1_worksheet_private_a98de321e315cc4fbd901a5fa999958c1} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!cellTable@{cellTable}}
+\index{cellTable@{cellTable}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{cellTable}{cellTable}}
+{\footnotesize\ttfamily QMap$<$int, QMap$<$int, QShared\+Pointer$<$\mbox{\hyperlink{class_cell}{Cell}}$>$ $>$ $>$ QXlsx\+::\+Worksheet\+Private\+::cell\+Table}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a51a1994130322245c9b2fcab1244bb1b}\label{class_q_xlsx_1_1_worksheet_private_a51a1994130322245c9b2fcab1244bb1b} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!col\_sizes@{col\_sizes}}
+\index{col\_sizes@{col\_sizes}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{col\_sizes}{col\_sizes}}
+{\footnotesize\ttfamily QMap$<$int, double$>$ QXlsx\+::\+Worksheet\+Private\+::col\+\_\+sizes}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a235df6e2058e5d402faf21d2e42b02ac}\label{class_q_xlsx_1_1_worksheet_private_a235df6e2058e5d402faf21d2e42b02ac} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!colsInfo@{colsInfo}}
+\index{colsInfo@{colsInfo}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{colsInfo}{colsInfo}}
+{\footnotesize\ttfamily QMap$<$int, QShared\+Pointer$<$\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info}{Xlsx\+Column\+Info}}$>$ $>$ QXlsx\+::\+Worksheet\+Private\+::cols\+Info}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a02b85316ab153e8e166f7313e72cdf3c}\label{class_q_xlsx_1_1_worksheet_private_a02b85316ab153e8e166f7313e72cdf3c} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!colsInfoHelper@{colsInfoHelper}}
+\index{colsInfoHelper@{colsInfoHelper}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{colsInfoHelper}{colsInfoHelper}}
+{\footnotesize\ttfamily QMap$<$int, QShared\+Pointer$<$\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info}{Xlsx\+Column\+Info}}$>$ $>$ QXlsx\+::\+Worksheet\+Private\+::cols\+Info\+Helper}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ab40366c412579e15ab0bbe106b466a43}\label{class_q_xlsx_1_1_worksheet_private_ab40366c412579e15ab0bbe106b466a43} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!comments@{comments}}
+\index{comments@{comments}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{comments}{comments}}
+{\footnotesize\ttfamily QMap$<$int, QMap$<$int, QString$>$ $>$ QXlsx\+::\+Worksheet\+Private\+::comments}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a211ec353291c2f8011fd37cb6ccca3fb}\label{class_q_xlsx_1_1_worksheet_private_a211ec353291c2f8011fd37cb6ccca3fb} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!conditionalFormattingList@{conditionalFormattingList}}
+\index{conditionalFormattingList@{conditionalFormattingList}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{conditionalFormattingList}{conditionalFormattingList}}
+{\footnotesize\ttfamily QList$<$\mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}}$>$ QXlsx\+::\+Worksheet\+Private\+::conditional\+Formatting\+List}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_adbf599e8d33b57dfca5b00b69ccad55f}\label{class_q_xlsx_1_1_worksheet_private_adbf599e8d33b57dfca5b00b69ccad55f} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!dataValidationsList@{dataValidationsList}}
+\index{dataValidationsList@{dataValidationsList}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{dataValidationsList}{dataValidationsList}}
+{\footnotesize\ttfamily QList$<$\mbox{\hyperlink{class_data_validation}{Data\+Validation}}$>$ QXlsx\+::\+Worksheet\+Private\+::data\+Validations\+List}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a3eca39a235e79d1a449ac1c4f59f55ed}\label{class_q_xlsx_1_1_worksheet_private_a3eca39a235e79d1a449ac1c4f59f55ed} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!default\_row\_height@{default\_row\_height}}
+\index{default\_row\_height@{default\_row\_height}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{default\_row\_height}{default\_row\_height}}
+{\footnotesize\ttfamily int QXlsx\+::\+Worksheet\+Private\+::default\+\_\+row\+\_\+height}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ad77fca43d7983076fa3394784ca96b21}\label{class_q_xlsx_1_1_worksheet_private_ad77fca43d7983076fa3394784ca96b21} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!default\_row\_zeroed@{default\_row\_zeroed}}
+\index{default\_row\_zeroed@{default\_row\_zeroed}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{default\_row\_zeroed}{default\_row\_zeroed}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::default\+\_\+row\+\_\+zeroed}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_abc1058b39a8ba97d3fe3b7c9a54655dd}\label{class_q_xlsx_1_1_worksheet_private_abc1058b39a8ba97d3fe3b7c9a54655dd} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!dimension@{dimension}}
+\index{dimension@{dimension}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{dimension}{dimension}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_range}{Cell\+Range}} QXlsx\+::\+Worksheet\+Private\+::dimension}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a09be56c50a324f6d961b1cafea5bac4c}\label{class_q_xlsx_1_1_worksheet_private_a09be56c50a324f6d961b1cafea5bac4c} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!merges@{merges}}
+\index{merges@{merges}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{merges}{merges}}
+{\footnotesize\ttfamily QList$<$\mbox{\hyperlink{class_cell_range}{Cell\+Range}}$>$ QXlsx\+::\+Worksheet\+Private\+::merges}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a15102cd98eab93669e42eb13c060dcaf}\label{class_q_xlsx_1_1_worksheet_private_a15102cd98eab93669e42eb13c060dcaf} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!outline\_col\_level@{outline\_col\_level}}
+\index{outline\_col\_level@{outline\_col\_level}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{outline\_col\_level}{outline\_col\_level}}
+{\footnotesize\ttfamily int QXlsx\+::\+Worksheet\+Private\+::outline\+\_\+col\+\_\+level}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ae2af7baeda426f4b777e53061c110ff2}\label{class_q_xlsx_1_1_worksheet_private_ae2af7baeda426f4b777e53061c110ff2} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!outline\_row\_level@{outline\_row\_level}}
+\index{outline\_row\_level@{outline\_row\_level}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{outline\_row\_level}{outline\_row\_level}}
+{\footnotesize\ttfamily int QXlsx\+::\+Worksheet\+Private\+::outline\+\_\+row\+\_\+level}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a0af539ff08b947639a8d8f91b7efa589}\label{class_q_xlsx_1_1_worksheet_private_a0af539ff08b947639a8d8f91b7efa589} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!previous\_row@{previous\_row}}
+\index{previous\_row@{previous\_row}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{previous\_row}{previous\_row}}
+{\footnotesize\ttfamily int QXlsx\+::\+Worksheet\+Private\+::previous\+\_\+row}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a62cc0f75ae08b37f43be4afd7817c1b7}\label{class_q_xlsx_1_1_worksheet_private_a62cc0f75ae08b37f43be4afd7817c1b7} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!rightToLeft@{rightToLeft}}
+\index{rightToLeft@{rightToLeft}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{rightToLeft}{rightToLeft}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::right\+To\+Left}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a6924ab107f9b8fe373e7a525cac03ff9}\label{class_q_xlsx_1_1_worksheet_private_a6924ab107f9b8fe373e7a525cac03ff9} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!row\_sizes@{row\_sizes}}
+\index{row\_sizes@{row\_sizes}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{row\_sizes}{row\_sizes}}
+{\footnotesize\ttfamily QMap$<$int, double$>$ QXlsx\+::\+Worksheet\+Private\+::row\+\_\+sizes}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_af4cf4fc673e57c8eb19d5560e8be1996}\label{class_q_xlsx_1_1_worksheet_private_af4cf4fc673e57c8eb19d5560e8be1996} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!row\_spans@{row\_spans}}
+\index{row\_spans@{row\_spans}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{row\_spans}{row\_spans}}
+{\footnotesize\ttfamily QMap$<$int, QString$>$ QXlsx\+::\+Worksheet\+Private\+::row\+\_\+spans\hspace{0.3cm}{\ttfamily [mutable]}}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a1b3a550774ddace74ce144c5b0ae2f24}\label{class_q_xlsx_1_1_worksheet_private_a1b3a550774ddace74ce144c5b0ae2f24} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!rowsInfo@{rowsInfo}}
+\index{rowsInfo@{rowsInfo}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{rowsInfo}{rowsInfo}}
+{\footnotesize\ttfamily QMap$<$int, QShared\+Pointer$<$\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info}{Xlsx\+Row\+Info}}$>$ $>$ QXlsx\+::\+Worksheet\+Private\+::rows\+Info}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a60571ecebba4e7f4041559e9ba4760b0}\label{class_q_xlsx_1_1_worksheet_private_a60571ecebba4e7f4041559e9ba4760b0} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!sharedFormulaMap@{sharedFormulaMap}}
+\index{sharedFormulaMap@{sharedFormulaMap}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{sharedFormulaMap}{sharedFormulaMap}}
+{\footnotesize\ttfamily QMap$<$int, \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}}$>$ QXlsx\+::\+Worksheet\+Private\+::shared\+Formula\+Map}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a980dc81262af721bbe1ab80310d67d9f}\label{class_q_xlsx_1_1_worksheet_private_a980dc81262af721bbe1ab80310d67d9f} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!sheetFormatProps@{sheetFormatProps}}
+\index{sheetFormatProps@{sheetFormatProps}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{sheetFormatProps}{sheetFormatProps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props}{Xlsx\+Sheet\+Format\+Props}} QXlsx\+::\+Worksheet\+Private\+::sheet\+Format\+Props}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a478685354e344d50c7e812a3e98d9907}\label{class_q_xlsx_1_1_worksheet_private_a478685354e344d50c7e812a3e98d9907} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!showFormulas@{showFormulas}}
+\index{showFormulas@{showFormulas}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{showFormulas}{showFormulas}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::show\+Formulas}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_abd8b865e2da38618c78d0c727d40990e}\label{class_q_xlsx_1_1_worksheet_private_abd8b865e2da38618c78d0c727d40990e} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!showGridLines@{showGridLines}}
+\index{showGridLines@{showGridLines}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{showGridLines}{showGridLines}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::show\+Grid\+Lines}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a859e44768665723c19688a4f7e8118e3}\label{class_q_xlsx_1_1_worksheet_private_a859e44768665723c19688a4f7e8118e3} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!showOutlineSymbols@{showOutlineSymbols}}
+\index{showOutlineSymbols@{showOutlineSymbols}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{showOutlineSymbols}{showOutlineSymbols}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::show\+Outline\+Symbols}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a20b2d2fd4afc64db07fd5dd9e95b23f9}\label{class_q_xlsx_1_1_worksheet_private_a20b2d2fd4afc64db07fd5dd9e95b23f9} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!showRowColHeaders@{showRowColHeaders}}
+\index{showRowColHeaders@{showRowColHeaders}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{showRowColHeaders}{showRowColHeaders}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::show\+Row\+Col\+Headers}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a553ba5d2c443dd247ec26384543d5c2c}\label{class_q_xlsx_1_1_worksheet_private_a553ba5d2c443dd247ec26384543d5c2c} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!showRuler@{showRuler}}
+\index{showRuler@{showRuler}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{showRuler}{showRuler}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::show\+Ruler}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a5452f81a1a6d79f75b158c9e32a2de9f}\label{class_q_xlsx_1_1_worksheet_private_a5452f81a1a6d79f75b158c9e32a2de9f} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!showWhiteSpace@{showWhiteSpace}}
+\index{showWhiteSpace@{showWhiteSpace}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{showWhiteSpace}{showWhiteSpace}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::show\+White\+Space}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ad0d779f22ac65ffb1ac3c407a295e12b}\label{class_q_xlsx_1_1_worksheet_private_ad0d779f22ac65ffb1ac3c407a295e12b} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!showZeros@{showZeros}}
+\index{showZeros@{showZeros}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{showZeros}{showZeros}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::show\+Zeros}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_aaa01c82386324fa6294494132337529e}\label{class_q_xlsx_1_1_worksheet_private_aaa01c82386324fa6294494132337529e} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!tabSelected@{tabSelected}}
+\index{tabSelected@{tabSelected}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{tabSelected}{tabSelected}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::tab\+Selected}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_a4f3e0f845ae66a5d92fefbbefe513a2f}\label{class_q_xlsx_1_1_worksheet_private_a4f3e0f845ae66a5d92fefbbefe513a2f} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!urlPattern@{urlPattern}}
+\index{urlPattern@{urlPattern}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{urlPattern}{urlPattern}}
+{\footnotesize\ttfamily QRegular\+Expression QXlsx\+::\+Worksheet\+Private\+::url\+Pattern}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ac97337835555c14963ab6bff1df0a013}\label{class_q_xlsx_1_1_worksheet_private_ac97337835555c14963ab6bff1df0a013} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!urlTable@{urlTable}}
+\index{urlTable@{urlTable}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{urlTable}{urlTable}}
+{\footnotesize\ttfamily QMap$<$int, QMap$<$int, QShared\+Pointer$<$\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data}{Xlsx\+Hyperlink\+Data}}$>$ $>$ $>$ QXlsx\+::\+Worksheet\+Private\+::url\+Table}
+
+\Hypertarget{class_q_xlsx_1_1_worksheet_private_ab26a3ce46ab1248ab47f0e3bd5d71dc7}\label{class_q_xlsx_1_1_worksheet_private_ab26a3ce46ab1248ab47f0e3bd5d71dc7} 
+\index{QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}!windowProtection@{windowProtection}}
+\index{windowProtection@{windowProtection}!QXlsx::WorksheetPrivate@{QXlsx::WorksheetPrivate}}
+\doxysubsubsection{\texorpdfstring{windowProtection}{windowProtection}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Worksheet\+Private\+::window\+Protection}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxworksheet__p_8h}{xlsxworksheet\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxworksheet_8cpp}{xlsxworksheet.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\doxysection{geometrydelegate.\+h}
+\hypertarget{geometrydelegate_8h_source}{}\label{geometrydelegate_8h_source}\index{MultiflowUI/util/delegate/geometrydelegate.h@{MultiflowUI/util/delegate/geometrydelegate.h}}
+\mbox{\hyperlink{geometrydelegate_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GEOMETRYDELEGATE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GEOMETRYDELEGATE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QComboBox>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QItemDelegate>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geometry_delegate}{GeometryDelegate}}\ :\ \textcolor{keyword}{public}\ QItemDelegate}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_geometry_delegate}{GeometryDelegate}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ QWidget\ *\mbox{\hyperlink{class_geometry_delegate_a49ed54b965314c6906c3415e2a8325a7}{createEditor}}(QWidget\ *parent,\ \textcolor{keyword}{const}\ QStyleOptionViewItem\ \&option,\ \textcolor{keyword}{const}\ QModelIndex\ \&index)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index.column()\ ==\ 1)\ \{\ \textcolor{comment}{//\ Customize\ the\ column\ index\ where\ you\ want\ to\ show\ the\ ComboBox}}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ QComboBox\ *comboBox\ =\ \textcolor{keyword}{new}\ QComboBox(parent);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox-\/>addItem(\textcolor{stringliteral}{"{}Horizontal"{}});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox-\/>addItem(\textcolor{stringliteral}{"{}Vertical"{}});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ comboBox;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ QItemDelegate::createEditor(parent,\ option,\ index);}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geometry_delegate_a6666ed084bb8071801343ba3a13b89fb}{setEditorData}}(QWidget\ *editor,\ \textcolor{keyword}{const}\ QModelIndex\ \&index)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (QComboBox\ *comboBox\ =\ qobject\_cast<QComboBox\ *>(editor))\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ text\ =\ index.data(Qt::EditRole).toString();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ comboBox-\/>findText(text);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox-\/>setCurrentIndex(idx);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ QItemDelegate::setEditorData(editor,\ index);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_geometry_delegate_afa5031ed7b2ff7642fc1903838b1b993}{setModelData}}(QWidget\ *editor,\ QAbstractItemModel\ *model,\ \textcolor{keyword}{const}\ QModelIndex\ \&index)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (QComboBox\ *comboBox\ =\ qobject\_cast<QComboBox\ *>(editor))\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ model-\/>setData(index,\ comboBox-\/>currentText(),\ Qt::EditRole);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ QItemDelegate::setModelData(editor,\ model,\ index);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GEOMETRYDELEGATE\_H}}
+
+\end{DoxyCode}

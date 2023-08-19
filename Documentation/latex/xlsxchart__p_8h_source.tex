@@ -1,0 +1,122 @@
+\doxysection{xlsxchart\+\_\+p.\+h}
+\hypertarget{xlsxchart__p_8h_source}{}\label{xlsxchart__p_8h_source}\index{MultiflowUI/xlsx/xlsxchart\_p.h@{MultiflowUI/xlsx/xlsxchart\_p.h}}
+\mbox{\hyperlink{xlsxchart__p_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ QXLSX\_CHART\_P\_H}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ QXLSX\_CHART\_P\_H}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ W\ A\ R\ N\ I\ N\ G}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ This\ file\ is\ not\ part\ of\ the\ Qt\ Xlsx\ API.\ \ It\ exists\ for\ the\ convenience}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ of\ the\ Qt\ Xlsx.\ \ This\ header\ file\ may\ change\ from}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ version\ to\ version\ without\ notice,\ or\ even\ be\ removed.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ We\ mean\ it.}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxabstractooxmlfile__p_8h}{xlsxabstractooxmlfile\_p.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxchart_8h}{xlsxchart.h}}"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <QSharedPointer>}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }QXmlStreamReader;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }QXmlStreamWriter;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_xlsx_1_1_xlsx_series}{XlsxSeries}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ At\ present,\ we\ care\ about\ number\ cell\ ranges\ only!}}
+\DoxyCodeLine{00054\ \ \ \ \ QString\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_series_af9aaf7817e614a3cedbab2f5bfc7e012}{numberDataSource\_numRef}};\ \textcolor{comment}{//\ yval,\ val}}
+\DoxyCodeLine{00055\ \ \ \ \ QString\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_series_aab3781650491bd30eb3485d021234348}{axDataSource\_numRef}};\ \textcolor{comment}{//\ xval,\ cat}}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis}{XlsxAxis}}}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a64329bb48c585a0acd6076cfecb23b54}{Type}}\ \{\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a64329bb48c585a0acd6076cfecb23b54a74d4a628c74bb352f5a440f5fdc64106}{T\_Cat}},\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a64329bb48c585a0acd6076cfecb23b54aae65370693ca9ccae12fc2561b26a992}{T\_Val}},\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a64329bb48c585a0acd6076cfecb23b54a4f29c0eeaecfafb73381a5bb78ffc7a2}{T\_Date}},\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a64329bb48c585a0acd6076cfecb23b54add30bc09723ed5d9840e7c6373ff1537}{T\_Ser}}\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a32d48ca0ddd395140c2b58ca7503e782}{Pos}}\ \{\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a32d48ca0ddd395140c2b58ca7503e782ae0423a64f6e52fa25ceeec18429c99d3}{Left}},\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a32d48ca0ddd395140c2b58ca7503e782a41c12413dbcfc6af24248cf6d2cddac0}{Right}},\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a32d48ca0ddd395140c2b58ca7503e782a95b151c0f796d35c41de723072681677}{Top}},\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a32d48ca0ddd395140c2b58ca7503e782abfbee024bc29b31b93833f314f129b7d}{Bottom}}\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a4a699b914710078ca0f5400b3d492778}{XlsxAxis}}()\ \{\}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a9b01215fe45a845c209551a2bb72085d}{XlsxAxis}}(\mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a64329bb48c585a0acd6076cfecb23b54}{Type}}\ t,\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a32d48ca0ddd395140c2b58ca7503e782}{Pos}}\ p,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ crossId)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a489d26d6ac179b6b910f1b54d4ef76ba}{type}}(t)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a0c951011ec51e6935c605e34f1071be2}{axisPos}}(p)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a5aef1fd3cb1a4f5b86368a66bc042b4e}{axisId}}(id)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a0a0b2dea5c43e2ec32a34a018a15c8d6}{crossAx}}(crossId)}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a64329bb48c585a0acd6076cfecb23b54}{Type}}\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a489d26d6ac179b6b910f1b54d4ef76ba}{type}};}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a32d48ca0ddd395140c2b58ca7503e782}{Pos}}\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a0c951011ec51e6935c605e34f1071be2}{axisPos}};\ \textcolor{comment}{//\ l,r,b,t}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a5aef1fd3cb1a4f5b86368a66bc042b4e}{axisId}};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_axis_a0a0b2dea5c43e2ec32a34a018a15c8d6}{crossAx}};}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_xlsx_1_1_chart_private}{ChartPrivate}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_abstract_o_o_xml_file_private}{AbstractOOXmlFilePrivate}}}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ Q\_DECLARE\_PUBLIC(\mbox{\hyperlink{class_chart}{Chart}})}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private}{ChartPrivate}}(\mbox{\hyperlink{class_chart}{Chart}}\ *q,\ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Chart::CreateFlag}}\ \mbox{\hyperlink{class_abstract_o_o_xml_file_private_a28eec6ceaba312dc990ea0c5bbb5724d}{flag}});}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a39d48637d77401ad5514afe67bef2fb7}{\string~ChartPrivate}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_aefad4b19699ec5d1cc6c1bd094425f7f}{loadXmlChart}}(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a5f49f89cdf6ed65844892438dd14575f}{loadXmlPlotArea}}(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_aa670d57e83d1fdd9f69f858c5f546fc6}{loadXmlXxxChart}}(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a6d4e1778c7b273e62a5496cfbb176e1f}{loadXmlSer}}(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00093\ \ \ \ \ QString\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_afc76962e0013610b1d580cddc6c543c7}{loadXmlNumRef}}(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_afc7621fd308e3648f0f96f96c1e946a0}{loadXmlAxis}}(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_adeaf5a912e719acb68fa9a3df127e12c}{saveXmlChart}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_aad5d9dd1a2f0fee867aaf10cd5059c1c}{saveXmlPieChart}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a251be50673489c2934cf4f8ae50aad0c}{saveXmlBarChart}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_aa8a056bd03c6822385110299a08544eb}{saveXmlLineChart}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a7f9679dc927e43dc6f1cc86e0597f5e4}{saveXmlScatterChart}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_ac44dbc7e13c9a460e7ac24c647120415}{saveXmlAreaChart}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a44f55a644c72266292129d14efd213d1}{saveXmlDoughnutChart}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_ac842af8efd5005d803e9d9d308eb7fa7}{saveXmlSer}}(QXmlStreamWriter\ \&writer,\ \mbox{\hyperlink{class_q_xlsx_1_1_xlsx_series}{XlsxSeries}}\ *ser,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_acd4a3be78dac4d767e59bf60feba572b}{saveXmlAxes}}(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4}{Chart::ChartType}}\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_acb81f0cf5d26bd8bffc0f8583f61b040}{chartType}};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ QList<QSharedPointer<XlsxSeries>>\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a7da8177ef285a7fe65f13b2340557b80}{seriesList}};}
+\DoxyCodeLine{00109\ \ \ \ \ QList<QSharedPointer<XlsxAxis>>\ \mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a2e7423d71dd8f0c09acb527850d85b55}{axisList}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_abstract_sheet}{AbstractSheet}}\ *\mbox{\hyperlink{class_q_xlsx_1_1_chart_private_a6af3c47b5fe0f73b6206a91a2fe753be}{sheet}};}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \}\ \textcolor{comment}{//\ namespace\ QXlsx}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QXLSX\_CHART\_P\_H}}
+
+\end{DoxyCode}

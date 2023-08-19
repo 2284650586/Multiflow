@@ -1,0 +1,142 @@
+\doxysection{xlsxdocument.\+h}
+\hypertarget{xlsxdocument_8h_source}{}\label{xlsxdocument_8h_source}\index{MultiflowUI/xlsx/xlsxdocument.h@{MultiflowUI/xlsx/xlsxdocument.h}}
+\mbox{\hyperlink{xlsxdocument_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ QXLSX\_XLSXDOCUMENT\_H}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ QXLSX\_XLSXDOCUMENT\_H}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxformat_8h}{xlsxformat.h}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxworksheet_8h}{xlsxworksheet.h}}"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <QVariant>}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }QIODevice;}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }QImage;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \mbox{\hyperlink{namespace_q_t___b_e_g_i_n___n_a_m_e_s_p_a_c_e___x_l_s_x}{QT\_BEGIN\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_workbook}{Workbook}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell}{Cell}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_range}{CellRange}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_validation}{DataValidation}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_conditional_formatting}{ConditionalFormatting}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_chart}{Chart}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_reference}{CellReference}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }DocumentPrivate;}
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \mbox{\hyperlink{class_document}{Document}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00051\ \ \ \ \ Q\_DECLARE\_PRIVATE(\mbox{\hyperlink{class_document}{Document}})}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_document}{Document}}(QObject\ *parent\ =\ 0);}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_document}{Document}}(\textcolor{keyword}{const}\ QString\ \&xlsxName,\ QObject\ *parent\ =\ 0);}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_document}{Document}}(QIODevice\ *device,\ QObject\ *parent\ =\ 0);}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_document}{\string~Document}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ write(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&cell,\ \textcolor{keyword}{const}\ QVariant\ \&value,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format\ =\ \mbox{\hyperlink{class_format}{Format}}());}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ write(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keyword}{const}\ QVariant\ \&value,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format\ =\ \mbox{\hyperlink{class_format}{Format}}());}
+\DoxyCodeLine{00061\ \ \ \ \ QVariant\ read(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&cell)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ QVariant\ read(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ insertImage(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keyword}{const}\ QImage\ \&image);}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_chart}{Chart}}\ *insertChart(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keyword}{const}\ QSize\ \&size);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ mergeCells(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&range,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format\ =\ \mbox{\hyperlink{class_format}{Format}}());}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ unmergeCells(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&range);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnWidth(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&range,\ \textcolor{keywordtype}{double}\ width);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnFormat(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&range,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnHidden(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&range,\ \textcolor{keywordtype}{bool}\ hidden);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnWidth(\textcolor{keywordtype}{int}\ column,\ \textcolor{keywordtype}{double}\ width);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnFormat(\textcolor{keywordtype}{int}\ column,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnHidden(\textcolor{keywordtype}{int}\ column,\ \textcolor{keywordtype}{bool}\ hidden);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnWidth(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast,\ \textcolor{keywordtype}{double}\ width);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnFormat(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ setColumnHidden(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast,\ \textcolor{keywordtype}{bool}\ hidden);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{double}\ columnWidth(\textcolor{keywordtype}{int}\ column);}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ columnFormat(\textcolor{keywordtype}{int}\ column);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ isColumnHidden(\textcolor{keywordtype}{int}\ column);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ setRowHeight(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{double}\ height);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ setRowFormat(\textcolor{keywordtype}{int}\ row,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ setRowHidden(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{bool}\ hidden);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ setRowHeight(\textcolor{keywordtype}{int}\ rowFirst,\ \textcolor{keywordtype}{int}\ rowLast,\ \textcolor{keywordtype}{double}\ height);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ setRowFormat(\textcolor{keywordtype}{int}\ rowFirst,\ \textcolor{keywordtype}{int}\ rowLast,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ setRowHidden(\textcolor{keywordtype}{int}\ rowFirst,\ \textcolor{keywordtype}{int}\ rowLast,\ \textcolor{keywordtype}{bool}\ hidden);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ rowHeight(\textcolor{keywordtype}{int}\ row);}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ rowFormat(\textcolor{keywordtype}{int}\ row);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ isRowHidden(\textcolor{keywordtype}{int}\ row);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ groupRows(\textcolor{keywordtype}{int}\ rowFirst,\ \textcolor{keywordtype}{int}\ rowLast,\ \textcolor{keywordtype}{bool}\ collapsed\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ groupColumns(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast,\ \textcolor{keywordtype}{bool}\ collapsed\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ addDataValidation(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_validation}{DataValidation}}\ \&validation);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ addConditionalFormatting(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_conditional_formatting}{ConditionalFormatting}}\ \&cf);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}\ *cellAt(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&cell)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}\ *cellAt(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ defineName(\textcolor{keyword}{const}\ QString\ \&name,\ \textcolor{keyword}{const}\ QString\ \&formula,\ \textcolor{keyword}{const}\ QString\ \&comment\ =\ QString(),}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&scope\ =\ QString());}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}\ dimension()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ QString\ documentProperty(\textcolor{keyword}{const}\ QString\ \&name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ setDocumentProperty(\textcolor{keyword}{const}\ QString\ \&name,\ \textcolor{keyword}{const}\ QString\ \&property);}
+\DoxyCodeLine{00107\ \ \ \ \ QStringList\ documentPropertyNames()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ QStringList\ sheetNames()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ addSheet(\textcolor{keyword}{const}\ QString\ \&name\ =\ QString(),}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{AbstractSheet::SheetType}}\ type\ =\ \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{AbstractSheet::ST\_WorkSheet}});}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ insertSheet(\textcolor{keywordtype}{int}\ index,\ \textcolor{keyword}{const}\ QString\ \&name\ =\ QString(),}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{AbstractSheet::SheetType}}\ type\ =\ \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{AbstractSheet::ST\_WorkSheet}});}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ selectSheet(\textcolor{keyword}{const}\ QString\ \&name);}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ renameSheet(\textcolor{keyword}{const}\ QString\ \&oldName,\ \textcolor{keyword}{const}\ QString\ \&newName);}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{bool}\ copySheet(\textcolor{keyword}{const}\ QString\ \&srcName,\ \textcolor{keyword}{const}\ QString\ \&distName\ =\ QString());}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ moveSheet(\textcolor{keyword}{const}\ QString\ \&srcName,\ \textcolor{keywordtype}{int}\ distIndex);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ deleteSheet(\textcolor{keyword}{const}\ QString\ \&name);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{class_workbook}{Workbook}}\ *workbook()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_abstract_sheet}{AbstractSheet}}\ *sheet(\textcolor{keyword}{const}\ QString\ \&sheetName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{class_abstract_sheet}{AbstractSheet}}\ *currentSheet()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{class_worksheet}{Worksheet}}\ *currentWorksheet()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ save()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{bool}\ saveAs(\textcolor{keyword}{const}\ QString\ \&xlsXname)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ saveAs(QIODevice\ *device)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00130\ \ \ \ \ Q\_DISABLE\_COPY(\mbox{\hyperlink{class_document}{Document}})}
+\DoxyCodeLine{00131\ \ \ \ \ DocumentPrivate\ *\textcolor{keyword}{const}\ d\_ptr;}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \mbox{\hyperlink{xlsxglobal_8h_a6a896dcec83cee81dc9f1051c3ce0f6e}{QT\_END\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QXLSX\_XLSXDOCUMENT\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,51 @@
+\doxysection{mwell.\+h}
+\hypertarget{mwell_8h_source}{}\label{mwell_8h_source}\index{MultiflowUI/entity/mwell.h@{MultiflowUI/entity/mwell.h}}
+\mbox{\hyperlink{mwell_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MWELL\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MWELL\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mwelldeviation_8h}{component/well/mwelldeviation.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mwellcasing_8h}{component/well/mwellcasing.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mwelltunbing_8h}{component/well/mwelltunbing.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mwellpacker_8h}{component/well/mwellpacker.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mwellheat_8h}{component/well/mwellheat.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well}{MWell}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_m_well_a1572aac66b9ca9eb738d82a16a1db28c}{MWell}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_m_well_a1b4bf658ae026fc7098db6854e4e029f}{\string~MWell}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation}{MWellDeviation}}\ *\mbox{\hyperlink{class_m_well_a4b2492525263631381b7bab72c6538e1}{getDeviation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_aa2ce609a657cc7ac9fcc2eb8a4cfa9c3}{setDeviation}}(\mbox{\hyperlink{class_m_well_deviation}{MWellDeviation}}\ *newDeviation);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_a7916e1fc1ddb9e3ef95b742498f977ac}{addCasing}}(\mbox{\hyperlink{class_m_well_casing}{MWellCasing}}\ *casing)\ \{\ casingList.append(casing);\ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_a6b81a3ad792dbd1f61672fe273205440}{addTubing}}(\mbox{\hyperlink{class_m_well_tunbing}{MWellTunbing}}\ *tubing)\ \{\ tubingList.append(tubing);\ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_a38e3e01e9513b7ebf81d25d10c88d401}{addPacker}}(\mbox{\hyperlink{class_m_well_packer}{MWellPacker}}\ *packer)\ \{\ packerList.append(packer);\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_a22546a7b0aa597cf606ef2638dd9f79f}{clearCasingList}}()\ \{\ qDeleteAll(casingList);\ casingList.clear();\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_a64ba11456d2ed3523ce2e111add3b786}{clearTubingList}}()\ \{\ qDeleteAll(tubingList);\ tubingList.clear();\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_aa5d0541728d9dec975babb15732776c8}{clearPackerList}}()\ \{\ qDeleteAll(packerList);\ packerList.clear();\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_well_a413a2b091dccb4642e28b6f944bbc0ed}{getCasingListCount}}()\ \{\ \textcolor{keywordflow}{return}\ casingList.count();\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_well_a773db7835c6eae1774c753af6b17dc62}{getTubingListCount}}()\ \{\ \textcolor{keywordflow}{return}\ tubingList.count();\ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_well_a56d0a2f2a3275a2e42c706c7603259fd}{getPackerListCount}}()\ \{\ \textcolor{keywordflow}{return}\ packerList.count();\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_m_well_heat}{MWellHeat}}\ *\mbox{\hyperlink{class_m_well_ab91eb67fe0aac000d972a8fdb7ce3031}{getHeat}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_a0375ba939ff9b455a6c4c55d890fd605}{setHeat}}(\mbox{\hyperlink{class_m_well_heat}{MWellHeat}}\ *newHeat);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation}{MWellDeviation}}\ *deviation\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_m_well_heat}{MWellHeat}}\ *heat\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00040\ \ \ \ \ QList<MWellCasing*>\ casingList;}
+\DoxyCodeLine{00041\ \ \ \ \ QList<MWellTunbing*>\ tubingList;}
+\DoxyCodeLine{00042\ \ \ \ \ QList<MWellPacker*>\ packerList;}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MWELL\_H}}
+
+\end{DoxyCode}

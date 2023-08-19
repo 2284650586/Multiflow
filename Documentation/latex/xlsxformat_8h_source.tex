@@ -1,0 +1,279 @@
+\doxysection{xlsxformat.\+h}
+\hypertarget{xlsxformat_8h_source}{}\label{xlsxformat_8h_source}\index{MultiflowUI/xlsx/xlsxformat.h@{MultiflowUI/xlsx/xlsxformat.h}}
+\mbox{\hyperlink{xlsxformat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ QXLSX\_FORMAT\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ QXLSX\_FORMAT\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <QFont>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <QColor>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <QByteArray>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <QExplicitlySharedDataPointer>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <QVariant>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }FormatTest;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \mbox{\hyperlink{namespace_q_t___b_e_g_i_n___n_a_m_e_s_p_a_c_e___x_l_s_x}{QT\_BEGIN\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }Styles;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_worksheet}{Worksheet}};}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }WorksheetPrivate;}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rich_string_private}{RichStringPrivate}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }SharedStrings;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }FormatPrivate;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \mbox{\hyperlink{class_format}{Format}}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5}{FontScript}}\ \{\ FontScriptNormal,\ FontScriptSuper,\ FontScriptSub\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0d}{FontUnderline}}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0dacc318b88ff18ef6253b00eca5e518a20}{FontUnderlineNone}},}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0dac0b1c899468c2857b6b2c72aad10ba17}{FontUnderlineSingle}},}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0da34a11457db225f861fac22db5a48ce19}{FontUnderlineDouble}},}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0dadcee9c967fe7cf463b6d0ac4d1e62816}{FontUnderlineSingleAccounting}},}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ FontUnderlineDoubleAccounting}
+\DoxyCodeLine{00058\ \ \ \ \ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4}{HorizontalAlignment}}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a3440bd9bf572f5d71f76bfda73fb45df}{AlignHGeneral}},}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a338d89d0bd888fd04c3de479eed21889}{AlignLeft}},}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a3cae6ec8226f442b1b2a589af4f2965d}{AlignHCenter}},}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a83ff77a5bcb96c749ef913dd5642eb30}{AlignRight}},}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a5fd06147f581d6c669c8b2c8b674dad0}{AlignHFill}},}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a90da584d568fe64a53ad5b30b821d826}{AlignHJustify}},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a246d98bb9be947ba1d2fcccf441e8d8b}{AlignHMerge}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ AlignHDistributed}
+\DoxyCodeLine{00069\ \ \ \ \ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ce}{VerticalAlignment}}\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea3fe5f76bfa765d143b6a0527477c2bea}{AlignTop}},}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea08f5c298444278a6a5d289e464ddaec2}{AlignVCenter}},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea42c2e4f4228752c2629fd6c93088c8d3}{AlignBottom}},}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea2d0f5c699589662464a358d79e8b4597}{AlignVJustify}},}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ AlignVDistributed}
+\DoxyCodeLine{00077\ \ \ \ \ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{BorderStyle}}\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae3ce1fcf2234ec06615dd36985119a29}{BorderNone}},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1d32cff01637eabdf90aa8de04dc247d}{BorderThin}},}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1dba1c5e1516864644c0816f25f59dcc}{BorderMedium}},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa4957d2a2b4301728560a2f225dca6e8}{BorderDashed}},}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa8c7ee214f80f830bae3df31239182e40}{BorderDotted}},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa893e05e035ab93086c2695b4f4dfec3f}{BorderThick}},}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa5823859c69ed29c9ef434aa4175fd505}{BorderDouble}},}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa9d57c5694aa9fd20bf0f6d368f11967}{BorderHair}},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa1cfdd79f765471d113a77f0ad124a7c}{BorderMediumDashed}},}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aadc6738fed132dc0ab5b433da462af60b}{BorderDashDot}},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aad76a3cdc8c75ad6210747f1918ec6424}{BorderMediumDashDot}},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae43337f5ffbb4f1cc39c403d85f347ed}{BorderDashDotDot}},}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa7d6d28ec7eeb22901a60bb4dd8031254}{BorderMediumDashDotDot}},}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ BorderSlantDashDot}
+\DoxyCodeLine{00094\ \ \ \ \ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681f}{DiagonalBorderType}}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681fa512c9d6bd1dbaa80dddc4a8bd488d747}{DiagonalBorderNone}},}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681fad6f47e19c5e5f212729405fe1851314d}{DiagonalBorderDown}},}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681fabeb6dd8aa1251c90f31ee40f5d3cc818}{DiagonalBorderUp}},}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ DiagnoalBorderBoth}
+\DoxyCodeLine{00101\ \ \ \ \ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632}{FillPattern}}\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ab268363e410f0e0ca588d3ae9aa3bdc4}{PatternNone}},}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ac2f77d674010c5a1e8c12aa68816fc13}{PatternSolid}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a59d9e9507e912d1f41309f8a00fb4ceb}{PatternMediumGray}},}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ad83ae06368b4f6d08e09b567ef15154e}{PatternDarkGray}},}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a9324d356b55d33aec02c1dfd1565386b}{PatternLightGray}},}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ace3728829e87f0f455aa58fe0ddee8ef}{PatternDarkHorizontal}},}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a132a13c44e64000181233ba306be81a1}{PatternDarkVertical}},}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ad13a8dc0a1aa6b21f0b7c4128bf7a073}{PatternDarkDown}},}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a93301dd5b3c265c91e2ae64e29ebbf2c}{PatternDarkUp}},}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a46a3b3eeea72ec20c926d044492ee4b5}{PatternDarkGrid}},}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a3d0965ef70b7e76f392cffad8dd2b91b}{PatternDarkTrellis}},}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a35b98e7a01d4079ba59c3686ccb1cb54}{PatternLightHorizontal}},}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a2f8da488957da47f1cfeb93c7f50e966}{PatternLightVertical}},}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a672b2cba830dfb9866f200e5cf54d83a}{PatternLightDown}},}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a6521a709595fc9b7a422c6c377ba967a}{PatternLightUp}},}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a6ee8f2369bc417161e1084ac63e13fd4}{PatternLightTrellis}},}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a1ddbb3910c3d27f3ee0e32645b3ea95f}{PatternGray125}},}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632aeb6380c76b8f1b00be7cedea42a151b9}{PatternGray0625}},}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ PatternLightGrid}
+\DoxyCodeLine{00123\ \ \ \ \ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}();}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&other);}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&rhs);}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{class_format}{\string~Format}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{int}\ numberFormatIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ setNumberFormatIndex(\textcolor{keywordtype}{int}\ format);}
+\DoxyCodeLine{00132\ \ \ \ \ QString\ numberFormat()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ setNumberFormat(\textcolor{keyword}{const}\ QString\ \&format);}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ setNumberFormat(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ QString\ \&format);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDateTimeFormat()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ fontSize()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontSize(\textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ fontItalic()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontItalic(\textcolor{keywordtype}{bool}\ italic);}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ fontStrikeOut()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontStrikeOut(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00143\ \ \ \ \ QColor\ fontColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontColor(\textcolor{keyword}{const}\ QColor\ \&);}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ fontBold()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontBold(\textcolor{keywordtype}{bool}\ bold);}
+\DoxyCodeLine{00147\ \ \ \ \ FontScript\ fontScript()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontScript(FontScript);}
+\DoxyCodeLine{00149\ \ \ \ \ FontUnderline\ fontUnderline()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontUnderline(FontUnderline);}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{bool}\ fontOutline()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontOutline(\textcolor{keywordtype}{bool}\ outline);}
+\DoxyCodeLine{00153\ \ \ \ \ QString\ fontName()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontName(\textcolor{keyword}{const}\ QString\ \&);}
+\DoxyCodeLine{00155\ \ \ \ \ QFont\ font()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{void}\ setFont(\textcolor{keyword}{const}\ QFont\ \&font);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ HorizontalAlignment\ horizontalAlignment()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ setHorizontalAlignment(HorizontalAlignment\ align);}
+\DoxyCodeLine{00160\ \ \ \ \ VerticalAlignment\ verticalAlignment()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ setVerticalAlignment(VerticalAlignment\ align);}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{bool}\ textWrap()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{void}\ setTextWarp(\textcolor{keywordtype}{bool}\ textWrap);}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{int}\ rotation()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ setRotation(\textcolor{keywordtype}{int}\ rotation);}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{int}\ indent()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ setIndent(\textcolor{keywordtype}{int}\ indent);}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{bool}\ shrinkToFit()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ setShrinkToFit(\textcolor{keywordtype}{bool}\ shink);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ setBorderStyle(BorderStyle\ style);}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ setBorderColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00173\ \ \ \ \ BorderStyle\ leftBorderStyle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ setLeftBorderStyle(BorderStyle\ style);}
+\DoxyCodeLine{00175\ \ \ \ \ QColor\ leftBorderColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ setLeftBorderColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00177\ \ \ \ \ BorderStyle\ rightBorderStyle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{void}\ setRightBorderStyle(BorderStyle\ style);}
+\DoxyCodeLine{00179\ \ \ \ \ QColor\ rightBorderColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ setRightBorderColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00181\ \ \ \ \ BorderStyle\ topBorderStyle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ setTopBorderStyle(BorderStyle\ style);}
+\DoxyCodeLine{00183\ \ \ \ \ QColor\ topBorderColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ setTopBorderColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00185\ \ \ \ \ BorderStyle\ bottomBorderStyle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{void}\ setBottomBorderStyle(BorderStyle\ style);}
+\DoxyCodeLine{00187\ \ \ \ \ QColor\ bottomBorderColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{void}\ setBottomBorderColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00189\ \ \ \ \ BorderStyle\ diagonalBorderStyle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{void}\ setDiagonalBorderStyle(BorderStyle\ style);}
+\DoxyCodeLine{00191\ \ \ \ \ DiagonalBorderType\ diagonalBorderType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ setDiagonalBorderType(DiagonalBorderType\ style);}
+\DoxyCodeLine{00193\ \ \ \ \ QColor\ diagonalBorderColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{void}\ setDiagonalBorderColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ FillPattern\ fillPattern()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ setFillPattern(FillPattern\ pattern);}
+\DoxyCodeLine{00198\ \ \ \ \ QColor\ patternForegroundColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ setPatternForegroundColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00200\ \ \ \ \ QColor\ patternBackgroundColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{void}\ setPatternBackgroundColor(\textcolor{keyword}{const}\ QColor\ \&color);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{bool}\ locked()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ setLocked(\textcolor{keywordtype}{bool}\ locked);}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{bool}\ hidden()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ setHidden(\textcolor{keywordtype}{bool}\ hidden);}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{void}\ mergeFormat(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&modifier);}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{bool}\ isValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{bool}\ isEmpty()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8cpp_a4f80c434559d3536def5b1e3e526acd6}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8cpp_a6b12b2071bb6c680971095a8dda5b032}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ QVariant\ property(\textcolor{keywordtype}{int}\ propertyId,\ \textcolor{keyword}{const}\ QVariant\ \&defaultValue\ =\ QVariant())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ setProperty(\textcolor{keywordtype}{int}\ propertyId,\ \textcolor{keyword}{const}\ QVariant\ \&value,\ \textcolor{keyword}{const}\ QVariant\ \&clearValue\ =\ QVariant(),}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ detach\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{void}\ clearProperty(\textcolor{keywordtype}{int}\ propertyId);}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasProperty(\textcolor{keywordtype}{int}\ propertyId)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{bool}\ boolProperty(\textcolor{keywordtype}{int}\ propertyId,\ \textcolor{keywordtype}{bool}\ defaultValue\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{int}\ intProperty(\textcolor{keywordtype}{int}\ propertyId,\ \textcolor{keywordtype}{int}\ defaultValue\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{double}\ doubleProperty(\textcolor{keywordtype}{int}\ propertyId,\ \textcolor{keywordtype}{double}\ defaultValue\ =\ 0.0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00224\ \ \ \ \ QString\ stringProperty(\textcolor{keywordtype}{int}\ propertyId,\ \textcolor{keyword}{const}\ QString\ \&defaultValue\ =\ QString())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00225\ \ \ \ \ QColor\ colorProperty(\textcolor{keywordtype}{int}\ propertyId,\ \textcolor{keyword}{const}\ QColor\ \&defaultValue\ =\ QColor())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasNumFmtData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasFontData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasFillData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasBorderData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasAlignmentData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasProtectionData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{bool}\ fontIndexValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{int}\ fontIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00236\ \ \ \ \ QByteArray\ fontKey()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{bool}\ borderIndexValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00238\ \ \ \ \ QByteArray\ borderKey()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{int}\ borderIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{bool}\ fillIndexValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00241\ \ \ \ \ QByteArray\ fillKey()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{int}\ fillIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ QByteArray\ formatKey()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{bool}\ xfIndexValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{int}\ xfIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{bool}\ dxfIndexValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{int}\ dxfIndex()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{void}\ fixNumberFormat(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ QString\ \&format);}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}\ setFontIndex(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{void}\ setBorderIndex(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{void}\ setFillIndex(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordtype}{void}\ setXfIndex(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{void}\ setDxfIndex(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }Styles;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{friend}\ class\ ::FormatTest;}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ QDebug\ \mbox{\hyperlink{xlsxformat_8cpp_a76342d5f94c185d1e507ee065717aec0}{operator<<}}(QDebug,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&f);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{int}\ theme()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ QExplicitlySharedDataPointer<FormatPrivate>\ d;}
+\DoxyCodeLine{00265\ \};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#ifndef\ QT\_NO\_DEBUG\_STREAM}}
+\DoxyCodeLine{00268\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ QDebug\ \mbox{\hyperlink{xlsxformat_8h_a8da6ebf31b4cbeb892d6918b4729d3c2}{operator<<}}(QDebug\ dbg,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&f);}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \mbox{\hyperlink{xlsxglobal_8h_a6a896dcec83cee81dc9f1051c3ce0f6e}{QT\_END\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QXLSX\_FORMAT\_H}}
+
+\end{DoxyCode}

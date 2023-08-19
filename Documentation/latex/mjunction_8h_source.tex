@@ -1,0 +1,38 @@
+\doxysection{mjunction.\+h}
+\hypertarget{mjunction_8h_source}{}\label{mjunction_8h_source}\index{MultiflowUI/entity/mjunction.h@{MultiflowUI/entity/mjunction.h}}
+\mbox{\hyperlink{mjunction_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MJUNCTION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MJUNCTION\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_source}{MSource}};}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_sink}{MSink}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well}{MWell}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_junction}{MJunction}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_m_junction_a54fe6abb299c28ecd191da7dd807edaa}{MJunction}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_junction_ac167c9b1e2e1351808be05df44e4c4b0}{addSource}}(\mbox{\hyperlink{class_m_source}{MSource}}\ *source);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_junction_a306ea5046c38173ac1e0b1cf590b37fa}{addsink}}(\mbox{\hyperlink{class_m_sink}{MSink}}\ *sink);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_junction_a2b7ea1b63d366dbe0d1d3e575ed59e44}{addWell}}(\mbox{\hyperlink{class_m_well}{MWell}}\ *well);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_junction_aa8d20ce10825fb184f6cee83c6a05af3}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ QList<MSource\ *>\ \mbox{\hyperlink{class_m_junction_a3903bf00e2f46838971a9bb2f91755c0}{getSourceList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ QList<MSink\ *>\ \mbox{\hyperlink{class_m_junction_a58b7086a86a60bff95d31314c5898039}{getSinkList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ QList<MWell\ *>\ \mbox{\hyperlink{class_m_junction_af20d3e75590be1619f84739e8d3b3b76}{getWellList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ QString\ id;}
+\DoxyCodeLine{00027\ \ \ \ \ QList<MSource*>\ sourceList;}
+\DoxyCodeLine{00028\ \ \ \ \ QList<MSink*>\ sinkList;}
+\DoxyCodeLine{00029\ \ \ \ \ QList<MWell*>\ wellList;}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MJUNCTION\_H}}
+
+\end{DoxyCode}

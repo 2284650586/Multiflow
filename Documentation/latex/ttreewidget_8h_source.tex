@@ -1,0 +1,49 @@
+\doxysection{ttreewidget.\+h}
+\hypertarget{ttreewidget_8h_source}{}\label{ttreewidget_8h_source}\index{MultiflowUI/TWidget/ttreewidget.h@{MultiflowUI/TWidget/ttreewidget.h}}
+\mbox{\hyperlink{ttreewidget_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TTREEWIDGET\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TTREEWIDGET\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QTreeWidget>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_tree_widget}{TTreeWidget}}\ :\ \textcolor{keyword}{public}\ QTreeWidget}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_t_tree_widget}{TTreeWidget}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_tree_widget_aabf23a4b6f7dc58f04dbb503d0a923b2}{addItem}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_tree_widget_a0a5e16f3fe283c0694db787f0ff0a09a}{clearItem}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ \ \ \ QList<TWellItem*>\ wellList;}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \ \ \ QList<TSourceItem*>\ sourceList;}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ \ \ \ QList<TSinkItem*>\ sinkList;}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ QTreeWidgetItem\ *wellItem;}
+\DoxyCodeLine{00026\ \ \ \ \ QTreeWidgetItem\ *sourceItem;}
+\DoxyCodeLine{00027\ \ \ \ \ QTreeWidgetItem\ *sinkItem;}
+\DoxyCodeLine{00028\ \ \ \ \ QTreeWidgetItem\ *junctionItem;}
+\DoxyCodeLine{00029\ \ \ \ \ QTreeWidgetItem\ *flowlineItem;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ \ \ int\ wellColNum\ =\ 0;}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ \ \ \ int\ sourceColNum\ =\ 0;}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ \ \ \ int\ sinkColNum\ =\ 0;}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ QIcon\ wellIcon;}
+\DoxyCodeLine{00036\ \ \ \ \ QIcon\ sourceIcon;}
+\DoxyCodeLine{00037\ \ \ \ \ QIcon\ sinkIcon;}
+\DoxyCodeLine{00038\ \ \ \ \ QIcon\ junctionIcon;}
+\DoxyCodeLine{00039\ \ \ \ \ QIcon\ flowlineIcon;}
+\DoxyCodeLine{00040\ \ \ \ \ QFont\ font;}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TTREEWIDGET\_H}}
+
+\end{DoxyCode}

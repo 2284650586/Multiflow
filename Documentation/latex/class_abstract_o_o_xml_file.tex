@@ -1,0 +1,166 @@
+\doxysection{Abstract\+OOXml\+File Class Reference}
+\hypertarget{class_abstract_o_o_xml_file}{}\label{class_abstract_o_o_xml_file}\index{AbstractOOXmlFile@{AbstractOOXmlFile}}
+
+
+{\ttfamily \#include $<$xlsxabstractooxmlfile.\+h$>$}
+
+Inheritance diagram for Abstract\+OOXml\+File\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_abstract_o_o_xml_file}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}\label{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!CreateFlag@{CreateFlag}}
+\index{CreateFlag@{CreateFlag}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{CreateFlag}{CreateFlag}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Abstract\+OOXml\+File\+::\+Create\+Flag}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_NewFromScratch@{F\_NewFromScratch}!AbstractOOXmlFile@{AbstractOOXmlFile}}\index{AbstractOOXmlFile@{AbstractOOXmlFile}!F\_NewFromScratch@{F\_NewFromScratch}}}\Hypertarget{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}\label{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83} 
+F\+\_\+\+New\+From\+Scratch&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\_LoadFromExists@{F\_LoadFromExists}!AbstractOOXmlFile@{AbstractOOXmlFile}}\index{AbstractOOXmlFile@{AbstractOOXmlFile}!F\_LoadFromExists@{F\_LoadFromExists}}}\Hypertarget{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}\label{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920} 
+F\+\_\+\+Load\+From\+Exists&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}\label{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!````~AbstractOOXmlFile@{\texorpdfstring{$\sim$}{\string~}AbstractOOXmlFile}}
+\index{````~AbstractOOXmlFile@{\texorpdfstring{$\sim$}{\string~}AbstractOOXmlFile}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}AbstractOOXmlFile()}{\string~AbstractOOXmlFile()}}
+{\footnotesize\ttfamily Abstract\+OOXml\+File\+::\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}\label{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{AbstractOOXmlFile()}{AbstractOOXmlFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Abstract\+OOXml\+File\+::\+Abstract\+OOXml\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}}}]{flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}\label{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{AbstractOOXmlFile()}{AbstractOOXmlFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Abstract\+OOXml\+File\+::\+Abstract\+OOXml\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}\label{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!filePath@{filePath}}
+\index{filePath@{filePath}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{filePath()}{filePath()}}
+{\footnotesize\ttfamily QString Abstract\+OOXml\+File\+::file\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}\label{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!loadFromXmlData@{loadFromXmlData}}
+\index{loadFromXmlData@{loadFromXmlData}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlData()}{loadFromXmlData()}}
+{\footnotesize\ttfamily bool Abstract\+OOXml\+File\+::load\+From\+Xml\+Data (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_a3e98d1a504ae7a35f16eaf62d6b69ac1}{QXlsx\+::\+Simple\+OOXml\+File}}, and \mbox{\hyperlink{class_q_xlsx_1_1_theme_a5b5486c4f5c760acf5f0e0f242a52f9a}{QXlsx\+::\+Theme}}.
+
+\Hypertarget{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}\label{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily virtual bool Abstract\+OOXml\+File\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_chart_a6222e1e9087e0be46c8fc8f3efd8689d}{Chart}}, \mbox{\hyperlink{class_q_xlsx_1_1_content_types_a1d07e17932f59ac79e3697e6652a0feb}{QXlsx\+::\+Content\+Types}}, \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_app_aadd78bc8a227e04768cc1a75efb0e01b}{QXlsx\+::\+Doc\+Props\+App}}, \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_a9f352a9c0b872817063d8fe09e42688f}{QXlsx\+::\+Doc\+Props\+Core}}, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_a44e6524374588b4f845cb79cafa913d5}{QXlsx\+::\+Drawing}}, \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a4c958c89a84fbc8a5fa5037b14da423f}{QXlsx\+::\+Shared\+Strings}}, \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_ac1b464b76f9caa264ffd8cd8a5a26ca7}{QXlsx\+::\+Simple\+OOXml\+File}}, \mbox{\hyperlink{class_q_xlsx_1_1_styles_a6d8a365893eb3110045ad8b71a3b7457}{QXlsx\+::\+Styles}}, and \mbox{\hyperlink{class_q_xlsx_1_1_theme_ab2a2ed9e2e6e22a26bc2c5cbc2256fc8}{QXlsx\+::\+Theme}}.
+
+\Hypertarget{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}\label{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!relationships@{relationships}}
+\index{relationships@{relationships}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{relationships()}{relationships()}}
+{\footnotesize\ttfamily Relationships \texorpdfstring{$\ast$}{*} Abstract\+OOXml\+File\+::relationships (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}\label{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!saveToXmlData@{saveToXmlData}}
+\index{saveToXmlData@{saveToXmlData}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{saveToXmlData()}{saveToXmlData()}}
+{\footnotesize\ttfamily QByte\+Array Abstract\+OOXml\+File\+::save\+To\+Xml\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_ade393e906b1b69fca8f5b437193b911e}{QXlsx\+::\+Simple\+OOXml\+File}}, and \mbox{\hyperlink{class_q_xlsx_1_1_theme_a298b0622c749a3fa4c636a23d8cc5f82}{QXlsx\+::\+Theme}}.
+
+\Hypertarget{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}\label{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily virtual void Abstract\+OOXml\+File\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_chart_af5bea80f52a782e4e40cc0ac1d7e2595}{Chart}}, \mbox{\hyperlink{class_q_xlsx_1_1_content_types_aa35765161db4cf4ee6e4b27c6f6c0515}{QXlsx\+::\+Content\+Types}}, \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_app_a1c600237aab7a35f059962ca0cde0713}{QXlsx\+::\+Doc\+Props\+App}}, \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_a6afa1a69eeef6bfeca7ef7f8738ff98c}{QXlsx\+::\+Doc\+Props\+Core}}, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_a6b7443cee79bc69076b8d9791be4eb0b}{QXlsx\+::\+Drawing}}, \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a14f03f10a48fea6eede3ef9efb3aff9d}{QXlsx\+::\+Shared\+Strings}}, \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_a4b85195c09e87d649f1c74c00f8b1a3e}{QXlsx\+::\+Simple\+OOXml\+File}}, \mbox{\hyperlink{class_q_xlsx_1_1_styles_a152b7727150f52a59d1fa452538f8362}{QXlsx\+::\+Styles}}, and \mbox{\hyperlink{class_q_xlsx_1_1_theme_ae697aa3aaa1d67726d3a9653fd630857}{QXlsx\+::\+Theme}}.
+
+\Hypertarget{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}\label{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!setFilePath@{setFilePath}}
+\index{setFilePath@{setFilePath}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{setFilePath()}{setFilePath()}}
+{\footnotesize\ttfamily void Abstract\+OOXml\+File\+::set\+File\+Path (\begin{DoxyParamCaption}\item[{const QString}]{path }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}\label{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6} 
+\index{AbstractOOXmlFile@{AbstractOOXmlFile}!d\_ptr@{d\_ptr}}
+\index{d\_ptr@{d\_ptr}!AbstractOOXmlFile@{AbstractOOXmlFile}}
+\doxysubsubsection{\texorpdfstring{d\_ptr}{d\_ptr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}}\texorpdfstring{$\ast$}{*} Abstract\+OOXml\+File\+::d\+\_\+ptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxabstractooxmlfile_8h}{xlsxabstractooxmlfile.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxabstractooxmlfile_8cpp}{xlsxabstractooxmlfile.\+cpp}}\end{DoxyCompactItemize}

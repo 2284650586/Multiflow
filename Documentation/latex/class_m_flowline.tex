@@ -1,0 +1,311 @@
+\doxysection{MFlowline Class Reference}
+\hypertarget{class_m_flowline}{}\label{class_m_flowline}\index{MFlowline@{MFlowline}}
+
+
+{\ttfamily \#include $<$mflowline.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{Flowline\+Type}} \{ \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788a7fc9020f7bf7c8520af56228666dc49c}{Pipe}}
+, \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788aac6d3d49c05149ac7574c8e9500f6a85}{Annulus}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{Flowline\+Mode}} \{ \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084a92b7e767bbc9e21969267a500259185e}{Simple}}
+, \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084aab6192d9193f50a36d5fa10029675088}{Detailed}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{Flowline\+Enviroment}} \{ \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037cae37fe11e2181635af16a439b854ce0a8}{Land}}
+, \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037caa7f3cf72735b3d5f80d59afa375dd921}{Subsea}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_flowline_abb8c3a5394ec6ddcbabce9493b186b05}{MFlowline}} ()
+\item 
+\mbox{\hyperlink{class_m_flowline_abeb308cd06afdff3fd255041aadb6524}{MFlowline}} (\mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{Flowline\+Type}} flowline\+Type, \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{Flowline\+Mode}} flowline\+Mode, \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{Flowline\+Enviroment}} flowline\+Enviroment, double pip\+Inside\+Diameter, double pip\+Wall\+Thickness, double pipe\+Roughness, double profile\+Horizontal\+Distance, double profile\+Elevatiaon\+Difference, double heat\+Transfer\+Coefficient)
+\item 
+\mbox{\hyperlink{class_m_flowline_aadc79514c5d83c400b52e6ecda52d736}{\texorpdfstring{$\sim$}{\string~}\+MFlowline}} ()
+\item 
+QString \mbox{\hyperlink{class_m_flowline_a6de72075546b1d56bbc396700c47c726}{get\+Flowline\+Id}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_aa7304e3a4aac5b0bc343379fba298657}{set\+Flowline\+Id}} (const QString \&new\+Flowline\+Id)
+\item 
+\mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{Flowline\+Type}} \mbox{\hyperlink{class_m_flowline_aebcf73149b023b4c913814047472f8f8}{get\+Flowline\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_ab0d3e7b6fc58344cc1512fba7a33d9b8}{set\+Flowline\+Type}} (\mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{Flowline\+Type}} new\+Flowline\+Type)
+\item 
+\mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{Flowline\+Mode}} \mbox{\hyperlink{class_m_flowline_ad460c6f74d3ab402d6db9bb5fe1fd584}{get\+Flowline\+Mode}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_a459fe92a507b85404b82955395a54c97}{set\+Flowline\+Mode}} (\mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{Flowline\+Mode}} new\+Flowline\+Mode)
+\item 
+\mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{Flowline\+Enviroment}} \mbox{\hyperlink{class_m_flowline_a5124155f021b90d00cbed63ef1aedab1}{get\+Flowline\+Enviroment}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_acd39bdb600f5463ab659267c33fe32ac}{set\+Flowline\+Enviroment}} (\mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{Flowline\+Enviroment}} new\+Flowline\+Enviroment)
+\item 
+double \mbox{\hyperlink{class_m_flowline_af3cbdd4f170fb69992c87b2db7772a82}{get\+Pip\+Inside\+Diameter}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_a494181ee2fe6d2694208449cfd5ca587}{set\+Pip\+Inside\+Diameter}} (double new\+Pip\+Inside\+Diameter)
+\item 
+double \mbox{\hyperlink{class_m_flowline_acc95fb5751da4458d05c88b4ea1c9848}{get\+Pip\+Wall\+Thickness}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_af8eafff4722a9d3bb1f15042e9851782}{set\+Pip\+Wall\+Thickness}} (double new\+Pip\+Wall\+Thickness)
+\item 
+double \mbox{\hyperlink{class_m_flowline_a48810922e181f57564632246d0c6b9f0}{get\+Pipe\+Roughness}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_ae112c2951a8d1fb3051e6b1c8d4d6684}{set\+Pipe\+Roughness}} (double new\+Pipe\+Roughness)
+\item 
+double \mbox{\hyperlink{class_m_flowline_a9d008c5b591fa28cad2230d266ee9c3c}{get\+Profile\+Horizontal\+Distance}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_a83dce21525c255544652234f9258169a}{set\+Profile\+Horizontal\+Distance}} (double new\+Profile\+Horizontal\+Distance)
+\item 
+double \mbox{\hyperlink{class_m_flowline_ad1ad6cc22af823d759fa99599b292b53}{get\+Profile\+Elevatiaon\+Difference}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_af39d15f0fe867110c521be5fffb64faa}{set\+Profile\+Elevatiaon\+Difference}} (double new\+Profile\+Elevatiaon\+Difference)
+\item 
+double \mbox{\hyperlink{class_m_flowline_a7535616933de7eacaa8f9b9bd390508d}{get\+Heat\+Transfer\+Coefficient}} () const
+\item 
+void \mbox{\hyperlink{class_m_flowline_a019d2dad9a04f7c22dcb2848680b39b0}{set\+Heat\+Transfer\+Coefficient}} (double new\+Heat\+Transfer\+Coefficient)
+\item 
+void \mbox{\hyperlink{class_m_flowline_ae4c379924c577bc163070fe9148a0ea1}{add\+Par}} (\mbox{\hyperlink{class_m_flowline_par}{MFlowline\+Par}} \texorpdfstring{$\ast$}{*}par)
+\item 
+void \mbox{\hyperlink{class_m_flowline_aab55f369c5be88ec36c0be4785fd2a5c}{add\+Par}} (double hd1, double elevation, double dh2, double temperature)
+\item 
+void \mbox{\hyperlink{class_m_flowline_a61bf223f787d77d505d0598ccc4457b1}{clear\+Par}} ()
+\item 
+int \mbox{\hyperlink{class_m_flowline_a685186d6870a3a91e1c3afcaa54d52f5}{get\+Par\+Count}} ()
+\item 
+QList$<$ \mbox{\hyperlink{class_m_flowline_par}{MFlowline\+Par}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_m_flowline_aba14202497333d67dc174a28293458ad}{get\+Par\+List}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}\label{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c} 
+\index{MFlowline@{MFlowline}!FlowlineEnviroment@{FlowlineEnviroment}}
+\index{FlowlineEnviroment@{FlowlineEnviroment}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{FlowlineEnviroment}{FlowlineEnviroment}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{MFlowline\+::\+Flowline\+Enviroment}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Land@{Land}!MFlowline@{MFlowline}}\index{MFlowline@{MFlowline}!Land@{Land}}}\Hypertarget{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037cae37fe11e2181635af16a439b854ce0a8}\label{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037cae37fe11e2181635af16a439b854ce0a8} 
+Land&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Subsea@{Subsea}!MFlowline@{MFlowline}}\index{MFlowline@{MFlowline}!Subsea@{Subsea}}}\Hypertarget{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037caa7f3cf72735b3d5f80d59afa375dd921}\label{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037caa7f3cf72735b3d5f80d59afa375dd921} 
+Subsea&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_m_flowline_a355bfed61a27d961d4e8da070241c084}\label{class_m_flowline_a355bfed61a27d961d4e8da070241c084} 
+\index{MFlowline@{MFlowline}!FlowlineMode@{FlowlineMode}}
+\index{FlowlineMode@{FlowlineMode}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{FlowlineMode}{FlowlineMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{MFlowline\+::\+Flowline\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Simple@{Simple}!MFlowline@{MFlowline}}\index{MFlowline@{MFlowline}!Simple@{Simple}}}\Hypertarget{class_m_flowline_a355bfed61a27d961d4e8da070241c084a92b7e767bbc9e21969267a500259185e}\label{class_m_flowline_a355bfed61a27d961d4e8da070241c084a92b7e767bbc9e21969267a500259185e} 
+Simple&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Detailed@{Detailed}!MFlowline@{MFlowline}}\index{MFlowline@{MFlowline}!Detailed@{Detailed}}}\Hypertarget{class_m_flowline_a355bfed61a27d961d4e8da070241c084aab6192d9193f50a36d5fa10029675088}\label{class_m_flowline_a355bfed61a27d961d4e8da070241c084aab6192d9193f50a36d5fa10029675088} 
+Detailed&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_m_flowline_a84d36a7c48011a94f14f241543c88788}\label{class_m_flowline_a84d36a7c48011a94f14f241543c88788} 
+\index{MFlowline@{MFlowline}!FlowlineType@{FlowlineType}}
+\index{FlowlineType@{FlowlineType}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{FlowlineType}{FlowlineType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{MFlowline\+::\+Flowline\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pipe@{Pipe}!MFlowline@{MFlowline}}\index{MFlowline@{MFlowline}!Pipe@{Pipe}}}\Hypertarget{class_m_flowline_a84d36a7c48011a94f14f241543c88788a7fc9020f7bf7c8520af56228666dc49c}\label{class_m_flowline_a84d36a7c48011a94f14f241543c88788a7fc9020f7bf7c8520af56228666dc49c} 
+Pipe&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Annulus@{Annulus}!MFlowline@{MFlowline}}\index{MFlowline@{MFlowline}!Annulus@{Annulus}}}\Hypertarget{class_m_flowline_a84d36a7c48011a94f14f241543c88788aac6d3d49c05149ac7574c8e9500f6a85}\label{class_m_flowline_a84d36a7c48011a94f14f241543c88788aac6d3d49c05149ac7574c8e9500f6a85} 
+Annulus&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_flowline_abb8c3a5394ec6ddcbabce9493b186b05}\label{class_m_flowline_abb8c3a5394ec6ddcbabce9493b186b05} 
+\index{MFlowline@{MFlowline}!MFlowline@{MFlowline}}
+\index{MFlowline@{MFlowline}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{MFlowline()}{MFlowline()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily MFlowline\+::\+MFlowline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_abeb308cd06afdff3fd255041aadb6524}\label{class_m_flowline_abeb308cd06afdff3fd255041aadb6524} 
+\index{MFlowline@{MFlowline}!MFlowline@{MFlowline}}
+\index{MFlowline@{MFlowline}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{MFlowline()}{MFlowline()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily MFlowline\+::\+MFlowline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{MFlowline\+::\+Flowline\+Type}}}]{flowline\+Type,  }\item[{\mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{MFlowline\+::\+Flowline\+Mode}}}]{flowline\+Mode,  }\item[{\mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{MFlowline\+::\+Flowline\+Enviroment}}}]{flowline\+Enviroment,  }\item[{double}]{pip\+Inside\+Diameter,  }\item[{double}]{pip\+Wall\+Thickness,  }\item[{double}]{pipe\+Roughness,  }\item[{double}]{profile\+Horizontal\+Distance,  }\item[{double}]{profile\+Elevatiaon\+Difference,  }\item[{double}]{heat\+Transfer\+Coefficient }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_aadc79514c5d83c400b52e6ecda52d736}\label{class_m_flowline_aadc79514c5d83c400b52e6ecda52d736} 
+\index{MFlowline@{MFlowline}!````~MFlowline@{\texorpdfstring{$\sim$}{\string~}MFlowline}}
+\index{````~MFlowline@{\texorpdfstring{$\sim$}{\string~}MFlowline}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MFlowline()}{\string~MFlowline()}}
+{\footnotesize\ttfamily MFlowline\+::\texorpdfstring{$\sim$}{\string~}\+MFlowline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_flowline_aab55f369c5be88ec36c0be4785fd2a5c}\label{class_m_flowline_aab55f369c5be88ec36c0be4785fd2a5c} 
+\index{MFlowline@{MFlowline}!addPar@{addPar}}
+\index{addPar@{addPar}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{addPar()}{addPar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void MFlowline\+::add\+Par (\begin{DoxyParamCaption}\item[{double}]{hd1,  }\item[{double}]{elevation,  }\item[{double}]{dh2,  }\item[{double}]{temperature }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_ae4c379924c577bc163070fe9148a0ea1}\label{class_m_flowline_ae4c379924c577bc163070fe9148a0ea1} 
+\index{MFlowline@{MFlowline}!addPar@{addPar}}
+\index{addPar@{addPar}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{addPar()}{addPar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void MFlowline\+::add\+Par (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_flowline_par}{MFlowline\+Par}} \texorpdfstring{$\ast$}{*}}]{par }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_flowline_a61bf223f787d77d505d0598ccc4457b1}\label{class_m_flowline_a61bf223f787d77d505d0598ccc4457b1} 
+\index{MFlowline@{MFlowline}!clearPar@{clearPar}}
+\index{clearPar@{clearPar}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{clearPar()}{clearPar()}}
+{\footnotesize\ttfamily void MFlowline\+::clear\+Par (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_flowline_a5124155f021b90d00cbed63ef1aedab1}\label{class_m_flowline_a5124155f021b90d00cbed63ef1aedab1} 
+\index{MFlowline@{MFlowline}!getFlowlineEnviroment@{getFlowlineEnviroment}}
+\index{getFlowlineEnviroment@{getFlowlineEnviroment}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getFlowlineEnviroment()}{getFlowlineEnviroment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{MFlowline\+::\+Flowline\+Enviroment}} MFlowline\+::get\+Flowline\+Enviroment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_a6de72075546b1d56bbc396700c47c726}\label{class_m_flowline_a6de72075546b1d56bbc396700c47c726} 
+\index{MFlowline@{MFlowline}!getFlowlineId@{getFlowlineId}}
+\index{getFlowlineId@{getFlowlineId}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getFlowlineId()}{getFlowlineId()}}
+{\footnotesize\ttfamily QString MFlowline\+::get\+Flowline\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_ad460c6f74d3ab402d6db9bb5fe1fd584}\label{class_m_flowline_ad460c6f74d3ab402d6db9bb5fe1fd584} 
+\index{MFlowline@{MFlowline}!getFlowlineMode@{getFlowlineMode}}
+\index{getFlowlineMode@{getFlowlineMode}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getFlowlineMode()}{getFlowlineMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{MFlowline\+::\+Flowline\+Mode}} MFlowline\+::get\+Flowline\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_aebcf73149b023b4c913814047472f8f8}\label{class_m_flowline_aebcf73149b023b4c913814047472f8f8} 
+\index{MFlowline@{MFlowline}!getFlowlineType@{getFlowlineType}}
+\index{getFlowlineType@{getFlowlineType}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getFlowlineType()}{getFlowlineType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{MFlowline\+::\+Flowline\+Type}} MFlowline\+::get\+Flowline\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_a7535616933de7eacaa8f9b9bd390508d}\label{class_m_flowline_a7535616933de7eacaa8f9b9bd390508d} 
+\index{MFlowline@{MFlowline}!getHeatTransferCoefficient@{getHeatTransferCoefficient}}
+\index{getHeatTransferCoefficient@{getHeatTransferCoefficient}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getHeatTransferCoefficient()}{getHeatTransferCoefficient()}}
+{\footnotesize\ttfamily double MFlowline\+::get\+Heat\+Transfer\+Coefficient (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_a685186d6870a3a91e1c3afcaa54d52f5}\label{class_m_flowline_a685186d6870a3a91e1c3afcaa54d52f5} 
+\index{MFlowline@{MFlowline}!getParCount@{getParCount}}
+\index{getParCount@{getParCount}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getParCount()}{getParCount()}}
+{\footnotesize\ttfamily int MFlowline\+::get\+Par\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_flowline_aba14202497333d67dc174a28293458ad}\label{class_m_flowline_aba14202497333d67dc174a28293458ad} 
+\index{MFlowline@{MFlowline}!getParList@{getParList}}
+\index{getParList@{getParList}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getParList()}{getParList()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_m_flowline_par}{MFlowline\+Par}} \texorpdfstring{$\ast$}{*} $>$ MFlowline\+::get\+Par\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_a48810922e181f57564632246d0c6b9f0}\label{class_m_flowline_a48810922e181f57564632246d0c6b9f0} 
+\index{MFlowline@{MFlowline}!getPipeRoughness@{getPipeRoughness}}
+\index{getPipeRoughness@{getPipeRoughness}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getPipeRoughness()}{getPipeRoughness()}}
+{\footnotesize\ttfamily double MFlowline\+::get\+Pipe\+Roughness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_af3cbdd4f170fb69992c87b2db7772a82}\label{class_m_flowline_af3cbdd4f170fb69992c87b2db7772a82} 
+\index{MFlowline@{MFlowline}!getPipInsideDiameter@{getPipInsideDiameter}}
+\index{getPipInsideDiameter@{getPipInsideDiameter}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getPipInsideDiameter()}{getPipInsideDiameter()}}
+{\footnotesize\ttfamily double MFlowline\+::get\+Pip\+Inside\+Diameter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_acc95fb5751da4458d05c88b4ea1c9848}\label{class_m_flowline_acc95fb5751da4458d05c88b4ea1c9848} 
+\index{MFlowline@{MFlowline}!getPipWallThickness@{getPipWallThickness}}
+\index{getPipWallThickness@{getPipWallThickness}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getPipWallThickness()}{getPipWallThickness()}}
+{\footnotesize\ttfamily double MFlowline\+::get\+Pip\+Wall\+Thickness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_ad1ad6cc22af823d759fa99599b292b53}\label{class_m_flowline_ad1ad6cc22af823d759fa99599b292b53} 
+\index{MFlowline@{MFlowline}!getProfileElevatiaonDifference@{getProfileElevatiaonDifference}}
+\index{getProfileElevatiaonDifference@{getProfileElevatiaonDifference}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getProfileElevatiaonDifference()}{getProfileElevatiaonDifference()}}
+{\footnotesize\ttfamily double MFlowline\+::get\+Profile\+Elevatiaon\+Difference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_a9d008c5b591fa28cad2230d266ee9c3c}\label{class_m_flowline_a9d008c5b591fa28cad2230d266ee9c3c} 
+\index{MFlowline@{MFlowline}!getProfileHorizontalDistance@{getProfileHorizontalDistance}}
+\index{getProfileHorizontalDistance@{getProfileHorizontalDistance}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{getProfileHorizontalDistance()}{getProfileHorizontalDistance()}}
+{\footnotesize\ttfamily double MFlowline\+::get\+Profile\+Horizontal\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_flowline_acd39bdb600f5463ab659267c33fe32ac}\label{class_m_flowline_acd39bdb600f5463ab659267c33fe32ac} 
+\index{MFlowline@{MFlowline}!setFlowlineEnviroment@{setFlowlineEnviroment}}
+\index{setFlowlineEnviroment@{setFlowlineEnviroment}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setFlowlineEnviroment()}{setFlowlineEnviroment()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Flowline\+Enviroment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{Flowline\+Enviroment}}}]{new\+Flowline\+Enviroment }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_aa7304e3a4aac5b0bc343379fba298657}\label{class_m_flowline_aa7304e3a4aac5b0bc343379fba298657} 
+\index{MFlowline@{MFlowline}!setFlowlineId@{setFlowlineId}}
+\index{setFlowlineId@{setFlowlineId}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setFlowlineId()}{setFlowlineId()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Flowline\+Id (\begin{DoxyParamCaption}\item[{const QString \&}]{new\+Flowline\+Id }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_a459fe92a507b85404b82955395a54c97}\label{class_m_flowline_a459fe92a507b85404b82955395a54c97} 
+\index{MFlowline@{MFlowline}!setFlowlineMode@{setFlowlineMode}}
+\index{setFlowlineMode@{setFlowlineMode}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setFlowlineMode()}{setFlowlineMode()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Flowline\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{Flowline\+Mode}}}]{new\+Flowline\+Mode }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_ab0d3e7b6fc58344cc1512fba7a33d9b8}\label{class_m_flowline_ab0d3e7b6fc58344cc1512fba7a33d9b8} 
+\index{MFlowline@{MFlowline}!setFlowlineType@{setFlowlineType}}
+\index{setFlowlineType@{setFlowlineType}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setFlowlineType()}{setFlowlineType()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Flowline\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{Flowline\+Type}}}]{new\+Flowline\+Type }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_a019d2dad9a04f7c22dcb2848680b39b0}\label{class_m_flowline_a019d2dad9a04f7c22dcb2848680b39b0} 
+\index{MFlowline@{MFlowline}!setHeatTransferCoefficient@{setHeatTransferCoefficient}}
+\index{setHeatTransferCoefficient@{setHeatTransferCoefficient}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setHeatTransferCoefficient()}{setHeatTransferCoefficient()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Heat\+Transfer\+Coefficient (\begin{DoxyParamCaption}\item[{double}]{new\+Heat\+Transfer\+Coefficient }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_ae112c2951a8d1fb3051e6b1c8d4d6684}\label{class_m_flowline_ae112c2951a8d1fb3051e6b1c8d4d6684} 
+\index{MFlowline@{MFlowline}!setPipeRoughness@{setPipeRoughness}}
+\index{setPipeRoughness@{setPipeRoughness}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setPipeRoughness()}{setPipeRoughness()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Pipe\+Roughness (\begin{DoxyParamCaption}\item[{double}]{new\+Pipe\+Roughness }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_a494181ee2fe6d2694208449cfd5ca587}\label{class_m_flowline_a494181ee2fe6d2694208449cfd5ca587} 
+\index{MFlowline@{MFlowline}!setPipInsideDiameter@{setPipInsideDiameter}}
+\index{setPipInsideDiameter@{setPipInsideDiameter}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setPipInsideDiameter()}{setPipInsideDiameter()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Pip\+Inside\+Diameter (\begin{DoxyParamCaption}\item[{double}]{new\+Pip\+Inside\+Diameter }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_af8eafff4722a9d3bb1f15042e9851782}\label{class_m_flowline_af8eafff4722a9d3bb1f15042e9851782} 
+\index{MFlowline@{MFlowline}!setPipWallThickness@{setPipWallThickness}}
+\index{setPipWallThickness@{setPipWallThickness}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setPipWallThickness()}{setPipWallThickness()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Pip\+Wall\+Thickness (\begin{DoxyParamCaption}\item[{double}]{new\+Pip\+Wall\+Thickness }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_af39d15f0fe867110c521be5fffb64faa}\label{class_m_flowline_af39d15f0fe867110c521be5fffb64faa} 
+\index{MFlowline@{MFlowline}!setProfileElevatiaonDifference@{setProfileElevatiaonDifference}}
+\index{setProfileElevatiaonDifference@{setProfileElevatiaonDifference}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setProfileElevatiaonDifference()}{setProfileElevatiaonDifference()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Profile\+Elevatiaon\+Difference (\begin{DoxyParamCaption}\item[{double}]{new\+Profile\+Elevatiaon\+Difference }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_flowline_a83dce21525c255544652234f9258169a}\label{class_m_flowline_a83dce21525c255544652234f9258169a} 
+\index{MFlowline@{MFlowline}!setProfileHorizontalDistance@{setProfileHorizontalDistance}}
+\index{setProfileHorizontalDistance@{setProfileHorizontalDistance}!MFlowline@{MFlowline}}
+\doxysubsubsection{\texorpdfstring{setProfileHorizontalDistance()}{setProfileHorizontalDistance()}}
+{\footnotesize\ttfamily void MFlowline\+::set\+Profile\+Horizontal\+Distance (\begin{DoxyParamCaption}\item[{double}]{new\+Profile\+Horizontal\+Distance }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/entity/\mbox{\hyperlink{mflowline_8h}{mflowline.\+h}}\item 
+Multiflow\+UI/entity/\mbox{\hyperlink{mflowline_8cpp}{mflowline.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,140 @@
+\doxysection{MSource Class Reference}
+\hypertarget{class_m_source}{}\label{class_m_source}\index{MSource@{MSource}}
+
+
+{\ttfamily \#include $<$msource.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{Source\+Type}} \{ \mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9a93b5cfd4997b75c8125dc707e909a51b}{Liquid}}
+, \mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9af2a801298c2c71622183c786bca7d108}{Gas}}
+, \mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9a3637f9eff475f885735dc837641dbde6}{Mass}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_source_aeffbda7214d502f860c2387af272b317}{MSource}} ()
+\item 
+\mbox{\hyperlink{class_m_source_a2b5435b5b6e9609b23d0c5fecfe3c5db}{MSource}} (double source\+Pressure, double source\+Temperature, \mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{Source\+Type}} source\+Flow\+Type, double source\+Flow\+Rate)
+\item 
+QString \mbox{\hyperlink{class_m_source_a3f0c08e6a2fdc1f6dee03d0ca39f0335}{get\+Source\+Id}} () const
+\item 
+double \mbox{\hyperlink{class_m_source_a5694bfdef5a003b0fa7ca8a18801cc17}{get\+Source\+Pressure}} () const
+\item 
+void \mbox{\hyperlink{class_m_source_a61a54aa5e7e6aebd73e814f9870e8b9b}{set\+Source\+Pressure}} (double new\+Source\+Pressure)
+\item 
+double \mbox{\hyperlink{class_m_source_a8c077f57097522abb7d59ce830bbc9cb}{get\+Source\+Temperature}} () const
+\item 
+void \mbox{\hyperlink{class_m_source_a36246a627eb509c5c6c25a17ba2b77de}{set\+Source\+Temperature}} (double new\+Source\+Temperature)
+\item 
+\mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{Source\+Type}} \mbox{\hyperlink{class_m_source_a7b3bfdaa35f81c42212afd4a28a9a871}{get\+Source\+Flow\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_m_source_aa22d4e81008de6683fcaf0f4901d024a}{set\+Source\+Flow\+Type}} (\mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{Source\+Type}} new\+Source\+Flow\+Type)
+\item 
+double \mbox{\hyperlink{class_m_source_adaab24e575e3dc6fbd099d10eef38ea3}{get\+Source\+Flow\+Rate}} () const
+\item 
+void \mbox{\hyperlink{class_m_source_ab7c58c06f770cb619c635626c01d9dc7}{set\+Source\+Flow\+Rate}} (double new\+Source\+Flow\+Rate)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}\label{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9} 
+\index{MSource@{MSource}!SourceType@{SourceType}}
+\index{SourceType@{SourceType}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{SourceType}{SourceType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{MSource\+::\+Source\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Liquid@{Liquid}!MSource@{MSource}}\index{MSource@{MSource}!Liquid@{Liquid}}}\Hypertarget{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9a93b5cfd4997b75c8125dc707e909a51b}\label{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9a93b5cfd4997b75c8125dc707e909a51b} 
+Liquid&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Gas@{Gas}!MSource@{MSource}}\index{MSource@{MSource}!Gas@{Gas}}}\Hypertarget{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9af2a801298c2c71622183c786bca7d108}\label{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9af2a801298c2c71622183c786bca7d108} 
+Gas&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Mass@{Mass}!MSource@{MSource}}\index{MSource@{MSource}!Mass@{Mass}}}\Hypertarget{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9a3637f9eff475f885735dc837641dbde6}\label{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9a3637f9eff475f885735dc837641dbde6} 
+Mass&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_source_aeffbda7214d502f860c2387af272b317}\label{class_m_source_aeffbda7214d502f860c2387af272b317} 
+\index{MSource@{MSource}!MSource@{MSource}}
+\index{MSource@{MSource}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{MSource()}{MSource()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily MSource\+::\+MSource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_source_a2b5435b5b6e9609b23d0c5fecfe3c5db}\label{class_m_source_a2b5435b5b6e9609b23d0c5fecfe3c5db} 
+\index{MSource@{MSource}!MSource@{MSource}}
+\index{MSource@{MSource}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{MSource()}{MSource()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily MSource\+::\+MSource (\begin{DoxyParamCaption}\item[{double}]{source\+Pressure,  }\item[{double}]{source\+Temperature,  }\item[{\mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{MSource\+::\+Source\+Type}}}]{source\+Flow\+Type,  }\item[{double}]{source\+Flow\+Rate }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_source_adaab24e575e3dc6fbd099d10eef38ea3}\label{class_m_source_adaab24e575e3dc6fbd099d10eef38ea3} 
+\index{MSource@{MSource}!getSourceFlowRate@{getSourceFlowRate}}
+\index{getSourceFlowRate@{getSourceFlowRate}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{getSourceFlowRate()}{getSourceFlowRate()}}
+{\footnotesize\ttfamily double MSource\+::get\+Source\+Flow\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_source_a7b3bfdaa35f81c42212afd4a28a9a871}\label{class_m_source_a7b3bfdaa35f81c42212afd4a28a9a871} 
+\index{MSource@{MSource}!getSourceFlowType@{getSourceFlowType}}
+\index{getSourceFlowType@{getSourceFlowType}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{getSourceFlowType()}{getSourceFlowType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{Source\+Type}} MSource\+::get\+Source\+Flow\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_source_a3f0c08e6a2fdc1f6dee03d0ca39f0335}\label{class_m_source_a3f0c08e6a2fdc1f6dee03d0ca39f0335} 
+\index{MSource@{MSource}!getSourceId@{getSourceId}}
+\index{getSourceId@{getSourceId}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{getSourceId()}{getSourceId()}}
+{\footnotesize\ttfamily QString MSource\+::get\+Source\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_source_a5694bfdef5a003b0fa7ca8a18801cc17}\label{class_m_source_a5694bfdef5a003b0fa7ca8a18801cc17} 
+\index{MSource@{MSource}!getSourcePressure@{getSourcePressure}}
+\index{getSourcePressure@{getSourcePressure}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{getSourcePressure()}{getSourcePressure()}}
+{\footnotesize\ttfamily double MSource\+::get\+Source\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_source_a8c077f57097522abb7d59ce830bbc9cb}\label{class_m_source_a8c077f57097522abb7d59ce830bbc9cb} 
+\index{MSource@{MSource}!getSourceTemperature@{getSourceTemperature}}
+\index{getSourceTemperature@{getSourceTemperature}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{getSourceTemperature()}{getSourceTemperature()}}
+{\footnotesize\ttfamily double MSource\+::get\+Source\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_source_ab7c58c06f770cb619c635626c01d9dc7}\label{class_m_source_ab7c58c06f770cb619c635626c01d9dc7} 
+\index{MSource@{MSource}!setSourceFlowRate@{setSourceFlowRate}}
+\index{setSourceFlowRate@{setSourceFlowRate}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{setSourceFlowRate()}{setSourceFlowRate()}}
+{\footnotesize\ttfamily void MSource\+::set\+Source\+Flow\+Rate (\begin{DoxyParamCaption}\item[{double}]{new\+Source\+Flow\+Rate }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_source_aa22d4e81008de6683fcaf0f4901d024a}\label{class_m_source_aa22d4e81008de6683fcaf0f4901d024a} 
+\index{MSource@{MSource}!setSourceFlowType@{setSourceFlowType}}
+\index{setSourceFlowType@{setSourceFlowType}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{setSourceFlowType()}{setSourceFlowType()}}
+{\footnotesize\ttfamily void MSource\+::set\+Source\+Flow\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_source_a6ccca98945b2262054d2a9c709dc8fc9}{Source\+Type}}}]{new\+Source\+Flow\+Type }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_source_a61a54aa5e7e6aebd73e814f9870e8b9b}\label{class_m_source_a61a54aa5e7e6aebd73e814f9870e8b9b} 
+\index{MSource@{MSource}!setSourcePressure@{setSourcePressure}}
+\index{setSourcePressure@{setSourcePressure}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{setSourcePressure()}{setSourcePressure()}}
+{\footnotesize\ttfamily void MSource\+::set\+Source\+Pressure (\begin{DoxyParamCaption}\item[{double}]{new\+Source\+Pressure }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_source_a36246a627eb509c5c6c25a17ba2b77de}\label{class_m_source_a36246a627eb509c5c6c25a17ba2b77de} 
+\index{MSource@{MSource}!setSourceTemperature@{setSourceTemperature}}
+\index{setSourceTemperature@{setSourceTemperature}!MSource@{MSource}}
+\doxysubsubsection{\texorpdfstring{setSourceTemperature()}{setSourceTemperature()}}
+{\footnotesize\ttfamily void MSource\+::set\+Source\+Temperature (\begin{DoxyParamCaption}\item[{double}]{new\+Source\+Temperature }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/entity/\mbox{\hyperlink{msource_8h}{msource.\+h}}\item 
+Multiflow\+UI/entity/\mbox{\hyperlink{msource_8cpp}{msource.\+cpp}}\end{DoxyCompactItemize}

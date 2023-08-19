@@ -1,0 +1,343 @@
+\doxysection{Workbook Class Reference}
+\hypertarget{class_workbook}{}\label{class_workbook}\index{Workbook@{Workbook}}
+
+
+{\ttfamily \#include $<$xlsxworkbook.\+h$>$}
+
+Inheritance diagram for Workbook\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_workbook}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_workbook_a3be1c7a49a70b7ec095a36e278395bf6}{\texorpdfstring{$\sim$}{\string~}\+Workbook}} ()
+\item 
+int \mbox{\hyperlink{class_workbook_a61cdb270fed164c8a7dc9fe7f35015f7}{sheet\+Count}} () const
+\item 
+\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_workbook_a2a83cbaf4bfbb3a8f5b61bd02efc8a2a}{sheet}} (int index) const
+\item 
+\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_workbook_adebde36f6ac6c5395966d3ecfa3b7cad}{add\+Sheet}} (const QString \&name=QString(), \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}} type=\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}})
+\item 
+\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_workbook_aa114cbae186afd1524202a5abf475c23}{insert\+Sheet}} (int index, const QString \&name=QString(), \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}} type=\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}})
+\item 
+bool \mbox{\hyperlink{class_workbook_a430de39d5457492d6191297c3ab7db6a}{rename\+Sheet}} (int index, const QString \&name)
+\item 
+bool \mbox{\hyperlink{class_workbook_af5f757c816a06629acdf82115c259bbd}{delete\+Sheet}} (int index)
+\item 
+bool \mbox{\hyperlink{class_workbook_ae56b5e3bf6d538195d76daa13067b112}{copy\+Sheet}} (int index, const QString \&new\+Name=QString())
+\item 
+bool \mbox{\hyperlink{class_workbook_ae8f689654d5cdc231c044034b2b8fad1}{move\+Sheet}} (int src\+Index, int dist\+Index)
+\item 
+\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_workbook_a575a5ebf448c62b7bc2d0dac07ef0d78}{active\+Sheet}} () const
+\item 
+bool \mbox{\hyperlink{class_workbook_a55ca45d4bdff6e40144f3282a9077de8}{set\+Active\+Sheet}} (int index)
+\item 
+bool \mbox{\hyperlink{class_workbook_abaad4c4423b6ba88f87b1d7049748689}{define\+Name}} (const QString \&name, const QString \&formula, const QString \&comment=QString(), const QString \&scope=QString())
+\begin{DoxyCompactList}\small\item\em Create a defined name in the workbook. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_workbook_ade7eed54e968771eb04d191a0569171e}{is\+Date1904}} () const
+\item 
+void \mbox{\hyperlink{class_workbook_a50711ec2cf97fb742ba1f04b2f0abdad}{set\+Date1904}} (bool date1904)
+\item 
+bool \mbox{\hyperlink{class_workbook_a2aade5dd87445b125a297a9aeaf23b5d}{is\+Strings\+To\+Numbers\+Enabled}} () const
+\item 
+void \mbox{\hyperlink{class_workbook_ade853a44d0e830b0420f552c6d86c2b5}{set\+Strings\+To\+Numbers\+Enabled}} (bool enable=true)
+\item 
+bool \mbox{\hyperlink{class_workbook_ad4100ffa7507553372b5f99622f24b1c}{is\+Strings\+To\+Hyperlinks\+Enabled}} () const
+\item 
+void \mbox{\hyperlink{class_workbook_abd6fc437f09d5c27b3d1c9e1b921b49d}{set\+Strings\+To\+Hyperlinks\+Enabled}} (bool enable=true)
+\item 
+bool \mbox{\hyperlink{class_workbook_ad3121cd3b5fc083d1669fad810daa86d}{is\+Html\+To\+Rich\+String\+Enabled}} () const
+\item 
+void \mbox{\hyperlink{class_workbook_a5a23ce0e1b25e65b1f3eeb3b7e20eefd}{set\+Html\+To\+Rich\+String\+Enabled}} (bool enable=true)
+\item 
+QString \mbox{\hyperlink{class_workbook_a2af4a188730761d89e99b804a439f25b}{default\+Date\+Format}} () const
+\item 
+void \mbox{\hyperlink{class_workbook_a55c28acfe34e3f5eee2126904b0c9f90}{set\+Default\+Date\+Format}} (const QString \&format)
+\item 
+void \mbox{\hyperlink{class_workbook_ab15dda03ce7d165476f73c27a729b9db}{add\+Media\+File}} (QShared\+Pointer$<$ Media\+File $>$ media, bool force=false)
+\item 
+QList$<$ QShared\+Pointer$<$ Media\+File $>$ $>$ \mbox{\hyperlink{class_workbook_a1face1b64f6cc9737915abad55883716}{media\+Files}} () const
+\item 
+void \mbox{\hyperlink{class_workbook_a243176fc4f96117516f71793eed43927}{add\+Chart\+File}} (QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$ chart\+File)
+\item 
+QList$<$ QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$ $>$ \mbox{\hyperlink{class_workbook_a08238967c7bcbbca28ec6ad8d988ae6e}{chart\+Files}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_workbook_afd9c7929d30c425c6c52a03cdee91578}{Worksheet}}
+\item 
+class \mbox{\hyperlink{class_workbook_ac79efa8bdf0f54b509a76dba2b5d9291}{Chartsheet}}
+\item 
+class \mbox{\hyperlink{class_workbook_aa3edc4b8a1670a2d51d3928c922ff490}{Worksheet\+Private}}
+\item 
+class \mbox{\hyperlink{class_workbook_a883538034e58fc5c0de7d4e4cab3cef7}{Document}}
+\item 
+class \mbox{\hyperlink{class_workbook_ad60d3d11afe13773e689a27dbaba5d11}{Document\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_workbook_a3be1c7a49a70b7ec095a36e278395bf6}\label{class_workbook_a3be1c7a49a70b7ec095a36e278395bf6} 
+\index{Workbook@{Workbook}!````~Workbook@{\texorpdfstring{$\sim$}{\string~}Workbook}}
+\index{````~Workbook@{\texorpdfstring{$\sim$}{\string~}Workbook}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Workbook()}{\string~Workbook()}}
+{\footnotesize\ttfamily Workbook\+::\texorpdfstring{$\sim$}{\string~}\+Workbook (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_workbook_a575a5ebf448c62b7bc2d0dac07ef0d78}\label{class_workbook_a575a5ebf448c62b7bc2d0dac07ef0d78} 
+\index{Workbook@{Workbook}!activeSheet@{activeSheet}}
+\index{activeSheet@{activeSheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{activeSheet()}{activeSheet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} Workbook\+::active\+Sheet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns current active worksheet. \Hypertarget{class_workbook_a243176fc4f96117516f71793eed43927}\label{class_workbook_a243176fc4f96117516f71793eed43927} 
+\index{Workbook@{Workbook}!addChartFile@{addChartFile}}
+\index{addChartFile@{addChartFile}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{addChartFile()}{addChartFile()}}
+{\footnotesize\ttfamily void Workbook\+::add\+Chart\+File (\begin{DoxyParamCaption}\item[{QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$}]{chart\+File }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_ab15dda03ce7d165476f73c27a729b9db}\label{class_workbook_ab15dda03ce7d165476f73c27a729b9db} 
+\index{Workbook@{Workbook}!addMediaFile@{addMediaFile}}
+\index{addMediaFile@{addMediaFile}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{addMediaFile()}{addMediaFile()}}
+{\footnotesize\ttfamily void Workbook\+::add\+Media\+File (\begin{DoxyParamCaption}\item[{QShared\+Pointer$<$ Media\+File $>$}]{media,  }\item[{bool}]{force = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_adebde36f6ac6c5395966d3ecfa3b7cad}\label{class_workbook_adebde36f6ac6c5395966d3ecfa3b7cad} 
+\index{Workbook@{Workbook}!addSheet@{addSheet}}
+\index{addSheet@{addSheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{addSheet()}{addSheet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} Workbook\+::add\+Sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{name = {\ttfamily QString()},  }\item[{\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}}} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_a08238967c7bcbbca28ec6ad8d988ae6e}\label{class_workbook_a08238967c7bcbbca28ec6ad8d988ae6e} 
+\index{Workbook@{Workbook}!chartFiles@{chartFiles}}
+\index{chartFiles@{chartFiles}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{chartFiles()}{chartFiles()}}
+{\footnotesize\ttfamily QList$<$ QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$ $>$ Workbook\+::chart\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_workbook_ae56b5e3bf6d538195d76daa13067b112}\label{class_workbook_ae56b5e3bf6d538195d76daa13067b112} 
+\index{Workbook@{Workbook}!copySheet@{copySheet}}
+\index{copySheet@{copySheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{copySheet()}{copySheet()}}
+{\footnotesize\ttfamily bool Workbook\+::copy\+Sheet (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const QString \&}]{new\+Name = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_a2af4a188730761d89e99b804a439f25b}\label{class_workbook_a2af4a188730761d89e99b804a439f25b} 
+\index{Workbook@{Workbook}!defaultDateFormat@{defaultDateFormat}}
+\index{defaultDateFormat@{defaultDateFormat}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{defaultDateFormat()}{defaultDateFormat()}}
+{\footnotesize\ttfamily QString Workbook\+::default\+Date\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_workbook_abaad4c4423b6ba88f87b1d7049748689}\label{class_workbook_abaad4c4423b6ba88f87b1d7049748689} 
+\index{Workbook@{Workbook}!defineName@{defineName}}
+\index{defineName@{defineName}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{defineName()}{defineName()}}
+{\footnotesize\ttfamily bool Workbook\+::define\+Name (\begin{DoxyParamCaption}\item[{const QString \&}]{name,  }\item[{const QString \&}]{formula,  }\item[{const QString \&}]{comment = {\ttfamily QString()},  }\item[{const QString \&}]{scope = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+
+
+Create a defined name in the workbook. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The defined name \\
+\hline
+{\em formula} & The cell or range that the defined name refers to. \\
+\hline
+{\em comment} & \\
+\hline
+{\em scope} & The name of one worksheet, or empty which means golbal scope. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return false if the name invalid. 
+\end{DoxyReturn}
+\Hypertarget{class_workbook_af5f757c816a06629acdf82115c259bbd}\label{class_workbook_af5f757c816a06629acdf82115c259bbd} 
+\index{Workbook@{Workbook}!deleteSheet@{deleteSheet}}
+\index{deleteSheet@{deleteSheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{deleteSheet()}{deleteSheet()}}
+{\footnotesize\ttfamily bool Workbook\+::delete\+Sheet (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Remove the worksheet at pos {\itshape index}. \Hypertarget{class_workbook_aa114cbae186afd1524202a5abf475c23}\label{class_workbook_aa114cbae186afd1524202a5abf475c23} 
+\index{Workbook@{Workbook}!insertSheet@{insertSheet}}
+\index{insertSheet@{insertSheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{insertSheet()}{insertSheet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} Workbook\+::insert\+Sheet (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const QString \&}]{name = {\ttfamily QString()},  }\item[{\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}}} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_ade7eed54e968771eb04d191a0569171e}\label{class_workbook_ade7eed54e968771eb04d191a0569171e} 
+\index{Workbook@{Workbook}!isDate1904@{isDate1904}}
+\index{isDate1904@{isDate1904}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{isDate1904()}{isDate1904()}}
+{\footnotesize\ttfamily bool Workbook\+::is\+Date1904 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_workbook_ad3121cd3b5fc083d1669fad810daa86d}\label{class_workbook_ad3121cd3b5fc083d1669fad810daa86d} 
+\index{Workbook@{Workbook}!isHtmlToRichStringEnabled@{isHtmlToRichStringEnabled}}
+\index{isHtmlToRichStringEnabled@{isHtmlToRichStringEnabled}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{isHtmlToRichStringEnabled()}{isHtmlToRichStringEnabled()}}
+{\footnotesize\ttfamily bool Workbook\+::is\+Html\+To\+Rich\+String\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_workbook_ad4100ffa7507553372b5f99622f24b1c}\label{class_workbook_ad4100ffa7507553372b5f99622f24b1c} 
+\index{Workbook@{Workbook}!isStringsToHyperlinksEnabled@{isStringsToHyperlinksEnabled}}
+\index{isStringsToHyperlinksEnabled@{isStringsToHyperlinksEnabled}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{isStringsToHyperlinksEnabled()}{isStringsToHyperlinksEnabled()}}
+{\footnotesize\ttfamily bool Workbook\+::is\+Strings\+To\+Hyperlinks\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_workbook_a2aade5dd87445b125a297a9aeaf23b5d}\label{class_workbook_a2aade5dd87445b125a297a9aeaf23b5d} 
+\index{Workbook@{Workbook}!isStringsToNumbersEnabled@{isStringsToNumbersEnabled}}
+\index{isStringsToNumbersEnabled@{isStringsToNumbersEnabled}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{isStringsToNumbersEnabled()}{isStringsToNumbersEnabled()}}
+{\footnotesize\ttfamily bool Workbook\+::is\+Strings\+To\+Numbers\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_workbook_a1face1b64f6cc9737915abad55883716}\label{class_workbook_a1face1b64f6cc9737915abad55883716} 
+\index{Workbook@{Workbook}!mediaFiles@{mediaFiles}}
+\index{mediaFiles@{mediaFiles}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{mediaFiles()}{mediaFiles()}}
+{\footnotesize\ttfamily QList$<$ QShared\+Pointer$<$ Media\+File $>$ $>$ Workbook\+::media\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_workbook_ae8f689654d5cdc231c044034b2b8fad1}\label{class_workbook_ae8f689654d5cdc231c044034b2b8fad1} 
+\index{Workbook@{Workbook}!moveSheet@{moveSheet}}
+\index{moveSheet@{moveSheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{moveSheet()}{moveSheet()}}
+{\footnotesize\ttfamily bool Workbook\+::move\+Sheet (\begin{DoxyParamCaption}\item[{int}]{src\+Index,  }\item[{int}]{dist\+Index }\end{DoxyParamCaption})}
+
+Moves the worksheet form {\itshape src\+Index} to {\itshape dist\+Index}. \Hypertarget{class_workbook_a430de39d5457492d6191297c3ab7db6a}\label{class_workbook_a430de39d5457492d6191297c3ab7db6a} 
+\index{Workbook@{Workbook}!renameSheet@{renameSheet}}
+\index{renameSheet@{renameSheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{renameSheet()}{renameSheet()}}
+{\footnotesize\ttfamily bool Workbook\+::rename\+Sheet (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const QString \&}]{new\+Name }\end{DoxyParamCaption})}
+
+Rename the worksheet at the {\itshape index} to {\itshape new\+Name}. \Hypertarget{class_workbook_a55ca45d4bdff6e40144f3282a9077de8}\label{class_workbook_a55ca45d4bdff6e40144f3282a9077de8} 
+\index{Workbook@{Workbook}!setActiveSheet@{setActiveSheet}}
+\index{setActiveSheet@{setActiveSheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{setActiveSheet()}{setActiveSheet()}}
+{\footnotesize\ttfamily bool Workbook\+::set\+Active\+Sheet (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_a50711ec2cf97fb742ba1f04b2f0abdad}\label{class_workbook_a50711ec2cf97fb742ba1f04b2f0abdad} 
+\index{Workbook@{Workbook}!setDate1904@{setDate1904}}
+\index{setDate1904@{setDate1904}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{setDate1904()}{setDate1904()}}
+{\footnotesize\ttfamily void Workbook\+::set\+Date1904 (\begin{DoxyParamCaption}\item[{bool}]{date1904 }\end{DoxyParamCaption})}
+
+Excel for Windows uses a default epoch of 1900 and Excel for Mac uses an epoch of 1904. However, Excel on either platform will convert automatically between one system and the other. Qt Xlsx stores dates in the 1900 format by default.
+
+\begin{DoxyNote}{Note}
+This function should be called before any date/time has been written. 
+\end{DoxyNote}
+\Hypertarget{class_workbook_a55c28acfe34e3f5eee2126904b0c9f90}\label{class_workbook_a55c28acfe34e3f5eee2126904b0c9f90} 
+\index{Workbook@{Workbook}!setDefaultDateFormat@{setDefaultDateFormat}}
+\index{setDefaultDateFormat@{setDefaultDateFormat}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{setDefaultDateFormat()}{setDefaultDateFormat()}}
+{\footnotesize\ttfamily void Workbook\+::set\+Default\+Date\+Format (\begin{DoxyParamCaption}\item[{const QString \&}]{format }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_a5a23ce0e1b25e65b1f3eeb3b7e20eefd}\label{class_workbook_a5a23ce0e1b25e65b1f3eeb3b7e20eefd} 
+\index{Workbook@{Workbook}!setHtmlToRichStringEnabled@{setHtmlToRichStringEnabled}}
+\index{setHtmlToRichStringEnabled@{setHtmlToRichStringEnabled}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{setHtmlToRichStringEnabled()}{setHtmlToRichStringEnabled()}}
+{\footnotesize\ttfamily void Workbook\+::set\+Html\+To\+Rich\+String\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enable = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_abd6fc437f09d5c27b3d1c9e1b921b49d}\label{class_workbook_abd6fc437f09d5c27b3d1c9e1b921b49d} 
+\index{Workbook@{Workbook}!setStringsToHyperlinksEnabled@{setStringsToHyperlinksEnabled}}
+\index{setStringsToHyperlinksEnabled@{setStringsToHyperlinksEnabled}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{setStringsToHyperlinksEnabled()}{setStringsToHyperlinksEnabled()}}
+{\footnotesize\ttfamily void Workbook\+::set\+Strings\+To\+Hyperlinks\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enable = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_ade853a44d0e830b0420f552c6d86c2b5}\label{class_workbook_ade853a44d0e830b0420f552c6d86c2b5} 
+\index{Workbook@{Workbook}!setStringsToNumbersEnabled@{setStringsToNumbersEnabled}}
+\index{setStringsToNumbersEnabled@{setStringsToNumbersEnabled}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{setStringsToNumbersEnabled()}{setStringsToNumbersEnabled()}}
+{\footnotesize\ttfamily void Workbook\+::set\+Strings\+To\+Numbers\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enable = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_workbook_a2a83cbaf4bfbb3a8f5b61bd02efc8a2a}\label{class_workbook_a2a83cbaf4bfbb3a8f5b61bd02efc8a2a} 
+\index{Workbook@{Workbook}!sheet@{sheet}}
+\index{sheet@{sheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{sheet()}{sheet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} Workbook\+::sheet (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Returns the sheet object at index {\itshape sheet\+Index}. \Hypertarget{class_workbook_a61cdb270fed164c8a7dc9fe7f35015f7}\label{class_workbook_a61cdb270fed164c8a7dc9fe7f35015f7} 
+\index{Workbook@{Workbook}!sheetCount@{sheetCount}}
+\index{sheetCount@{sheetCount}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{sheetCount()}{sheetCount()}}
+{\footnotesize\ttfamily int Workbook\+::sheet\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns count of worksheets. 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_workbook_ac79efa8bdf0f54b509a76dba2b5d9291}\label{class_workbook_ac79efa8bdf0f54b509a76dba2b5d9291} 
+\index{Workbook@{Workbook}!Chartsheet@{Chartsheet}}
+\index{Chartsheet@{Chartsheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{Chartsheet}{Chartsheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_chartsheet}{Chartsheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_workbook_a883538034e58fc5c0de7d4e4cab3cef7}\label{class_workbook_a883538034e58fc5c0de7d4e4cab3cef7} 
+\index{Workbook@{Workbook}!Document@{Document}}
+\index{Document@{Document}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{Document}{Document}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_document}{Document}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_workbook_ad60d3d11afe13773e689a27dbaba5d11}\label{class_workbook_ad60d3d11afe13773e689a27dbaba5d11} 
+\index{Workbook@{Workbook}!DocumentPrivate@{DocumentPrivate}}
+\index{DocumentPrivate@{DocumentPrivate}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{DocumentPrivate}{DocumentPrivate}}
+{\footnotesize\ttfamily friend class Document\+Private\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_workbook_afd9c7929d30c425c6c52a03cdee91578}\label{class_workbook_afd9c7929d30c425c6c52a03cdee91578} 
+\index{Workbook@{Workbook}!Worksheet@{Worksheet}}
+\index{Worksheet@{Worksheet}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{Worksheet}{Worksheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_worksheet}{Worksheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_workbook_aa3edc4b8a1670a2d51d3928c922ff490}\label{class_workbook_aa3edc4b8a1670a2d51d3928c922ff490} 
+\index{Workbook@{Workbook}!WorksheetPrivate@{WorksheetPrivate}}
+\index{WorksheetPrivate@{WorksheetPrivate}!Workbook@{Workbook}}
+\doxysubsubsection{\texorpdfstring{WorksheetPrivate}{WorksheetPrivate}}
+{\footnotesize\ttfamily friend class Worksheet\+Private\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxworkbook_8h}{xlsxworkbook.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxworkbook_8cpp}{xlsxworkbook.\+cpp}}\end{DoxyCompactItemize}

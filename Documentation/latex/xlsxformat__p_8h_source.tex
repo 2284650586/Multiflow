@@ -1,0 +1,165 @@
+\doxysection{xlsxformat\+\_\+p.\+h}
+\hypertarget{xlsxformat__p_8h_source}{}\label{xlsxformat__p_8h_source}\index{MultiflowUI/xlsx/xlsxformat\_p.h@{MultiflowUI/xlsx/xlsxformat\_p.h}}
+\mbox{\hyperlink{xlsxformat__p_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ XLSXFORMAT\_P\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ XLSXFORMAT\_P\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ W\ A\ R\ N\ I\ N\ G}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ This\ file\ is\ not\ part\ of\ the\ Qt\ Xlsx\ API.\ \ It\ exists\ for\ the\ convenience}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ of\ the\ Qt\ Xlsx.\ \ This\ header\ file\ may\ change\ from}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ version\ to\ version\ without\ notice,\ or\ even\ be\ removed.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ We\ mean\ it.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxformat_8h}{xlsxformat.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <QSharedData>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <QMap>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <QSet>}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_xlsx_1_1_format_private}{FormatPrivate}}\ :\ \textcolor{keyword}{public}\ QSharedData}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cb}{FormatType}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba3924bf8ffe43db836b6247c591f21e23}{FT\_Invalid}}\ =\ 0,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba44f4dfe44c3db00dfd773ffb19f2483a}{FT\_NumFmt}}\ =\ 0x01,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbac7caa292c700d5081d0ab335706868f4}{FT\_Font}}\ =\ 0x02,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba80600b3149beb96195f9a795a5850989}{FT\_Alignment}}\ =\ 0x04,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaeff292bc8ad52025bc5ccaa8b5a7e1d6}{FT\_Border}}\ =\ 0x08,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaa814d30f52e304bcecedcd4c9a763805}{FT\_Fill}}\ =\ 0x10,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba27db713f51d121979570f57103189838}{FT\_Protection}}\ =\ 0x20}
+\DoxyCodeLine{00057\ \ \ \ \ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0}{Property}}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a112da706af253038c5292d5d27de9fae}{P\_STARTID}},}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ numFmt}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad250384954d8ce9cb8de438677ec056f}{P\_NumFmt\_Id}},}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae426dd9cc5dadc7f967946601e2a3fc8}{P\_NumFmt\_FormatCode}},}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ font}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac58f27befd78717860ff60124c9be0ab}{P\_Font\_STARTID}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac1d9acf76f5af5bc45d25095307147e2}{P\_Font\_Size}}\ =\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac58f27befd78717860ff60124c9be0ab}{P\_Font\_STARTID}},}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34dd3b0ba1e9d4e038e30efc4fc3fb1d}{P\_Font\_Italic}},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae42eba1237337a6368c860f6640e48f7}{P\_Font\_StrikeOut}},}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac4208f444f868229189ab98fb38ad880}{P\_Font\_Color}},}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7323db098109b7081d2700f426cee333}{P\_Font\_Bold}},}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a84052712cd9d0c7ed48093db8f88382d}{P\_Font\_Script}},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a96fcd32860c507d19830d514bf890858}{P\_Font\_Underline}},}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0af6e300c5f4a9d88f41acf82fbccc21bd}{P\_Font\_Outline}},}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a206e8e1a04ab64e0670eb90a8528ffc2}{P\_Font\_Shadow}},}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aee86dcad0f1e0671e92f74e7e6b7b3ce}{P\_Font\_Name}},}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0afbdd74a669facd9edc9d735bf15466e0}{P\_Font\_Family}},}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a278aaef30ee8bd7cc16085bdfb22809a}{P\_Font\_Charset}},}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a46a7b4ff0795ed2231ef8d414e8847ac}{P\_Font\_Scheme}},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a534b4e2100acf7cce70f0e7855e9ecd2}{P\_Font\_Condense}},}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a08c705c8eba499e5655859b8d1b4cfcb}{P\_Font\_Extend}},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a88a4a2cab95129e7ddd8484144f372af}{P\_Font\_ENDID}},}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ border}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac10ed253005a09b8f36ba379434a4353}{P\_Border\_STARTID}},}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a915fac81f4ad98af2a2770f19efabb01}{P\_Border\_LeftStyle}}\ =\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac10ed253005a09b8f36ba379434a4353}{P\_Border\_STARTID}},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aba85b81340d9ae659ef9801e14f926a0}{P\_Border\_RightStyle}},}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4026cc3396e1b40d10fd38c71f01d450}{P\_Border\_TopStyle}},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac05017f16ad7402db40a83945418b9b3}{P\_Border\_BottomStyle}},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34228f9773bd29595ea969b0764c5e72}{P\_Border\_DiagonalStyle}},}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a45c7839d7c5ee827f2930bdf97b2b7b7}{P\_Border\_LeftColor}},}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0741174928aaba2ac7af32a849d9cbea}{P\_Border\_RightColor}},}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a86ec76c44f442a4a1e689204035354a9}{P\_Border\_TopColor}},}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0abdab984a3bb549cb0b20b7f3b93abe0c}{P\_Border\_BottomColor}},}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad7f4116a213ed581132ab7f8914b8308}{P\_Border\_DiagonalColor}},}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a311254bfd5b7348554b0103db1844761}{P\_Border\_DiagonalType}},}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aec9e60d8f67f71b5e0cecb79e209e96d}{P\_Border\_ENDID}},}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fill}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac79e8861bd181a0efb1c76d90e9476be}{P\_Fill\_STARTID}},}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7ad5ee91642fa5ff6f64a44de4bb897d}{P\_Fill\_Pattern}}\ =\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac79e8861bd181a0efb1c76d90e9476be}{P\_Fill\_STARTID}},}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a335a3568251301ccdf554867a689f43f}{P\_Fill\_BgColor}},}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4176345460ed00e8133553742b030d5f}{P\_Fill\_FgColor}},}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a3890e69434e3a0285ce5dcccd2cd50d3}{P\_Fill\_ENDID}},}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ alignment}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6bd1e76e8df8a548742f8192dd2615a4}{P\_Alignment\_STARTID}},}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a33f6ac71c6bac2f3c4e654b267afa4af}{P\_Alignment\_AlignH}}\ =\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6bd1e76e8df8a548742f8192dd2615a4}{P\_Alignment\_STARTID}},}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6556c8a18e614cddfd150b60ff52441e}{P\_Alignment\_AlignV}},}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0895754f9c59d9125588abd0fa792053}{P\_Alignment\_Wrap}},}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a09c734960fdeafc525e69e217a493bd7}{P\_Alignment\_Rotation}},}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aeaac78fd3c41bcc7143a9f3da3bc2695}{P\_Alignment\_Indent}},}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a5b9132aeff887c37a6acee0ffed39a3c}{P\_Alignment\_ShinkToFit}},}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a37c6cf184d50b9411819ce31c414e508}{P\_Alignment\_ENDID}},}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ protection}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ace77569752a84f62daebef5f9cdf0fc3}{P\_Protection\_Locked}},}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a82942780d6cf788dddc553cb6e6c9cb9}{P\_Protection\_Hidden}},}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a372a81a918b8484a8ff31568c4d6fc43}{P\_ENDID}}}
+\DoxyCodeLine{00122\ \ \ \ \ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_add2a93e1691331a3133cf52aa03428a2}{FormatPrivate}}();}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_add2a93e1691331a3133cf52aa03428a2}{FormatPrivate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private}{FormatPrivate}}\ \&other);}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8d6c97b72d63dd6f61fd10a343b66b57}{\string~FormatPrivate}}();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ab31c5969755cebd9d351d906b087de8e}{dirty}};\ \textcolor{comment}{//\ The\ key\ re-\/generation\ is\ need.}}
+\DoxyCodeLine{00129\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a0a3bcd7f5f041c456f13ed9c57967908}{formatKey}};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a97586b16f37a7b18c2a834b04e6fc6fd}{font\_dirty}};}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ad697a156bf0ee4398368b6ddfa218149}{font\_index\_valid}};}
+\DoxyCodeLine{00133\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a845339974364ed50e530cf9f5b23af88}{font\_key}};}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_acec366fe62137e504efeec631e0847fb}{font\_index}};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ada2be400ee6be6750bf79a5d7548e52b}{fill\_dirty}};}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a82695acf00dd46a4150444d75dd28444}{fill\_index\_valid}};}
+\DoxyCodeLine{00138\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a116d84f9a457d1ae45a8dc30b7dda824}{fill\_key}};}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8569b2af11f2a4d971da45cc01bfefdf}{fill\_index}};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a85530d482375aa6cabe956e85e371e08}{border\_dirty}};}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_abeaee6950bcf883f527e28f9331be987}{border\_index\_valid}};}
+\DoxyCodeLine{00143\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ab0e5824492813d6625ec44ad4728aba3}{border\_key}};}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a49d7c237cbefc519b4b73b2c67961383}{border\_index}};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a53944e7b35daa5db333697b992b3c5ce}{xf\_index}};}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_aa9b0fbc10bdcb473f09e12d0cdc64e60}{xf\_indexValid}};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a1282305bca67f01aa22dfc207caffe53}{is\_dxf\_fomat}};}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ad0f36235dde2bfe8db2b508e1102b5fb}{dxf\_index}};}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a66ee8363946fe49d97c1ebae59e01657}{dxf\_indexValid}};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a9bb48ffc032f01ffe901dd60fe54a406}{theme}};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ QMap<int,\ QVariant>\ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a720216fdfec09b1bf84c427594ebc20d}{properties}};}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXFORMAT\_P\_H}}
+
+\end{DoxyCode}

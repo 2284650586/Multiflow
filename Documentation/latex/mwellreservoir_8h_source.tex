@@ -1,0 +1,48 @@
+\doxysection{mwellreservoir.\+h}
+\hypertarget{mwellreservoir_8h_source}{}\label{mwellreservoir_8h_source}\index{MultiflowUI/entity/component/well/mwellreservoir.h@{MultiflowUI/entity/component/well/mwellreservoir.h}}
+\mbox{\hyperlink{mwellreservoir_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MWELLRESERVOIR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MWELLRESERVOIR\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//Reservoir数据}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well_reservoir}{MWellReservoir}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{comment}{//流体类型}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{ReservoirFluidType}}\ \{\ \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa1f31bb431a7edb5fa3c877f809c6f4fb}{Liquid}},\ \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaac182bdb9a1693111a222e358e40a6093}{Gas}},\ \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baaa2d6418072f6c66932845d2a1c92f0921}{Mass}}\ \};}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_m_well_reservoir_a7103136541a01c1a5d039b67eb50c84a}{MWellReservoir}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_m_well_reservoir_a7103136541a01c1a5d039b67eb50c84a}{MWellReservoir}}(\mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{ReservoirFluidType}}\ fluidType,\ \textcolor{keywordtype}{double}\ fluidDensity,\ \textcolor{keywordtype}{double}\ fluidViscosity,\ \textcolor{keywordtype}{double}\ reservoirPressure,\ \textcolor{keywordtype}{double}\ reservoirTemperature,\ \textcolor{keywordtype}{double}\ reservoirWatercut);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_reservoir_ae6ab80027cf5e1006fefc1b4ea55cc4d}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_a5e1ad6644d57cff42c3b6957ef3bb622}{setId}}(\textcolor{keyword}{const}\ QString\ \&newId);}
+\DoxyCodeLine{00016\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_reservoir_a766f51ccc0cd5527b7d70dd846b5c1f2}{getWellId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_adcf36a7e7d09684c8e1eacd4b08ff2bb}{setWellId}}(\textcolor{keyword}{const}\ QString\ \&newWellId);}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{ReservoirFluidType}}\ \mbox{\hyperlink{class_m_well_reservoir_a8e182db5281dc1fdbdfb532202f0058d}{getFluidType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_acd02d6fbbef58aa9eb6afce7f3f5f13d}{setFluidType}}(\mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{ReservoirFluidType}}\ newFluidType);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_reservoir_a236d67cefc887f03cb70cb60aa75aa5b}{getFluidDensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_ac88ebd47b71c279c399f284c1f89abc2}{setFluidDensity}}(\textcolor{keywordtype}{double}\ newFluidDensity);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_reservoir_a20d25f85666b26e3af0cbc1c822060ed}{getFluidViscosity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_a1a7b8f53220e59426d1d7171f1c295a5}{setFluidViscosity}}(\textcolor{keywordtype}{double}\ newFluidViscosity);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_reservoir_a939d0ec13c3b2757d03943d8bdd2e3a6}{getReservoirPressure}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_aab67d932e04323310e44dc179b8f6c32}{setReservoirPressure}}(\textcolor{keywordtype}{double}\ newReservoirPressure);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_reservoir_a869bd589f95497667b0edc01855f28a2}{getReservoirTemperature}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_a74fca9357a0c7f4613664c97f34b2fbd}{setReservoirTemperature}}(\textcolor{keywordtype}{double}\ newReservoirTemperature);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_reservoir_ae1826a0105bba7e91b49cad743180f3e}{getReservoirWatercut}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_reservoir_a8fc6a82213836fb5d88ee940cec08632}{setReservoirWatercut}}(\textcolor{keywordtype}{double}\ newReservoirWatercut);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ QString\ id;}
+\DoxyCodeLine{00033\ \ \ \ \ QString\ wellId;}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_m_well_reservoir_aee921cdb8ee55f623d3e79ab6a143baa}{ReservoirFluidType}}\ fluidType;\ \ \ \textcolor{comment}{//流体类型}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ fluidDensity;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//流体密度\ \ Kg/m\string^3}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{double}\ fluidViscosity;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//流体粘度\ \ MPa\ ·\ s}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ reservoirPressure;\ \ \ \ \ \ \ \textcolor{comment}{//油藏压力\ \ MPa\ a}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ reservoirTemperature;\ \ \ \ \textcolor{comment}{//油藏温度\ \ DegC}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ reservoirWatercut;\ \ \ \ \ \ \ \textcolor{comment}{//油藏含水量\ \&}}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MWELLRESERVOIR\_H}}
+
+\end{DoxyCode}

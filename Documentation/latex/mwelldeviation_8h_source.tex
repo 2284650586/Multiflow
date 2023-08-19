@@ -1,0 +1,92 @@
+\doxysection{mwelldeviation.\+h}
+\hypertarget{mwelldeviation_8h_source}{}\label{mwelldeviation_8h_source}\index{MultiflowUI/entity/component/well/mwelldeviation.h@{MultiflowUI/entity/component/well/mwelldeviation.h}}
+\mbox{\hyperlink{mwelldeviation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MWELLDEVIATION\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MWELLDEVIATION\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mdeviationpar_8h}{entity/component/well/mdeviationpar.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//井斜数据}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well_deviation}{MWellDeviation}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{SurveyType}}\ \{\ \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3a0f15123fb54c4c8084a7c2d9e727f73d}{Vertical}},\ \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aee58451728f232bb85072e3c1f3b23d0}{TwoD}},\ \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aa9d607bb294c02b4d61c361dd2eea991}{ThreeD}}\ \};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{DependentPara}}\ \{\ \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a318a63083deb9de7131d174b06acb63c}{MD}},\ \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736afb0e15d1cff78134b2c6b2bbd42e9a49}{TVD}},\ \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a90a7a2161d2dcad92782efe6d57b6499}{Angle}}\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation_a35059503fc22acec3b528dd69b1a4641}{MWellDeviation}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation_a35059503fc22acec3b528dd69b1a4641}{MWellDeviation}}(\textcolor{keywordtype}{double}\ measurePointMD,\ \textcolor{keywordtype}{double}\ measurePointTVD,\ \textcolor{keywordtype}{double}\ inclination,\ \textcolor{keywordtype}{double}\ azimuth,\ \textcolor{keywordtype}{double}\ displacementEW,\ \textcolor{keywordtype}{double}\ displacementNS,\ \textcolor{keywordtype}{double}\ dogleg,\ \textcolor{keywordtype}{double}\ closureHorizon,\ \textcolor{keywordtype}{double}\ closureAzimuth,\ \textcolor{keywordtype}{double}\ closureDispl);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_deviation_a3bb8d3651babec31e94451f4cc6c7039}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a6446a93b07e398b5d95f056119d510b7}{setId}}(\textcolor{keyword}{const}\ QString\ \&newId);}
+\DoxyCodeLine{00020\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_deviation_a9d4a6812a4ef553444539153596c0d76}{getWellId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a87e86df4dd1b0233629a9e7b69c19a43}{setWellId}}(\textcolor{keyword}{const}\ QString\ \&newWellId);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a79951014f0bbfbd7b4c1949eb396bda8}{getMeasurePointMD}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a97bb6789411ac29af533d62a42f4dcb1}{setMeasurePointMD}}(\textcolor{keywordtype}{double}\ newMeasurePointMD);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a30ef75a3e46023698941f13a2fd1c9f8}{getMeasurePointTVD}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_accb96de5578df221fc635fea93d0af37}{setMeasurePointTVD}}(\textcolor{keywordtype}{double}\ newMeasurePointTVD);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a7b5f8a52a2361e04730c95ca070d4088}{getInclination}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_acef4f1bf60e6cec0989a7efcbfaaa40b}{setInclination}}(\textcolor{keywordtype}{double}\ newInclination);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a6a8572dea9b888284e9fd44c01cbd14e}{getAzimuth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a434b3e3ddd460681fe6cbc1630075a3e}{setAzimuth}}(\textcolor{keywordtype}{double}\ newAzimuth);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_ab1184d23c423b8060e0c9e35ad6bb41e}{getDisplacementEW}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_aae8856ebb6cf8623a5f09d05ccc4eb8c}{setDisplacementEW}}(\textcolor{keywordtype}{double}\ newDisplacementEW);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_aa815301ffb1038c5a492a87d464b5d41}{getDisplacementNS}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a8738ba3d40f457aef549279460a84f24}{setDisplacementNS}}(\textcolor{keywordtype}{double}\ newDisplacementNS);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a9f340167cfd7075b14bb6b9f464dbec2}{getDogleg}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_ad779358b3f4a25036b31bd777d830cfa}{setDogleg}}(\textcolor{keywordtype}{double}\ newDogleg);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a8a008457315b6c5e248954903868d52f}{getClosureHorizon}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_ae0e3b024b4ea23d51564e8b37c0dc55e}{setClosureHorizon}}(\textcolor{keywordtype}{double}\ newClosureHorizon);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_aa286da5dabd375d7cf0049031754231d}{getClosureAzimuth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a40e87624615ed87be9e59a49c46aa747}{setClosureAzimuth}}(\textcolor{keywordtype}{double}\ newClosureAzimuth);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_aba0a92b8c20858b15960ff842982109e}{getClosureDispl}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_aa8f9beb0a34d5b873e2d8da794f8ab46}{setClosureDispl}}(\textcolor{keywordtype}{double}\ newClosureDispl);}
+\DoxyCodeLine{00042\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_deviation_a36d7e0754c62bcf6de38a318b2b83eb4}{getRemark}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a2103302d365bcb32d5d15a7bea31f64b}{setRemark}}(\textcolor{keyword}{const}\ QString\ \&newRemark);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a85fac88ca8356ee3e1bc9390d2a30aba}{getWellHeadDpeth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a826d91319dd40feb5ebd33c82d4efdda}{setWellHeadDpeth}}(\textcolor{keywordtype}{double}\ newWellHeadDpeth);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{SurveyType}}\ \mbox{\hyperlink{class_m_well_deviation_aeb94fe1ceb4d1ba2d220585bfd84e2a9}{getSurVeytype}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a9cd1871633c27f0a543007dd2343af73}{setSurVeytype}}(\mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{SurveyType}}\ newSurVeytype);}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{DependentPara}}\ \mbox{\hyperlink{class_m_well_deviation_a3fea3957466071c3fb453a888a5780b1}{getDepType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a005140c72571a29173e8b995581b1ccc}{setDepType}}(\mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{DependentPara}}\ newDepType);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_deviation_a95a4962e7c1fbdf444abb6a167b7782a}{getBottomDepth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_af560ad8637de031d155ae25c412b5bf2}{setBottomDepth}}(\textcolor{keywordtype}{double}\ newBottomDepth);}
+\DoxyCodeLine{00054\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_deviation_a3011263b3fb7f4266a0da770949a4de7}{getCalMedthod}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a7e153c2f254812d97090befa411d0f8f}{setCalMedthod}}(\textcolor{keyword}{const}\ QString\ \&newCalMedthod);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_aac52415dd2faef1049e854123af6c7f3}{clearPar}}()\ \{\ parList.clear();\ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_well_deviation_a5ab22aa41c7852068766545f9966f0ad}{getParCount}}()\ \{\ \textcolor{keywordflow}{return}\ parList.count();\ \}}
+\DoxyCodeLine{00059\ \ \ \ \ QList<MDeviationPar\ *>\ \mbox{\hyperlink{class_m_well_deviation_aa181499754711376c58c5ad139c721bc}{getParList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_deviation_a42cb86ac2498402f536842ff5ec22817}{addPar}}(\mbox{\hyperlink{class_m_deviation_par}{MDeviationPar}}\ *par)\ \{\ parList.append(par);\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ \ \ \ \ QString\ id;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//井斜id}}
+\DoxyCodeLine{00064\ \ \ \ \ QString\ wellId;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//井id}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{double}\ measurePointMD;\ \ \ \ \ \ \textcolor{comment}{//测点斜深}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ measurePointTVD;\ \ \ \ \ \textcolor{comment}{//测点垂深}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{double}\ inclination;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//井斜角}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{double}\ azimuth;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//方位角}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{double}\ displacementEW;\ \ \ \ \ \ \textcolor{comment}{//东西位移}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{double}\ displacementNS;\ \ \ \ \ \ \textcolor{comment}{//南北位移}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ dogleg;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//狗腿度}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ closureHorizon;\ \ \ \ \ \ \textcolor{comment}{//水平位移}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ closureAzimuth;\ \ \ \ \ \ \textcolor{comment}{//闭合方位}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{double}\ closureDispl;\ \ \ \ \ \ \ \ \textcolor{comment}{//闭合距}}
+\DoxyCodeLine{00075\ \ \ \ \ QString\ remark;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//备注}}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{SurveyType}}\ surVeytype;}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{DependentPara}}\ depType;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{double}\ wellHeadDpeth;\ \ \ \ \ \ \ \textcolor{comment}{//深度}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{double}\ bottomDepth;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//底深}}
+\DoxyCodeLine{00080\ \ \ \ \ QString\ calMedthod;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//计算方法}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ QList<MDeviationPar*>\ parList;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MWELLDEVIATION\_H}}
+
+\end{DoxyCode}

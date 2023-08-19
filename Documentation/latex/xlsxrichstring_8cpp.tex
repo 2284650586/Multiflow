@@ -1,0 +1,86 @@
+\doxysection{Multiflow\+UI/xlsx/xlsxrichstring.cpp File Reference}
+\hypertarget{xlsxrichstring_8cpp}{}\label{xlsxrichstring_8cpp}\index{MultiflowUI/xlsx/xlsxrichstring.cpp@{MultiflowUI/xlsx/xlsxrichstring.cpp}}
+{\ttfamily \#include \"{}xlsxrichstring.\+h\"{}}\newline
+{\ttfamily \#include \"{}xlsxrichstring\+\_\+p.\+h\"{}}\newline
+{\ttfamily \#include \"{}xlsxformat\+\_\+p.\+h\"{}}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include $<$QText\+Document$>$}\newline
+{\ttfamily \#include $<$QText\+Fragment$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{xlsxrichstring_8cpp_a4f80c434559d3536def5b1e3e526acd6}{operator==}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+bool \mbox{\hyperlink{xlsxrichstring_8cpp_a6b12b2071bb6c680971095a8dda5b032}{operator!=}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+bool \mbox{\hyperlink{xlsxrichstring_8cpp_ae834fb1edb27e2753457b606e547240d}{operator$<$}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+bool \mbox{\hyperlink{xlsxrichstring_8cpp_a6a49d3caf15142b770580849fd053bab}{operator==}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const QString \&rs2)
+\item 
+bool \mbox{\hyperlink{xlsxrichstring_8cpp_a046581f09c635ca1de3017ff39e678c0}{operator!=}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const QString \&rs2)
+\item 
+bool \mbox{\hyperlink{xlsxrichstring_8cpp_a3183e1d7a3f174fbff035e689b6d8202}{operator==}} (const QString \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+bool \mbox{\hyperlink{xlsxrichstring_8cpp_a5c0803a78865c9d3b527c4c8ec46e013}{operator!=}} (const QString \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+uint \mbox{\hyperlink{xlsxrichstring_8cpp_aef5f7cc31e5a0cbe73313d579cdfa226}{q\+Hash}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs, uint seed) Q\+\_\+\+DECL\+\_\+\+NOTHROW
+\item 
+QDebug \mbox{\hyperlink{xlsxrichstring_8cpp_abf359275b65e4667fe5dd36a063017b6}{operator$<$$<$}} (QDebug dbg, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{xlsxrichstring_8cpp_a5c0803a78865c9d3b527c4c8ec46e013}\label{xlsxrichstring_8cpp_a5c0803a78865c9d3b527c4c8ec46e013} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const QString \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Returns true if this string {\itshape rs1} is not equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{xlsxrichstring_8cpp_a046581f09c635ca1de3017ff39e678c0}\label{xlsxrichstring_8cpp_a046581f09c635ca1de3017ff39e678c0} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const QString \&}]{rs2 }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Returns true if this string {\itshape rs1} is not equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{xlsxrichstring_8cpp_a6b12b2071bb6c680971095a8dda5b032}\label{xlsxrichstring_8cpp_a6b12b2071bb6c680971095a8dda5b032} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})}
+
+Returns true if this string {\itshape rs1} is not equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{xlsxrichstring_8cpp_ae834fb1edb27e2753457b606e547240d}\label{xlsxrichstring_8cpp_ae834fb1edb27e2753457b606e547240d} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})}
+
+\Hypertarget{xlsxrichstring_8cpp_abf359275b65e4667fe5dd36a063017b6}\label{xlsxrichstring_8cpp_abf359275b65e4667fe5dd36a063017b6} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily QDebug operator$<$$<$ (\begin{DoxyParamCaption}\item[{QDebug}]{dbg,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs }\end{DoxyParamCaption})}
+
+\Hypertarget{xlsxrichstring_8cpp_a3183e1d7a3f174fbff035e689b6d8202}\label{xlsxrichstring_8cpp_a3183e1d7a3f174fbff035e689b6d8202} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const QString \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Returns true if this string {\itshape rs1} is equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{xlsxrichstring_8cpp_a6a49d3caf15142b770580849fd053bab}\label{xlsxrichstring_8cpp_a6a49d3caf15142b770580849fd053bab} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const QString \&}]{rs2 }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Returns true if this string {\itshape rs1} is equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{xlsxrichstring_8cpp_a4f80c434559d3536def5b1e3e526acd6}\label{xlsxrichstring_8cpp_a4f80c434559d3536def5b1e3e526acd6} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})}
+
+Returns true if this string {\itshape rs1} is equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{xlsxrichstring_8cpp_aef5f7cc31e5a0cbe73313d579cdfa226}\label{xlsxrichstring_8cpp_aef5f7cc31e5a0cbe73313d579cdfa226} 
+\index{xlsxrichstring.cpp@{xlsxrichstring.cpp}!qHash@{qHash}}
+\index{qHash@{qHash}!xlsxrichstring.cpp@{xlsxrichstring.cpp}}
+\doxysubsubsection{\texorpdfstring{qHash()}{qHash()}}
+{\footnotesize\ttfamily uint q\+Hash (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs,  }\item[{uint}]{seed }\end{DoxyParamCaption})}
+

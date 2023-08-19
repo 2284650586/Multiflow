@@ -1,0 +1,64 @@
+\doxysection{xlsxsimpleooxmlfile\+\_\+p.\+h}
+\hypertarget{xlsxsimpleooxmlfile__p_8h_source}{}\label{xlsxsimpleooxmlfile__p_8h_source}\index{MultiflowUI/xlsx/xlsxsimpleooxmlfile\_p.h@{MultiflowUI/xlsx/xlsxsimpleooxmlfile\_p.h}}
+\mbox{\hyperlink{xlsxsimpleooxmlfile__p_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ XLSXSIMPLEOOXMLFILE\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ XLSXSIMPLEOOXMLFILE\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ W\ A\ R\ N\ I\ N\ G}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ This\ file\ is\ not\ part\ of\ the\ Qt\ Xlsx\ API.\ \ It\ exists\ for\ the\ convenience}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ of\ the\ Qt\ Xlsx.\ \ This\ header\ file\ may\ change\ from}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ version\ to\ version\ without\ notice,\ or\ even\ be\ removed.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ We\ mean\ it.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxabstractooxmlfile_8h}{xlsxabstractooxmlfile.h}}"{}}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }QIODevice;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file}{SimpleOOXmlFile}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_abstract_o_o_xml_file}{AbstractOOXmlFile}}}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file}{SimpleOOXmlFile}}(\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{CreateFlag}}\ flag);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_a4b85195c09e87d649f1c74c00f8b1a3e}{saveToXmlFile}}(QIODevice\ *device)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_ade393e906b1b69fca8f5b437193b911e}{saveToXmlData}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_a3e98d1a504ae7a35f16eaf62d6b69ac1}{loadFromXmlData}}(\textcolor{keyword}{const}\ QByteArray\ \&data);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_ac1b464b76f9caa264ffd8cd8a5a26ca7}{loadFromXmlFile}}(QIODevice\ *device);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_q_xlsx_1_1_simple_o_o_xml_file_ade6a617b35dbbc8a12f640b5c3f7edb4}{xmlData}};}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXSIMPLEOOXMLFILE\_H}}
+
+\end{DoxyCode}

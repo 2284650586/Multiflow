@@ -1,0 +1,34 @@
+\doxysection{tgraphicsview.\+h}
+\hypertarget{tgraphicsview_8h_source}{}\label{tgraphicsview_8h_source}\index{MultiflowUI/TView/tgraphicsview.h@{MultiflowUI/TView/tgraphicsview.h}}
+\mbox{\hyperlink{tgraphicsview_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TGRAPHICSVIEW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TGRAPHICSVIEW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsView>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mulitem_8h}{TView/mulitem.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_graphics_view}{TGraphicsView}}\ :\ \textcolor{keyword}{public}\ QGraphicsView}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_t_graphics_view}{TGraphicsView}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_graphics_view_a7b96fa9577fe9154b85c5c14bf3898d6}{getScale}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_graphics_view_a0055d1fe0a842f9d96611157527aa158}{setScale}}(QString\ newScale);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_graphics_view_a39c48944bf6fd2472a9e08c423cfc747}{keyPressEvent}}(QKeyEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_graphics_view_acd3f3d0a7dcc4212da89a06d9dc4c9b0}{keyReleaseEvent}}(QKeyEvent*\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ QString\ m\_scale;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TGRAPHICSVIEW\_H}}
+
+\end{DoxyCode}

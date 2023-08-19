@@ -1,0 +1,48 @@
+\doxysection{tflowlineitem.\+h}
+\hypertarget{tflowlineitem_8h_source}{}\label{tflowlineitem_8h_source}\index{MultiflowUI/TView/tflowlineitem.h@{MultiflowUI/TView/tflowlineitem.h}}
+\mbox{\hyperlink{tflowlineitem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TFLOWLINEITEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TFLOWLINEITEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsPixmapItem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msource_8h}{entity/msource.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{common.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_flowline_item}{TFlowlineItem}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc}{Type}}\ =\ UserType\ +\ Multiflow\_TYPE::Flowline\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_t_flowline_item}{TFlowlineItem}}(QString\ flowlineName\ =\ \textcolor{stringliteral}{"{}flowline"{}},\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ QString\ flowlineName;}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_m_source}{MSource}}\ flowline;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_flowline_item_a1fe7d40ff205ac1abf39fbd665e714d2}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_flowline_item_add24905f6ae52b271d1018606bf62729}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_flowline_item_ade20d918d74a2253f9380119d1ed7848}{getId}}();}
+\DoxyCodeLine{00026\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_flowline_item_ab14e41ff31278639670106dc7dfc22d8}{getName}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_flowline_item_aba6a4874a95a8f46673d26a6dec6e4aa}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc}{Type}};\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ signals:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_flowline_item_ac8f369ba6094506e66d96c428be2bdeb}{flowItemChange}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00035\ \ \ \ \ QVariant\ \mbox{\hyperlink{class_t_flowline_item_a37324cd7d1373d94c574cd1e6a1cdc88}{itemChange}}(GraphicsItemChange\ change,\ \textcolor{keyword}{const}\ QVariant\ \&value)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_flowline_item_a95378622e03320e126766e5970912f70}{mouseDoubleClickEvent}}(QGraphicsSceneMouseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TFLOWLINEITEM\_H}}
+
+\end{DoxyCode}

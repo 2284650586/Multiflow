@@ -1,0 +1,761 @@
+\doxysection{Worksheet Class Reference}
+\hypertarget{class_worksheet}{}\label{class_worksheet}\index{Worksheet@{Worksheet}}
+
+
+Represent one worksheet in the workbook.  
+
+
+
+
+{\ttfamily \#include $<$xlsxworksheet.\+h$>$}
+
+Inheritance diagram for Worksheet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_worksheet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_worksheet_a09ba8e81a0481b111d37d52b5e792549}{write}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const QVariant \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_ad12e532d5c752ddaa4edf14206e93821}{write}} (int row, int column, const QVariant \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+QVariant \mbox{\hyperlink{class_worksheet_a580b0ceed8c9879972559f0cd2a8749e}{read}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column) const
+\item 
+QVariant \mbox{\hyperlink{class_worksheet_a84edbad989c3956efc0790fbb1f14d7f}{read}} (int row, int column) const
+\item 
+bool \mbox{\hyperlink{class_worksheet_ad9d0cec4e873623ff1e21ece6fb03394}{write\+String}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const QString \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_aa8ba58585492b98548ceb2adad426f8c}{write\+String}} (int row, int column, const QString \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_ac1c6d03a4d897ac7acee2207f2382e30}{write\+String}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a393c42ac506199c8e731b5ad2b88a797}{write\+String}} (int row, int column, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a4b91a478344aea38398d442495b6a0ce}{write\+Inline\+String}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const QString \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_ab85ee8b6382d124151d640f859ed14f5}{write\+Inline\+String}} (int row, int column, const QString \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_ac4a8febd1db129cabb8c117993535681}{write\+Numeric}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, double value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a620f4402e365c3677c46fab334bd6f32}{write\+Numeric}} (int row, int column, double value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a0026c6f768cd7dd5387c0b3b620445c6}{write\+Formula}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&formula, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}(), double result=0)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a2d79f87687b0485632ab6b33c1be1f87}{write\+Formula}} (int row, int column, const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&formula, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}(), double result=0)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a675163910f691a172b28a580fa5faf64}{write\+Blank}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_afc6393ce70ca2163d1a6fff255aed6a0}{write\+Blank}} (int row, int column, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a9565d5e5340c3cd83553a8ede313326d}{write\+Bool}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, bool value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a7f043c499aec663ee05daf03b0c80ff9}{write\+Bool}} (int row, int column, bool value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a940d72f1556145e0131aeb8d885f22ea}{write\+Date\+Time}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const QDate\+Time \&dt, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_ad8d3ba5909bb26806eefeb78759e52dd}{write\+Date\+Time}} (int row, int column, const QDate\+Time \&dt, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_ae8f0986fedee4457bb8fd4433fb94430}{write\+Time}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const QTime \&t, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a6731e4b394548c759172157c3ea9a91e}{write\+Time}} (int row, int column, const QTime \&t, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a8d3bab83937a3bf59ee806c56c394ea6}{write\+Hyperlink}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column, const QUrl \&url, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}(), const QString \&display=QString(), const QString \&tip=QString())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a5e2ec26566538ad2d855bf8eb78ab086}{write\+Hyperlink}} (int row, int column, const QUrl \&url, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}(), const QString \&display=QString(), const QString \&tip=QString())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a669fc9082933fa705e09a6222dc4b585}{add\+Data\+Validation}} (const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&validation)
+\item 
+bool \mbox{\hyperlink{class_worksheet_aa425e352672f1a480876cee99635177f}{add\+Conditional\+Formatting}} (const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&cf)
+\item 
+\mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_worksheet_a972f733da3c4e735466c8139e57a716b}{cell\+At}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&row\+\_\+column) const
+\item 
+\mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_worksheet_a19992b4854b26585909515c80a6e0008}{cell\+At}} (int row, int column) const
+\item 
+bool \mbox{\hyperlink{class_worksheet_a486ed8acee76c9346e0c883465f8940d}{insert\+Image}} (int row, int column, const QImage \&image)
+\item 
+\mbox{\hyperlink{class_chart}{Chart}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_worksheet_a3a78c462a900abeea0ded94ddacc96d3}{insert\+Chart}} (int row, int column, const QSize \&size)
+\item 
+bool \mbox{\hyperlink{class_worksheet_ae75a705237b8096860b521cedcdc70c0}{merge\+Cells}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_worksheet_a18dc137efb3f357f15b3f83f479f30d7}{unmerge\+Cells}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range)
+\item 
+QList$<$ \mbox{\hyperlink{class_cell_range}{Cell\+Range}} $>$ \mbox{\hyperlink{class_worksheet_a52afe7019392691e61e9dc2290f162ab}{merged\+Cells}} () const
+\item 
+bool \mbox{\hyperlink{class_worksheet_aab53a877ac02fb3e588fdc61924f4479}{set\+Column\+Width}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, double width)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a7b2d6ae683ece064a15bba314e72bca9}{set\+Column\+Format}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a0406ee058b4d4ab540c2bc3a3b395f76}{set\+Column\+Hidden}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, bool hidden)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a24d00860dbd8e27c5d05b42d3deed548}{set\+Column\+Width}} (int col\+First, int col\+Last, double width)
+\item 
+bool \mbox{\hyperlink{class_worksheet_ae978e4751ed6dbed51485cb08e177e71}{set\+Column\+Format}} (int col\+First, int col\+Last, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a34e4b4b46c039c7906a0b683c94b1183}{set\+Column\+Hidden}} (int col\+First, int col\+Last, bool hidden)
+\item 
+double \mbox{\hyperlink{class_worksheet_a35d10646a1b2809cca773328e174a3e0}{column\+Width}} (int column)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_worksheet_ac02111579def0b32431d103d3e7f8cd8}{column\+Format}} (int column)
+\item 
+bool \mbox{\hyperlink{class_worksheet_acee373824d87d1da91f50ff8b55e8eda}{is\+Column\+Hidden}} (int column)
+\item 
+bool \mbox{\hyperlink{class_worksheet_ad2f239e6c7a9d55486181dbc66e3a7cf}{set\+Row\+Height}} (int row\+First, int row\+Last, double height)
+\item 
+bool \mbox{\hyperlink{class_worksheet_aed0bf13d4603eed19fa1bc2e06995a55}{set\+Row\+Format}} (int row\+First, int row\+Last, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a2b0bb4ee62038b3271a84b922ff73bc3}{set\+Row\+Hidden}} (int row\+First, int row\+Last, bool hidden)
+\item 
+double \mbox{\hyperlink{class_worksheet_a7657504976e01b0f2f5c5e43c4a3debf}{row\+Height}} (int row)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_worksheet_a51b00c7ef6f7d82e47a5da4d49672407}{row\+Format}} (int row)
+\item 
+bool \mbox{\hyperlink{class_worksheet_adb1515c1187b76c9a0740bfcd719d49a}{is\+Row\+Hidden}} (int row)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a583f4b91d12f954ad0791f31f45f49af}{group\+Rows}} (int row\+First, int row\+Last, bool collapsed=true)
+\item 
+bool \mbox{\hyperlink{class_worksheet_aad3ead2aae7dda48f500b963cf3dba95}{group\+Columns}} (int col\+First, int col\+Last, bool collapsed=true)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a19093c3d712454a3e19fe718d21829a5}{group\+Columns}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, bool collapsed=true)
+\item 
+\mbox{\hyperlink{class_cell_range}{Cell\+Range}} \mbox{\hyperlink{class_worksheet_a385ad1869eaff27b41ea8451459bff19}{dimension}} () const
+\item 
+bool \mbox{\hyperlink{class_worksheet_a6e35f913d749e3949baee0f6f4430961}{is\+Window\+Protected}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_a2bdd449b7cb646a1b335500e135b6ef1}{set\+Window\+Protected}} (bool protect)
+\item 
+bool \mbox{\hyperlink{class_worksheet_abebc631da2666f88d69388d92e655b4d}{is\+Formulas\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_a28f61a4f70a438f263808922d1bb7a6e}{set\+Formulas\+Visible}} (bool visible)
+\item 
+bool \mbox{\hyperlink{class_worksheet_ac5c0b0d9420da801425e51a1412bec32}{is\+Grid\+Lines\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_a06763fbc3b9b5167274f102e8a88af9e}{set\+Grid\+Lines\+Visible}} (bool visible)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a460d7111e1d99da29d607d2d35afb068}{is\+Row\+Column\+Headers\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_af7b1d0aab08256f7f790419ae03799da}{set\+Row\+Column\+Headers\+Visible}} (bool visible)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a5ddb0bc4da5dfd49665b833db030c553}{is\+Zeros\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_a516d9799e08bbdd96de970dd67301daa}{set\+Zeros\+Visible}} (bool visible)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a443dc7f535068c89a4338c32d4bcad4d}{is\+Right\+To\+Left}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_aa09ba16db894f6a192d9ae717db08c82}{set\+Right\+To\+Left}} (bool enable)
+\item 
+bool \mbox{\hyperlink{class_worksheet_afd1c98983d45de389a8a3c61e1aa2e51}{is\+Selected}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_a718e9d4e0c5562ad408e136e07608d5e}{set\+Selected}} (bool select)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a3218612b23034447943eadb479bad5b1}{is\+Ruler\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_ab7fc4bbebf49e2907cac601826ec9002}{set\+Ruler\+Visible}} (bool visible)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a3e557302a7f985aabfa128660c5a145e}{is\+Outline\+Symbols\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_a0e94698fe45a952414dab68083b46386}{set\+Outline\+Symbols\+Visible}} (bool visible)
+\item 
+bool \mbox{\hyperlink{class_worksheet_a8c043ff4642b809eb7ca0cb2a38b23e1}{is\+White\+Space\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_worksheet_a130d356b877f92cb325c4e062ff71e72}{set\+White\+Space\+Visible}} (bool visible)
+\item 
+\mbox{\hyperlink{class_worksheet_a17069f8e054407fb170285892fc99349}{\texorpdfstring{$\sim$}{\string~}\+Worksheet}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}}}
+\begin{DoxyCompactItemize}
+\item 
+QString \mbox{\hyperlink{class_abstract_sheet_a445541a2eea6f9031451ffdf10d063c2}{sheet\+Name}} () const
+\item 
+\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Sheet\+Type}} \mbox{\hyperlink{class_abstract_sheet_a0865245676629b9b2ba34b51407438a6}{sheet\+Type}} () const
+\item 
+\mbox{\hyperlink{class_abstract_sheet_a50de6274f4fe05ac3b83d4604ce40372}{Sheet\+State}} \mbox{\hyperlink{class_abstract_sheet_a433d4c1ffa450765051f674e409ce887}{sheet\+State}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_sheet_a6e3ab25408a6aa1b7e533818a873e2c6}{set\+Sheet\+State}} (\mbox{\hyperlink{class_abstract_sheet_a50de6274f4fe05ac3b83d4604ce40372}{Sheet\+State}} ss)
+\item 
+bool \mbox{\hyperlink{class_abstract_sheet_afa2f07604d2dbb839cc1cf27c2e67716}{is\+Hidden}} () const
+\item 
+bool \mbox{\hyperlink{class_abstract_sheet_a17bb345c92346581bdc41c7d10c69ea4}{is\+Visible}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_sheet_ae6ed52f0feabd03a9681e317b57c450e}{set\+Hidden}} (bool hidden)
+\item 
+void \mbox{\hyperlink{class_abstract_sheet_a6f2ffa12bd4c93ba6112d3340c6ce411}{set\+Visible}} (bool visible)
+\item 
+\mbox{\hyperlink{class_workbook}{Workbook}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_sheet_ad7181ff94c42614f461b300f37eb2bfe}{workbook}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_worksheet_ad60d3d11afe13773e689a27dbaba5d11}{Document\+Private}}
+\item 
+class \mbox{\hyperlink{class_worksheet_ac6cb2c7a2b1d72a406b4d3071d12664a}{Workbook}}
+\item 
+class \mbox{\hyperlink{class_worksheet_abdcaccb4422737ac67ef4b46a6d3e6e0}{\+::\+Worksheet\+Test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Sheet\+Type}} \{ \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{ST\+\_\+\+Work\+Sheet}}
+, \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a05710c1f9f0cad5872bedda33ff082f1}{ST\+\_\+\+Chart\+Sheet}}
+, \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a9f0b52cb155437bd8cf96bdee1219f4f}{ST\+\_\+\+Dialog\+Sheet}}
+, \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346aa83f0f3c3543053b7383aa4ac31ade70}{ST\+\_\+\+Macro\+Sheet}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_abstract_sheet_a50de6274f4fe05ac3b83d4604ce40372}{Sheet\+State}} \{ \mbox{\hyperlink{class_abstract_sheet_a50de6274f4fe05ac3b83d4604ce40372afb3048180c59c0d3689d82de357895e4}{SS\+\_\+\+Visible}}
+, \mbox{\hyperlink{class_abstract_sheet_a50de6274f4fe05ac3b83d4604ce40372aefbbbcb21ba949be565ab39e60ea055b}{SS\+\_\+\+Hidden}}
+, \mbox{\hyperlink{class_abstract_sheet_a50de6274f4fe05ac3b83d4604ce40372a61c8497c72b2506e55130df8450b1f5a}{SS\+\_\+\+Very\+Hidden}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_sheet_a0719dc1b09c48fb9017dcd4f44f60e74}{Abstract\+Sheet}} (const QString \&\mbox{\hyperlink{class_abstract_sheet_a445541a2eea6f9031451ffdf10d063c2}{sheet\+Name}}, int \mbox{\hyperlink{class_abstract_sheet_a336d927d69e90bd1c7a700b3e7d99d12}{sheet\+Id}}, \mbox{\hyperlink{class_workbook}{Workbook}} \texorpdfstring{$\ast$}{*}book, Abstract\+Sheet\+Private \texorpdfstring{$\ast$}{*}d)
+\item 
+virtual \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_sheet_a0ed4836d42b52bbd4b48dec058ac4a02}{copy}} (const QString \&dist\+Name, int dist\+Id) const =0
+\item 
+void \mbox{\hyperlink{class_abstract_sheet_a5af45447664744338da0061d6bf00a8b}{set\+Sheet\+Name}} (const QString \&\mbox{\hyperlink{class_abstract_sheet_a445541a2eea6f9031451ffdf10d063c2}{sheet\+Name}})
+\item 
+void \mbox{\hyperlink{class_abstract_sheet_a59b9ce93c2b11f00ffb223bec08fe16f}{set\+Sheet\+Type}} (\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Sheet\+Type}} type)
+\item 
+int \mbox{\hyperlink{class_abstract_sheet_a336d927d69e90bd1c7a700b3e7d99d12}{sheet\+Id}} () const
+\item 
+Drawing \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_sheet_a9925cff46531d3b6aa6fc57672e4ef0d}{drawing}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represent one worksheet in the workbook. 
+
+\textbackslash{}inmodule Qt\+Xlsx 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_worksheet_a17069f8e054407fb170285892fc99349}\label{class_worksheet_a17069f8e054407fb170285892fc99349} 
+\index{Worksheet@{Worksheet}!````~Worksheet@{\texorpdfstring{$\sim$}{\string~}Worksheet}}
+\index{````~Worksheet@{\texorpdfstring{$\sim$}{\string~}Worksheet}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Worksheet()}{\string~Worksheet()}}
+{\footnotesize\ttfamily Worksheet\+::\texorpdfstring{$\sim$}{\string~}\+Worksheet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys this workssheet. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_worksheet_aa425e352672f1a480876cee99635177f}\label{class_worksheet_aa425e352672f1a480876cee99635177f} 
+\index{Worksheet@{Worksheet}!addConditionalFormatting@{addConditionalFormatting}}
+\index{addConditionalFormatting@{addConditionalFormatting}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{addConditionalFormatting()}{addConditionalFormatting()}}
+{\footnotesize\ttfamily bool Worksheet\+::add\+Conditional\+Formatting (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&}]{cf }\end{DoxyParamCaption})}
+
+Add one \doxylink{class_conditional_formatting}{Conditional\+Formatting} {\itshape cf} to the sheet. Returns true on success. \Hypertarget{class_worksheet_a669fc9082933fa705e09a6222dc4b585}\label{class_worksheet_a669fc9082933fa705e09a6222dc4b585} 
+\index{Worksheet@{Worksheet}!addDataValidation@{addDataValidation}}
+\index{addDataValidation@{addDataValidation}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{addDataValidation()}{addDataValidation()}}
+{\footnotesize\ttfamily bool Worksheet\+::add\+Data\+Validation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&}]{validation }\end{DoxyParamCaption})}
+
+Add one \doxylink{class_data_validation}{Data\+Validation} {\itshape validation} to the sheet. Returns true on success. \Hypertarget{class_worksheet_a972f733da3c4e735466c8139e57a716b}\label{class_worksheet_a972f733da3c4e735466c8139e57a716b} 
+\index{Worksheet@{Worksheet}!cellAt@{cellAt}}
+\index{cellAt@{cellAt}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{cellAt()}{cellAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} Worksheet\+::cell\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column }\end{DoxyParamCaption}) const}
+
+Returns the cell at the given {\itshape row\+\_\+column}. If there is no cell at the specified position, the function returns 0. \Hypertarget{class_worksheet_a19992b4854b26585909515c80a6e0008}\label{class_worksheet_a19992b4854b26585909515c80a6e0008} 
+\index{Worksheet@{Worksheet}!cellAt@{cellAt}}
+\index{cellAt@{cellAt}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{cellAt()}{cellAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} Worksheet\+::cell\+At (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column }\end{DoxyParamCaption}) const}
+
+Returns the cell at the given {\itshape row} and {\itshape column}. If there is no cell at the specified position, the function returns 0. \Hypertarget{class_worksheet_ac02111579def0b32431d103d3e7f8cd8}\label{class_worksheet_ac02111579def0b32431d103d3e7f8cd8} 
+\index{Worksheet@{Worksheet}!columnFormat@{columnFormat}}
+\index{columnFormat@{columnFormat}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{columnFormat()}{columnFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} Worksheet\+::column\+Format (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
+
+Returns formatting of the {\itshape column}. Columns are 1-\/indexed. \Hypertarget{class_worksheet_a35d10646a1b2809cca773328e174a3e0}\label{class_worksheet_a35d10646a1b2809cca773328e174a3e0} 
+\index{Worksheet@{Worksheet}!columnWidth@{columnWidth}}
+\index{columnWidth@{columnWidth}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{columnWidth()}{columnWidth()}}
+{\footnotesize\ttfamily double Worksheet\+::column\+Width (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
+
+Returns width of the {\itshape column} in characters of the normal font. Columns are 1-\/indexed. \Hypertarget{class_worksheet_a385ad1869eaff27b41ea8451459bff19}\label{class_worksheet_a385ad1869eaff27b41ea8451459bff19} 
+\index{Worksheet@{Worksheet}!dimension@{dimension}}
+\index{dimension@{dimension}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{dimension()}{dimension()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_range}{Cell\+Range}} Worksheet\+::dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the range that contains cell data. \Hypertarget{class_worksheet_a19093c3d712454a3e19fe718d21829a5}\label{class_worksheet_a19093c3d712454a3e19fe718d21829a5} 
+\index{Worksheet@{Worksheet}!groupColumns@{groupColumns}}
+\index{groupColumns@{groupColumns}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{groupColumns()}{groupColumns()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::group\+Columns (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{bool}]{collapsed = {\ttfamily true} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Groups columns with the given {\itshape range} and {\itshape collapsed}. \Hypertarget{class_worksheet_aad3ead2aae7dda48f500b963cf3dba95}\label{class_worksheet_aad3ead2aae7dda48f500b963cf3dba95} 
+\index{Worksheet@{Worksheet}!groupColumns@{groupColumns}}
+\index{groupColumns@{groupColumns}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{groupColumns()}{groupColumns()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::group\+Columns (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{bool}]{collapsed = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Groups columns from {\itshape col\+First} to {\itshape col\+Last} with the given {\itshape collapsed}. Returns false if error occurs. \Hypertarget{class_worksheet_a583f4b91d12f954ad0791f31f45f49af}\label{class_worksheet_a583f4b91d12f954ad0791f31f45f49af} 
+\index{Worksheet@{Worksheet}!groupRows@{groupRows}}
+\index{groupRows@{groupRows}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{groupRows()}{groupRows()}}
+{\footnotesize\ttfamily bool Worksheet\+::group\+Rows (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{bool}]{collapsed = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Groups rows from {\itshape row\+First} to {\itshape row\+Last} with the given {\itshape collapsed}.
+
+Returns false if error occurs. \Hypertarget{class_worksheet_a3a78c462a900abeea0ded94ddacc96d3}\label{class_worksheet_a3a78c462a900abeea0ded94ddacc96d3} 
+\index{Worksheet@{Worksheet}!insertChart@{insertChart}}
+\index{insertChart@{insertChart}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{insertChart()}{insertChart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chart}{Chart}} \texorpdfstring{$\ast$}{*} Worksheet\+::insert\+Chart (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QSize \&}]{size }\end{DoxyParamCaption})}
+
+Creates an chart with the given {\itshape size} and insert at the position {\itshape row}, {\itshape column}. The chart will be returned. \Hypertarget{class_worksheet_a486ed8acee76c9346e0c883465f8940d}\label{class_worksheet_a486ed8acee76c9346e0c883465f8940d} 
+\index{Worksheet@{Worksheet}!insertImage@{insertImage}}
+\index{insertImage@{insertImage}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{insertImage()}{insertImage()}}
+{\footnotesize\ttfamily bool Worksheet\+::insert\+Image (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QImage \&}]{image }\end{DoxyParamCaption})}
+
+Insert an {\itshape image} at the position {\itshape row}, {\itshape column} Returns true on success. \Hypertarget{class_worksheet_acee373824d87d1da91f50ff8b55e8eda}\label{class_worksheet_acee373824d87d1da91f50ff8b55e8eda} 
+\index{Worksheet@{Worksheet}!isColumnHidden@{isColumnHidden}}
+\index{isColumnHidden@{isColumnHidden}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isColumnHidden()}{isColumnHidden()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Column\+Hidden (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
+
+Returns true if {\itshape column} is hidden. Columns are 1-\/indexed. \Hypertarget{class_worksheet_abebc631da2666f88d69388d92e655b4d}\label{class_worksheet_abebc631da2666f88d69388d92e655b4d} 
+\index{Worksheet@{Worksheet}!isFormulasVisible@{isFormulasVisible}}
+\index{isFormulasVisible@{isFormulasVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isFormulasVisible()}{isFormulasVisible()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Formulas\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether formulas instead of their calculated results shown in cells \Hypertarget{class_worksheet_ac5c0b0d9420da801425e51a1412bec32}\label{class_worksheet_ac5c0b0d9420da801425e51a1412bec32} 
+\index{Worksheet@{Worksheet}!isGridLinesVisible@{isGridLinesVisible}}
+\index{isGridLinesVisible@{isGridLinesVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isGridLinesVisible()}{isGridLinesVisible()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Grid\+Lines\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether gridlines is shown or not. \Hypertarget{class_worksheet_a3e557302a7f985aabfa128660c5a145e}\label{class_worksheet_a3e557302a7f985aabfa128660c5a145e} 
+\index{Worksheet@{Worksheet}!isOutlineSymbolsVisible@{isOutlineSymbolsVisible}}
+\index{isOutlineSymbolsVisible@{isOutlineSymbolsVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isOutlineSymbolsVisible()}{isOutlineSymbolsVisible()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Outline\+Symbols\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether is outline symbols is shown. \Hypertarget{class_worksheet_a443dc7f535068c89a4338c32d4bcad4d}\label{class_worksheet_a443dc7f535068c89a4338c32d4bcad4d} 
+\index{Worksheet@{Worksheet}!isRightToLeft@{isRightToLeft}}
+\index{isRightToLeft@{isRightToLeft}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isRightToLeft()}{isRightToLeft()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Right\+To\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether the sheet is shown right-\/to-\/left or not. \Hypertarget{class_worksheet_a460d7111e1d99da29d607d2d35afb068}\label{class_worksheet_a460d7111e1d99da29d607d2d35afb068} 
+\index{Worksheet@{Worksheet}!isRowColumnHeadersVisible@{isRowColumnHeadersVisible}}
+\index{isRowColumnHeadersVisible@{isRowColumnHeadersVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isRowColumnHeadersVisible()}{isRowColumnHeadersVisible()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Row\+Column\+Headers\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether is row and column headers is vislbe. \Hypertarget{class_worksheet_adb1515c1187b76c9a0740bfcd719d49a}\label{class_worksheet_adb1515c1187b76c9a0740bfcd719d49a} 
+\index{Worksheet@{Worksheet}!isRowHidden@{isRowHidden}}
+\index{isRowHidden@{isRowHidden}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isRowHidden()}{isRowHidden()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Row\+Hidden (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
+
+Returns true if {\itshape row} is hidden. \Hypertarget{class_worksheet_a3218612b23034447943eadb479bad5b1}\label{class_worksheet_a3218612b23034447943eadb479bad5b1} 
+\index{Worksheet@{Worksheet}!isRulerVisible@{isRulerVisible}}
+\index{isRulerVisible@{isRulerVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isRulerVisible()}{isRulerVisible()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Ruler\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether is ruler is shown. \Hypertarget{class_worksheet_afd1c98983d45de389a8a3c61e1aa2e51}\label{class_worksheet_afd1c98983d45de389a8a3c61e1aa2e51} 
+\index{Worksheet@{Worksheet}!isSelected@{isSelected}}
+\index{isSelected@{isSelected}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isSelected()}{isSelected()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Selected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether this tab is selected. \Hypertarget{class_worksheet_a8c043ff4642b809eb7ca0cb2a38b23e1}\label{class_worksheet_a8c043ff4642b809eb7ca0cb2a38b23e1} 
+\index{Worksheet@{Worksheet}!isWhiteSpaceVisible@{isWhiteSpaceVisible}}
+\index{isWhiteSpaceVisible@{isWhiteSpaceVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isWhiteSpaceVisible()}{isWhiteSpaceVisible()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+White\+Space\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether is white space is shown. \Hypertarget{class_worksheet_a6e35f913d749e3949baee0f6f4430961}\label{class_worksheet_a6e35f913d749e3949baee0f6f4430961} 
+\index{Worksheet@{Worksheet}!isWindowProtected@{isWindowProtected}}
+\index{isWindowProtected@{isWindowProtected}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isWindowProtected()}{isWindowProtected()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Window\+Protected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether sheet is protected. \Hypertarget{class_worksheet_a5ddb0bc4da5dfd49665b833db030c553}\label{class_worksheet_a5ddb0bc4da5dfd49665b833db030c553} 
+\index{Worksheet@{Worksheet}!isZerosVisible@{isZerosVisible}}
+\index{isZerosVisible@{isZerosVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{isZerosVisible()}{isZerosVisible()}}
+{\footnotesize\ttfamily bool Worksheet\+::is\+Zeros\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether is cells that have zero value show a zero. \Hypertarget{class_worksheet_ae75a705237b8096860b521cedcdc70c0}\label{class_worksheet_ae75a705237b8096860b521cedcdc70c0} 
+\index{Worksheet@{Worksheet}!mergeCells@{mergeCells}}
+\index{mergeCells@{mergeCells}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{mergeCells()}{mergeCells()}}
+{\footnotesize\ttfamily bool Worksheet\+::merge\+Cells (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Merge a {\itshape range} of cells. The first cell should contain the data and the others should be blank. All cells will be applied the same style if a valid {\itshape format} is given. Returns true on success.
+
+\begin{DoxyNote}{Note}
+All cells except the top-\/left one will be cleared. 
+\end{DoxyNote}
+\Hypertarget{class_worksheet_a52afe7019392691e61e9dc2290f162ab}\label{class_worksheet_a52afe7019392691e61e9dc2290f162ab} 
+\index{Worksheet@{Worksheet}!mergedCells@{mergedCells}}
+\index{mergedCells@{mergedCells}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{mergedCells()}{mergedCells()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_cell_range}{Cell\+Range}} $>$ Worksheet\+::merged\+Cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns all the merged cells. \Hypertarget{class_worksheet_a580b0ceed8c9879972559f0cd2a8749e}\label{class_worksheet_a580b0ceed8c9879972559f0cd2a8749e} 
+\index{Worksheet@{Worksheet}!read@{read}}
+\index{read@{read}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily QVariant Worksheet\+::read (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column }\end{DoxyParamCaption}) const}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Return the contents of the cell {\itshape row\+\_\+column}. \Hypertarget{class_worksheet_a84edbad989c3956efc0790fbb1f14d7f}\label{class_worksheet_a84edbad989c3956efc0790fbb1f14d7f} 
+\index{Worksheet@{Worksheet}!read@{read}}
+\index{read@{read}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily QVariant Worksheet\+::read (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column }\end{DoxyParamCaption}) const}
+
+Return the contents of the cell ({\itshape row}, {\itshape column}). \Hypertarget{class_worksheet_a51b00c7ef6f7d82e47a5da4d49672407}\label{class_worksheet_a51b00c7ef6f7d82e47a5da4d49672407} 
+\index{Worksheet@{Worksheet}!rowFormat@{rowFormat}}
+\index{rowFormat@{rowFormat}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{rowFormat()}{rowFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} Worksheet\+::row\+Format (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
+
+Returns format of {\itshape row}. \Hypertarget{class_worksheet_a7657504976e01b0f2f5c5e43c4a3debf}\label{class_worksheet_a7657504976e01b0f2f5c5e43c4a3debf} 
+\index{Worksheet@{Worksheet}!rowHeight@{rowHeight}}
+\index{rowHeight@{rowHeight}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{rowHeight()}{rowHeight()}}
+{\footnotesize\ttfamily double Worksheet\+::row\+Height (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
+
+Returns height of {\itshape row} in points. \Hypertarget{class_worksheet_a7b2d6ae683ece064a15bba314e72bca9}\label{class_worksheet_a7b2d6ae683ece064a15bba314e72bca9} 
+\index{Worksheet@{Worksheet}!setColumnFormat@{setColumnFormat}}
+\index{setColumnFormat@{setColumnFormat}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setColumnFormat()}{setColumnFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Column\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets format property of a {\itshape range} of columns to {\itshape format}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_worksheet_ae978e4751ed6dbed51485cb08e177e71}\label{class_worksheet_ae978e4751ed6dbed51485cb08e177e71} 
+\index{Worksheet@{Worksheet}!setColumnFormat@{setColumnFormat}}
+\index{setColumnFormat@{setColumnFormat}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setColumnFormat()}{setColumnFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Column\+Format (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets format property of a range of columns \mbox{[}{\itshape col\+First}, {\itshape col\+Last}\mbox{]} to {\itshape format}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_worksheet_a0406ee058b4d4ab540c2bc3a3b395f76}\label{class_worksheet_a0406ee058b4d4ab540c2bc3a3b395f76} 
+\index{Worksheet@{Worksheet}!setColumnHidden@{setColumnHidden}}
+\index{setColumnHidden@{setColumnHidden}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setColumnHidden()}{setColumnHidden()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Column\+Hidden (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets hidden property of a {\itshape range} of columns to {\itshape hidden}. Columns are 1-\/indexed. Hidden columns are not visible. Returns true on success. \Hypertarget{class_worksheet_a34e4b4b46c039c7906a0b683c94b1183}\label{class_worksheet_a34e4b4b46c039c7906a0b683c94b1183} 
+\index{Worksheet@{Worksheet}!setColumnHidden@{setColumnHidden}}
+\index{setColumnHidden@{setColumnHidden}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setColumnHidden()}{setColumnHidden()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Column\+Hidden (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets hidden property of a range of columns \mbox{[}{\itshape col\+First}, {\itshape col\+Last}\mbox{]} to {\itshape hidden}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_worksheet_aab53a877ac02fb3e588fdc61924f4479}\label{class_worksheet_aab53a877ac02fb3e588fdc61924f4479} 
+\index{Worksheet@{Worksheet}!setColumnWidth@{setColumnWidth}}
+\index{setColumnWidth@{setColumnWidth}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setColumnWidth()}{setColumnWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Column\+Width (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{double}]{width }\end{DoxyParamCaption})}
+
+Sets width in characters of a {\itshape range} of columns to {\itshape width}. Returns true on success. \Hypertarget{class_worksheet_a24d00860dbd8e27c5d05b42d3deed548}\label{class_worksheet_a24d00860dbd8e27c5d05b42d3deed548} 
+\index{Worksheet@{Worksheet}!setColumnWidth@{setColumnWidth}}
+\index{setColumnWidth@{setColumnWidth}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setColumnWidth()}{setColumnWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Column\+Width (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{double}]{width }\end{DoxyParamCaption})}
+
+Sets width in characters for columns \mbox{[}{\itshape col\+First}, {\itshape col\+Last}\mbox{]} to {\itshape width}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_worksheet_a28f61a4f70a438f263808922d1bb7a6e}\label{class_worksheet_a28f61a4f70a438f263808922d1bb7a6e} 
+\index{Worksheet@{Worksheet}!setFormulasVisible@{setFormulasVisible}}
+\index{setFormulasVisible@{setFormulasVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setFormulasVisible()}{setFormulasVisible()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Formulas\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Show formulas in cells instead of their calculated results when {\itshape visible} is true. \Hypertarget{class_worksheet_a06763fbc3b9b5167274f102e8a88af9e}\label{class_worksheet_a06763fbc3b9b5167274f102e8a88af9e} 
+\index{Worksheet@{Worksheet}!setGridLinesVisible@{setGridLinesVisible}}
+\index{setGridLinesVisible@{setGridLinesVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setGridLinesVisible()}{setGridLinesVisible()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Grid\+Lines\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Show or hide the gridline based on {\itshape visible} \Hypertarget{class_worksheet_a0e94698fe45a952414dab68083b46386}\label{class_worksheet_a0e94698fe45a952414dab68083b46386} 
+\index{Worksheet@{Worksheet}!setOutlineSymbolsVisible@{setOutlineSymbolsVisible}}
+\index{setOutlineSymbolsVisible@{setOutlineSymbolsVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setOutlineSymbolsVisible()}{setOutlineSymbolsVisible()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Outline\+Symbols\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Show or hide the outline symbols based ib {\itshape visible}. \Hypertarget{class_worksheet_aa09ba16db894f6a192d9ae717db08c82}\label{class_worksheet_aa09ba16db894f6a192d9ae717db08c82} 
+\index{Worksheet@{Worksheet}!setRightToLeft@{setRightToLeft}}
+\index{setRightToLeft@{setRightToLeft}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setRightToLeft()}{setRightToLeft()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Right\+To\+Left (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+Enable or disable the right-\/to-\/left based on {\itshape enable}. \Hypertarget{class_worksheet_af7b1d0aab08256f7f790419ae03799da}\label{class_worksheet_af7b1d0aab08256f7f790419ae03799da} 
+\index{Worksheet@{Worksheet}!setRowColumnHeadersVisible@{setRowColumnHeadersVisible}}
+\index{setRowColumnHeadersVisible@{setRowColumnHeadersVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setRowColumnHeadersVisible()}{setRowColumnHeadersVisible()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Row\+Column\+Headers\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Show or hide the row column headers based on {\itshape visible} \Hypertarget{class_worksheet_aed0bf13d4603eed19fa1bc2e06995a55}\label{class_worksheet_aed0bf13d4603eed19fa1bc2e06995a55} 
+\index{Worksheet@{Worksheet}!setRowFormat@{setRowFormat}}
+\index{setRowFormat@{setRowFormat}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setRowFormat()}{setRowFormat()}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Row\+Format (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets the {\itshape format} of the rows including and between {\itshape row\+First} and {\itshape row\+Last}. Rows are 1-\/indexed.
+
+Returns true if success. \Hypertarget{class_worksheet_ad2f239e6c7a9d55486181dbc66e3a7cf}\label{class_worksheet_ad2f239e6c7a9d55486181dbc66e3a7cf} 
+\index{Worksheet@{Worksheet}!setRowHeight@{setRowHeight}}
+\index{setRowHeight@{setRowHeight}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setRowHeight()}{setRowHeight()}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Row\+Height (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{double}]{height }\end{DoxyParamCaption})}
+
+Sets the {\itshape height} of the rows including and between {\itshape row\+First} and {\itshape row\+Last}. Row height measured in point size. Rows are 1-\/indexed.
+
+Returns true if success. \Hypertarget{class_worksheet_a2b0bb4ee62038b3271a84b922ff73bc3}\label{class_worksheet_a2b0bb4ee62038b3271a84b922ff73bc3} 
+\index{Worksheet@{Worksheet}!setRowHidden@{setRowHidden}}
+\index{setRowHidden@{setRowHidden}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setRowHidden()}{setRowHidden()}}
+{\footnotesize\ttfamily bool Worksheet\+::set\+Row\+Hidden (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets the {\itshape hidden} proeprty of the rows including and between {\itshape row\+First} and {\itshape row\+Last}. Rows are 1-\/indexed. If hidden is true rows will not be visible.
+
+Returns true if success. \Hypertarget{class_worksheet_ab7fc4bbebf49e2907cac601826ec9002}\label{class_worksheet_ab7fc4bbebf49e2907cac601826ec9002} 
+\index{Worksheet@{Worksheet}!setRulerVisible@{setRulerVisible}}
+\index{setRulerVisible@{setRulerVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setRulerVisible()}{setRulerVisible()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Ruler\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Show or hide the ruler based on {\itshape visible}. \Hypertarget{class_worksheet_a718e9d4e0c5562ad408e136e07608d5e}\label{class_worksheet_a718e9d4e0c5562ad408e136e07608d5e} 
+\index{Worksheet@{Worksheet}!setSelected@{setSelected}}
+\index{setSelected@{setSelected}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setSelected()}{setSelected()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Selected (\begin{DoxyParamCaption}\item[{bool}]{select }\end{DoxyParamCaption})}
+
+Select this sheet if {\itshape select} is true. \Hypertarget{class_worksheet_a130d356b877f92cb325c4e062ff71e72}\label{class_worksheet_a130d356b877f92cb325c4e062ff71e72} 
+\index{Worksheet@{Worksheet}!setWhiteSpaceVisible@{setWhiteSpaceVisible}}
+\index{setWhiteSpaceVisible@{setWhiteSpaceVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setWhiteSpaceVisible()}{setWhiteSpaceVisible()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+White\+Space\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Show or hide the white space based on {\itshape visible}. \Hypertarget{class_worksheet_a2bdd449b7cb646a1b335500e135b6ef1}\label{class_worksheet_a2bdd449b7cb646a1b335500e135b6ef1} 
+\index{Worksheet@{Worksheet}!setWindowProtected@{setWindowProtected}}
+\index{setWindowProtected@{setWindowProtected}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setWindowProtected()}{setWindowProtected()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Window\+Protected (\begin{DoxyParamCaption}\item[{bool}]{protect }\end{DoxyParamCaption})}
+
+Protects/unprotects the sheet based on {\itshape protect}. \Hypertarget{class_worksheet_a516d9799e08bbdd96de970dd67301daa}\label{class_worksheet_a516d9799e08bbdd96de970dd67301daa} 
+\index{Worksheet@{Worksheet}!setZerosVisible@{setZerosVisible}}
+\index{setZerosVisible@{setZerosVisible}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{setZerosVisible()}{setZerosVisible()}}
+{\footnotesize\ttfamily void Worksheet\+::set\+Zeros\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Show a zero in cells that have zero value if {\itshape visible} is true. \Hypertarget{class_worksheet_a18dc137efb3f357f15b3f83f479f30d7}\label{class_worksheet_a18dc137efb3f357f15b3f83f479f30d7} 
+\index{Worksheet@{Worksheet}!unmergeCells@{unmergeCells}}
+\index{unmergeCells@{unmergeCells}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{unmergeCells()}{unmergeCells()}}
+{\footnotesize\ttfamily bool Worksheet\+::unmerge\+Cells (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range }\end{DoxyParamCaption})}
+
+Unmerge the cells in the {\itshape range}. Returns true on success. \Hypertarget{class_worksheet_a09ba8e81a0481b111d37d52b5e792549}\label{class_worksheet_a09ba8e81a0481b111d37d52b5e792549} 
+\index{Worksheet@{Worksheet}!write@{write}}
+\index{write@{write}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const QVariant \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write {\itshape value} to cell {\itshape row\+\_\+column} with the {\itshape format}. Both row and column are all 1-\/indexed value. Returns true on success. \Hypertarget{class_worksheet_ad12e532d5c752ddaa4edf14206e93821}\label{class_worksheet_ad12e532d5c752ddaa4edf14206e93821} 
+\index{Worksheet@{Worksheet}!write@{write}}
+\index{write@{write}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QVariant \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write {\itshape value} to cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Both {\itshape row} and {\itshape column} are all 1-\/indexed value.
+
+Returns true on success. \Hypertarget{class_worksheet_a675163910f691a172b28a580fa5faf64}\label{class_worksheet_a675163910f691a172b28a580fa5faf64} 
+\index{Worksheet@{Worksheet}!writeBlank@{writeBlank}}
+\index{writeBlank@{writeBlank}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeBlank()}{writeBlank()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Blank (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write a empty cell {\itshape row\+\_\+column} with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_afc6393ce70ca2163d1a6fff255aed6a0}\label{class_worksheet_afc6393ce70ca2163d1a6fff255aed6a0} 
+\index{Worksheet@{Worksheet}!writeBlank@{writeBlank}}
+\index{writeBlank@{writeBlank}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeBlank()}{writeBlank()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Blank (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write a empty cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_a9565d5e5340c3cd83553a8ede313326d}\label{class_worksheet_a9565d5e5340c3cd83553a8ede313326d} 
+\index{Worksheet@{Worksheet}!writeBool@{writeBool}}
+\index{writeBool@{writeBool}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeBool()}{writeBool()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Bool (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{bool}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write a bool {\itshape value} to the cell {\itshape row\+\_\+column} with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_a7f043c499aec663ee05daf03b0c80ff9}\label{class_worksheet_a7f043c499aec663ee05daf03b0c80ff9} 
+\index{Worksheet@{Worksheet}!writeBool@{writeBool}}
+\index{writeBool@{writeBool}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeBool()}{writeBool()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Bool (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{bool}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write a bool {\itshape value} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_a940d72f1556145e0131aeb8d885f22ea}\label{class_worksheet_a940d72f1556145e0131aeb8d885f22ea} 
+\index{Worksheet@{Worksheet}!writeDateTime@{writeDateTime}}
+\index{writeDateTime@{writeDateTime}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeDateTime()}{writeDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Date\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const QDate\+Time \&}]{dt,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write a QDate\+Time {\itshape dt} to the cell {\itshape row\+\_\+column} with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_ad8d3ba5909bb26806eefeb78759e52dd}\label{class_worksheet_ad8d3ba5909bb26806eefeb78759e52dd} 
+\index{Worksheet@{Worksheet}!writeDateTime@{writeDateTime}}
+\index{writeDateTime@{writeDateTime}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeDateTime()}{writeDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Date\+Time (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QDate\+Time \&}]{dt,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write a QDate\+Time {\itshape dt} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_a0026c6f768cd7dd5387c0b3b620445c6}\label{class_worksheet_a0026c6f768cd7dd5387c0b3b620445c6} 
+\index{Worksheet@{Worksheet}!writeFormula@{writeFormula}}
+\index{writeFormula@{writeFormula}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeFormula()}{writeFormula()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Formula (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&}]{formula,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()},  }\item[{double}]{result = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write {\itshape formula} to the cell {\itshape row\+\_\+column} with the {\itshape format} and {\itshape result}. Returns true on success. \Hypertarget{class_worksheet_a2d79f87687b0485632ab6b33c1be1f87}\label{class_worksheet_a2d79f87687b0485632ab6b33c1be1f87} 
+\index{Worksheet@{Worksheet}!writeFormula@{writeFormula}}
+\index{writeFormula@{writeFormula}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeFormula()}{writeFormula()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Formula (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&}]{formula\+\_\+,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()},  }\item[{double}]{result = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Write {\itshape formula\+\_\+} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format} and {\itshape result}. Returns true on success. \Hypertarget{class_worksheet_a8d3bab83937a3bf59ee806c56c394ea6}\label{class_worksheet_a8d3bab83937a3bf59ee806c56c394ea6} 
+\index{Worksheet@{Worksheet}!writeHyperlink@{writeHyperlink}}
+\index{writeHyperlink@{writeHyperlink}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeHyperlink()}{writeHyperlink()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Hyperlink (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const QUrl \&}]{url,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()},  }\item[{const QString \&}]{display = {\ttfamily QString()},  }\item[{const QString \&}]{tip = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write a QUrl {\itshape url} to the cell {\itshape row\+\_\+column} with the given {\itshape format} {\itshape display} and {\itshape tip}. Returns true on success. \Hypertarget{class_worksheet_a5e2ec26566538ad2d855bf8eb78ab086}\label{class_worksheet_a5e2ec26566538ad2d855bf8eb78ab086} 
+\index{Worksheet@{Worksheet}!writeHyperlink@{writeHyperlink}}
+\index{writeHyperlink@{writeHyperlink}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeHyperlink()}{writeHyperlink()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Hyperlink (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QUrl \&}]{url,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()},  }\item[{const QString \&}]{display = {\ttfamily QString()},  }\item[{const QString \&}]{tip = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+Write a QUrl {\itshape url} to the cell ({\itshape row}, {\itshape column}) with the given {\itshape format} {\itshape display} and {\itshape tip}. Returns true on success. \Hypertarget{class_worksheet_a4b91a478344aea38398d442495b6a0ce}\label{class_worksheet_a4b91a478344aea38398d442495b6a0ce} 
+\index{Worksheet@{Worksheet}!writeInlineString@{writeInlineString}}
+\index{writeInlineString@{writeInlineString}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeInlineString()}{writeInlineString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Inline\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const QString \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write string {\itshape value} to the cell {\itshape row\+\_\+column} with the {\itshape format} \Hypertarget{class_worksheet_ab85ee8b6382d124151d640f859ed14f5}\label{class_worksheet_ab85ee8b6382d124151d640f859ed14f5} 
+\index{Worksheet@{Worksheet}!writeInlineString@{writeInlineString}}
+\index{writeInlineString@{writeInlineString}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeInlineString()}{writeInlineString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Inline\+String (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QString \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write string {\itshape value} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_ac4a8febd1db129cabb8c117993535681}\label{class_worksheet_ac4a8febd1db129cabb8c117993535681} 
+\index{Worksheet@{Worksheet}!writeNumeric@{writeNumeric}}
+\index{writeNumeric@{writeNumeric}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeNumeric()}{writeNumeric()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Numeric (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{double}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write numeric {\itshape value} to the cell {\itshape row\+\_\+column} with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_a620f4402e365c3677c46fab334bd6f32}\label{class_worksheet_a620f4402e365c3677c46fab334bd6f32} 
+\index{Worksheet@{Worksheet}!writeNumeric@{writeNumeric}}
+\index{writeNumeric@{writeNumeric}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeNumeric()}{writeNumeric()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Numeric (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{double}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write numeric {\itshape value} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_ad9d0cec4e873623ff1e21ece6fb03394}\label{class_worksheet_ad9d0cec4e873623ff1e21ece6fb03394} 
+\index{Worksheet@{Worksheet}!writeString@{writeString}}
+\index{writeString@{writeString}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeString()}{writeString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const QString \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write string {\itshape value} to the cell {\itshape row\+\_\+column} with the {\itshape format}. \Hypertarget{class_worksheet_ac1c6d03a4d897ac7acee2207f2382e30}\label{class_worksheet_ac1c6d03a4d897ac7acee2207f2382e30} 
+\index{Worksheet@{Worksheet}!writeString@{writeString}}
+\index{writeString@{writeString}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeString()}{writeString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write string {\itshape value} to the cell {\itshape row\+\_\+column} with the {\itshape format}.
+
+Returns true on success. \Hypertarget{class_worksheet_aa8ba58585492b98548ceb2adad426f8c}\label{class_worksheet_aa8ba58585492b98548ceb2adad426f8c} 
+\index{Worksheet@{Worksheet}!writeString@{writeString}}
+\index{writeString@{writeString}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeString()}{writeString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+String (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QString \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Write string {\itshape value} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_a393c42ac506199c8e731b5ad2b88a797}\label{class_worksheet_a393c42ac506199c8e731b5ad2b88a797} 
+\index{Worksheet@{Worksheet}!writeString@{writeString}}
+\index{writeString@{writeString}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeString()}{writeString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+String (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write string {\itshape value} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_ae8f0986fedee4457bb8fd4433fb94430}\label{class_worksheet_ae8f0986fedee4457bb8fd4433fb94430} 
+\index{Worksheet@{Worksheet}!writeTime@{writeTime}}
+\index{writeTime@{writeTime}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeTime()}{writeTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const QTime \&}]{t,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Write a QTime {\itshape t} to the cell {\itshape row\+\_\+column} with the {\itshape format}. Returns true on success. \Hypertarget{class_worksheet_a6731e4b394548c759172157c3ea9a91e}\label{class_worksheet_a6731e4b394548c759172157c3ea9a91e} 
+\index{Worksheet@{Worksheet}!writeTime@{writeTime}}
+\index{writeTime@{writeTime}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{writeTime()}{writeTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Worksheet\+::write\+Time (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QTime \&}]{t,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write a QTime {\itshape t} to the cell ({\itshape row}, {\itshape column}) with the {\itshape format}. Returns true on success. 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_worksheet_abdcaccb4422737ac67ef4b46a6d3e6e0}\label{class_worksheet_abdcaccb4422737ac67ef4b46a6d3e6e0} 
+\index{Worksheet@{Worksheet}!::WorksheetTest@{::WorksheetTest}}
+\index{::WorksheetTest@{::WorksheetTest}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{::WorksheetTest}{::WorksheetTest}}
+{\footnotesize\ttfamily friend class \+::\+Worksheet\+Test\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_worksheet_ad60d3d11afe13773e689a27dbaba5d11}\label{class_worksheet_ad60d3d11afe13773e689a27dbaba5d11} 
+\index{Worksheet@{Worksheet}!DocumentPrivate@{DocumentPrivate}}
+\index{DocumentPrivate@{DocumentPrivate}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{DocumentPrivate}{DocumentPrivate}}
+{\footnotesize\ttfamily friend class Document\+Private\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_worksheet_ac6cb2c7a2b1d72a406b4d3071d12664a}\label{class_worksheet_ac6cb2c7a2b1d72a406b4d3071d12664a} 
+\index{Worksheet@{Worksheet}!Workbook@{Workbook}}
+\index{Workbook@{Workbook}!Worksheet@{Worksheet}}
+\doxysubsubsection{\texorpdfstring{Workbook}{Workbook}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_workbook}{Workbook}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxworksheet_8h}{xlsxworksheet.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxworksheet_8cpp}{xlsxworksheet.\+cpp}}\end{DoxyCompactItemize}

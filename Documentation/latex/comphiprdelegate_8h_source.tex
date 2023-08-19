@@ -1,0 +1,48 @@
+\doxysection{comphiprdelegate.\+h}
+\hypertarget{comphiprdelegate_8h_source}{}\label{comphiprdelegate_8h_source}\index{MultiflowUI/util/delegate/comphiprdelegate.h@{MultiflowUI/util/delegate/comphiprdelegate.h}}
+\mbox{\hyperlink{comphiprdelegate_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COMPHIPRDELEGATE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COMPHIPRDELEGATE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QItemDelegate>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QComboBox>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_comp_h_i_p_r_delegate}{CompHIPRDelegate}}\ :\ \textcolor{keyword}{public}\ QItemDelegate}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_comp_h_i_p_r_delegate}{CompHIPRDelegate}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ QWidget\ *\mbox{\hyperlink{class_comp_h_i_p_r_delegate_a7844677ab6d013e8b497c78cd7c3e40b}{createEditor}}(QWidget\ *parent,\ \textcolor{keyword}{const}\ QStyleOptionViewItem\ \&option,\ \textcolor{keyword}{const}\ QModelIndex\ \&index)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index.column()\ ==\ 5)\ \{\ \textcolor{comment}{//\ Customize\ the\ column\ index\ where\ you\ want\ to\ show\ the\ ComboBox}}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ QComboBox\ *comboBox\ =\ \textcolor{keyword}{new}\ QComboBox(parent);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox-\/>addItem(\textcolor{stringliteral}{"{}Joshi"{}});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox-\/>addItem(\textcolor{stringliteral}{"{}Borisov"{}});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox-\/>addItem(\textcolor{stringliteral}{"{}Giger"{}});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ comboBox;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ QItemDelegate::createEditor(parent,\ option,\ index);}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_comp_h_i_p_r_delegate_aa948891874d73578e560c6036642c72f}{setEditorData}}(QWidget\ *editor,\ \textcolor{keyword}{const}\ QModelIndex\ \&index)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (QComboBox\ *comboBox\ =\ qobject\_cast<QComboBox\ *>(editor))\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ text\ =\ index.data(Qt::EditRole).toString();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idx\ =\ comboBox-\/>findText(text);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ comboBox-\/>setCurrentIndex(idx);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ QItemDelegate::setEditorData(editor,\ index);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_comp_h_i_p_r_delegate_ae2514b2a5e9f2cf4b8f7ee561a1238f3}{setModelData}}(QWidget\ *editor,\ QAbstractItemModel\ *model,\ \textcolor{keyword}{const}\ QModelIndex\ \&index)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (QComboBox\ *comboBox\ =\ qobject\_cast<QComboBox\ *>(editor))\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ model-\/>setData(index,\ comboBox-\/>currentText(),\ Qt::EditRole);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ QItemDelegate::setModelData(editor,\ model,\ index);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ COMPHIPRDELEGATE\_H}}
+
+\end{DoxyCode}

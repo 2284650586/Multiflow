@@ -1,0 +1,543 @@
+\doxysection{QXlsx\+::Format\+Private Class Reference}
+\hypertarget{class_q_xlsx_1_1_format_private}{}\label{class_q_xlsx_1_1_format_private}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+
+
+{\ttfamily \#include $<$xlsxformat\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Format\+Private\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_xlsx_1_1_format_private}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cb}{Format\+Type}} \{ \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba3924bf8ffe43db836b6247c591f21e23}{FT\+\_\+\+Invalid}} = 0
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba44f4dfe44c3db00dfd773ffb19f2483a}{FT\+\_\+\+Num\+Fmt}} = 0x01
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbac7caa292c700d5081d0ab335706868f4}{FT\+\_\+\+Font}} = 0x02
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba80600b3149beb96195f9a795a5850989}{FT\+\_\+\+Alignment}} = 0x04
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaeff292bc8ad52025bc5ccaa8b5a7e1d6}{FT\+\_\+\+Border}} = 0x08
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaa814d30f52e304bcecedcd4c9a763805}{FT\+\_\+\+Fill}} = 0x10
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba27db713f51d121979570f57103189838}{FT\+\_\+\+Protection}} = 0x20
+ \}
+\item 
+enum \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0}{Property}} \{ \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a112da706af253038c5292d5d27de9fae}{P\+\_\+\+STARTID}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad250384954d8ce9cb8de438677ec056f}{P\+\_\+\+Num\+Fmt\+\_\+\+Id}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae426dd9cc5dadc7f967946601e2a3fc8}{P\+\_\+\+Num\+Fmt\+\_\+\+Format\+Code}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac58f27befd78717860ff60124c9be0ab}{P\+\_\+\+Font\+\_\+\+STARTID}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac1d9acf76f5af5bc45d25095307147e2}{P\+\_\+\+Font\+\_\+\+Size}} = P\+\_\+\+Font\+\_\+\+STARTID
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34dd3b0ba1e9d4e038e30efc4fc3fb1d}{P\+\_\+\+Font\+\_\+\+Italic}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae42eba1237337a6368c860f6640e48f7}{P\+\_\+\+Font\+\_\+\+Strike\+Out}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac4208f444f868229189ab98fb38ad880}{P\+\_\+\+Font\+\_\+\+Color}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7323db098109b7081d2700f426cee333}{P\+\_\+\+Font\+\_\+\+Bold}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a84052712cd9d0c7ed48093db8f88382d}{P\+\_\+\+Font\+\_\+\+Script}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a96fcd32860c507d19830d514bf890858}{P\+\_\+\+Font\+\_\+\+Underline}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0af6e300c5f4a9d88f41acf82fbccc21bd}{P\+\_\+\+Font\+\_\+\+Outline}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a206e8e1a04ab64e0670eb90a8528ffc2}{P\+\_\+\+Font\+\_\+\+Shadow}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aee86dcad0f1e0671e92f74e7e6b7b3ce}{P\+\_\+\+Font\+\_\+\+Name}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0afbdd74a669facd9edc9d735bf15466e0}{P\+\_\+\+Font\+\_\+\+Family}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a278aaef30ee8bd7cc16085bdfb22809a}{P\+\_\+\+Font\+\_\+\+Charset}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a46a7b4ff0795ed2231ef8d414e8847ac}{P\+\_\+\+Font\+\_\+\+Scheme}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a534b4e2100acf7cce70f0e7855e9ecd2}{P\+\_\+\+Font\+\_\+\+Condense}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a08c705c8eba499e5655859b8d1b4cfcb}{P\+\_\+\+Font\+\_\+\+Extend}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a88a4a2cab95129e7ddd8484144f372af}{P\+\_\+\+Font\+\_\+\+ENDID}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac10ed253005a09b8f36ba379434a4353}{P\+\_\+\+Border\+\_\+\+STARTID}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a915fac81f4ad98af2a2770f19efabb01}{P\+\_\+\+Border\+\_\+\+Left\+Style}} = P\+\_\+\+Border\+\_\+\+STARTID
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aba85b81340d9ae659ef9801e14f926a0}{P\+\_\+\+Border\+\_\+\+Right\+Style}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4026cc3396e1b40d10fd38c71f01d450}{P\+\_\+\+Border\+\_\+\+Top\+Style}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac05017f16ad7402db40a83945418b9b3}{P\+\_\+\+Border\+\_\+\+Bottom\+Style}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34228f9773bd29595ea969b0764c5e72}{P\+\_\+\+Border\+\_\+\+Diagonal\+Style}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a45c7839d7c5ee827f2930bdf97b2b7b7}{P\+\_\+\+Border\+\_\+\+Left\+Color}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0741174928aaba2ac7af32a849d9cbea}{P\+\_\+\+Border\+\_\+\+Right\+Color}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a86ec76c44f442a4a1e689204035354a9}{P\+\_\+\+Border\+\_\+\+Top\+Color}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0abdab984a3bb549cb0b20b7f3b93abe0c}{P\+\_\+\+Border\+\_\+\+Bottom\+Color}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad7f4116a213ed581132ab7f8914b8308}{P\+\_\+\+Border\+\_\+\+Diagonal\+Color}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a311254bfd5b7348554b0103db1844761}{P\+\_\+\+Border\+\_\+\+Diagonal\+Type}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aec9e60d8f67f71b5e0cecb79e209e96d}{P\+\_\+\+Border\+\_\+\+ENDID}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac79e8861bd181a0efb1c76d90e9476be}{P\+\_\+\+Fill\+\_\+\+STARTID}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7ad5ee91642fa5ff6f64a44de4bb897d}{P\+\_\+\+Fill\+\_\+\+Pattern}} = P\+\_\+\+Fill\+\_\+\+STARTID
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a335a3568251301ccdf554867a689f43f}{P\+\_\+\+Fill\+\_\+\+Bg\+Color}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4176345460ed00e8133553742b030d5f}{P\+\_\+\+Fill\+\_\+\+Fg\+Color}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a3890e69434e3a0285ce5dcccd2cd50d3}{P\+\_\+\+Fill\+\_\+\+ENDID}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6bd1e76e8df8a548742f8192dd2615a4}{P\+\_\+\+Alignment\+\_\+\+STARTID}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a33f6ac71c6bac2f3c4e654b267afa4af}{P\+\_\+\+Alignment\+\_\+\+AlignH}} = P\+\_\+\+Alignment\+\_\+\+STARTID
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6556c8a18e614cddfd150b60ff52441e}{P\+\_\+\+Alignment\+\_\+\+AlignV}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0895754f9c59d9125588abd0fa792053}{P\+\_\+\+Alignment\+\_\+\+Wrap}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a09c734960fdeafc525e69e217a493bd7}{P\+\_\+\+Alignment\+\_\+\+Rotation}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aeaac78fd3c41bcc7143a9f3da3bc2695}{P\+\_\+\+Alignment\+\_\+\+Indent}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a5b9132aeff887c37a6acee0ffed39a3c}{P\+\_\+\+Alignment\+\_\+\+Shink\+To\+Fit}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a37c6cf184d50b9411819ce31c414e508}{P\+\_\+\+Alignment\+\_\+\+ENDID}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ace77569752a84f62daebef5f9cdf0fc3}{P\+\_\+\+Protection\+\_\+\+Locked}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a82942780d6cf788dddc553cb6e6c9cb9}{P\+\_\+\+Protection\+\_\+\+Hidden}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a372a81a918b8484a8ff31568c4d6fc43}{P\+\_\+\+ENDID}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_add2a93e1691331a3133cf52aa03428a2}{Format\+Private}} ()
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a257f3c8e03ecb9a3e9a0615b25b90f8e}{Format\+Private}} (const \mbox{\hyperlink{class_q_xlsx_1_1_format_private}{Format\+Private}} \&other)
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8d6c97b72d63dd6f61fd10a343b66b57}{\texorpdfstring{$\sim$}{\string~}\+Format\+Private}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ab31c5969755cebd9d351d906b087de8e}{dirty}}
+\item 
+QByte\+Array \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a0a3bcd7f5f041c456f13ed9c57967908}{format\+Key}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a97586b16f37a7b18c2a834b04e6fc6fd}{font\+\_\+dirty}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ad697a156bf0ee4398368b6ddfa218149}{font\+\_\+index\+\_\+valid}}
+\item 
+QByte\+Array \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a845339974364ed50e530cf9f5b23af88}{font\+\_\+key}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_format_private_acec366fe62137e504efeec631e0847fb}{font\+\_\+index}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ada2be400ee6be6750bf79a5d7548e52b}{fill\+\_\+dirty}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a82695acf00dd46a4150444d75dd28444}{fill\+\_\+index\+\_\+valid}}
+\item 
+QByte\+Array \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a116d84f9a457d1ae45a8dc30b7dda824}{fill\+\_\+key}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8569b2af11f2a4d971da45cc01bfefdf}{fill\+\_\+index}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a85530d482375aa6cabe956e85e371e08}{border\+\_\+dirty}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_abeaee6950bcf883f527e28f9331be987}{border\+\_\+index\+\_\+valid}}
+\item 
+QByte\+Array \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ab0e5824492813d6625ec44ad4728aba3}{border\+\_\+key}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a49d7c237cbefc519b4b73b2c67961383}{border\+\_\+index}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a53944e7b35daa5db333697b992b3c5ce}{xf\+\_\+index}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_aa9b0fbc10bdcb473f09e12d0cdc64e60}{xf\+\_\+index\+Valid}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a1282305bca67f01aa22dfc207caffe53}{is\+\_\+dxf\+\_\+fomat}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_format_private_ad0f36235dde2bfe8db2b508e1102b5fb}{dxf\+\_\+index}}
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a66ee8363946fe49d97c1ebae59e01657}{dxf\+\_\+index\+Valid}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a9bb48ffc032f01ffe901dd60fe54a406}{theme}}
+\item 
+QMap$<$ int, QVariant $>$ \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a720216fdfec09b1bf84c427594ebc20d}{properties}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cb}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cb} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FormatType@{FormatType}}
+\index{FormatType@{FormatType}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{FormatType}{FormatType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cb}{QXlsx\+::\+Format\+Private\+::\+Format\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FT\_Invalid@{FT\_Invalid}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FT\_Invalid@{FT\_Invalid}}}\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba3924bf8ffe43db836b6247c591f21e23}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba3924bf8ffe43db836b6247c591f21e23} 
+FT\+\_\+\+Invalid&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FT\_NumFmt@{FT\_NumFmt}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FT\_NumFmt@{FT\_NumFmt}}}\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba44f4dfe44c3db00dfd773ffb19f2483a}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba44f4dfe44c3db00dfd773ffb19f2483a} 
+FT\+\_\+\+Num\+Fmt&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FT\_Font@{FT\_Font}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FT\_Font@{FT\_Font}}}\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbac7caa292c700d5081d0ab335706868f4}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbac7caa292c700d5081d0ab335706868f4} 
+FT\+\_\+\+Font&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FT\_Alignment@{FT\_Alignment}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FT\_Alignment@{FT\_Alignment}}}\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba80600b3149beb96195f9a795a5850989}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba80600b3149beb96195f9a795a5850989} 
+FT\+\_\+\+Alignment&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FT\_Border@{FT\_Border}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FT\_Border@{FT\_Border}}}\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaeff292bc8ad52025bc5ccaa8b5a7e1d6}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaeff292bc8ad52025bc5ccaa8b5a7e1d6} 
+FT\+\_\+\+Border&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FT\_Fill@{FT\_Fill}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FT\_Fill@{FT\_Fill}}}\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaa814d30f52e304bcecedcd4c9a763805}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cbaa814d30f52e304bcecedcd4c9a763805} 
+FT\+\_\+\+Fill&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FT\_Protection@{FT\_Protection}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FT\_Protection@{FT\_Protection}}}\Hypertarget{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba27db713f51d121979570f57103189838}\label{class_q_xlsx_1_1_format_private_a362b5f27678a18cb419cd9a519d366cba27db713f51d121979570f57103189838} 
+FT\+\_\+\+Protection&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!Property@{Property}}
+\index{Property@{Property}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{Property}{Property}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0}{QXlsx\+::\+Format\+Private\+::\+Property}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_STARTID@{P\_STARTID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_STARTID@{P\_STARTID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a112da706af253038c5292d5d27de9fae}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a112da706af253038c5292d5d27de9fae} 
+P\+\_\+\+STARTID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_NumFmt\_Id@{P\_NumFmt\_Id}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_NumFmt\_Id@{P\_NumFmt\_Id}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad250384954d8ce9cb8de438677ec056f}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad250384954d8ce9cb8de438677ec056f} 
+P\+\_\+\+Num\+Fmt\+\_\+\+Id&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_NumFmt\_FormatCode@{P\_NumFmt\_FormatCode}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_NumFmt\_FormatCode@{P\_NumFmt\_FormatCode}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae426dd9cc5dadc7f967946601e2a3fc8}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae426dd9cc5dadc7f967946601e2a3fc8} 
+P\+\_\+\+Num\+Fmt\+\_\+\+Format\+Code&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_STARTID@{P\_Font\_STARTID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_STARTID@{P\_Font\_STARTID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac58f27befd78717860ff60124c9be0ab}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac58f27befd78717860ff60124c9be0ab} 
+P\+\_\+\+Font\+\_\+\+STARTID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Size@{P\_Font\_Size}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Size@{P\_Font\_Size}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac1d9acf76f5af5bc45d25095307147e2}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac1d9acf76f5af5bc45d25095307147e2} 
+P\+\_\+\+Font\+\_\+\+Size&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Italic@{P\_Font\_Italic}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Italic@{P\_Font\_Italic}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34dd3b0ba1e9d4e038e30efc4fc3fb1d}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34dd3b0ba1e9d4e038e30efc4fc3fb1d} 
+P\+\_\+\+Font\+\_\+\+Italic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_StrikeOut@{P\_Font\_StrikeOut}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_StrikeOut@{P\_Font\_StrikeOut}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae42eba1237337a6368c860f6640e48f7}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ae42eba1237337a6368c860f6640e48f7} 
+P\+\_\+\+Font\+\_\+\+Strike\+Out&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Color@{P\_Font\_Color}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Color@{P\_Font\_Color}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac4208f444f868229189ab98fb38ad880}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac4208f444f868229189ab98fb38ad880} 
+P\+\_\+\+Font\+\_\+\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Bold@{P\_Font\_Bold}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Bold@{P\_Font\_Bold}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7323db098109b7081d2700f426cee333}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7323db098109b7081d2700f426cee333} 
+P\+\_\+\+Font\+\_\+\+Bold&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Script@{P\_Font\_Script}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Script@{P\_Font\_Script}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a84052712cd9d0c7ed48093db8f88382d}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a84052712cd9d0c7ed48093db8f88382d} 
+P\+\_\+\+Font\+\_\+\+Script&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Underline@{P\_Font\_Underline}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Underline@{P\_Font\_Underline}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a96fcd32860c507d19830d514bf890858}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a96fcd32860c507d19830d514bf890858} 
+P\+\_\+\+Font\+\_\+\+Underline&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Outline@{P\_Font\_Outline}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Outline@{P\_Font\_Outline}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0af6e300c5f4a9d88f41acf82fbccc21bd}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0af6e300c5f4a9d88f41acf82fbccc21bd} 
+P\+\_\+\+Font\+\_\+\+Outline&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Shadow@{P\_Font\_Shadow}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Shadow@{P\_Font\_Shadow}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a206e8e1a04ab64e0670eb90a8528ffc2}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a206e8e1a04ab64e0670eb90a8528ffc2} 
+P\+\_\+\+Font\+\_\+\+Shadow&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Name@{P\_Font\_Name}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Name@{P\_Font\_Name}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aee86dcad0f1e0671e92f74e7e6b7b3ce}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aee86dcad0f1e0671e92f74e7e6b7b3ce} 
+P\+\_\+\+Font\+\_\+\+Name&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Family@{P\_Font\_Family}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Family@{P\_Font\_Family}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0afbdd74a669facd9edc9d735bf15466e0}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0afbdd74a669facd9edc9d735bf15466e0} 
+P\+\_\+\+Font\+\_\+\+Family&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Charset@{P\_Font\_Charset}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Charset@{P\_Font\_Charset}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a278aaef30ee8bd7cc16085bdfb22809a}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a278aaef30ee8bd7cc16085bdfb22809a} 
+P\+\_\+\+Font\+\_\+\+Charset&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Scheme@{P\_Font\_Scheme}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Scheme@{P\_Font\_Scheme}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a46a7b4ff0795ed2231ef8d414e8847ac}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a46a7b4ff0795ed2231ef8d414e8847ac} 
+P\+\_\+\+Font\+\_\+\+Scheme&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Condense@{P\_Font\_Condense}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Condense@{P\_Font\_Condense}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a534b4e2100acf7cce70f0e7855e9ecd2}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a534b4e2100acf7cce70f0e7855e9ecd2} 
+P\+\_\+\+Font\+\_\+\+Condense&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_Extend@{P\_Font\_Extend}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_Extend@{P\_Font\_Extend}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a08c705c8eba499e5655859b8d1b4cfcb}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a08c705c8eba499e5655859b8d1b4cfcb} 
+P\+\_\+\+Font\+\_\+\+Extend&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Font\_ENDID@{P\_Font\_ENDID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Font\_ENDID@{P\_Font\_ENDID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a88a4a2cab95129e7ddd8484144f372af}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a88a4a2cab95129e7ddd8484144f372af} 
+P\+\_\+\+Font\+\_\+\+ENDID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_STARTID@{P\_Border\_STARTID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_STARTID@{P\_Border\_STARTID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac10ed253005a09b8f36ba379434a4353}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac10ed253005a09b8f36ba379434a4353} 
+P\+\_\+\+Border\+\_\+\+STARTID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_LeftStyle@{P\_Border\_LeftStyle}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_LeftStyle@{P\_Border\_LeftStyle}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a915fac81f4ad98af2a2770f19efabb01}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a915fac81f4ad98af2a2770f19efabb01} 
+P\+\_\+\+Border\+\_\+\+Left\+Style&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_RightStyle@{P\_Border\_RightStyle}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_RightStyle@{P\_Border\_RightStyle}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aba85b81340d9ae659ef9801e14f926a0}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aba85b81340d9ae659ef9801e14f926a0} 
+P\+\_\+\+Border\+\_\+\+Right\+Style&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_TopStyle@{P\_Border\_TopStyle}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_TopStyle@{P\_Border\_TopStyle}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4026cc3396e1b40d10fd38c71f01d450}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4026cc3396e1b40d10fd38c71f01d450} 
+P\+\_\+\+Border\+\_\+\+Top\+Style&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_BottomStyle@{P\_Border\_BottomStyle}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_BottomStyle@{P\_Border\_BottomStyle}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac05017f16ad7402db40a83945418b9b3}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac05017f16ad7402db40a83945418b9b3} 
+P\+\_\+\+Border\+\_\+\+Bottom\+Style&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_DiagonalStyle@{P\_Border\_DiagonalStyle}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_DiagonalStyle@{P\_Border\_DiagonalStyle}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34228f9773bd29595ea969b0764c5e72}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a34228f9773bd29595ea969b0764c5e72} 
+P\+\_\+\+Border\+\_\+\+Diagonal\+Style&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_LeftColor@{P\_Border\_LeftColor}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_LeftColor@{P\_Border\_LeftColor}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a45c7839d7c5ee827f2930bdf97b2b7b7}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a45c7839d7c5ee827f2930bdf97b2b7b7} 
+P\+\_\+\+Border\+\_\+\+Left\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_RightColor@{P\_Border\_RightColor}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_RightColor@{P\_Border\_RightColor}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0741174928aaba2ac7af32a849d9cbea}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0741174928aaba2ac7af32a849d9cbea} 
+P\+\_\+\+Border\+\_\+\+Right\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_TopColor@{P\_Border\_TopColor}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_TopColor@{P\_Border\_TopColor}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a86ec76c44f442a4a1e689204035354a9}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a86ec76c44f442a4a1e689204035354a9} 
+P\+\_\+\+Border\+\_\+\+Top\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_BottomColor@{P\_Border\_BottomColor}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_BottomColor@{P\_Border\_BottomColor}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0abdab984a3bb549cb0b20b7f3b93abe0c}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0abdab984a3bb549cb0b20b7f3b93abe0c} 
+P\+\_\+\+Border\+\_\+\+Bottom\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_DiagonalColor@{P\_Border\_DiagonalColor}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_DiagonalColor@{P\_Border\_DiagonalColor}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad7f4116a213ed581132ab7f8914b8308}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ad7f4116a213ed581132ab7f8914b8308} 
+P\+\_\+\+Border\+\_\+\+Diagonal\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_DiagonalType@{P\_Border\_DiagonalType}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_DiagonalType@{P\_Border\_DiagonalType}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a311254bfd5b7348554b0103db1844761}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a311254bfd5b7348554b0103db1844761} 
+P\+\_\+\+Border\+\_\+\+Diagonal\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Border\_ENDID@{P\_Border\_ENDID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Border\_ENDID@{P\_Border\_ENDID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aec9e60d8f67f71b5e0cecb79e209e96d}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aec9e60d8f67f71b5e0cecb79e209e96d} 
+P\+\_\+\+Border\+\_\+\+ENDID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Fill\_STARTID@{P\_Fill\_STARTID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Fill\_STARTID@{P\_Fill\_STARTID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac79e8861bd181a0efb1c76d90e9476be}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ac79e8861bd181a0efb1c76d90e9476be} 
+P\+\_\+\+Fill\+\_\+\+STARTID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Fill\_Pattern@{P\_Fill\_Pattern}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Fill\_Pattern@{P\_Fill\_Pattern}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7ad5ee91642fa5ff6f64a44de4bb897d}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a7ad5ee91642fa5ff6f64a44de4bb897d} 
+P\+\_\+\+Fill\+\_\+\+Pattern&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Fill\_BgColor@{P\_Fill\_BgColor}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Fill\_BgColor@{P\_Fill\_BgColor}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a335a3568251301ccdf554867a689f43f}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a335a3568251301ccdf554867a689f43f} 
+P\+\_\+\+Fill\+\_\+\+Bg\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Fill\_FgColor@{P\_Fill\_FgColor}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Fill\_FgColor@{P\_Fill\_FgColor}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4176345460ed00e8133553742b030d5f}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a4176345460ed00e8133553742b030d5f} 
+P\+\_\+\+Fill\+\_\+\+Fg\+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Fill\_ENDID@{P\_Fill\_ENDID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Fill\_ENDID@{P\_Fill\_ENDID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a3890e69434e3a0285ce5dcccd2cd50d3}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a3890e69434e3a0285ce5dcccd2cd50d3} 
+P\+\_\+\+Fill\+\_\+\+ENDID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_STARTID@{P\_Alignment\_STARTID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_STARTID@{P\_Alignment\_STARTID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6bd1e76e8df8a548742f8192dd2615a4}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6bd1e76e8df8a548742f8192dd2615a4} 
+P\+\_\+\+Alignment\+\_\+\+STARTID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_AlignH@{P\_Alignment\_AlignH}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_AlignH@{P\_Alignment\_AlignH}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a33f6ac71c6bac2f3c4e654b267afa4af}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a33f6ac71c6bac2f3c4e654b267afa4af} 
+P\+\_\+\+Alignment\+\_\+\+AlignH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_AlignV@{P\_Alignment\_AlignV}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_AlignV@{P\_Alignment\_AlignV}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6556c8a18e614cddfd150b60ff52441e}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a6556c8a18e614cddfd150b60ff52441e} 
+P\+\_\+\+Alignment\+\_\+\+AlignV&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_Wrap@{P\_Alignment\_Wrap}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_Wrap@{P\_Alignment\_Wrap}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0895754f9c59d9125588abd0fa792053}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a0895754f9c59d9125588abd0fa792053} 
+P\+\_\+\+Alignment\+\_\+\+Wrap&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_Rotation@{P\_Alignment\_Rotation}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_Rotation@{P\_Alignment\_Rotation}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a09c734960fdeafc525e69e217a493bd7}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a09c734960fdeafc525e69e217a493bd7} 
+P\+\_\+\+Alignment\+\_\+\+Rotation&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_Indent@{P\_Alignment\_Indent}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_Indent@{P\_Alignment\_Indent}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aeaac78fd3c41bcc7143a9f3da3bc2695}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0aeaac78fd3c41bcc7143a9f3da3bc2695} 
+P\+\_\+\+Alignment\+\_\+\+Indent&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_ShinkToFit@{P\_Alignment\_ShinkToFit}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_ShinkToFit@{P\_Alignment\_ShinkToFit}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a5b9132aeff887c37a6acee0ffed39a3c}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a5b9132aeff887c37a6acee0ffed39a3c} 
+P\+\_\+\+Alignment\+\_\+\+Shink\+To\+Fit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Alignment\_ENDID@{P\_Alignment\_ENDID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Alignment\_ENDID@{P\_Alignment\_ENDID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a37c6cf184d50b9411819ce31c414e508}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a37c6cf184d50b9411819ce31c414e508} 
+P\+\_\+\+Alignment\+\_\+\+ENDID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Protection\_Locked@{P\_Protection\_Locked}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Protection\_Locked@{P\_Protection\_Locked}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ace77569752a84f62daebef5f9cdf0fc3}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0ace77569752a84f62daebef5f9cdf0fc3} 
+P\+\_\+\+Protection\+\_\+\+Locked&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_Protection\_Hidden@{P\_Protection\_Hidden}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_Protection\_Hidden@{P\_Protection\_Hidden}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a82942780d6cf788dddc553cb6e6c9cb9}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a82942780d6cf788dddc553cb6e6c9cb9} 
+P\+\_\+\+Protection\+\_\+\+Hidden&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\_ENDID@{P\_ENDID}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!P\_ENDID@{P\_ENDID}}}\Hypertarget{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a372a81a918b8484a8ff31568c4d6fc43}\label{class_q_xlsx_1_1_format_private_a8ea2f8c5d3948728faeca677e61652b0a372a81a918b8484a8ff31568c4d6fc43} 
+P\+\_\+\+ENDID&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_format_private_add2a93e1691331a3133cf52aa03428a2}\label{class_q_xlsx_1_1_format_private_add2a93e1691331a3133cf52aa03428a2} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FormatPrivate@{FormatPrivate}}
+\index{FormatPrivate@{FormatPrivate}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{FormatPrivate()}{FormatPrivate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_aa1299937615f7a8aaf39c6fddaab761c}{QT\+\_\+\+BEGIN\+\_\+\+NAMESPACE\+\_\+\+XLSX}} Format\+Private\+::\+Format\+Private (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a257f3c8e03ecb9a3e9a0615b25b90f8e}\label{class_q_xlsx_1_1_format_private_a257f3c8e03ecb9a3e9a0615b25b90f8e} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!FormatPrivate@{FormatPrivate}}
+\index{FormatPrivate@{FormatPrivate}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{FormatPrivate()}{FormatPrivate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Format\+Private\+::\+Format\+Private (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_q_xlsx_1_1_format_private}{Format\+Private}} \&}]{other }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a8d6c97b72d63dd6f61fd10a343b66b57}\label{class_q_xlsx_1_1_format_private_a8d6c97b72d63dd6f61fd10a343b66b57} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!````~FormatPrivate@{\texorpdfstring{$\sim$}{\string~}FormatPrivate}}
+\index{````~FormatPrivate@{\texorpdfstring{$\sim$}{\string~}FormatPrivate}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FormatPrivate()}{\string~FormatPrivate()}}
+{\footnotesize\ttfamily Format\+Private\+::\texorpdfstring{$\sim$}{\string~}\+Format\+Private (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_q_xlsx_1_1_format_private_a85530d482375aa6cabe956e85e371e08}\label{class_q_xlsx_1_1_format_private_a85530d482375aa6cabe956e85e371e08} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!border\_dirty@{border\_dirty}}
+\index{border\_dirty@{border\_dirty}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{border\_dirty}{border\_dirty}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::border\+\_\+dirty}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a49d7c237cbefc519b4b73b2c67961383}\label{class_q_xlsx_1_1_format_private_a49d7c237cbefc519b4b73b2c67961383} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!border\_index@{border\_index}}
+\index{border\_index@{border\_index}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{border\_index}{border\_index}}
+{\footnotesize\ttfamily int QXlsx\+::\+Format\+Private\+::border\+\_\+index}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_abeaee6950bcf883f527e28f9331be987}\label{class_q_xlsx_1_1_format_private_abeaee6950bcf883f527e28f9331be987} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!border\_index\_valid@{border\_index\_valid}}
+\index{border\_index\_valid@{border\_index\_valid}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{border\_index\_valid}{border\_index\_valid}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::border\+\_\+index\+\_\+valid}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_ab0e5824492813d6625ec44ad4728aba3}\label{class_q_xlsx_1_1_format_private_ab0e5824492813d6625ec44ad4728aba3} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!border\_key@{border\_key}}
+\index{border\_key@{border\_key}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{border\_key}{border\_key}}
+{\footnotesize\ttfamily QByte\+Array QXlsx\+::\+Format\+Private\+::border\+\_\+key}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_ab31c5969755cebd9d351d906b087de8e}\label{class_q_xlsx_1_1_format_private_ab31c5969755cebd9d351d906b087de8e} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!dirty@{dirty}}
+\index{dirty@{dirty}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{dirty}{dirty}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::dirty}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_ad0f36235dde2bfe8db2b508e1102b5fb}\label{class_q_xlsx_1_1_format_private_ad0f36235dde2bfe8db2b508e1102b5fb} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!dxf\_index@{dxf\_index}}
+\index{dxf\_index@{dxf\_index}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{dxf\_index}{dxf\_index}}
+{\footnotesize\ttfamily int QXlsx\+::\+Format\+Private\+::dxf\+\_\+index}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a66ee8363946fe49d97c1ebae59e01657}\label{class_q_xlsx_1_1_format_private_a66ee8363946fe49d97c1ebae59e01657} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!dxf\_indexValid@{dxf\_indexValid}}
+\index{dxf\_indexValid@{dxf\_indexValid}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{dxf\_indexValid}{dxf\_indexValid}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::dxf\+\_\+index\+Valid}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_ada2be400ee6be6750bf79a5d7548e52b}\label{class_q_xlsx_1_1_format_private_ada2be400ee6be6750bf79a5d7548e52b} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!fill\_dirty@{fill\_dirty}}
+\index{fill\_dirty@{fill\_dirty}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{fill\_dirty}{fill\_dirty}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::fill\+\_\+dirty}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a8569b2af11f2a4d971da45cc01bfefdf}\label{class_q_xlsx_1_1_format_private_a8569b2af11f2a4d971da45cc01bfefdf} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!fill\_index@{fill\_index}}
+\index{fill\_index@{fill\_index}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{fill\_index}{fill\_index}}
+{\footnotesize\ttfamily int QXlsx\+::\+Format\+Private\+::fill\+\_\+index}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a82695acf00dd46a4150444d75dd28444}\label{class_q_xlsx_1_1_format_private_a82695acf00dd46a4150444d75dd28444} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!fill\_index\_valid@{fill\_index\_valid}}
+\index{fill\_index\_valid@{fill\_index\_valid}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{fill\_index\_valid}{fill\_index\_valid}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::fill\+\_\+index\+\_\+valid}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a116d84f9a457d1ae45a8dc30b7dda824}\label{class_q_xlsx_1_1_format_private_a116d84f9a457d1ae45a8dc30b7dda824} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!fill\_key@{fill\_key}}
+\index{fill\_key@{fill\_key}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{fill\_key}{fill\_key}}
+{\footnotesize\ttfamily QByte\+Array QXlsx\+::\+Format\+Private\+::fill\+\_\+key}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a97586b16f37a7b18c2a834b04e6fc6fd}\label{class_q_xlsx_1_1_format_private_a97586b16f37a7b18c2a834b04e6fc6fd} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!font\_dirty@{font\_dirty}}
+\index{font\_dirty@{font\_dirty}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{font\_dirty}{font\_dirty}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::font\+\_\+dirty}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_acec366fe62137e504efeec631e0847fb}\label{class_q_xlsx_1_1_format_private_acec366fe62137e504efeec631e0847fb} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!font\_index@{font\_index}}
+\index{font\_index@{font\_index}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{font\_index}{font\_index}}
+{\footnotesize\ttfamily int QXlsx\+::\+Format\+Private\+::font\+\_\+index}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_ad697a156bf0ee4398368b6ddfa218149}\label{class_q_xlsx_1_1_format_private_ad697a156bf0ee4398368b6ddfa218149} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!font\_index\_valid@{font\_index\_valid}}
+\index{font\_index\_valid@{font\_index\_valid}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{font\_index\_valid}{font\_index\_valid}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::font\+\_\+index\+\_\+valid}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a845339974364ed50e530cf9f5b23af88}\label{class_q_xlsx_1_1_format_private_a845339974364ed50e530cf9f5b23af88} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!font\_key@{font\_key}}
+\index{font\_key@{font\_key}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{font\_key}{font\_key}}
+{\footnotesize\ttfamily QByte\+Array QXlsx\+::\+Format\+Private\+::font\+\_\+key}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a0a3bcd7f5f041c456f13ed9c57967908}\label{class_q_xlsx_1_1_format_private_a0a3bcd7f5f041c456f13ed9c57967908} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!formatKey@{formatKey}}
+\index{formatKey@{formatKey}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{formatKey}{formatKey}}
+{\footnotesize\ttfamily QByte\+Array QXlsx\+::\+Format\+Private\+::format\+Key}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a1282305bca67f01aa22dfc207caffe53}\label{class_q_xlsx_1_1_format_private_a1282305bca67f01aa22dfc207caffe53} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!is\_dxf\_fomat@{is\_dxf\_fomat}}
+\index{is\_dxf\_fomat@{is\_dxf\_fomat}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{is\_dxf\_fomat}{is\_dxf\_fomat}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::is\+\_\+dxf\+\_\+fomat}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a720216fdfec09b1bf84c427594ebc20d}\label{class_q_xlsx_1_1_format_private_a720216fdfec09b1bf84c427594ebc20d} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!properties@{properties}}
+\index{properties@{properties}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{properties}{properties}}
+{\footnotesize\ttfamily QMap$<$int, QVariant$>$ QXlsx\+::\+Format\+Private\+::properties}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a9bb48ffc032f01ffe901dd60fe54a406}\label{class_q_xlsx_1_1_format_private_a9bb48ffc032f01ffe901dd60fe54a406} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!theme@{theme}}
+\index{theme@{theme}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{theme}{theme}}
+{\footnotesize\ttfamily int QXlsx\+::\+Format\+Private\+::theme}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_a53944e7b35daa5db333697b992b3c5ce}\label{class_q_xlsx_1_1_format_private_a53944e7b35daa5db333697b992b3c5ce} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!xf\_index@{xf\_index}}
+\index{xf\_index@{xf\_index}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{xf\_index}{xf\_index}}
+{\footnotesize\ttfamily int QXlsx\+::\+Format\+Private\+::xf\+\_\+index}
+
+\Hypertarget{class_q_xlsx_1_1_format_private_aa9b0fbc10bdcb473f09e12d0cdc64e60}\label{class_q_xlsx_1_1_format_private_aa9b0fbc10bdcb473f09e12d0cdc64e60} 
+\index{QXlsx::FormatPrivate@{QXlsx::FormatPrivate}!xf\_indexValid@{xf\_indexValid}}
+\index{xf\_indexValid@{xf\_indexValid}!QXlsx::FormatPrivate@{QXlsx::FormatPrivate}}
+\doxysubsubsection{\texorpdfstring{xf\_indexValid}{xf\_indexValid}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Format\+Private\+::xf\+\_\+index\+Valid}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxformat__p_8h}{xlsxformat\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxformat_8cpp}{xlsxformat.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,74 @@
+\doxysection{mflowline.\+h}
+\hypertarget{mflowline_8h_source}{}\label{mflowline_8h_source}\index{MultiflowUI/entity/mflowline.h@{MultiflowUI/entity/mflowline.h}}
+\mbox{\hyperlink{mflowline_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MFLOWLINE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MFLOWLINE\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mflowlinepar_8h}{component/flowline/mflowlinepar.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_flowline}{MFlowline}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//流动类型\ \ Pipe:管道流动\ \ Annulus:环形空间流动}}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{FlowlineType}}\ \{\ \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788a7fc9020f7bf7c8520af56228666dc49c}{Pipe}},\ \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788aac6d3d49c05149ac7574c8e9500f6a85}{Annulus}}\};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//管线模式}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{FlowlineMode}}\ \{\ \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084a92b7e767bbc9e21969267a500259185e}{Simple}},\ \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084aab6192d9193f50a36d5fa10029675088}{Detailed}}\ \};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//管线环境\ \ Land:陆地管线\ \ Subsea:海底管线}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{FlowlineEnviroment}}\ \{\ \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037cae37fe11e2181635af16a439b854ce0a8}{Land}},\ \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037caa7f3cf72735b3d5f80d59afa375dd921}{Subsea}}\ \};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_abb8c3a5394ec6ddcbabce9493b186b05}{MFlowline}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_abb8c3a5394ec6ddcbabce9493b186b05}{MFlowline}}(\mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{FlowlineType}}\ flowlineType,\ \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{FlowlineMode}}\ flowlineMode,\ \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{FlowlineEnviroment}}\ flowlineEnviroment,\ \textcolor{keywordtype}{double}\ pipInsideDiameter,\ \textcolor{keywordtype}{double}\ pipWallThickness,\ \textcolor{keywordtype}{double}\ pipeRoughness,\ \textcolor{keywordtype}{double}\ profileHorizontalDistance,\ \textcolor{keywordtype}{double}\ profileElevatiaonDifference,\ \textcolor{keywordtype}{double}\ heatTransferCoefficient);}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_aadc79514c5d83c400b52e6ecda52d736}{\string~MFlowline}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_flowline_a6de72075546b1d56bbc396700c47c726}{getFlowlineId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_aa7304e3a4aac5b0bc343379fba298657}{setFlowlineId}}(\textcolor{keyword}{const}\ QString\ \&newFlowlineId);}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{FlowlineType}}\ \mbox{\hyperlink{class_m_flowline_aebcf73149b023b4c913814047472f8f8}{getFlowlineType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_ab0d3e7b6fc58344cc1512fba7a33d9b8}{setFlowlineType}}(\mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{FlowlineType}}\ newFlowlineType);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{FlowlineMode}}\ \mbox{\hyperlink{class_m_flowline_ad460c6f74d3ab402d6db9bb5fe1fd584}{getFlowlineMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_a459fe92a507b85404b82955395a54c97}{setFlowlineMode}}(\mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{FlowlineMode}}\ newFlowlineMode);}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{FlowlineEnviroment}}\ \mbox{\hyperlink{class_m_flowline_a5124155f021b90d00cbed63ef1aedab1}{getFlowlineEnviroment}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_acd39bdb600f5463ab659267c33fe32ac}{setFlowlineEnviroment}}(\mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{FlowlineEnviroment}}\ newFlowlineEnviroment);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_flowline_af3cbdd4f170fb69992c87b2db7772a82}{getPipInsideDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_a494181ee2fe6d2694208449cfd5ca587}{setPipInsideDiameter}}(\textcolor{keywordtype}{double}\ newPipInsideDiameter);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_flowline_acc95fb5751da4458d05c88b4ea1c9848}{getPipWallThickness}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_af8eafff4722a9d3bb1f15042e9851782}{setPipWallThickness}}(\textcolor{keywordtype}{double}\ newPipWallThickness);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_flowline_a48810922e181f57564632246d0c6b9f0}{getPipeRoughness}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_ae112c2951a8d1fb3051e6b1c8d4d6684}{setPipeRoughness}}(\textcolor{keywordtype}{double}\ newPipeRoughness);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_flowline_a9d008c5b591fa28cad2230d266ee9c3c}{getProfileHorizontalDistance}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_a83dce21525c255544652234f9258169a}{setProfileHorizontalDistance}}(\textcolor{keywordtype}{double}\ newProfileHorizontalDistance);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_flowline_ad1ad6cc22af823d759fa99599b292b53}{getProfileElevatiaonDifference}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_af39d15f0fe867110c521be5fffb64faa}{setProfileElevatiaonDifference}}(\textcolor{keywordtype}{double}\ newProfileElevatiaonDifference);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_flowline_a7535616933de7eacaa8f9b9bd390508d}{getHeatTransferCoefficient}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_a019d2dad9a04f7c22dcb2848680b39b0}{setHeatTransferCoefficient}}(\textcolor{keywordtype}{double}\ newHeatTransferCoefficient);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_ae4c379924c577bc163070fe9148a0ea1}{addPar}}(\mbox{\hyperlink{class_m_flowline_par}{MFlowlinePar}}\ *par)\ \{\ parList.append(par);\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_ae4c379924c577bc163070fe9148a0ea1}{addPar}}(\textcolor{keywordtype}{double}\ hd1,\ \textcolor{keywordtype}{double}\ elevation,\ \textcolor{keywordtype}{double}\ dh2,\ \textcolor{keywordtype}{double}\ temperature);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_flowline_a61bf223f787d77d505d0598ccc4457b1}{clearPar}}()\ \{\ parList.clear();\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_flowline_a685186d6870a3a91e1c3afcaa54d52f5}{getParCount}}()\ \{\ \textcolor{keywordflow}{return}\ parList.count();\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ QList<MFlowlinePar\ *>\ \mbox{\hyperlink{class_m_flowline_aba14202497333d67dc174a28293458ad}{getParList}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ QString\ id;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//出油管ID}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_a84d36a7c48011a94f14f241543c88788}{FlowlineType}}\ flowlineType;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//流动类型}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_a355bfed61a27d961d4e8da070241c084}{FlowlineMode}}\ flowlineMode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//管线模式}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_a63edff4d7c148fe1395c0a80ff22037c}{FlowlineEnviroment}}\ flowlineEnviroment;\ \ \ \ \ \ \textcolor{comment}{//管线环境}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ pipInsideDiameter\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//管道内径\ \ \ \ \ \ 单位:mm}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ pipWallThickness\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//管道壁厚\ \ \ \ \ \ 单位:mm}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ pipeRoughness\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//管道粗糙度\ \ \ \ 单位:mm}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{double}\ profileHorizontalDistance\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//水平距离\ \ \ \ \ \ 单位:Km}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{double}\ profileElevatiaonDifference\ =\ 0;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//高程差\ \ \ \ \ \ \ \ 单位：Km}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{double}\ heatTransferCoefficient\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//传导系数\ \ \ \ \ \ 单位:J/(s.degC.m\string^2)}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ QList<MFlowlinePar*>\ parList;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MFLOWLINE\_H}}
+
+\end{DoxyCode}

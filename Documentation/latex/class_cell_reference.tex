@@ -1,0 +1,154 @@
+\doxysection{Cell\+Reference Class Reference}
+\hypertarget{class_cell_reference}{}\label{class_cell_reference}\index{CellReference@{CellReference}}
+
+
+For one single cell such as \"{}\+A1\"{} \textbackslash{}inmodule Qt\+Xlsx.  
+
+
+
+
+{\ttfamily \#include $<$xlsxcellreference.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_reference_accced2c1da7e78d08de25704f2f4410b}{Cell\+Reference}} ()
+\item 
+\mbox{\hyperlink{class_cell_reference_a06386be20cd0fefc38ed03ea5ffdd811}{Cell\+Reference}} (int \mbox{\hyperlink{class_cell_reference_af78e0d4b98617d1162b7d66d41fd87e0}{row}}, int \mbox{\hyperlink{class_cell_reference_a6799e9a6cf39fa2785210ef2347a84d9}{column}})
+\item 
+\mbox{\hyperlink{class_cell_reference_ad21d1d4b037fd8bebf5bfd2c06bd8b2b}{Cell\+Reference}} (const QString \&cell)
+\item 
+\mbox{\hyperlink{class_cell_reference_a1b263306380403948e436efd61b26720}{Cell\+Reference}} (const char \texorpdfstring{$\ast$}{*}cell)
+\item 
+\mbox{\hyperlink{class_cell_reference_ad67a76ba985fb8e1caae8d5aef9b975f}{Cell\+Reference}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&other)
+\item 
+\mbox{\hyperlink{class_cell_reference_a6ec82e16fc94da5b0a607a6adcf1a59e}{\texorpdfstring{$\sim$}{\string~}\+Cell\+Reference}} ()
+\item 
+QString \mbox{\hyperlink{class_cell_reference_abfcb116b8397d761e7ffc61fd7ee7186}{to\+String}} (bool row\+\_\+abs=false, bool col\+\_\+abs=false) const
+\item 
+bool \mbox{\hyperlink{class_cell_reference_a9b2ac7e216d0483d7aa177bcfc86a09e}{is\+Valid}} () const
+\item 
+void \mbox{\hyperlink{class_cell_reference_a9a8207ea2a06c7e015ad9c6e8c507216}{set\+Row}} (int \mbox{\hyperlink{class_cell_reference_af78e0d4b98617d1162b7d66d41fd87e0}{row}})
+\item 
+void \mbox{\hyperlink{class_cell_reference_acb0e9b1f0fbee4c3db70a8126d6e3474}{set\+Column}} (int col)
+\item 
+int \mbox{\hyperlink{class_cell_reference_af78e0d4b98617d1162b7d66d41fd87e0}{row}} () const
+\item 
+int \mbox{\hyperlink{class_cell_reference_a6799e9a6cf39fa2785210ef2347a84d9}{column}} () const
+\item 
+bool \mbox{\hyperlink{class_cell_reference_a4b001cb17de155b23cf92ec75e0f1f7d}{operator==}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&other) const
+\item 
+bool \mbox{\hyperlink{class_cell_reference_a88dc20a30b0f2d331c79ad2194fa58d6}{operator!=}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \mbox{\hyperlink{class_cell_reference_ac9bad3d0b1924182acf17a3d22944afd}{from\+String}} (const QString \&cell)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+For one single cell such as \"{}\+A1\"{} \textbackslash{}inmodule Qt\+Xlsx. 
+
+The \doxylink{class_cell_reference}{Cell\+Reference} class stores the cell location in a worksheet. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cell_reference_accced2c1da7e78d08de25704f2f4410b}\label{class_cell_reference_accced2c1da7e78d08de25704f2f4410b} 
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{CellReference()}{CellReference()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Cell\+Reference\+::\+Cell\+Reference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructs an invalid \doxylink{class_cell}{Cell} Reference \Hypertarget{class_cell_reference_a06386be20cd0fefc38ed03ea5ffdd811}\label{class_cell_reference_a06386be20cd0fefc38ed03ea5ffdd811} 
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{CellReference()}{CellReference()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Cell\+Reference\+::\+Cell\+Reference (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column }\end{DoxyParamCaption})}
+
+Constructs the Reference from the given {\itshape row}, and {\itshape column}. \Hypertarget{class_cell_reference_ad21d1d4b037fd8bebf5bfd2c06bd8b2b}\label{class_cell_reference_ad21d1d4b037fd8bebf5bfd2c06bd8b2b} 
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{CellReference()}{CellReference()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Cell\+Reference\+::\+Cell\+Reference (\begin{DoxyParamCaption}\item[{const QString \&}]{cell }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Constructs the Reference form the given {\itshape cell} string. \Hypertarget{class_cell_reference_a1b263306380403948e436efd61b26720}\label{class_cell_reference_a1b263306380403948e436efd61b26720} 
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{CellReference()}{CellReference()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Cell\+Reference\+::\+Cell\+Reference (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{cell }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Constructs the Reference form the given {\itshape cell} string. \Hypertarget{class_cell_reference_ad67a76ba985fb8e1caae8d5aef9b975f}\label{class_cell_reference_ad67a76ba985fb8e1caae8d5aef9b975f} 
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\index{CellReference@{CellReference}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{CellReference()}{CellReference()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Cell\+Reference\+::\+Cell\+Reference (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{other }\end{DoxyParamCaption})}
+
+Constructs a Reference by copying the given {\itshape other} Reference. \Hypertarget{class_cell_reference_a6ec82e16fc94da5b0a607a6adcf1a59e}\label{class_cell_reference_a6ec82e16fc94da5b0a607a6adcf1a59e} 
+\index{CellReference@{CellReference}!````~CellReference@{\texorpdfstring{$\sim$}{\string~}CellReference}}
+\index{````~CellReference@{\texorpdfstring{$\sim$}{\string~}CellReference}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CellReference()}{\string~CellReference()}}
+{\footnotesize\ttfamily Cell\+Reference\+::\texorpdfstring{$\sim$}{\string~}\+Cell\+Reference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the Reference. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cell_reference_a6799e9a6cf39fa2785210ef2347a84d9}\label{class_cell_reference_a6799e9a6cf39fa2785210ef2347a84d9} 
+\index{CellReference@{CellReference}!column@{column}}
+\index{column@{column}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{column()}{column()}}
+{\footnotesize\ttfamily int Cell\+Reference\+::column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_reference_ac9bad3d0b1924182acf17a3d22944afd}\label{class_cell_reference_ac9bad3d0b1924182acf17a3d22944afd} 
+\index{CellReference@{CellReference}!fromString@{fromString}}
+\index{fromString@{fromString}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{fromString()}{fromString()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} Cell\+Reference\+::from\+String (\begin{DoxyParamCaption}\item[{const QString \&}]{cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_cell_reference_a9b2ac7e216d0483d7aa177bcfc86a09e}\label{class_cell_reference_a9b2ac7e216d0483d7aa177bcfc86a09e} 
+\index{CellReference@{CellReference}!isValid@{isValid}}
+\index{isValid@{isValid}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Cell\+Reference\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true if the Reference is valid. \Hypertarget{class_cell_reference_a88dc20a30b0f2d331c79ad2194fa58d6}\label{class_cell_reference_a88dc20a30b0f2d331c79ad2194fa58d6} 
+\index{CellReference@{CellReference}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Cell\+Reference\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_reference_a4b001cb17de155b23cf92ec75e0f1f7d}\label{class_cell_reference_a4b001cb17de155b23cf92ec75e0f1f7d} 
+\index{CellReference@{CellReference}!operator==@{operator==}}
+\index{operator==@{operator==}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Cell\+Reference\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_reference_af78e0d4b98617d1162b7d66d41fd87e0}\label{class_cell_reference_af78e0d4b98617d1162b7d66d41fd87e0} 
+\index{CellReference@{CellReference}!row@{row}}
+\index{row@{row}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{row()}{row()}}
+{\footnotesize\ttfamily int Cell\+Reference\+::row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_reference_acb0e9b1f0fbee4c3db70a8126d6e3474}\label{class_cell_reference_acb0e9b1f0fbee4c3db70a8126d6e3474} 
+\index{CellReference@{CellReference}!setColumn@{setColumn}}
+\index{setColumn@{setColumn}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{setColumn()}{setColumn()}}
+{\footnotesize\ttfamily void Cell\+Reference\+::set\+Column (\begin{DoxyParamCaption}\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_reference_a9a8207ea2a06c7e015ad9c6e8c507216}\label{class_cell_reference_a9a8207ea2a06c7e015ad9c6e8c507216} 
+\index{CellReference@{CellReference}!setRow@{setRow}}
+\index{setRow@{setRow}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{setRow()}{setRow()}}
+{\footnotesize\ttfamily void Cell\+Reference\+::set\+Row (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_cell_reference_abfcb116b8397d761e7ffc61fd7ee7186}\label{class_cell_reference_abfcb116b8397d761e7ffc61fd7ee7186} 
+\index{CellReference@{CellReference}!toString@{toString}}
+\index{toString@{toString}!CellReference@{CellReference}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily QString Cell\+Reference\+::to\+String (\begin{DoxyParamCaption}\item[{bool}]{row\+\_\+abs = {\ttfamily false},  }\item[{bool}]{col\+\_\+abs = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+Convert the Reference to string notation, such as \"{}\+A1\"{} or \"{}\$\+A\$1\"{}. If current object is invalid, an empty string will be returned. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcellreference_8h}{xlsxcellreference.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcellreference_8cpp}{xlsxcellreference.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,124 @@
+\doxysection{TSource\+Item Class Reference}
+\hypertarget{class_t_source_item}{}\label{class_t_source_item}\index{TSourceItem@{TSourceItem}}
+
+
+{\ttfamily \#include $<$tsourceitem.\+h$>$}
+
+Inheritance diagram for TSource\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_t_source_item}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{class_t_source_item_a1a32b472852522ae22275f0edfcd774cad118d6a26385e3469c00a560b8cd5a8c}{Type}} = User\+Type + Multiflow\+\_\+\+TYPE\+::Source
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_source_item_aff233231fc773e9262f84704992fdfd3}{source\+Item\+Change}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_source_item_af7d7cfb5ed2c7972230fea07fa8240ab}{TSource\+Item}} (QString source\+Name=\"{}source\"{}, QGraphics\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+QRectF \mbox{\hyperlink{class_t_source_item_a7b124a3deb8dd0f16b7862e5f721a2bd}{bounding\+Rect}} () const override
+\item 
+void \mbox{\hyperlink{class_t_source_item_a97be2951035982da4ca5187042e7478e}{paint}} (QPainter \texorpdfstring{$\ast$}{*}painter, const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}option, QWidget \texorpdfstring{$\ast$}{*}widget) override
+\item 
+int \mbox{\hyperlink{class_t_source_item_a0e659af26e74951584caa8f674d67632}{get\+Id}} ()
+\item 
+QString \mbox{\hyperlink{class_t_source_item_aaaa3e687238793f3b26e8e1b121308af}{get\+Name}} ()
+\item 
+int \mbox{\hyperlink{class_t_source_item_a01e4ec3f899527c39907d6905978e700}{type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+QVariant \mbox{\hyperlink{class_t_source_item_a7b119080f61a70cc0a6cfbb32379f2bf}{item\+Change}} (Graphics\+Item\+Change change, const QVariant \&value) override
+\item 
+void \mbox{\hyperlink{class_t_source_item_aac91115bbd4f90670580cb622e2db259}{mouse\+Double\+Click\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_t_source_item_a1a32b472852522ae22275f0edfcd774c}\label{class_t_source_item_a1a32b472852522ae22275f0edfcd774c} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Type@{Type}!TSourceItem@{TSourceItem}}\index{TSourceItem@{TSourceItem}!Type@{Type}}}\Hypertarget{class_t_source_item_a1a32b472852522ae22275f0edfcd774cad118d6a26385e3469c00a560b8cd5a8c}\label{class_t_source_item_a1a32b472852522ae22275f0edfcd774cad118d6a26385e3469c00a560b8cd5a8c} 
+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_t_source_item_af7d7cfb5ed2c7972230fea07fa8240ab}\label{class_t_source_item_af7d7cfb5ed2c7972230fea07fa8240ab} 
+\index{TSourceItem@{TSourceItem}!TSourceItem@{TSourceItem}}
+\index{TSourceItem@{TSourceItem}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{TSourceItem()}{TSourceItem()}}
+{\footnotesize\ttfamily TSource\+Item\+::\+TSource\+Item (\begin{DoxyParamCaption}\item[{QString}]{source\+Name = {\ttfamily \"{}source\"{}},  }\item[{QGraphics\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_source_item_a7b124a3deb8dd0f16b7862e5f721a2bd}\label{class_t_source_item_a7b124a3deb8dd0f16b7862e5f721a2bd} 
+\index{TSourceItem@{TSourceItem}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{boundingRect()}{boundingRect()}}
+{\footnotesize\ttfamily QRectF TSource\+Item\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_source_item_a0e659af26e74951584caa8f674d67632}\label{class_t_source_item_a0e659af26e74951584caa8f674d67632} 
+\index{TSourceItem@{TSourceItem}!getId@{getId}}
+\index{getId@{getId}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int TSource\+Item\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_source_item_aaaa3e687238793f3b26e8e1b121308af}\label{class_t_source_item_aaaa3e687238793f3b26e8e1b121308af} 
+\index{TSourceItem@{TSourceItem}!getName@{getName}}
+\index{getName@{getName}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily QString TSource\+Item\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_source_item_a7b119080f61a70cc0a6cfbb32379f2bf}\label{class_t_source_item_a7b119080f61a70cc0a6cfbb32379f2bf} 
+\index{TSourceItem@{TSourceItem}!itemChange@{itemChange}}
+\index{itemChange@{itemChange}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{itemChange()}{itemChange()}}
+{\footnotesize\ttfamily QVariant TSource\+Item\+::item\+Change (\begin{DoxyParamCaption}\item[{Graphics\+Item\+Change}]{change,  }\item[{const QVariant \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_source_item_aac91115bbd4f90670580cb622e2db259}\label{class_t_source_item_aac91115bbd4f90670580cb622e2db259} 
+\index{TSourceItem@{TSourceItem}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{mouseDoubleClickEvent()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void TSource\+Item\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_source_item_a97be2951035982da4ca5187042e7478e}\label{class_t_source_item_a97be2951035982da4ca5187042e7478e} 
+\index{TSourceItem@{TSourceItem}!paint@{paint}}
+\index{paint@{paint}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void TSource\+Item\+::paint (\begin{DoxyParamCaption}\item[{QPainter \texorpdfstring{$\ast$}{*}}]{painter,  }\item[{const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}}]{option,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{widget }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_source_item_aff233231fc773e9262f84704992fdfd3}\label{class_t_source_item_aff233231fc773e9262f84704992fdfd3} 
+\index{TSourceItem@{TSourceItem}!sourceItemChange@{sourceItemChange}}
+\index{sourceItemChange@{sourceItemChange}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{sourceItemChange}{sourceItemChange}}
+{\footnotesize\ttfamily void TSource\+Item\+::source\+Item\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\Hypertarget{class_t_source_item_a01e4ec3f899527c39907d6905978e700}\label{class_t_source_item_a01e4ec3f899527c39907d6905978e700} 
+\index{TSourceItem@{TSourceItem}!type@{type}}
+\index{type@{type}!TSourceItem@{TSourceItem}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily int TSource\+Item\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tsourceitem_8h}{tsourceitem.\+h}}\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tsourceitem_8cpp}{tsourceitem.\+cpp}}\end{DoxyCompactItemize}

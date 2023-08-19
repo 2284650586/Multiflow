@@ -1,0 +1,589 @@
+\doxysection{Document Class Reference}
+\hypertarget{class_document}{}\label{class_document}\index{Document@{Document}}
+
+
+The \doxylink{class_document}{Document} class provides a API that is used to handle the contents of .xlsx files.  
+
+
+
+
+{\ttfamily \#include $<$xlsxdocument.\+h$>$}
+
+Inheritance diagram for Document\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_document}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_document_a81461f467aa8bbaffe7de89d41012f45}{Document}} (QObject \texorpdfstring{$\ast$}{*}parent=0)
+\item 
+\mbox{\hyperlink{class_document_af9182f252fd11d2289efd4386a8b399a}{Document}} (const QString \&xlsx\+Name, QObject \texorpdfstring{$\ast$}{*}parent=0)
+\item 
+\mbox{\hyperlink{class_document_ace9bec4b03a4d19df53e4e47f17f28e0}{Document}} (QIODevice \texorpdfstring{$\ast$}{*}device, QObject \texorpdfstring{$\ast$}{*}parent=0)
+\item 
+\mbox{\hyperlink{class_document_ac2e3f62307dc22baac21ddc10fa1609c}{\texorpdfstring{$\sim$}{\string~}\+Document}} ()
+\item 
+bool \mbox{\hyperlink{class_document_abca4cc24340a981ad18c3778dd008f33}{write}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&cell, const QVariant \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_document_aab80ec72ce1ef9918aca5b3131cf4588}{write}} (int row, int col, const QVariant \&value, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+QVariant \mbox{\hyperlink{class_document_a1821d969be00ce603776ff1770d5f937}{read}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&cell) const
+\item 
+QVariant \mbox{\hyperlink{class_document_a37a01526c49066b504deeecbd7efa3b7}{read}} (int row, int col) const
+\item 
+bool \mbox{\hyperlink{class_document_ad0bbb69e60f8890a4833e1fa856c53a7}{insert\+Image}} (int row, int col, const QImage \&image)
+\item 
+\mbox{\hyperlink{class_chart}{Chart}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_document_a8f5fb968f53bfd76c9f2b26f8787aa96}{insert\+Chart}} (int row, int col, const QSize \&size)
+\item 
+bool \mbox{\hyperlink{class_document_a6ecaa4cbcab4bf0375b7f3ea3e1a70ec}{merge\+Cells}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, const \mbox{\hyperlink{class_format}{Format}} \&format=\mbox{\hyperlink{class_format}{Format}}())
+\item 
+bool \mbox{\hyperlink{class_document_a41b5ab6a3f57e9927f64b2d0898ad62e}{unmerge\+Cells}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range)
+\item 
+bool \mbox{\hyperlink{class_document_af7fdfa4e70ffdee87d364d8354e125a6}{set\+Column\+Width}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, double width)
+\item 
+bool \mbox{\hyperlink{class_document_a8e9233a31451824d061940e0f9b2c1e8}{set\+Column\+Format}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_document_a3f3559b2b2a5784a0271c1e1075f5862}{set\+Column\+Hidden}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, bool hidden)
+\item 
+bool \mbox{\hyperlink{class_document_a7870fc8194f2d18a2da5537da5c72368}{set\+Column\+Width}} (int column, double width)
+\item 
+bool \mbox{\hyperlink{class_document_a8daddf1b71a9c5082eaf725d18d098f4}{set\+Column\+Format}} (int column, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_document_aca8c975e22f42b1b5d1b3a22558da8aa}{set\+Column\+Hidden}} (int column, bool hidden)
+\item 
+bool \mbox{\hyperlink{class_document_a44d6129354f2ef78f163f9c74f2ee0a2}{set\+Column\+Width}} (int col\+First, int col\+Last, double width)
+\item 
+bool \mbox{\hyperlink{class_document_a9feee649414ecd0d32d22bfbb298b5b0}{set\+Column\+Format}} (int col\+First, int col\+Last, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_document_af48bd34f3870cbccb3733e83c0a09a37}{set\+Column\+Hidden}} (int col\+First, int col\+Last, bool hidden)
+\item 
+double \mbox{\hyperlink{class_document_a65613aac060c67b26d8ad7ba4c45bcbe}{column\+Width}} (int column)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_document_a9e6c9bc12be2b387b14d1be98e7f15c3}{column\+Format}} (int column)
+\item 
+bool \mbox{\hyperlink{class_document_a00c92d887fe9a0f445ac767c07223401}{is\+Column\+Hidden}} (int column)
+\item 
+bool \mbox{\hyperlink{class_document_a3d3a0a76c6e83d7466611adb214e755c}{set\+Row\+Height}} (int row, double height)
+\item 
+bool \mbox{\hyperlink{class_document_a4fce64df67ed90c2376877c369000ead}{set\+Row\+Format}} (int row, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_document_a51e3ffeae0d14379ba434059c73a6ee1}{set\+Row\+Hidden}} (int row, bool hidden)
+\item 
+bool \mbox{\hyperlink{class_document_a9ac8786808167bc8bfb5ba4937cf3aaa}{set\+Row\+Height}} (int row\+First, int row\+Last, double height)
+\item 
+bool \mbox{\hyperlink{class_document_a81dcf285ccb2ec4988db9d903c235cb5}{set\+Row\+Format}} (int row\+First, int row\+Last, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+bool \mbox{\hyperlink{class_document_a3b3140d2d71c85be34fdebd4adee70ef}{set\+Row\+Hidden}} (int row\+First, int row\+Last, bool hidden)
+\item 
+double \mbox{\hyperlink{class_document_aa4e9803c86473eb387b067c56647b3fc}{row\+Height}} (int row)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_document_a9f7cdfaa006c06d4bc13042dbbaa777b}{row\+Format}} (int row)
+\item 
+bool \mbox{\hyperlink{class_document_a57bb9db08221241cef969d0e107f8132}{is\+Row\+Hidden}} (int row)
+\item 
+bool \mbox{\hyperlink{class_document_a5ff8a8be77db3ade8b83bf36a63814e6}{group\+Rows}} (int row\+First, int row\+Last, bool collapsed=true)
+\item 
+bool \mbox{\hyperlink{class_document_a15b6056c883f2a133fa80e9dd7b88159}{group\+Columns}} (int col\+First, int col\+Last, bool collapsed=true)
+\item 
+bool \mbox{\hyperlink{class_document_af4aa05cc6bd2e55a5cf8142ade11cbe6}{add\+Data\+Validation}} (const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&validation)
+\item 
+bool \mbox{\hyperlink{class_document_a92cea0d08d95cdba8ba8f1089e8e2f5e}{add\+Conditional\+Formatting}} (const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&cf)
+\item 
+\mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_document_aeb16a99de3098d7eecd7f3a3f33b4b7c}{cell\+At}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&cell) const
+\item 
+\mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_document_ad8d271f0079f70243e8b79972cdc0ebb}{cell\+At}} (int row, int col) const
+\item 
+bool \mbox{\hyperlink{class_document_a37ec3be00c136c669fc9f43af701979d}{define\+Name}} (const QString \&name, const QString \&formula, const QString \&comment=QString(), const QString \&scope=QString())
+\begin{DoxyCompactList}\small\item\em Create a defined name in the workbook with the given {\itshape name}, {\itshape formula}, {\itshape comment} and {\itshape scope}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell_range}{Cell\+Range}} \mbox{\hyperlink{class_document_a366c265bd350f43b0fe6afd09b91aabd}{dimension}} () const
+\item 
+QString \mbox{\hyperlink{class_document_a0f2cdf8fb854d3657097cc669fec4580}{document\+Property}} (const QString \&name) const
+\item 
+void \mbox{\hyperlink{class_document_a5fdf15494677fddbc8633e8d81028ba0}{set\+Document\+Property}} (const QString \&name, const QString \&property)
+\item 
+QString\+List \mbox{\hyperlink{class_document_a61eb8fa9bb4c62d27e175f75d217e127}{document\+Property\+Names}} () const
+\item 
+QString\+List \mbox{\hyperlink{class_document_a03ff52f7caca7f9265b63d55a857d265}{sheet\+Names}} () const
+\item 
+bool \mbox{\hyperlink{class_document_a68f1612d77d3edc3f44b3f6f03282d47}{add\+Sheet}} (const QString \&name=QString(), \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}} type=\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}})
+\item 
+bool \mbox{\hyperlink{class_document_aefc2bf86cded799d110f861db30e445d}{insert\+Sheet}} (int index, const QString \&name=QString(), \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}} type=\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}})
+\item 
+bool \mbox{\hyperlink{class_document_aabd6721972fa4cc58955eb2568206883}{select\+Sheet}} (const QString \&name)
+\begin{DoxyCompactList}\small\item\em Set worksheet named {\itshape name} to be active sheet. Returns true if success. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_document_adc81d84386b589c642f97c715538cd68}{rename\+Sheet}} (const QString \&old\+Name, const QString \&new\+Name)
+\item 
+bool \mbox{\hyperlink{class_document_a73624b4e05bb26e4feaf7ac41acb7acd}{copy\+Sheet}} (const QString \&src\+Name, const QString \&dist\+Name=QString())
+\item 
+bool \mbox{\hyperlink{class_document_ac78e82f4c4eb6142f15e059202ab30e7}{move\+Sheet}} (const QString \&src\+Name, int dist\+Index)
+\item 
+bool \mbox{\hyperlink{class_document_a668299c2b79ebbb379b0371dbe0802e8}{delete\+Sheet}} (const QString \&name)
+\item 
+\mbox{\hyperlink{class_workbook}{Workbook}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_document_aad2de16faa67fa9056c8267d7c3b8d7e}{workbook}} () const
+\item 
+\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_document_ac809a26edd6b2868558f222ae7c9631a}{sheet}} (const QString \&sheet\+Name) const
+\item 
+\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_document_a6958ac50ff6c3b10e14b0d3e42f51d84}{current\+Sheet}} () const
+\begin{DoxyCompactList}\small\item\em Return pointer of current sheet. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_worksheet}{Worksheet}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_document_a149bed15812bab07b4c21ec745d0c8f2}{current\+Worksheet}} () const
+\begin{DoxyCompactList}\small\item\em Return pointer of current worksheet. If the type of sheet is not \doxylink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}, then 0 will be returned. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_document_ad5641133bcd1a0be194e1f404583ae11}{save}} () const
+\item 
+bool \mbox{\hyperlink{class_document_ab0e42fdbbc1431c29acde1dd27394976}{save\+As}} (const QString \&xls\+Xname) const
+\item 
+bool \mbox{\hyperlink{class_document_a49d2d092d8e972cb181f86b6d9ea941d}{save\+As}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_document}{Document} class provides a API that is used to handle the contents of .xlsx files. 
+
+\textbackslash{}inmodule Qt\+Xlsx  
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_document_a81461f467aa8bbaffe7de89d41012f45}\label{class_document_a81461f467aa8bbaffe7de89d41012f45} 
+\index{Document@{Document}!Document@{Document}}
+\index{Document@{Document}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{Document()}{Document()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Document\+::\+Document (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Creates a new empty xlsx document. The {\itshape parent} argument is passed to QObject\textquotesingle{}s constructor. \Hypertarget{class_document_af9182f252fd11d2289efd4386a8b399a}\label{class_document_af9182f252fd11d2289efd4386a8b399a} 
+\index{Document@{Document}!Document@{Document}}
+\index{Document@{Document}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{Document()}{Document()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Document\+::\+Document (\begin{DoxyParamCaption}\item[{const QString \&}]{name,  }\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Try to open an existing xlsx document named {\itshape name}. The {\itshape parent} argument is passed to QObject\textquotesingle{}s constructor. \Hypertarget{class_document_ace9bec4b03a4d19df53e4e47f17f28e0}\label{class_document_ace9bec4b03a4d19df53e4e47f17f28e0} 
+\index{Document@{Document}!Document@{Document}}
+\index{Document@{Document}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{Document()}{Document()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Document\+::\+Document (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device,  }\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Try to open an existing xlsx document from {\itshape device}. The {\itshape parent} argument is passed to QObject\textquotesingle{}s constructor. \Hypertarget{class_document_ac2e3f62307dc22baac21ddc10fa1609c}\label{class_document_ac2e3f62307dc22baac21ddc10fa1609c} 
+\index{Document@{Document}!````~Document@{\texorpdfstring{$\sim$}{\string~}Document}}
+\index{````~Document@{\texorpdfstring{$\sim$}{\string~}Document}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Document()}{\string~Document()}}
+{\footnotesize\ttfamily Document\+::\texorpdfstring{$\sim$}{\string~}\+Document (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the document and cleans up. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_document_a92cea0d08d95cdba8ba8f1089e8e2f5e}\label{class_document_a92cea0d08d95cdba8ba8f1089e8e2f5e} 
+\index{Document@{Document}!addConditionalFormatting@{addConditionalFormatting}}
+\index{addConditionalFormatting@{addConditionalFormatting}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{addConditionalFormatting()}{addConditionalFormatting()}}
+{\footnotesize\ttfamily bool Document\+::add\+Conditional\+Formatting (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_conditional_formatting}{Conditional\+Formatting}} \&}]{cf }\end{DoxyParamCaption})}
+
+Add a conditional formatting {\itshape cf} for current worksheet. Returns true if successful. \Hypertarget{class_document_af4aa05cc6bd2e55a5cf8142ade11cbe6}\label{class_document_af4aa05cc6bd2e55a5cf8142ade11cbe6} 
+\index{Document@{Document}!addDataValidation@{addDataValidation}}
+\index{addDataValidation@{addDataValidation}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{addDataValidation()}{addDataValidation()}}
+{\footnotesize\ttfamily bool Document\+::add\+Data\+Validation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&}]{validation }\end{DoxyParamCaption})}
+
+Add a data {\itshape validation} rule for current worksheet. Returns true if successful. \Hypertarget{class_document_a68f1612d77d3edc3f44b3f6f03282d47}\label{class_document_a68f1612d77d3edc3f44b3f6f03282d47} 
+\index{Document@{Document}!addSheet@{addSheet}}
+\index{addSheet@{addSheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{addSheet()}{addSheet()}}
+{\footnotesize\ttfamily bool Document\+::add\+Sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{name = {\ttfamily QString()},  }\item[{\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}}} }\end{DoxyParamCaption})}
+
+Creates and append an sheet with the given {\itshape name} and {\itshape type}. Return true if success. \Hypertarget{class_document_aeb16a99de3098d7eecd7f3a3f33b4b7c}\label{class_document_aeb16a99de3098d7eecd7f3a3f33b4b7c} 
+\index{Document@{Document}!cellAt@{cellAt}}
+\index{cellAt@{cellAt}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{cellAt()}{cellAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} Document\+::cell\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{pos }\end{DoxyParamCaption}) const}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Returns the cell at the position {\itshape pos}. If there is no cell at the specified position, the function returns 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_document_a1821d969be00ce603776ff1770d5f937}{read()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_document_ad8d271f0079f70243e8b79972cdc0ebb}\label{class_document_ad8d271f0079f70243e8b79972cdc0ebb} 
+\index{Document@{Document}!cellAt@{cellAt}}
+\index{cellAt@{cellAt}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{cellAt()}{cellAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} Document\+::cell\+At (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption}) const}
+
+Returns the cell at the given {\itshape row} and {\itshape col}. If there is no cell at the specified position, the function returns 0.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_document_a1821d969be00ce603776ff1770d5f937}{read()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_document_a9e6c9bc12be2b387b14d1be98e7f15c3}\label{class_document_a9e6c9bc12be2b387b14d1be98e7f15c3} 
+\index{Document@{Document}!columnFormat@{columnFormat}}
+\index{columnFormat@{columnFormat}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{columnFormat()}{columnFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} Document\+::column\+Format (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
+
+Returns formatting of the {\itshape column}. Columns are 1-\/indexed. \Hypertarget{class_document_a65613aac060c67b26d8ad7ba4c45bcbe}\label{class_document_a65613aac060c67b26d8ad7ba4c45bcbe} 
+\index{Document@{Document}!columnWidth@{columnWidth}}
+\index{columnWidth@{columnWidth}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{columnWidth()}{columnWidth()}}
+{\footnotesize\ttfamily double Document\+::column\+Width (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
+
+Returns width of the {\itshape column} in characters of the normal font. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_document_a73624b4e05bb26e4feaf7ac41acb7acd}\label{class_document_a73624b4e05bb26e4feaf7ac41acb7acd} 
+\index{Document@{Document}!copySheet@{copySheet}}
+\index{copySheet@{copySheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{copySheet()}{copySheet()}}
+{\footnotesize\ttfamily bool Document\+::copy\+Sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{src\+Name,  }\item[{const QString \&}]{dist\+Name = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+Make a copy of the worksheet {\itshape src\+Name} with the new name {\itshape dist\+Name}. Returns true if the success. \Hypertarget{class_document_a6958ac50ff6c3b10e14b0d3e42f51d84}\label{class_document_a6958ac50ff6c3b10e14b0d3e42f51d84} 
+\index{Document@{Document}!currentSheet@{currentSheet}}
+\index{currentSheet@{currentSheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{currentSheet()}{currentSheet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} Document\+::current\+Sheet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return pointer of current sheet. 
+
+\Hypertarget{class_document_a149bed15812bab07b4c21ec745d0c8f2}\label{class_document_a149bed15812bab07b4c21ec745d0c8f2} 
+\index{Document@{Document}!currentWorksheet@{currentWorksheet}}
+\index{currentWorksheet@{currentWorksheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{currentWorksheet()}{currentWorksheet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_worksheet}{Worksheet}} \texorpdfstring{$\ast$}{*} Document\+::current\+Worksheet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Return pointer of current worksheet. If the type of sheet is not \doxylink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}, then 0 will be returned. 
+
+\Hypertarget{class_document_a37ec3be00c136c669fc9f43af701979d}\label{class_document_a37ec3be00c136c669fc9f43af701979d} 
+\index{Document@{Document}!defineName@{defineName}}
+\index{defineName@{defineName}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{defineName()}{defineName()}}
+{\footnotesize\ttfamily bool Document\+::define\+Name (\begin{DoxyParamCaption}\item[{const QString \&}]{name,  }\item[{const QString \&}]{formula,  }\item[{const QString \&}]{comment = {\ttfamily QString()},  }\item[{const QString \&}]{scope = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+
+
+Create a defined name in the workbook with the given {\itshape name}, {\itshape formula}, {\itshape comment} and {\itshape scope}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The defined name. \\
+\hline
+{\em formula} & The cell or range that the defined name refers to. \\
+\hline
+{\em scope} & The name of one worksheet, or empty which means golbal scope. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return false if the name invalid. 
+\end{DoxyReturn}
+\Hypertarget{class_document_a668299c2b79ebbb379b0371dbe0802e8}\label{class_document_a668299c2b79ebbb379b0371dbe0802e8} 
+\index{Document@{Document}!deleteSheet@{deleteSheet}}
+\index{deleteSheet@{deleteSheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{deleteSheet()}{deleteSheet()}}
+{\footnotesize\ttfamily bool Document\+::delete\+Sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+Delete the worksheet {\itshape name}. Returns true if current sheet was deleted successfully. \Hypertarget{class_document_a366c265bd350f43b0fe6afd09b91aabd}\label{class_document_a366c265bd350f43b0fe6afd09b91aabd} 
+\index{Document@{Document}!dimension@{dimension}}
+\index{dimension@{dimension}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{dimension()}{dimension()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_range}{Cell\+Range}} Document\+::dimension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the range that contains cell data. \Hypertarget{class_document_a0f2cdf8fb854d3657097cc669fec4580}\label{class_document_a0f2cdf8fb854d3657097cc669fec4580} 
+\index{Document@{Document}!documentProperty@{documentProperty}}
+\index{documentProperty@{documentProperty}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{documentProperty()}{documentProperty()}}
+{\footnotesize\ttfamily QString Document\+::document\+Property (\begin{DoxyParamCaption}\item[{const QString \&}]{key }\end{DoxyParamCaption}) const}
+
+Returns the value of the document\textquotesingle{}s {\itshape key} property. \Hypertarget{class_document_a61eb8fa9bb4c62d27e175f75d217e127}\label{class_document_a61eb8fa9bb4c62d27e175f75d217e127} 
+\index{Document@{Document}!documentPropertyNames@{documentPropertyNames}}
+\index{documentPropertyNames@{documentPropertyNames}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{documentPropertyNames()}{documentPropertyNames()}}
+{\footnotesize\ttfamily QString\+List Document\+::document\+Property\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the names of all properties that were addedusing \doxylink{class_document_a5fdf15494677fddbc8633e8d81028ba0}{set\+Document\+Property()}. \Hypertarget{class_document_a15b6056c883f2a133fa80e9dd7b88159}\label{class_document_a15b6056c883f2a133fa80e9dd7b88159} 
+\index{Document@{Document}!groupColumns@{groupColumns}}
+\index{groupColumns@{groupColumns}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{groupColumns()}{groupColumns()}}
+{\footnotesize\ttfamily bool Document\+::group\+Columns (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{bool}]{collapsed = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Groups columns from {\itshape col\+First} to {\itshape col\+Last} with the given {\itshape collapsed}. Returns false if error occurs. \Hypertarget{class_document_a5ff8a8be77db3ade8b83bf36a63814e6}\label{class_document_a5ff8a8be77db3ade8b83bf36a63814e6} 
+\index{Document@{Document}!groupRows@{groupRows}}
+\index{groupRows@{groupRows}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{groupRows()}{groupRows()}}
+{\footnotesize\ttfamily bool Document\+::group\+Rows (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{bool}]{collapsed = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Groups rows from {\itshape row\+First} to {\itshape row\+Last} with the given {\itshape collapsed}. Returns false if error occurs. \Hypertarget{class_document_a8f5fb968f53bfd76c9f2b26f8787aa96}\label{class_document_a8f5fb968f53bfd76c9f2b26f8787aa96} 
+\index{Document@{Document}!insertChart@{insertChart}}
+\index{insertChart@{insertChart}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{insertChart()}{insertChart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chart}{Chart}} \texorpdfstring{$\ast$}{*} Document\+::insert\+Chart (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{const QSize \&}]{size }\end{DoxyParamCaption})}
+
+Creates an chart with the given {\itshape size} and insert it to the current active worksheet at the position {\itshape row}, {\itshape col}. The chart will be returned. \Hypertarget{class_document_ad0bbb69e60f8890a4833e1fa856c53a7}\label{class_document_ad0bbb69e60f8890a4833e1fa856c53a7} 
+\index{Document@{Document}!insertImage@{insertImage}}
+\index{insertImage@{insertImage}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{insertImage()}{insertImage()}}
+{\footnotesize\ttfamily bool Document\+::insert\+Image (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{const QImage \&}]{image }\end{DoxyParamCaption})}
+
+Insert an {\itshape image} to current active worksheet at the position {\itshape row}, {\itshape column} Returns ture if success. \Hypertarget{class_document_aefc2bf86cded799d110f861db30e445d}\label{class_document_aefc2bf86cded799d110f861db30e445d} 
+\index{Document@{Document}!insertSheet@{insertSheet}}
+\index{insertSheet@{insertSheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{insertSheet()}{insertSheet()}}
+{\footnotesize\ttfamily bool Document\+::insert\+Sheet (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const QString \&}]{name = {\ttfamily QString()},  }\item[{\mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346}{Abstract\+Sheet\+::\+Sheet\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{class_abstract_sheet_a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80}{Abstract\+Sheet\+::\+ST\+\_\+\+Work\+Sheet}}} }\end{DoxyParamCaption})}
+
+Creates and inserts an document with the given {\itshape name} and {\itshape type} at the {\itshape index}. Returns false if the {\itshape name} already used. \Hypertarget{class_document_a00c92d887fe9a0f445ac767c07223401}\label{class_document_a00c92d887fe9a0f445ac767c07223401} 
+\index{Document@{Document}!isColumnHidden@{isColumnHidden}}
+\index{isColumnHidden@{isColumnHidden}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{isColumnHidden()}{isColumnHidden()}}
+{\footnotesize\ttfamily bool Document\+::is\+Column\+Hidden (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
+
+Returns true if {\itshape column} is hidden. Columns are 1-\/indexed. \Hypertarget{class_document_a57bb9db08221241cef969d0e107f8132}\label{class_document_a57bb9db08221241cef969d0e107f8132} 
+\index{Document@{Document}!isRowHidden@{isRowHidden}}
+\index{isRowHidden@{isRowHidden}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{isRowHidden()}{isRowHidden()}}
+{\footnotesize\ttfamily bool Document\+::is\+Row\+Hidden (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
+
+Returns true if {\itshape row} is hidden. \Hypertarget{class_document_a6ecaa4cbcab4bf0375b7f3ea3e1a70ec}\label{class_document_a6ecaa4cbcab4bf0375b7f3ea3e1a70ec} 
+\index{Document@{Document}!mergeCells@{mergeCells}}
+\index{mergeCells@{mergeCells}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{mergeCells()}{mergeCells()}}
+{\footnotesize\ttfamily bool Document\+::merge\+Cells (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Merge a {\itshape range} of cells. The first cell should contain the data and the others should be blank. All cells will be applied the same style if a valid {\itshape format} is given. Returns true on success.
+
+\begin{DoxyNote}{Note}
+All cells except the top-\/left one will be cleared. 
+\end{DoxyNote}
+\Hypertarget{class_document_ac78e82f4c4eb6142f15e059202ab30e7}\label{class_document_ac78e82f4c4eb6142f15e059202ab30e7} 
+\index{Document@{Document}!moveSheet@{moveSheet}}
+\index{moveSheet@{moveSheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{moveSheet()}{moveSheet()}}
+{\footnotesize\ttfamily bool Document\+::move\+Sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{src\+Name,  }\item[{int}]{dist\+Index }\end{DoxyParamCaption})}
+
+Move the worksheet {\itshape src\+Name} to the new pos {\itshape dist\+Index}. Returns true if the success. \Hypertarget{class_document_a1821d969be00ce603776ff1770d5f937}\label{class_document_a1821d969be00ce603776ff1770d5f937} 
+\index{Document@{Document}!read@{read}}
+\index{read@{read}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily QVariant Document\+::read (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{cell }\end{DoxyParamCaption}) const}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Returns the contents of the cell {\itshape cell}.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_document_aeb16a99de3098d7eecd7f3a3f33b4b7c}{cell\+At()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_document_a37a01526c49066b504deeecbd7efa3b7}\label{class_document_a37a01526c49066b504deeecbd7efa3b7} 
+\index{Document@{Document}!read@{read}}
+\index{read@{read}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily QVariant Document\+::read (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption}) const}
+
+Returns the contents of the cell ({\itshape row}, {\itshape col}).
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_document_aeb16a99de3098d7eecd7f3a3f33b4b7c}{cell\+At()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_document_adc81d84386b589c642f97c715538cd68}\label{class_document_adc81d84386b589c642f97c715538cd68} 
+\index{Document@{Document}!renameSheet@{renameSheet}}
+\index{renameSheet@{renameSheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{renameSheet()}{renameSheet()}}
+{\footnotesize\ttfamily bool Document\+::rename\+Sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{old\+Name,  }\item[{const QString \&}]{new\+Name }\end{DoxyParamCaption})}
+
+Rename the worksheet from {\itshape old\+Name} to {\itshape new\+Name}. Returns true if the success. \Hypertarget{class_document_a9f7cdfaa006c06d4bc13042dbbaa777b}\label{class_document_a9f7cdfaa006c06d4bc13042dbbaa777b} 
+\index{Document@{Document}!rowFormat@{rowFormat}}
+\index{rowFormat@{rowFormat}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{rowFormat()}{rowFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} Document\+::row\+Format (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
+
+Returns format of {\itshape row}. \Hypertarget{class_document_aa4e9803c86473eb387b067c56647b3fc}\label{class_document_aa4e9803c86473eb387b067c56647b3fc} 
+\index{Document@{Document}!rowHeight@{rowHeight}}
+\index{rowHeight@{rowHeight}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{rowHeight()}{rowHeight()}}
+{\footnotesize\ttfamily double Document\+::row\+Height (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
+
+Returns height of {\itshape row} in points. \Hypertarget{class_document_ad5641133bcd1a0be194e1f404583ae11}\label{class_document_ad5641133bcd1a0be194e1f404583ae11} 
+\index{Document@{Document}!save@{save}}
+\index{save@{save}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily bool Document\+::save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Save current document to the filesystem. If no name specified when the document constructed, a default name \"{}book1.\+xlsx\"{} will be used. Returns true if saved successfully. \Hypertarget{class_document_ab0e42fdbbc1431c29acde1dd27394976}\label{class_document_ab0e42fdbbc1431c29acde1dd27394976} 
+\index{Document@{Document}!saveAs@{saveAs}}
+\index{saveAs@{saveAs}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{saveAs()}{saveAs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Document\+::save\+As (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption}) const}
+
+Saves the document to the file with the given {\itshape name}. Returns true if saved successfully. \Hypertarget{class_document_a49d2d092d8e972cb181f86b6d9ea941d}\label{class_document_a49d2d092d8e972cb181f86b6d9ea941d} 
+\index{Document@{Document}!saveAs@{saveAs}}
+\index{saveAs@{saveAs}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{saveAs()}{saveAs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Document\+::save\+As (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. This function writes a document to the given {\itshape device}.
+
+\begin{DoxyWarning}{Warning}
+The {\itshape device} will be closed when this function returned. 
+\end{DoxyWarning}
+\Hypertarget{class_document_aabd6721972fa4cc58955eb2568206883}\label{class_document_aabd6721972fa4cc58955eb2568206883} 
+\index{Document@{Document}!selectSheet@{selectSheet}}
+\index{selectSheet@{selectSheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{selectSheet()}{selectSheet()}}
+{\footnotesize\ttfamily bool Document\+::select\+Sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Set worksheet named {\itshape name} to be active sheet. Returns true if success. 
+
+\Hypertarget{class_document_a8e9233a31451824d061940e0f9b2c1e8}\label{class_document_a8e9233a31451824d061940e0f9b2c1e8} 
+\index{Document@{Document}!setColumnFormat@{setColumnFormat}}
+\index{setColumnFormat@{setColumnFormat}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnFormat()}{setColumnFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets format property of columns with the gien {\itshape range} and {\itshape format}. Returns true on success. \Hypertarget{class_document_a9feee649414ecd0d32d22bfbb298b5b0}\label{class_document_a9feee649414ecd0d32d22bfbb298b5b0} 
+\index{Document@{Document}!setColumnFormat@{setColumnFormat}}
+\index{setColumnFormat@{setColumnFormat}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnFormat()}{setColumnFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Format (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets format property of columns \mbox{[}{\itshape col\+First}, {\itshape col\+Last}\mbox{]} to {\itshape format}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_document_a8daddf1b71a9c5082eaf725d18d098f4}\label{class_document_a8daddf1b71a9c5082eaf725d18d098f4} 
+\index{Document@{Document}!setColumnFormat@{setColumnFormat}}
+\index{setColumnFormat@{setColumnFormat}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnFormat()}{setColumnFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Format (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets format property {\itshape column} to {\itshape format}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_document_a3f3559b2b2a5784a0271c1e1075f5862}\label{class_document_a3f3559b2b2a5784a0271c1e1075f5862} 
+\index{Document@{Document}!setColumnHidden@{setColumnHidden}}
+\index{setColumnHidden@{setColumnHidden}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnHidden()}{setColumnHidden()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Hidden (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets hidden property of columns {\itshape range} to {\itshape hidden}. Columns are 1-\/indexed. Hidden columns are not visible. Returns true on success. \Hypertarget{class_document_af48bd34f3870cbccb3733e83c0a09a37}\label{class_document_af48bd34f3870cbccb3733e83c0a09a37} 
+\index{Document@{Document}!setColumnHidden@{setColumnHidden}}
+\index{setColumnHidden@{setColumnHidden}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnHidden()}{setColumnHidden()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Hidden (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets hidden property of columns \mbox{[}{\itshape col\+First}, {\itshape col\+Last}\mbox{]} to {\itshape hidden}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_document_aca8c975e22f42b1b5d1b3a22558da8aa}\label{class_document_aca8c975e22f42b1b5d1b3a22558da8aa} 
+\index{Document@{Document}!setColumnHidden@{setColumnHidden}}
+\index{setColumnHidden@{setColumnHidden}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnHidden()}{setColumnHidden()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Hidden (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets hidden property of a {\itshape column}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_document_af7fdfa4e70ffdee87d364d8354e125a6}\label{class_document_af7fdfa4e70ffdee87d364d8354e125a6} 
+\index{Document@{Document}!setColumnWidth@{setColumnWidth}}
+\index{setColumnWidth@{setColumnWidth}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnWidth()}{setColumnWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Width (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{double}]{width }\end{DoxyParamCaption})}
+
+Sets width in characters of columns with the given {\itshape range} and {\itshape width}. Returns true on success. \Hypertarget{class_document_a44d6129354f2ef78f163f9c74f2ee0a2}\label{class_document_a44d6129354f2ef78f163f9c74f2ee0a2} 
+\index{Document@{Document}!setColumnWidth@{setColumnWidth}}
+\index{setColumnWidth@{setColumnWidth}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnWidth()}{setColumnWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Width (\begin{DoxyParamCaption}\item[{int}]{col\+First,  }\item[{int}]{col\+Last,  }\item[{double}]{width }\end{DoxyParamCaption})}
+
+Sets width in characters for columns \mbox{[}{\itshape col\+First}, {\itshape col\+Last}\mbox{]}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_document_a7870fc8194f2d18a2da5537da5c72368}\label{class_document_a7870fc8194f2d18a2da5537da5c72368} 
+\index{Document@{Document}!setColumnWidth@{setColumnWidth}}
+\index{setColumnWidth@{setColumnWidth}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setColumnWidth()}{setColumnWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Document\+::set\+Column\+Width (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{double}]{width }\end{DoxyParamCaption})}
+
+Sets width in characters {\itshape column} to {\itshape width}. Columns are 1-\/indexed. Returns true on success. \Hypertarget{class_document_a5fdf15494677fddbc8633e8d81028ba0}\label{class_document_a5fdf15494677fddbc8633e8d81028ba0} 
+\index{Document@{Document}!setDocumentProperty@{setDocumentProperty}}
+\index{setDocumentProperty@{setDocumentProperty}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setDocumentProperty()}{setDocumentProperty()}}
+{\footnotesize\ttfamily void Document\+::set\+Document\+Property (\begin{DoxyParamCaption}\item[{const QString \&}]{key,  }\item[{const QString \&}]{property }\end{DoxyParamCaption})}
+
+Set the document properties such as Title, Author etc.
+
+The method can be used to set the document properties of the Excel file created by Qt Xlsx. These properties are visible when you use the Office Button -\/\texorpdfstring{$>$}{>} Prepare -\/\texorpdfstring{$>$}{>} Properties option in Excel and are also available to external applications that read or index windows files.
+
+The {\itshape property} {\itshape key} that can be set are\+:
+
+\textbackslash{}list \begin{DoxyItemize}
+\item title \item subject \item creator \item manager \item company \item category \item keywords \item description \item status \textbackslash{}endlist \end{DoxyItemize}
+\Hypertarget{class_document_a4fce64df67ed90c2376877c369000ead}\label{class_document_a4fce64df67ed90c2376877c369000ead} 
+\index{Document@{Document}!setRowFormat@{setRowFormat}}
+\index{setRowFormat@{setRowFormat}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setRowFormat()}{setRowFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Document\+::set\+Row\+Format (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets the {\itshape format} of the {\itshape row}. Rows are 1-\/indexed.
+
+Returns true if success. \Hypertarget{class_document_a81dcf285ccb2ec4988db9d903c235cb5}\label{class_document_a81dcf285ccb2ec4988db9d903c235cb5} 
+\index{Document@{Document}!setRowFormat@{setRowFormat}}
+\index{setRowFormat@{setRowFormat}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setRowFormat()}{setRowFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Document\+::set\+Row\+Format (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Sets the {\itshape format} of the rows including and between {\itshape row\+First} and {\itshape row\+Last}. Rows are 1-\/indexed.
+
+Returns true if success. \Hypertarget{class_document_a3d3a0a76c6e83d7466611adb214e755c}\label{class_document_a3d3a0a76c6e83d7466611adb214e755c} 
+\index{Document@{Document}!setRowHeight@{setRowHeight}}
+\index{setRowHeight@{setRowHeight}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setRowHeight()}{setRowHeight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Document\+::set\+Row\+Height (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{double}]{height }\end{DoxyParamCaption})}
+
+Sets the {\itshape height} of the row {\itshape row}. Row height measured in point size. Rows are 1-\/indexed.
+
+Returns true if success. \Hypertarget{class_document_a9ac8786808167bc8bfb5ba4937cf3aaa}\label{class_document_a9ac8786808167bc8bfb5ba4937cf3aaa} 
+\index{Document@{Document}!setRowHeight@{setRowHeight}}
+\index{setRowHeight@{setRowHeight}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setRowHeight()}{setRowHeight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Document\+::set\+Row\+Height (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{double}]{height }\end{DoxyParamCaption})}
+
+Sets the {\itshape height} of the rows including and between {\itshape row\+First} and {\itshape row\+Last}. Row height measured in point size. Rows are 1-\/indexed.
+
+Returns true if success. \Hypertarget{class_document_a51e3ffeae0d14379ba434059c73a6ee1}\label{class_document_a51e3ffeae0d14379ba434059c73a6ee1} 
+\index{Document@{Document}!setRowHidden@{setRowHidden}}
+\index{setRowHidden@{setRowHidden}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setRowHidden()}{setRowHidden()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Document\+::set\+Row\+Hidden (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets the {\itshape hidden} property of the row {\itshape row}. Rows are 1-\/indexed. If hidden is true rows will not be visible.
+
+Returns true if success. \Hypertarget{class_document_a3b3140d2d71c85be34fdebd4adee70ef}\label{class_document_a3b3140d2d71c85be34fdebd4adee70ef} 
+\index{Document@{Document}!setRowHidden@{setRowHidden}}
+\index{setRowHidden@{setRowHidden}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{setRowHidden()}{setRowHidden()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Document\+::set\+Row\+Hidden (\begin{DoxyParamCaption}\item[{int}]{row\+First,  }\item[{int}]{row\+Last,  }\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets the {\itshape hidden} property of the rows including and between {\itshape row\+First} and {\itshape row\+Last}. Rows are 1-\/indexed. If hidden is true rows will not be visible.
+
+Returns true if success. \Hypertarget{class_document_ac809a26edd6b2868558f222ae7c9631a}\label{class_document_ac809a26edd6b2868558f222ae7c9631a} 
+\index{Document@{Document}!sheet@{sheet}}
+\index{sheet@{sheet}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{sheet()}{sheet()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*} Document\+::sheet (\begin{DoxyParamCaption}\item[{const QString \&}]{sheet\+Name }\end{DoxyParamCaption}) const}
+
+Returns the sheet object named {\itshape sheet\+Name}. \Hypertarget{class_document_a03ff52f7caca7f9265b63d55a857d265}\label{class_document_a03ff52f7caca7f9265b63d55a857d265} 
+\index{Document@{Document}!sheetNames@{sheetNames}}
+\index{sheetNames@{sheetNames}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{sheetNames()}{sheetNames()}}
+{\footnotesize\ttfamily QString\+List Document\+::sheet\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the names of worksheets contained in current document. \Hypertarget{class_document_a41b5ab6a3f57e9927f64b2d0898ad62e}\label{class_document_a41b5ab6a3f57e9927f64b2d0898ad62e} 
+\index{Document@{Document}!unmergeCells@{unmergeCells}}
+\index{unmergeCells@{unmergeCells}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{unmergeCells()}{unmergeCells()}}
+{\footnotesize\ttfamily bool Document\+::unmerge\+Cells (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range }\end{DoxyParamCaption})}
+
+Unmerge the cells in the {\itshape range}. Returns true on success. \Hypertarget{class_document_aad2de16faa67fa9056c8267d7c3b8d7e}\label{class_document_aad2de16faa67fa9056c8267d7c3b8d7e} 
+\index{Document@{Document}!workbook@{workbook}}
+\index{workbook@{workbook}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{workbook()}{workbook()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_workbook}{Workbook}} \texorpdfstring{$\ast$}{*} Document\+::workbook (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the internal \doxylink{class_workbook}{Workbook} object. \Hypertarget{class_document_abca4cc24340a981ad18c3778dd008f33}\label{class_document_abca4cc24340a981ad18c3778dd008f33} 
+\index{Document@{Document}!write@{write}}
+\index{write@{write}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Document\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{row\+\_\+column,  }\item[{const QVariant \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Write {\itshape value} to cell {\itshape row\+\_\+column} with the given {\itshape format}. \Hypertarget{class_document_aab80ec72ce1ef9918aca5b3131cf4588}\label{class_document_aab80ec72ce1ef9918aca5b3131cf4588} 
+\index{Document@{Document}!write@{write}}
+\index{write@{write}!Document@{Document}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Document\+::write (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{const QVariant \&}]{value,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format = {\ttfamily \mbox{\hyperlink{class_format}{Format}}()} }\end{DoxyParamCaption})}
+
+Write {\itshape value} to cell ({\itshape row}, {\itshape col}) with the {\itshape format}. Returns true on success. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdocument_8h}{xlsxdocument.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdocument_8cpp}{xlsxdocument.\+cpp}}\end{DoxyCompactItemize}

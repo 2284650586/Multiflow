@@ -1,0 +1,124 @@
+\doxysection{TSink\+Item Class Reference}
+\hypertarget{class_t_sink_item}{}\label{class_t_sink_item}\index{TSinkItem@{TSinkItem}}
+
+
+{\ttfamily \#include $<$tsinkitem.\+h$>$}
+
+Inheritance diagram for TSink\+Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_t_sink_item}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed}{Type}} = User\+Type + Multiflow\+\_\+\+TYPE\+::Sink
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_sink_item_a835de5b9eb000594c945922c8041253a}{sink\+Item\+Change}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_sink_item_ace0b69cdaefb30d7795e5eacd2f27eea}{TSink\+Item}} (QString sink\+Name=\"{}sink\"{}, QGraphics\+Item \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+QRectF \mbox{\hyperlink{class_t_sink_item_a06b11c1066c93f1efdfb83d384887843}{bounding\+Rect}} () const override
+\item 
+void \mbox{\hyperlink{class_t_sink_item_aae1028ebef1058c1583c1bb09ade8022}{paint}} (QPainter \texorpdfstring{$\ast$}{*}painter, const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}option, QWidget \texorpdfstring{$\ast$}{*}widget) override
+\item 
+int \mbox{\hyperlink{class_t_sink_item_ae0bbef3acb8b65cd0cbacbd109b784f5}{get\+Id}} ()
+\item 
+QString \mbox{\hyperlink{class_t_sink_item_abea6e4a9e63144c812658df4d0dfb595}{get\+Name}} ()
+\item 
+int \mbox{\hyperlink{class_t_sink_item_a2e7cc71bf6b6934579b1005dff99fcce}{type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+QVariant \mbox{\hyperlink{class_t_sink_item_a2ec2a2200b2be70d907448108d1f57f9}{item\+Change}} (Graphics\+Item\+Change change, const QVariant \&value) override
+\item 
+void \mbox{\hyperlink{class_t_sink_item_a0415120bebb888010fd14dbc2ede8937}{mouse\+Double\+Click\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666}\label{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Type@{Type}!TSinkItem@{TSinkItem}}\index{TSinkItem@{TSinkItem}!Type@{Type}}}\Hypertarget{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed}\label{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed} 
+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_t_sink_item_ace0b69cdaefb30d7795e5eacd2f27eea}\label{class_t_sink_item_ace0b69cdaefb30d7795e5eacd2f27eea} 
+\index{TSinkItem@{TSinkItem}!TSinkItem@{TSinkItem}}
+\index{TSinkItem@{TSinkItem}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{TSinkItem()}{TSinkItem()}}
+{\footnotesize\ttfamily TSink\+Item\+::\+TSink\+Item (\begin{DoxyParamCaption}\item[{QString}]{sink\+Name = {\ttfamily \"{}sink\"{}},  }\item[{QGraphics\+Item \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_sink_item_a06b11c1066c93f1efdfb83d384887843}\label{class_t_sink_item_a06b11c1066c93f1efdfb83d384887843} 
+\index{TSinkItem@{TSinkItem}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{boundingRect()}{boundingRect()}}
+{\footnotesize\ttfamily QRectF TSink\+Item\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_sink_item_ae0bbef3acb8b65cd0cbacbd109b784f5}\label{class_t_sink_item_ae0bbef3acb8b65cd0cbacbd109b784f5} 
+\index{TSinkItem@{TSinkItem}!getId@{getId}}
+\index{getId@{getId}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int TSink\+Item\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_sink_item_abea6e4a9e63144c812658df4d0dfb595}\label{class_t_sink_item_abea6e4a9e63144c812658df4d0dfb595} 
+\index{TSinkItem@{TSinkItem}!getName@{getName}}
+\index{getName@{getName}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily QString TSink\+Item\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_sink_item_a2ec2a2200b2be70d907448108d1f57f9}\label{class_t_sink_item_a2ec2a2200b2be70d907448108d1f57f9} 
+\index{TSinkItem@{TSinkItem}!itemChange@{itemChange}}
+\index{itemChange@{itemChange}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{itemChange()}{itemChange()}}
+{\footnotesize\ttfamily QVariant TSink\+Item\+::item\+Change (\begin{DoxyParamCaption}\item[{Graphics\+Item\+Change}]{change,  }\item[{const QVariant \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_sink_item_a0415120bebb888010fd14dbc2ede8937}\label{class_t_sink_item_a0415120bebb888010fd14dbc2ede8937} 
+\index{TSinkItem@{TSinkItem}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{mouseDoubleClickEvent()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void TSink\+Item\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_sink_item_aae1028ebef1058c1583c1bb09ade8022}\label{class_t_sink_item_aae1028ebef1058c1583c1bb09ade8022} 
+\index{TSinkItem@{TSinkItem}!paint@{paint}}
+\index{paint@{paint}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void TSink\+Item\+::paint (\begin{DoxyParamCaption}\item[{QPainter \texorpdfstring{$\ast$}{*}}]{painter,  }\item[{const QStyle\+Option\+Graphics\+Item \texorpdfstring{$\ast$}{*}}]{option,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{widget }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\Hypertarget{class_t_sink_item_a835de5b9eb000594c945922c8041253a}\label{class_t_sink_item_a835de5b9eb000594c945922c8041253a} 
+\index{TSinkItem@{TSinkItem}!sinkItemChange@{sinkItemChange}}
+\index{sinkItemChange@{sinkItemChange}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{sinkItemChange}{sinkItemChange}}
+{\footnotesize\ttfamily void TSink\+Item\+::sink\+Item\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\Hypertarget{class_t_sink_item_a2e7cc71bf6b6934579b1005dff99fcce}\label{class_t_sink_item_a2e7cc71bf6b6934579b1005dff99fcce} 
+\index{TSinkItem@{TSinkItem}!type@{type}}
+\index{type@{type}!TSinkItem@{TSinkItem}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily int TSink\+Item\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tsinkitem_8h}{tsinkitem.\+h}}\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tsinkitem_8cpp}{tsinkitem.\+cpp}}\end{DoxyCompactItemize}

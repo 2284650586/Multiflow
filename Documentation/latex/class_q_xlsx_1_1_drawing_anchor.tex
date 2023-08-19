@@ -1,0 +1,324 @@
+\doxysection{QXlsx\+::Drawing\+Anchor Class Reference}
+\hypertarget{class_q_xlsx_1_1_drawing_anchor}{}\label{class_q_xlsx_1_1_drawing_anchor}\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+
+
+{\ttfamily \#include $<$xlsxdrawinganchor\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Drawing\+Anchor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.885522cm]{class_q_xlsx_1_1_drawing_anchor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} \{ \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aac11b7d0fa58dc050cbcc37104bbbca44}{Graphic\+Frame}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa074ec82f00a4dc35ff33d77f360cc352}{Shape}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa92a9d5576a60feb34bc8d757198a6ab5}{Group\+Shape}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aaf4d85672ddbcd6fdcdee7dbdb953ab96}{Connection\+Shape}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa609c5f6dc915870ea4085758c5e3f176}{Picture}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa4dd1850bb9aa14bf400e1077f349c109}{Unknown}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a0b79b5c3564eb5104d5ff33975cebb33}{Drawing\+Anchor}} (\mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} \texorpdfstring{$\ast$}{*}drawing, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} object\+Type)
+\item 
+virtual \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_af5276f1e2608cca834242056c44aee9a}{\texorpdfstring{$\sim$}{\string~}\+Drawing\+Anchor}} ()
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aefa199480a5401c318704c20c0aa2cef}{set\+Object\+Picture}} (const QImage \&img)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aeb261d0c505fcc87fd8e06f55a89adba}{set\+Object\+Graphic\+Frame}} (QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$ chart)
+\item 
+virtual bool \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aa1b44b7f043098c1ef280bb59158aa02}{load\+From\+Xml}} (QXml\+Stream\+Reader \&reader)=0
+\item 
+virtual void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a39383d9689dc9e3a83d8033be0d2e3e7}{save\+To\+Xml}} (QXml\+Stream\+Writer \&writer) const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+QPoint \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a4242223a674178f4851d8ec0469199fb}{load\+Xml\+Pos}} (QXml\+Stream\+Reader \&reader)
+\item 
+QSize \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a16ccdc95be93a7ce7ba4ae1e52ce8e73}{load\+Xml\+Ext}} (QXml\+Stream\+Reader \&reader)
+\item 
+\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aa5becb5afbccdff2cff3d9e34758678b}{load\+Xml\+Marker}} (QXml\+Stream\+Reader \&reader, const QString \&node)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_adc1af73f0ff956d6103dd72976411f0a}{load\+Xml\+Object}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_adddbcc2b28c42fcbf1656a45ba0f8017}{load\+Xml\+Object\+Shape}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a12cefc1060cb3b23d47c1d83ea324b44}{load\+Xml\+Object\+Group\+Shape}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a1a8c6a4dbe5177b0663937458ce64ea4}{load\+Xml\+Object\+Graphic\+Frame}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a1f93f1c572940ee7c203f92d8646a0df}{load\+Xml\+Object\+Connection\+Shape}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a5ffab974426073edc492e96f5953251d}{load\+Xml\+Object\+Picture}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a2b3f623ac4e19584b054c8909ec697f5}{save\+Xml\+Pos}} (QXml\+Stream\+Writer \&writer, const QPoint \&pos) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_ab953b7e5101de0e27f864ff374e17175}{save\+Xml\+Ext}} (QXml\+Stream\+Writer \&writer, const QSize \&ext) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a88663ebd185f68ac8b538a04b27a4b0e}{save\+Xml\+Marker}} (QXml\+Stream\+Writer \&writer, const \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} \&marker, const QString \&node) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aca2a9c9c15ced2d94cdeb9d99ac93797}{save\+Xml\+Object}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6a6fbd0e47fcc4d8bc39cb629682d2cb}{save\+Xml\+Object\+Shape}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a7c74ba9fd2eb88b08b3d8f2766f5eebc}{save\+Xml\+Object\+Group\+Shape}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a8832dd1d69c3be33a9b132a6e9160596}{save\+Xml\+Object\+Graphic\+Frame}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a049a86680a8ae69f0e5ba8cb2ca0184e}{save\+Xml\+Object\+Connection\+Shape}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_ac1e31519e444183440bfd24f249a7245}{save\+Xml\+Object\+Picture}} (QXml\+Stream\+Writer \&writer) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a3c191b92b3372bd212e1dc9c58f58253}{m\+\_\+drawing}}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a3a380b0590020cbf7b2a85d0c35964cc}{m\+\_\+object\+Type}}
+\item 
+QShared\+Pointer$<$ \mbox{\hyperlink{class_q_xlsx_1_1_media_file}{Media\+File}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a5af6470d797b90336605214824877476}{m\+\_\+picture\+File}}
+\item 
+QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6c9d8994021951d2b182ceb863faf057}{m\+\_\+chart\+File}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_ac950c4af2cfe046cb90e8f49075deec1}{m\+\_\+id}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}\label{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!ObjectType@{ObjectType}}
+\index{ObjectType@{ObjectType}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{ObjectType}{ObjectType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{QXlsx\+::\+Drawing\+Anchor\+::\+Object\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GraphicFrame@{GraphicFrame}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!GraphicFrame@{GraphicFrame}}}\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aac11b7d0fa58dc050cbcc37104bbbca44}\label{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aac11b7d0fa58dc050cbcc37104bbbca44} 
+Graphic\+Frame&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Shape@{Shape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!Shape@{Shape}}}\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa074ec82f00a4dc35ff33d77f360cc352}\label{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa074ec82f00a4dc35ff33d77f360cc352} 
+Shape&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GroupShape@{GroupShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!GroupShape@{GroupShape}}}\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa92a9d5576a60feb34bc8d757198a6ab5}\label{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa92a9d5576a60feb34bc8d757198a6ab5} 
+Group\+Shape&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ConnectionShape@{ConnectionShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!ConnectionShape@{ConnectionShape}}}\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aaf4d85672ddbcd6fdcdee7dbdb953ab96}\label{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aaf4d85672ddbcd6fdcdee7dbdb953ab96} 
+Connection\+Shape&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Picture@{Picture}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!Picture@{Picture}}}\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa609c5f6dc915870ea4085758c5e3f176}\label{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa609c5f6dc915870ea4085758c5e3f176} 
+Picture&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Unknown@{Unknown}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!Unknown@{Unknown}}}\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa4dd1850bb9aa14bf400e1077f349c109}\label{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa4dd1850bb9aa14bf400e1077f349c109} 
+Unknown&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a0b79b5c3564eb5104d5ff33975cebb33}\label{class_q_xlsx_1_1_drawing_anchor_a0b79b5c3564eb5104d5ff33975cebb33} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!DrawingAnchor@{DrawingAnchor}}
+\index{DrawingAnchor@{DrawingAnchor}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{DrawingAnchor()}{DrawingAnchor()}}
+{\footnotesize\ttfamily QXlsx\+::\+Drawing\+Anchor\+::\+Drawing\+Anchor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} \texorpdfstring{$\ast$}{*}}]{drawing,  }\item[{\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}}}]{object\+Type }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_af5276f1e2608cca834242056c44aee9a}\label{class_q_xlsx_1_1_drawing_anchor_af5276f1e2608cca834242056c44aee9a} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!````~DrawingAnchor@{\texorpdfstring{$\sim$}{\string~}DrawingAnchor}}
+\index{````~DrawingAnchor@{\texorpdfstring{$\sim$}{\string~}DrawingAnchor}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DrawingAnchor()}{\string~DrawingAnchor()}}
+{\footnotesize\ttfamily QXlsx\+::\+Drawing\+Anchor\+::\texorpdfstring{$\sim$}{\string~}\+Drawing\+Anchor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_aa1b44b7f043098c1ef280bb59158aa02}\label{class_q_xlsx_1_1_drawing_anchor_aa1b44b7f043098c1ef280bb59158aa02} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadFromXml@{loadFromXml}}
+\index{loadFromXml@{loadFromXml}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadFromXml()}{loadFromXml()}}
+{\footnotesize\ttfamily virtual bool QXlsx\+::\+Drawing\+Anchor\+::load\+From\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_q_xlsx_1_1_drawing_absolute_anchor_a2b999fc3a35e8af8910a88e4d8340375}{QXlsx\+::\+Drawing\+Absolute\+Anchor}}, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_one_cell_anchor_a52d9f24d2334399dd423ee9912db65d2}{QXlsx\+::\+Drawing\+One\+Cell\+Anchor}}, and \mbox{\hyperlink{class_q_xlsx_1_1_drawing_two_cell_anchor_a999a21f75c7fce3509c11f846ce6d914}{QXlsx\+::\+Drawing\+Two\+Cell\+Anchor}}.
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a16ccdc95be93a7ce7ba4ae1e52ce8e73}\label{class_q_xlsx_1_1_drawing_anchor_a16ccdc95be93a7ce7ba4ae1e52ce8e73} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlExt@{loadXmlExt}}
+\index{loadXmlExt@{loadXmlExt}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlExt()}{loadXmlExt()}}
+{\footnotesize\ttfamily QSize QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Ext (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_aa5becb5afbccdff2cff3d9e34758678b}\label{class_q_xlsx_1_1_drawing_anchor_aa5becb5afbccdff2cff3d9e34758678b} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlMarker@{loadXmlMarker}}
+\index{loadXmlMarker@{loadXmlMarker}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlMarker()}{loadXmlMarker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Marker (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader,  }\item[{const QString \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_adc1af73f0ff956d6103dd72976411f0a}\label{class_q_xlsx_1_1_drawing_anchor_adc1af73f0ff956d6103dd72976411f0a} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlObject@{loadXmlObject}}
+\index{loadXmlObject@{loadXmlObject}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlObject()}{loadXmlObject()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Object (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a1f93f1c572940ee7c203f92d8646a0df}\label{class_q_xlsx_1_1_drawing_anchor_a1f93f1c572940ee7c203f92d8646a0df} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlObjectConnectionShape@{loadXmlObjectConnectionShape}}
+\index{loadXmlObjectConnectionShape@{loadXmlObjectConnectionShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlObjectConnectionShape()}{loadXmlObjectConnectionShape()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Object\+Connection\+Shape (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a1a8c6a4dbe5177b0663937458ce64ea4}\label{class_q_xlsx_1_1_drawing_anchor_a1a8c6a4dbe5177b0663937458ce64ea4} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlObjectGraphicFrame@{loadXmlObjectGraphicFrame}}
+\index{loadXmlObjectGraphicFrame@{loadXmlObjectGraphicFrame}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlObjectGraphicFrame()}{loadXmlObjectGraphicFrame()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Object\+Graphic\+Frame (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a12cefc1060cb3b23d47c1d83ea324b44}\label{class_q_xlsx_1_1_drawing_anchor_a12cefc1060cb3b23d47c1d83ea324b44} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlObjectGroupShape@{loadXmlObjectGroupShape}}
+\index{loadXmlObjectGroupShape@{loadXmlObjectGroupShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlObjectGroupShape()}{loadXmlObjectGroupShape()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Object\+Group\+Shape (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a5ffab974426073edc492e96f5953251d}\label{class_q_xlsx_1_1_drawing_anchor_a5ffab974426073edc492e96f5953251d} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlObjectPicture@{loadXmlObjectPicture}}
+\index{loadXmlObjectPicture@{loadXmlObjectPicture}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlObjectPicture()}{loadXmlObjectPicture()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Object\+Picture (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_adddbcc2b28c42fcbf1656a45ba0f8017}\label{class_q_xlsx_1_1_drawing_anchor_adddbcc2b28c42fcbf1656a45ba0f8017} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlObjectShape@{loadXmlObjectShape}}
+\index{loadXmlObjectShape@{loadXmlObjectShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlObjectShape()}{loadXmlObjectShape()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Object\+Shape (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a4242223a674178f4851d8ec0469199fb}\label{class_q_xlsx_1_1_drawing_anchor_a4242223a674178f4851d8ec0469199fb} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!loadXmlPos@{loadXmlPos}}
+\index{loadXmlPos@{loadXmlPos}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{loadXmlPos()}{loadXmlPos()}}
+{\footnotesize\ttfamily QPoint QXlsx\+::\+Drawing\+Anchor\+::load\+Xml\+Pos (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a39383d9689dc9e3a83d8033be0d2e3e7}\label{class_q_xlsx_1_1_drawing_anchor_a39383d9689dc9e3a83d8033be0d2e3e7} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveToXml@{saveToXml}}
+\index{saveToXml@{saveToXml}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveToXml()}{saveToXml()}}
+{\footnotesize\ttfamily virtual void QXlsx\+::\+Drawing\+Anchor\+::save\+To\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_q_xlsx_1_1_drawing_absolute_anchor_a934aa0db6fbfcaafadd9a4166a0f7caa}{QXlsx\+::\+Drawing\+Absolute\+Anchor}}, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_one_cell_anchor_a97c2d933602de54a88904a75cabe8f1c}{QXlsx\+::\+Drawing\+One\+Cell\+Anchor}}, and \mbox{\hyperlink{class_q_xlsx_1_1_drawing_two_cell_anchor_aabb968c2ef89bc7a9c7a46cd7b12388a}{QXlsx\+::\+Drawing\+Two\+Cell\+Anchor}}.
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_ab953b7e5101de0e27f864ff374e17175}\label{class_q_xlsx_1_1_drawing_anchor_ab953b7e5101de0e27f864ff374e17175} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlExt@{saveXmlExt}}
+\index{saveXmlExt@{saveXmlExt}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlExt()}{saveXmlExt()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Ext (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer,  }\item[{const QSize \&}]{ext }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a88663ebd185f68ac8b538a04b27a4b0e}\label{class_q_xlsx_1_1_drawing_anchor_a88663ebd185f68ac8b538a04b27a4b0e} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlMarker@{saveXmlMarker}}
+\index{saveXmlMarker@{saveXmlMarker}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlMarker()}{saveXmlMarker()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Marker (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer,  }\item[{const \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} \&}]{marker,  }\item[{const QString \&}]{node }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_aca2a9c9c15ced2d94cdeb9d99ac93797}\label{class_q_xlsx_1_1_drawing_anchor_aca2a9c9c15ced2d94cdeb9d99ac93797} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlObject@{saveXmlObject}}
+\index{saveXmlObject@{saveXmlObject}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlObject()}{saveXmlObject()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Object (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a049a86680a8ae69f0e5ba8cb2ca0184e}\label{class_q_xlsx_1_1_drawing_anchor_a049a86680a8ae69f0e5ba8cb2ca0184e} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlObjectConnectionShape@{saveXmlObjectConnectionShape}}
+\index{saveXmlObjectConnectionShape@{saveXmlObjectConnectionShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlObjectConnectionShape()}{saveXmlObjectConnectionShape()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Object\+Connection\+Shape (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a8832dd1d69c3be33a9b132a6e9160596}\label{class_q_xlsx_1_1_drawing_anchor_a8832dd1d69c3be33a9b132a6e9160596} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlObjectGraphicFrame@{saveXmlObjectGraphicFrame}}
+\index{saveXmlObjectGraphicFrame@{saveXmlObjectGraphicFrame}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlObjectGraphicFrame()}{saveXmlObjectGraphicFrame()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Object\+Graphic\+Frame (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a7c74ba9fd2eb88b08b3d8f2766f5eebc}\label{class_q_xlsx_1_1_drawing_anchor_a7c74ba9fd2eb88b08b3d8f2766f5eebc} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlObjectGroupShape@{saveXmlObjectGroupShape}}
+\index{saveXmlObjectGroupShape@{saveXmlObjectGroupShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlObjectGroupShape()}{saveXmlObjectGroupShape()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Object\+Group\+Shape (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_ac1e31519e444183440bfd24f249a7245}\label{class_q_xlsx_1_1_drawing_anchor_ac1e31519e444183440bfd24f249a7245} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlObjectPicture@{saveXmlObjectPicture}}
+\index{saveXmlObjectPicture@{saveXmlObjectPicture}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlObjectPicture()}{saveXmlObjectPicture()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Object\+Picture (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6a6fbd0e47fcc4d8bc39cb629682d2cb}\label{class_q_xlsx_1_1_drawing_anchor_a6a6fbd0e47fcc4d8bc39cb629682d2cb} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlObjectShape@{saveXmlObjectShape}}
+\index{saveXmlObjectShape@{saveXmlObjectShape}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlObjectShape()}{saveXmlObjectShape()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Object\+Shape (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a2b3f623ac4e19584b054c8909ec697f5}\label{class_q_xlsx_1_1_drawing_anchor_a2b3f623ac4e19584b054c8909ec697f5} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!saveXmlPos@{saveXmlPos}}
+\index{saveXmlPos@{saveXmlPos}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{saveXmlPos()}{saveXmlPos()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::save\+Xml\+Pos (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer,  }\item[{const QPoint \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_aeb261d0c505fcc87fd8e06f55a89adba}\label{class_q_xlsx_1_1_drawing_anchor_aeb261d0c505fcc87fd8e06f55a89adba} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!setObjectGraphicFrame@{setObjectGraphicFrame}}
+\index{setObjectGraphicFrame@{setObjectGraphicFrame}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{setObjectGraphicFrame()}{setObjectGraphicFrame()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::set\+Object\+Graphic\+Frame (\begin{DoxyParamCaption}\item[{QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$}]{chart }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_aefa199480a5401c318704c20c0aa2cef}\label{class_q_xlsx_1_1_drawing_anchor_aefa199480a5401c318704c20c0aa2cef} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!setObjectPicture@{setObjectPicture}}
+\index{setObjectPicture@{setObjectPicture}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{setObjectPicture()}{setObjectPicture()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Anchor\+::set\+Object\+Picture (\begin{DoxyParamCaption}\item[{const QImage \&}]{img }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a6c9d8994021951d2b182ceb863faf057}\label{class_q_xlsx_1_1_drawing_anchor_a6c9d8994021951d2b182ceb863faf057} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!m\_chartFile@{m\_chartFile}}
+\index{m\_chartFile@{m\_chartFile}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{m\_chartFile}{m\_chartFile}}
+{\footnotesize\ttfamily QShared\+Pointer$<$\mbox{\hyperlink{class_chart}{Chart}}$>$ QXlsx\+::\+Drawing\+Anchor\+::m\+\_\+chart\+File\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a3c191b92b3372bd212e1dc9c58f58253}\label{class_q_xlsx_1_1_drawing_anchor_a3c191b92b3372bd212e1dc9c58f58253} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!m\_drawing@{m\_drawing}}
+\index{m\_drawing@{m\_drawing}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{m\_drawing}{m\_drawing}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}}\texorpdfstring{$\ast$}{*} QXlsx\+::\+Drawing\+Anchor\+::m\+\_\+drawing\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_ac950c4af2cfe046cb90e8f49075deec1}\label{class_q_xlsx_1_1_drawing_anchor_ac950c4af2cfe046cb90e8f49075deec1} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!m\_id@{m\_id}}
+\index{m\_id@{m\_id}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{m\_id}{m\_id}}
+{\footnotesize\ttfamily int QXlsx\+::\+Drawing\+Anchor\+::m\+\_\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a3a380b0590020cbf7b2a85d0c35964cc}\label{class_q_xlsx_1_1_drawing_anchor_a3a380b0590020cbf7b2a85d0c35964cc} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!m\_objectType@{m\_objectType}}
+\index{m\_objectType@{m\_objectType}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{m\_objectType}{m\_objectType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} QXlsx\+::\+Drawing\+Anchor\+::m\+\_\+object\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_anchor_a5af6470d797b90336605214824877476}\label{class_q_xlsx_1_1_drawing_anchor_a5af6470d797b90336605214824877476} 
+\index{QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}!m\_pictureFile@{m\_pictureFile}}
+\index{m\_pictureFile@{m\_pictureFile}!QXlsx::DrawingAnchor@{QXlsx::DrawingAnchor}}
+\doxysubsubsection{\texorpdfstring{m\_pictureFile}{m\_pictureFile}}
+{\footnotesize\ttfamily QShared\+Pointer$<$\mbox{\hyperlink{class_q_xlsx_1_1_media_file}{Media\+File}}$>$ QXlsx\+::\+Drawing\+Anchor\+::m\+\_\+picture\+File\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdrawinganchor__p_8h}{xlsxdrawinganchor\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdrawinganchor_8cpp}{xlsxdrawinganchor.\+cpp}}\end{DoxyCompactItemize}

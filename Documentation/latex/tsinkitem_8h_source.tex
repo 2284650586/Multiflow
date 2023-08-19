@@ -1,0 +1,46 @@
+\doxysection{tsinkitem.\+h}
+\hypertarget{tsinkitem_8h_source}{}\label{tsinkitem_8h_source}\index{MultiflowUI/TView/tsinkitem.h@{MultiflowUI/TView/tsinkitem.h}}
+\mbox{\hyperlink{tsinkitem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TSINKITEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TSINKITEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsPixmapItem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msource_8h}{entity/msource.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{common.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_sink_item}{TSinkItem}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed}{Type}}\ =\ UserType\ +\ Multiflow\_TYPE::Sink\ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_t_sink_item}{TSinkItem}}(QString\ sinkName\ =\ \textcolor{stringliteral}{"{}sink"{}},\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ QString\ sinkName;}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_m_source}{MSource}}\ sink;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_sink_item_a06b11c1066c93f1efdfb83d384887843}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_sink_item_aae1028ebef1058c1583c1bb09ade8022}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_sink_item_ae0bbef3acb8b65cd0cbacbd109b784f5}{getId}}();}
+\DoxyCodeLine{00025\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_sink_item_abea6e4a9e63144c812658df4d0dfb595}{getName}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_sink_item_a2e7cc71bf6b6934579b1005dff99fcce}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed}{Type}};\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ signals:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_sink_item_a835de5b9eb000594c945922c8041253a}{sinkItemChange}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ \ \ QVariant\ \mbox{\hyperlink{class_t_sink_item_a2ec2a2200b2be70d907448108d1f57f9}{itemChange}}(GraphicsItemChange\ change,\ \textcolor{keyword}{const}\ QVariant\ \&value)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_sink_item_a0415120bebb888010fd14dbc2ede8937}{mouseDoubleClickEvent}}(QGraphicsSceneMouseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TSINKITEM\_H}}
+
+\end{DoxyCode}

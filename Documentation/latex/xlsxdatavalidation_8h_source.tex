@@ -1,0 +1,115 @@
+\doxysection{xlsxdatavalidation.\+h}
+\hypertarget{xlsxdatavalidation_8h_source}{}\label{xlsxdatavalidation_8h_source}\index{MultiflowUI/xlsx/xlsxdatavalidation.h@{MultiflowUI/xlsx/xlsxdatavalidation.h}}
+\mbox{\hyperlink{xlsxdatavalidation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ QXLSX\_XLSXDATAVALIDATION\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ QXLSX\_XLSXDATAVALIDATION\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <QSharedDataPointer>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }QXmlStreamReader;}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }QXmlStreamWriter;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \mbox{\hyperlink{namespace_q_t___b_e_g_i_n___n_a_m_e_s_p_a_c_e___x_l_s_x}{QT\_BEGIN\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_worksheet}{Worksheet}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_range}{CellRange}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_reference}{CellReference}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_data_validation_private}{DataValidationPrivate}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \mbox{\hyperlink{class_data_validation}{DataValidation}}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{ValidationType}}\ \{\ None,\ Whole,\ Decimal,\ List,\ Date,\ Time,\ TextLength,\ Custom\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{ValidationOperator}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404acdf195841fd59d38c283a5f2e98ec174}{Between}},}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a697097fa8b14fb489a38491b18f80eee}{NotBetween}},}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404ae0073f9b88725411494c42d8f18f60b4}{Equal}},}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a61f93d7cc8ad0f8d5b97156c5812be69}{NotEqual}},}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a313c7aeb172b2f177306273e4bfeb4da}{LessThan}},}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a088c19fcd43daa8f186fa6e8739037ae}{LessThanOrEqual}},}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404add584534af7c854fe241164e439f059e}{GreaterThan}},}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ GreaterThanOrEqual}
+\DoxyCodeLine{00057\ \ \ \ \ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}{ErrorStyle}}\ \{\ Stop,\ Warning,\ Information\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_data_validation}{DataValidation}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_data_validation}{DataValidation}}(ValidationType\ type,\ ValidationOperator\ op\ =\ Between,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&formula1\ =\ QString(),\ \textcolor{keyword}{const}\ QString\ \&formula2\ =\ QString(),}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ allowBlank\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_data_validation}{DataValidation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_validation}{DataValidation}}\ \&other);}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_data_validation}{\string~DataValidation}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ ValidationType\ validationType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \ \ \ \ ValidationOperator\ validationOperator()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ \ \ \ \ ErrorStyle\ errorStyle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ \ \ \ \ QString\ formula1()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ \ \ \ \ QString\ formula2()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ allowBlank()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ \ \ \ \ QString\ errorMessage()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \ \ \ \ QString\ errorMessageTitle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ \ \ \ \ QString\ promptMessage()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \ \ \ \ QString\ promptMessageTitle()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPromptMessageVisible()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ isErrorMessageVisible()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ \ \ \ \ QList<CellRange>\ ranges()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ setValidationType(ValidationType\ type);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ setValidationOperator(ValidationOperator\ op);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ setErrorStyle(ErrorStyle\ es);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ setFormula1(\textcolor{keyword}{const}\ QString\ \&formula);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ setFormula2(\textcolor{keyword}{const}\ QString\ \&formula);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ setErrorMessage(\textcolor{keyword}{const}\ QString\ \&error,\ \textcolor{keyword}{const}\ QString\ \&title\ =\ QString());}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ setPromptMessage(\textcolor{keyword}{const}\ QString\ \&prompt,\ \textcolor{keyword}{const}\ QString\ \&title\ =\ QString());}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ setAllowBlank(\textcolor{keywordtype}{bool}\ enable);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ setPromptMessageVisible(\textcolor{keywordtype}{bool}\ visible);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ setErrorMessageVisible(\textcolor{keywordtype}{bool}\ visible);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ addCell(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&cell);}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ addCell(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ addRange(\textcolor{keywordtype}{int}\ firstRow,\ \textcolor{keywordtype}{int}\ firstCol,\ \textcolor{keywordtype}{int}\ lastRow,\ \textcolor{keywordtype}{int}\ lastCol);}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ addRange(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \&range);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_data_validation}{DataValidation}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_data_validation}{DataValidation}}\ \&other);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ saveToXml(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_data_validation}{DataValidation}}\ loadFromXml(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00104\ \ \ \ \ QSharedDataPointer<DataValidationPrivate>\ d;}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \mbox{\hyperlink{xlsxglobal_8h_a6a896dcec83cee81dc9f1051c3ce0f6e}{QT\_END\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QXLSX\_XLSXDATAVALIDATION\_H}}
+
+\end{DoxyCode}

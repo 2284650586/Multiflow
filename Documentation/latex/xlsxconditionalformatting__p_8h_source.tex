@@ -1,0 +1,140 @@
+\doxysection{xlsxconditionalformatting\+\_\+p.\+h}
+\hypertarget{xlsxconditionalformatting__p_8h_source}{}\label{xlsxconditionalformatting__p_8h_source}\index{MultiflowUI/xlsx/xlsxconditionalformatting\_p.h@{MultiflowUI/xlsx/xlsxconditionalformatting\_p.h}}
+\mbox{\hyperlink{xlsxconditionalformatting__p_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ XLSXCONDITIONALFORMATTING\_P\_H}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ XLSXCONDITIONALFORMATTING\_P\_H}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ W\ A\ R\ N\ I\ N\ G}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ This\ file\ is\ not\ part\ of\ the\ Qt\ Xlsx\ API.\ \ It\ exists\ for\ the\ convenience}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ of\ the\ Qt\ Xlsx.\ \ This\ header\ file\ may\ change\ from}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ version\ to\ version\ without\ notice,\ or\ even\ be\ removed.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ We\ mean\ it.}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxconditionalformatting_8h}{xlsxconditionalformatting.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxformat_8h}{xlsxformat.h}}"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxcolor__p_8h}{xlsxcolor\_p.h}}"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <QSharedData>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <QSharedPointer>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <QMap>}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \mbox{\hyperlink{namespace_q_t___b_e_g_i_n___n_a_m_e_s_p_a_c_e___x_l_s_x}{QT\_BEGIN\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_xlsx_cf_vo_data}{XlsxCfVoData}}}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_vo_data_a442e929f2c18c7fbaff612e6ad30114b}{XlsxCfVoData}}()}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a4a351c1623498d5883e8f00e237a71fd}{gte}}(true)}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_vo_data_a68d1b4249a7de9cce64e8506aaf89f6f}{XlsxCfVoData}}(\mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{ConditionalFormatting::ValueObjectType}}\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a1c903a22eaae598d4ba3dded2dc2f859}{type}},\ \textcolor{keyword}{const}\ QString\ \&\mbox{\hyperlink{class_xlsx_cf_vo_data_a9948c65c6660f4e71dbc614fdec79399}{value}},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a4a351c1623498d5883e8f00e237a71fd}{gte}}\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a1c903a22eaae598d4ba3dded2dc2f859}{type}}(\mbox{\hyperlink{class_xlsx_cf_vo_data_a1c903a22eaae598d4ba3dded2dc2f859}{type}})}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a9948c65c6660f4e71dbc614fdec79399}{value}}(\mbox{\hyperlink{class_xlsx_cf_vo_data_a9948c65c6660f4e71dbc614fdec79399}{value}})}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a4a351c1623498d5883e8f00e237a71fd}{gte}}(\mbox{\hyperlink{class_xlsx_cf_vo_data_a4a351c1623498d5883e8f00e237a71fd}{gte}})}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_conditional_formatting_af0bfbcfbf96944ee06c09c98055150f8}{ConditionalFormatting::ValueObjectType}}\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a1c903a22eaae598d4ba3dded2dc2f859}{type}};}
+\DoxyCodeLine{00065\ \ \ \ \ QString\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a9948c65c6660f4e71dbc614fdec79399}{value}};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_xlsx_cf_vo_data_a4a351c1623498d5883e8f00e237a71fd}{gte}};}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_xlsx_cf_rule_data}{XlsxCfRuleData}}}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feea}{Attribute}}\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa336b4a3a5075eacd31a131639407afdb}{A\_type}},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa6c1f78f3707457ea5724e3c79c8fbe2e}{A\_dxfId}},}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\_priority,}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaaa880062b6ef0c8202d3affabfc4714f0}{A\_stopIfTrue}},}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa7efade4b01b2c4fb832b6ed3d5002ea7}{A\_aboveAverage}},}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa8d3967d3eff42861c4964c1de3fa11b0}{A\_percent}},}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa18742ecae052485b8d8e7bb953af0d68}{A\_bottom}},}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa19b22290a34e8984697ce55824c2ab6c}{A\_operator}},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa2cba0c7d7eb4ea194ad2cdf390ea7ab3}{A\_text}},}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa03e4550253105f5528b78c821a2e9460}{A\_timePeriod}},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaaa79162b4af6dfb9bc57024eb3294b472}{A\_rank}},}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa18e2f0fb6b5c5459fda9309849b39e4c}{A\_stdDev}},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaac986e254aba6a74c1e4fe3502fb5f504}{A\_equalAverage}},}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa90a9ec1833f2d7281c3680deb99d57d5}{A\_dxfFormat}},}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa3f411f195278fe0a201ffa9341ce688b}{A\_formula1}},}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa402303d292f3596cd3b1d00c9f19babc}{A\_formula2}},}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaac4b8d6bcaf862580344212ed06966094}{A\_formula3}},}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaab20f6d5c84e992fec7d0ff6a725baf36}{A\_formula1\_temp}},}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa84ed89b3aa205765ca232b6653413c9f}{A\_color1}},}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa407fcff87217fcfcb2227f1209a41707}{A\_color2}},}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaab32304c1f7d5116afdbbd8f1ecb3c4a4}{A\_color3}},}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaaeb18090bd88c2baaf8d22f5da9fa8473}{A\_cfvo1}},}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaad140b75083d248645df6b35fa8de0b99}{A\_cfvo2}},}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaae3d32d81cbb2ce8d2fa2cd9132044167}{A\_cfvo3}},}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_ae0c4b60f40eef14e70c55dd6d2d0feeaa6c9fa2b744acd24a9d1299e6b4675670}{A\_hideData}}}
+\DoxyCodeLine{00102\ \ \ \ \ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{class_xlsx_cf_rule_data_a609172482a1550471671f6f9e2d24a96}{XlsxCfRuleData}}()}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_xlsx_cf_rule_data_a275593e0790369b1aa66aa453fa346f0}{priority}}(1)}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_xlsx_cf_rule_data_a275593e0790369b1aa66aa453fa346f0}{priority}};}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ \mbox{\hyperlink{class_xlsx_cf_rule_data_a18ec987cca24bb4572dcfc5d668fa940}{dxfFormat}};}
+\DoxyCodeLine{00111\ \ \ \ \ QMap<int,\ QVariant>\ \mbox{\hyperlink{class_xlsx_cf_rule_data_a6626fc962662565a24c79a5b20eba791}{attrs}};}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_conditional_formatting_private}{ConditionalFormattingPrivate}}\ :\ \textcolor{keyword}{public}\ QSharedData}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{class_conditional_formatting_private_a63b029a4698fae7ba09586cf82d12586}{ConditionalFormattingPrivate}}();}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_conditional_formatting_private_a63b029a4698fae7ba09586cf82d12586}{ConditionalFormattingPrivate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_conditional_formatting_private}{ConditionalFormattingPrivate}}\ \&other);}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{class_conditional_formatting_private_ac5a7b21e314fa8cb1ad194ca3d1ccc04}{\string~ConditionalFormattingPrivate}}();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_conditional_formatting_private_a48cf975775d39c3c0b732c4cec32ecaf}{writeCfVo}}(QXmlStreamWriter\ \&writer,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_xlsx_cf_vo_data}{XlsxCfVoData}}\ \&cfvo)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_conditional_formatting_private_a08a48e872fe4657a7c7c10f95b3c4db4}{readCfVo}}(QXmlStreamReader\ \&reader,\ \mbox{\hyperlink{class_xlsx_cf_vo_data}{XlsxCfVoData}}\ \&cfvo);}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_conditional_formatting_private_a567ce19deabfa27f4d0831a149387406}{readCfRule}}(QXmlStreamReader\ \&reader,\ \mbox{\hyperlink{class_xlsx_cf_rule_data}{XlsxCfRuleData}}\ *cfRule,\ Styles\ *styles);}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_conditional_formatting_private_ac56d4ac927f8c6a1228f442f4e8cbaf3}{readCfDataBar}}(QXmlStreamReader\ \&reader,\ \mbox{\hyperlink{class_xlsx_cf_rule_data}{XlsxCfRuleData}}\ *cfRule);}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_conditional_formatting_private_a3dbb182be174e900f59bd3357858be5b}{readCfColorScale}}(QXmlStreamReader\ \&reader,\ \mbox{\hyperlink{class_xlsx_cf_rule_data}{XlsxCfRuleData}}\ *cfRule);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ QList<QSharedPointer<XlsxCfRuleData>>\ \mbox{\hyperlink{class_conditional_formatting_private_a9a1d8a01efe9855350a190c624ab62a1}{cfRules}};}
+\DoxyCodeLine{00128\ \ \ \ \ QList<CellRange>\ \mbox{\hyperlink{class_conditional_formatting_private_a5b27d524d7b5623bb0843bc00a485c9e}{ranges}};}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \mbox{\hyperlink{xlsxglobal_8h_a6a896dcec83cee81dc9f1051c3ce0f6e}{QT\_END\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ Q\_DECLARE\_METATYPE(QXlsx::XlsxCfVoData)}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXCONDITIONALFORMATTING\_P\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,1387 @@
+\doxysection{Format Class Reference}
+\hypertarget{class_format}{}\label{class_format}\index{Format@{Format}}
+
+
+Providing the methods and properties that are available for formatting cells in Excel.  
+
+
+
+
+{\ttfamily \#include $<$xlsxformat.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5}{Font\+Script}} \{ \mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5a9091acd4bc7b8aedce90194532c800e4}{Font\+Script\+Normal}}
+, \mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5aa1ceb10c9d5d2e8e74de61ce2025c640}{Font\+Script\+Super}}
+, \mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5a708ae56b464d182d0d5741d9c8eef9d8}{Font\+Script\+Sub}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0d}{Font\+Underline}} \{ \newline
+\mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0dacc318b88ff18ef6253b00eca5e518a20}{Font\+Underline\+None}}
+, \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0dac0b1c899468c2857b6b2c72aad10ba17}{Font\+Underline\+Single}}
+, \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0da34a11457db225f861fac22db5a48ce19}{Font\+Underline\+Double}}
+, \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0dadcee9c967fe7cf463b6d0ac4d1e62816}{Font\+Underline\+Single\+Accounting}}
+, \newline
+\mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0daa6bf10126a09ee818ee14d556941a5d9}{Font\+Underline\+Double\+Accounting}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4}{Horizontal\+Alignment}} \{ \newline
+\mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a3440bd9bf572f5d71f76bfda73fb45df}{Align\+HGeneral}}
+, \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a338d89d0bd888fd04c3de479eed21889}{Align\+Left}}
+, \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a3cae6ec8226f442b1b2a589af4f2965d}{Align\+HCenter}}
+, \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a83ff77a5bcb96c749ef913dd5642eb30}{Align\+Right}}
+, \newline
+\mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a5fd06147f581d6c669c8b2c8b674dad0}{Align\+HFill}}
+, \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a90da584d568fe64a53ad5b30b821d826}{Align\+HJustify}}
+, \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4a246d98bb9be947ba1d2fcccf441e8d8b}{Align\+HMerge}}
+, \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4aeb5e82d4198c231e417ef17556b413df}{Align\+HDistributed}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ce}{Vertical\+Alignment}} \{ \newline
+\mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea3fe5f76bfa765d143b6a0527477c2bea}{Align\+Top}}
+, \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea08f5c298444278a6a5d289e464ddaec2}{Align\+VCenter}}
+, \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea42c2e4f4228752c2629fd6c93088c8d3}{Align\+Bottom}}
+, \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1cea2d0f5c699589662464a358d79e8b4597}{Align\+VJustify}}
+, \newline
+\mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ceafe06b8dfccbf9eaf8a8d2aa85503c152}{Align\+VDistributed}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} \{ \newline
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae3ce1fcf2234ec06615dd36985119a29}{Border\+None}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1d32cff01637eabdf90aa8de04dc247d}{Border\+Thin}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1dba1c5e1516864644c0816f25f59dcc}{Border\+Medium}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa4957d2a2b4301728560a2f225dca6e8}{Border\+Dashed}}
+, \newline
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa8c7ee214f80f830bae3df31239182e40}{Border\+Dotted}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa893e05e035ab93086c2695b4f4dfec3f}{Border\+Thick}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa5823859c69ed29c9ef434aa4175fd505}{Border\+Double}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa9d57c5694aa9fd20bf0f6d368f11967}{Border\+Hair}}
+, \newline
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa1cfdd79f765471d113a77f0ad124a7c}{Border\+Medium\+Dashed}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aadc6738fed132dc0ab5b433da462af60b}{Border\+Dash\+Dot}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aad76a3cdc8c75ad6210747f1918ec6424}{Border\+Medium\+Dash\+Dot}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae43337f5ffbb4f1cc39c403d85f347ed}{Border\+Dash\+Dot\+Dot}}
+, \newline
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa7d6d28ec7eeb22901a60bb4dd8031254}{Border\+Medium\+Dash\+Dot\+Dot}}
+, \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa9a9ec441e3bf7f5fa27bbc43a77d0499}{Border\+Slant\+Dash\+Dot}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681f}{Diagonal\+Border\+Type}} \{ \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681fa512c9d6bd1dbaa80dddc4a8bd488d747}{Diagonal\+Border\+None}}
+, \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681fad6f47e19c5e5f212729405fe1851314d}{Diagonal\+Border\+Down}}
+, \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681fabeb6dd8aa1251c90f31ee40f5d3cc818}{Diagonal\+Border\+Up}}
+, \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681fad47f87e66420dee76c2d333f5d94d9e4}{Diagnoal\+Border\+Both}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632}{Fill\+Pattern}} \{ \newline
+\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ab268363e410f0e0ca588d3ae9aa3bdc4}{Pattern\+None}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ac2f77d674010c5a1e8c12aa68816fc13}{Pattern\+Solid}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a59d9e9507e912d1f41309f8a00fb4ceb}{Pattern\+Medium\+Gray}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ad83ae06368b4f6d08e09b567ef15154e}{Pattern\+Dark\+Gray}}
+, \newline
+\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a9324d356b55d33aec02c1dfd1565386b}{Pattern\+Light\+Gray}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ace3728829e87f0f455aa58fe0ddee8ef}{Pattern\+Dark\+Horizontal}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a132a13c44e64000181233ba306be81a1}{Pattern\+Dark\+Vertical}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632ad13a8dc0a1aa6b21f0b7c4128bf7a073}{Pattern\+Dark\+Down}}
+, \newline
+\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a93301dd5b3c265c91e2ae64e29ebbf2c}{Pattern\+Dark\+Up}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a46a3b3eeea72ec20c926d044492ee4b5}{Pattern\+Dark\+Grid}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a3d0965ef70b7e76f392cffad8dd2b91b}{Pattern\+Dark\+Trellis}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a35b98e7a01d4079ba59c3686ccb1cb54}{Pattern\+Light\+Horizontal}}
+, \newline
+\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a2f8da488957da47f1cfeb93c7f50e966}{Pattern\+Light\+Vertical}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a672b2cba830dfb9866f200e5cf54d83a}{Pattern\+Light\+Down}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a6521a709595fc9b7a422c6c377ba967a}{Pattern\+Light\+Up}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a6ee8f2369bc417161e1084ac63e13fd4}{Pattern\+Light\+Trellis}}
+, \newline
+\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a1ddbb3910c3d27f3ee0e32645b3ea95f}{Pattern\+Gray125}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632aeb6380c76b8f1b00be7cedea42a151b9}{Pattern\+Gray0625}}
+, \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632a3830398c475d51da3aee58d0ba058954}{Pattern\+Light\+Grid}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_format_a9326a787208f39b9544fc6fcbcbfcad3}{Format}} ()
+\item 
+\mbox{\hyperlink{class_format_ae2428dfa21f88cdc9b7b3856137e5865}{Format}} (const \mbox{\hyperlink{class_format}{Format}} \&other)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \& \mbox{\hyperlink{class_format_a9385d2a62495cc1d22ec599102d417b1}{operator=}} (const \mbox{\hyperlink{class_format}{Format}} \&rhs)
+\item 
+\mbox{\hyperlink{class_format_a24a9d2777b2f03e852055583e08adfcf}{\texorpdfstring{$\sim$}{\string~}\+Format}} ()
+\item 
+int \mbox{\hyperlink{class_format_a67e8e2a282fe126bb3a738e5fa9763cd}{number\+Format\+Index}} () const
+\item 
+void \mbox{\hyperlink{class_format_a704761d0ba9d3992a6803ac57e24d72a}{set\+Number\+Format\+Index}} (int format)
+\item 
+QString \mbox{\hyperlink{class_format_a8b762b75adba3de373b501cf395e3348}{number\+Format}} () const
+\item 
+void \mbox{\hyperlink{class_format_a2d75b9294958a04a5940a2ecd37abb9b}{set\+Number\+Format}} (const QString \&format)
+\item 
+void \mbox{\hyperlink{class_format_ad2977936318b3913fd2daad715e6c625}{set\+Number\+Format}} (int id, const QString \&format)
+\item 
+bool \mbox{\hyperlink{class_format_aaaa5e48b3c8ad12cd44575401eb4d990}{is\+Date\+Time\+Format}} () const
+\item 
+int \mbox{\hyperlink{class_format_afab57516b9090394176c8f4ac1966051}{font\+Size}} () const
+\item 
+void \mbox{\hyperlink{class_format_a9854da642eea8564f7467a2e3ef2d23c}{set\+Font\+Size}} (int size)
+\item 
+bool \mbox{\hyperlink{class_format_a921d26c26925e10824b5d8c9cf5502db}{font\+Italic}} () const
+\item 
+void \mbox{\hyperlink{class_format_a9c9e959fb2df6a5bf52d6c3c6524b3a7}{set\+Font\+Italic}} (bool italic)
+\item 
+bool \mbox{\hyperlink{class_format_a9225ec4adf7f3cf6f7cf5ff34a5f33ee}{font\+Strike\+Out}} () const
+\item 
+void \mbox{\hyperlink{class_format_aa2713f596e38b016a11170a9927c6371}{set\+Font\+Strike\+Out}} (bool)
+\item 
+QColor \mbox{\hyperlink{class_format_af8f52b9113f9364fcb424746441a4fb1}{font\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_aba03d26029cc36502f55c38d0f404834}{set\+Font\+Color}} (const QColor \&)
+\item 
+bool \mbox{\hyperlink{class_format_af1c4716b49bb0217679c9421328cdd48}{font\+Bold}} () const
+\item 
+void \mbox{\hyperlink{class_format_aa69688e9c3b7fa202641dd653006762e}{set\+Font\+Bold}} (bool bold)
+\item 
+\mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5}{Font\+Script}} \mbox{\hyperlink{class_format_aa16c9e74e01cfb16f77e5903027b3079}{font\+Script}} () const
+\item 
+void \mbox{\hyperlink{class_format_a4cf7f0fe4bc1d8cf34c6dd9caf854cfc}{set\+Font\+Script}} (\mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5}{Font\+Script}})
+\item 
+\mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0d}{Font\+Underline}} \mbox{\hyperlink{class_format_a61237f5fa295db180a26cddd88d04952}{font\+Underline}} () const
+\item 
+void \mbox{\hyperlink{class_format_aad762135e0f2e4d9dc2bade32af6e8a8}{set\+Font\+Underline}} (\mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0d}{Font\+Underline}})
+\item 
+bool \mbox{\hyperlink{class_format_a477e8098fe2254faff4cbf69e9c61607}{font\+Outline}} () const
+\item 
+void \mbox{\hyperlink{class_format_a989ba59118e5ee5fbc2bdf3363ff8e3e}{set\+Font\+Outline}} (bool outline)
+\item 
+QString \mbox{\hyperlink{class_format_ab648c1adcdadb7057620e94dc314a098}{font\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_format_a88345e519d537b402ee3e705a63a2a1f}{set\+Font\+Name}} (const QString \&)
+\item 
+QFont \mbox{\hyperlink{class_format_a3c23e600018102351b33c2c48c755d5e}{font}} () const
+\item 
+void \mbox{\hyperlink{class_format_a50c1978dd75705d7bc1802d3a3732c7c}{set\+Font}} (const QFont \&\mbox{\hyperlink{class_format_a3c23e600018102351b33c2c48c755d5e}{font}})
+\item 
+\mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4}{Horizontal\+Alignment}} \mbox{\hyperlink{class_format_a701a792473aa16231d194e0785c956e9}{horizontal\+Alignment}} () const
+\item 
+void \mbox{\hyperlink{class_format_a5d739b62bac43a241cc18b84f21f87ca}{set\+Horizontal\+Alignment}} (\mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4}{Horizontal\+Alignment}} align)
+\item 
+\mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ce}{Vertical\+Alignment}} \mbox{\hyperlink{class_format_aca62fbff9e4faa1be9b3b3e1f76b479a}{vertical\+Alignment}} () const
+\item 
+void \mbox{\hyperlink{class_format_adbbce2e6f225693358efcccb9c424f25}{set\+Vertical\+Alignment}} (\mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ce}{Vertical\+Alignment}} align)
+\item 
+bool \mbox{\hyperlink{class_format_a1ac5107de0b3b296a553a66658d38e31}{text\+Wrap}} () const
+\item 
+void \mbox{\hyperlink{class_format_a601afb7a2abf80514560cb932e0d6d80}{set\+Text\+Warp}} (bool \mbox{\hyperlink{class_format_a1ac5107de0b3b296a553a66658d38e31}{text\+Wrap}})
+\item 
+int \mbox{\hyperlink{class_format_a447d1f1148b32b986917dd03aa6dce49}{rotation}} () const
+\item 
+void \mbox{\hyperlink{class_format_ace7a51f1f66b2592f121c7b36d3d3880}{set\+Rotation}} (int \mbox{\hyperlink{class_format_a447d1f1148b32b986917dd03aa6dce49}{rotation}})
+\item 
+int \mbox{\hyperlink{class_format_aa420ba134507682f94f4031717d0fb75}{indent}} () const
+\item 
+void \mbox{\hyperlink{class_format_a7aa338cca8fcad3eff785b94af489f54}{set\+Indent}} (int \mbox{\hyperlink{class_format_aa420ba134507682f94f4031717d0fb75}{indent}})
+\item 
+bool \mbox{\hyperlink{class_format_ac9ddb7364271d461806af7c80ed4d27b}{shrink\+To\+Fit}} () const
+\item 
+void \mbox{\hyperlink{class_format_a2d65199e4b5645d5dbf5dfe6d0aaf50b}{set\+Shrink\+To\+Fit}} (bool shink)
+\item 
+void \mbox{\hyperlink{class_format_a6b5d9ed0e587d1de9f5aa27fa4d442a5}{set\+Border\+Style}} (\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} style)
+\item 
+void \mbox{\hyperlink{class_format_a863a7f7d744d58f4aa9e2073f2e1109f}{set\+Border\+Color}} (const QColor \&color)
+\item 
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} \mbox{\hyperlink{class_format_ac5df8fafe11d3aef32706c021d287970}{left\+Border\+Style}} () const
+\item 
+void \mbox{\hyperlink{class_format_a50cb6f018d96167239feb1017e66cd0e}{set\+Left\+Border\+Style}} (\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} style)
+\item 
+QColor \mbox{\hyperlink{class_format_a035895e4bc10e4dce491700999dff007}{left\+Border\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_afc2bf8a72f84fb6aea9a8e32ba0320ac}{set\+Left\+Border\+Color}} (const QColor \&color)
+\item 
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} \mbox{\hyperlink{class_format_a5cae7f152d5427034dc076df939197b2}{right\+Border\+Style}} () const
+\item 
+void \mbox{\hyperlink{class_format_aa2efa76f6397ca2c161c6d849b291d09}{set\+Right\+Border\+Style}} (\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} style)
+\item 
+QColor \mbox{\hyperlink{class_format_a484f98d24f311b853ab3c0a7731f46f8}{right\+Border\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_a80187c906f17625ff14a841e06d3f9a2}{set\+Right\+Border\+Color}} (const QColor \&color)
+\item 
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} \mbox{\hyperlink{class_format_ac4d64d075a84082d5a352c55170ed88c}{top\+Border\+Style}} () const
+\item 
+void \mbox{\hyperlink{class_format_aa9762b178a11484b2341a35d8f41977b}{set\+Top\+Border\+Style}} (\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} style)
+\item 
+QColor \mbox{\hyperlink{class_format_afe8f49ec3816fb0188f2da2afcdda003}{top\+Border\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_ab1f5b38616e04a59e1e0d1154e718435}{set\+Top\+Border\+Color}} (const QColor \&color)
+\item 
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} \mbox{\hyperlink{class_format_a5e02f2b1c9ff322c1301c23fc3c1834e}{bottom\+Border\+Style}} () const
+\item 
+void \mbox{\hyperlink{class_format_a12c9f222fe0f0da93e0f5c644c8e2d7f}{set\+Bottom\+Border\+Style}} (\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} style)
+\item 
+QColor \mbox{\hyperlink{class_format_a4d6a4e3cfd5bdd1575c7c1cdcf0d02ce}{bottom\+Border\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_abbe89bf420e748c35484db79a0b16b9d}{set\+Bottom\+Border\+Color}} (const QColor \&color)
+\item 
+\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} \mbox{\hyperlink{class_format_a3e4a858a09816cca6246521609c4065d}{diagonal\+Border\+Style}} () const
+\item 
+void \mbox{\hyperlink{class_format_ada4dd192ecb616bc80e97dc688fb92a6}{set\+Diagonal\+Border\+Style}} (\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}} style)
+\item 
+\mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681f}{Diagonal\+Border\+Type}} \mbox{\hyperlink{class_format_a6c46851f6fa044a0ec187c8a3ebe654f}{diagonal\+Border\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_format_a2c182a02f781f4fb00cf0e7ab3c353d5}{set\+Diagonal\+Border\+Type}} (\mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681f}{Diagonal\+Border\+Type}} style)
+\item 
+QColor \mbox{\hyperlink{class_format_aa5001ae660ae63d5a548b8aa29151a3b}{diagonal\+Border\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_acd5d15d4f86d8cfe56146127deb4e40a}{set\+Diagonal\+Border\+Color}} (const QColor \&color)
+\item 
+\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632}{Fill\+Pattern}} \mbox{\hyperlink{class_format_a2fcfe49d35e2adc55dcca288f0a7d84f}{fill\+Pattern}} () const
+\item 
+void \mbox{\hyperlink{class_format_a6e2f9e3ed29d78b37049c96e21d6e023}{set\+Fill\+Pattern}} (\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632}{Fill\+Pattern}} pattern)
+\item 
+QColor \mbox{\hyperlink{class_format_ae0276803b1b28aed82aef03a02fb566e}{pattern\+Foreground\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_ac79ae8aa56833bc936f16762d07b2c96}{set\+Pattern\+Foreground\+Color}} (const QColor \&color)
+\item 
+QColor \mbox{\hyperlink{class_format_a2475957614fc10341a09ac9baf094ffe}{pattern\+Background\+Color}} () const
+\item 
+void \mbox{\hyperlink{class_format_a97bf31b30b6a81b02e1e120adb9600f8}{set\+Pattern\+Background\+Color}} (const QColor \&color)
+\item 
+bool \mbox{\hyperlink{class_format_a04bc87b6ac7487770a5f44bda8ab2f59}{locked}} () const
+\item 
+void \mbox{\hyperlink{class_format_adb8f8953050d6c526248dd42f4fa2723}{set\+Locked}} (bool \mbox{\hyperlink{class_format_a04bc87b6ac7487770a5f44bda8ab2f59}{locked}})
+\item 
+bool \mbox{\hyperlink{class_format_a9e2fabc3c6662bc52883e0b9a3b0e2b9}{hidden}} () const
+\item 
+void \mbox{\hyperlink{class_format_a3f3bb3157cbaaf5dd9535269deae5035}{set\+Hidden}} (bool \mbox{\hyperlink{class_format_a9e2fabc3c6662bc52883e0b9a3b0e2b9}{hidden}})
+\item 
+void \mbox{\hyperlink{class_format_aeb7eca5bc3d4c20c1d274eac5d6046a3}{merge\+Format}} (const \mbox{\hyperlink{class_format}{Format}} \&modifier)
+\item 
+bool \mbox{\hyperlink{class_format_a7817a6ff9727d2d5a888df3ceffa2626}{is\+Valid}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a5f5f8a5dfe6438fb0dfcb606b2bc749a}{is\+Empty}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a8f25f4785afd409b632f9a60abb59aca}{operator==}} (const \mbox{\hyperlink{class_format}{Format}} \&format) const
+\item 
+bool \mbox{\hyperlink{class_format_ae475b410ff4463bdf1108627291961f3}{operator!=}} (const \mbox{\hyperlink{class_format}{Format}} \&format) const
+\item 
+QVariant \mbox{\hyperlink{class_format_a4b21b1bf7d538d1b1d88f174ce8d9020}{property}} (int property\+Id, const QVariant \&default\+Value=QVariant()) const
+\item 
+void \mbox{\hyperlink{class_format_aee6a57ef47164dd48505c031f46532e4}{set\+Property}} (int property\+Id, const QVariant \&value, const QVariant \&clear\+Value=QVariant(), bool detach=true)
+\item 
+void \mbox{\hyperlink{class_format_aa4bcb6e5f2bf5d3f9dd46bae53e88ea9}{clear\+Property}} (int property\+Id)
+\item 
+bool \mbox{\hyperlink{class_format_abdb7e98d8f6dd1b735defa7692e3e045}{has\+Property}} (int property\+Id) const
+\item 
+bool \mbox{\hyperlink{class_format_af232a3e96e02b2285414a314d271c504}{bool\+Property}} (int property\+Id, bool default\+Value=false) const
+\item 
+int \mbox{\hyperlink{class_format_a4d984a973a452fbe06c44d2f8a876887}{int\+Property}} (int property\+Id, int default\+Value=0) const
+\item 
+double \mbox{\hyperlink{class_format_ab5257ec48b11b832df52a9b684c941dc}{double\+Property}} (int property\+Id, double default\+Value=0.\+0) const
+\item 
+QString \mbox{\hyperlink{class_format_a0d4ead5d61ce778db7f0135bd555d1eb}{string\+Property}} (int property\+Id, const QString \&default\+Value=QString()) const
+\item 
+QColor \mbox{\hyperlink{class_format_aca9a4ffb7893372ce8a252484a480dbe}{color\+Property}} (int property\+Id, const QColor \&default\+Value=QColor()) const
+\item 
+bool \mbox{\hyperlink{class_format_ad4e28c204e0d99c584a7c82ea260eb67}{has\+Num\+Fmt\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_format_adc7f30d1f039c6cf17a48c3afceedc4f}{has\+Font\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_format_aee75fdd93515b2076a63ee87f749c806}{has\+Fill\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_format_acef68f760d0f0357dc71d05718f4305c}{has\+Border\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_format_afaac9b7ee4bb5988c817dbf99aaa36b3}{has\+Alignment\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a7a6657e57b5153338567f8b2d67d30a4}{has\+Protection\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a9953d123eb33eac240e3cfa5ebd3ce0e}{font\+Index\+Valid}} () const
+\item 
+int \mbox{\hyperlink{class_format_afa28cc05bd2f873ec5f1d4d71369f92a}{font\+Index}} () const
+\item 
+QByte\+Array \mbox{\hyperlink{class_format_aced3e681248023d372090c7011cabd68}{font\+Key}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a445d4897ec6f5b757e8fd9d47e9d62ab}{border\+Index\+Valid}} () const
+\item 
+QByte\+Array \mbox{\hyperlink{class_format_a9a6f7377456ce03f98ca2e981d563378}{border\+Key}} () const
+\item 
+int \mbox{\hyperlink{class_format_ab75710bd1f9c72e0d591e0ee07ad934c}{border\+Index}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a8e79698bd2c19d7df26c21e4c985143f}{fill\+Index\+Valid}} () const
+\item 
+QByte\+Array \mbox{\hyperlink{class_format_a3180d4d554c5af9806a1f84fe66d9368}{fill\+Key}} () const
+\item 
+int \mbox{\hyperlink{class_format_a12039fddc12174e2ae2c44df3c634a0b}{fill\+Index}} () const
+\item 
+QByte\+Array \mbox{\hyperlink{class_format_a96e0e477930d1c66c33c3581a1cd421f}{format\+Key}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a0157cfd3beb8b859b32ac1b266d3cb9c}{xf\+Index\+Valid}} () const
+\item 
+int \mbox{\hyperlink{class_format_a992c7bfe598da85ec9b17a6ee53703e6}{xf\+Index}} () const
+\item 
+bool \mbox{\hyperlink{class_format_a008761901172ff160f34b78b09dc2371}{dxf\+Index\+Valid}} () const
+\item 
+int \mbox{\hyperlink{class_format_a9c3420b0ac5de8aaf097f9b0acaf0878}{dxf\+Index}} () const
+\item 
+void \mbox{\hyperlink{class_format_a7459582566bf9c7cd35acbea242e2582}{fix\+Number\+Format}} (int id, const QString \&format)
+\item 
+void \mbox{\hyperlink{class_format_acb11b0d30ec41d2793724a0da2bbcc41}{set\+Font\+Index}} (int index)
+\item 
+void \mbox{\hyperlink{class_format_a8c0a134dd6ab0d9a5f05b1aa37e40d03}{set\+Border\+Index}} (int index)
+\item 
+void \mbox{\hyperlink{class_format_a7411b9d553c0e6e6980e0f4090814b69}{set\+Fill\+Index}} (int index)
+\item 
+void \mbox{\hyperlink{class_format_afc6c0ec356fc2ddc6665ffb8108121ed}{set\+Xf\+Index}} (int index)
+\item 
+void \mbox{\hyperlink{class_format_a3c04ae41e51b9ae36fd54b37b68c4566}{set\+Dxf\+Index}} (int index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_format_a4d808f4d507e384a40bfa83dad62b61a}{Styles}}
+\item 
+class \mbox{\hyperlink{class_format_aea9fbb3f36c70267a395b971601fadcc}{\+::\+Format\+Test}}
+\item 
+\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} QDebug \mbox{\hyperlink{class_format_a3294435673272f6c43ca5be71d505307}{operator$<$$<$}} (QDebug, const \mbox{\hyperlink{class_format}{Format}} \&f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Providing the methods and properties that are available for formatting cells in Excel. 
+
+\textbackslash{}inmodule Qt\+Xlsx 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a} 
+\index{Format@{Format}!BorderStyle@{BorderStyle}}
+\index{BorderStyle@{BorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{BorderStyle}{BorderStyle}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Format\+::\+Border\+Style}}}
+
+The enum type defines the type of font underline.
+
+\textbackslash{}value Border\+None \textbackslash{}value Border\+Thin \textbackslash{}value Border\+Medium \textbackslash{}value Border\+Dashed \textbackslash{}value Border\+Dotted \textbackslash{}value Border\+Thick \textbackslash{}value Border\+Double \textbackslash{}value Border\+Hair \textbackslash{}value Border\+Medium\+Dashed \textbackslash{}value Border\+Dash\+Dot \textbackslash{}value Border\+Medium\+Dash\+Dot \textbackslash{}value Border\+Dash\+Dot\+Dot \textbackslash{}value Border\+Medium\+Dash\+Dot\+Dot \textbackslash{}value Border\+Slant\+Dash\+Dot \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderNone@{BorderNone}!Format@{Format}}\index{Format@{Format}!BorderNone@{BorderNone}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae3ce1fcf2234ec06615dd36985119a29}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae3ce1fcf2234ec06615dd36985119a29} 
+Border\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderThin@{BorderThin}!Format@{Format}}\index{Format@{Format}!BorderThin@{BorderThin}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1d32cff01637eabdf90aa8de04dc247d}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1d32cff01637eabdf90aa8de04dc247d} 
+Border\+Thin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderMedium@{BorderMedium}!Format@{Format}}\index{Format@{Format}!BorderMedium@{BorderMedium}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1dba1c5e1516864644c0816f25f59dcc}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa1dba1c5e1516864644c0816f25f59dcc} 
+Border\+Medium&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderDashed@{BorderDashed}!Format@{Format}}\index{Format@{Format}!BorderDashed@{BorderDashed}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa4957d2a2b4301728560a2f225dca6e8}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa4957d2a2b4301728560a2f225dca6e8} 
+Border\+Dashed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderDotted@{BorderDotted}!Format@{Format}}\index{Format@{Format}!BorderDotted@{BorderDotted}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa8c7ee214f80f830bae3df31239182e40}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa8c7ee214f80f830bae3df31239182e40} 
+Border\+Dotted&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderThick@{BorderThick}!Format@{Format}}\index{Format@{Format}!BorderThick@{BorderThick}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa893e05e035ab93086c2695b4f4dfec3f}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa893e05e035ab93086c2695b4f4dfec3f} 
+Border\+Thick&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderDouble@{BorderDouble}!Format@{Format}}\index{Format@{Format}!BorderDouble@{BorderDouble}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa5823859c69ed29c9ef434aa4175fd505}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa5823859c69ed29c9ef434aa4175fd505} 
+Border\+Double&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderHair@{BorderHair}!Format@{Format}}\index{Format@{Format}!BorderHair@{BorderHair}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa9d57c5694aa9fd20bf0f6d368f11967}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa9d57c5694aa9fd20bf0f6d368f11967} 
+Border\+Hair&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderMediumDashed@{BorderMediumDashed}!Format@{Format}}\index{Format@{Format}!BorderMediumDashed@{BorderMediumDashed}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa1cfdd79f765471d113a77f0ad124a7c}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aaa1cfdd79f765471d113a77f0ad124a7c} 
+Border\+Medium\+Dashed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderDashDot@{BorderDashDot}!Format@{Format}}\index{Format@{Format}!BorderDashDot@{BorderDashDot}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aadc6738fed132dc0ab5b433da462af60b}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aadc6738fed132dc0ab5b433da462af60b} 
+Border\+Dash\+Dot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderMediumDashDot@{BorderMediumDashDot}!Format@{Format}}\index{Format@{Format}!BorderMediumDashDot@{BorderMediumDashDot}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aad76a3cdc8c75ad6210747f1918ec6424}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aad76a3cdc8c75ad6210747f1918ec6424} 
+Border\+Medium\+Dash\+Dot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderDashDotDot@{BorderDashDotDot}!Format@{Format}}\index{Format@{Format}!BorderDashDotDot@{BorderDashDotDot}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae43337f5ffbb4f1cc39c403d85f347ed}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aae43337f5ffbb4f1cc39c403d85f347ed} 
+Border\+Dash\+Dot\+Dot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderMediumDashDotDot@{BorderMediumDashDotDot}!Format@{Format}}\index{Format@{Format}!BorderMediumDashDotDot@{BorderMediumDashDotDot}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa7d6d28ec7eeb22901a60bb4dd8031254}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa7d6d28ec7eeb22901a60bb4dd8031254} 
+Border\+Medium\+Dash\+Dot\+Dot&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BorderSlantDashDot@{BorderSlantDashDot}!Format@{Format}}\index{Format@{Format}!BorderSlantDashDot@{BorderSlantDashDot}}}\Hypertarget{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa9a9ec441e3bf7f5fa27bbc43a77d0499}\label{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50aa9a9ec441e3bf7f5fa27bbc43a77d0499} 
+Border\+Slant\+Dash\+Dot&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_format_a598471717b09dbf8677e67152923681f}\label{class_format_a598471717b09dbf8677e67152923681f} 
+\index{Format@{Format}!DiagonalBorderType@{DiagonalBorderType}}
+\index{DiagonalBorderType@{DiagonalBorderType}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{DiagonalBorderType}{DiagonalBorderType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681f}{Format\+::\+Diagonal\+Border\+Type}}}
+
+The enum type defines the type of diagonal border.
+
+\textbackslash{}value Diagonal\+Border\+None \textbackslash{}value Diagonal\+Border\+Down \textbackslash{}value Diagonal\+Border\+Up \textbackslash{}value Diagnoal\+Border\+Both \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DiagonalBorderNone@{DiagonalBorderNone}!Format@{Format}}\index{Format@{Format}!DiagonalBorderNone@{DiagonalBorderNone}}}\Hypertarget{class_format_a598471717b09dbf8677e67152923681fa512c9d6bd1dbaa80dddc4a8bd488d747}\label{class_format_a598471717b09dbf8677e67152923681fa512c9d6bd1dbaa80dddc4a8bd488d747} 
+Diagonal\+Border\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DiagonalBorderDown@{DiagonalBorderDown}!Format@{Format}}\index{Format@{Format}!DiagonalBorderDown@{DiagonalBorderDown}}}\Hypertarget{class_format_a598471717b09dbf8677e67152923681fad6f47e19c5e5f212729405fe1851314d}\label{class_format_a598471717b09dbf8677e67152923681fad6f47e19c5e5f212729405fe1851314d} 
+Diagonal\+Border\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DiagonalBorderUp@{DiagonalBorderUp}!Format@{Format}}\index{Format@{Format}!DiagonalBorderUp@{DiagonalBorderUp}}}\Hypertarget{class_format_a598471717b09dbf8677e67152923681fabeb6dd8aa1251c90f31ee40f5d3cc818}\label{class_format_a598471717b09dbf8677e67152923681fabeb6dd8aa1251c90f31ee40f5d3cc818} 
+Diagonal\+Border\+Up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DiagnoalBorderBoth@{DiagnoalBorderBoth}!Format@{Format}}\index{Format@{Format}!DiagnoalBorderBoth@{DiagnoalBorderBoth}}}\Hypertarget{class_format_a598471717b09dbf8677e67152923681fad47f87e66420dee76c2d333f5d94d9e4}\label{class_format_a598471717b09dbf8677e67152923681fad47f87e66420dee76c2d333f5d94d9e4} 
+Diagnoal\+Border\+Both&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632}\label{class_format_a3c5cf299883d159748a35aae8c10b632} 
+\index{Format@{Format}!FillPattern@{FillPattern}}
+\index{FillPattern@{FillPattern}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{FillPattern}{FillPattern}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632}{Format\+::\+Fill\+Pattern}}}
+
+The enum type defines the type of fill.
+
+\textbackslash{}value Pattern\+None \textbackslash{}value Pattern\+Solid \textbackslash{}value Pattern\+Medium\+Gray \textbackslash{}value Pattern\+Dark\+Gray \textbackslash{}value Pattern\+Light\+Gray \textbackslash{}value Pattern\+Dark\+Horizontal \textbackslash{}value Pattern\+Dark\+Vertical \textbackslash{}value Pattern\+Dark\+Down \textbackslash{}value Pattern\+Dark\+Up \textbackslash{}value Pattern\+Dark\+Grid \textbackslash{}value Pattern\+Dark\+Trellis \textbackslash{}value Pattern\+Light\+Horizontal \textbackslash{}value Pattern\+Light\+Vertical \textbackslash{}value Pattern\+Light\+Down \textbackslash{}value Pattern\+Light\+Up \textbackslash{}value Pattern\+Light\+Trellis \textbackslash{}value Pattern\+Gray125 \textbackslash{}value Pattern\+Gray0625 \textbackslash{}value Pattern\+Light\+Grid \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternNone@{PatternNone}!Format@{Format}}\index{Format@{Format}!PatternNone@{PatternNone}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632ab268363e410f0e0ca588d3ae9aa3bdc4}\label{class_format_a3c5cf299883d159748a35aae8c10b632ab268363e410f0e0ca588d3ae9aa3bdc4} 
+Pattern\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternSolid@{PatternSolid}!Format@{Format}}\index{Format@{Format}!PatternSolid@{PatternSolid}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632ac2f77d674010c5a1e8c12aa68816fc13}\label{class_format_a3c5cf299883d159748a35aae8c10b632ac2f77d674010c5a1e8c12aa68816fc13} 
+Pattern\+Solid&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternMediumGray@{PatternMediumGray}!Format@{Format}}\index{Format@{Format}!PatternMediumGray@{PatternMediumGray}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a59d9e9507e912d1f41309f8a00fb4ceb}\label{class_format_a3c5cf299883d159748a35aae8c10b632a59d9e9507e912d1f41309f8a00fb4ceb} 
+Pattern\+Medium\+Gray&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternDarkGray@{PatternDarkGray}!Format@{Format}}\index{Format@{Format}!PatternDarkGray@{PatternDarkGray}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632ad83ae06368b4f6d08e09b567ef15154e}\label{class_format_a3c5cf299883d159748a35aae8c10b632ad83ae06368b4f6d08e09b567ef15154e} 
+Pattern\+Dark\+Gray&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternLightGray@{PatternLightGray}!Format@{Format}}\index{Format@{Format}!PatternLightGray@{PatternLightGray}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a9324d356b55d33aec02c1dfd1565386b}\label{class_format_a3c5cf299883d159748a35aae8c10b632a9324d356b55d33aec02c1dfd1565386b} 
+Pattern\+Light\+Gray&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternDarkHorizontal@{PatternDarkHorizontal}!Format@{Format}}\index{Format@{Format}!PatternDarkHorizontal@{PatternDarkHorizontal}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632ace3728829e87f0f455aa58fe0ddee8ef}\label{class_format_a3c5cf299883d159748a35aae8c10b632ace3728829e87f0f455aa58fe0ddee8ef} 
+Pattern\+Dark\+Horizontal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternDarkVertical@{PatternDarkVertical}!Format@{Format}}\index{Format@{Format}!PatternDarkVertical@{PatternDarkVertical}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a132a13c44e64000181233ba306be81a1}\label{class_format_a3c5cf299883d159748a35aae8c10b632a132a13c44e64000181233ba306be81a1} 
+Pattern\+Dark\+Vertical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternDarkDown@{PatternDarkDown}!Format@{Format}}\index{Format@{Format}!PatternDarkDown@{PatternDarkDown}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632ad13a8dc0a1aa6b21f0b7c4128bf7a073}\label{class_format_a3c5cf299883d159748a35aae8c10b632ad13a8dc0a1aa6b21f0b7c4128bf7a073} 
+Pattern\+Dark\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternDarkUp@{PatternDarkUp}!Format@{Format}}\index{Format@{Format}!PatternDarkUp@{PatternDarkUp}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a93301dd5b3c265c91e2ae64e29ebbf2c}\label{class_format_a3c5cf299883d159748a35aae8c10b632a93301dd5b3c265c91e2ae64e29ebbf2c} 
+Pattern\+Dark\+Up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternDarkGrid@{PatternDarkGrid}!Format@{Format}}\index{Format@{Format}!PatternDarkGrid@{PatternDarkGrid}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a46a3b3eeea72ec20c926d044492ee4b5}\label{class_format_a3c5cf299883d159748a35aae8c10b632a46a3b3eeea72ec20c926d044492ee4b5} 
+Pattern\+Dark\+Grid&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternDarkTrellis@{PatternDarkTrellis}!Format@{Format}}\index{Format@{Format}!PatternDarkTrellis@{PatternDarkTrellis}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a3d0965ef70b7e76f392cffad8dd2b91b}\label{class_format_a3c5cf299883d159748a35aae8c10b632a3d0965ef70b7e76f392cffad8dd2b91b} 
+Pattern\+Dark\+Trellis&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternLightHorizontal@{PatternLightHorizontal}!Format@{Format}}\index{Format@{Format}!PatternLightHorizontal@{PatternLightHorizontal}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a35b98e7a01d4079ba59c3686ccb1cb54}\label{class_format_a3c5cf299883d159748a35aae8c10b632a35b98e7a01d4079ba59c3686ccb1cb54} 
+Pattern\+Light\+Horizontal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternLightVertical@{PatternLightVertical}!Format@{Format}}\index{Format@{Format}!PatternLightVertical@{PatternLightVertical}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a2f8da488957da47f1cfeb93c7f50e966}\label{class_format_a3c5cf299883d159748a35aae8c10b632a2f8da488957da47f1cfeb93c7f50e966} 
+Pattern\+Light\+Vertical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternLightDown@{PatternLightDown}!Format@{Format}}\index{Format@{Format}!PatternLightDown@{PatternLightDown}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a672b2cba830dfb9866f200e5cf54d83a}\label{class_format_a3c5cf299883d159748a35aae8c10b632a672b2cba830dfb9866f200e5cf54d83a} 
+Pattern\+Light\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternLightUp@{PatternLightUp}!Format@{Format}}\index{Format@{Format}!PatternLightUp@{PatternLightUp}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a6521a709595fc9b7a422c6c377ba967a}\label{class_format_a3c5cf299883d159748a35aae8c10b632a6521a709595fc9b7a422c6c377ba967a} 
+Pattern\+Light\+Up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternLightTrellis@{PatternLightTrellis}!Format@{Format}}\index{Format@{Format}!PatternLightTrellis@{PatternLightTrellis}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a6ee8f2369bc417161e1084ac63e13fd4}\label{class_format_a3c5cf299883d159748a35aae8c10b632a6ee8f2369bc417161e1084ac63e13fd4} 
+Pattern\+Light\+Trellis&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternGray125@{PatternGray125}!Format@{Format}}\index{Format@{Format}!PatternGray125@{PatternGray125}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a1ddbb3910c3d27f3ee0e32645b3ea95f}\label{class_format_a3c5cf299883d159748a35aae8c10b632a1ddbb3910c3d27f3ee0e32645b3ea95f} 
+Pattern\+Gray125&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternGray0625@{PatternGray0625}!Format@{Format}}\index{Format@{Format}!PatternGray0625@{PatternGray0625}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632aeb6380c76b8f1b00be7cedea42a151b9}\label{class_format_a3c5cf299883d159748a35aae8c10b632aeb6380c76b8f1b00be7cedea42a151b9} 
+Pattern\+Gray0625&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PatternLightGrid@{PatternLightGrid}!Format@{Format}}\index{Format@{Format}!PatternLightGrid@{PatternLightGrid}}}\Hypertarget{class_format_a3c5cf299883d159748a35aae8c10b632a3830398c475d51da3aee58d0ba058954}\label{class_format_a3c5cf299883d159748a35aae8c10b632a3830398c475d51da3aee58d0ba058954} 
+Pattern\+Light\+Grid&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_format_ad5b99a6c566a3ba7574195a1700f90e5}\label{class_format_ad5b99a6c566a3ba7574195a1700f90e5} 
+\index{Format@{Format}!FontScript@{FontScript}}
+\index{FontScript@{FontScript}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{FontScript}{FontScript}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5}{Format\+::\+Font\+Script}}}
+
+The enum type defines the type of font script.
+
+\textbackslash{}value Font\+Script\+Normal normal \textbackslash{}value Font\+Script\+Super super script \textbackslash{}value Font\+Script\+Sub sub script \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontScriptNormal@{FontScriptNormal}!Format@{Format}}\index{Format@{Format}!FontScriptNormal@{FontScriptNormal}}}\Hypertarget{class_format_ad5b99a6c566a3ba7574195a1700f90e5a9091acd4bc7b8aedce90194532c800e4}\label{class_format_ad5b99a6c566a3ba7574195a1700f90e5a9091acd4bc7b8aedce90194532c800e4} 
+Font\+Script\+Normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontScriptSuper@{FontScriptSuper}!Format@{Format}}\index{Format@{Format}!FontScriptSuper@{FontScriptSuper}}}\Hypertarget{class_format_ad5b99a6c566a3ba7574195a1700f90e5aa1ceb10c9d5d2e8e74de61ce2025c640}\label{class_format_ad5b99a6c566a3ba7574195a1700f90e5aa1ceb10c9d5d2e8e74de61ce2025c640} 
+Font\+Script\+Super&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontScriptSub@{FontScriptSub}!Format@{Format}}\index{Format@{Format}!FontScriptSub@{FontScriptSub}}}\Hypertarget{class_format_ad5b99a6c566a3ba7574195a1700f90e5a708ae56b464d182d0d5741d9c8eef9d8}\label{class_format_ad5b99a6c566a3ba7574195a1700f90e5a708ae56b464d182d0d5741d9c8eef9d8} 
+Font\+Script\+Sub&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_format_a8ffdafd941533be717f2e61110535b0d}\label{class_format_a8ffdafd941533be717f2e61110535b0d} 
+\index{Format@{Format}!FontUnderline@{FontUnderline}}
+\index{FontUnderline@{FontUnderline}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{FontUnderline}{FontUnderline}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0d}{Format\+::\+Font\+Underline}}}
+
+The enum type defines the type of font underline.
+
+\textbackslash{}value Font\+Underline\+None \textbackslash{}value Font\+Underline\+Single \textbackslash{}value Font\+Underline\+Double \textbackslash{}value Font\+Underline\+Single\+Accounting \textbackslash{}value Font\+Underline\+Double\+Accounting \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontUnderlineNone@{FontUnderlineNone}!Format@{Format}}\index{Format@{Format}!FontUnderlineNone@{FontUnderlineNone}}}\Hypertarget{class_format_a8ffdafd941533be717f2e61110535b0dacc318b88ff18ef6253b00eca5e518a20}\label{class_format_a8ffdafd941533be717f2e61110535b0dacc318b88ff18ef6253b00eca5e518a20} 
+Font\+Underline\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontUnderlineSingle@{FontUnderlineSingle}!Format@{Format}}\index{Format@{Format}!FontUnderlineSingle@{FontUnderlineSingle}}}\Hypertarget{class_format_a8ffdafd941533be717f2e61110535b0dac0b1c899468c2857b6b2c72aad10ba17}\label{class_format_a8ffdafd941533be717f2e61110535b0dac0b1c899468c2857b6b2c72aad10ba17} 
+Font\+Underline\+Single&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontUnderlineDouble@{FontUnderlineDouble}!Format@{Format}}\index{Format@{Format}!FontUnderlineDouble@{FontUnderlineDouble}}}\Hypertarget{class_format_a8ffdafd941533be717f2e61110535b0da34a11457db225f861fac22db5a48ce19}\label{class_format_a8ffdafd941533be717f2e61110535b0da34a11457db225f861fac22db5a48ce19} 
+Font\+Underline\+Double&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontUnderlineSingleAccounting@{FontUnderlineSingleAccounting}!Format@{Format}}\index{Format@{Format}!FontUnderlineSingleAccounting@{FontUnderlineSingleAccounting}}}\Hypertarget{class_format_a8ffdafd941533be717f2e61110535b0dadcee9c967fe7cf463b6d0ac4d1e62816}\label{class_format_a8ffdafd941533be717f2e61110535b0dadcee9c967fe7cf463b6d0ac4d1e62816} 
+Font\+Underline\+Single\+Accounting&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FontUnderlineDoubleAccounting@{FontUnderlineDoubleAccounting}!Format@{Format}}\index{Format@{Format}!FontUnderlineDoubleAccounting@{FontUnderlineDoubleAccounting}}}\Hypertarget{class_format_a8ffdafd941533be717f2e61110535b0daa6bf10126a09ee818ee14d556941a5d9}\label{class_format_a8ffdafd941533be717f2e61110535b0daa6bf10126a09ee818ee14d556941a5d9} 
+Font\+Underline\+Double\+Accounting&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4}\label{class_format_a099f263fec68f5aa44f3a3357df415d4} 
+\index{Format@{Format}!HorizontalAlignment@{HorizontalAlignment}}
+\index{HorizontalAlignment@{HorizontalAlignment}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{HorizontalAlignment}{HorizontalAlignment}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4}{Format\+::\+Horizontal\+Alignment}}}
+
+The enum type defines the type of horizontal alignment.
+
+\textbackslash{}value Align\+HGeneral \textbackslash{}value Align\+Left \textbackslash{}value Align\+HCenter \textbackslash{}value Align\+Right \textbackslash{}value Align\+HFill \textbackslash{}value Align\+HJustify \textbackslash{}value Align\+HMerge \textbackslash{}value Align\+HDistributed \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignHGeneral@{AlignHGeneral}!Format@{Format}}\index{Format@{Format}!AlignHGeneral@{AlignHGeneral}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4a3440bd9bf572f5d71f76bfda73fb45df}\label{class_format_a099f263fec68f5aa44f3a3357df415d4a3440bd9bf572f5d71f76bfda73fb45df} 
+Align\+HGeneral&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignLeft@{AlignLeft}!Format@{Format}}\index{Format@{Format}!AlignLeft@{AlignLeft}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4a338d89d0bd888fd04c3de479eed21889}\label{class_format_a099f263fec68f5aa44f3a3357df415d4a338d89d0bd888fd04c3de479eed21889} 
+Align\+Left&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignHCenter@{AlignHCenter}!Format@{Format}}\index{Format@{Format}!AlignHCenter@{AlignHCenter}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4a3cae6ec8226f442b1b2a589af4f2965d}\label{class_format_a099f263fec68f5aa44f3a3357df415d4a3cae6ec8226f442b1b2a589af4f2965d} 
+Align\+HCenter&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignRight@{AlignRight}!Format@{Format}}\index{Format@{Format}!AlignRight@{AlignRight}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4a83ff77a5bcb96c749ef913dd5642eb30}\label{class_format_a099f263fec68f5aa44f3a3357df415d4a83ff77a5bcb96c749ef913dd5642eb30} 
+Align\+Right&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignHFill@{AlignHFill}!Format@{Format}}\index{Format@{Format}!AlignHFill@{AlignHFill}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4a5fd06147f581d6c669c8b2c8b674dad0}\label{class_format_a099f263fec68f5aa44f3a3357df415d4a5fd06147f581d6c669c8b2c8b674dad0} 
+Align\+HFill&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignHJustify@{AlignHJustify}!Format@{Format}}\index{Format@{Format}!AlignHJustify@{AlignHJustify}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4a90da584d568fe64a53ad5b30b821d826}\label{class_format_a099f263fec68f5aa44f3a3357df415d4a90da584d568fe64a53ad5b30b821d826} 
+Align\+HJustify&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignHMerge@{AlignHMerge}!Format@{Format}}\index{Format@{Format}!AlignHMerge@{AlignHMerge}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4a246d98bb9be947ba1d2fcccf441e8d8b}\label{class_format_a099f263fec68f5aa44f3a3357df415d4a246d98bb9be947ba1d2fcccf441e8d8b} 
+Align\+HMerge&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignHDistributed@{AlignHDistributed}!Format@{Format}}\index{Format@{Format}!AlignHDistributed@{AlignHDistributed}}}\Hypertarget{class_format_a099f263fec68f5aa44f3a3357df415d4aeb5e82d4198c231e417ef17556b413df}\label{class_format_a099f263fec68f5aa44f3a3357df415d4aeb5e82d4198c231e417ef17556b413df} 
+Align\+HDistributed&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_format_a081ed61ecb553b32c0543034a153b1ce}\label{class_format_a081ed61ecb553b32c0543034a153b1ce} 
+\index{Format@{Format}!VerticalAlignment@{VerticalAlignment}}
+\index{VerticalAlignment@{VerticalAlignment}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{VerticalAlignment}{VerticalAlignment}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ce}{Format\+::\+Vertical\+Alignment}}}
+
+The enum type defines the type of vertical alignment.
+
+\textbackslash{}value Align\+Top, \textbackslash{}value Align\+VCenter, \textbackslash{}value Align\+Bottom, \textbackslash{}value Align\+VJustify, \textbackslash{}value Align\+VDistributed \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignTop@{AlignTop}!Format@{Format}}\index{Format@{Format}!AlignTop@{AlignTop}}}\Hypertarget{class_format_a081ed61ecb553b32c0543034a153b1cea3fe5f76bfa765d143b6a0527477c2bea}\label{class_format_a081ed61ecb553b32c0543034a153b1cea3fe5f76bfa765d143b6a0527477c2bea} 
+Align\+Top&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignVCenter@{AlignVCenter}!Format@{Format}}\index{Format@{Format}!AlignVCenter@{AlignVCenter}}}\Hypertarget{class_format_a081ed61ecb553b32c0543034a153b1cea08f5c298444278a6a5d289e464ddaec2}\label{class_format_a081ed61ecb553b32c0543034a153b1cea08f5c298444278a6a5d289e464ddaec2} 
+Align\+VCenter&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignBottom@{AlignBottom}!Format@{Format}}\index{Format@{Format}!AlignBottom@{AlignBottom}}}\Hypertarget{class_format_a081ed61ecb553b32c0543034a153b1cea42c2e4f4228752c2629fd6c93088c8d3}\label{class_format_a081ed61ecb553b32c0543034a153b1cea42c2e4f4228752c2629fd6c93088c8d3} 
+Align\+Bottom&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignVJustify@{AlignVJustify}!Format@{Format}}\index{Format@{Format}!AlignVJustify@{AlignVJustify}}}\Hypertarget{class_format_a081ed61ecb553b32c0543034a153b1cea2d0f5c699589662464a358d79e8b4597}\label{class_format_a081ed61ecb553b32c0543034a153b1cea2d0f5c699589662464a358d79e8b4597} 
+Align\+VJustify&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignVDistributed@{AlignVDistributed}!Format@{Format}}\index{Format@{Format}!AlignVDistributed@{AlignVDistributed}}}\Hypertarget{class_format_a081ed61ecb553b32c0543034a153b1ceafe06b8dfccbf9eaf8a8d2aa85503c152}\label{class_format_a081ed61ecb553b32c0543034a153b1ceafe06b8dfccbf9eaf8a8d2aa85503c152} 
+Align\+VDistributed&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_format_a9326a787208f39b9544fc6fcbcbfcad3}\label{class_format_a9326a787208f39b9544fc6fcbcbfcad3} 
+\index{Format@{Format}!Format@{Format}}
+\index{Format@{Format}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{Format()}{Format()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Format\+::\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a new invalid format. \Hypertarget{class_format_ae2428dfa21f88cdc9b7b3856137e5865}\label{class_format_ae2428dfa21f88cdc9b7b3856137e5865} 
+\index{Format@{Format}!Format@{Format}}
+\index{Format@{Format}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{Format()}{Format()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Format\+::\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{other }\end{DoxyParamCaption})}
+
+Creates a new format with the same attributes as the {\itshape other} format. \Hypertarget{class_format_a24a9d2777b2f03e852055583e08adfcf}\label{class_format_a24a9d2777b2f03e852055583e08adfcf} 
+\index{Format@{Format}!````~Format@{\texorpdfstring{$\sim$}{\string~}Format}}
+\index{````~Format@{\texorpdfstring{$\sim$}{\string~}Format}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Format()}{\string~Format()}}
+{\footnotesize\ttfamily Format\+::\texorpdfstring{$\sim$}{\string~}\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys this format. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_format_af232a3e96e02b2285414a314d271c504}\label{class_format_af232a3e96e02b2285414a314d271c504} 
+\index{Format@{Format}!boolProperty@{boolProperty}}
+\index{boolProperty@{boolProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{boolProperty()}{boolProperty()}}
+{\footnotesize\ttfamily bool Format\+::bool\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id,  }\item[{bool}]{default\+Value = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_ab75710bd1f9c72e0d591e0ee07ad934c}\label{class_format_ab75710bd1f9c72e0d591e0ee07ad934c} 
+\index{Format@{Format}!borderIndex@{borderIndex}}
+\index{borderIndex@{borderIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{borderIndex()}{borderIndex()}}
+{\footnotesize\ttfamily int Format\+::border\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a445d4897ec6f5b757e8fd9d47e9d62ab}\label{class_format_a445d4897ec6f5b757e8fd9d47e9d62ab} 
+\index{Format@{Format}!borderIndexValid@{borderIndexValid}}
+\index{borderIndexValid@{borderIndexValid}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{borderIndexValid()}{borderIndexValid()}}
+{\footnotesize\ttfamily bool Format\+::border\+Index\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a9a6f7377456ce03f98ca2e981d563378}\label{class_format_a9a6f7377456ce03f98ca2e981d563378} 
+\index{Format@{Format}!borderKey@{borderKey}}
+\index{borderKey@{borderKey}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{borderKey()}{borderKey()}}
+{\footnotesize\ttfamily QByte\+Array Format\+::border\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a4d6a4e3cfd5bdd1575c7c1cdcf0d02ce}\label{class_format_a4d6a4e3cfd5bdd1575c7c1cdcf0d02ce} 
+\index{Format@{Format}!bottomBorderColor@{bottomBorderColor}}
+\index{bottomBorderColor@{bottomBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{bottomBorderColor()}{bottomBorderColor()}}
+{\footnotesize\ttfamily QColor Format\+::bottom\+Border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the bottom border color. \Hypertarget{class_format_a5e02f2b1c9ff322c1301c23fc3c1834e}\label{class_format_a5e02f2b1c9ff322c1301c23fc3c1834e} 
+\index{Format@{Format}!bottomBorderStyle@{bottomBorderStyle}}
+\index{bottomBorderStyle@{bottomBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{bottomBorderStyle()}{bottomBorderStyle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Format\+::\+Border\+Style}} Format\+::bottom\+Border\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the bottom border style. \Hypertarget{class_format_aa4bcb6e5f2bf5d3f9dd46bae53e88ea9}\label{class_format_aa4bcb6e5f2bf5d3f9dd46bae53e88ea9} 
+\index{Format@{Format}!clearProperty@{clearProperty}}
+\index{clearProperty@{clearProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{clearProperty()}{clearProperty()}}
+{\footnotesize\ttfamily void Format\+::clear\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_aca9a4ffb7893372ce8a252484a480dbe}\label{class_format_aca9a4ffb7893372ce8a252484a480dbe} 
+\index{Format@{Format}!colorProperty@{colorProperty}}
+\index{colorProperty@{colorProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{colorProperty()}{colorProperty()}}
+{\footnotesize\ttfamily QColor Format\+::color\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id,  }\item[{const QColor \&}]{default\+Value = {\ttfamily QColor()} }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_aa5001ae660ae63d5a548b8aa29151a3b}\label{class_format_aa5001ae660ae63d5a548b8aa29151a3b} 
+\index{Format@{Format}!diagonalBorderColor@{diagonalBorderColor}}
+\index{diagonalBorderColor@{diagonalBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{diagonalBorderColor()}{diagonalBorderColor()}}
+{\footnotesize\ttfamily QColor Format\+::diagonal\+Border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the diagonal border color. \Hypertarget{class_format_a3e4a858a09816cca6246521609c4065d}\label{class_format_a3e4a858a09816cca6246521609c4065d} 
+\index{Format@{Format}!diagonalBorderStyle@{diagonalBorderStyle}}
+\index{diagonalBorderStyle@{diagonalBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{diagonalBorderStyle()}{diagonalBorderStyle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Format\+::\+Border\+Style}} Format\+::diagonal\+Border\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the diagonla border style. \Hypertarget{class_format_a6c46851f6fa044a0ec187c8a3ebe654f}\label{class_format_a6c46851f6fa044a0ec187c8a3ebe654f} 
+\index{Format@{Format}!diagonalBorderType@{diagonalBorderType}}
+\index{diagonalBorderType@{diagonalBorderType}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{diagonalBorderType()}{diagonalBorderType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681f}{Format\+::\+Diagonal\+Border\+Type}} Format\+::diagonal\+Border\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the diagonal border type. \Hypertarget{class_format_ab5257ec48b11b832df52a9b684c941dc}\label{class_format_ab5257ec48b11b832df52a9b684c941dc} 
+\index{Format@{Format}!doubleProperty@{doubleProperty}}
+\index{doubleProperty@{doubleProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{doubleProperty()}{doubleProperty()}}
+{\footnotesize\ttfamily double Format\+::double\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id,  }\item[{double}]{default\+Value = {\ttfamily 0.0} }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a9c3420b0ac5de8aaf097f9b0acaf0878}\label{class_format_a9c3420b0ac5de8aaf097f9b0acaf0878} 
+\index{Format@{Format}!dxfIndex@{dxfIndex}}
+\index{dxfIndex@{dxfIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{dxfIndex()}{dxfIndex()}}
+{\footnotesize\ttfamily int Format\+::dxf\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a008761901172ff160f34b78b09dc2371}\label{class_format_a008761901172ff160f34b78b09dc2371} 
+\index{Format@{Format}!dxfIndexValid@{dxfIndexValid}}
+\index{dxfIndexValid@{dxfIndexValid}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{dxfIndexValid()}{dxfIndexValid()}}
+{\footnotesize\ttfamily bool Format\+::dxf\+Index\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a12039fddc12174e2ae2c44df3c634a0b}\label{class_format_a12039fddc12174e2ae2c44df3c634a0b} 
+\index{Format@{Format}!fillIndex@{fillIndex}}
+\index{fillIndex@{fillIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fillIndex()}{fillIndex()}}
+{\footnotesize\ttfamily int Format\+::fill\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a8e79698bd2c19d7df26c21e4c985143f}\label{class_format_a8e79698bd2c19d7df26c21e4c985143f} 
+\index{Format@{Format}!fillIndexValid@{fillIndexValid}}
+\index{fillIndexValid@{fillIndexValid}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fillIndexValid()}{fillIndexValid()}}
+{\footnotesize\ttfamily bool Format\+::fill\+Index\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a3180d4d554c5af9806a1f84fe66d9368}\label{class_format_a3180d4d554c5af9806a1f84fe66d9368} 
+\index{Format@{Format}!fillKey@{fillKey}}
+\index{fillKey@{fillKey}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fillKey()}{fillKey()}}
+{\footnotesize\ttfamily QByte\+Array Format\+::fill\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a2fcfe49d35e2adc55dcca288f0a7d84f}\label{class_format_a2fcfe49d35e2adc55dcca288f0a7d84f} 
+\index{Format@{Format}!fillPattern@{fillPattern}}
+\index{fillPattern@{fillPattern}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fillPattern()}{fillPattern()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632}{Format\+::\+Fill\+Pattern}} Format\+::fill\+Pattern (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the fill pattern. \Hypertarget{class_format_a7459582566bf9c7cd35acbea242e2582}\label{class_format_a7459582566bf9c7cd35acbea242e2582} 
+\index{Format@{Format}!fixNumberFormat@{fixNumberFormat}}
+\index{fixNumberFormat@{fixNumberFormat}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fixNumberFormat()}{fixNumberFormat()}}
+{\footnotesize\ttfamily void Format\+::fix\+Number\+Format (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{const QString \&}]{format }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_a3c23e600018102351b33c2c48c755d5e}\label{class_format_a3c23e600018102351b33c2c48c755d5e} 
+\index{Format@{Format}!font@{font}}
+\index{font@{font}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{font()}{font()}}
+{\footnotesize\ttfamily QFont Format\+::font (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns a QFont object based on font data contained in the format. \Hypertarget{class_format_af1c4716b49bb0217679c9421328cdd48}\label{class_format_af1c4716b49bb0217679c9421328cdd48} 
+\index{Format@{Format}!fontBold@{fontBold}}
+\index{fontBold@{fontBold}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontBold()}{fontBold()}}
+{\footnotesize\ttfamily bool Format\+::font\+Bold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether the font is bold. \Hypertarget{class_format_af8f52b9113f9364fcb424746441a4fb1}\label{class_format_af8f52b9113f9364fcb424746441a4fb1} 
+\index{Format@{Format}!fontColor@{fontColor}}
+\index{fontColor@{fontColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontColor()}{fontColor()}}
+{\footnotesize\ttfamily QColor Format\+::font\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the color of the font. \Hypertarget{class_format_afa28cc05bd2f873ec5f1d4d71369f92a}\label{class_format_afa28cc05bd2f873ec5f1d4d71369f92a} 
+\index{Format@{Format}!fontIndex@{fontIndex}}
+\index{fontIndex@{fontIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontIndex()}{fontIndex()}}
+{\footnotesize\ttfamily int Format\+::font\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a9953d123eb33eac240e3cfa5ebd3ce0e}\label{class_format_a9953d123eb33eac240e3cfa5ebd3ce0e} 
+\index{Format@{Format}!fontIndexValid@{fontIndexValid}}
+\index{fontIndexValid@{fontIndexValid}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontIndexValid()}{fontIndexValid()}}
+{\footnotesize\ttfamily bool Format\+::font\+Index\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a921d26c26925e10824b5d8c9cf5502db}\label{class_format_a921d26c26925e10824b5d8c9cf5502db} 
+\index{Format@{Format}!fontItalic@{fontItalic}}
+\index{fontItalic@{fontItalic}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontItalic()}{fontItalic()}}
+{\footnotesize\ttfamily bool Format\+::font\+Italic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether the font is italic. \Hypertarget{class_format_aced3e681248023d372090c7011cabd68}\label{class_format_aced3e681248023d372090c7011cabd68} 
+\index{Format@{Format}!fontKey@{fontKey}}
+\index{fontKey@{fontKey}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontKey()}{fontKey()}}
+{\footnotesize\ttfamily QByte\+Array Format\+::font\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_ab648c1adcdadb7057620e94dc314a098}\label{class_format_ab648c1adcdadb7057620e94dc314a098} 
+\index{Format@{Format}!fontName@{fontName}}
+\index{fontName@{fontName}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontName()}{fontName()}}
+{\footnotesize\ttfamily QString Format\+::font\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the name of the font. \Hypertarget{class_format_a477e8098fe2254faff4cbf69e9c61607}\label{class_format_a477e8098fe2254faff4cbf69e9c61607} 
+\index{Format@{Format}!fontOutline@{fontOutline}}
+\index{fontOutline@{fontOutline}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontOutline()}{fontOutline()}}
+{\footnotesize\ttfamily bool Format\+::font\+Outline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether the font is outline. \Hypertarget{class_format_aa16c9e74e01cfb16f77e5903027b3079}\label{class_format_aa16c9e74e01cfb16f77e5903027b3079} 
+\index{Format@{Format}!fontScript@{fontScript}}
+\index{fontScript@{fontScript}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontScript()}{fontScript()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5}{Format\+::\+Font\+Script}} Format\+::font\+Script (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the script style of the font. \Hypertarget{class_format_afab57516b9090394176c8f4ac1966051}\label{class_format_afab57516b9090394176c8f4ac1966051} 
+\index{Format@{Format}!fontSize@{fontSize}}
+\index{fontSize@{fontSize}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontSize()}{fontSize()}}
+{\footnotesize\ttfamily int Format\+::font\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the size of the font in points. \Hypertarget{class_format_a9225ec4adf7f3cf6f7cf5ff34a5f33ee}\label{class_format_a9225ec4adf7f3cf6f7cf5ff34a5f33ee} 
+\index{Format@{Format}!fontStrikeOut@{fontStrikeOut}}
+\index{fontStrikeOut@{fontStrikeOut}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontStrikeOut()}{fontStrikeOut()}}
+{\footnotesize\ttfamily bool Format\+::font\+Strike\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether the font is strikeout. \Hypertarget{class_format_a61237f5fa295db180a26cddd88d04952}\label{class_format_a61237f5fa295db180a26cddd88d04952} 
+\index{Format@{Format}!fontUnderline@{fontUnderline}}
+\index{fontUnderline@{fontUnderline}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{fontUnderline()}{fontUnderline()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0d}{Format\+::\+Font\+Underline}} Format\+::font\+Underline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the underline style of the font. \Hypertarget{class_format_a96e0e477930d1c66c33c3581a1cd421f}\label{class_format_a96e0e477930d1c66c33c3581a1cd421f} 
+\index{Format@{Format}!formatKey@{formatKey}}
+\index{formatKey@{formatKey}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{formatKey()}{formatKey()}}
+{\footnotesize\ttfamily QByte\+Array Format\+::format\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_afaac9b7ee4bb5988c817dbf99aaa36b3}\label{class_format_afaac9b7ee4bb5988c817dbf99aaa36b3} 
+\index{Format@{Format}!hasAlignmentData@{hasAlignmentData}}
+\index{hasAlignmentData@{hasAlignmentData}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hasAlignmentData()}{hasAlignmentData()}}
+{\footnotesize\ttfamily bool Format\+::has\+Alignment\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_acef68f760d0f0357dc71d05718f4305c}\label{class_format_acef68f760d0f0357dc71d05718f4305c} 
+\index{Format@{Format}!hasBorderData@{hasBorderData}}
+\index{hasBorderData@{hasBorderData}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hasBorderData()}{hasBorderData()}}
+{\footnotesize\ttfamily bool Format\+::has\+Border\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_aee75fdd93515b2076a63ee87f749c806}\label{class_format_aee75fdd93515b2076a63ee87f749c806} 
+\index{Format@{Format}!hasFillData@{hasFillData}}
+\index{hasFillData@{hasFillData}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hasFillData()}{hasFillData()}}
+{\footnotesize\ttfamily bool Format\+::has\+Fill\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_adc7f30d1f039c6cf17a48c3afceedc4f}\label{class_format_adc7f30d1f039c6cf17a48c3afceedc4f} 
+\index{Format@{Format}!hasFontData@{hasFontData}}
+\index{hasFontData@{hasFontData}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hasFontData()}{hasFontData()}}
+{\footnotesize\ttfamily bool Format\+::has\+Font\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_ad4e28c204e0d99c584a7c82ea260eb67}\label{class_format_ad4e28c204e0d99c584a7c82ea260eb67} 
+\index{Format@{Format}!hasNumFmtData@{hasNumFmtData}}
+\index{hasNumFmtData@{hasNumFmtData}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hasNumFmtData()}{hasNumFmtData()}}
+{\footnotesize\ttfamily bool Format\+::has\+Num\+Fmt\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_abdb7e98d8f6dd1b735defa7692e3e045}\label{class_format_abdb7e98d8f6dd1b735defa7692e3e045} 
+\index{Format@{Format}!hasProperty@{hasProperty}}
+\index{hasProperty@{hasProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hasProperty()}{hasProperty()}}
+{\footnotesize\ttfamily bool Format\+::has\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a7a6657e57b5153338567f8b2d67d30a4}\label{class_format_a7a6657e57b5153338567f8b2d67d30a4} 
+\index{Format@{Format}!hasProtectionData@{hasProtectionData}}
+\index{hasProtectionData@{hasProtectionData}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hasProtectionData()}{hasProtectionData()}}
+{\footnotesize\ttfamily bool Format\+::has\+Protection\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a9e2fabc3c6662bc52883e0b9a3b0e2b9}\label{class_format_a9e2fabc3c6662bc52883e0b9a3b0e2b9} 
+\index{Format@{Format}!hidden@{hidden}}
+\index{hidden@{hidden}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{hidden()}{hidden()}}
+{\footnotesize\ttfamily bool Format\+::hidden (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether the hidden protection property is set to true. \Hypertarget{class_format_a701a792473aa16231d194e0785c956e9}\label{class_format_a701a792473aa16231d194e0785c956e9} 
+\index{Format@{Format}!horizontalAlignment@{horizontalAlignment}}
+\index{horizontalAlignment@{horizontalAlignment}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{horizontalAlignment()}{horizontalAlignment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4}{Format\+::\+Horizontal\+Alignment}} Format\+::horizontal\+Alignment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the horizontal alignment. \Hypertarget{class_format_aa420ba134507682f94f4031717d0fb75}\label{class_format_aa420ba134507682f94f4031717d0fb75} 
+\index{Format@{Format}!indent@{indent}}
+\index{indent@{indent}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{indent()}{indent()}}
+{\footnotesize\ttfamily int Format\+::indent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the text indentation level. \Hypertarget{class_format_a4d984a973a452fbe06c44d2f8a876887}\label{class_format_a4d984a973a452fbe06c44d2f8a876887} 
+\index{Format@{Format}!intProperty@{intProperty}}
+\index{intProperty@{intProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{intProperty()}{intProperty()}}
+{\footnotesize\ttfamily int Format\+::int\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id,  }\item[{int}]{default\+Value = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_aaaa5e48b3c8ad12cd44575401eb4d990}\label{class_format_aaaa5e48b3c8ad12cd44575401eb4d990} 
+\index{Format@{Format}!isDateTimeFormat@{isDateTimeFormat}}
+\index{isDateTimeFormat@{isDateTimeFormat}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{isDateTimeFormat()}{isDateTimeFormat()}}
+{\footnotesize\ttfamily bool Format\+::is\+Date\+Time\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether the number format is probably a date\+Time or not \Hypertarget{class_format_a5f5f8a5dfe6438fb0dfcb606b2bc749a}\label{class_format_a5f5f8a5dfe6438fb0dfcb606b2bc749a} 
+\index{Format@{Format}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily bool Format\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true if the format is empty; otherwise returns false. \Hypertarget{class_format_a7817a6ff9727d2d5a888df3ceffa2626}\label{class_format_a7817a6ff9727d2d5a888df3ceffa2626} 
+\index{Format@{Format}!isValid@{isValid}}
+\index{isValid@{isValid}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Format\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true if the format is valid; otherwise returns false. \Hypertarget{class_format_a035895e4bc10e4dce491700999dff007}\label{class_format_a035895e4bc10e4dce491700999dff007} 
+\index{Format@{Format}!leftBorderColor@{leftBorderColor}}
+\index{leftBorderColor@{leftBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{leftBorderColor()}{leftBorderColor()}}
+{\footnotesize\ttfamily QColor Format\+::left\+Border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the left border color \Hypertarget{class_format_ac5df8fafe11d3aef32706c021d287970}\label{class_format_ac5df8fafe11d3aef32706c021d287970} 
+\index{Format@{Format}!leftBorderStyle@{leftBorderStyle}}
+\index{leftBorderStyle@{leftBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{leftBorderStyle()}{leftBorderStyle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Format\+::\+Border\+Style}} Format\+::left\+Border\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the left border style \Hypertarget{class_format_a04bc87b6ac7487770a5f44bda8ab2f59}\label{class_format_a04bc87b6ac7487770a5f44bda8ab2f59} 
+\index{Format@{Format}!locked@{locked}}
+\index{locked@{locked}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{locked()}{locked()}}
+{\footnotesize\ttfamily bool Format\+::locked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether the locked protection property is set to true. \Hypertarget{class_format_aeb7eca5bc3d4c20c1d274eac5d6046a3}\label{class_format_aeb7eca5bc3d4c20c1d274eac5d6046a3} 
+\index{Format@{Format}!mergeFormat@{mergeFormat}}
+\index{mergeFormat@{mergeFormat}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{mergeFormat()}{mergeFormat()}}
+{\footnotesize\ttfamily void Format\+::merge\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{modifier }\end{DoxyParamCaption})}
+
+Merges the current format with the properties described by format {\itshape modifier}. \Hypertarget{class_format_a8b762b75adba3de373b501cf395e3348}\label{class_format_a8b762b75adba3de373b501cf395e3348} 
+\index{Format@{Format}!numberFormat@{numberFormat}}
+\index{numberFormat@{numberFormat}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{numberFormat()}{numberFormat()}}
+{\footnotesize\ttfamily QString Format\+::number\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the number format string. \begin{DoxyNote}{Note}
+for built-\/in number formats, this may return an empty string. 
+\end{DoxyNote}
+\Hypertarget{class_format_a67e8e2a282fe126bb3a738e5fa9763cd}\label{class_format_a67e8e2a282fe126bb3a738e5fa9763cd} 
+\index{Format@{Format}!numberFormatIndex@{numberFormatIndex}}
+\index{numberFormatIndex@{numberFormatIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{numberFormatIndex()}{numberFormatIndex()}}
+{\footnotesize\ttfamily int Format\+::number\+Format\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the number format identifier. \Hypertarget{class_format_ae475b410ff4463bdf1108627291961f3}\label{class_format_ae475b410ff4463bdf1108627291961f3} 
+\index{Format@{Format}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Format\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption}) const}
+
+Returns ture if the {\itshape format} is not equal to this format. \Hypertarget{class_format_a9385d2a62495cc1d22ec599102d417b1}\label{class_format_a9385d2a62495cc1d22ec599102d417b1} 
+\index{Format@{Format}!operator=@{operator=}}
+\index{operator=@{operator=}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} \& Format\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{other }\end{DoxyParamCaption})}
+
+Assigns the {\itshape other} format to this format, and returns a reference to this format. \Hypertarget{class_format_a8f25f4785afd409b632f9a60abb59aca}\label{class_format_a8f25f4785afd409b632f9a60abb59aca} 
+\index{Format@{Format}!operator==@{operator==}}
+\index{operator==@{operator==}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Format\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption}) const}
+
+Returns ture if the {\itshape format} is equal to this format. \Hypertarget{class_format_a2475957614fc10341a09ac9baf094ffe}\label{class_format_a2475957614fc10341a09ac9baf094ffe} 
+\index{Format@{Format}!patternBackgroundColor@{patternBackgroundColor}}
+\index{patternBackgroundColor@{patternBackgroundColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{patternBackgroundColor()}{patternBackgroundColor()}}
+{\footnotesize\ttfamily QColor Format\+::pattern\+Background\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the background color of the pattern. \Hypertarget{class_format_ae0276803b1b28aed82aef03a02fb566e}\label{class_format_ae0276803b1b28aed82aef03a02fb566e} 
+\index{Format@{Format}!patternForegroundColor@{patternForegroundColor}}
+\index{patternForegroundColor@{patternForegroundColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{patternForegroundColor()}{patternForegroundColor()}}
+{\footnotesize\ttfamily QColor Format\+::pattern\+Foreground\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the foreground color of the pattern. \Hypertarget{class_format_a4b21b1bf7d538d1b1d88f174ce8d9020}\label{class_format_a4b21b1bf7d538d1b1d88f174ce8d9020} 
+\index{Format@{Format}!property@{property}}
+\index{property@{property}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{property()}{property()}}
+{\footnotesize\ttfamily QVariant Format\+::property (\begin{DoxyParamCaption}\item[{int}]{property\+Id,  }\item[{const QVariant \&}]{default\+Value = {\ttfamily QVariant()} }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a484f98d24f311b853ab3c0a7731f46f8}\label{class_format_a484f98d24f311b853ab3c0a7731f46f8} 
+\index{Format@{Format}!rightBorderColor@{rightBorderColor}}
+\index{rightBorderColor@{rightBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{rightBorderColor()}{rightBorderColor()}}
+{\footnotesize\ttfamily QColor Format\+::right\+Border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the right border color. \Hypertarget{class_format_a5cae7f152d5427034dc076df939197b2}\label{class_format_a5cae7f152d5427034dc076df939197b2} 
+\index{Format@{Format}!rightBorderStyle@{rightBorderStyle}}
+\index{rightBorderStyle@{rightBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{rightBorderStyle()}{rightBorderStyle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Format\+::\+Border\+Style}} Format\+::right\+Border\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the right border style. \Hypertarget{class_format_a447d1f1148b32b986917dd03aa6dce49}\label{class_format_a447d1f1148b32b986917dd03aa6dce49} 
+\index{Format@{Format}!rotation@{rotation}}
+\index{rotation@{rotation}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{rotation()}{rotation()}}
+{\footnotesize\ttfamily int Format\+::rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the text rotation. \Hypertarget{class_format_a863a7f7d744d58f4aa9e2073f2e1109f}\label{class_format_a863a7f7d744d58f4aa9e2073f2e1109f} 
+\index{Format@{Format}!setBorderColor@{setBorderColor}}
+\index{setBorderColor@{setBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setBorderColor()}{setBorderColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Border\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the border color with the given {\itshape color}. \Hypertarget{class_format_a8c0a134dd6ab0d9a5f05b1aa37e40d03}\label{class_format_a8c0a134dd6ab0d9a5f05b1aa37e40d03} 
+\index{Format@{Format}!setBorderIndex@{setBorderIndex}}
+\index{setBorderIndex@{setBorderIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setBorderIndex()}{setBorderIndex()}}
+{\footnotesize\ttfamily void Format\+::set\+Border\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_a6b5d9ed0e587d1de9f5aa27fa4d442a5}\label{class_format_a6b5d9ed0e587d1de9f5aa27fa4d442a5} 
+\index{Format@{Format}!setBorderStyle@{setBorderStyle}}
+\index{setBorderStyle@{setBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setBorderStyle()}{setBorderStyle()}}
+{\footnotesize\ttfamily void Format\+::set\+Border\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}}}]{style }\end{DoxyParamCaption})}
+
+Set the border style with the given {\itshape style}. \Hypertarget{class_format_abbe89bf420e748c35484db79a0b16b9d}\label{class_format_abbe89bf420e748c35484db79a0b16b9d} 
+\index{Format@{Format}!setBottomBorderColor@{setBottomBorderColor}}
+\index{setBottomBorderColor@{setBottomBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setBottomBorderColor()}{setBottomBorderColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Bottom\+Border\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the bottom border color to the given {\itshape color}. \Hypertarget{class_format_a12c9f222fe0f0da93e0f5c644c8e2d7f}\label{class_format_a12c9f222fe0f0da93e0f5c644c8e2d7f} 
+\index{Format@{Format}!setBottomBorderStyle@{setBottomBorderStyle}}
+\index{setBottomBorderStyle@{setBottomBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setBottomBorderStyle()}{setBottomBorderStyle()}}
+{\footnotesize\ttfamily void Format\+::set\+Bottom\+Border\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}}}]{style }\end{DoxyParamCaption})}
+
+Sets the bottom border style to the given {\itshape style}. \Hypertarget{class_format_acd5d15d4f86d8cfe56146127deb4e40a}\label{class_format_acd5d15d4f86d8cfe56146127deb4e40a} 
+\index{Format@{Format}!setDiagonalBorderColor@{setDiagonalBorderColor}}
+\index{setDiagonalBorderColor@{setDiagonalBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setDiagonalBorderColor()}{setDiagonalBorderColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Diagonal\+Border\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the diagonal border color to the given {\itshape color} \Hypertarget{class_format_ada4dd192ecb616bc80e97dc688fb92a6}\label{class_format_ada4dd192ecb616bc80e97dc688fb92a6} 
+\index{Format@{Format}!setDiagonalBorderStyle@{setDiagonalBorderStyle}}
+\index{setDiagonalBorderStyle@{setDiagonalBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setDiagonalBorderStyle()}{setDiagonalBorderStyle()}}
+{\footnotesize\ttfamily void Format\+::set\+Diagonal\+Border\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}}}]{style }\end{DoxyParamCaption})}
+
+Sets the diagonal border style to the given {\itshape style}. \Hypertarget{class_format_a2c182a02f781f4fb00cf0e7ab3c353d5}\label{class_format_a2c182a02f781f4fb00cf0e7ab3c353d5} 
+\index{Format@{Format}!setDiagonalBorderType@{setDiagonalBorderType}}
+\index{setDiagonalBorderType@{setDiagonalBorderType}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setDiagonalBorderType()}{setDiagonalBorderType()}}
+{\footnotesize\ttfamily void Format\+::set\+Diagonal\+Border\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_a598471717b09dbf8677e67152923681f}{Diagonal\+Border\+Type}}}]{style }\end{DoxyParamCaption})}
+
+Sets the diagonal border type to the given {\itshape style} \Hypertarget{class_format_a3c04ae41e51b9ae36fd54b37b68c4566}\label{class_format_a3c04ae41e51b9ae36fd54b37b68c4566} 
+\index{Format@{Format}!setDxfIndex@{setDxfIndex}}
+\index{setDxfIndex@{setDxfIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setDxfIndex()}{setDxfIndex()}}
+{\footnotesize\ttfamily void Format\+::set\+Dxf\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_a7411b9d553c0e6e6980e0f4090814b69}\label{class_format_a7411b9d553c0e6e6980e0f4090814b69} 
+\index{Format@{Format}!setFillIndex@{setFillIndex}}
+\index{setFillIndex@{setFillIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFillIndex()}{setFillIndex()}}
+{\footnotesize\ttfamily void Format\+::set\+Fill\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_a6e2f9e3ed29d78b37049c96e21d6e023}\label{class_format_a6e2f9e3ed29d78b37049c96e21d6e023} 
+\index{Format@{Format}!setFillPattern@{setFillPattern}}
+\index{setFillPattern@{setFillPattern}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFillPattern()}{setFillPattern()}}
+{\footnotesize\ttfamily void Format\+::set\+Fill\+Pattern (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_a3c5cf299883d159748a35aae8c10b632}{Fill\+Pattern}}}]{pattern }\end{DoxyParamCaption})}
+
+Sets the fill pattern to the given {\itshape pattern}. \Hypertarget{class_format_a50c1978dd75705d7bc1802d3a3732c7c}\label{class_format_a50c1978dd75705d7bc1802d3a3732c7c} 
+\index{Format@{Format}!setFont@{setFont}}
+\index{setFont@{setFont}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFont()}{setFont()}}
+{\footnotesize\ttfamily void Format\+::set\+Font (\begin{DoxyParamCaption}\item[{const QFont \&}]{font }\end{DoxyParamCaption})}
+
+Set the format properties from the given {\itshape font}. \Hypertarget{class_format_aa69688e9c3b7fa202641dd653006762e}\label{class_format_aa69688e9c3b7fa202641dd653006762e} 
+\index{Format@{Format}!setFontBold@{setFontBold}}
+\index{setFontBold@{setFontBold}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontBold()}{setFontBold()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Bold (\begin{DoxyParamCaption}\item[{bool}]{bold }\end{DoxyParamCaption})}
+
+Turn on/off the bold font based on the given {\itshape bold}. \Hypertarget{class_format_aba03d26029cc36502f55c38d0f404834}\label{class_format_aba03d26029cc36502f55c38d0f404834} 
+\index{Format@{Format}!setFontColor@{setFontColor}}
+\index{setFontColor@{setFontColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontColor()}{setFontColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Set the {\itshape color} of the font. \Hypertarget{class_format_acb11b0d30ec41d2793724a0da2bbcc41}\label{class_format_acb11b0d30ec41d2793724a0da2bbcc41} 
+\index{Format@{Format}!setFontIndex@{setFontIndex}}
+\index{setFontIndex@{setFontIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontIndex()}{setFontIndex()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_a9c9e959fb2df6a5bf52d6c3c6524b3a7}\label{class_format_a9c9e959fb2df6a5bf52d6c3c6524b3a7} 
+\index{Format@{Format}!setFontItalic@{setFontItalic}}
+\index{setFontItalic@{setFontItalic}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontItalic()}{setFontItalic()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Italic (\begin{DoxyParamCaption}\item[{bool}]{italic }\end{DoxyParamCaption})}
+
+Turn on/off the italic font based on {\itshape italic}. \Hypertarget{class_format_a88345e519d537b402ee3e705a63a2a1f}\label{class_format_a88345e519d537b402ee3e705a63a2a1f} 
+\index{Format@{Format}!setFontName@{setFontName}}
+\index{setFontName@{setFontName}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontName()}{setFontName()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Name (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+Set the name of the font to {\itshape name}. \Hypertarget{class_format_a989ba59118e5ee5fbc2bdf3363ff8e3e}\label{class_format_a989ba59118e5ee5fbc2bdf3363ff8e3e} 
+\index{Format@{Format}!setFontOutline@{setFontOutline}}
+\index{setFontOutline@{setFontOutline}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontOutline()}{setFontOutline()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Outline (\begin{DoxyParamCaption}\item[{bool}]{outline }\end{DoxyParamCaption})}
+
+Turn on/off the outline font based on {\itshape outline}. \Hypertarget{class_format_a4cf7f0fe4bc1d8cf34c6dd9caf854cfc}\label{class_format_a4cf7f0fe4bc1d8cf34c6dd9caf854cfc} 
+\index{Format@{Format}!setFontScript@{setFontScript}}
+\index{setFontScript@{setFontScript}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontScript()}{setFontScript()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Script (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_ad5b99a6c566a3ba7574195a1700f90e5}{Font\+Script}}}]{script }\end{DoxyParamCaption})}
+
+Set the script style of the font to {\itshape script}. \Hypertarget{class_format_a9854da642eea8564f7467a2e3ef2d23c}\label{class_format_a9854da642eea8564f7467a2e3ef2d23c} 
+\index{Format@{Format}!setFontSize@{setFontSize}}
+\index{setFontSize@{setFontSize}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontSize()}{setFontSize()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Size (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+Set the {\itshape size} of the font in points. \Hypertarget{class_format_aa2713f596e38b016a11170a9927c6371}\label{class_format_aa2713f596e38b016a11170a9927c6371} 
+\index{Format@{Format}!setFontStrikeOut@{setFontStrikeOut}}
+\index{setFontStrikeOut@{setFontStrikeOut}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontStrikeOut()}{setFontStrikeOut()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Strike\+Out (\begin{DoxyParamCaption}\item[{bool}]{strike\+Out }\end{DoxyParamCaption})}
+
+Turn on/off the strike\+Out font based on {\itshape strike\+Out}. \Hypertarget{class_format_aad762135e0f2e4d9dc2bade32af6e8a8}\label{class_format_aad762135e0f2e4d9dc2bade32af6e8a8} 
+\index{Format@{Format}!setFontUnderline@{setFontUnderline}}
+\index{setFontUnderline@{setFontUnderline}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setFontUnderline()}{setFontUnderline()}}
+{\footnotesize\ttfamily void Format\+::set\+Font\+Underline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_a8ffdafd941533be717f2e61110535b0d}{Font\+Underline}}}]{underline }\end{DoxyParamCaption})}
+
+Set the underline style of the font to {\itshape underline}. \Hypertarget{class_format_a3f3bb3157cbaaf5dd9535269deae5035}\label{class_format_a3f3bb3157cbaaf5dd9535269deae5035} 
+\index{Format@{Format}!setHidden@{setHidden}}
+\index{setHidden@{setHidden}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setHidden()}{setHidden()}}
+{\footnotesize\ttfamily void Format\+::set\+Hidden (\begin{DoxyParamCaption}\item[{bool}]{hidden }\end{DoxyParamCaption})}
+
+Sets the hidden protection property with the given {\itshape hidden}. \Hypertarget{class_format_a5d739b62bac43a241cc18b84f21f87ca}\label{class_format_a5d739b62bac43a241cc18b84f21f87ca} 
+\index{Format@{Format}!setHorizontalAlignment@{setHorizontalAlignment}}
+\index{setHorizontalAlignment@{setHorizontalAlignment}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setHorizontalAlignment()}{setHorizontalAlignment()}}
+{\footnotesize\ttfamily void Format\+::set\+Horizontal\+Alignment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_a099f263fec68f5aa44f3a3357df415d4}{Horizontal\+Alignment}}}]{align }\end{DoxyParamCaption})}
+
+Set the horizontal alignment with the given {\itshape align}. \Hypertarget{class_format_a7aa338cca8fcad3eff785b94af489f54}\label{class_format_a7aa338cca8fcad3eff785b94af489f54} 
+\index{Format@{Format}!setIndent@{setIndent}}
+\index{setIndent@{setIndent}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setIndent()}{setIndent()}}
+{\footnotesize\ttfamily void Format\+::set\+Indent (\begin{DoxyParamCaption}\item[{int}]{indent }\end{DoxyParamCaption})}
+
+Set the text indentation level with the given {\itshape indent}. Must be less than or equal to 15. \Hypertarget{class_format_afc2bf8a72f84fb6aea9a8e32ba0320ac}\label{class_format_afc2bf8a72f84fb6aea9a8e32ba0320ac} 
+\index{Format@{Format}!setLeftBorderColor@{setLeftBorderColor}}
+\index{setLeftBorderColor@{setLeftBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setLeftBorderColor()}{setLeftBorderColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Left\+Border\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the left border color to the given {\itshape color} \Hypertarget{class_format_a50cb6f018d96167239feb1017e66cd0e}\label{class_format_a50cb6f018d96167239feb1017e66cd0e} 
+\index{Format@{Format}!setLeftBorderStyle@{setLeftBorderStyle}}
+\index{setLeftBorderStyle@{setLeftBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setLeftBorderStyle()}{setLeftBorderStyle()}}
+{\footnotesize\ttfamily void Format\+::set\+Left\+Border\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}}}]{style }\end{DoxyParamCaption})}
+
+Sets the left border style to {\itshape style} \Hypertarget{class_format_adb8f8953050d6c526248dd42f4fa2723}\label{class_format_adb8f8953050d6c526248dd42f4fa2723} 
+\index{Format@{Format}!setLocked@{setLocked}}
+\index{setLocked@{setLocked}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setLocked()}{setLocked()}}
+{\footnotesize\ttfamily void Format\+::set\+Locked (\begin{DoxyParamCaption}\item[{bool}]{locked }\end{DoxyParamCaption})}
+
+Sets the locked protection property with the given {\itshape locked}. \Hypertarget{class_format_a2d75b9294958a04a5940a2ecd37abb9b}\label{class_format_a2d75b9294958a04a5940a2ecd37abb9b} 
+\index{Format@{Format}!setNumberFormat@{setNumberFormat}}
+\index{setNumberFormat@{setNumberFormat}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setNumberFormat()}{setNumberFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Format\+::set\+Number\+Format (\begin{DoxyParamCaption}\item[{const QString \&}]{format }\end{DoxyParamCaption})}
+
+Set number {\itshape format}. \href{http://office.microsoft.com/en-001/excel-help/create-a-custom-number-format-HP010342372.aspx}{\texttt{ http\+://office.\+microsoft.\+com/en-\/001/excel-\/help/create-\/a-\/custom-\/number-\/format-\/\+HP010342372.\+aspx}} \Hypertarget{class_format_ad2977936318b3913fd2daad715e6c625}\label{class_format_ad2977936318b3913fd2daad715e6c625} 
+\index{Format@{Format}!setNumberFormat@{setNumberFormat}}
+\index{setNumberFormat@{setNumberFormat}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setNumberFormat()}{setNumberFormat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Format\+::set\+Number\+Format (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{const QString \&}]{format }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_a704761d0ba9d3992a6803ac57e24d72a}\label{class_format_a704761d0ba9d3992a6803ac57e24d72a} 
+\index{Format@{Format}!setNumberFormatIndex@{setNumberFormatIndex}}
+\index{setNumberFormatIndex@{setNumberFormatIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setNumberFormatIndex()}{setNumberFormatIndex()}}
+{\footnotesize\ttfamily void Format\+::set\+Number\+Format\+Index (\begin{DoxyParamCaption}\item[{int}]{format }\end{DoxyParamCaption})}
+
+Set the number format identifier. The {\itshape format} must be a valid built-\/in number format identifier or the identifier of a custom number format. \Hypertarget{class_format_a97bf31b30b6a81b02e1e120adb9600f8}\label{class_format_a97bf31b30b6a81b02e1e120adb9600f8} 
+\index{Format@{Format}!setPatternBackgroundColor@{setPatternBackgroundColor}}
+\index{setPatternBackgroundColor@{setPatternBackgroundColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setPatternBackgroundColor()}{setPatternBackgroundColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Pattern\+Background\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the background color of the pattern with the given {\itshape color}. \Hypertarget{class_format_ac79ae8aa56833bc936f16762d07b2c96}\label{class_format_ac79ae8aa56833bc936f16762d07b2c96} 
+\index{Format@{Format}!setPatternForegroundColor@{setPatternForegroundColor}}
+\index{setPatternForegroundColor@{setPatternForegroundColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setPatternForegroundColor()}{setPatternForegroundColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Pattern\+Foreground\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the foreground color of the pattern with the given {\itshape color}. \Hypertarget{class_format_aee6a57ef47164dd48505c031f46532e4}\label{class_format_aee6a57ef47164dd48505c031f46532e4} 
+\index{Format@{Format}!setProperty@{setProperty}}
+\index{setProperty@{setProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setProperty()}{setProperty()}}
+{\footnotesize\ttfamily void Format\+::set\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id,  }\item[{const QVariant \&}]{value,  }\item[{const QVariant \&}]{clear\+Value = {\ttfamily QVariant()},  }\item[{bool}]{detach = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_a80187c906f17625ff14a841e06d3f9a2}\label{class_format_a80187c906f17625ff14a841e06d3f9a2} 
+\index{Format@{Format}!setRightBorderColor@{setRightBorderColor}}
+\index{setRightBorderColor@{setRightBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setRightBorderColor()}{setRightBorderColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Right\+Border\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the right border color to the given {\itshape color} \Hypertarget{class_format_aa2efa76f6397ca2c161c6d849b291d09}\label{class_format_aa2efa76f6397ca2c161c6d849b291d09} 
+\index{Format@{Format}!setRightBorderStyle@{setRightBorderStyle}}
+\index{setRightBorderStyle@{setRightBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setRightBorderStyle()}{setRightBorderStyle()}}
+{\footnotesize\ttfamily void Format\+::set\+Right\+Border\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}}}]{style }\end{DoxyParamCaption})}
+
+Sets the right border style to the given {\itshape style}. \Hypertarget{class_format_ace7a51f1f66b2592f121c7b36d3d3880}\label{class_format_ace7a51f1f66b2592f121c7b36d3d3880} 
+\index{Format@{Format}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily void Format\+::set\+Rotation (\begin{DoxyParamCaption}\item[{int}]{rotation }\end{DoxyParamCaption})}
+
+Set the text roation with the given {\itshape rotation}. Must be in the range \mbox{[}0, 180\mbox{]} or 255. \Hypertarget{class_format_a2d65199e4b5645d5dbf5dfe6d0aaf50b}\label{class_format_a2d65199e4b5645d5dbf5dfe6d0aaf50b} 
+\index{Format@{Format}!setShrinkToFit@{setShrinkToFit}}
+\index{setShrinkToFit@{setShrinkToFit}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setShrinkToFit()}{setShrinkToFit()}}
+{\footnotesize\ttfamily void Format\+::set\+Shrink\+To\+Fit (\begin{DoxyParamCaption}\item[{bool}]{shink }\end{DoxyParamCaption})}
+
+Turn on/off shrink to fit base on {\itshape shink}. \Hypertarget{class_format_a601afb7a2abf80514560cb932e0d6d80}\label{class_format_a601afb7a2abf80514560cb932e0d6d80} 
+\index{Format@{Format}!setTextWarp@{setTextWarp}}
+\index{setTextWarp@{setTextWarp}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setTextWarp()}{setTextWarp()}}
+{\footnotesize\ttfamily void Format\+::set\+Text\+Warp (\begin{DoxyParamCaption}\item[{bool}]{wrap }\end{DoxyParamCaption})}
+
+Enable the text wrap if {\itshape wrap} is true. \Hypertarget{class_format_ab1f5b38616e04a59e1e0d1154e718435}\label{class_format_ab1f5b38616e04a59e1e0d1154e718435} 
+\index{Format@{Format}!setTopBorderColor@{setTopBorderColor}}
+\index{setTopBorderColor@{setTopBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setTopBorderColor()}{setTopBorderColor()}}
+{\footnotesize\ttfamily void Format\+::set\+Top\+Border\+Color (\begin{DoxyParamCaption}\item[{const QColor \&}]{color }\end{DoxyParamCaption})}
+
+Sets the top border color to the given {\itshape color}. \Hypertarget{class_format_aa9762b178a11484b2341a35d8f41977b}\label{class_format_aa9762b178a11484b2341a35d8f41977b} 
+\index{Format@{Format}!setTopBorderStyle@{setTopBorderStyle}}
+\index{setTopBorderStyle@{setTopBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setTopBorderStyle()}{setTopBorderStyle()}}
+{\footnotesize\ttfamily void Format\+::set\+Top\+Border\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Border\+Style}}}]{style }\end{DoxyParamCaption})}
+
+Sets the top border style to the given {\itshape style}. \Hypertarget{class_format_adbbce2e6f225693358efcccb9c424f25}\label{class_format_adbbce2e6f225693358efcccb9c424f25} 
+\index{Format@{Format}!setVerticalAlignment@{setVerticalAlignment}}
+\index{setVerticalAlignment@{setVerticalAlignment}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setVerticalAlignment()}{setVerticalAlignment()}}
+{\footnotesize\ttfamily void Format\+::set\+Vertical\+Alignment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ce}{Vertical\+Alignment}}}]{align }\end{DoxyParamCaption})}
+
+Set the vertical alignment with the given {\itshape align}. \Hypertarget{class_format_afc6c0ec356fc2ddc6665ffb8108121ed}\label{class_format_afc6c0ec356fc2ddc6665ffb8108121ed} 
+\index{Format@{Format}!setXfIndex@{setXfIndex}}
+\index{setXfIndex@{setXfIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{setXfIndex()}{setXfIndex()}}
+{\footnotesize\ttfamily void Format\+::set\+Xf\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{class_format_ac9ddb7364271d461806af7c80ed4d27b}\label{class_format_ac9ddb7364271d461806af7c80ed4d27b} 
+\index{Format@{Format}!shrinkToFit@{shrinkToFit}}
+\index{shrinkToFit@{shrinkToFit}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{shrinkToFit()}{shrinkToFit()}}
+{\footnotesize\ttfamily bool Format\+::shrink\+To\+Fit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether the cell is shrink to fit. \Hypertarget{class_format_a0d4ead5d61ce778db7f0135bd555d1eb}\label{class_format_a0d4ead5d61ce778db7f0135bd555d1eb} 
+\index{Format@{Format}!stringProperty@{stringProperty}}
+\index{stringProperty@{stringProperty}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{stringProperty()}{stringProperty()}}
+{\footnotesize\ttfamily QString Format\+::string\+Property (\begin{DoxyParamCaption}\item[{int}]{property\+Id,  }\item[{const QString \&}]{default\+Value = {\ttfamily QString()} }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a1ac5107de0b3b296a553a66658d38e31}\label{class_format_a1ac5107de0b3b296a553a66658d38e31} 
+\index{Format@{Format}!textWrap@{textWrap}}
+\index{textWrap@{textWrap}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{textWrap()}{textWrap()}}
+{\footnotesize\ttfamily bool Format\+::text\+Wrap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return whether the cell text is wrapped. \Hypertarget{class_format_afe8f49ec3816fb0188f2da2afcdda003}\label{class_format_afe8f49ec3816fb0188f2da2afcdda003} 
+\index{Format@{Format}!topBorderColor@{topBorderColor}}
+\index{topBorderColor@{topBorderColor}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{topBorderColor()}{topBorderColor()}}
+{\footnotesize\ttfamily QColor Format\+::top\+Border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the top border color. \Hypertarget{class_format_ac4d64d075a84082d5a352c55170ed88c}\label{class_format_ac4d64d075a84082d5a352c55170ed88c} 
+\index{Format@{Format}!topBorderStyle@{topBorderStyle}}
+\index{topBorderStyle@{topBorderStyle}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{topBorderStyle()}{topBorderStyle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_aed0d4cb3f4f4ff99b3adf0d950cda50a}{Format\+::\+Border\+Style}} Format\+::top\+Border\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the top border style. \Hypertarget{class_format_aca62fbff9e4faa1be9b3b3e1f76b479a}\label{class_format_aca62fbff9e4faa1be9b3b3e1f76b479a} 
+\index{Format@{Format}!verticalAlignment@{verticalAlignment}}
+\index{verticalAlignment@{verticalAlignment}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{verticalAlignment()}{verticalAlignment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format_a081ed61ecb553b32c0543034a153b1ce}{Format\+::\+Vertical\+Alignment}} Format\+::vertical\+Alignment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Return the vertical alignment. \Hypertarget{class_format_a992c7bfe598da85ec9b17a6ee53703e6}\label{class_format_a992c7bfe598da85ec9b17a6ee53703e6} 
+\index{Format@{Format}!xfIndex@{xfIndex}}
+\index{xfIndex@{xfIndex}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{xfIndex()}{xfIndex()}}
+{\footnotesize\ttfamily int Format\+::xf\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_format_a0157cfd3beb8b859b32ac1b266d3cb9c}\label{class_format_a0157cfd3beb8b859b32ac1b266d3cb9c} 
+\index{Format@{Format}!xfIndexValid@{xfIndexValid}}
+\index{xfIndexValid@{xfIndexValid}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{xfIndexValid()}{xfIndexValid()}}
+{\footnotesize\ttfamily bool Format\+::xf\+Index\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_format_aea9fbb3f36c70267a395b971601fadcc}\label{class_format_aea9fbb3f36c70267a395b971601fadcc} 
+\index{Format@{Format}!::FormatTest@{::FormatTest}}
+\index{::FormatTest@{::FormatTest}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{::FormatTest}{::FormatTest}}
+{\footnotesize\ttfamily friend class \+::\+Format\+Test\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_format_a3294435673272f6c43ca5be71d505307}\label{class_format_a3294435673272f6c43ca5be71d505307} 
+\index{Format@{Format}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} QDebug operator$<$$<$ (\begin{DoxyParamCaption}\item[{QDebug}]{,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_format_a4d808f4d507e384a40bfa83dad62b61a}\label{class_format_a4d808f4d507e384a40bfa83dad62b61a} 
+\index{Format@{Format}!Styles@{Styles}}
+\index{Styles@{Styles}!Format@{Format}}
+\doxysubsubsection{\texorpdfstring{Styles}{Styles}}
+{\footnotesize\ttfamily friend class Styles\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxformat_8h}{xlsxformat.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxformat_8cpp}{xlsxformat.\+cpp}}\end{DoxyCompactItemize}

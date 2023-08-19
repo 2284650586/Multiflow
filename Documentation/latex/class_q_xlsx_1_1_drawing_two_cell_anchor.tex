@@ -1,0 +1,162 @@
+\doxysection{QXlsx\+::Drawing\+Two\+Cell\+Anchor Class Reference}
+\hypertarget{class_q_xlsx_1_1_drawing_two_cell_anchor}{}\label{class_q_xlsx_1_1_drawing_two_cell_anchor}\index{QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}}
+
+
+{\ttfamily \#include $<$xlsxdrawinganchor\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Drawing\+Two\+Cell\+Anchor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_xlsx_1_1_drawing_two_cell_anchor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_two_cell_anchor_af487386219609d3644e7849ceb5e8ebc}{Drawing\+Two\+Cell\+Anchor}} (\mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} \texorpdfstring{$\ast$}{*}drawing, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} object\+Type=\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa4dd1850bb9aa14bf400e1077f349c109}{Unknown}})
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_drawing_two_cell_anchor_a999a21f75c7fce3509c11f846ce6d914}{load\+From\+Xml}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_two_cell_anchor_aabb968c2ef89bc7a9c7a46cd7b12388a}{save\+To\+Xml}} (QXml\+Stream\+Writer \&writer) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor}{QXlsx\+::\+Drawing\+Anchor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a0b79b5c3564eb5104d5ff33975cebb33}{Drawing\+Anchor}} (\mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} \texorpdfstring{$\ast$}{*}drawing, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} object\+Type)
+\item 
+virtual \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_af5276f1e2608cca834242056c44aee9a}{\texorpdfstring{$\sim$}{\string~}\+Drawing\+Anchor}} ()
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aefa199480a5401c318704c20c0aa2cef}{set\+Object\+Picture}} (const QImage \&img)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aeb261d0c505fcc87fd8e06f55a89adba}{set\+Object\+Graphic\+Frame}} (QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$ chart)
+\item 
+virtual bool \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aa1b44b7f043098c1ef280bb59158aa02}{load\+From\+Xml}} (QXml\+Stream\+Reader \&reader)=0
+\item 
+virtual void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a39383d9689dc9e3a83d8033be0d2e3e7}{save\+To\+Xml}} (QXml\+Stream\+Writer \&writer) const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_two_cell_anchor_a49ee91c3bae9ad059e4a5fade3469a90}{from}}
+\item 
+\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_two_cell_anchor_a84767457e4aaba84d9678b115bc78461}{to}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor}{QXlsx\+::\+Drawing\+Anchor}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} \{ \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aac11b7d0fa58dc050cbcc37104bbbca44}{Graphic\+Frame}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa074ec82f00a4dc35ff33d77f360cc352}{Shape}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa92a9d5576a60feb34bc8d757198a6ab5}{Group\+Shape}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aaf4d85672ddbcd6fdcdee7dbdb953ab96}{Connection\+Shape}}
+, \newline
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa609c5f6dc915870ea4085758c5e3f176}{Picture}}
+, \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa4dd1850bb9aa14bf400e1077f349c109}{Unknown}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor}{QXlsx\+::\+Drawing\+Anchor}}}
+\begin{DoxyCompactItemize}
+\item 
+QPoint \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a4242223a674178f4851d8ec0469199fb}{load\+Xml\+Pos}} (QXml\+Stream\+Reader \&reader)
+\item 
+QSize \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a16ccdc95be93a7ce7ba4ae1e52ce8e73}{load\+Xml\+Ext}} (QXml\+Stream\+Reader \&reader)
+\item 
+\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aa5becb5afbccdff2cff3d9e34758678b}{load\+Xml\+Marker}} (QXml\+Stream\+Reader \&reader, const QString \&node)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_adc1af73f0ff956d6103dd72976411f0a}{load\+Xml\+Object}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_adddbcc2b28c42fcbf1656a45ba0f8017}{load\+Xml\+Object\+Shape}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a12cefc1060cb3b23d47c1d83ea324b44}{load\+Xml\+Object\+Group\+Shape}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a1a8c6a4dbe5177b0663937458ce64ea4}{load\+Xml\+Object\+Graphic\+Frame}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a1f93f1c572940ee7c203f92d8646a0df}{load\+Xml\+Object\+Connection\+Shape}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a5ffab974426073edc492e96f5953251d}{load\+Xml\+Object\+Picture}} (QXml\+Stream\+Reader \&reader)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a2b3f623ac4e19584b054c8909ec697f5}{save\+Xml\+Pos}} (QXml\+Stream\+Writer \&writer, const QPoint \&pos) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_ab953b7e5101de0e27f864ff374e17175}{save\+Xml\+Ext}} (QXml\+Stream\+Writer \&writer, const QSize \&ext) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a88663ebd185f68ac8b538a04b27a4b0e}{save\+Xml\+Marker}} (QXml\+Stream\+Writer \&writer, const \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} \&marker, const QString \&node) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aca2a9c9c15ced2d94cdeb9d99ac93797}{save\+Xml\+Object}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6a6fbd0e47fcc4d8bc39cb629682d2cb}{save\+Xml\+Object\+Shape}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a7c74ba9fd2eb88b08b3d8f2766f5eebc}{save\+Xml\+Object\+Group\+Shape}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a8832dd1d69c3be33a9b132a6e9160596}{save\+Xml\+Object\+Graphic\+Frame}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a049a86680a8ae69f0e5ba8cb2ca0184e}{save\+Xml\+Object\+Connection\+Shape}} (QXml\+Stream\+Writer \&writer) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_ac1e31519e444183440bfd24f249a7245}{save\+Xml\+Object\+Picture}} (QXml\+Stream\+Writer \&writer) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor}{QXlsx\+::\+Drawing\+Anchor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a3c191b92b3372bd212e1dc9c58f58253}{m\+\_\+drawing}}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}} \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a3a380b0590020cbf7b2a85d0c35964cc}{m\+\_\+object\+Type}}
+\item 
+QShared\+Pointer$<$ \mbox{\hyperlink{class_q_xlsx_1_1_media_file}{Media\+File}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a5af6470d797b90336605214824877476}{m\+\_\+picture\+File}}
+\item 
+QShared\+Pointer$<$ \mbox{\hyperlink{class_chart}{Chart}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6c9d8994021951d2b182ceb863faf057}{m\+\_\+chart\+File}}
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_ac950c4af2cfe046cb90e8f49075deec1}{m\+\_\+id}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_two_cell_anchor_af487386219609d3644e7849ceb5e8ebc}\label{class_q_xlsx_1_1_drawing_two_cell_anchor_af487386219609d3644e7849ceb5e8ebc} 
+\index{QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}!DrawingTwoCellAnchor@{DrawingTwoCellAnchor}}
+\index{DrawingTwoCellAnchor@{DrawingTwoCellAnchor}!QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}}
+\doxysubsubsection{\texorpdfstring{DrawingTwoCellAnchor()}{DrawingTwoCellAnchor()}}
+{\footnotesize\ttfamily QXlsx\+::\+Drawing\+Two\+Cell\+Anchor\+::\+Drawing\+Two\+Cell\+Anchor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_q_xlsx_1_1_drawing}{Drawing}} \texorpdfstring{$\ast$}{*}}]{drawing,  }\item[{\mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77a}{Object\+Type}}}]{object\+Type = {\ttfamily \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a6161ae9faf2deb5a03d51131b7bbf77aa4dd1850bb9aa14bf400e1077f349c109}{Unknown}}} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_two_cell_anchor_a999a21f75c7fce3509c11f846ce6d914}\label{class_q_xlsx_1_1_drawing_two_cell_anchor_a999a21f75c7fce3509c11f846ce6d914} 
+\index{QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}!loadFromXml@{loadFromXml}}
+\index{loadFromXml@{loadFromXml}!QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}}
+\doxysubsubsection{\texorpdfstring{loadFromXml()}{loadFromXml()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Drawing\+Two\+Cell\+Anchor\+::load\+From\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_aa1b44b7f043098c1ef280bb59158aa02}{QXlsx\+::\+Drawing\+Anchor}}.
+
+\Hypertarget{class_q_xlsx_1_1_drawing_two_cell_anchor_aabb968c2ef89bc7a9c7a46cd7b12388a}\label{class_q_xlsx_1_1_drawing_two_cell_anchor_aabb968c2ef89bc7a9c7a46cd7b12388a} 
+\index{QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}!saveToXml@{saveToXml}}
+\index{saveToXml@{saveToXml}!QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}}
+\doxysubsubsection{\texorpdfstring{saveToXml()}{saveToXml()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Drawing\+Two\+Cell\+Anchor\+::save\+To\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_q_xlsx_1_1_drawing_anchor_a39383d9689dc9e3a83d8033be0d2e3e7}{QXlsx\+::\+Drawing\+Anchor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_q_xlsx_1_1_drawing_two_cell_anchor_a49ee91c3bae9ad059e4a5fade3469a90}\label{class_q_xlsx_1_1_drawing_two_cell_anchor_a49ee91c3bae9ad059e4a5fade3469a90} 
+\index{QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}!from@{from}}
+\index{from@{from}!QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}}
+\doxysubsubsection{\texorpdfstring{from}{from}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} QXlsx\+::\+Drawing\+Two\+Cell\+Anchor\+::from}
+
+\Hypertarget{class_q_xlsx_1_1_drawing_two_cell_anchor_a84767457e4aaba84d9678b115bc78461}\label{class_q_xlsx_1_1_drawing_two_cell_anchor_a84767457e4aaba84d9678b115bc78461} 
+\index{QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}!to@{to}}
+\index{to@{to}!QXlsx::DrawingTwoCellAnchor@{QXlsx::DrawingTwoCellAnchor}}
+\doxysubsubsection{\texorpdfstring{to}{to}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_marker}{Xlsx\+Marker}} QXlsx\+::\+Drawing\+Two\+Cell\+Anchor\+::to}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdrawinganchor__p_8h}{xlsxdrawinganchor\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdrawinganchor_8cpp}{xlsxdrawinganchor.\+cpp}}\end{DoxyCompactItemize}

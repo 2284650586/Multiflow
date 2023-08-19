@@ -1,0 +1,42 @@
+\doxysection{Multiflow\+UI/xlsx/xlsxutility.cpp File Reference}
+\hypertarget{xlsxutility_8cpp}{}\label{xlsxutility_8cpp}\index{MultiflowUI/xlsx/xlsxutility.cpp@{MultiflowUI/xlsx/xlsxutility.cpp}}
+{\ttfamily \#include \"{}xlsxutility\+\_\+p.\+h\"{}}\newline
+{\ttfamily \#include \"{}xlsxcellreference.\+h\"{}}\newline
+{\ttfamily \#include $<$QString$>$}\newline
+{\ttfamily \#include $<$QPoint$>$}\newline
+{\ttfamily \#include $<$QRegular\+Expression$>$}\newline
+{\ttfamily \#include $<$QMap$>$}\newline
+{\ttfamily \#include $<$QString\+List$>$}\newline
+{\ttfamily \#include $<$QColor$>$}\newline
+{\ttfamily \#include $<$QDate\+Time$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_q_xlsx_a1d63efe65a7e9b1495a95cea8dc203a1}{QXlsx\+::parse\+Xsd\+Boolean}} (const QString \&value, bool default\+Value)
+\item 
+QString\+List \mbox{\hyperlink{namespace_q_xlsx_a0b70a9259a646852fa768faa4dce461b}{QXlsx\+::split\+Path}} (const QString \&path)
+\item 
+QString \mbox{\hyperlink{namespace_q_xlsx_a39370c733267cc72041ed21da4d58d8b}{QXlsx\+::get\+Rel\+File\+Path}} (const QString \&file\+Path)
+\item 
+double \mbox{\hyperlink{namespace_q_xlsx_a88be8c9be93a581a59b4fb3a30aff735}{QXlsx\+::datetime\+To\+Number}} (const QDate\+Time \&dt, bool is1904)
+\item 
+double \mbox{\hyperlink{namespace_q_xlsx_ad7d0c8301522a90f4124053fa395aba1}{QXlsx\+::time\+To\+Number}} (const QTime \&time)
+\item 
+QDate\+Time \mbox{\hyperlink{namespace_q_xlsx_a5f59d2129e29d0a8e272b12e3ede85c9}{QXlsx\+::datetime\+From\+Number}} (double num, bool is1904)
+\item 
+QString \mbox{\hyperlink{namespace_q_xlsx_af1e6cde38a33ad149e3ffee844a6ddaa}{QXlsx\+::create\+Safe\+Sheet\+Name}} (const QString \&name\+Proposal)
+\item 
+QString \mbox{\hyperlink{namespace_q_xlsx_a3a314aeeb069abcf9f12eba57c8d235f}{QXlsx\+::escape\+Sheet\+Name}} (const QString \&sheet\+Name)
+\item 
+QString \mbox{\hyperlink{namespace_q_xlsx_a392e2e307e642dff6d768b5adc1607fa}{QXlsx\+::unescape\+Sheet\+Name}} (const QString \&sheet\+Name)
+\item 
+bool \mbox{\hyperlink{namespace_q_xlsx_a4fec4d4da43f45717eab8b7255eb2937}{QXlsx\+::is\+Space\+Reserve\+Needed}} (const QString \&s)
+\item 
+QString \mbox{\hyperlink{namespace_q_xlsx_a9b592d778c3a49765d3ffd7428472a7b}{QXlsx\+::convert\+Shared\+Formula}} (const QString \&root\+Formula, const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&root\+Cell, const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&cell)
+\end{DoxyCompactItemize}

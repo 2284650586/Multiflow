@@ -1,0 +1,447 @@
+\doxysection{Data\+Validation Class Reference}
+\hypertarget{class_data_validation}{}\label{class_data_validation}\index{DataValidation@{DataValidation}}
+
+
+Data validation for single cell or a range \textbackslash{}inmodule Qt\+Xlsx.  
+
+
+
+
+{\ttfamily \#include $<$xlsxdatavalidation.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Validation\+Type}} \{ \newline
+\mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aa27adec17b760c21864ef0e9f2313a11e}{None}}
+, \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aa4d9cc29defaf8cf76af6998e3b21564c}{Whole}}
+, \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aae517e90576ce1670ffd90c444edc82d5}{Decimal}}
+, \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aafbe0e32128aa844c8779894da8159794}{List}}
+, \newline
+\mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aa2df075b16a73cb4eb6d767649acd50f7}{Date}}
+, \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aac70564595d9328a1c4c4631f0fa73e07}{Time}}
+, \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aabf3247a7d1f439883a658c4f3208e34f}{Text\+Length}}
+, \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85aa3d6ba86574bbb1fe2362fd10b86270df}{Custom}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Validation\+Operator}} \{ \newline
+\mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404acdf195841fd59d38c283a5f2e98ec174}{Between}}
+, \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a697097fa8b14fb489a38491b18f80eee}{Not\+Between}}
+, \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404ae0073f9b88725411494c42d8f18f60b4}{Equal}}
+, \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a61f93d7cc8ad0f8d5b97156c5812be69}{Not\+Equal}}
+, \newline
+\mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a313c7aeb172b2f177306273e4bfeb4da}{Less\+Than}}
+, \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a088c19fcd43daa8f186fa6e8739037ae}{Less\+Than\+Or\+Equal}}
+, \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404add584534af7c854fe241164e439f059e}{Greater\+Than}}
+, \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404ada29ef765cb86ab241b18909005ddf90}{Greater\+Than\+Or\+Equal}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}{Error\+Style}} \{ \mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22ca4d5b314ebb7c7313a960cbfae1371c65}{Stop}}
+, \mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22ca17d74586ce9ff88b21df50bfcfacc2e1}{Warning}}
+, \mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22cac180a47ece89c21c68a0b04d4293a5d7}{Information}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_validation_a8bcdbfaceea732d5a1cd72ed2b3af8ae}{Data\+Validation}} ()
+\item 
+\mbox{\hyperlink{class_data_validation_a397f418d36decc7592624d8568eadcac}{Data\+Validation}} (\mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Validation\+Type}} type, \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Validation\+Operator}} op=\mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404acdf195841fd59d38c283a5f2e98ec174}{Between}}, const QString \&\mbox{\hyperlink{class_data_validation_a6f8a06e8b3cbd23ac338340a9bb236ac}{formula1}}=QString(), const QString \&\mbox{\hyperlink{class_data_validation_a9e2e51af95f34138dd1c95b86c124de5}{formula2}}=QString(), bool \mbox{\hyperlink{class_data_validation_ac50a5a529488afc32564d24998a387a7}{allow\+Blank}}=false)
+\item 
+\mbox{\hyperlink{class_data_validation_ac90ee721b9edb836a5a3c8ae729abdd0}{Data\+Validation}} (const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&other)
+\item 
+\mbox{\hyperlink{class_data_validation_ad1204a135464b32e3b96c6bf5535ec31}{\texorpdfstring{$\sim$}{\string~}\+Data\+Validation}} ()
+\item 
+\mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Validation\+Type}} \mbox{\hyperlink{class_data_validation_a398bb4fac7316437157a0b133b9d162c}{validation\+Type}} () const
+\item 
+\mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Validation\+Operator}} \mbox{\hyperlink{class_data_validation_a63c0d8f3f1124da8fff48f1f8f39909b}{validation\+Operator}} () const
+\item 
+\mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}{Error\+Style}} \mbox{\hyperlink{class_data_validation_ada3d321b19cee252a180a8e6cfcb1a61}{error\+Style}} () const
+\item 
+QString \mbox{\hyperlink{class_data_validation_a6f8a06e8b3cbd23ac338340a9bb236ac}{formula1}} () const
+\item 
+QString \mbox{\hyperlink{class_data_validation_a9e2e51af95f34138dd1c95b86c124de5}{formula2}} () const
+\item 
+bool \mbox{\hyperlink{class_data_validation_ac50a5a529488afc32564d24998a387a7}{allow\+Blank}} () const
+\item 
+QString \mbox{\hyperlink{class_data_validation_a41a821ea7b26ff39603929451fb7921b}{error\+Message}} () const
+\item 
+QString \mbox{\hyperlink{class_data_validation_a8b2c89e9861aed66b0c912e0c48eeb3d}{error\+Message\+Title}} () const
+\item 
+QString \mbox{\hyperlink{class_data_validation_ac36a8e035a595d48ebffab616246f1af}{prompt\+Message}} () const
+\item 
+QString \mbox{\hyperlink{class_data_validation_a184b82deb4ac6ad68ad3c87ef4367a43}{prompt\+Message\+Title}} () const
+\item 
+bool \mbox{\hyperlink{class_data_validation_ab425638e3ffcda7a3fea7dc6578376be}{is\+Prompt\+Message\+Visible}} () const
+\item 
+bool \mbox{\hyperlink{class_data_validation_a6d99f76357bbd61ba9ba707fefae4bb8}{is\+Error\+Message\+Visible}} () const
+\item 
+QList$<$ \mbox{\hyperlink{class_cell_range}{Cell\+Range}} $>$ \mbox{\hyperlink{class_data_validation_ac69af16073b92307d45ed8a085cd6095}{ranges}} () const
+\item 
+void \mbox{\hyperlink{class_data_validation_aa61cdaf0875cdd7d53a0bf999abe2e19}{set\+Validation\+Type}} (\mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Validation\+Type}} type)
+\item 
+void \mbox{\hyperlink{class_data_validation_ae49f2b2b4322500b407bf7b92cedf079}{set\+Validation\+Operator}} (\mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Validation\+Operator}} op)
+\item 
+void \mbox{\hyperlink{class_data_validation_a3e39041fbd94053056410cf63bb53e1a}{set\+Error\+Style}} (\mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}{Error\+Style}} es)
+\item 
+void \mbox{\hyperlink{class_data_validation_a962e953dd091acbd362f9803a9f4170c}{set\+Formula1}} (const QString \&formula)
+\item 
+void \mbox{\hyperlink{class_data_validation_aaa2166b318892f1f24c9366dd18adb45}{set\+Formula2}} (const QString \&formula)
+\item 
+void \mbox{\hyperlink{class_data_validation_a5534f911d528ef66b18358636d17578f}{set\+Error\+Message}} (const QString \&error, const QString \&title=QString())
+\item 
+void \mbox{\hyperlink{class_data_validation_abba7ba086e8e5e52f0de92b712af86ef}{set\+Prompt\+Message}} (const QString \&prompt, const QString \&title=QString())
+\item 
+void \mbox{\hyperlink{class_data_validation_aa17c561cc5f36ad7cb7a0791e2a83ee4}{set\+Allow\+Blank}} (bool enable)
+\item 
+void \mbox{\hyperlink{class_data_validation_a65bcd540a4dcbfbc9963e61ae9f37924}{set\+Prompt\+Message\+Visible}} (bool visible)
+\item 
+void \mbox{\hyperlink{class_data_validation_a0c54e5882e8df5a1400a2e33214c4605}{set\+Error\+Message\+Visible}} (bool visible)
+\item 
+void \mbox{\hyperlink{class_data_validation_a358500a236d38e27acf090bf74737c9e}{add\+Cell}} (const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&cell)
+\item 
+void \mbox{\hyperlink{class_data_validation_aa2f1d3ec14335e496a05d689816975e8}{add\+Cell}} (int row, int col)
+\item 
+void \mbox{\hyperlink{class_data_validation_a97679d7c5067a017ce8496a1972a0113}{add\+Range}} (int first\+Row, int first\+Col, int last\+Row, int last\+Col)
+\item 
+void \mbox{\hyperlink{class_data_validation_a868adf9f447957a11528a11cdce20885}{add\+Range}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range)
+\item 
+\mbox{\hyperlink{class_data_validation}{Data\+Validation}} \& \mbox{\hyperlink{class_data_validation_a9aeb53e829fd2196af98d3a378e45cb1}{operator=}} (const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&other)
+\item 
+bool \mbox{\hyperlink{class_data_validation_a99751a1378fbf78131d5fb3b80241f5f}{save\+To\+Xml}} (QXml\+Stream\+Writer \&writer) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \mbox{\hyperlink{class_data_validation_a08c807127ba42a33ee3042fc7a0150ca}{load\+From\+Xml}} (QXml\+Stream\+Reader \&reader)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data validation for single cell or a range \textbackslash{}inmodule Qt\+Xlsx. 
+
+The data validation can be applied to a single cell or a range of cells. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}\label{class_data_validation_a30023072f73fb9007b1c754cda0dc22c} 
+\index{DataValidation@{DataValidation}!ErrorStyle@{ErrorStyle}}
+\index{ErrorStyle@{ErrorStyle}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{ErrorStyle}{ErrorStyle}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}{Data\+Validation\+::\+Error\+Style}}}
+
+The enum type defines the type of error dialog that is displayed.
+
+\textbackslash{}value Stop \textbackslash{}value Warning \textbackslash{}value Information \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stop@{Stop}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Stop@{Stop}}}\Hypertarget{class_data_validation_a30023072f73fb9007b1c754cda0dc22ca4d5b314ebb7c7313a960cbfae1371c65}\label{class_data_validation_a30023072f73fb9007b1c754cda0dc22ca4d5b314ebb7c7313a960cbfae1371c65} 
+Stop&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Warning@{Warning}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Warning@{Warning}}}\Hypertarget{class_data_validation_a30023072f73fb9007b1c754cda0dc22ca17d74586ce9ff88b21df50bfcfacc2e1}\label{class_data_validation_a30023072f73fb9007b1c754cda0dc22ca17d74586ce9ff88b21df50bfcfacc2e1} 
+Warning&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Information@{Information}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Information@{Information}}}\Hypertarget{class_data_validation_a30023072f73fb9007b1c754cda0dc22cac180a47ece89c21c68a0b04d4293a5d7}\label{class_data_validation_a30023072f73fb9007b1c754cda0dc22cac180a47ece89c21c68a0b04d4293a5d7} 
+Information&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404} 
+\index{DataValidation@{DataValidation}!ValidationOperator@{ValidationOperator}}
+\index{ValidationOperator@{ValidationOperator}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{ValidationOperator}{ValidationOperator}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Data\+Validation\+::\+Validation\+Operator}}}
+
+The enum type defines the criteria by which the data in the cell is validated
+
+\textbackslash{}value Between \textbackslash{}value Not\+Between \textbackslash{}value Equal \textbackslash{}value Not\+Equal \textbackslash{}value Less\+Than \textbackslash{}value Less\+Than\+Or\+Equal \textbackslash{}value Greater\+Than \textbackslash{}value Greater\+Than\+Or\+Equal \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Between@{Between}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Between@{Between}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404acdf195841fd59d38c283a5f2e98ec174}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404acdf195841fd59d38c283a5f2e98ec174} 
+Between&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NotBetween@{NotBetween}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!NotBetween@{NotBetween}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a697097fa8b14fb489a38491b18f80eee}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a697097fa8b14fb489a38491b18f80eee} 
+Not\+Between&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Equal@{Equal}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Equal@{Equal}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404ae0073f9b88725411494c42d8f18f60b4}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404ae0073f9b88725411494c42d8f18f60b4} 
+Equal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NotEqual@{NotEqual}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!NotEqual@{NotEqual}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a61f93d7cc8ad0f8d5b97156c5812be69}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a61f93d7cc8ad0f8d5b97156c5812be69} 
+Not\+Equal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LessThan@{LessThan}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!LessThan@{LessThan}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a313c7aeb172b2f177306273e4bfeb4da}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a313c7aeb172b2f177306273e4bfeb4da} 
+Less\+Than&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LessThanOrEqual@{LessThanOrEqual}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!LessThanOrEqual@{LessThanOrEqual}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a088c19fcd43daa8f186fa6e8739037ae}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404a088c19fcd43daa8f186fa6e8739037ae} 
+Less\+Than\+Or\+Equal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GreaterThan@{GreaterThan}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!GreaterThan@{GreaterThan}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404add584534af7c854fe241164e439f059e}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404add584534af7c854fe241164e439f059e} 
+Greater\+Than&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GreaterThanOrEqual@{GreaterThanOrEqual}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!GreaterThanOrEqual@{GreaterThanOrEqual}}}\Hypertarget{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404ada29ef765cb86ab241b18909005ddf90}\label{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404ada29ef765cb86ab241b18909005ddf90} 
+Greater\+Than\+Or\+Equal&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85a}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85a} 
+\index{DataValidation@{DataValidation}!ValidationType@{ValidationType}}
+\index{ValidationType@{ValidationType}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{ValidationType}{ValidationType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Data\+Validation\+::\+Validation\+Type}}}
+
+The enum type defines the type of data that you wish to validate.
+
+\textbackslash{}value None the type of data is unrestricted. This is the same as not applying a data validation. \textbackslash{}value Whole restricts the cell to integer values. Means \"{}\+Whole number\"{}? \textbackslash{}value Decimal restricts the cell to decimal values. \textbackslash{}value List restricts the cell to a set of user specified values. \textbackslash{}value Date restricts the cell to date values. \textbackslash{}value Time restricts the cell to time values. \textbackslash{}value Text\+Length restricts the cell data based on an integer string length. \textbackslash{}value Custom restricts the cell based on an external Excel formula that returns a true/false value. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!None@{None}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aa27adec17b760c21864ef0e9f2313a11e}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aa27adec17b760c21864ef0e9f2313a11e} 
+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Whole@{Whole}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Whole@{Whole}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aa4d9cc29defaf8cf76af6998e3b21564c}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aa4d9cc29defaf8cf76af6998e3b21564c} 
+Whole&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Decimal@{Decimal}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Decimal@{Decimal}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aae517e90576ce1670ffd90c444edc82d5}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aae517e90576ce1670ffd90c444edc82d5} 
+Decimal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{List@{List}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!List@{List}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aafbe0e32128aa844c8779894da8159794}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aafbe0e32128aa844c8779894da8159794} 
+List&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Date@{Date}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Date@{Date}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aa2df075b16a73cb4eb6d767649acd50f7}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aa2df075b16a73cb4eb6d767649acd50f7} 
+Date&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Time@{Time}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Time@{Time}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aac70564595d9328a1c4c4631f0fa73e07}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aac70564595d9328a1c4c4631f0fa73e07} 
+Time&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TextLength@{TextLength}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!TextLength@{TextLength}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aabf3247a7d1f439883a658c4f3208e34f}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aabf3247a7d1f439883a658c4f3208e34f} 
+Text\+Length&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Custom@{Custom}!DataValidation@{DataValidation}}\index{DataValidation@{DataValidation}!Custom@{Custom}}}\Hypertarget{class_data_validation_aac2ad7946e088db3789211ab429aa85aa3d6ba86574bbb1fe2362fd10b86270df}\label{class_data_validation_aac2ad7946e088db3789211ab429aa85aa3d6ba86574bbb1fe2362fd10b86270df} 
+Custom&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_data_validation_a8bcdbfaceea732d5a1cd72ed2b3af8ae}\label{class_data_validation_a8bcdbfaceea732d5a1cd72ed2b3af8ae} 
+\index{DataValidation@{DataValidation}!DataValidation@{DataValidation}}
+\index{DataValidation@{DataValidation}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{DataValidation()}{DataValidation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Data\+Validation\+::\+Data\+Validation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construct a data validation object \Hypertarget{class_data_validation_a397f418d36decc7592624d8568eadcac}\label{class_data_validation_a397f418d36decc7592624d8568eadcac} 
+\index{DataValidation@{DataValidation}!DataValidation@{DataValidation}}
+\index{DataValidation@{DataValidation}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{DataValidation()}{DataValidation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Data\+Validation\+::\+Data\+Validation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Validation\+Type}}}]{type,  }\item[{\mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Validation\+Operator}}}]{op = {\ttfamily \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404acdf195841fd59d38c283a5f2e98ec174}{Between}}},  }\item[{const QString \&}]{formula1 = {\ttfamily QString()},  }\item[{const QString \&}]{formula2 = {\ttfamily QString()},  }\item[{bool}]{allow\+Blank = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Construct a data validation object with the given {\itshape type}, {\itshape op}, {\itshape formula1} {\itshape formula2}, and {\itshape allow\+Blank}. \Hypertarget{class_data_validation_ac90ee721b9edb836a5a3c8ae729abdd0}\label{class_data_validation_ac90ee721b9edb836a5a3c8ae729abdd0} 
+\index{DataValidation@{DataValidation}!DataValidation@{DataValidation}}
+\index{DataValidation@{DataValidation}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{DataValidation()}{DataValidation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Data\+Validation\+::\+Data\+Validation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&}]{other }\end{DoxyParamCaption})}
+
+Constructs a copy of {\itshape other}. \Hypertarget{class_data_validation_ad1204a135464b32e3b96c6bf5535ec31}\label{class_data_validation_ad1204a135464b32e3b96c6bf5535ec31} 
+\index{DataValidation@{DataValidation}!````~DataValidation@{\texorpdfstring{$\sim$}{\string~}DataValidation}}
+\index{````~DataValidation@{\texorpdfstring{$\sim$}{\string~}DataValidation}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DataValidation()}{\string~DataValidation()}}
+{\footnotesize\ttfamily Data\+Validation\+::\texorpdfstring{$\sim$}{\string~}\+Data\+Validation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroy the object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_data_validation_a358500a236d38e27acf090bf74737c9e}\label{class_data_validation_a358500a236d38e27acf090bf74737c9e} 
+\index{DataValidation@{DataValidation}!addCell@{addCell}}
+\index{addCell@{addCell}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Data\+Validation\+::add\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_reference}{Cell\+Reference}} \&}]{cell }\end{DoxyParamCaption})}
+
+Add the {\itshape cell} on which the \doxylink{class_data_validation}{Data\+Validation} will apply to. \Hypertarget{class_data_validation_aa2f1d3ec14335e496a05d689816975e8}\label{class_data_validation_aa2f1d3ec14335e496a05d689816975e8} 
+\index{DataValidation@{DataValidation}!addCell@{addCell}}
+\index{addCell@{addCell}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{addCell()}{addCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Data\+Validation\+::add\+Cell (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Add the cell({\itshape row}, {\itshape col}) on which the \doxylink{class_data_validation}{Data\+Validation} will apply to. \Hypertarget{class_data_validation_a868adf9f447957a11528a11cdce20885}\label{class_data_validation_a868adf9f447957a11528a11cdce20885} 
+\index{DataValidation@{DataValidation}!addRange@{addRange}}
+\index{addRange@{addRange}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{addRange()}{addRange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Data\+Validation\+::add\+Range (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range }\end{DoxyParamCaption})}
+
+Add the {\itshape range} on which the \doxylink{class_data_validation}{Data\+Validation} will apply to. \Hypertarget{class_data_validation_a97679d7c5067a017ce8496a1972a0113}\label{class_data_validation_a97679d7c5067a017ce8496a1972a0113} 
+\index{DataValidation@{DataValidation}!addRange@{addRange}}
+\index{addRange@{addRange}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{addRange()}{addRange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Data\+Validation\+::add\+Range (\begin{DoxyParamCaption}\item[{int}]{first\+Row,  }\item[{int}]{first\+Col,  }\item[{int}]{last\+Row,  }\item[{int}]{last\+Col }\end{DoxyParamCaption})}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. Add the range({\itshape first\+Row}, {\itshape first\+Col}, {\itshape last\+Row}, {\itshape last\+Col}) on which the \doxylink{class_data_validation}{Data\+Validation} will apply to. \Hypertarget{class_data_validation_ac50a5a529488afc32564d24998a387a7}\label{class_data_validation_ac50a5a529488afc32564d24998a387a7} 
+\index{DataValidation@{DataValidation}!allowBlank@{allowBlank}}
+\index{allowBlank@{allowBlank}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{allowBlank()}{allowBlank()}}
+{\footnotesize\ttfamily bool Data\+Validation\+::allow\+Blank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether blank is allowed. \Hypertarget{class_data_validation_a41a821ea7b26ff39603929451fb7921b}\label{class_data_validation_a41a821ea7b26ff39603929451fb7921b} 
+\index{DataValidation@{DataValidation}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{errorMessage()}{errorMessage()}}
+{\footnotesize\ttfamily QString Data\+Validation\+::error\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the error message. \Hypertarget{class_data_validation_a8b2c89e9861aed66b0c912e0c48eeb3d}\label{class_data_validation_a8b2c89e9861aed66b0c912e0c48eeb3d} 
+\index{DataValidation@{DataValidation}!errorMessageTitle@{errorMessageTitle}}
+\index{errorMessageTitle@{errorMessageTitle}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{errorMessageTitle()}{errorMessageTitle()}}
+{\footnotesize\ttfamily QString Data\+Validation\+::error\+Message\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the error message title. \Hypertarget{class_data_validation_ada3d321b19cee252a180a8e6cfcb1a61}\label{class_data_validation_ada3d321b19cee252a180a8e6cfcb1a61} 
+\index{DataValidation@{DataValidation}!errorStyle@{errorStyle}}
+\index{errorStyle@{errorStyle}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{errorStyle()}{errorStyle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}{Data\+Validation\+::\+Error\+Style}} Data\+Validation\+::error\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the validation error style. \Hypertarget{class_data_validation_a6f8a06e8b3cbd23ac338340a9bb236ac}\label{class_data_validation_a6f8a06e8b3cbd23ac338340a9bb236ac} 
+\index{DataValidation@{DataValidation}!formula1@{formula1}}
+\index{formula1@{formula1}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{formula1()}{formula1()}}
+{\footnotesize\ttfamily QString Data\+Validation\+::formula1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the formula1. \Hypertarget{class_data_validation_a9e2e51af95f34138dd1c95b86c124de5}\label{class_data_validation_a9e2e51af95f34138dd1c95b86c124de5} 
+\index{DataValidation@{DataValidation}!formula2@{formula2}}
+\index{formula2@{formula2}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{formula2()}{formula2()}}
+{\footnotesize\ttfamily QString Data\+Validation\+::formula2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the formula2. \Hypertarget{class_data_validation_a6d99f76357bbd61ba9ba707fefae4bb8}\label{class_data_validation_a6d99f76357bbd61ba9ba707fefae4bb8} 
+\index{DataValidation@{DataValidation}!isErrorMessageVisible@{isErrorMessageVisible}}
+\index{isErrorMessageVisible@{isErrorMessageVisible}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{isErrorMessageVisible()}{isErrorMessageVisible()}}
+{\footnotesize\ttfamily bool Data\+Validation\+::is\+Error\+Message\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the whether error message is shown. \Hypertarget{class_data_validation_ab425638e3ffcda7a3fea7dc6578376be}\label{class_data_validation_ab425638e3ffcda7a3fea7dc6578376be} 
+\index{DataValidation@{DataValidation}!isPromptMessageVisible@{isPromptMessageVisible}}
+\index{isPromptMessageVisible@{isPromptMessageVisible}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{isPromptMessageVisible()}{isPromptMessageVisible()}}
+{\footnotesize\ttfamily bool Data\+Validation\+::is\+Prompt\+Message\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the whether prompt message is shown. \Hypertarget{class_data_validation_a08c807127ba42a33ee3042fc7a0150ca}\label{class_data_validation_a08c807127ba42a33ee3042fc7a0150ca} 
+\index{DataValidation@{DataValidation}!loadFromXml@{loadFromXml}}
+\index{loadFromXml@{loadFromXml}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{loadFromXml()}{loadFromXml()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_validation}{Data\+Validation}} Data\+Validation\+::load\+From\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_data_validation_a9aeb53e829fd2196af98d3a378e45cb1}\label{class_data_validation_a9aeb53e829fd2196af98d3a378e45cb1} 
+\index{DataValidation@{DataValidation}!operator=@{operator=}}
+\index{operator=@{operator=}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \& Data\+Validation\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_validation}{Data\+Validation}} \&}]{other }\end{DoxyParamCaption})}
+
+Assigns {\itshape other} to this validation and returns a reference to this validation. \Hypertarget{class_data_validation_ac36a8e035a595d48ebffab616246f1af}\label{class_data_validation_ac36a8e035a595d48ebffab616246f1af} 
+\index{DataValidation@{DataValidation}!promptMessage@{promptMessage}}
+\index{promptMessage@{promptMessage}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{promptMessage()}{promptMessage()}}
+{\footnotesize\ttfamily QString Data\+Validation\+::prompt\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the prompt message. \Hypertarget{class_data_validation_a184b82deb4ac6ad68ad3c87ef4367a43}\label{class_data_validation_a184b82deb4ac6ad68ad3c87ef4367a43} 
+\index{DataValidation@{DataValidation}!promptMessageTitle@{promptMessageTitle}}
+\index{promptMessageTitle@{promptMessageTitle}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{promptMessageTitle()}{promptMessageTitle()}}
+{\footnotesize\ttfamily QString Data\+Validation\+::prompt\+Message\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the prompt message title. \Hypertarget{class_data_validation_ac69af16073b92307d45ed8a085cd6095}\label{class_data_validation_ac69af16073b92307d45ed8a085cd6095} 
+\index{DataValidation@{DataValidation}!ranges@{ranges}}
+\index{ranges@{ranges}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{ranges()}{ranges()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_cell_range}{Cell\+Range}} $>$ Data\+Validation\+::ranges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the ranges on which the validation will be applied. \Hypertarget{class_data_validation_a99751a1378fbf78131d5fb3b80241f5f}\label{class_data_validation_a99751a1378fbf78131d5fb3b80241f5f} 
+\index{DataValidation@{DataValidation}!saveToXml@{saveToXml}}
+\index{saveToXml@{saveToXml}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{saveToXml()}{saveToXml()}}
+{\footnotesize\ttfamily bool Data\+Validation\+::save\+To\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_data_validation_aa17c561cc5f36ad7cb7a0791e2a83ee4}\label{class_data_validation_aa17c561cc5f36ad7cb7a0791e2a83ee4} 
+\index{DataValidation@{DataValidation}!setAllowBlank@{setAllowBlank}}
+\index{setAllowBlank@{setAllowBlank}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setAllowBlank()}{setAllowBlank()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Allow\+Blank (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+Enable/disabe blank allow based on {\itshape enable}. \Hypertarget{class_data_validation_a5534f911d528ef66b18358636d17578f}\label{class_data_validation_a5534f911d528ef66b18358636d17578f} 
+\index{DataValidation@{DataValidation}!setErrorMessage@{setErrorMessage}}
+\index{setErrorMessage@{setErrorMessage}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setErrorMessage()}{setErrorMessage()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Error\+Message (\begin{DoxyParamCaption}\item[{const QString \&}]{error,  }\item[{const QString \&}]{title = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+Sets the error message to {\itshape error} with title {\itshape title}. \Hypertarget{class_data_validation_a0c54e5882e8df5a1400a2e33214c4605}\label{class_data_validation_a0c54e5882e8df5a1400a2e33214c4605} 
+\index{DataValidation@{DataValidation}!setErrorMessageVisible@{setErrorMessageVisible}}
+\index{setErrorMessageVisible@{setErrorMessageVisible}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setErrorMessageVisible()}{setErrorMessageVisible()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Error\+Message\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Enable/disabe error message visible based on {\itshape visible}. \Hypertarget{class_data_validation_a3e39041fbd94053056410cf63bb53e1a}\label{class_data_validation_a3e39041fbd94053056410cf63bb53e1a} 
+\index{DataValidation@{DataValidation}!setErrorStyle@{setErrorStyle}}
+\index{setErrorStyle@{setErrorStyle}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setErrorStyle()}{setErrorStyle()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Error\+Style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_validation_a30023072f73fb9007b1c754cda0dc22c}{Data\+Validation\+::\+Error\+Style}}}]{es }\end{DoxyParamCaption})}
+
+Sets the error style to {\itshape es}. \Hypertarget{class_data_validation_a962e953dd091acbd362f9803a9f4170c}\label{class_data_validation_a962e953dd091acbd362f9803a9f4170c} 
+\index{DataValidation@{DataValidation}!setFormula1@{setFormula1}}
+\index{setFormula1@{setFormula1}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setFormula1()}{setFormula1()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Formula1 (\begin{DoxyParamCaption}\item[{const QString \&}]{formula }\end{DoxyParamCaption})}
+
+Sets the formula1 to {\itshape formula}. \Hypertarget{class_data_validation_aaa2166b318892f1f24c9366dd18adb45}\label{class_data_validation_aaa2166b318892f1f24c9366dd18adb45} 
+\index{DataValidation@{DataValidation}!setFormula2@{setFormula2}}
+\index{setFormula2@{setFormula2}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setFormula2()}{setFormula2()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Formula2 (\begin{DoxyParamCaption}\item[{const QString \&}]{formula }\end{DoxyParamCaption})}
+
+Sets the formulas to {\itshape formula}. \Hypertarget{class_data_validation_abba7ba086e8e5e52f0de92b712af86ef}\label{class_data_validation_abba7ba086e8e5e52f0de92b712af86ef} 
+\index{DataValidation@{DataValidation}!setPromptMessage@{setPromptMessage}}
+\index{setPromptMessage@{setPromptMessage}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setPromptMessage()}{setPromptMessage()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Prompt\+Message (\begin{DoxyParamCaption}\item[{const QString \&}]{prompt,  }\item[{const QString \&}]{title = {\ttfamily QString()} }\end{DoxyParamCaption})}
+
+Sets the prompt message to {\itshape prompt} with title {\itshape title}. \Hypertarget{class_data_validation_a65bcd540a4dcbfbc9963e61ae9f37924}\label{class_data_validation_a65bcd540a4dcbfbc9963e61ae9f37924} 
+\index{DataValidation@{DataValidation}!setPromptMessageVisible@{setPromptMessageVisible}}
+\index{setPromptMessageVisible@{setPromptMessageVisible}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setPromptMessageVisible()}{setPromptMessageVisible()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Prompt\+Message\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible }\end{DoxyParamCaption})}
+
+Enable/disabe prompt message visible based on {\itshape visible}. \Hypertarget{class_data_validation_ae49f2b2b4322500b407bf7b92cedf079}\label{class_data_validation_ae49f2b2b4322500b407bf7b92cedf079} 
+\index{DataValidation@{DataValidation}!setValidationOperator@{setValidationOperator}}
+\index{setValidationOperator@{setValidationOperator}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setValidationOperator()}{setValidationOperator()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Validation\+Operator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Data\+Validation\+::\+Validation\+Operator}}}]{op }\end{DoxyParamCaption})}
+
+Sets the validation operator to {\itshape op}. \Hypertarget{class_data_validation_aa61cdaf0875cdd7d53a0bf999abe2e19}\label{class_data_validation_aa61cdaf0875cdd7d53a0bf999abe2e19} 
+\index{DataValidation@{DataValidation}!setValidationType@{setValidationType}}
+\index{setValidationType@{setValidationType}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{setValidationType()}{setValidationType()}}
+{\footnotesize\ttfamily void Data\+Validation\+::set\+Validation\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Data\+Validation\+::\+Validation\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Sets the validation type to {\itshape type}. \Hypertarget{class_data_validation_a63c0d8f3f1124da8fff48f1f8f39909b}\label{class_data_validation_a63c0d8f3f1124da8fff48f1f8f39909b} 
+\index{DataValidation@{DataValidation}!validationOperator@{validationOperator}}
+\index{validationOperator@{validationOperator}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{validationOperator()}{validationOperator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_validation_a20af7e1c379f9f62fdd3fd555ffa7404}{Data\+Validation\+::\+Validation\+Operator}} Data\+Validation\+::validation\+Operator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the validation operator. \Hypertarget{class_data_validation_a398bb4fac7316437157a0b133b9d162c}\label{class_data_validation_a398bb4fac7316437157a0b133b9d162c} 
+\index{DataValidation@{DataValidation}!validationType@{validationType}}
+\index{validationType@{validationType}!DataValidation@{DataValidation}}
+\doxysubsubsection{\texorpdfstring{validationType()}{validationType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_validation_aac2ad7946e088db3789211ab429aa85a}{Data\+Validation\+::\+Validation\+Type}} Data\+Validation\+::validation\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the validation type. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdatavalidation_8h}{xlsxdatavalidation.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdatavalidation_8cpp}{xlsxdatavalidation.\+cpp}}\end{DoxyCompactItemize}

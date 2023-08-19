@@ -1,0 +1,152 @@
+\doxysection{TGraphics\+Scene Class Reference}
+\hypertarget{class_t_graphics_scene}{}\label{class_t_graphics_scene}\index{TGraphicsScene@{TGraphicsScene}}
+
+
+{\ttfamily \#include $<$tgraphicsscene.\+h$>$}
+
+Inheritance diagram for TGraphics\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_t_graphics_scene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9}{Mode}} \{ \mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9ae49e1814b8d819d52d290fc84c15e41f}{Insert\+Item}}
+, \mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9accb22f83276ce1833417dbaa7b65c69f}{Insert\+Line}}
+, \mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9ac27501f7c9eb65c0d2b4d033e6209862}{Move\+Item}}
+, \mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9a5d82912afb6eb4962597242b6b4ec831}{set\+Pointer}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_a3a1dfb033c1c131c6951dde38f6db4b4}{set\+Mode}} (\mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9}{Mode}} type)
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_a561bed2b19057bf07a1a15f57baf95ff}{set\+Item\+Type}} (\mbox{\hyperlink{common_8h_abaa8a12bf165b6351b4c61af85663250}{Multiflow\+Kind}} type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_a60698f565e4ec87c77e94c35aca9b4a6}{mul\+Item\+Inserted}} (\mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_a68f87eb1a7bfb51169c17aa9f022af83}{line\+Pointer\+Inserted}} ()
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_ac5fcbaa03395c6ada73cb2b581653cf3}{set\+Pointer\+Cursor}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_graphics_scene_af8d5b027656428d2967e32fa39bc32fe}{TGraphics\+Scene}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+\mbox{\hyperlink{class_t_graphics_scene_a4334b8b182b66d3c84b5b65c4b0a03c7}{\texorpdfstring{$\sim$}{\string~}\+TGraphics\+Scene}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_a837de8d7f510d6d55b3ec5f193d475de}{mouse\+Press\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_a961c1ba48bd1e027b25666c5e002baab}{mouse\+Move\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\item 
+void \mbox{\hyperlink{class_t_graphics_scene_a6a22ecb36069f1600556c08343f7528b}{mouse\+Release\+Event}} (QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9}\label{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9} 
+\index{TGraphicsScene@{TGraphicsScene}!Mode@{Mode}}
+\index{Mode@{Mode}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{Mode}{Mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9}{TGraphics\+Scene\+::\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{InsertItem@{InsertItem}!TGraphicsScene@{TGraphicsScene}}\index{TGraphicsScene@{TGraphicsScene}!InsertItem@{InsertItem}}}\Hypertarget{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9ae49e1814b8d819d52d290fc84c15e41f}\label{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9ae49e1814b8d819d52d290fc84c15e41f} 
+Insert\+Item&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{InsertLine@{InsertLine}!TGraphicsScene@{TGraphicsScene}}\index{TGraphicsScene@{TGraphicsScene}!InsertLine@{InsertLine}}}\Hypertarget{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9accb22f83276ce1833417dbaa7b65c69f}\label{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9accb22f83276ce1833417dbaa7b65c69f} 
+Insert\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MoveItem@{MoveItem}!TGraphicsScene@{TGraphicsScene}}\index{TGraphicsScene@{TGraphicsScene}!MoveItem@{MoveItem}}}\Hypertarget{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9ac27501f7c9eb65c0d2b4d033e6209862}\label{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9ac27501f7c9eb65c0d2b4d033e6209862} 
+Move\+Item&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{setPointer@{setPointer}!TGraphicsScene@{TGraphicsScene}}\index{TGraphicsScene@{TGraphicsScene}!setPointer@{setPointer}}}\Hypertarget{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9a5d82912afb6eb4962597242b6b4ec831}\label{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9a5d82912afb6eb4962597242b6b4ec831} 
+set\+Pointer&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_t_graphics_scene_af8d5b027656428d2967e32fa39bc32fe}\label{class_t_graphics_scene_af8d5b027656428d2967e32fa39bc32fe} 
+\index{TGraphicsScene@{TGraphicsScene}!TGraphicsScene@{TGraphicsScene}}
+\index{TGraphicsScene@{TGraphicsScene}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{TGraphicsScene()}{TGraphicsScene()}}
+{\footnotesize\ttfamily TGraphics\+Scene\+::\+TGraphics\+Scene (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_graphics_scene_a4334b8b182b66d3c84b5b65c4b0a03c7}\label{class_t_graphics_scene_a4334b8b182b66d3c84b5b65c4b0a03c7} 
+\index{TGraphicsScene@{TGraphicsScene}!````~TGraphicsScene@{\texorpdfstring{$\sim$}{\string~}TGraphicsScene}}
+\index{````~TGraphicsScene@{\texorpdfstring{$\sim$}{\string~}TGraphicsScene}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TGraphicsScene()}{\string~TGraphicsScene()}}
+{\footnotesize\ttfamily TGraphics\+Scene\+::\texorpdfstring{$\sim$}{\string~}\+TGraphics\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_graphics_scene_a68f87eb1a7bfb51169c17aa9f022af83}\label{class_t_graphics_scene_a68f87eb1a7bfb51169c17aa9f022af83} 
+\index{TGraphicsScene@{TGraphicsScene}!linePointerInserted@{linePointerInserted}}
+\index{linePointerInserted@{linePointerInserted}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{linePointerInserted}{linePointerInserted}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::line\+Pointer\+Inserted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\Hypertarget{class_t_graphics_scene_a961c1ba48bd1e027b25666c5e002baab}\label{class_t_graphics_scene_a961c1ba48bd1e027b25666c5e002baab} 
+\index{TGraphicsScene@{TGraphicsScene}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{mouseMoveEvent()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_graphics_scene_a837de8d7f510d6d55b3ec5f193d475de}\label{class_t_graphics_scene_a837de8d7f510d6d55b3ec5f193d475de} 
+\index{TGraphicsScene@{TGraphicsScene}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_graphics_scene_a6a22ecb36069f1600556c08343f7528b}\label{class_t_graphics_scene_a6a22ecb36069f1600556c08343f7528b} 
+\index{TGraphicsScene@{TGraphicsScene}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{mouseReleaseEvent()}{mouseReleaseEvent()}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{QGraphics\+Scene\+Mouse\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_t_graphics_scene_a60698f565e4ec87c77e94c35aca9b4a6}\label{class_t_graphics_scene_a60698f565e4ec87c77e94c35aca9b4a6} 
+\index{TGraphicsScene@{TGraphicsScene}!mulItemInserted@{mulItemInserted}}
+\index{mulItemInserted@{mulItemInserted}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{mulItemInserted}{mulItemInserted}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::mul\+Item\+Inserted (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mul_item}{Mul\+Item}} \texorpdfstring{$\ast$}{*}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\Hypertarget{class_t_graphics_scene_a561bed2b19057bf07a1a15f57baf95ff}\label{class_t_graphics_scene_a561bed2b19057bf07a1a15f57baf95ff} 
+\index{TGraphicsScene@{TGraphicsScene}!setItemType@{setItemType}}
+\index{setItemType@{setItemType}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{setItemType}{setItemType}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::set\+Item\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{common_8h_abaa8a12bf165b6351b4c61af85663250}{Multiflow\+Kind}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\Hypertarget{class_t_graphics_scene_a3a1dfb033c1c131c6951dde38f6db4b4}\label{class_t_graphics_scene_a3a1dfb033c1c131c6951dde38f6db4b4} 
+\index{TGraphicsScene@{TGraphicsScene}!setMode@{setMode}}
+\index{setMode@{setMode}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{setMode}{setMode}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::set\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_graphics_scene_aec608034f78628a856aa55ef7ca402f9}{Mode}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\Hypertarget{class_t_graphics_scene_ac5fcbaa03395c6ada73cb2b581653cf3}\label{class_t_graphics_scene_ac5fcbaa03395c6ada73cb2b581653cf3} 
+\index{TGraphicsScene@{TGraphicsScene}!setPointerCursor@{setPointerCursor}}
+\index{setPointerCursor@{setPointerCursor}!TGraphicsScene@{TGraphicsScene}}
+\doxysubsubsection{\texorpdfstring{setPointerCursor}{setPointerCursor}}
+{\footnotesize\ttfamily void TGraphics\+Scene\+::set\+Pointer\+Cursor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tgraphicsscene_8h}{tgraphicsscene.\+h}}\item 
+Multiflow\+UI/\+TView/\mbox{\hyperlink{tgraphicsscene_8cpp}{tgraphicsscene.\+cpp}}\end{DoxyCompactItemize}

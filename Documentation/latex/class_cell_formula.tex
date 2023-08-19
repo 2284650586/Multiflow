@@ -1,0 +1,217 @@
+\doxysection{Cell\+Formula Class Reference}
+\hypertarget{class_cell_formula}{}\label{class_cell_formula}\index{CellFormula@{CellFormula}}
+
+
+The \doxylink{class_cell_formula}{Cell\+Formula} class provides a API that is used to handle the cell formula.  
+
+
+
+
+{\ttfamily \#include $<$xlsxcellformula.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}} \{ \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a0c7cce0ff4425ac4b33f5f38a2a5a7bf}{Normal\+Type}}
+, \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a7bdb650ad083215ef36353774bfee8fb}{Array\+Type}}
+, \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186ab33575f8585d989b15f978d1bfb5f94f}{Data\+Table\+Type}}
+, \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186ae206762a9c8cc8b5dd4dea1b014e2309}{Shared\+Type}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_formula_a6cec93558e2c0a980fab7e82596ad525}{Cell\+Formula}} ()
+\item 
+\mbox{\hyperlink{class_cell_formula_aa4b0a50e44f2caf60bc673fcdd2f7067}{Cell\+Formula}} (const char \texorpdfstring{$\ast$}{*}formula, \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}} type=\mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a0c7cce0ff4425ac4b33f5f38a2a5a7bf}{Normal\+Type}})
+\item 
+\mbox{\hyperlink{class_cell_formula_a8403daf0787a4b0fe59869ea9fe404f9}{Cell\+Formula}} (const QString \&formula, \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}} type=\mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a0c7cce0ff4425ac4b33f5f38a2a5a7bf}{Normal\+Type}})
+\item 
+\mbox{\hyperlink{class_cell_formula_a42b32dfd684ed578e7d715e3732444a2}{Cell\+Formula}} (const QString \&formula, const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&ref, \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}} type)
+\item 
+\mbox{\hyperlink{class_cell_formula_a4392d2cfb70af6d5a244b814b915d8ba}{Cell\+Formula}} (const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&other)
+\item 
+\mbox{\hyperlink{class_cell_formula_a1d1f4d8d3895ef8c817fc22721ed45fc}{\texorpdfstring{$\sim$}{\string~}\+Cell\+Formula}} ()
+\item 
+\mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \& \mbox{\hyperlink{class_cell_formula_a2364ab58f87f751185a1db3e18756eeb}{operator=}} (const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&other)
+\item 
+bool \mbox{\hyperlink{class_cell_formula_a41f2089889d560e3f8be3852b477f984}{is\+Valid}} () const
+\item 
+\mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}} \mbox{\hyperlink{class_cell_formula_a9063ac5f21a378699aa3b460ca336dbf}{formula\+Type}} () const
+\item 
+QString \mbox{\hyperlink{class_cell_formula_ae468ba1f6e58297abf0db8e191297e66}{formula\+Text}} () const
+\item 
+\mbox{\hyperlink{class_cell_range}{Cell\+Range}} \mbox{\hyperlink{class_cell_formula_a52f57311a21fd98e0b1d1c31f16641b7}{reference}} () const
+\item 
+int \mbox{\hyperlink{class_cell_formula_a93779aa088a3409fcc79426c45ee33a0}{shared\+Index}} () const
+\item 
+bool \mbox{\hyperlink{class_cell_formula_aab74b95215e23fd3915fa96243916d13}{operator==}} (const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&formula) const
+\item 
+bool \mbox{\hyperlink{class_cell_formula_a7e66c3fbea8b7e63bb9eabe2fb1f39fc}{operator!=}} (const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&formula) const
+\item 
+bool \mbox{\hyperlink{class_cell_formula_a317a8b602e9da63b2ad0f478a2276e1f}{save\+To\+Xml}} (QXml\+Stream\+Writer \&writer) const
+\item 
+bool \mbox{\hyperlink{class_cell_formula_aa5e3589c8e7b38ff26016f12716e1fe9}{load\+From\+Xml}} (QXml\+Stream\+Reader \&reader)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_cell_formula_afd9c7929d30c425c6c52a03cdee91578}{Worksheet}}
+\item 
+class \mbox{\hyperlink{class_cell_formula_aa3edc4b8a1670a2d51d3928c922ff490}{Worksheet\+Private}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_cell_formula}{Cell\+Formula} class provides a API that is used to handle the cell formula. 
+
+\textbackslash{}inmodule Qt\+Xlsx  
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}\label{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186} 
+\index{CellFormula@{CellFormula}!FormulaType@{FormulaType}}
+\index{FormulaType@{FormulaType}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{FormulaType}{FormulaType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Cell\+Formula\+::\+Formula\+Type}}}
+
+\textbackslash{}value Normal\+Type \textbackslash{}value Array\+Type \textbackslash{}value Data\+Table\+Type \textbackslash{}value Shared\+Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NormalType@{NormalType}!CellFormula@{CellFormula}}\index{CellFormula@{CellFormula}!NormalType@{NormalType}}}\Hypertarget{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a0c7cce0ff4425ac4b33f5f38a2a5a7bf}\label{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a0c7cce0ff4425ac4b33f5f38a2a5a7bf} 
+Normal\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ArrayType@{ArrayType}!CellFormula@{CellFormula}}\index{CellFormula@{CellFormula}!ArrayType@{ArrayType}}}\Hypertarget{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a7bdb650ad083215ef36353774bfee8fb}\label{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a7bdb650ad083215ef36353774bfee8fb} 
+Array\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DataTableType@{DataTableType}!CellFormula@{CellFormula}}\index{CellFormula@{CellFormula}!DataTableType@{DataTableType}}}\Hypertarget{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186ab33575f8585d989b15f978d1bfb5f94f}\label{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186ab33575f8585d989b15f978d1bfb5f94f} 
+Data\+Table\+Type&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SharedType@{SharedType}!CellFormula@{CellFormula}}\index{CellFormula@{CellFormula}!SharedType@{SharedType}}}\Hypertarget{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186ae206762a9c8cc8b5dd4dea1b014e2309}\label{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186ae206762a9c8cc8b5dd4dea1b014e2309} 
+Shared\+Type&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cell_formula_a6cec93558e2c0a980fab7e82596ad525}\label{class_cell_formula_a6cec93558e2c0a980fab7e82596ad525} 
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{CellFormula()}{CellFormula()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Cell\+Formula\+::\+Cell\+Formula (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a new formula. \Hypertarget{class_cell_formula_aa4b0a50e44f2caf60bc673fcdd2f7067}\label{class_cell_formula_aa4b0a50e44f2caf60bc673fcdd2f7067} 
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{CellFormula()}{CellFormula()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Cell\+Formula\+::\+Cell\+Formula (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{formula,  }\item[{\mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a0c7cce0ff4425ac4b33f5f38a2a5a7bf}{Normal\+Type}}} }\end{DoxyParamCaption})}
+
+Creates a new formula with the given {\itshape formula} and {\itshape type}. \Hypertarget{class_cell_formula_a8403daf0787a4b0fe59869ea9fe404f9}\label{class_cell_formula_a8403daf0787a4b0fe59869ea9fe404f9} 
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{CellFormula()}{CellFormula()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Cell\+Formula\+::\+Cell\+Formula (\begin{DoxyParamCaption}\item[{const QString \&}]{formula,  }\item[{\mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186a0c7cce0ff4425ac4b33f5f38a2a5a7bf}{Normal\+Type}}} }\end{DoxyParamCaption})}
+
+Creates a new formula with the given {\itshape formula} and {\itshape type}. \Hypertarget{class_cell_formula_a42b32dfd684ed578e7d715e3732444a2}\label{class_cell_formula_a42b32dfd684ed578e7d715e3732444a2} 
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{CellFormula()}{CellFormula()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Cell\+Formula\+::\+Cell\+Formula (\begin{DoxyParamCaption}\item[{const QString \&}]{formula,  }\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{ref,  }\item[{\mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Formula\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Creates a new formula with the given {\itshape formula}, {\itshape ref} and {\itshape type}. \Hypertarget{class_cell_formula_a4392d2cfb70af6d5a244b814b915d8ba}\label{class_cell_formula_a4392d2cfb70af6d5a244b814b915d8ba} 
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\index{CellFormula@{CellFormula}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{CellFormula()}{CellFormula()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Cell\+Formula\+::\+Cell\+Formula (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&}]{other }\end{DoxyParamCaption})}
+
+Creates a new formula with the same attributes as the {\itshape other} formula. \Hypertarget{class_cell_formula_a1d1f4d8d3895ef8c817fc22721ed45fc}\label{class_cell_formula_a1d1f4d8d3895ef8c817fc22721ed45fc} 
+\index{CellFormula@{CellFormula}!````~CellFormula@{\texorpdfstring{$\sim$}{\string~}CellFormula}}
+\index{````~CellFormula@{\texorpdfstring{$\sim$}{\string~}CellFormula}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CellFormula()}{\string~CellFormula()}}
+{\footnotesize\ttfamily Cell\+Formula\+::\texorpdfstring{$\sim$}{\string~}\+Cell\+Formula (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys this formula. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cell_formula_ae468ba1f6e58297abf0db8e191297e66}\label{class_cell_formula_ae468ba1f6e58297abf0db8e191297e66} 
+\index{CellFormula@{CellFormula}!formulaText@{formulaText}}
+\index{formulaText@{formulaText}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{formulaText()}{formulaText()}}
+{\footnotesize\ttfamily QString Cell\+Formula\+::formula\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the contents of the formula. \Hypertarget{class_cell_formula_a9063ac5f21a378699aa3b460ca336dbf}\label{class_cell_formula_a9063ac5f21a378699aa3b460ca336dbf} 
+\index{CellFormula@{CellFormula}!formulaType@{formulaType}}
+\index{formulaType@{formulaType}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{formulaType()}{formulaType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_formula_aeb4622b928c9653057ceb4dbeaa5b186}{Cell\+Formula\+::\+Formula\+Type}} Cell\+Formula\+::formula\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the type of the formula. \Hypertarget{class_cell_formula_a41f2089889d560e3f8be3852b477f984}\label{class_cell_formula_a41f2089889d560e3f8be3852b477f984} 
+\index{CellFormula@{CellFormula}!isValid@{isValid}}
+\index{isValid@{isValid}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Cell\+Formula\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns whether the formula is valid. \Hypertarget{class_cell_formula_aa5e3589c8e7b38ff26016f12716e1fe9}\label{class_cell_formula_aa5e3589c8e7b38ff26016f12716e1fe9} 
+\index{CellFormula@{CellFormula}!loadFromXml@{loadFromXml}}
+\index{loadFromXml@{loadFromXml}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{loadFromXml()}{loadFromXml()}}
+{\footnotesize\ttfamily bool Cell\+Formula\+::load\+From\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Reader \&}]{reader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_cell_formula_a7e66c3fbea8b7e63bb9eabe2fb1f39fc}\label{class_cell_formula_a7e66c3fbea8b7e63bb9eabe2fb1f39fc} 
+\index{CellFormula@{CellFormula}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Cell\+Formula\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&}]{formula }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_cell_formula_a2364ab58f87f751185a1db3e18756eeb}\label{class_cell_formula_a2364ab58f87f751185a1db3e18756eeb} 
+\index{CellFormula@{CellFormula}!operator=@{operator=}}
+\index{operator=@{operator=}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \& Cell\+Formula\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&}]{other }\end{DoxyParamCaption})}
+
+Assigns the {\itshape other} formula to this formula, and returns a reference to this formula. \Hypertarget{class_cell_formula_aab74b95215e23fd3915fa96243916d13}\label{class_cell_formula_aab74b95215e23fd3915fa96243916d13} 
+\index{CellFormula@{CellFormula}!operator==@{operator==}}
+\index{operator==@{operator==}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Cell\+Formula\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_formula}{Cell\+Formula}} \&}]{formula }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_cell_formula_a52f57311a21fd98e0b1d1c31f16641b7}\label{class_cell_formula_a52f57311a21fd98e0b1d1c31f16641b7} 
+\index{CellFormula@{CellFormula}!reference@{reference}}
+\index{reference@{reference}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{reference()}{reference()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cell_range}{Cell\+Range}} Cell\+Formula\+::reference (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the reference cells of the formula. For normal formula, this will return an invalid \doxylink{class_cell_range}{Cell\+Range} object. \Hypertarget{class_cell_formula_a317a8b602e9da63b2ad0f478a2276e1f}\label{class_cell_formula_a317a8b602e9da63b2ad0f478a2276e1f} 
+\index{CellFormula@{CellFormula}!saveToXml@{saveToXml}}
+\index{saveToXml@{saveToXml}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{saveToXml()}{saveToXml()}}
+{\footnotesize\ttfamily bool Cell\+Formula\+::save\+To\+Xml (\begin{DoxyParamCaption}\item[{QXml\+Stream\+Writer \&}]{writer }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_cell_formula_a93779aa088a3409fcc79426c45ee33a0}\label{class_cell_formula_a93779aa088a3409fcc79426c45ee33a0} 
+\index{CellFormula@{CellFormula}!sharedIndex@{sharedIndex}}
+\index{sharedIndex@{sharedIndex}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{sharedIndex()}{sharedIndex()}}
+{\footnotesize\ttfamily int Cell\+Formula\+::shared\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the shared index for shared formula. 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_cell_formula_afd9c7929d30c425c6c52a03cdee91578}\label{class_cell_formula_afd9c7929d30c425c6c52a03cdee91578} 
+\index{CellFormula@{CellFormula}!Worksheet@{Worksheet}}
+\index{Worksheet@{Worksheet}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{Worksheet}{Worksheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_worksheet}{Worksheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_cell_formula_aa3edc4b8a1670a2d51d3928c922ff490}\label{class_cell_formula_aa3edc4b8a1670a2d51d3928c922ff490} 
+\index{CellFormula@{CellFormula}!WorksheetPrivate@{WorksheetPrivate}}
+\index{WorksheetPrivate@{WorksheetPrivate}!CellFormula@{CellFormula}}
+\doxysubsubsection{\texorpdfstring{WorksheetPrivate}{WorksheetPrivate}}
+{\footnotesize\ttfamily friend class Worksheet\+Private\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcellformula_8h}{xlsxcellformula.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxcellformula_8cpp}{xlsxcellformula.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,154 @@
+\doxysection{mwellwindow.\+h}
+\hypertarget{mwellwindow_8h_source}{}\label{mwellwindow_8h_source}\index{MultiflowUI/parUI/mwellwindow.h@{MultiflowUI/parUI/mwellwindow.h}}
+\mbox{\hyperlink{mwellwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MWELLWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MWELLWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well}{MWell}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }QStandardItemModel;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_read_only_delegate}{ReadOnlyDelegate}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_grade_delegate}{GradeDelegate}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_geometry_delegate}{GeometryDelegate}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_comp_v_i_p_r_delegate}{CompVIPRDelegate}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_comp_h_i_p_r_delegate}{CompHIPRDelegate}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }QGraphicsScene;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }QLabel;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }QComboBox;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }QLineEdit;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcement}{cement}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structcement_a4a188eb1c7bc614d8380c9a3d66a0f65}{cementTop}}\ =\ 0x7FFFFFF;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structcement_ad3bd15866bc6c0ce0a083ff2e4927348}{cementDensity}}\ =\ 0x7FFFFFF;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structcement_ad8adbaa6d91fa48c2dac5aef1b448870}{cementThermal}}\ =\ 0x7FFFFFF;}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfluid}{fluid}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ QString\ \mbox{\hyperlink{structfluid_afa60c68d8985d5dc97d53f912d68ff36}{fluidType}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structfluid_a1bcffdf96b8267f47b8707b7b74c237c}{fluidDensity}}\ =\ 0x7FFFFFF;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structfluid_a58aa5fa8fab838d77e0d2c02f33732b0}{fluidThermal}}\ =\ 0x7FFFFFF;}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_ui}{Ui}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well_window}{MWellWindow}};}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well_window}{MWellWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_m_well_window}{MWellWindow}}(\mbox{\hyperlink{class_m_well}{MWell}}*\ well,\ QString\ name,\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_m_well_window_a83e9bbf717ff3a3fced602b73abab21f}{\string~MWellWindow}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ QString\ mName;}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_m_well}{MWell}}\ *mWell;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ QStandardItemModel\ *casingModel;}
+\DoxyCodeLine{00054\ \ \ \ \ QStandardItemModel\ *tubingModel;}
+\DoxyCodeLine{00055\ \ \ \ \ QStandardItemModel\ *packerModel;}
+\DoxyCodeLine{00056\ \ \ \ \ QStandardItemModel\ *gasLiftModel;}
+\DoxyCodeLine{00057\ \ \ \ \ QStandardItemModel\ *pumpModel;}
+\DoxyCodeLine{00058\ \ \ \ \ QStandardItemModel\ *compHModel;}
+\DoxyCodeLine{00059\ \ \ \ \ QStandardItemModel\ *compVModel;}
+\DoxyCodeLine{00060\ \ \ \ \ QStandardItemModel\ *twoDModel;}
+\DoxyCodeLine{00061\ \ \ \ \ QStandardItemModel\ *threeDModel;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ QStandardItemModel\ *HTCCalculateMode;}
+\DoxyCodeLine{00064\ \ \ \ \ QStandardItemModel\ *HTCCalATIMultMode;}
+\DoxyCodeLine{00065\ \ \ \ \ QStandardItemModel\ *UMultATIMultMode;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_read_only_delegate}{ReadOnlyDelegate}}\ *readOnlyDelegate;}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_grade_delegate}{GradeDelegate}}\ *gradeDelegate;}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_geometry_delegate}{GeometryDelegate}}\ *geometryDelegate;}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_comp_v_i_p_r_delegate}{CompVIPRDelegate}}\ *compVIPRDelegate;}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_comp_h_i_p_r_delegate}{CompHIPRDelegate}}\ *compHIPRDelegate;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ QMap<int,\ cement>\ cementMap;}
+\DoxyCodeLine{00074\ \ \ \ \ QMap<int,\ fluid>\ fluidMap;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ QGraphicsScene\ *scene;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ drawCasing();}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ removeCasing();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ initUI();}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ initModel();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ initConnect();}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ initWellData();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ initValidator();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ initStatus();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ addCasingRow();}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteCasingRow();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ addTubingRow();}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteTubingRow();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ addPackerRow();}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ deletePackerRow();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ addGasLiftRow();}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteGasLiftRow();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ addPumpRow();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ deletePumpRow();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ addCompRow();}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteCompRow();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ add2DRow();}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ delete2DRow();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ add3DRow();}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ delete3DRow();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ addHeatRow();}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteHeatRow();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ handleCasingRowClicked(\textcolor{keyword}{const}\ QModelIndex\ \&index);}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ handleTubingRowClicked(\textcolor{keyword}{const}\ QModelIndex\ \&index);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ handle2DTV(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ handle3DTV(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ handleHeadRaionButton();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ exportToCsv();}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ importFromCsv();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ setPara();}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ setDeviationSurvey();}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ setTubular();}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ setSubTubular();}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ setFluidType(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ setPacker();}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ setHeat();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ emitItemNameChange(QString\ name);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ signals:}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_window_af97de6b356f3c0f9fd77a2a1b0672c53}{itemNameChange}}(QString\ name);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{class_ui_1_1_m_well_window}{Ui::MWellWindow}}\ *ui;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_window_adade50338a5342f09b7ca8310c6bf9b1}{closeEvent}}(QCloseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00146\ \};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MWELLWINDOW\_H}}
+
+\end{DoxyCode}

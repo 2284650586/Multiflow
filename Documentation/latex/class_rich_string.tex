@@ -1,0 +1,205 @@
+\doxysection{Rich\+String Class Reference}
+\hypertarget{class_rich_string}{}\label{class_rich_string}\index{RichString@{RichString}}
+
+
+This class add support for the rich text string of the cell.  
+
+
+
+
+{\ttfamily \#include $<$xlsxrichstring.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rich_string_a6f600daf419d14a159dba8ca143c8d7e}{Rich\+String}} ()
+\item 
+\mbox{\hyperlink{class_rich_string_acd824998f74ec2663dbacb2198dc56ae}{Rich\+String}} (const QString text)
+\item 
+\mbox{\hyperlink{class_rich_string_a6d5935c7bf38a1ca0af195f876d0f1ad}{Rich\+String}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&other)
+\item 
+\mbox{\hyperlink{class_rich_string_a61ec21089ceda5031cadb6ec9ef34c7a}{\texorpdfstring{$\sim$}{\string~}\+Rich\+String}} ()
+\item 
+bool \mbox{\hyperlink{class_rich_string_a8ab40c0cfabbd269179a887c9325c503}{is\+Rich\+String}} () const
+\item 
+bool \mbox{\hyperlink{class_rich_string_ab746908374eded8a0d687c1e78a1176b}{is\+Null}} () const
+\item 
+bool \mbox{\hyperlink{class_rich_string_acd4d3ae1dac50009bdd74e54f9f4f2a1}{is\+Emtpy}} () const
+\item 
+QString \mbox{\hyperlink{class_rich_string_a0b19d9690ca0ad322627b581439dcbe5}{to\+Plain\+String}} () const
+\item 
+QString \mbox{\hyperlink{class_rich_string_a816fb7c084460de0af91229ad2c0d17b}{to\+Html}} () const
+\item 
+void \mbox{\hyperlink{class_rich_string_a57397f9743694f45b06f8ec9713a227b}{set\+Html}} (const QString \&text)
+\item 
+int \mbox{\hyperlink{class_rich_string_abb04be66b48de08c0db8c687e8a897fb}{fragment\+Count}} () const
+\item 
+void \mbox{\hyperlink{class_rich_string_a4dc41c07cf65ec7105304e73c66cf6d5}{add\+Fragment}} (const QString \&text, const \mbox{\hyperlink{class_format}{Format}} \&format)
+\item 
+QString \mbox{\hyperlink{class_rich_string_a99e78f4d25364262ada87c20914d555f}{fragment\+Text}} (int index) const
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_rich_string_a7be5ee0037e231d9f3614aec8883c175}{fragment\+Format}} (int index) const
+\item 
+\mbox{\hyperlink{class_rich_string_a2d951869ac43bd152c7e0dea3ce4b983}{operator QVariant}} () const
+\item 
+\mbox{\hyperlink{class_rich_string}{Rich\+String}} \& \mbox{\hyperlink{class_rich_string_a3968aa86fb3377959ee42adaed67a695}{operator=}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} uint \mbox{\hyperlink{class_rich_string_a9bcde6bd3d5cd12f400174f70e0b7db2}{q\+Hash}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs, uint seed) Q\+\_\+\+DECL\+\_\+\+NOTHROW
+\item 
+\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} bool \mbox{\hyperlink{class_rich_string_ab165366b03b4832bb4fb6ee4c90f13c8}{operator==}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} bool \mbox{\hyperlink{class_rich_string_ac4cc597478b23e1d974af3c586764803}{operator!=}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} bool \mbox{\hyperlink{class_rich_string_a8d7ce9bf5e97c0553f7448eb6199dc16}{operator$<$}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs1, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs2)
+\item 
+\mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} QDebug \mbox{\hyperlink{class_rich_string_abb3a953bb1e168aa3c6622017a823e61}{operator$<$$<$}} (QDebug dbg, const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&rs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class add support for the rich text string of the cell. 
+
+\textbackslash{}inmodule Qt\+Xlsx 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rich_string_a6f600daf419d14a159dba8ca143c8d7e}\label{class_rich_string_a6f600daf419d14a159dba8ca143c8d7e} 
+\index{RichString@{RichString}!RichString@{RichString}}
+\index{RichString@{RichString}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{RichString()}{RichString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Rich\+String\+::\+Rich\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructs a null string. \Hypertarget{class_rich_string_acd824998f74ec2663dbacb2198dc56ae}\label{class_rich_string_acd824998f74ec2663dbacb2198dc56ae} 
+\index{RichString@{RichString}!RichString@{RichString}}
+\index{RichString@{RichString}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{RichString()}{RichString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Rich\+String\+::\+Rich\+String (\begin{DoxyParamCaption}\item[{const QString}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructs a plain string with the given {\itshape text}. \Hypertarget{class_rich_string_a6d5935c7bf38a1ca0af195f876d0f1ad}\label{class_rich_string_a6d5935c7bf38a1ca0af195f876d0f1ad} 
+\index{RichString@{RichString}!RichString@{RichString}}
+\index{RichString@{RichString}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{RichString()}{RichString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Rich\+String\+::\+Rich\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{other }\end{DoxyParamCaption})}
+
+Constructs a copy of {\itshape other}. \Hypertarget{class_rich_string_a61ec21089ceda5031cadb6ec9ef34c7a}\label{class_rich_string_a61ec21089ceda5031cadb6ec9ef34c7a} 
+\index{RichString@{RichString}!````~RichString@{\texorpdfstring{$\sim$}{\string~}RichString}}
+\index{````~RichString@{\texorpdfstring{$\sim$}{\string~}RichString}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RichString()}{\string~RichString()}}
+{\footnotesize\ttfamily Rich\+String\+::\texorpdfstring{$\sim$}{\string~}\+Rich\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructs the string. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rich_string_a4dc41c07cf65ec7105304e73c66cf6d5}\label{class_rich_string_a4dc41c07cf65ec7105304e73c66cf6d5} 
+\index{RichString@{RichString}!addFragment@{addFragment}}
+\index{addFragment@{addFragment}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{addFragment()}{addFragment()}}
+{\footnotesize\ttfamily void Rich\+String\+::add\+Fragment (\begin{DoxyParamCaption}\item[{const QString \&}]{text,  }\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format }\end{DoxyParamCaption})}
+
+Appends a fragment with the given {\itshape text} and {\itshape format}. \Hypertarget{class_rich_string_abb04be66b48de08c0db8c687e8a897fb}\label{class_rich_string_abb04be66b48de08c0db8c687e8a897fb} 
+\index{RichString@{RichString}!fragmentCount@{fragmentCount}}
+\index{fragmentCount@{fragmentCount}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{fragmentCount()}{fragmentCount()}}
+{\footnotesize\ttfamily int Rich\+String\+::fragment\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns fragment count. \Hypertarget{class_rich_string_a7be5ee0037e231d9f3614aec8883c175}\label{class_rich_string_a7be5ee0037e231d9f3614aec8883c175} 
+\index{RichString@{RichString}!fragmentFormat@{fragmentFormat}}
+\index{fragmentFormat@{fragmentFormat}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{fragmentFormat()}{fragmentFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} Rich\+String\+::fragment\+Format (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Returns fragment format at the position {\itshape index}. \Hypertarget{class_rich_string_a99e78f4d25364262ada87c20914d555f}\label{class_rich_string_a99e78f4d25364262ada87c20914d555f} 
+\index{RichString@{RichString}!fragmentText@{fragmentText}}
+\index{fragmentText@{fragmentText}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{fragmentText()}{fragmentText()}}
+{\footnotesize\ttfamily QString Rich\+String\+::fragment\+Text (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Returns fragment text at the position {\itshape index}. \Hypertarget{class_rich_string_acd4d3ae1dac50009bdd74e54f9f4f2a1}\label{class_rich_string_acd4d3ae1dac50009bdd74e54f9f4f2a1} 
+\index{RichString@{RichString}!isEmtpy@{isEmtpy}}
+\index{isEmtpy@{isEmtpy}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{isEmtpy()}{isEmtpy()}}
+{\footnotesize\ttfamily bool Rich\+String\+::is\+Emtpy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true is this is an empty string. \Hypertarget{class_rich_string_ab746908374eded8a0d687c1e78a1176b}\label{class_rich_string_ab746908374eded8a0d687c1e78a1176b} 
+\index{RichString@{RichString}!isNull@{isNull}}
+\index{isNull@{isNull}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{isNull()}{isNull()}}
+{\footnotesize\ttfamily bool Rich\+String\+::is\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true is this is an Null string. \Hypertarget{class_rich_string_a8ab40c0cfabbd269179a887c9325c503}\label{class_rich_string_a8ab40c0cfabbd269179a887c9325c503} 
+\index{RichString@{RichString}!isRichString@{isRichString}}
+\index{isRichString@{isRichString}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{isRichString()}{isRichString()}}
+{\footnotesize\ttfamily bool Rich\+String\+::is\+Rich\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns true if this is rich text string. \Hypertarget{class_rich_string_a2d951869ac43bd152c7e0dea3ce4b983}\label{class_rich_string_a2d951869ac43bd152c7e0dea3ce4b983} 
+\index{RichString@{RichString}!operator QVariant@{operator QVariant}}
+\index{operator QVariant@{operator QVariant}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{operator QVariant()}{operator QVariant()}}
+{\footnotesize\ttfamily Rich\+String\+::operator QVariant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the rich string as a QVariant \Hypertarget{class_rich_string_a3968aa86fb3377959ee42adaed67a695}\label{class_rich_string_a3968aa86fb3377959ee42adaed67a695} 
+\index{RichString@{RichString}!operator=@{operator=}}
+\index{operator=@{operator=}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_rich_string}{Rich\+String}} \& Rich\+String\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{other }\end{DoxyParamCaption})}
+
+Assigns {\itshape other} to this string and returns a reference to this string \Hypertarget{class_rich_string_a57397f9743694f45b06f8ec9713a227b}\label{class_rich_string_a57397f9743694f45b06f8ec9713a227b} 
+\index{RichString@{RichString}!setHtml@{setHtml}}
+\index{setHtml@{setHtml}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{setHtml()}{setHtml()}}
+{\footnotesize\ttfamily void Rich\+String\+::set\+Html (\begin{DoxyParamCaption}\item[{const QString \&}]{text }\end{DoxyParamCaption})}
+
+Replaces the entire contents of the document with the given HTML-\/formatted text in the {\itshape text} string \Hypertarget{class_rich_string_a816fb7c084460de0af91229ad2c0d17b}\label{class_rich_string_a816fb7c084460de0af91229ad2c0d17b} 
+\index{RichString@{RichString}!toHtml@{toHtml}}
+\index{toHtml@{toHtml}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{toHtml()}{toHtml()}}
+{\footnotesize\ttfamily QString Rich\+String\+::to\+Html (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Converts to html string \Hypertarget{class_rich_string_a0b19d9690ca0ad322627b581439dcbe5}\label{class_rich_string_a0b19d9690ca0ad322627b581439dcbe5} 
+\index{RichString@{RichString}!toPlainString@{toPlainString}}
+\index{toPlainString@{toPlainString}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{toPlainString()}{toPlainString()}}
+{\footnotesize\ttfamily QString Rich\+String\+::to\+Plain\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Converts to plain text string. 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_rich_string_ac4cc597478b23e1d974af3c586764803}\label{class_rich_string_ac4cc597478b23e1d974af3c586764803} 
+\index{RichString@{RichString}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Returns true if this string {\itshape rs1} is not equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{class_rich_string_a8d7ce9bf5e97c0553f7448eb6199dc16}\label{class_rich_string_a8d7ce9bf5e97c0553f7448eb6199dc16} 
+\index{RichString@{RichString}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_rich_string_abb3a953bb1e168aa3c6622017a823e61}\label{class_rich_string_abb3a953bb1e168aa3c6622017a823e61} 
+\index{RichString@{RichString}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} QDebug operator$<$$<$ (\begin{DoxyParamCaption}\item[{QDebug}]{dbg,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_rich_string_ab165366b03b4832bb4fb6ee4c90f13c8}\label{class_rich_string_ab165366b03b4832bb4fb6ee4c90f13c8} 
+\index{RichString@{RichString}!operator==@{operator==}}
+\index{operator==@{operator==}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs1,  }\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Returns true if this string {\itshape rs1} is equal to string {\itshape rs2}; otherwise returns false. \Hypertarget{class_rich_string_a9bcde6bd3d5cd12f400174f70e0b7db2}\label{class_rich_string_a9bcde6bd3d5cd12f400174f70e0b7db2} 
+\index{RichString@{RichString}!qHash@{qHash}}
+\index{qHash@{qHash}!RichString@{RichString}}
+\doxysubsubsection{\texorpdfstring{qHash}{qHash}}
+{\footnotesize\ttfamily \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\+\_\+\+XLSX\+\_\+\+EXPORT}} uint q\+Hash (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{rs,  }\item[{uint}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxrichstring_8h}{xlsxrichstring.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxrichstring_8cpp}{xlsxrichstring.\+cpp}}\end{DoxyCompactItemize}

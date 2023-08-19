@@ -1,0 +1,101 @@
+\doxysection{mflowlinedialog.\+h}
+\hypertarget{mflowlinedialog_8h_source}{}\label{mflowlinedialog_8h_source}\index{MultiflowUI/parUI/mflowlinedialog.h@{MultiflowUI/parUI/mflowlinedialog.h}}
+\mbox{\hyperlink{mflowlinedialog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MFLOWLINEDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MFLOWLINEDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mflowline_8h}{entity/mflowline.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }QStandardItemModel;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }QTableView;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }QScrollArea;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }QLabel;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }QLineEdit;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }QComboBox;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }QChartView;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }QLineSeries;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }QScatterSeries;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_flowline_dialog}{MFlowlineDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_dialog}{MFlowlineDialog}}(\mbox{\hyperlink{class_m_flowline}{MFlowline}}*\ flowline,\ \textcolor{keywordtype}{bool}\ isNew,\ QString\ name,\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_m_flowline_dialog_a20c0a601d3e7414e2aebef3674f5ecd8}{\string~MFlowlineDialog}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ acceptDialog();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ rejectDialog();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ updateChartFromTable();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ createTableModel();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ addRow();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ deleteRow();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ importFromCsv();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ exportToCsv();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ setupUI();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ updateDialogFromMFlowline();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ updateMFlowlineFromDialog();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ updateName();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_m_flowline}{MFlowline}}*\ mFlowline\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ 指向MFlowline对象的指针}}
+\DoxyCodeLine{00042\ \ \ \ \ QString\ mName;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ QLabel*\ flowlineNameLabel;}
+\DoxyCodeLine{00045\ \ \ \ \ QLineEdit*\ flowlineNameLineEdit;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ QLabel*\ flowlineTypeLabel;}
+\DoxyCodeLine{00048\ \ \ \ \ QComboBox*\ flowlineTypeComboBox;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ QLabel*\ flowlineModeLabel;}
+\DoxyCodeLine{00051\ \ \ \ \ QComboBox*\ flowlineModeComboBox;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ QLabel*\ flowlineEnvLabel;}
+\DoxyCodeLine{00054\ \ \ \ \ QComboBox*\ flowlineEnvComboBox;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ QLabel*\ pipInsideDiameterLabel;}
+\DoxyCodeLine{00057\ \ \ \ \ QLineEdit*\ pipInsideDiameterLineEdit;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ QLabel*\ pipWallThicknessLabel;}
+\DoxyCodeLine{00060\ \ \ \ \ QLineEdit*\ pipWallThicknessLineEdit;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ QLabel*\ pipeRoughnessLabel;}
+\DoxyCodeLine{00063\ \ \ \ \ QLineEdit*\ pipeRoughnessLineEdit;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ QLabel*\ profileHorizontalDistanceLabel;}
+\DoxyCodeLine{00066\ \ \ \ \ QLineEdit*\ profileHorizontalDistanceLineEdit;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ QLabel*\ profileElevationDifferenceLabel;}
+\DoxyCodeLine{00069\ \ \ \ \ QLineEdit*\ profileElevationDifferenceLineEdit;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ QLabel*\ heatTransferCoefficientLabel;}
+\DoxyCodeLine{00072\ \ \ \ \ QLineEdit*\ heatTransferCoefficientLineEdit;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ QScrollArea*\ scrollArea;}
+\DoxyCodeLine{00075\ \ \ \ \ QTableView*\ tableView;}
+\DoxyCodeLine{00076\ \ \ \ \ QPushButton*\ addRowButton;}
+\DoxyCodeLine{00077\ \ \ \ \ QPushButton*\ deleteRowButton;}
+\DoxyCodeLine{00078\ \ \ \ \ QPushButton*\ importButton;}
+\DoxyCodeLine{00079\ \ \ \ \ QPushButton*\ exportButton;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ QStandardItemModel*\ dataModel;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ QPushButton*\ okButton;}
+\DoxyCodeLine{00084\ \ \ \ \ QPushButton*\ cancelButton;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ QChartView\ *chartView;}
+\DoxyCodeLine{00087\ \ \ \ \ QLineSeries\ *lineSeries;}
+\DoxyCodeLine{00088\ \ \ \ \ QScatterSeries\ *scatterSeries;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00092\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_flowline_dialog_af716dd1a954a16cd93c6044dd8209394}{getName}}();}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MFLOWLINEDIALOG\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,413 @@
+\doxysection{MWell\+Deviation Class Reference}
+\hypertarget{class_m_well_deviation}{}\label{class_m_well_deviation}\index{MWellDeviation@{MWellDeviation}}
+
+
+{\ttfamily \#include $<$mwelldeviation.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{Survey\+Type}} \{ \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3a0f15123fb54c4c8084a7c2d9e727f73d}{Vertical}}
+, \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aee58451728f232bb85072e3c1f3b23d0}{TwoD}}
+, \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aa9d607bb294c02b4d61c361dd2eea991}{ThreeD}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{Dependent\+Para}} \{ \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a318a63083deb9de7131d174b06acb63c}{MD}}
+, \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736afb0e15d1cff78134b2c6b2bbd42e9a49}{TVD}}
+, \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a90a7a2161d2dcad92782efe6d57b6499}{Angle}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_well_deviation_a35059503fc22acec3b528dd69b1a4641}{MWell\+Deviation}} ()
+\item 
+\mbox{\hyperlink{class_m_well_deviation_a787645bd3029ffca55c6477ddabca2ed}{MWell\+Deviation}} (double measure\+Point\+MD, double measure\+Point\+TVD, double inclination, double azimuth, double displacement\+EW, double displacement\+NS, double dogleg, double closure\+Horizon, double closure\+Azimuth, double closure\+Displ)
+\item 
+QString \mbox{\hyperlink{class_m_well_deviation_a3bb8d3651babec31e94451f4cc6c7039}{get\+Id}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a6446a93b07e398b5d95f056119d510b7}{set\+Id}} (const QString \&new\+Id)
+\item 
+QString \mbox{\hyperlink{class_m_well_deviation_a9d4a6812a4ef553444539153596c0d76}{get\+Well\+Id}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a87e86df4dd1b0233629a9e7b69c19a43}{set\+Well\+Id}} (const QString \&new\+Well\+Id)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a79951014f0bbfbd7b4c1949eb396bda8}{get\+Measure\+Point\+MD}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a97bb6789411ac29af533d62a42f4dcb1}{set\+Measure\+Point\+MD}} (double new\+Measure\+Point\+MD)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a30ef75a3e46023698941f13a2fd1c9f8}{get\+Measure\+Point\+TVD}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_accb96de5578df221fc635fea93d0af37}{set\+Measure\+Point\+TVD}} (double new\+Measure\+Point\+TVD)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a7b5f8a52a2361e04730c95ca070d4088}{get\+Inclination}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_acef4f1bf60e6cec0989a7efcbfaaa40b}{set\+Inclination}} (double new\+Inclination)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a6a8572dea9b888284e9fd44c01cbd14e}{get\+Azimuth}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a434b3e3ddd460681fe6cbc1630075a3e}{set\+Azimuth}} (double new\+Azimuth)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_ab1184d23c423b8060e0c9e35ad6bb41e}{get\+Displacement\+EW}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_aae8856ebb6cf8623a5f09d05ccc4eb8c}{set\+Displacement\+EW}} (double new\+Displacement\+EW)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_aa815301ffb1038c5a492a87d464b5d41}{get\+Displacement\+NS}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a8738ba3d40f457aef549279460a84f24}{set\+Displacement\+NS}} (double new\+Displacement\+NS)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a9f340167cfd7075b14bb6b9f464dbec2}{get\+Dogleg}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_ad779358b3f4a25036b31bd777d830cfa}{set\+Dogleg}} (double new\+Dogleg)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a8a008457315b6c5e248954903868d52f}{get\+Closure\+Horizon}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_ae0e3b024b4ea23d51564e8b37c0dc55e}{set\+Closure\+Horizon}} (double new\+Closure\+Horizon)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_aa286da5dabd375d7cf0049031754231d}{get\+Closure\+Azimuth}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a40e87624615ed87be9e59a49c46aa747}{set\+Closure\+Azimuth}} (double new\+Closure\+Azimuth)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_aba0a92b8c20858b15960ff842982109e}{get\+Closure\+Displ}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_aa8f9beb0a34d5b873e2d8da794f8ab46}{set\+Closure\+Displ}} (double new\+Closure\+Displ)
+\item 
+QString \mbox{\hyperlink{class_m_well_deviation_a36d7e0754c62bcf6de38a318b2b83eb4}{get\+Remark}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a2103302d365bcb32d5d15a7bea31f64b}{set\+Remark}} (const QString \&new\+Remark)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a85fac88ca8356ee3e1bc9390d2a30aba}{get\+Well\+Head\+Dpeth}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a826d91319dd40feb5ebd33c82d4efdda}{set\+Well\+Head\+Dpeth}} (double new\+Well\+Head\+Dpeth)
+\item 
+\mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{Survey\+Type}} \mbox{\hyperlink{class_m_well_deviation_aeb94fe1ceb4d1ba2d220585bfd84e2a9}{get\+Sur\+Veytype}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a9cd1871633c27f0a543007dd2343af73}{set\+Sur\+Veytype}} (\mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{Survey\+Type}} new\+Sur\+Veytype)
+\item 
+\mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{Dependent\+Para}} \mbox{\hyperlink{class_m_well_deviation_a3fea3957466071c3fb453a888a5780b1}{get\+Dep\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a005140c72571a29173e8b995581b1ccc}{set\+Dep\+Type}} (\mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{Dependent\+Para}} new\+Dep\+Type)
+\item 
+double \mbox{\hyperlink{class_m_well_deviation_a95a4962e7c1fbdf444abb6a167b7782a}{get\+Bottom\+Depth}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_af560ad8637de031d155ae25c412b5bf2}{set\+Bottom\+Depth}} (double new\+Bottom\+Depth)
+\item 
+QString \mbox{\hyperlink{class_m_well_deviation_a3011263b3fb7f4266a0da770949a4de7}{get\+Cal\+Medthod}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a7e153c2f254812d97090befa411d0f8f}{set\+Cal\+Medthod}} (const QString \&new\+Cal\+Medthod)
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_aac52415dd2faef1049e854123af6c7f3}{clear\+Par}} ()
+\item 
+int \mbox{\hyperlink{class_m_well_deviation_a5ab22aa41c7852068766545f9966f0ad}{get\+Par\+Count}} ()
+\item 
+QList$<$ \mbox{\hyperlink{class_m_deviation_par}{MDeviation\+Par}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_m_well_deviation_aa181499754711376c58c5ad139c721bc}{get\+Par\+List}} () const
+\item 
+void \mbox{\hyperlink{class_m_well_deviation_a42cb86ac2498402f536842ff5ec22817}{add\+Par}} (\mbox{\hyperlink{class_m_deviation_par}{MDeviation\+Par}} \texorpdfstring{$\ast$}{*}par)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}\label{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736} 
+\index{MWellDeviation@{MWellDeviation}!DependentPara@{DependentPara}}
+\index{DependentPara@{DependentPara}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{DependentPara}{DependentPara}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{MWell\+Deviation\+::\+Dependent\+Para}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MD@{MD}!MWellDeviation@{MWellDeviation}}\index{MWellDeviation@{MWellDeviation}!MD@{MD}}}\Hypertarget{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a318a63083deb9de7131d174b06acb63c}\label{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a318a63083deb9de7131d174b06acb63c} 
+MD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TVD@{TVD}!MWellDeviation@{MWellDeviation}}\index{MWellDeviation@{MWellDeviation}!TVD@{TVD}}}\Hypertarget{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736afb0e15d1cff78134b2c6b2bbd42e9a49}\label{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736afb0e15d1cff78134b2c6b2bbd42e9a49} 
+TVD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Angle@{Angle}!MWellDeviation@{MWellDeviation}}\index{MWellDeviation@{MWellDeviation}!Angle@{Angle}}}\Hypertarget{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a90a7a2161d2dcad92782efe6d57b6499}\label{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736a90a7a2161d2dcad92782efe6d57b6499} 
+Angle&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}\label{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3} 
+\index{MWellDeviation@{MWellDeviation}!SurveyType@{SurveyType}}
+\index{SurveyType@{SurveyType}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{SurveyType}{SurveyType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{MWell\+Deviation\+::\+Survey\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vertical@{Vertical}!MWellDeviation@{MWellDeviation}}\index{MWellDeviation@{MWellDeviation}!Vertical@{Vertical}}}\Hypertarget{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3a0f15123fb54c4c8084a7c2d9e727f73d}\label{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3a0f15123fb54c4c8084a7c2d9e727f73d} 
+Vertical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TwoD@{TwoD}!MWellDeviation@{MWellDeviation}}\index{MWellDeviation@{MWellDeviation}!TwoD@{TwoD}}}\Hypertarget{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aee58451728f232bb85072e3c1f3b23d0}\label{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aee58451728f232bb85072e3c1f3b23d0} 
+TwoD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ThreeD@{ThreeD}!MWellDeviation@{MWellDeviation}}\index{MWellDeviation@{MWellDeviation}!ThreeD@{ThreeD}}}\Hypertarget{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aa9d607bb294c02b4d61c361dd2eea991}\label{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3aa9d607bb294c02b4d61c361dd2eea991} 
+ThreeD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_well_deviation_a35059503fc22acec3b528dd69b1a4641}\label{class_m_well_deviation_a35059503fc22acec3b528dd69b1a4641} 
+\index{MWellDeviation@{MWellDeviation}!MWellDeviation@{MWellDeviation}}
+\index{MWellDeviation@{MWellDeviation}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{MWellDeviation()}{MWellDeviation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily MWell\+Deviation\+::\+MWell\+Deviation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a787645bd3029ffca55c6477ddabca2ed}\label{class_m_well_deviation_a787645bd3029ffca55c6477ddabca2ed} 
+\index{MWellDeviation@{MWellDeviation}!MWellDeviation@{MWellDeviation}}
+\index{MWellDeviation@{MWellDeviation}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{MWellDeviation()}{MWellDeviation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily MWell\+Deviation\+::\+MWell\+Deviation (\begin{DoxyParamCaption}\item[{double}]{measure\+Point\+MD,  }\item[{double}]{measure\+Point\+TVD,  }\item[{double}]{inclination,  }\item[{double}]{azimuth,  }\item[{double}]{displacement\+EW,  }\item[{double}]{displacement\+NS,  }\item[{double}]{dogleg,  }\item[{double}]{closure\+Horizon,  }\item[{double}]{closure\+Azimuth,  }\item[{double}]{closure\+Displ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_well_deviation_a42cb86ac2498402f536842ff5ec22817}\label{class_m_well_deviation_a42cb86ac2498402f536842ff5ec22817} 
+\index{MWellDeviation@{MWellDeviation}!addPar@{addPar}}
+\index{addPar@{addPar}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{addPar()}{addPar()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::add\+Par (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_deviation_par}{MDeviation\+Par}} \texorpdfstring{$\ast$}{*}}]{par }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_well_deviation_aac52415dd2faef1049e854123af6c7f3}\label{class_m_well_deviation_aac52415dd2faef1049e854123af6c7f3} 
+\index{MWellDeviation@{MWellDeviation}!clearPar@{clearPar}}
+\index{clearPar@{clearPar}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{clearPar()}{clearPar()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::clear\+Par (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_well_deviation_a6a8572dea9b888284e9fd44c01cbd14e}\label{class_m_well_deviation_a6a8572dea9b888284e9fd44c01cbd14e} 
+\index{MWellDeviation@{MWellDeviation}!getAzimuth@{getAzimuth}}
+\index{getAzimuth@{getAzimuth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getAzimuth()}{getAzimuth()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Azimuth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a95a4962e7c1fbdf444abb6a167b7782a}\label{class_m_well_deviation_a95a4962e7c1fbdf444abb6a167b7782a} 
+\index{MWellDeviation@{MWellDeviation}!getBottomDepth@{getBottomDepth}}
+\index{getBottomDepth@{getBottomDepth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getBottomDepth()}{getBottomDepth()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Bottom\+Depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a3011263b3fb7f4266a0da770949a4de7}\label{class_m_well_deviation_a3011263b3fb7f4266a0da770949a4de7} 
+\index{MWellDeviation@{MWellDeviation}!getCalMedthod@{getCalMedthod}}
+\index{getCalMedthod@{getCalMedthod}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getCalMedthod()}{getCalMedthod()}}
+{\footnotesize\ttfamily QString MWell\+Deviation\+::get\+Cal\+Medthod (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_aa286da5dabd375d7cf0049031754231d}\label{class_m_well_deviation_aa286da5dabd375d7cf0049031754231d} 
+\index{MWellDeviation@{MWellDeviation}!getClosureAzimuth@{getClosureAzimuth}}
+\index{getClosureAzimuth@{getClosureAzimuth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getClosureAzimuth()}{getClosureAzimuth()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Closure\+Azimuth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_aba0a92b8c20858b15960ff842982109e}\label{class_m_well_deviation_aba0a92b8c20858b15960ff842982109e} 
+\index{MWellDeviation@{MWellDeviation}!getClosureDispl@{getClosureDispl}}
+\index{getClosureDispl@{getClosureDispl}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getClosureDispl()}{getClosureDispl()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Closure\+Displ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a8a008457315b6c5e248954903868d52f}\label{class_m_well_deviation_a8a008457315b6c5e248954903868d52f} 
+\index{MWellDeviation@{MWellDeviation}!getClosureHorizon@{getClosureHorizon}}
+\index{getClosureHorizon@{getClosureHorizon}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getClosureHorizon()}{getClosureHorizon()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Closure\+Horizon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a3fea3957466071c3fb453a888a5780b1}\label{class_m_well_deviation_a3fea3957466071c3fb453a888a5780b1} 
+\index{MWellDeviation@{MWellDeviation}!getDepType@{getDepType}}
+\index{getDepType@{getDepType}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getDepType()}{getDepType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{MWell\+Deviation\+::\+Dependent\+Para}} MWell\+Deviation\+::get\+Dep\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_ab1184d23c423b8060e0c9e35ad6bb41e}\label{class_m_well_deviation_ab1184d23c423b8060e0c9e35ad6bb41e} 
+\index{MWellDeviation@{MWellDeviation}!getDisplacementEW@{getDisplacementEW}}
+\index{getDisplacementEW@{getDisplacementEW}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getDisplacementEW()}{getDisplacementEW()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Displacement\+EW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_aa815301ffb1038c5a492a87d464b5d41}\label{class_m_well_deviation_aa815301ffb1038c5a492a87d464b5d41} 
+\index{MWellDeviation@{MWellDeviation}!getDisplacementNS@{getDisplacementNS}}
+\index{getDisplacementNS@{getDisplacementNS}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getDisplacementNS()}{getDisplacementNS()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Displacement\+NS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a9f340167cfd7075b14bb6b9f464dbec2}\label{class_m_well_deviation_a9f340167cfd7075b14bb6b9f464dbec2} 
+\index{MWellDeviation@{MWellDeviation}!getDogleg@{getDogleg}}
+\index{getDogleg@{getDogleg}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getDogleg()}{getDogleg()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Dogleg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a3bb8d3651babec31e94451f4cc6c7039}\label{class_m_well_deviation_a3bb8d3651babec31e94451f4cc6c7039} 
+\index{MWellDeviation@{MWellDeviation}!getId@{getId}}
+\index{getId@{getId}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily QString MWell\+Deviation\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a7b5f8a52a2361e04730c95ca070d4088}\label{class_m_well_deviation_a7b5f8a52a2361e04730c95ca070d4088} 
+\index{MWellDeviation@{MWellDeviation}!getInclination@{getInclination}}
+\index{getInclination@{getInclination}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getInclination()}{getInclination()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Inclination (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a79951014f0bbfbd7b4c1949eb396bda8}\label{class_m_well_deviation_a79951014f0bbfbd7b4c1949eb396bda8} 
+\index{MWellDeviation@{MWellDeviation}!getMeasurePointMD@{getMeasurePointMD}}
+\index{getMeasurePointMD@{getMeasurePointMD}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getMeasurePointMD()}{getMeasurePointMD()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Measure\+Point\+MD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a30ef75a3e46023698941f13a2fd1c9f8}\label{class_m_well_deviation_a30ef75a3e46023698941f13a2fd1c9f8} 
+\index{MWellDeviation@{MWellDeviation}!getMeasurePointTVD@{getMeasurePointTVD}}
+\index{getMeasurePointTVD@{getMeasurePointTVD}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getMeasurePointTVD()}{getMeasurePointTVD()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Measure\+Point\+TVD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a5ab22aa41c7852068766545f9966f0ad}\label{class_m_well_deviation_a5ab22aa41c7852068766545f9966f0ad} 
+\index{MWellDeviation@{MWellDeviation}!getParCount@{getParCount}}
+\index{getParCount@{getParCount}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getParCount()}{getParCount()}}
+{\footnotesize\ttfamily int MWell\+Deviation\+::get\+Par\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_m_well_deviation_aa181499754711376c58c5ad139c721bc}\label{class_m_well_deviation_aa181499754711376c58c5ad139c721bc} 
+\index{MWellDeviation@{MWellDeviation}!getParList@{getParList}}
+\index{getParList@{getParList}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getParList()}{getParList()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_m_deviation_par}{MDeviation\+Par}} \texorpdfstring{$\ast$}{*} $>$ MWell\+Deviation\+::get\+Par\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a36d7e0754c62bcf6de38a318b2b83eb4}\label{class_m_well_deviation_a36d7e0754c62bcf6de38a318b2b83eb4} 
+\index{MWellDeviation@{MWellDeviation}!getRemark@{getRemark}}
+\index{getRemark@{getRemark}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getRemark()}{getRemark()}}
+{\footnotesize\ttfamily QString MWell\+Deviation\+::get\+Remark (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_aeb94fe1ceb4d1ba2d220585bfd84e2a9}\label{class_m_well_deviation_aeb94fe1ceb4d1ba2d220585bfd84e2a9} 
+\index{MWellDeviation@{MWellDeviation}!getSurVeytype@{getSurVeytype}}
+\index{getSurVeytype@{getSurVeytype}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getSurVeytype()}{getSurVeytype()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{MWell\+Deviation\+::\+Survey\+Type}} MWell\+Deviation\+::get\+Sur\+Veytype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a85fac88ca8356ee3e1bc9390d2a30aba}\label{class_m_well_deviation_a85fac88ca8356ee3e1bc9390d2a30aba} 
+\index{MWellDeviation@{MWellDeviation}!getWellHeadDpeth@{getWellHeadDpeth}}
+\index{getWellHeadDpeth@{getWellHeadDpeth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getWellHeadDpeth()}{getWellHeadDpeth()}}
+{\footnotesize\ttfamily double MWell\+Deviation\+::get\+Well\+Head\+Dpeth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a9d4a6812a4ef553444539153596c0d76}\label{class_m_well_deviation_a9d4a6812a4ef553444539153596c0d76} 
+\index{MWellDeviation@{MWellDeviation}!getWellId@{getWellId}}
+\index{getWellId@{getWellId}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{getWellId()}{getWellId()}}
+{\footnotesize\ttfamily QString MWell\+Deviation\+::get\+Well\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_m_well_deviation_a434b3e3ddd460681fe6cbc1630075a3e}\label{class_m_well_deviation_a434b3e3ddd460681fe6cbc1630075a3e} 
+\index{MWellDeviation@{MWellDeviation}!setAzimuth@{setAzimuth}}
+\index{setAzimuth@{setAzimuth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setAzimuth()}{setAzimuth()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Azimuth (\begin{DoxyParamCaption}\item[{double}]{new\+Azimuth }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_af560ad8637de031d155ae25c412b5bf2}\label{class_m_well_deviation_af560ad8637de031d155ae25c412b5bf2} 
+\index{MWellDeviation@{MWellDeviation}!setBottomDepth@{setBottomDepth}}
+\index{setBottomDepth@{setBottomDepth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setBottomDepth()}{setBottomDepth()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Bottom\+Depth (\begin{DoxyParamCaption}\item[{double}]{new\+Bottom\+Depth }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a7e153c2f254812d97090befa411d0f8f}\label{class_m_well_deviation_a7e153c2f254812d97090befa411d0f8f} 
+\index{MWellDeviation@{MWellDeviation}!setCalMedthod@{setCalMedthod}}
+\index{setCalMedthod@{setCalMedthod}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setCalMedthod()}{setCalMedthod()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Cal\+Medthod (\begin{DoxyParamCaption}\item[{const QString \&}]{new\+Cal\+Medthod }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a40e87624615ed87be9e59a49c46aa747}\label{class_m_well_deviation_a40e87624615ed87be9e59a49c46aa747} 
+\index{MWellDeviation@{MWellDeviation}!setClosureAzimuth@{setClosureAzimuth}}
+\index{setClosureAzimuth@{setClosureAzimuth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setClosureAzimuth()}{setClosureAzimuth()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Closure\+Azimuth (\begin{DoxyParamCaption}\item[{double}]{new\+Closure\+Azimuth }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_aa8f9beb0a34d5b873e2d8da794f8ab46}\label{class_m_well_deviation_aa8f9beb0a34d5b873e2d8da794f8ab46} 
+\index{MWellDeviation@{MWellDeviation}!setClosureDispl@{setClosureDispl}}
+\index{setClosureDispl@{setClosureDispl}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setClosureDispl()}{setClosureDispl()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Closure\+Displ (\begin{DoxyParamCaption}\item[{double}]{new\+Closure\+Displ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_ae0e3b024b4ea23d51564e8b37c0dc55e}\label{class_m_well_deviation_ae0e3b024b4ea23d51564e8b37c0dc55e} 
+\index{MWellDeviation@{MWellDeviation}!setClosureHorizon@{setClosureHorizon}}
+\index{setClosureHorizon@{setClosureHorizon}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setClosureHorizon()}{setClosureHorizon()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Closure\+Horizon (\begin{DoxyParamCaption}\item[{double}]{new\+Closure\+Horizon }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a005140c72571a29173e8b995581b1ccc}\label{class_m_well_deviation_a005140c72571a29173e8b995581b1ccc} 
+\index{MWellDeviation@{MWellDeviation}!setDepType@{setDepType}}
+\index{setDepType@{setDepType}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setDepType()}{setDepType()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Dep\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_well_deviation_a93c886b60f23748e83de2fd217fd6736}{Dependent\+Para}}}]{new\+Dep\+Type }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_aae8856ebb6cf8623a5f09d05ccc4eb8c}\label{class_m_well_deviation_aae8856ebb6cf8623a5f09d05ccc4eb8c} 
+\index{MWellDeviation@{MWellDeviation}!setDisplacementEW@{setDisplacementEW}}
+\index{setDisplacementEW@{setDisplacementEW}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setDisplacementEW()}{setDisplacementEW()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Displacement\+EW (\begin{DoxyParamCaption}\item[{double}]{new\+Displacement\+EW }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a8738ba3d40f457aef549279460a84f24}\label{class_m_well_deviation_a8738ba3d40f457aef549279460a84f24} 
+\index{MWellDeviation@{MWellDeviation}!setDisplacementNS@{setDisplacementNS}}
+\index{setDisplacementNS@{setDisplacementNS}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setDisplacementNS()}{setDisplacementNS()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Displacement\+NS (\begin{DoxyParamCaption}\item[{double}]{new\+Displacement\+NS }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_ad779358b3f4a25036b31bd777d830cfa}\label{class_m_well_deviation_ad779358b3f4a25036b31bd777d830cfa} 
+\index{MWellDeviation@{MWellDeviation}!setDogleg@{setDogleg}}
+\index{setDogleg@{setDogleg}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setDogleg()}{setDogleg()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Dogleg (\begin{DoxyParamCaption}\item[{double}]{new\+Dogleg }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a6446a93b07e398b5d95f056119d510b7}\label{class_m_well_deviation_a6446a93b07e398b5d95f056119d510b7} 
+\index{MWellDeviation@{MWellDeviation}!setId@{setId}}
+\index{setId@{setId}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Id (\begin{DoxyParamCaption}\item[{const QString \&}]{new\+Id }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_acef4f1bf60e6cec0989a7efcbfaaa40b}\label{class_m_well_deviation_acef4f1bf60e6cec0989a7efcbfaaa40b} 
+\index{MWellDeviation@{MWellDeviation}!setInclination@{setInclination}}
+\index{setInclination@{setInclination}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setInclination()}{setInclination()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Inclination (\begin{DoxyParamCaption}\item[{double}]{new\+Inclination }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a97bb6789411ac29af533d62a42f4dcb1}\label{class_m_well_deviation_a97bb6789411ac29af533d62a42f4dcb1} 
+\index{MWellDeviation@{MWellDeviation}!setMeasurePointMD@{setMeasurePointMD}}
+\index{setMeasurePointMD@{setMeasurePointMD}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setMeasurePointMD()}{setMeasurePointMD()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Measure\+Point\+MD (\begin{DoxyParamCaption}\item[{double}]{new\+Measure\+Point\+MD }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_accb96de5578df221fc635fea93d0af37}\label{class_m_well_deviation_accb96de5578df221fc635fea93d0af37} 
+\index{MWellDeviation@{MWellDeviation}!setMeasurePointTVD@{setMeasurePointTVD}}
+\index{setMeasurePointTVD@{setMeasurePointTVD}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setMeasurePointTVD()}{setMeasurePointTVD()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Measure\+Point\+TVD (\begin{DoxyParamCaption}\item[{double}]{new\+Measure\+Point\+TVD }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a2103302d365bcb32d5d15a7bea31f64b}\label{class_m_well_deviation_a2103302d365bcb32d5d15a7bea31f64b} 
+\index{MWellDeviation@{MWellDeviation}!setRemark@{setRemark}}
+\index{setRemark@{setRemark}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setRemark()}{setRemark()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Remark (\begin{DoxyParamCaption}\item[{const QString \&}]{new\+Remark }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a9cd1871633c27f0a543007dd2343af73}\label{class_m_well_deviation_a9cd1871633c27f0a543007dd2343af73} 
+\index{MWellDeviation@{MWellDeviation}!setSurVeytype@{setSurVeytype}}
+\index{setSurVeytype@{setSurVeytype}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setSurVeytype()}{setSurVeytype()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Sur\+Veytype (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_m_well_deviation_af54185c57d25ae36f93a29f143f31de3}{Survey\+Type}}}]{new\+Sur\+Veytype }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a826d91319dd40feb5ebd33c82d4efdda}\label{class_m_well_deviation_a826d91319dd40feb5ebd33c82d4efdda} 
+\index{MWellDeviation@{MWellDeviation}!setWellHeadDpeth@{setWellHeadDpeth}}
+\index{setWellHeadDpeth@{setWellHeadDpeth}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setWellHeadDpeth()}{setWellHeadDpeth()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Well\+Head\+Dpeth (\begin{DoxyParamCaption}\item[{double}]{new\+Well\+Head\+Dpeth }\end{DoxyParamCaption})}
+
+\Hypertarget{class_m_well_deviation_a87e86df4dd1b0233629a9e7b69c19a43}\label{class_m_well_deviation_a87e86df4dd1b0233629a9e7b69c19a43} 
+\index{MWellDeviation@{MWellDeviation}!setWellId@{setWellId}}
+\index{setWellId@{setWellId}!MWellDeviation@{MWellDeviation}}
+\doxysubsubsection{\texorpdfstring{setWellId()}{setWellId()}}
+{\footnotesize\ttfamily void MWell\+Deviation\+::set\+Well\+Id (\begin{DoxyParamCaption}\item[{const QString \&}]{new\+Well\+Id }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/entity/component/well/\mbox{\hyperlink{mwelldeviation_8h}{mwelldeviation.\+h}}\item 
+Multiflow\+UI/entity/component/well/\mbox{\hyperlink{mwelldeviation_8cpp}{mwelldeviation.\+cpp}}\end{DoxyCompactItemize}

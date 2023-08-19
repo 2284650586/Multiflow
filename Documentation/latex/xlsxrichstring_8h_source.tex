@@ -1,0 +1,96 @@
+\doxysection{xlsxrichstring.\+h}
+\hypertarget{xlsxrichstring_8h_source}{}\label{xlsxrichstring_8h_source}\index{MultiflowUI/xlsx/xlsxrichstring.h@{MultiflowUI/xlsx/xlsxrichstring.h}}
+\mbox{\hyperlink{xlsxrichstring_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ XLSXRICHSTRING\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ XLSXRICHSTRING\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxformat_8h}{xlsxformat.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <QVariant>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <QStringList>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <QSharedDataPointer>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \mbox{\hyperlink{namespace_q_t___b_e_g_i_n___n_a_m_e_s_p_a_c_e___x_l_s_x}{QT\_BEGIN\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rich_string_private}{RichStringPrivate}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rich_string}{RichString}};}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ qHash\ is\ a\ friend,\ but\ we\ can't\ use\ default\ arguments\ for\ friends\ (§8.3.6.4)}}
+\DoxyCodeLine{00038\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ uint\ \mbox{\hyperlink{xlsxrichstring_8h_ad213c48f075a22aae4ef028a0e9555b2}{qHash}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs,\ uint\ seed\ =\ 0)\ Q\_DECL\_NOTHROW;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ class\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \mbox{\hyperlink{class_rich_string}{RichString}}}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_rich_string_a6f600daf419d14a159dba8ca143c8d7e}{RichString}}();}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_rich_string_a6f600daf419d14a159dba8ca143c8d7e}{RichString}}(\textcolor{keyword}{const}\ QString\ text);}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_rich_string_a6f600daf419d14a159dba8ca143c8d7e}{RichString}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&other);}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_rich_string_a61ec21089ceda5031cadb6ec9ef34c7a}{\string~RichString}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_rich_string_a8ab40c0cfabbd269179a887c9325c503}{isRichString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_rich_string_ab746908374eded8a0d687c1e78a1176b}{isNull}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_rich_string_acd4d3ae1dac50009bdd74e54f9f4f2a1}{isEmtpy}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \ \ \ \ QString\ \mbox{\hyperlink{class_rich_string_a0b19d9690ca0ad322627b581439dcbe5}{toPlainString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ QString\ \mbox{\hyperlink{class_rich_string_a816fb7c084460de0af91229ad2c0d17b}{toHtml}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rich_string_a57397f9743694f45b06f8ec9713a227b}{setHtml}}(\textcolor{keyword}{const}\ QString\ \&text);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_rich_string_abb04be66b48de08c0db8c687e8a897fb}{fragmentCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rich_string_a4dc41c07cf65ec7105304e73c66cf6d5}{addFragment}}(\textcolor{keyword}{const}\ QString\ \&text,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&format);}
+\DoxyCodeLine{00057\ \ \ \ \ QString\ \mbox{\hyperlink{class_rich_string_a99e78f4d25364262ada87c20914d555f}{fragmentText}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ \mbox{\hyperlink{class_rich_string_a7be5ee0037e231d9f3614aec8883c175}{fragmentFormat}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{operator}\ QVariant()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&\mbox{\hyperlink{class_rich_string_a3968aa86fb3377959ee42adaed67a695}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&other);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ uint\ \mbox{\hyperlink{xlsxrichstring_8h_ad213c48f075a22aae4ef028a0e9555b2}{qHash}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs,\ uint\ seed)\ Q\_DECL\_NOTHROW;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ab165366b03b4832bb4fb6ee4c90f13c8}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ac4cc597478b23e1d974af3c586764803}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_a8d7ce9bf5e97c0553f7448eb6199dc16}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ QDebug\ \mbox{\hyperlink{xlsxrichstring_8h_abb3a953bb1e168aa3c6622017a823e61}{operator<<}}(QDebug\ dbg,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ QSharedDataPointer<RichStringPrivate>\ d;}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ab165366b03b4832bb4fb6ee4c90f13c8}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00075\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ac4cc597478b23e1d974af3c586764803}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00076\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_a8d7ce9bf5e97c0553f7448eb6199dc16}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00077\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ab165366b03b4832bb4fb6ee4c90f13c8}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ QString\ \&rs2);}
+\DoxyCodeLine{00078\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ab165366b03b4832bb4fb6ee4c90f13c8}{operator==}}(\textcolor{keyword}{const}\ QString\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00079\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ac4cc597478b23e1d974af3c586764803}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs1,\ \textcolor{keyword}{const}\ QString\ \&rs2);}
+\DoxyCodeLine{00080\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{xlsxrichstring_8h_ac4cc597478b23e1d974af3c586764803}{operator!=}}(\textcolor{keyword}{const}\ QString\ \&rs1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs2);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#ifndef\ QT\_NO\_DEBUG\_STREAM}}
+\DoxyCodeLine{00083\ \mbox{\hyperlink{xlsxglobal_8h_a5d8d8b3abc12050d8fbaff5d89357c8c}{Q\_XLSX\_EXPORT}}\ QDebug\ \mbox{\hyperlink{xlsxrichstring_8h_abb3a953bb1e168aa3c6622017a823e61}{operator<<}}(QDebug\ dbg,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_rich_string}{RichString}}\ \&rs);}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \mbox{\hyperlink{xlsxglobal_8h_a6a896dcec83cee81dc9f1051c3ce0f6e}{QT\_END\_NAMESPACE\_XLSX}}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ Q\_DECLARE\_METATYPE(QXlsx::RichString)}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXRICHSTRING\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['between_0',['Between',['../class_data_validation.html#a20af7e1c379f9f62fdd3fd555ffa7404acdf195841fd59d38c283a5f2e98ec174',1,'DataValidation']]],
+  ['booleantype_1',['BooleanType',['../class_cell.html#a17f4fc9beca099930fcbf72a4c9b59bdaf642cb660d4e278132e1ad11044f5428',1,'Cell']]],
+  ['borderdashdot_2',['BorderDashDot',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aadc6738fed132dc0ab5b433da462af60b',1,'Format']]],
+  ['borderdashdotdot_3',['BorderDashDotDot',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aae43337f5ffbb4f1cc39c403d85f347ed',1,'Format']]],
+  ['borderdashed_4',['BorderDashed',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aaa4957d2a2b4301728560a2f225dca6e8',1,'Format']]],
+  ['borderdotted_5',['BorderDotted',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aa8c7ee214f80f830bae3df31239182e40',1,'Format']]],
+  ['borderdouble_6',['BorderDouble',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aa5823859c69ed29c9ef434aa4175fd505',1,'Format']]],
+  ['borderhair_7',['BorderHair',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aaa9d57c5694aa9fd20bf0f6d368f11967',1,'Format']]],
+  ['bordermedium_8',['BorderMedium',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aa1dba1c5e1516864644c0816f25f59dcc',1,'Format']]],
+  ['bordermediumdashdot_9',['BorderMediumDashDot',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aad76a3cdc8c75ad6210747f1918ec6424',1,'Format']]],
+  ['bordermediumdashdotdot_10',['BorderMediumDashDotDot',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aa7d6d28ec7eeb22901a60bb4dd8031254',1,'Format']]],
+  ['bordermediumdashed_11',['BorderMediumDashed',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aaa1cfdd79f765471d113a77f0ad124a7c',1,'Format']]],
+  ['bordernone_12',['BorderNone',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aae3ce1fcf2234ec06615dd36985119a29',1,'Format']]],
+  ['borderslantdashdot_13',['BorderSlantDashDot',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aa9a9ec441e3bf7f5fa27bbc43a77d0499',1,'Format']]],
+  ['borderthick_14',['BorderThick',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aa893e05e035ab93086c2695b4f4dfec3f',1,'Format']]],
+  ['borderthin_15',['BorderThin',['../class_format.html#aed0d4cb3f4f4ff99b3adf0d950cda50aa1d32cff01637eabdf90aa8de04dc247d',1,'Format']]],
+  ['bottom_16',['Bottom',['../class_q_xlsx_1_1_xlsx_axis.html#a32d48ca0ddd395140c2b58ca7503e782abfbee024bc29b31b93833f314f129b7d',1,'QXlsx::XlsxAxis']]]
+];

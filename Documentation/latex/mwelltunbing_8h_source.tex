@@ -1,0 +1,145 @@
+\doxysection{mwelltunbing.\+h}
+\hypertarget{mwelltunbing_8h_source}{}\label{mwelltunbing_8h_source}\index{MultiflowUI/entity/component/well/mwelltunbing.h@{MultiflowUI/entity/component/well/mwelltunbing.h}}
+\mbox{\hyperlink{mwelltunbing_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MWELLTUNBING\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MWELLTUNBING\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QDateTime>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//油管库}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well_tunbing}{MWellTunbing}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_m_well_tunbing_a129fe34485c1034d450cb3104aa3b0d0}{MWellTunbing}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_m_well_tunbing_a129fe34485c1034d450cb3104aa3b0d0}{MWellTunbing}}(\textcolor{keyword}{const}\ QString\ \&\textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ innerDiameter,\ \textcolor{keywordtype}{double}\ outDiameter,\ \textcolor{keyword}{const}\ QString\ \&materialId,\ \textcolor{keywordtype}{double}\ specs,\ \textcolor{keywordtype}{double}\ perLengthWeight,\ \textcolor{keywordtype}{double}\ collapsePress,\ \textcolor{keywordtype}{double}\ maxTensile,\ \textcolor{keywordtype}{double}\ noumenonTensile,\ \textcolor{keywordtype}{double}\ connectionStrength,\ \textcolor{keyword}{const}\ QString\ \&joinType,\ \textcolor{keywordtype}{double}\ driftDiameter,\ \textcolor{keywordtype}{double}\ burstPress,\ \textcolor{keywordtype}{double}\ maxCTorque,\ \textcolor{keyword}{const}\ QString\ \&factory,\ \textcolor{keyword}{const}\ QString\ \&model,\ \textcolor{keyword}{const}\ QString\ \&sn,\ \textcolor{keywordtype}{double}\ safeFactory,\ \textcolor{keywordtype}{double}\ perLengthDensity,\ \textcolor{keywordtype}{double}\ elasticModule,\ \textcolor{keyword}{const}\ QDateTime\ \&createDate,\ \textcolor{keyword}{const}\ QString\ \&createUser,\ \textcolor{keyword}{const}\ QDateTime\ \&updateDate,\ \textcolor{keyword}{const}\ QString\ \&updateUser,\ \textcolor{keyword}{const}\ QString\ \&description,\ \textcolor{keyword}{const}\ QByteArray\ \&icon,\ \textcolor{keywordtype}{double}\ poissonRatio,\ \textcolor{keyword}{const}\ QString\ \&name,\ \textcolor{keywordtype}{double}\ roughness,\ \textcolor{keywordtype}{double}\ thermal,\ \textcolor{keywordtype}{double}\ toMD,\ \textcolor{keywordtype}{double}\ wallThickness,\ \textcolor{keyword}{const}\ QString\ \&grade,\ \textcolor{keywordtype}{double}\ density,\ \textcolor{keywordtype}{double}\ ID,\ \textcolor{keyword}{const}\ QString\ \&\mbox{\hyperlink{structfluid}{fluid}},\ \textcolor{keywordtype}{double}\ fluidDensity,\ \textcolor{keywordtype}{double}\ fluidThermalCond);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_aacf22bc747b1f7c6fb84d0f16ef9f618}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a5176f6fbccef06c96205767f51b32350}{setId}}(\textcolor{keyword}{const}\ QString\ \&newId);}
+\DoxyCodeLine{00016\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_a9fe4067aa62bf62f4428a2b166c3ad8d}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a9cf35245ee5336c91334f7dcc9cb504b}{setName}}(\textcolor{keyword}{const}\ QString\ \&newName);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_ace8237c9b11825287048a93bdae7feca}{getInnerDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a9046caec83b14b3e4e651a3a7f957777}{setInnerDiameter}}(\textcolor{keywordtype}{double}\ newInnerDiameter);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_ac5e26d1db7b4b342be57c4c615009ef5}{getOutDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a6aca66fe03a1814fbf32747cc34100df}{setOutDiameter}}(\textcolor{keywordtype}{double}\ newOutDiameter);}
+\DoxyCodeLine{00022\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_a8255eee9a190fd9d3cbfada09465d979}{getMaterialId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a2a437edb1d7cb2f778fd3618dcb40142}{setMaterialId}}(\textcolor{keyword}{const}\ QString\ \&newMaterialId);}
+\DoxyCodeLine{00024\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_a51dc7bf5d474c55bf77e117235336551}{getGrade}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a647b2703393d4cb282a82e2643d2a812}{setGrade}}(\textcolor{keyword}{const}\ QString\ \&newGrade);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a00a7820fb9c768dbdc39c49eeea637af}{getWallThickness}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a2517619dfc1df15ab45b6bab33cefda9}{setWallThickness}}(\textcolor{keywordtype}{double}\ newWallThickness);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a5f1e5d6e8730843d35a12754e640df2d}{getSpecs}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_ad4dee3e461dcc5d6d99f370e89ed0d89}{setSpecs}}(\textcolor{keywordtype}{double}\ newSpecs);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a0864f470b3688b27f079d0793b306150}{getPerLengthWeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a0e7e8c443b64126630203c1b99a31827}{setPerLengthWeight}}(\textcolor{keywordtype}{double}\ newPerLengthWeight);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_ab9a8bdf37182c76221b283a1167436ee}{getCollapsePress}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a9e262dcb03c952e06ef86769344cdb70}{setCollapsePress}}(\textcolor{keywordtype}{double}\ newCollapsePress);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_aa3398b5664932759a7e30baabe5b74ca}{getMaxTensile}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_ab45288bfa96665ac9ae63846384f3c5a}{setMaxTensile}}(\textcolor{keywordtype}{double}\ newMaxTensile);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a7a1e8c22f3d0e2013812ce5f8f93778d}{getNoumenonTensile}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_aa9e31daeb0ded6910ce62f21b84958eb}{setNoumenonTensile}}(\textcolor{keywordtype}{double}\ newNoumenonTensile);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_aaa40f75c9da397ac94aca9d5acdd5f26}{getConnectionStrength}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a9ddefec4c9243623186b90c9344206f7}{setConnectionStrength}}(\textcolor{keywordtype}{double}\ newConnectionStrength);}
+\DoxyCodeLine{00040\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_a4af58c7dcc8f9e9aa52beccd9a1d71d5}{getJoinType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_adb6e59ced4aad9bd80bb59f624bd1958}{setJoinType}}(\textcolor{keyword}{const}\ QString\ \&newJoinType);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a836f40ac7b60479170333987ef5a9fc3}{getDriftDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a2d9d9c90cab962ea50521018f1fe4988}{setDriftDiameter}}(\textcolor{keywordtype}{double}\ newDriftDiameter);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a004a9be6a6be86f5ad0a1f89f446832f}{getBurstPress}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_af7f81b71e24dc3ef77fb657433c6edf2}{setBurstPress}}(\textcolor{keywordtype}{double}\ newBurstPress);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_aa5e707c949b1ca900931c6bf9d39bb66}{getMaxCTorque}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a1205f7eb20cdf80ea73c7a4b60e53e8c}{setMaxCTorque}}(\textcolor{keywordtype}{double}\ newMaxCTorque);}
+\DoxyCodeLine{00048\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_ac64a4fcb2a578541facb5fe3c1231efc}{getFactory}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a9bf0c2861498151ac04a966fce0c7f2b}{setFactory}}(\textcolor{keyword}{const}\ QString\ \&newFactory);}
+\DoxyCodeLine{00050\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_ad858aa9bc07c4f658b417a1012264706}{getModel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a5adbeec7412340c36435eb49df2dc707}{setModel}}(\textcolor{keyword}{const}\ QString\ \&newModel);}
+\DoxyCodeLine{00052\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_a26a8d702082e99b4a556596b18f7b56a}{getSn}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a506259a6e0e2327d33d0d7d706d3bc7e}{setSn}}(\textcolor{keyword}{const}\ QString\ \&newSn);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a728e83162c960737dd37f2372f71268e}{getSafeFactory}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a156f0bee96e8a53885d4a22ec9cc0ffe}{setSafeFactory}}(\textcolor{keywordtype}{double}\ newSafeFactory);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a0cf0b38270ee7ec4051fe2fd7fb5e355}{getPerLengthDensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a979f709a761683eba4e60487f8735006}{setPerLengthDensity}}(\textcolor{keywordtype}{double}\ newPerLengthDensity);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_aed665090544ff404a415649f702bbaca}{getDensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_add154570e23cc339904af29d77be2eae}{setDensity}}(\textcolor{keywordtype}{double}\ newDensity);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a6a1485c0744a59be31ebe98b86bf6707}{getElasticModule}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a090cd224d795db89bc08e8797f4e1ab8}{setElasticModule}}(\textcolor{keywordtype}{double}\ newElasticModule);}
+\DoxyCodeLine{00062\ \ \ \ \ QDateTime\ \mbox{\hyperlink{class_m_well_tunbing_aeea11d17bb26309f238aa05b3daea0d9}{getCreateDate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a3bd2f07f4294fa978b6e149d8a71e0a2}{setCreateDate}}(\textcolor{keyword}{const}\ QDateTime\ \&newCreateDate);}
+\DoxyCodeLine{00064\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_ae3272e2d11a9e0feee7afdf99f049f1f}{getCreateUser}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_add5b53140b21e2aeb1abe96e94000018}{setCreateUser}}(\textcolor{keyword}{const}\ QString\ \&newCreateUser);}
+\DoxyCodeLine{00066\ \ \ \ \ QDateTime\ \mbox{\hyperlink{class_m_well_tunbing_a0cf7149104bd76f63e2df53b4158d0c9}{getUpdateDate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a552f132e95f1835519d3175b041881c8}{setUpdateDate}}(\textcolor{keyword}{const}\ QDateTime\ \&newUpdateDate);}
+\DoxyCodeLine{00068\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_ae5c8958329996cdf556bfb7074b1e846}{getUpdateUser}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a172b670eb579b8bf7aba0de3ecc92705}{setUpdateUser}}(\textcolor{keyword}{const}\ QString\ \&newUpdateUser);}
+\DoxyCodeLine{00070\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_a122de0ed3943fda7b0ae3c6efca856e8}{getDescription}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a4dcee4421b8423035110719b291cd2b5}{setDescription}}(\textcolor{keyword}{const}\ QString\ \&newDescription);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a04c3f04d60d5b716cfe506eb15d58c32}{getPoissonRatio}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_aeb6a08200a26ad414b139dd71a7fcaa4}{setPoissonRatio}}(\textcolor{keywordtype}{double}\ newPoissonRatio);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_ae4967520c3b8c97d9198b54b6c5fe079}{getRubModulus}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_ac9afad28553e39294fe5a1e41e0320cf}{setRubModulus}}(\textcolor{keywordtype}{double}\ newRubModulus);}
+\DoxyCodeLine{00076\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_m_well_tunbing_a76da4d7da73879365bfe903623ece713}{getIcon}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a89388724b07480045e3d123fb6b9a84a}{setIcon}}(\textcolor{keyword}{const}\ QByteArray\ \&newIcon);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a56fddd66643cdb83797a7c3231d39f43}{getRoughness}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a34e30db2e3ff0a95458487317980357a}{setRoughness}}(\textcolor{keywordtype}{double}\ newRoughness);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a359255112e0581a621c4ddd257edd1d0}{getThermal}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a85fadfdb2cc377ee8c0956195a99563e}{setThermal}}(\textcolor{keywordtype}{double}\ newThermal);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a7430cbc0f7804d1506498776579c79ae}{getToMD}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_ada4223af28d5ba633d36f68b32082c68}{setToMD}}(\textcolor{keywordtype}{double}\ newToMD);}
+\DoxyCodeLine{00085\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_tunbing_ac59e0f3df4a3d98898c120e011abccd6}{getFluidType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_a17841ca6f30ea40b596832caf77e9be5}{setFluidType}}(\textcolor{keyword}{const}\ QString\ \&newFluid);}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a73d9ec7337a42d60b20c5bbec25d5ce5}{getFluidDensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_afe468de5b6662db248ed218735808eac}{setFluidDensity}}(\textcolor{keywordtype}{double}\ newFluidDensity);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_tunbing_a2564bd48cd2b068b55b50b48d65bef05}{getFluidThermalCond}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_tunbing_ab5bc8add14f2eae7da9a62ff0a123e41}{setFluidThermalCond}}(\textcolor{keywordtype}{double}\ newFluidThermalCond);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ QString\ id;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 唯一ID}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{double}\ innerDiameter;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 内直径(mm)}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{double}\ outDiameter;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 外直径(mm)}}
+\DoxyCodeLine{00097\ \ \ \ \ QString\ materialId;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 材质唯一ID\ PDM\_TO\_MATERIAL表}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{double}\ specs;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 规格}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{double}\ perLengthWeight;\ \ \ \ \ \ \textcolor{comment}{//\ 公称重量\ kg/m}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{double}\ collapsePress;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 抗挤强度(MPa)\ 挤毁压力}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{double}\ maxTensile;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 屈服强度(KN)}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ noumenonTensile;\ \ \ \ \ \ \textcolor{comment}{//\ 本体抗拉(kN)}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}\ connectionStrength;\ \ \ \textcolor{comment}{//\ 接头连线强度(kN)}}
+\DoxyCodeLine{00105\ \ \ \ \ QString\ joinType;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 接头类型}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ driftDiameter;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 通径\ mm}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{double}\ burstPress;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 内屈服压力(Mpa)}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{double}\ maxCTorque;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 抗扭强度}}
+\DoxyCodeLine{00109\ \ \ \ \ QString\ factory;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 厂家}}
+\DoxyCodeLine{00110\ \ \ \ \ QString\ model;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 型号}}
+\DoxyCodeLine{00111\ \ \ \ \ QString\ sn;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 序列号}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{double}\ safeFactory;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 安全系数}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{double}\ perLengthDensity;\ \ \ \ \ \textcolor{comment}{//\ 线密度}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{double}\ elasticModule;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 弹性模量}}
+\DoxyCodeLine{00116\ \ \ \ \ QDateTime\ createDate;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 创建时间}}
+\DoxyCodeLine{00117\ \ \ \ \ QString\ createUser;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 创建用户}}
+\DoxyCodeLine{00118\ \ \ \ \ QDateTime\ updateDate;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 修改时间}}
+\DoxyCodeLine{00119\ \ \ \ \ QString\ updateUser;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 修改用户}}
+\DoxyCodeLine{00120\ \ \ \ \ QString\ description;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 备注}}
+\DoxyCodeLine{00121\ \ \ \ \ QByteArray\ icon;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 图片地址}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{double}\ poissonRatio;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 泊松比}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ QString\ name;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 名称}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{double}\ roughness;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 摩擦系数}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{double}\ thermal;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 传热系数}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{double}\ toMD;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 深度}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{double}\ wallThickness;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 壁厚(mm)}}
+\DoxyCodeLine{00129\ \ \ \ \ QString\ grade;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 钢级}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{double}\ density;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 密度(kg/m3)}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{double}\ ID;}
+\DoxyCodeLine{00132\ \ \ \ \ QString\ \mbox{\hyperlink{structfluid}{fluid}};}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{double}\ fluidDensity;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{double}\ fluidThermalCond;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MWELLTUNBING\_H}}
+
+\end{DoxyCode}

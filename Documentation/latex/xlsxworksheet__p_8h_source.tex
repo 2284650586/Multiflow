@@ -1,0 +1,245 @@
+\doxysection{xlsxworksheet\+\_\+p.\+h}
+\hypertarget{xlsxworksheet__p_8h_source}{}\label{xlsxworksheet__p_8h_source}\index{MultiflowUI/xlsx/xlsxworksheet\_p.h@{MultiflowUI/xlsx/xlsxworksheet\_p.h}}
+\mbox{\hyperlink{xlsxworksheet__p_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ XLSXWORKSHEET\_P\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ XLSXWORKSHEET\_P\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ W\ A\ R\ N\ I\ N\ G}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ This\ file\ is\ not\ part\ of\ the\ Qt\ Xlsx\ API.\ \ It\ exists\ for\ the\ convenience}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ of\ the\ Qt\ Xlsx.\ \ This\ header\ file\ may\ change\ from}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ version\ to\ version\ without\ notice,\ or\ even\ be\ removed.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ We\ mean\ it.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxworksheet_8h}{xlsxworksheet.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxabstractsheet__p_8h}{xlsxabstractsheet\_p.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxcell_8h}{xlsxcell.h}}"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxdatavalidation_8h}{xlsxdatavalidation.h}}"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxconditionalformatting_8h}{xlsxconditionalformatting.h}}"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxcellformula_8h}{xlsxcellformula.h}}"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <QImage>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <QSharedPointer>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <QRegularExpression>}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }QXmlStreamWriter;}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }QXmlStreamReader;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_q_xlsx_aba60af7af85cb41b82ef9ac297b5a6d5}{XLSX\_ROW\_MAX}}\ =\ 1048576;}
+\DoxyCodeLine{00056\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_q_xlsx_a2206290dcbf46cc9c903f5ae8b3716aa}{XLSX\_COLUMN\_MAX}}\ =\ 16384;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_q_xlsx_aec8ad99ac2fb77304f06520b927182d4}{XLSX\_STRING\_MAX}}\ =\ 32767;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_q_xlsx_1_1_shared_strings}{SharedStrings}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data}{XlsxHyperlinkData}}}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ab07052a7c91619f4aebd4d6a3427afca}{LinkType}}\ \{\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ab07052a7c91619f4aebd4d6a3427afcaad4ec4c8cea014c81fec4e99b1b2bd02d}{External}},\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ab07052a7c91619f4aebd4d6a3427afcaa28bf08ed87f9e6865fc832cc85d1fa14}{Internal}}\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a9e272abfd4aad7f9975fb58e234238a4}{XlsxHyperlinkData}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ab07052a7c91619f4aebd4d6a3427afca}{LinkType}}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a4924a3f904a6b6c40b88f097de2c9649}{linkType}}\ =\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ab07052a7c91619f4aebd4d6a3427afcaad4ec4c8cea014c81fec4e99b1b2bd02d}{External}},\ \textcolor{keyword}{const}\ QString\ \&\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ad3e9419283b3eb5fa1f2e1bcfb9eda29}{target}}\ =\ QString(),}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a5950cd3d6cc651e601e1a41a5734a011}{location}}\ =\ QString(),\ \textcolor{keyword}{const}\ QString\ \&\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_aab46566e9efdf3af17a955edd8f89c57}{display}}\ =\ QString(),}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&tip\ =\ QString())}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a4924a3f904a6b6c40b88f097de2c9649}{linkType}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a4924a3f904a6b6c40b88f097de2c9649}{linkType}})}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ad3e9419283b3eb5fa1f2e1bcfb9eda29}{target}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ad3e9419283b3eb5fa1f2e1bcfb9eda29}{target}})}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a5950cd3d6cc651e601e1a41a5734a011}{location}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a5950cd3d6cc651e601e1a41a5734a011}{location}})}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_aab46566e9efdf3af17a955edd8f89c57}{display}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_aab46566e9efdf3af17a955edd8f89c57}{display}})}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a37606d5796d077bb35fb66fd9cb41af9}{tooltip}}(tip)}
+\DoxyCodeLine{00073\ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ab07052a7c91619f4aebd4d6a3427afca}{LinkType}}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a4924a3f904a6b6c40b88f097de2c9649}{linkType}};}
+\DoxyCodeLine{00077\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_ad3e9419283b3eb5fa1f2e1bcfb9eda29}{target}};\ \textcolor{comment}{//\ For\ External\ link}}
+\DoxyCodeLine{00078\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a5950cd3d6cc651e601e1a41a5734a011}{location}};}
+\DoxyCodeLine{00079\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_aab46566e9efdf3af17a955edd8f89c57}{display}};}
+\DoxyCodeLine{00080\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_hyperlink_data_a37606d5796d077bb35fb66fd9cb41af9}{tooltip}};}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ ECMA-\/376\ Part1\ 18.3.1.81}}
+\DoxyCodeLine{00084\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props}{XlsxSheetFormatProps}}}
+\DoxyCodeLine{00085\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a52864da769e045c8940c884de82b01c6}{XlsxSheetFormatProps}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a373bf20b843c46b49b87d278687bb5ac}{baseColWidth}}\ =\ 8,\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_af477dd77de7fd0a6d2a10d6d176a75b4}{customHeight}}\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a0179cfd2cf9c2b28eba88803c914b48c}{defaultColWidth}}\ =\ 0.0,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a129c4cf75a02eaefb69219550e423408}{defaultRowHeight}}\ =\ 15,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quint8\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a30059cf1d61be6b5102d851b0e9b6ec3}{outlineLevelCol}}\ =\ 0,\ quint8\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_add266a4ce9ec6f4965826b2aac8702c2}{outlineLevelRow}}\ =\ 0,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a1686b0268e7261149f9d203e3fda186e}{thickBottom}}\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a15745fce6a865ecca0cd8472c937c54a}{thickTop}}\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_ac982203f3e6893596148a47c9800e3d7}{zeroHeight}}\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a373bf20b843c46b49b87d278687bb5ac}{baseColWidth}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a373bf20b843c46b49b87d278687bb5ac}{baseColWidth}})}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_af477dd77de7fd0a6d2a10d6d176a75b4}{customHeight}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_af477dd77de7fd0a6d2a10d6d176a75b4}{customHeight}})}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a0179cfd2cf9c2b28eba88803c914b48c}{defaultColWidth}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a0179cfd2cf9c2b28eba88803c914b48c}{defaultColWidth}})}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a129c4cf75a02eaefb69219550e423408}{defaultRowHeight}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a129c4cf75a02eaefb69219550e423408}{defaultRowHeight}})}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a30059cf1d61be6b5102d851b0e9b6ec3}{outlineLevelCol}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a30059cf1d61be6b5102d851b0e9b6ec3}{outlineLevelCol}})}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_add266a4ce9ec6f4965826b2aac8702c2}{outlineLevelRow}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_add266a4ce9ec6f4965826b2aac8702c2}{outlineLevelRow}})}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a1686b0268e7261149f9d203e3fda186e}{thickBottom}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a1686b0268e7261149f9d203e3fda186e}{thickBottom}})}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a15745fce6a865ecca0cd8472c937c54a}{thickTop}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a15745fce6a865ecca0cd8472c937c54a}{thickTop}})}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_ac982203f3e6893596148a47c9800e3d7}{zeroHeight}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_ac982203f3e6893596148a47c9800e3d7}{zeroHeight}})}
+\DoxyCodeLine{00099\ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a373bf20b843c46b49b87d278687bb5ac}{baseColWidth}};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_af477dd77de7fd0a6d2a10d6d176a75b4}{customHeight}};}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a0179cfd2cf9c2b28eba88803c914b48c}{defaultColWidth}};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a129c4cf75a02eaefb69219550e423408}{defaultRowHeight}};}
+\DoxyCodeLine{00106\ \ \ \ \ quint8\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a30059cf1d61be6b5102d851b0e9b6ec3}{outlineLevelCol}};}
+\DoxyCodeLine{00107\ \ \ \ \ quint8\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_add266a4ce9ec6f4965826b2aac8702c2}{outlineLevelRow}};}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a1686b0268e7261149f9d203e3fda186e}{thickBottom}};}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_a15745fce6a865ecca0cd8472c937c54a}{thickTop}};}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props_ac982203f3e6893596148a47c9800e3d7}{zeroHeight}};}
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info}{XlsxRowInfo}}}
+\DoxyCodeLine{00114\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a60836167424bd2e8620768b576c22f25}{XlsxRowInfo}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a7ef59c333c773cab23017f4d29fc7ee0}{height}}\ =\ 0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a175b35269aab20cbf16472ee6a9f15dc}{format}}\ =\ \mbox{\hyperlink{class_format}{Format}}(),\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a1140ee7064d7b137d151014665ae20b0}{hidden}}\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a17f3d82da2f9e398d11077a5b8a53ead}{customHeight}}(false)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a7ef59c333c773cab23017f4d29fc7ee0}{height}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a7ef59c333c773cab23017f4d29fc7ee0}{height}})}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a175b35269aab20cbf16472ee6a9f15dc}{format}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a175b35269aab20cbf16472ee6a9f15dc}{format}})}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a1140ee7064d7b137d151014665ae20b0}{hidden}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a1140ee7064d7b137d151014665ae20b0}{hidden}})}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a71d52fe90b95d1544a13d120e98132e4}{outlineLevel}}(0)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a5f0693789042f5df89c8c74a9dab7cda}{collapsed}}(false)}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a17f3d82da2f9e398d11077a5b8a53ead}{customHeight}};}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a7ef59c333c773cab23017f4d29fc7ee0}{height}};}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a175b35269aab20cbf16472ee6a9f15dc}{format}};}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a1140ee7064d7b137d151014665ae20b0}{hidden}};}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a71d52fe90b95d1544a13d120e98132e4}{outlineLevel}};}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_row_info_a5f0693789042f5df89c8c74a9dab7cda}{collapsed}};}
+\DoxyCodeLine{00131\ \};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info}{XlsxColumnInfo}}}
+\DoxyCodeLine{00134\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a20a940fab892f3cd6885dc80ba45a432}{XlsxColumnInfo}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a2a0b78959de5d52e8a21ca15e1f57362}{firstColumn}}\ =\ 0,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a961c51816d8b669dc958590f4ba093d6}{lastColumn}}\ =\ 1,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a074b73a7b864c796b437bf2c2ef76770}{width}}\ =\ 0,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_format}{Format}}\ \&\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a5a3e7548e1288b28495d1c27b2a712f7}{format}}\ =\ \mbox{\hyperlink{class_format}{Format}}(),\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aa22cddf12dd18d6c9739a107f9ecd191}{hidden}}\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a2a0b78959de5d52e8a21ca15e1f57362}{firstColumn}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a2a0b78959de5d52e8a21ca15e1f57362}{firstColumn}})}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a961c51816d8b669dc958590f4ba093d6}{lastColumn}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a961c51816d8b669dc958590f4ba093d6}{lastColumn}})}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aa44ca1390b2e19c02145c7dbc7c04101}{customWidth}}(false)}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a074b73a7b864c796b437bf2c2ef76770}{width}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a074b73a7b864c796b437bf2c2ef76770}{width}})}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a5a3e7548e1288b28495d1c27b2a712f7}{format}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a5a3e7548e1288b28495d1c27b2a712f7}{format}})}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aa22cddf12dd18d6c9739a107f9ecd191}{hidden}}(\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aa22cddf12dd18d6c9739a107f9ecd191}{hidden}})}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a1fa9fa8293585d08b088254aa21ec571}{outlineLevel}}(0)}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aab845ce6faeb65402432f0c3506b102d}{collapsed}}(false)}
+\DoxyCodeLine{00145\ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a2a0b78959de5d52e8a21ca15e1f57362}{firstColumn}};}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a961c51816d8b669dc958590f4ba093d6}{lastColumn}};}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aa44ca1390b2e19c02145c7dbc7c04101}{customWidth}};}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a074b73a7b864c796b437bf2c2ef76770}{width}};}
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a5a3e7548e1288b28495d1c27b2a712f7}{format}};}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aa22cddf12dd18d6c9739a107f9ecd191}{hidden}};}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_a1fa9fa8293585d08b088254aa21ec571}{outlineLevel}};}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_column_info_aab845ce6faeb65402432f0c3506b102d}{collapsed}};}
+\DoxyCodeLine{00155\ \};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private}{WorksheetPrivate}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_q_xlsx_1_1_abstract_sheet_private}{AbstractSheetPrivate}}}
+\DoxyCodeLine{00158\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ Q\_DECLARE\_PUBLIC(\mbox{\hyperlink{class_worksheet}{Worksheet}})}
+\DoxyCodeLine{00160\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private}{WorksheetPrivate}}(\mbox{\hyperlink{class_worksheet}{Worksheet}}\ *p,\ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Worksheet::CreateFlag}}\ flag);}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private}{\string~WorksheetPrivate}}();}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{int}\ checkDimensions(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{bool}\ ignore\_row\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ ignore\_col\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{class_format}{Format}}\ cellFormat(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00165\ \ \ \ \ QString\ generateDimensionString()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ calculateSpans()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ splitColsInfo(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast);}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{void}\ validateDimension();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ saveXmlSheetData(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ saveXmlCellData(QXmlStreamWriter\ \&writer,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QSharedPointer<Cell>\ cell)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{void}\ saveXmlMergeCells(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ saveXmlHyperlinks(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ saveXmlDrawings(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ saveXmlDataValidations(QXmlStreamWriter\ \&writer)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ rowPixelsSize(\textcolor{keywordtype}{int}\ row)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{int}\ colPixelsSize(\textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ loadXmlSheetData(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{void}\ loadXmlColumnsInfo(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ loadXmlMergeCells(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ loadXmlDataValidations(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ loadXmlSheetFormatProps(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{void}\ loadXmlSheetViews(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{void}\ loadXmlHyperlinks(QXmlStreamReader\ \&reader);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ QList<QSharedPointer<XlsxRowInfo>>\ getRowInfoList(\textcolor{keywordtype}{int}\ rowFirst,\ \textcolor{keywordtype}{int}\ rowLast);}
+\DoxyCodeLine{00189\ \ \ \ \ QList<QSharedPointer<XlsxColumnInfo>>\ getColumnInfoList(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast);}
+\DoxyCodeLine{00190\ \ \ \ \ QList<int>\ getColumnIndexes(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast);}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{bool}\ isColumnRangeValid(\textcolor{keywordtype}{int}\ colFirst,\ \textcolor{keywordtype}{int}\ colLast);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings}{SharedStrings}}\ *sharedStrings()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ QMap<int,\ QMap<int,\ QSharedPointer<Cell>>>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a98de321e315cc4fbd901a5fa999958c1}{cellTable}};}
+\DoxyCodeLine{00196\ \ \ \ \ QMap<int,\ QMap<int,\ QString>>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ab40366c412579e15ab0bbe106b466a43}{comments}};}
+\DoxyCodeLine{00197\ \ \ \ \ QMap<int,\ QMap<int,\ QSharedPointer<XlsxHyperlinkData>>>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ac97337835555c14963ab6bff1df0a013}{urlTable}};}
+\DoxyCodeLine{00198\ \ \ \ \ QList<CellRange>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a09be56c50a324f6d961b1cafea5bac4c}{merges}};}
+\DoxyCodeLine{00199\ \ \ \ \ QMap<int,\ QSharedPointer<XlsxRowInfo>>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a1b3a550774ddace74ce144c5b0ae2f24}{rowsInfo}};}
+\DoxyCodeLine{00200\ \ \ \ \ QMap<int,\ QSharedPointer<XlsxColumnInfo>>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a235df6e2058e5d402faf21d2e42b02ac}{colsInfo}};}
+\DoxyCodeLine{00201\ \ \ \ \ QMap<int,\ QSharedPointer<XlsxColumnInfo>>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a02b85316ab153e8e166f7313e72cdf3c}{colsInfoHelper}};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ QList<DataValidation>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_adbf599e8d33b57dfca5b00b69ccad55f}{dataValidationsList}};}
+\DoxyCodeLine{00204\ \ \ \ \ QList<ConditionalFormatting>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a211ec353291c2f8011fd37cb6ccca3fb}{conditionalFormattingList}};}
+\DoxyCodeLine{00205\ \ \ \ \ QMap<int,\ CellFormula>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a60571ecebba4e7f4041559e9ba4760b0}{sharedFormulaMap}};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \mbox{\hyperlink{class_cell_range}{CellRange}}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_abc1058b39a8ba97d3fe3b7c9a54655dd}{dimension}};}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a0af539ff08b947639a8d8f91b7efa589}{previous\_row}};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{mutable}\ QMap<int,\ QString>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_af4cf4fc673e57c8eb19d5560e8be1996}{row\_spans}};}
+\DoxyCodeLine{00211\ \ \ \ \ QMap<int,\ double>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a6924ab107f9b8fe373e7a525cac03ff9}{row\_sizes}};}
+\DoxyCodeLine{00212\ \ \ \ \ QMap<int,\ double>\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a51a1994130322245c9b2fcab1244bb1b}{col\_sizes}};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ae2af7baeda426f4b777e53061c110ff2}{outline\_row\_level}};}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a15102cd98eab93669e42eb13c060dcaf}{outline\_col\_level}};}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a3eca39a235e79d1a449ac1c4f59f55ed}{default\_row\_height}};}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ad77fca43d7983076fa3394784ca96b21}{default\_row\_zeroed}};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_sheet_format_props}{XlsxSheetFormatProps}}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a980dc81262af721bbe1ab80310d67d9f}{sheetFormatProps}};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ab26a3ce46ab1248ab47f0e3bd5d71dc7}{windowProtection}};}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a478685354e344d50c7e812a3e98d9907}{showFormulas}};}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_abd8b865e2da38618c78d0c727d40990e}{showGridLines}};}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a20b2d2fd4afc64db07fd5dd9e95b23f9}{showRowColHeaders}};}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_ad0d779f22ac65ffb1ac3c407a295e12b}{showZeros}};}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a62cc0f75ae08b37f43be4afd7817c1b7}{rightToLeft}};}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_aaa01c82386324fa6294494132337529e}{tabSelected}};}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a553ba5d2c443dd247ec26384543d5c2c}{showRuler}};}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a859e44768665723c19688a4f7e8118e3}{showOutlineSymbols}};}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a5452f81a1a6d79f75b158c9e32a2de9f}{showWhiteSpace}};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ QRegularExpression\ \mbox{\hyperlink{class_q_xlsx_1_1_worksheet_private_a4f3e0f845ae66a5d92fefbbefe513a2f}{urlPattern}};}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ calculateColWidth(\textcolor{keywordtype}{int}\ characters);}
+\DoxyCodeLine{00237\ \};}
+\DoxyCodeLine{00238\ \}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXWORKSHEET\_P\_H}}
+
+\end{DoxyCode}

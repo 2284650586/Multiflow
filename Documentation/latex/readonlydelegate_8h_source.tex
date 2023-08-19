@@ -1,0 +1,37 @@
+\doxysection{readonlydelegate.\+h}
+\hypertarget{readonlydelegate_8h_source}{}\label{readonlydelegate_8h_source}\index{MultiflowUI/util/delegate/readonlydelegate.h@{MultiflowUI/util/delegate/readonlydelegate.h}}
+\mbox{\hyperlink{readonlydelegate_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ READONLYDELEGATE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ READONLYDELEGATE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QItemDelegate>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QPainter>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_read_only_delegate}{ReadOnlyDelegate}}\ :\ \textcolor{keyword}{public}\ QItemDelegate}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_read_only_delegate}{ReadOnlyDelegate}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ QWidget\ *\mbox{\hyperlink{class_read_only_delegate_ae915a7a3267fee281a8f967511618455}{createEditor}}(QWidget\ *parent,\ \textcolor{keyword}{const}\ QStyleOptionViewItem\ \&option,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QModelIndex\ \&index)\ \textcolor{keyword}{const}\ \textcolor{keyword}{override}\ \textcolor{comment}{//final}}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Q\_UNUSED(parent)}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ Q\_UNUSED(option)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Q\_UNUSED(index)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_read_only_delegate_ac99331a1f420d145912f1fb214fbf98f}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionViewItem\ \&option,\ \textcolor{keyword}{const}\ QModelIndex\ \&index)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ QColor\ bgColor\ =\ Qt::lightGray;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ painter-\/>fillRect(option.rect,\ bgColor);\ \textcolor{comment}{//\ 设置特殊单元格的背景色为灰色}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ QItemDelegate::paint(painter,\ option,\ index);}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ READONLYDELEGATE\_H}}
+
+\end{DoxyCode}

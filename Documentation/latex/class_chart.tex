@@ -1,0 +1,272 @@
+\doxysection{Chart Class Reference}
+\hypertarget{class_chart}{}\label{class_chart}\index{Chart@{Chart}}
+
+
+Main class for the charts.  
+
+
+
+
+{\ttfamily \#include $<$xlsxchart.\+h$>$}
+
+Inheritance diagram for Chart\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_chart}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4}{Chart\+Type}} \{ \newline
+\mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a2af84099accfb9f42b21931893909c16}{CT\+\_\+\+Area}} = 1
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7c56dd9c12139ab9e174fac46eec3fac}{CT\+\_\+\+Area3D}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7ca0ba13539c75bc7d41ae66583f4fad}{CT\+\_\+\+Line}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4ad73378dea8499506f72fdaecb27dc1f5}{CT\+\_\+\+Line3D}}
+, \newline
+\mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a9638703034c0167273ef68d5d6c21998}{CT\+\_\+\+Stock}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a8e555c779fbd27294bd874e32c442588}{CT\+\_\+\+Radar}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a172922f586ccefbc9d71a104d1d76688}{CT\+\_\+\+Scatter}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4aac623a2b46c8a0601e190bdca7c99634}{CT\+\_\+\+Pie}}
+, \newline
+\mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4afc5b2d60f40660e6bb7f2fe09f864998}{CT\+\_\+\+Pie3D}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4ac65f6535f16994ac4e9c1f161a8275aa}{CT\+\_\+\+Doughnut}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7e687cf2c3a7fcbca2b19511524c09b6}{CT\+\_\+\+Bar}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a4150cf4ef97518ef893f95366cfb765d}{CT\+\_\+\+Bar3D}}
+, \newline
+\mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4af30233c264e66fa63abd6b8d53d40dff}{CT\+\_\+\+Of\+Pie}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a84803591513e981f638278d84aa91173}{CT\+\_\+\+Surface}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4a465cf621401abae23816c2fd41a60eca}{CT\+\_\+\+Surface3D}}
+, \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4ae15d1aa514c4327ebe6d8c4573dfa342}{CT\+\_\+\+Bubble}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_chart_a8a593f9f79c94057718d1c4942e77f86}{\texorpdfstring{$\sim$}{\string~}\+Chart}} ()
+\item 
+void \mbox{\hyperlink{class_chart_a8d07b33789463b21d8b4a20e94ae2888}{add\+Series}} (const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&range, \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*}sheet=0)
+\item 
+void \mbox{\hyperlink{class_chart_a57a8183cef3e67e2c5e56d422e767566}{set\+Chart\+Type}} (\mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4}{Chart\+Type}} type)
+\item 
+void \mbox{\hyperlink{class_chart_a7bea70e8f7e37761bae216c5ef2180f0}{set\+Chart\+Style}} (int id)
+\item 
+void \mbox{\hyperlink{class_chart_af5bea80f52a782e4e40cc0ac1d7e2595}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\item 
+bool \mbox{\hyperlink{class_chart_a6222e1e9087e0be46c8fc8f3efd8689d}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_chart_ae7953257b499b0aa15bf56941c9ef128}{Abstract\+Sheet}}
+\item 
+class \mbox{\hyperlink{class_chart_afd9c7929d30c425c6c52a03cdee91578}{Worksheet}}
+\item 
+class \mbox{\hyperlink{class_chart_ac79efa8bdf0f54b509a76dba2b5d9291}{Chartsheet}}
+\item 
+class \mbox{\hyperlink{class_chart_a796d34b89985d514f18f83104407b380}{Drawing\+Anchor}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main class for the charts. 
+
+\textbackslash{}inmodule Qt\+Xlsx 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4} 
+\index{Chart@{Chart}!ChartType@{ChartType}}
+\index{ChartType@{ChartType}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{ChartType}{ChartType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4}{Chart\+::\+Chart\+Type}}}
+
+\textbackslash{}value CT\+\_\+\+Area \textbackslash{}value CT\+\_\+\+Area3D, \textbackslash{}value CT\+\_\+\+Line, \textbackslash{}value CT\+\_\+\+Line3D, \textbackslash{}value CT\+\_\+\+Scatter, \textbackslash{}value CT\+\_\+\+Pie, \textbackslash{}value CT\+\_\+\+Pie3D, \textbackslash{}value CT\+\_\+\+Doughnut, \textbackslash{}value CT\+\_\+\+Bar, \textbackslash{}value CT\+\_\+\+Bar3D,
+
+\textbackslash{}omitvalue CT\+\_\+\+Stock, \textbackslash{}omitvalue CT\+\_\+\+Radar, \textbackslash{}omitvalue CT\+\_\+\+Of\+Pie, \textbackslash{}omitvalue CT\+\_\+\+Surface, \textbackslash{}omitvalue CT\+\_\+\+Surface3D, \textbackslash{}omitvalue CT\+\_\+\+Bubble \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Area@{CT\_Area}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Area@{CT\_Area}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a2af84099accfb9f42b21931893909c16}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a2af84099accfb9f42b21931893909c16} 
+CT\+\_\+\+Area&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Area3D@{CT\_Area3D}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Area3D@{CT\_Area3D}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7c56dd9c12139ab9e174fac46eec3fac}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7c56dd9c12139ab9e174fac46eec3fac} 
+CT\+\_\+\+Area3D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Line@{CT\_Line}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Line@{CT\_Line}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7ca0ba13539c75bc7d41ae66583f4fad}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7ca0ba13539c75bc7d41ae66583f4fad} 
+CT\+\_\+\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Line3D@{CT\_Line3D}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Line3D@{CT\_Line3D}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4ad73378dea8499506f72fdaecb27dc1f5}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4ad73378dea8499506f72fdaecb27dc1f5} 
+CT\+\_\+\+Line3D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Stock@{CT\_Stock}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Stock@{CT\_Stock}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a9638703034c0167273ef68d5d6c21998}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a9638703034c0167273ef68d5d6c21998} 
+CT\+\_\+\+Stock&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Radar@{CT\_Radar}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Radar@{CT\_Radar}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a8e555c779fbd27294bd874e32c442588}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a8e555c779fbd27294bd874e32c442588} 
+CT\+\_\+\+Radar&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Scatter@{CT\_Scatter}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Scatter@{CT\_Scatter}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a172922f586ccefbc9d71a104d1d76688}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a172922f586ccefbc9d71a104d1d76688} 
+CT\+\_\+\+Scatter&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Pie@{CT\_Pie}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Pie@{CT\_Pie}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4aac623a2b46c8a0601e190bdca7c99634}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4aac623a2b46c8a0601e190bdca7c99634} 
+CT\+\_\+\+Pie&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Pie3D@{CT\_Pie3D}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Pie3D@{CT\_Pie3D}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4afc5b2d60f40660e6bb7f2fe09f864998}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4afc5b2d60f40660e6bb7f2fe09f864998} 
+CT\+\_\+\+Pie3D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Doughnut@{CT\_Doughnut}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Doughnut@{CT\_Doughnut}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4ac65f6535f16994ac4e9c1f161a8275aa}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4ac65f6535f16994ac4e9c1f161a8275aa} 
+CT\+\_\+\+Doughnut&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Bar@{CT\_Bar}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Bar@{CT\_Bar}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7e687cf2c3a7fcbca2b19511524c09b6}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a7e687cf2c3a7fcbca2b19511524c09b6} 
+CT\+\_\+\+Bar&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Bar3D@{CT\_Bar3D}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Bar3D@{CT\_Bar3D}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a4150cf4ef97518ef893f95366cfb765d}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a4150cf4ef97518ef893f95366cfb765d} 
+CT\+\_\+\+Bar3D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_OfPie@{CT\_OfPie}!Chart@{Chart}}\index{Chart@{Chart}!CT\_OfPie@{CT\_OfPie}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4af30233c264e66fa63abd6b8d53d40dff}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4af30233c264e66fa63abd6b8d53d40dff} 
+CT\+\_\+\+Of\+Pie&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Surface@{CT\_Surface}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Surface@{CT\_Surface}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a84803591513e981f638278d84aa91173}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a84803591513e981f638278d84aa91173} 
+CT\+\_\+\+Surface&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Surface3D@{CT\_Surface3D}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Surface3D@{CT\_Surface3D}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4a465cf621401abae23816c2fd41a60eca}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4a465cf621401abae23816c2fd41a60eca} 
+CT\+\_\+\+Surface3D&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CT\_Bubble@{CT\_Bubble}!Chart@{Chart}}\index{Chart@{Chart}!CT\_Bubble@{CT\_Bubble}}}\Hypertarget{class_chart_a3ab1fc223d2abc1752c55583ffedada4ae15d1aa514c4327ebe6d8c4573dfa342}\label{class_chart_a3ab1fc223d2abc1752c55583ffedada4ae15d1aa514c4327ebe6d8c4573dfa342} 
+CT\+\_\+\+Bubble&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_chart_a8a593f9f79c94057718d1c4942e77f86}\label{class_chart_a8a593f9f79c94057718d1c4942e77f86} 
+\index{Chart@{Chart}!````~Chart@{\texorpdfstring{$\sim$}{\string~}Chart}}
+\index{````~Chart@{\texorpdfstring{$\sim$}{\string~}Chart}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Chart()}{\string~Chart()}}
+{\footnotesize\ttfamily Chart\+::\texorpdfstring{$\sim$}{\string~}\+Chart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the chart. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_chart_a8d07b33789463b21d8b4a20e94ae2888}\label{class_chart_a8d07b33789463b21d8b4a20e94ae2888} 
+\index{Chart@{Chart}!addSeries@{addSeries}}
+\index{addSeries@{addSeries}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{addSeries()}{addSeries()}}
+{\footnotesize\ttfamily void Chart\+::add\+Series (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell_range}{Cell\+Range}} \&}]{range,  }\item[{\mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}} \texorpdfstring{$\ast$}{*}}]{sheet = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Add the data series which is in the range {\itshape range} of the {\itshape sheet}. \Hypertarget{class_chart_a6222e1e9087e0be46c8fc8f3efd8689d}\label{class_chart_a6222e1e9087e0be46c8fc8f3efd8689d} 
+\index{Chart@{Chart}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily bool Chart\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_chart_af5bea80f52a782e4e40cc0ac1d7e2595}\label{class_chart_af5bea80f52a782e4e40cc0ac1d7e2595} 
+\index{Chart@{Chart}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily void Chart\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_chart_a7bea70e8f7e37761bae216c5ef2180f0}\label{class_chart_a7bea70e8f7e37761bae216c5ef2180f0} 
+\index{Chart@{Chart}!setChartStyle@{setChartStyle}}
+\index{setChartStyle@{setChartStyle}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{setChartStyle()}{setChartStyle()}}
+{\footnotesize\ttfamily void Chart\+::set\+Chart\+Style (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Todo\Hypertarget{class_chart_a57a8183cef3e67e2c5e56d422e767566}\label{class_chart_a57a8183cef3e67e2c5e56d422e767566} 
+\index{Chart@{Chart}!setChartType@{setChartType}}
+\index{setChartType@{setChartType}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{setChartType()}{setChartType()}}
+{\footnotesize\ttfamily void Chart\+::set\+Chart\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chart_a3ab1fc223d2abc1752c55583ffedada4}{Chart\+Type}}}]{type }\end{DoxyParamCaption})}
+
+Set the type of the chart to {\itshape type} 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_chart_ae7953257b499b0aa15bf56941c9ef128}\label{class_chart_ae7953257b499b0aa15bf56941c9ef128} 
+\index{Chart@{Chart}!AbstractSheet@{AbstractSheet}}
+\index{AbstractSheet@{AbstractSheet}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{AbstractSheet}{AbstractSheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_abstract_sheet}{Abstract\+Sheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_chart_ac79efa8bdf0f54b509a76dba2b5d9291}\label{class_chart_ac79efa8bdf0f54b509a76dba2b5d9291} 
+\index{Chart@{Chart}!Chartsheet@{Chartsheet}}
+\index{Chartsheet@{Chartsheet}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{Chartsheet}{Chartsheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_chartsheet}{Chartsheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_chart_a796d34b89985d514f18f83104407b380}\label{class_chart_a796d34b89985d514f18f83104407b380} 
+\index{Chart@{Chart}!DrawingAnchor@{DrawingAnchor}}
+\index{DrawingAnchor@{DrawingAnchor}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{DrawingAnchor}{DrawingAnchor}}
+{\footnotesize\ttfamily friend class Drawing\+Anchor\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_chart_afd9c7929d30c425c6c52a03cdee91578}\label{class_chart_afd9c7929d30c425c6c52a03cdee91578} 
+\index{Chart@{Chart}!Worksheet@{Worksheet}}
+\index{Worksheet@{Worksheet}!Chart@{Chart}}
+\doxysubsubsection{\texorpdfstring{Worksheet}{Worksheet}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_worksheet}{Worksheet}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxchart_8h}{xlsxchart.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxchart_8cpp}{xlsxchart.\+cpp}}\end{DoxyCompactItemize}

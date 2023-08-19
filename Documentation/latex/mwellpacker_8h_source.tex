@@ -1,0 +1,131 @@
+\doxysection{mwellpacker.\+h}
+\hypertarget{mwellpacker_8h_source}{}\label{mwellpacker_8h_source}\index{MultiflowUI/entity/component/well/mwellpacker.h@{MultiflowUI/entity/component/well/mwellpacker.h}}
+\mbox{\hyperlink{mwellpacker_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MWELLPACKER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MWELLPACKER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QDateTime>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//封隔器}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_well_packer}{MWellPacker}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_m_well_packer_a754dbbb48816655f96d8cbf7b529ae7f}{MWellPacker}}();}
+\DoxyCodeLine{00011\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_a26953e709db34405c139be408378a010}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a9806bb94e2090a3a7d77efd1eece2621}{setId}}(\textcolor{keyword}{const}\ QString\ \&newId);}
+\DoxyCodeLine{00013\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_af2db66b7655240a8dfdc17f04ae83881}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a0477175847e47c227eacee193926ccb4}{setName}}(\textcolor{keyword}{const}\ QString\ \&newName);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_af6916bd7ee3b97b648b9f8c85b2e1e7c}{getInnerDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a6b440ff1a657431a281276d439bc9364}{setInnerDiameter}}(\textcolor{keywordtype}{double}\ newInnerDiameter);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_aabdcbd3ce41305745aee4f505dd9524e}{getOutDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a0daf5ddeea43523866bc71e70c281314}{setOutDiameter}}(\textcolor{keywordtype}{double}\ newOutDiameter);}
+\DoxyCodeLine{00019\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_abdb819a8b07c9f17aa7622f78fa751cc}{getMaterialId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a4d724a7a5ac5de0f06f7fdc83d641c2f}{setMaterialId}}(\textcolor{keyword}{const}\ QString\ \&newMaterialId);}
+\DoxyCodeLine{00021\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_a502a25a38090c244b4feebd894439ac8}{getGrade}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a64b61ed35f5c1c7bf81c9d319c173f33}{setGrade}}(\textcolor{keyword}{const}\ QString\ \&newGrade);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a472ba5fc5625257699879f833e402646}{getLength}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a8001047db443fbc3f797210af38239c5}{setLength}}(\textcolor{keywordtype}{double}\ newLength);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a72793dc024e5c1453aaa7492766d6a24}{getWorkPressureDiff}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_ae74d5ea9ab692c70681050564f7e8154}{setWorkPressureDiff}}(\textcolor{keywordtype}{double}\ newWorkPressureDiff);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_well_packer_a067f263d8974efe3f89604badd1e66b7}{getSealType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_aebe0b9b7b8f4a2347a4090b5d0d6870d}{setSealType}}(\textcolor{keywordtype}{int}\ newSealType);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_well_packer_addf728b9bb3bd5f077b95ea56a4fb26c}{getUnsealType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a92f92bb35157cc6e3f7aa1973a80518e}{setUnsealType}}(\textcolor{keywordtype}{int}\ newUnsealType);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a96b543d39a528f9b5d3e12abe1d4c053}{getSealPressure}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a6ed31ae564d58af3ba0cdc911e4fdddf}{setSealPressure}}(\textcolor{keywordtype}{double}\ newSealPressure);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a6eff56e2ef81212b236293acd1fa2428}{getWorkTemperature}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_aa980db3fc4c991ac81e97f90463e2049}{setWorkTemperature}}(\textcolor{keywordtype}{double}\ newWorkTemperature);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a996a57160f3a946a91d059fb23741e9a}{getCasingDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a30c0971c62740207ba2a436fd7e28768}{setCasingDiameter}}(\textcolor{keywordtype}{double}\ newCasingDiameter);}
+\DoxyCodeLine{00037\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_aab06b73a1ba8abf351323029939341a6}{getBoreMaterial}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_ac4532fe1c1ce54b22db25d6cf0e4b3f2}{setBoreMaterial}}(\textcolor{keyword}{const}\ QString\ \&newBoreMaterial);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a3772f2896dbf363f1c6dbf8deb6f7b1c}{getDriftDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a80eb042e7a72080d38227422d2502fea}{setDriftDiameter}}(\textcolor{keywordtype}{double}\ newDriftDiameter);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a2ba15a42a8b616c0d817cf4107f3e7bd}{getPerLengthWeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a5154dc077dea45b0cec3511bb115cbb9}{setPerLengthWeight}}(\textcolor{keywordtype}{double}\ newPerLengthWeight);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a2d328c35ecb51ce553d9abbeb9a01697}{getCollapsePressure}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a6017f5846ff122915c48fd52961aa3e2}{setCollapsePressure}}(\textcolor{keywordtype}{double}\ newCollapsePressure);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_aacfc8c83b3894a932dede6b6c969f3ff}{getMaxTensile}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_af6cd06e48362c67567c187fe59c57726}{setMaxTensile}}(\textcolor{keywordtype}{double}\ newMaxTensile);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_af81ff4d4ffb117dddcf1a425805953f2}{getBurstPressure}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a0f53c4d15559eaf6bb58b9104d6f0ea8}{setBurstPressure}}(\textcolor{keywordtype}{double}\ newBurstPressure);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a4cb8a1e7b6da481fa1be0eab5c387615}{getMaxCTorque}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_afb076dfdbe436c7e29d6f1a392afb2e2}{setMaxCTorque}}(\textcolor{keywordtype}{double}\ newMaxCTorque);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a5b5fc72ad3f55ed563cf69f20071eab3}{getSafetyFactor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a8013b09ef3a7a19541da73db34292638}{setSafetyFactor}}(\textcolor{keywordtype}{double}\ newSafetyFactor);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a3e50558c3c0855e4408175bbf7d20125}{getNoumenonTensile}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_aea3d063ded556591d5df2c84cc06b1ec}{setNoumenonTensile}}(\textcolor{keywordtype}{double}\ newNoumenonTensile);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_m_well_packer_a788b9efb24344977268618af273ff813}{getWaterAnchor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a8d0717809a2e7e7ad593006559e5b3fe}{setWaterAnchor}}(\textcolor{keywordtype}{int}\ newWaterAnchor);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_ad9d935a71824d916e9148fe8dbba858b}{getSealingDiameter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a1b880b03a9905b23fe416b5dfa71650c}{setSealingDiameter}}(\textcolor{keywordtype}{double}\ newSealingDiameter);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_aa591acbcb976d6879fda143b8aca899a}{getMaxCasingFriction}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a3850d81052233493085435e809c53c7e}{setMaxCasingFriction}}(\textcolor{keywordtype}{double}\ newMaxCasingFriction);}
+\DoxyCodeLine{00061\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_a04a4da361daa54b11e1a2f528993a3fc}{getFactory}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a18332c5d45a192167bd138f84cc428bb}{setFactory}}(\textcolor{keyword}{const}\ QString\ \&newFactory);}
+\DoxyCodeLine{00063\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_ad5671c3ad006b86b4ab81bfaad0b5820}{getModel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_aadcfd38ad2ebda8b8d6e1d18237aaeb1}{setModel}}(\textcolor{keyword}{const}\ QString\ \&newModel);}
+\DoxyCodeLine{00065\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_a610c475375b0cdc6f7462a11742c3d49}{getSn}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a2a625441b36bc878e0f83f406e0c85d2}{setSn}}(\textcolor{keyword}{const}\ QString\ \&newSn);}
+\DoxyCodeLine{00067\ \ \ \ \ QDateTime\ \mbox{\hyperlink{class_m_well_packer_aecc4ec33a6f5020e1c0688dab324b1a9}{getCreateDate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_ac1d2c912c1b7651b70629de31430afaa}{setCreateDate}}(\textcolor{keyword}{const}\ QDateTime\ \&newCreateDate);}
+\DoxyCodeLine{00069\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_ad183cabed023ad878c126e18000105ed}{getCreateUser}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_ae2cfed601867d7c0681e1ac213ed38db}{setCreateUser}}(\textcolor{keyword}{const}\ QString\ \&newCreateUser);}
+\DoxyCodeLine{00071\ \ \ \ \ QDateTime\ \mbox{\hyperlink{class_m_well_packer_aef770055a9bcf1cdeb1c14e4aee26015}{getUpdateDate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a30e93ddc54d3d039558025375e8321c4}{setUpdateDate}}(\textcolor{keyword}{const}\ QDateTime\ \&newUpdateDate);}
+\DoxyCodeLine{00073\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_a354d879cc426efdc1abe811c0fc15247}{getUpdateUser}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a856071106e6bd34246dd608eeeaf14b1}{setUpdateUser}}(\textcolor{keyword}{const}\ QString\ \&newUpdateUser);}
+\DoxyCodeLine{00075\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_well_packer_a07c4237b09a209a2ce89fe72c574df32}{getDescription}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a62201968b4c813e7bf3401fbaa40b4d1}{setDescription}}(\textcolor{keyword}{const}\ QString\ \&newDescription);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_a46ff92a477d41d264c74fff4707e1954}{getUnsealingForce}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a9470eee32b722a51577cd7d70fd820a1}{setUnsealingForce}}(\textcolor{keywordtype}{double}\ newUnsealingForce);}
+\DoxyCodeLine{00079\ \ \ \ \ QByteArray\ \mbox{\hyperlink{class_m_well_packer_aba09950e90caa542fc76a4dafea82851}{getIcon}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a71264ce2d29ee0eeb598918b4c603918}{setIcon}}(\textcolor{keyword}{const}\ QByteArray\ \&newIcon);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_m_well_packer_aa04a054fbf284ae898406187c5c235bf}{getMeasuredDepth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_well_packer_a8e68c3e3d8245fc494fc4c6b0750fd41}{setMeasuredDepth}}(\textcolor{keywordtype}{double}\ newMeasuredDepth);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00086\ \ \ \ \ QString\ id;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 唯一ID}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{double}\ innerDiameter;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 内径（mm）}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ outDiameter;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 外径(mm)}}
+\DoxyCodeLine{00089\ \ \ \ \ QString\ materialId;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 钢体材质唯一ID\ PDM\_TO\_MATERIAL表}}
+\DoxyCodeLine{00090\ \ \ \ \ QString\ grade;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 钢级}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{double}\ length;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 长度}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{double}\ workPressureDiff;\ \ \ \ \ \ \textcolor{comment}{//\ 额定工作压差\ Mpa}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ sealType;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 坐封方式\ 0\ 机械坐封、1\ 液压坐封}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ unsealType;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 解封方式}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{double}\ sealPressure;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 坐封压力\ Mpa}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{double}\ workTemperature;\ \ \ \ \ \ \ \textcolor{comment}{//\ 工作温度℃}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ casingDiameter;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 适用套管内径mm}}
+\DoxyCodeLine{00098\ \ \ \ \ QString\ boreMaterial;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 胶筒材质\ PDM\_TO\_MATERIAL表}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{double}\ driftDiameter;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 通径\ mm}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{double}\ perLengthWeight;\ \ \ \ \ \ \ \textcolor{comment}{//\ 线重量kg/m}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{double}\ collapsePressure;\ \ \ \ \ \ \textcolor{comment}{//\ 抗挤强度(KN)}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{double}\ maxTensile;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 屈服强度(KN)}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ burstPressure;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 内屈服强度(Mpa)}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}\ maxCTorque;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 抗扭强度}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{double}\ safetyFactor;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 安全系数}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ noumenonTensile;\ \ \ \ \ \ \ \textcolor{comment}{//\ 本体抗拉(KN)}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ waterAnchor;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 是否带水力锚}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{double}\ sealingDiameter;\ \ \ \ \ \ \ \textcolor{comment}{//\ 密封腔直径}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{double}\ maxCasingFriction;\ \ \ \ \ \textcolor{comment}{//\ 与套管最大的摩擦力(KN)}}
+\DoxyCodeLine{00110\ \ \ \ \ QString\ factory;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 厂家}}
+\DoxyCodeLine{00111\ \ \ \ \ QString\ model;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 型号}}
+\DoxyCodeLine{00112\ \ \ \ \ QString\ sn;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 序列号}}
+\DoxyCodeLine{00113\ \ \ \ \ QDateTime\ createDate;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 创建时间}}
+\DoxyCodeLine{00114\ \ \ \ \ QString\ createUser;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 创建人}}
+\DoxyCodeLine{00115\ \ \ \ \ QDateTime\ updateDate;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 修改时间}}
+\DoxyCodeLine{00116\ \ \ \ \ QString\ updateUser;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 修改人}}
+\DoxyCodeLine{00117\ \ \ \ \ QString\ description;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 备注}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{double}\ unsealingForce;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ 解封力}}
+\DoxyCodeLine{00119\ \ \ \ \ QByteArray\ icon;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 图片地址}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{double}\ measuredDepth;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 深度}}
+\DoxyCodeLine{00122\ \ \ \ \ QString\ name;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 名称}}
+\DoxyCodeLine{00123\ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MWELLPACKER\_H}}
+
+\end{DoxyCode}

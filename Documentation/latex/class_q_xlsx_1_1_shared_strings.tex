@@ -1,0 +1,186 @@
+\doxysection{QXlsx\+::Shared\+Strings Class Reference}
+\hypertarget{class_q_xlsx_1_1_shared_strings}{}\label{class_q_xlsx_1_1_shared_strings}\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+
+
+{\ttfamily \#include $<$xlsxsharedstrings\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Shared\+Strings\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_xlsx_1_1_shared_strings}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a83b9481e55a2c61df12c2c0e8d12cabf}{Shared\+Strings}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_ad031cf2f61fef9642f5d0db605de0f4b}{count}} () const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a95446f1c0f0a1219d03c3931fe19c744}{is\+Empty}} () const
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_ab499f6471d0b6a15026136eb6f1bc751}{add\+Shared\+String}} (const QString \&string)
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a77eea286a445208ab6c91728e2cdb303}{add\+Shared\+String}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&string)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_aae03f0f7c7bf28e44b3d714fa12ff312}{remove\+Shared\+String}} (const QString \&string)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a1787be21b03d048a2d8bc3e8d0807278}{remove\+Shared\+String}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&string)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a89bf563ee138f69e91c033b559db97c4}{inc\+Ref\+By\+String\+Index}} (int idx)
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a319272635f8108d34885e2c7ea8b6e8c}{get\+Shared\+String\+Index}} (const QString \&string) const
+\item 
+int \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_ae7654c0405a9c5cba6fe6271b22fc62e}{get\+Shared\+String\+Index}} (const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&string) const
+\item 
+\mbox{\hyperlink{class_rich_string}{Rich\+String}} \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a5eced7834760ba5ce2092351972aba60}{get\+Shared\+String}} (int index) const
+\item 
+QList$<$ \mbox{\hyperlink{class_rich_string}{Rich\+String}} $>$ \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_adedc59512d04b942866a978036d2e4c4}{get\+Shared\+Strings}} () const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a14f03f10a48fea6eede3ef9efb3aff9d}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_shared_strings_a4c958c89a84fbc8a5fa5037b14da423f}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a83b9481e55a2c61df12c2c0e8d12cabf}\label{class_q_xlsx_1_1_shared_strings_a83b9481e55a2c61df12c2c0e8d12cabf} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!SharedStrings@{SharedStrings}}
+\index{SharedStrings@{SharedStrings}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{SharedStrings()}{SharedStrings()}}
+{\footnotesize\ttfamily QXlsx\+::\+Shared\+Strings\+::\+Shared\+Strings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}}}]{flag }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_shared_strings_ab499f6471d0b6a15026136eb6f1bc751}\label{class_q_xlsx_1_1_shared_strings_ab499f6471d0b6a15026136eb6f1bc751} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!addSharedString@{addSharedString}}
+\index{addSharedString@{addSharedString}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{addSharedString()}{addSharedString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int QXlsx\+::\+Shared\+Strings\+::add\+Shared\+String (\begin{DoxyParamCaption}\item[{const QString \&}]{string }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a77eea286a445208ab6c91728e2cdb303}\label{class_q_xlsx_1_1_shared_strings_a77eea286a445208ab6c91728e2cdb303} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!addSharedString@{addSharedString}}
+\index{addSharedString@{addSharedString}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{addSharedString()}{addSharedString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int QXlsx\+::\+Shared\+Strings\+::add\+Shared\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_ad031cf2f61fef9642f5d0db605de0f4b}\label{class_q_xlsx_1_1_shared_strings_ad031cf2f61fef9642f5d0db605de0f4b} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!count@{count}}
+\index{count@{count}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily int QXlsx\+::\+Shared\+Strings\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a5eced7834760ba5ce2092351972aba60}\label{class_q_xlsx_1_1_shared_strings_a5eced7834760ba5ce2092351972aba60} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!getSharedString@{getSharedString}}
+\index{getSharedString@{getSharedString}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{getSharedString()}{getSharedString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_rich_string}{Rich\+String}} QXlsx\+::\+Shared\+Strings\+::get\+Shared\+String (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a319272635f8108d34885e2c7ea8b6e8c}\label{class_q_xlsx_1_1_shared_strings_a319272635f8108d34885e2c7ea8b6e8c} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!getSharedStringIndex@{getSharedStringIndex}}
+\index{getSharedStringIndex@{getSharedStringIndex}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{getSharedStringIndex()}{getSharedStringIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int QXlsx\+::\+Shared\+Strings\+::get\+Shared\+String\+Index (\begin{DoxyParamCaption}\item[{const QString \&}]{string }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_ae7654c0405a9c5cba6fe6271b22fc62e}\label{class_q_xlsx_1_1_shared_strings_ae7654c0405a9c5cba6fe6271b22fc62e} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!getSharedStringIndex@{getSharedStringIndex}}
+\index{getSharedStringIndex@{getSharedStringIndex}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{getSharedStringIndex()}{getSharedStringIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int QXlsx\+::\+Shared\+Strings\+::get\+Shared\+String\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{string }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_adedc59512d04b942866a978036d2e4c4}\label{class_q_xlsx_1_1_shared_strings_adedc59512d04b942866a978036d2e4c4} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!getSharedStrings@{getSharedStrings}}
+\index{getSharedStrings@{getSharedStrings}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{getSharedStrings()}{getSharedStrings()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{class_rich_string}{Rich\+String}} $>$ QXlsx\+::\+Shared\+Strings\+::get\+Shared\+Strings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a89bf563ee138f69e91c033b559db97c4}\label{class_q_xlsx_1_1_shared_strings_a89bf563ee138f69e91c033b559db97c4} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!incRefByStringIndex@{incRefByStringIndex}}
+\index{incRefByStringIndex@{incRefByStringIndex}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{incRefByStringIndex()}{incRefByStringIndex()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Shared\+Strings\+::inc\+Ref\+By\+String\+Index (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a95446f1c0f0a1219d03c3931fe19c744}\label{class_q_xlsx_1_1_shared_strings_a95446f1c0f0a1219d03c3931fe19c744} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Shared\+Strings\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a4c958c89a84fbc8a5fa5037b14da423f}\label{class_q_xlsx_1_1_shared_strings_a4c958c89a84fbc8a5fa5037b14da423f} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Shared\+Strings\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_aae03f0f7c7bf28e44b3d714fa12ff312}\label{class_q_xlsx_1_1_shared_strings_aae03f0f7c7bf28e44b3d714fa12ff312} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!removeSharedString@{removeSharedString}}
+\index{removeSharedString@{removeSharedString}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{removeSharedString()}{removeSharedString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void QXlsx\+::\+Shared\+Strings\+::remove\+Shared\+String (\begin{DoxyParamCaption}\item[{const QString \&}]{string }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a1787be21b03d048a2d8bc3e8d0807278}\label{class_q_xlsx_1_1_shared_strings_a1787be21b03d048a2d8bc3e8d0807278} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!removeSharedString@{removeSharedString}}
+\index{removeSharedString@{removeSharedString}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{removeSharedString()}{removeSharedString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void QXlsx\+::\+Shared\+Strings\+::remove\+Shared\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_rich_string}{Rich\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_shared_strings_a14f03f10a48fea6eede3ef9efb3aff9d}\label{class_q_xlsx_1_1_shared_strings_a14f03f10a48fea6eede3ef9efb3aff9d} 
+\index{QXlsx::SharedStrings@{QXlsx::SharedStrings}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!QXlsx::SharedStrings@{QXlsx::SharedStrings}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Shared\+Strings\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{Abstract\+OOXml\+File}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxsharedstrings__p_8h}{xlsxsharedstrings\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxsharedstrings_8cpp}{xlsxsharedstrings.\+cpp}}\end{DoxyCompactItemize}

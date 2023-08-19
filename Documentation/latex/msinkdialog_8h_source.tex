@@ -1,0 +1,58 @@
+\doxysection{msinkdialog.\+h}
+\hypertarget{msinkdialog_8h_source}{}\label{msinkdialog_8h_source}\index{MultiflowUI/parUI/msinkdialog.h@{MultiflowUI/parUI/msinkdialog.h}}
+\mbox{\hyperlink{msinkdialog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MSINKDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MSINKDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msink_8h}{entity/msink.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }QLabel;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }QLineEdit;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }QComboBox;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_sink_dialog}{MSinkDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_m_sink_dialog}{MSinkDialog}}(\mbox{\hyperlink{class_m_sink}{MSink}}*\ sink,\ \textcolor{keywordtype}{bool}\ isNew,\ QString\ name,\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_m_sink_dialog_a90a834de0ef65781bbcc91cb91cafd35}{\string~MSinkDialog}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ acceptDialog();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ rejectDialog();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_m_sink}{MSink}}\ *mSink\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00027\ \ \ \ \ QString\ mName;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ QLabel*\ sinkNameLabel;}
+\DoxyCodeLine{00030\ \ \ \ \ QLabel*\ sinkPressureLabel;}
+\DoxyCodeLine{00031\ \ \ \ \ QLabel*\ sinkTemperatureLabel;}
+\DoxyCodeLine{00032\ \ \ \ \ QLabel*\ sinkFlowTypeLabel;}
+\DoxyCodeLine{00033\ \ \ \ \ QLabel*\ sinkFlowRateLabel;}
+\DoxyCodeLine{00034\ \ \ \ \ QLineEdit*\ sinkNameLineEdit;}
+\DoxyCodeLine{00035\ \ \ \ \ QLineEdit*\ sinkPressureLineEdit;}
+\DoxyCodeLine{00036\ \ \ \ \ QLineEdit*\ sinkTemperatureLineEdit;}
+\DoxyCodeLine{00037\ \ \ \ \ QComboBox*\ sinkFlowTypeComboBox;}
+\DoxyCodeLine{00038\ \ \ \ \ QLineEdit*\ sinkFlowRateLineEdit;}
+\DoxyCodeLine{00039\ \ \ \ \ QPushButton*\ okButton;}
+\DoxyCodeLine{00040\ \ \ \ \ QPushButton*\ cancelButton;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ setupUI();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ updateDialogFromMSink();}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ updateMSinkFromDialog();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ updateName();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ QString\ \mbox{\hyperlink{class_m_sink_dialog_a8b208a52948612f92d26fee0572b6b0b}{getName}}();}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MSINKDIALOG\_H}}
+
+\end{DoxyCode}

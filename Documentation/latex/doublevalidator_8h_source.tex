@@ -1,0 +1,31 @@
+\doxysection{doublevalidator.\+h}
+\hypertarget{doublevalidator_8h_source}{}\label{doublevalidator_8h_source}\index{MultiflowUI/util/validator/doublevalidator.h@{MultiflowUI/util/validator/doublevalidator.h}}
+\mbox{\hyperlink{doublevalidator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DOUBLEVALIDATOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DOUBLEVALIDATOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QValidator>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_double_validator}{DoubleValidator}}\ :\ \textcolor{keyword}{public}\ QValidator}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_double_validator}{DoubleValidator}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ State\ \mbox{\hyperlink{class_double_validator_a7fee8432e0b819cd2e0ae4222f070a59}{validate}}(QString\&\ input,\ \textcolor{keywordtype}{int}\&\ pos)\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Q\_UNUSED(pos);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input.isEmpty())}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Intermediate;\ \textcolor{comment}{//\ 允许为空}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isDouble\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ input.toDouble(\&isDouble);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ isDouble\ ?\ Acceptable\ :\ Invalid;}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DOUBLEVALIDATOR\_H}}
+
+\end{DoxyCode}

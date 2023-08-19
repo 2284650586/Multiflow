@@ -1,0 +1,122 @@
+\doxysection{QXlsx\+::Doc\+Props\+Core Class Reference}
+\hypertarget{class_q_xlsx_1_1_doc_props_core}{}\label{class_q_xlsx_1_1_doc_props_core}\index{QXlsx::DocPropsCore@{QXlsx::DocPropsCore}}
+
+
+{\ttfamily \#include $<$xlsxdocpropscore\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Doc\+Props\+Core\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_xlsx_1_1_doc_props_core}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_ae3bbd4472b8646b3c48fcdb97f986440}{Doc\+Props\+Core}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_abd1ca301f46d56274dad3de2481eca9d}{set\+Property}} (const QString \&name, const QString \&value)
+\item 
+QString \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_a5953fe82c8d7a6601c7de679a58046b7}{property}} (const QString \&name) const
+\item 
+QString\+List \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_a7c7d1a7cfb47c2a0b98c4e5846b7eb92}{property\+Names}} () const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_a6afa1a69eeef6bfeca7ef7f8738ff98c}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_doc_props_core_a9f352a9c0b872817063d8fe09e42688f}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_doc_props_core_ae3bbd4472b8646b3c48fcdb97f986440}\label{class_q_xlsx_1_1_doc_props_core_ae3bbd4472b8646b3c48fcdb97f986440} 
+\index{QXlsx::DocPropsCore@{QXlsx::DocPropsCore}!DocPropsCore@{DocPropsCore}}
+\index{DocPropsCore@{DocPropsCore}!QXlsx::DocPropsCore@{QXlsx::DocPropsCore}}
+\doxysubsubsection{\texorpdfstring{DocPropsCore()}{DocPropsCore()}}
+{\footnotesize\ttfamily QXlsx\+::\+Doc\+Props\+Core\+::\+Doc\+Props\+Core (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}}}]{flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_doc_props_core_a9f352a9c0b872817063d8fe09e42688f}\label{class_q_xlsx_1_1_doc_props_core_a9f352a9c0b872817063d8fe09e42688f} 
+\index{QXlsx::DocPropsCore@{QXlsx::DocPropsCore}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!QXlsx::DocPropsCore@{QXlsx::DocPropsCore}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Doc\+Props\+Core\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_doc_props_core_a5953fe82c8d7a6601c7de679a58046b7}\label{class_q_xlsx_1_1_doc_props_core_a5953fe82c8d7a6601c7de679a58046b7} 
+\index{QXlsx::DocPropsCore@{QXlsx::DocPropsCore}!property@{property}}
+\index{property@{property}!QXlsx::DocPropsCore@{QXlsx::DocPropsCore}}
+\doxysubsubsection{\texorpdfstring{property()}{property()}}
+{\footnotesize\ttfamily QString QXlsx\+::\+Doc\+Props\+Core\+::property (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_doc_props_core_a7c7d1a7cfb47c2a0b98c4e5846b7eb92}\label{class_q_xlsx_1_1_doc_props_core_a7c7d1a7cfb47c2a0b98c4e5846b7eb92} 
+\index{QXlsx::DocPropsCore@{QXlsx::DocPropsCore}!propertyNames@{propertyNames}}
+\index{propertyNames@{propertyNames}!QXlsx::DocPropsCore@{QXlsx::DocPropsCore}}
+\doxysubsubsection{\texorpdfstring{propertyNames()}{propertyNames()}}
+{\footnotesize\ttfamily QString\+List QXlsx\+::\+Doc\+Props\+Core\+::property\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_doc_props_core_a6afa1a69eeef6bfeca7ef7f8738ff98c}\label{class_q_xlsx_1_1_doc_props_core_a6afa1a69eeef6bfeca7ef7f8738ff98c} 
+\index{QXlsx::DocPropsCore@{QXlsx::DocPropsCore}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!QXlsx::DocPropsCore@{QXlsx::DocPropsCore}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Doc\+Props\+Core\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_doc_props_core_abd1ca301f46d56274dad3de2481eca9d}\label{class_q_xlsx_1_1_doc_props_core_abd1ca301f46d56274dad3de2481eca9d} 
+\index{QXlsx::DocPropsCore@{QXlsx::DocPropsCore}!setProperty@{setProperty}}
+\index{setProperty@{setProperty}!QXlsx::DocPropsCore@{QXlsx::DocPropsCore}}
+\doxysubsubsection{\texorpdfstring{setProperty()}{setProperty()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Doc\+Props\+Core\+::set\+Property (\begin{DoxyParamCaption}\item[{const QString \&}]{name,  }\item[{const QString \&}]{value }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdocpropscore__p_8h}{xlsxdocpropscore\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxdocpropscore_8cpp}{xlsxdocpropscore.\+cpp}}\end{DoxyCompactItemize}

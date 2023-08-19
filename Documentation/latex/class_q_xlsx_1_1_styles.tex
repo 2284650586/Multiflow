@@ -1,0 +1,170 @@
+\doxysection{QXlsx\+::Styles Class Reference}
+\hypertarget{class_q_xlsx_1_1_styles}{}\label{class_q_xlsx_1_1_styles}\index{QXlsx::Styles@{QXlsx::Styles}}
+
+
+{\ttfamily \#include $<$xlsxstyles\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Styles\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_xlsx_1_1_styles}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_styles_a3b9db44450520b5e8b6c93ca2bf55517}{Styles}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_styles_acb9bf41244d165583000b95305214bc4}{\texorpdfstring{$\sim$}{\string~}\+Styles}} ()
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_styles_a02b81c10ff2ba3c54d11bb2ab5db3b9c}{add\+Xf\+Format}} (const \mbox{\hyperlink{class_format}{Format}} \&format, bool force=false)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_q_xlsx_1_1_styles_ab10a58f476edff44d9f93fef5360326b}{xf\+Format}} (int idx) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_styles_a28c224dc6a943a68ab6440b0a07d643e}{add\+Dxf\+Format}} (const \mbox{\hyperlink{class_format}{Format}} \&format, bool force=false)
+\item 
+\mbox{\hyperlink{class_format}{Format}} \mbox{\hyperlink{class_q_xlsx_1_1_styles_ab793f44053268ba08eee313449f72d27}{dxf\+Format}} (int idx) const
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_styles_a152b7727150f52a59d1fa452538f8362}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_styles_a6d8a365893eb3110045ad8b71a3b7457}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)
+\item 
+QColor \mbox{\hyperlink{class_q_xlsx_1_1_styles_a46141bffbcd63ce9a002cc01d5bff98a}{get\+Color\+By\+Index}} (int idx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_q_xlsx_1_1_styles_a4fce8d25ec2cb0944565a6ab357de759}{Format}}
+\item 
+class \mbox{\hyperlink{class_q_xlsx_1_1_styles_ab3e3f650fdac441f4153d2cd6e07ec88}{\+::\+Styles\+Test}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_styles_a3b9db44450520b5e8b6c93ca2bf55517}\label{class_q_xlsx_1_1_styles_a3b9db44450520b5e8b6c93ca2bf55517} 
+\index{QXlsx::Styles@{QXlsx::Styles}!Styles@{Styles}}
+\index{Styles@{Styles}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{Styles()}{Styles()}}
+{\footnotesize\ttfamily QXlsx\+::\+Styles\+::\+Styles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}}}]{flag }\end{DoxyParamCaption})}
+
+Fix me. Should the custom num fmt Id starts with 164 or 176 or others??
+
+Fix me! Where should we put these register code?\Hypertarget{class_q_xlsx_1_1_styles_acb9bf41244d165583000b95305214bc4}\label{class_q_xlsx_1_1_styles_acb9bf41244d165583000b95305214bc4} 
+\index{QXlsx::Styles@{QXlsx::Styles}!````~Styles@{\texorpdfstring{$\sim$}{\string~}Styles}}
+\index{````~Styles@{\texorpdfstring{$\sim$}{\string~}Styles}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Styles()}{\string~Styles()}}
+{\footnotesize\ttfamily QXlsx\+::\+Styles\+::\texorpdfstring{$\sim$}{\string~}\+Styles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_styles_a28c224dc6a943a68ab6440b0a07d643e}\label{class_q_xlsx_1_1_styles_a28c224dc6a943a68ab6440b0a07d643e} 
+\index{QXlsx::Styles@{QXlsx::Styles}!addDxfFormat@{addDxfFormat}}
+\index{addDxfFormat@{addDxfFormat}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{addDxfFormat()}{addDxfFormat()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Styles\+::add\+Dxf\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format,  }\item[{bool}]{force = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_styles_a02b81c10ff2ba3c54d11bb2ab5db3b9c}\label{class_q_xlsx_1_1_styles_a02b81c10ff2ba3c54d11bb2ab5db3b9c} 
+\index{QXlsx::Styles@{QXlsx::Styles}!addXfFormat@{addXfFormat}}
+\index{addXfFormat@{addXfFormat}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{addXfFormat()}{addXfFormat()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Styles\+::add\+Xf\+Format (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_format}{Format}} \&}]{format,  }\item[{bool}]{force = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_styles_ab793f44053268ba08eee313449f72d27}\label{class_q_xlsx_1_1_styles_ab793f44053268ba08eee313449f72d27} 
+\index{QXlsx::Styles@{QXlsx::Styles}!dxfFormat@{dxfFormat}}
+\index{dxfFormat@{dxfFormat}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{dxfFormat()}{dxfFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} QXlsx\+::\+Styles\+::dxf\+Format (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_q_xlsx_1_1_styles_a46141bffbcd63ce9a002cc01d5bff98a}\label{class_q_xlsx_1_1_styles_a46141bffbcd63ce9a002cc01d5bff98a} 
+\index{QXlsx::Styles@{QXlsx::Styles}!getColorByIndex@{getColorByIndex}}
+\index{getColorByIndex@{getColorByIndex}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{getColorByIndex()}{getColorByIndex()}}
+{\footnotesize\ttfamily QColor QXlsx\+::\+Styles\+::get\+Color\+By\+Index (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+\Hypertarget{class_q_xlsx_1_1_styles_a6d8a365893eb3110045ad8b71a3b7457}\label{class_q_xlsx_1_1_styles_a6d8a365893eb3110045ad8b71a3b7457} 
+\index{QXlsx::Styles@{QXlsx::Styles}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Styles\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_styles_a152b7727150f52a59d1fa452538f8362}\label{class_q_xlsx_1_1_styles_a152b7727150f52a59d1fa452538f8362} 
+\index{QXlsx::Styles@{QXlsx::Styles}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Styles\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_styles_ab10a58f476edff44d9f93fef5360326b}\label{class_q_xlsx_1_1_styles_ab10a58f476edff44d9f93fef5360326b} 
+\index{QXlsx::Styles@{QXlsx::Styles}!xfFormat@{xfFormat}}
+\index{xfFormat@{xfFormat}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{xfFormat()}{xfFormat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_format}{Format}} QXlsx\+::\+Styles\+::xf\+Format (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_q_xlsx_1_1_styles_ab3e3f650fdac441f4153d2cd6e07ec88}\label{class_q_xlsx_1_1_styles_ab3e3f650fdac441f4153d2cd6e07ec88} 
+\index{QXlsx::Styles@{QXlsx::Styles}!::StylesTest@{::StylesTest}}
+\index{::StylesTest@{::StylesTest}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{::StylesTest}{::StylesTest}}
+{\footnotesize\ttfamily friend class \+::\+Styles\+Test\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_q_xlsx_1_1_styles_a4fce8d25ec2cb0944565a6ab357de759}\label{class_q_xlsx_1_1_styles_a4fce8d25ec2cb0944565a6ab357de759} 
+\index{QXlsx::Styles@{QXlsx::Styles}!Format@{Format}}
+\index{Format@{Format}!QXlsx::Styles@{QXlsx::Styles}}
+\doxysubsubsection{\texorpdfstring{Format}{Format}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_format}{Format}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxstyles__p_8h}{xlsxstyles\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxstyles_8cpp}{xlsxstyles.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\doxysection{tarrow.\+h}
+\hypertarget{tarrow_8h_source}{}\label{tarrow_8h_source}\index{MultiflowUI/TView/tarrow.h@{MultiflowUI/TView/tarrow.h}}
+\mbox{\hyperlink{tarrow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TARROW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TARROW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsLineItem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mflowline_8h}{entity/mflowline.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }QGraphicsItem;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mul_item}{MulItem}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_arrow}{TArrow}}\ :\ \textcolor{keyword}{public}\ QGraphicsLineItem}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_arrow_af6286de92c0566d2172b98faf9d40f94af211981b1989d2c18ffdba181adcea9f}{Type}}\ =\ UserType\ +\ 2\};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_t_arrow}{TArrow}}(\mbox{\hyperlink{class_mul_item}{MulItem}}\ *startItem,\ \mbox{\hyperlink{class_mul_item}{MulItem}}\ *endItem,\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_t_arrow_a6f50d8f0b1ac0bf5d5a095114d3b2d5e}{\string~TArrow}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_arrow_a97df7999e5493feb98ed3151a363cd1c}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_arrow_af6286de92c0566d2172b98faf9d40f94af211981b1989d2c18ffdba181adcea9f}{Type}};\ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_mul_item}{MulItem}}\ *\mbox{\hyperlink{class_t_arrow_aa1ebeb82a0208e75a87070965b9a0b8a}{getStartItem}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_mul_item}{MulItem}}\ *\mbox{\hyperlink{class_t_arrow_a5077af9dd4f1d808d0522c2c27e23cf2}{getEndItem}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_arrow_a0b917faa3c4f46c43e4576e1bef36715}{updatePosition}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_arrow_a504cf136f22228170bd576860fe034bc}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00027\ \ \ \ \ QPainterPath\ \mbox{\hyperlink{class_t_arrow_a1e1496bb9156bf7da70c4e99b028952f}{shape}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_arrow_a57a5ff9f6a7167960098652427fde917}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_mul_item}{MulItem}}\ *startItem;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_mul_item}{MulItem}}\ *endItem;}
+\DoxyCodeLine{00039\ \ \ \ \ QPolygonF\ arrowHead;}
+\DoxyCodeLine{00040\ \ \ \ \ QColor\ myColor\ =\ Qt::black;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ QString\ name\ =\ \textcolor{stringliteral}{"{}flowline"{}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//数据部分}}
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_m_flowline}{MFlowline}}\ *flowline\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ QGraphicsItem\ interface}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_arrow_a1e5e279d655be60eff270e977ee9024c}{mouseDoubleClickEvent}}(QGraphicsSceneMouseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TARROW\_H}}
+
+\end{DoxyCode}

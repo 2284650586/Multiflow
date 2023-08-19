@@ -1,0 +1,136 @@
+\doxysection{QXlsx\+::Theme Class Reference}
+\hypertarget{class_q_xlsx_1_1_theme}{}\label{class_q_xlsx_1_1_theme}\index{QXlsx::Theme@{QXlsx::Theme}}
+
+
+{\ttfamily \#include $<$xlsxtheme\+\_\+p.\+h$>$}
+
+Inheritance diagram for QXlsx\+::Theme\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_xlsx_1_1_theme}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_xlsx_1_1_theme_a36cc9bc16a1cfbfa363ac7232f9403f3}{Theme}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+void \mbox{\hyperlink{class_q_xlsx_1_1_theme_ae697aa3aaa1d67726d3a9653fd630857}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const
+\item 
+QByte\+Array \mbox{\hyperlink{class_q_xlsx_1_1_theme_a298b0622c749a3fa4c636a23d8cc5f82}{save\+To\+Xml\+Data}} () const
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_theme_a5b5486c4f5c760acf5f0e0f242a52f9a}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+bool \mbox{\hyperlink{class_q_xlsx_1_1_theme_ab2a2ed9e2e6e22a26bc2c5cbc2256fc8}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_abstract_o_o_xml_file_ac10008915e2c561695c005965addcfaa}{\texorpdfstring{$\sim$}{\string~}\+Abstract\+OOXml\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{save\+To\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{load\+From\+Xml\+File}} (QIODevice \texorpdfstring{$\ast$}{*}device)=0
+\item 
+virtual QByte\+Array \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{save\+To\+Xml\+Data}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{load\+From\+Xml\+Data}} (const QByte\+Array \&data)
+\item 
+Relationships \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_a1c35a6cc561f2b447857a36401245cbf}{relationships}} () const
+\item 
+void \mbox{\hyperlink{class_abstract_o_o_xml_file_a8f16945b7df2e7259621d2fb8a2f65f1}{set\+File\+Path}} (const QString path)
+\item 
+QString \mbox{\hyperlink{class_abstract_o_o_xml_file_a625885c1da22c261b1ada9e0a03ad551}{file\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QByte\+Array \mbox{\hyperlink{class_q_xlsx_1_1_theme_aabcc977962b029b49be61ae76cb44b28}{xml\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} \{ \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a135209ec3e4881e7d02865d7f4677f83}{F\+\_\+\+New\+From\+Scratch}}
+, \mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5a41d0a5dd39f477d5da43bf347b84c920}{F\+\_\+\+Load\+From\+Exists}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a73ad46d1be4e10d815b0a347689a3dad}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}} flag)
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_a5394f581e80a64dedaef92373b5c5ff4}{Abstract\+OOXml\+File}} (\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_abstract_o_o_xml_file}{Abstract\+OOXml\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_abstract_o_o_xml_file_private}{Abstract\+OOXml\+File\+Private}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_abstract_o_o_xml_file_aed26331f05bb8ea730923bf90dfab7a6}{d\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_xlsx_1_1_theme_a36cc9bc16a1cfbfa363ac7232f9403f3}\label{class_q_xlsx_1_1_theme_a36cc9bc16a1cfbfa363ac7232f9403f3} 
+\index{QXlsx::Theme@{QXlsx::Theme}!Theme@{Theme}}
+\index{Theme@{Theme}!QXlsx::Theme@{QXlsx::Theme}}
+\doxysubsubsection{\texorpdfstring{Theme()}{Theme()}}
+{\footnotesize\ttfamily QXlsx\+::\+Theme\+::\+Theme (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_abstract_o_o_xml_file_a63bbe6b2f974e181047791c764ca6ed5}{Create\+Flag}}}]{flag }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_xlsx_1_1_theme_a5b5486c4f5c760acf5f0e0f242a52f9a}\label{class_q_xlsx_1_1_theme_a5b5486c4f5c760acf5f0e0f242a52f9a} 
+\index{QXlsx::Theme@{QXlsx::Theme}!loadFromXmlData@{loadFromXmlData}}
+\index{loadFromXmlData@{loadFromXmlData}!QXlsx::Theme@{QXlsx::Theme}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlData()}{loadFromXmlData()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Theme\+::load\+From\+Xml\+Data (\begin{DoxyParamCaption}\item[{const QByte\+Array \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_abstract_o_o_xml_file_a59e0d3cdee660ca97a1e194d285635be}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_theme_ab2a2ed9e2e6e22a26bc2c5cbc2256fc8}\label{class_q_xlsx_1_1_theme_ab2a2ed9e2e6e22a26bc2c5cbc2256fc8} 
+\index{QXlsx::Theme@{QXlsx::Theme}!loadFromXmlFile@{loadFromXmlFile}}
+\index{loadFromXmlFile@{loadFromXmlFile}!QXlsx::Theme@{QXlsx::Theme}}
+\doxysubsubsection{\texorpdfstring{loadFromXmlFile()}{loadFromXmlFile()}}
+{\footnotesize\ttfamily bool QXlsx\+::\+Theme\+::load\+From\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a755a019835304386aae5ca6d300d1a7c}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_theme_a298b0622c749a3fa4c636a23d8cc5f82}\label{class_q_xlsx_1_1_theme_a298b0622c749a3fa4c636a23d8cc5f82} 
+\index{QXlsx::Theme@{QXlsx::Theme}!saveToXmlData@{saveToXmlData}}
+\index{saveToXmlData@{saveToXmlData}!QXlsx::Theme@{QXlsx::Theme}}
+\doxysubsubsection{\texorpdfstring{saveToXmlData()}{saveToXmlData()}}
+{\footnotesize\ttfamily QByte\+Array QXlsx\+::\+Theme\+::save\+To\+Xml\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_abstract_o_o_xml_file_ad60507f7bc9180a82d323c52ea258a38}{Abstract\+OOXml\+File}}.
+
+\Hypertarget{class_q_xlsx_1_1_theme_ae697aa3aaa1d67726d3a9653fd630857}\label{class_q_xlsx_1_1_theme_ae697aa3aaa1d67726d3a9653fd630857} 
+\index{QXlsx::Theme@{QXlsx::Theme}!saveToXmlFile@{saveToXmlFile}}
+\index{saveToXmlFile@{saveToXmlFile}!QXlsx::Theme@{QXlsx::Theme}}
+\doxysubsubsection{\texorpdfstring{saveToXmlFile()}{saveToXmlFile()}}
+{\footnotesize\ttfamily void QXlsx\+::\+Theme\+::save\+To\+Xml\+File (\begin{DoxyParamCaption}\item[{QIODevice \texorpdfstring{$\ast$}{*}}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_abstract_o_o_xml_file_a3cef95a9ac2396cbba8501400aae2fe1}{Abstract\+OOXml\+File}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_q_xlsx_1_1_theme_aabcc977962b029b49be61ae76cb44b28}\label{class_q_xlsx_1_1_theme_aabcc977962b029b49be61ae76cb44b28} 
+\index{QXlsx::Theme@{QXlsx::Theme}!xmlData@{xmlData}}
+\index{xmlData@{xmlData}!QXlsx::Theme@{QXlsx::Theme}}
+\doxysubsubsection{\texorpdfstring{xmlData}{xmlData}}
+{\footnotesize\ttfamily QByte\+Array QXlsx\+::\+Theme\+::xml\+Data}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxtheme__p_8h}{xlsxtheme\+\_\+p.\+h}}\item 
+Multiflow\+UI/xlsx/\mbox{\hyperlink{xlsxtheme_8cpp}{xlsxtheme.\+cpp}}\end{DoxyCompactItemize}

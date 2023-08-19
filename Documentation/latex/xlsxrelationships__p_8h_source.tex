@@ -1,0 +1,94 @@
+\doxysection{xlsxrelationships\+\_\+p.\+h}
+\hypertarget{xlsxrelationships__p_8h_source}{}\label{xlsxrelationships__p_8h_source}\index{MultiflowUI/xlsx/xlsxrelationships\_p.h@{MultiflowUI/xlsx/xlsxrelationships\_p.h}}
+\mbox{\hyperlink{xlsxrelationships__p_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{**\ Copyright\ (c)\ 2013-\/2014\ Debao\ Zhang\ <hello@debao.me>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{**\ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{**}}
+\DoxyCodeLine{00005\ \textcolor{comment}{**\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining}}
+\DoxyCodeLine{00006\ \textcolor{comment}{**\ a\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{**\ "{}Software"{}),\ to\ deal\ in\ the\ Software\ without\ restriction,\ including}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ without\ limitation\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,\ subject\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**\ included\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**}}
+\DoxyCodeLine{00024\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ XLSXRELATIONSHIPS\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ XLSXRELATIONSHIPS\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ W\ A\ R\ N\ I\ N\ G}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ This\ file\ is\ not\ part\ of\ the\ Qt\ Xlsx\ API.\ \ It\ exists\ for\ the\ convenience}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ of\ the\ Qt\ Xlsx.\ \ This\ header\ file\ may\ change\ from}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ version\ to\ version\ without\ notice,\ or\ even\ be\ removed.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ We\ mean\ it.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }QIODevice;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{XlsxRelationship}}}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship_aae08bda1900f21afc6f3f50635e9d729}{id}};}
+\DoxyCodeLine{00049\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship_a8fa39a1bbc746e337450b17b41a5874b}{type}};}
+\DoxyCodeLine{00050\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship_a8a2e954f2bce1c6b43c67930811dd189}{target}};}
+\DoxyCodeLine{00051\ \ \ \ \ QString\ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship_ad40f9d071d00ff23969d4685e675423f}{targetMode}};}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \mbox{\hyperlink{class_q_xlsx_1_1_relationships}{Relationships}}}
+\DoxyCodeLine{00055\ \{}
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_q_xlsx_1_1_relationships}{Relationships}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ QList<XlsxRelationship>\ documentRelationships(\textcolor{keyword}{const}\ QString\ \&relativeType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \ \ QList<XlsxRelationship>\ packageRelationships(\textcolor{keyword}{const}\ QString\ \&relativeType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \ \ \ \ QList<XlsxRelationship>\ msPackageRelationships(\textcolor{keyword}{const}\ QString\ \&relativeType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ QList<XlsxRelationship>\ worksheetRelationships(\textcolor{keyword}{const}\ QString\ \&relativeType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ addDocumentRelationship(\textcolor{keyword}{const}\ QString\ \&relativeType,\ \textcolor{keyword}{const}\ QString\ \&target);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ addPackageRelationship(\textcolor{keyword}{const}\ QString\ \&relativeType,\ \textcolor{keyword}{const}\ QString\ \&target);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ addMsPackageRelationship(\textcolor{keyword}{const}\ QString\ \&relativeType,\ \textcolor{keyword}{const}\ QString\ \&target);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ addWorksheetRelationship(\textcolor{keyword}{const}\ QString\ \&relativeType,\ \textcolor{keyword}{const}\ QString\ \&target,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&targetMode\ =\ QString());}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ saveToXmlFile(QIODevice\ *device)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ \ \ \ \ QByteArray\ saveToXmlData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ loadFromXmlFile(QIODevice\ *device);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ loadFromXmlData(\textcolor{keyword}{const}\ QByteArray\ \&data);}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{struct_q_xlsx_1_1_xlsx_relationship}{XlsxRelationship}}\ getRelationshipById(\textcolor{keyword}{const}\ QString\ \&\textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ count()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ isEmpty()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ QList<XlsxRelationship>\ relationships(\textcolor{keyword}{const}\ QString\ \&type)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ addRelationship(\textcolor{keyword}{const}\ QString\ \&type,\ \textcolor{keyword}{const}\ QString\ \&target,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&targetMode\ =\ QString());}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ QList<XlsxRelationship>\ m\_relationships;}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXRELATIONSHIPS\_H}}
+
+\end{DoxyCode}
