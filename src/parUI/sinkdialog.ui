@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>sinkDialog</class>
+ <widget class="QDialog" name="sinkDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>321</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333; /* 设置标签文本颜色 */
+    font-size: 16px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体加粗 */
+    padding: 4px; /* 设置标签内边距 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>名称：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #ccc; /* 设置边框样式 */
+    border-radius: 8px; /* 设置圆角半径 */
+    padding: 4px; /* 设置内边距 */
+    font-size: 16px; /* 设置字体大小 */
+}
+
+QLineEdit:hover, QLineEdit:focus {
+    border: 2px solid #0078d7; /* 设置鼠标悬停和获得焦点时的边框样式 */
+}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333; /* 设置标签文本颜色 */
+    font-size: 16px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体加粗 */
+    padding: 4px; /* 设置标签内边距 */
+}</string>
+        </property>
+        <property name="text">
+         <string>参数：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_2">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #ccc; /* 设置边框样式 */
+    border-radius: 8px; /* 设置圆角半径 */
+    padding: 4px; /* 设置内边距 */
+    font-size: 16px; /* 设置字体大小 */
+}
+
+QLineEdit:hover, QLineEdit:focus {
+    border: 2px solid #0078d7; /* 设置鼠标悬停和获得焦点时的边框样式 */
+}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>200</y>
+     <width>131</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="btnOK">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50; /* 设置按钮背景颜色 */
+    border: none; /* 去掉按钮边框 */
+    color: white; /* 设置按钮文本颜色 */
+    padding: 4px 6px; /* 设置按钮内边距 */
+    text-align: center; /* 设置文本居中 */
+    text-decoration: none; /* 去掉文本下划线 */
+    display: inline-block; /* 设置显示为行内元素 */
+    font-size: 14px; /* 设置字体大小 */
+    margin: 4px 2px; /* 设置按钮外边距 */
+    cursor: pointer; /* 设置光标形状为手形 */
+    border-radius: 8px; /* 设置按钮圆角半径 */
+}
+
+QPushButton:hover {
+    background-color: #3e8e41; /* 设置鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e6738; /* 设置按钮按下时的背景颜色 */
+}</string>
+      </property>
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnCancel">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50; /* 设置按钮背景颜色 */
+    border: none; /* 去掉按钮边框 */
+    color: white; /* 设置按钮文本颜色 */
+    padding: 4px 6px; /* 设置按钮内边距 */
+    text-align: center; /* 设置文本居中 */
+    text-decoration: none; /* 去掉文本下划线 */
+    display: inline-block; /* 设置显示为行内元素 */
+    font-size: 14px; /* 设置字体大小 */
+    margin: 4px 2px; /* 设置按钮外边距 */
+    cursor: pointer; /* 设置光标形状为手形 */
+    border-radius: 8px; /* 设置按钮圆角半径 */
+}
+
+QPushButton:hover {
+    background-color: #3e8e41; /* 设置鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e6738; /* 设置按钮按下时的背景颜色 */
+}</string>
+      </property>
+      <property name="text">
+       <string>取消</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
