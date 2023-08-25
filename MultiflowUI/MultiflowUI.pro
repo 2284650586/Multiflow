@@ -62,7 +62,8 @@ SOURCES += \
     util/delegate/geometrydelegate.cpp \
     util/delegate/gradedelegate.cpp \
     util/delegate/readonlydelegate.cpp \
-    util/validator/doublevalidator.cpp
+    util/validator/doublevalidator.cpp \
+    utility/utility.cpp
 
 HEADERS += \
     TView/mulitem.h \
@@ -104,7 +105,8 @@ HEADERS += \
     util/delegate/geometrydelegate.h \
     util/delegate/gradedelegate.h \
     util/delegate/readonlydelegate.h \
-    util/validator/doublevalidator.h
+    util/validator/doublevalidator.h \
+    utility/utility.h
 
 FORMS += \
     mainwindow.ui \

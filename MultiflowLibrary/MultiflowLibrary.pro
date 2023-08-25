@@ -10,11 +10,13 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    core/core.cpp
+    core/core.cpp \
+    logging/logging.cpp
 
 HEADERS += \
-    core/MultiflowLibrary_global.h \
-    core/core.h
+    MultiflowLibrary_global.h \
+    core/core.h \
+    logging/logging.h
 
 # Default rules for deployment.
 unix {

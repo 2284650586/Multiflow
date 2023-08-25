@@ -65,7 +65,7 @@ private:
     QComboBox *sceneScaleCombo;
 
     //布局
-    QSplitter *splitter_tree_tab;
+    QSplitter *splitterTreeTab;
 
 
 private:
@@ -74,6 +74,18 @@ private:
     void createWidget();
     void createMenu();
     void createStatusBar();
+
+    /**
+     * @brief 禁用工具栏，及其子控件
+     * @author z
+     */
+    void disableToolbars();
+
+    /**
+     * @brief 启用工具栏
+     * @author z
+     */
+    void enableToolbars();
 
     void setViewScale(TGraphicsView *view, const QString &scale);
 

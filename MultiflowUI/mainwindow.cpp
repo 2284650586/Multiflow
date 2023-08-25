@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 //#include "ui_mainwindow.h"
+#include "utility/utility.h"
 
 #include <QSplitter>
 #include <QAction>
@@ -75,29 +76,20 @@ void MainWindow::createActions()
 void MainWindow::createToolBar()
 {
     itemToolBar = new QToolBar(this);
-    otherToolBar = new QToolBar(this);
-
     itemToolBar->setIconSize(QSize(40, 40));
     itemToolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-
-    otherToolBar->setIconSize(QSize(40, 40));
-
+    itemToolBar->addActions({ newWellAction, newSourceAction, newSinkAction, newJunctionAction });
     addToolBar(Qt::TopToolBarArea, itemToolBar);
+
+    otherToolBar = new QToolBar(this);
+    otherToolBar->setIconSize(QSize(40, 40));
+    otherToolBar->addAction(deleteAction);
     addToolBar(Qt::TopToolBarArea, otherToolBar);
 
-    itemToolBar->addAction(newWellAction);
-    itemToolBar->addAction(newSourceAction);
-    itemToolBar->addAction(newSinkAction);
-    itemToolBar->addAction(newJunctionAction);
-
-    newWellAction->setEnabled(false);
-    newSourceAction->setEnabled(false);
-    newSinkAction->setEnabled(false);
-    newJunctionAction->setEnabled(false);
+    disableToolbars();
 
     sceneScaleCombo = new QComboBox;
-    sceneScaleCombo->addItems(
-        { tr("50%"), tr("75%"), tr("100%"), tr("125%"), tr("150%") });
+    sceneScaleCombo->addItems({ tr("50%"), tr("75%"), tr("100%"), tr("125%"), tr("150%") });
     sceneScaleCombo->setCurrentIndex(2);
 
     QFont font = sceneScaleCombo->font();
@@ -105,17 +97,12 @@ void MainWindow::createToolBar()
     sceneScaleCombo->setFont(font);
 
     otherToolBar->addWidget(sceneScaleCombo);
-    otherToolBar->addAction(deleteAction);
-    deleteAction->setEnabled(false);
-    sceneScaleCombo->setEnabled(false);
     connect(sceneScaleCombo, &QComboBox::currentTextChanged, this, &MainWindow::sceneScaleChanged);
 
     pointerButton = new QToolButton;
-    pointerButton->setEnabled(false);
     pointerButton->setIcon(QIcon(":/resources/image/pointer.png"));
 
     linePointerButton = new QToolButton;
-    linePointerButton->setEnabled(false);
     linePointerButton->setIcon(QIcon(":/resources/image/linepointer.png"));
 
     pointerTypeGroup = new QButtonGroup(this);
@@ -127,6 +114,18 @@ void MainWindow::createToolBar()
 
     otherToolBar->addWidget(pointerButton);
     otherToolBar->addWidget(linePointerButton);
+}
+
+void MainWindow::disableToolbars()
+{
+    itemToolBar->setEnabled(false);
+    otherToolBar->setEnabled(false);
+}
+
+void MainWindow::enableToolbars()
+{
+    itemToolBar->setEnabled(true);
+    otherToolBar->setEnabled(true);
 }
 
 void MainWindow::createMenu()
@@ -160,37 +159,31 @@ void MainWindow::createWidget()
     connect(tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::closeTab);
     connect(tabWidget, &QTabWidget::currentChanged, this, &MainWindow::tabChanged);
 
-    splitter_tree_tab = new QSplitter(Qt::Horizontal, this);
+    splitterTreeTab = new QSplitter(Qt::Horizontal, this);
 
     treeWidget->setMaximumWidth(300);
 
-    splitter_tree_tab->addWidget(treeWidget);
-    splitter_tree_tab->addWidget(tabWidget);
+    splitterTreeTab->addWidget(treeWidget);
+    splitterTreeTab->addWidget(tabWidget);
 
-    setCentralWidget(splitter_tree_tab);
+    setCentralWidget(splitterTreeTab);
     centralWidget()->setContentsMargins(5, 0, 5, 0);
 }
 
 void MainWindow::onAboutApp()
 {
+    // TODO
     QMessageBox::information(this, tr(APPNAME), tr(""));
 }
 
+/**
+ * @brief 新建新场景的时候调用，设置一些按钮的状态
+ */
 void MainWindow::createGraphicsView()
 {
     treeWidget->addItem();
-    newWellAction->setEnabled(true);
-    newSourceAction->setEnabled(true);
-    newSinkAction->setEnabled(true);
-    newJunctionAction->setEnabled(true);
-    deleteAction->setEnabled(true);
-    sceneScaleCombo->setEnabled(true);
-    pointerButton->setEnabled(true);
-    linePointerButton->setEnabled(true);
-
-    pointerButton->setCheckable(true);
+    enableToolbars();
     pointerButton->setChecked(true);
-    linePointerButton->setCheckable(true);
 
     TGraphicsView *tView = new TGraphicsView(this);
     TGraphicsScene *tScene = new TGraphicsScene(tView);
@@ -202,7 +195,7 @@ void MainWindow::createGraphicsView()
     QHBoxLayout *layout = new QHBoxLayout;
     layout->addWidget(tView);
 
-    tabWidget->insertTab(tabWidget->count(), tView, QString("场景%1").arg(tabWidget->count() + 1));
+    tabWidget->insertTab(tabWidget->count(), tView, QString("场景 %1").arg(tabWidget->count() + 1));
 
     connect(tScene, &TGraphicsScene::mulItemInserted, this, &MainWindow::mulItemInserted);
     connect(tScene, &TGraphicsScene::linePointerInserted, this, &MainWindow::linePointerInserted);
@@ -260,15 +253,8 @@ void MainWindow::closeTab(int index)
 //    qDebug() << "123";
     if (tabWidget->count() == 0) {
         sceneScaleCombo->setCurrentIndex(2);
-        sceneScaleCombo->setEnabled(false);
-        newWellAction->setEnabled(false);
-        newSourceAction->setEnabled(false);
-        newSinkAction->setEnabled(false);
-        newJunctionAction->setEnabled(false);
-        deleteAction->setEnabled(false);
+        disableToolbars();
         treeWidget->clearItem();
-        pointerButton->setEnabled(false);
-        linePointerButton->setEnabled(false);
     }
 }
 

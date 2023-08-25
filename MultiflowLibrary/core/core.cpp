@@ -1,21 +1,16 @@
 #include "core.h"
+#include "logging/logging.h"
 
 #include <stdexcept>
 
 #include <QDebug>
 
-ML::MultiflowLibrary()
-{
-    throw std::runtime_error(
-        "Wrong use of MultiflowLibrary: call static methods directly instead.");
+void ml::initialize() {
+    logging::Logger::_initialize();
+    INFO << "Multiflow Core Library Initialized.";
 }
 
-void ML::initialize()
-{
-    qDebug() << "Multiflow Core Library Initialized.";
-}
-
-int ML::add(int x, int y)
+int ml::add(int x, int y)
 {
     return x + y;
 }
