@@ -11,12 +11,22 @@ CONFIG += c++17
 
 SOURCES += \
     core/core.cpp \
-    logging/logging.cpp
+    expression/add.cpp \
+    expression/constant.cpp \
+    expression/expression.cpp \
+    expression/variable.cpp \
+    logging/logging.cpp \
+    math/math.cpp
 
 HEADERS += \
     MultiflowLibrary_global.h \
     core/core.h \
-    logging/logging.h
+    expression/add.h \
+    expression/constant.h \
+    expression/expression.h \
+    expression/variable.h \
+    logging/logging.h \
+    math/math.h
 
 # Default rules for deployment.
 unix {
