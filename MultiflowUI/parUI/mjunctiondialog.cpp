@@ -1,4 +1,4 @@
-#include "mjunctiondialog.h"
+#include "parUI/mjunctiondialog.h"
 
 #include <QHBoxLayout>
 #include <QLabel>

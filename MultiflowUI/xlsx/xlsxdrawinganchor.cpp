@@ -33,6 +33,7 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 #include <QBuffer>
+#include <QStringList>
 #include <QDir>
 
 namespace QXlsx {

@@ -1,6 +1,8 @@
 #include "tmultiflowitem.h"
 
-TMultiflowItem::TMultiflowItem()
+TMultiflowItem::TMultiflowItem(QString name, QGraphicsItem *parent)
+    : QObject(nullptr)
+    , QGraphicsPixmapItem(parent)
 {
 
 }

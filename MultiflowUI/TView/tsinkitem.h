@@ -10,7 +10,7 @@ class TSinkItem : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    enum { Type = UserType + Multiflow_TYPE::Sink };
+    enum { Type = UserType + MultiflowKind::Sink };
     TSinkItem(QString sinkName = "sink", QGraphicsItem *parent = nullptr);
 
 private:

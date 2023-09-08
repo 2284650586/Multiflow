@@ -44,7 +44,9 @@ void TWellItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 
 int TWellItem::getId()
 {
-    return well.getSourceId();
+    return 0;
+    // TODO
+    // return well.getSourceId();
 }
 
 QString TWellItem::getName()

@@ -10,7 +10,7 @@ class TFlowlineItem : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    enum { Type = UserType + Multiflow_TYPE::Flowline };
+    enum { Type = UserType + MultiflowKind::Flowline };
 
     TFlowlineItem(QString flowlineName = "flowline", QGraphicsItem *parent = nullptr);
 

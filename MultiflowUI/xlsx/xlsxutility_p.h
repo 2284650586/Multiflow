@@ -37,6 +37,7 @@
 //
 
 #include "xlsxglobal.h"
+
 class QPoint;
 class QString;
 class QStringList;

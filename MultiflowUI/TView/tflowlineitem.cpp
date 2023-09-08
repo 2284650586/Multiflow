@@ -45,7 +45,9 @@ void TFlowlineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 
 int TFlowlineItem::getId()
 {
-    return flowline.getSourceId();
+    return 0;
+    // TODO
+    // return flowline.getSourceId();
 }
 
 QString TFlowlineItem::getName()

@@ -10,7 +10,7 @@ class TSourceItem : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    enum { Type = UserType + Multiflow_TYPE::Source };
+    enum { Type = UserType + MultiflowKind::Source };
     TSourceItem(QString sourceName = "source", QGraphicsItem *parent = nullptr);
 
     // QGraphicsItem interfac

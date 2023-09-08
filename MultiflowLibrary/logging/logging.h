@@ -38,11 +38,11 @@ public:
 /**
  * @brief 全局共享的Logger对象们
  */
-static Logger const debug;
-static Logger const info;
-static Logger const warn;
-static Logger const error;
-static Logger const critical;
+static const Logger debug;
+static const Logger info;
+static const Logger warn;
+static const Logger error;
+static const Logger critical;
 
 /**
  * @brief 打印日志，会打印时间、日志级别、内容

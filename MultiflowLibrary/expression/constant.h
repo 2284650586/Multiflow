@@ -31,12 +31,12 @@ public:
     /**
      * @brief 圆周率，预定义的常见常数
      */
-    static Constant const pi;
+    static const Constant pi;
 
     /**
      * @brief 自然对数的底，预定义的常见常数
      */
-    static Constant const e;
+    static const Constant e;
 };
 
 }

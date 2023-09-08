@@ -10,7 +10,7 @@ class TWellItem : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    enum { Type = UserType + Multiflow_TYPE::Well };
+    enum { Type = UserType + MultiflowKind::Well };
     TWellItem(QString wellName = "well", QGraphicsItem *parent = nullptr);
 
 private:

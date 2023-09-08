@@ -7,6 +7,8 @@
  * @brief 基本数学操作。包含了一系列保护措施，
  * 遇到各种非法操作会抛出异常
  * 遇到NaN和Infinite也会抛出异常
+ *
+ * @author z
  */
 namespace math
 {
