@@ -19,12 +19,12 @@ Expression::~Expression()
 
 Expression::Number Expression::evaluate() const
 {
-    throw std::exception("Not implemented");
+    throw std::runtime_error("Not implemented");
 }
 
 QString Expression::to_string() const
 {
-    throw std::exception("Not implemented");
+    throw std::runtime_error("Not implemented");
 }
 
 const QString& Expression::name() const
