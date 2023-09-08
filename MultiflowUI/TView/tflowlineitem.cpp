@@ -43,11 +43,9 @@ void TFlowlineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
     painter->drawText(0, 0, flowlineName);
 }
 
-int TFlowlineItem::getId()
+QString TFlowlineItem::getId()
 {
-    return 0;
-    // TODO
-    // return flowline.getSourceId();
+    return flowline.getSourceId();
 }
 
 QString TFlowlineItem::getName()

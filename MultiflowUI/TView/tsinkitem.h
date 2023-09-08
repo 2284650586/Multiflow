@@ -21,7 +21,7 @@ public:
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-    int getId();
+    QString getId();
     QString getName();
 
     int type() const override { return Type; }

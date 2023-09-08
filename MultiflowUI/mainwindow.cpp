@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-//#include "ui_mainwindow.h"
+#include "ui_mainwindow.h"
 #include "utility/utility.h"
 
 #include <QSplitter>
@@ -26,6 +26,8 @@
 #include "TView/mulitem.h"
 #include "TView/tarrow.h"
 #include "common.h"
+
+#include <MultiflowLibrary/logging/logging.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -100,9 +102,12 @@ void MainWindow::createToolBar()
     connect(sceneScaleCombo, &QComboBox::currentTextChanged, this, &MainWindow::sceneScaleChanged);
 
     pointerButton = new QToolButton;
+    pointerButton->setCheckable(true);
+    pointerButton->setChecked(true);
     pointerButton->setIcon(QIcon(":/resources/image/pointer.png"));
 
     linePointerButton = new QToolButton;
+    linePointerButton->setCheckable(true);
     linePointerButton->setIcon(QIcon(":/resources/image/linepointer.png"));
 
     pointerTypeGroup = new QButtonGroup(this);

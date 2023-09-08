@@ -40,7 +40,7 @@ void TTreeWidget::addItem()
 
     sinkItem = new QTreeWidgetItem(this);
     sinkItem->setFont(0, font);
-    sinkItem->setText(0, "sink");
+    sinkItem->setText(0, "Sink");
     sinkItem->setIcon(0, sinkIcon);
     sinkItem->setExpanded(true);
 

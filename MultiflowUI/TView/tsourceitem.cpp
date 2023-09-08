@@ -40,11 +40,9 @@ void TSourceItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
     painter->drawText(0, 0, sourceName);
 }
 
-int TSourceItem::getId()
+QString TSourceItem::getId()
 {
-    return 0;
-    // TODO
-    // return source.getSourceId();
+    return source.getSourceId();
 }
 
 QString TSourceItem::getName()

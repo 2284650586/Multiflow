@@ -40,11 +40,9 @@ void TSinkItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     painter->drawText(0, 0, sinkName);
 }
 
-int TSinkItem::getId()
+QString TSinkItem::getId()
 {
-    return 0;
-    // TODO
-    // return sink.getSourceId();
+    return sink.getSourceId();
 }
 
 QString TSinkItem::getName()

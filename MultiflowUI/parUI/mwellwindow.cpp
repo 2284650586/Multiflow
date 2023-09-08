@@ -44,10 +44,7 @@ MWellWindow::MWellWindow(MWell* well, QString name, QWidget *parent) :
     wellHeat->setPos(-20, -300);
     wellHeat->setScale(0.7);
 
-     scene->addItem(wellHeat);
-
-
-
+    scene->addItem(wellHeat);
 
     initUI();
     initModel();

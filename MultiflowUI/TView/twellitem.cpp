@@ -42,11 +42,9 @@ void TWellItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     painter->drawText(0, 0, wellName);
 }
 
-int TWellItem::getId()
+QString TWellItem::getId()
 {
-    return 0;
-    // TODO
-    // return well.getSourceId();
+    return well.getSourceId();
 }
 
 QString TWellItem::getName()
