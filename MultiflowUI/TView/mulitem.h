@@ -2,7 +2,7 @@
 #define MULITEM_H
 
 #include <QGraphicsPixmapItem>
-#include "common.h"
+#include "shared.hpp"
 #include "entity/msink.h"
 #include "entity/msource.h"
 #include "entity/mwell.h"

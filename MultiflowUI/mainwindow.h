@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "common.h"
+#include "shared.hpp"
 
 QT_BEGIN_NAMESPACE
 

@@ -4,7 +4,7 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include "entity/msource.h"
-#include "common.h"
+#include "shared.hpp"
 
 class TWellItem : public QObject, public QGraphicsPixmapItem
 {

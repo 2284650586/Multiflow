@@ -25,7 +25,6 @@
 #include "TView/tgraphicsscene.h"
 #include "TView/mulitem.h"
 #include "TView/tarrow.h"
-#include "common.h"
 
 #include <MultiflowLibrary/logging/logging.h>
 

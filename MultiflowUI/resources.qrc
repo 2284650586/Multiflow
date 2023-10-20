@@ -16,5 +16,6 @@
         <file>resources/image/ESP.png</file>
         <file>resources/image/header.png</file>
         <file>resources/image/PCP.png</file>
+        <file>qml/main.qml</file>
     </qresource>
 </RCC>

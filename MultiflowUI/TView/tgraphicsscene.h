@@ -3,7 +3,7 @@
 
 #include <QGraphicsScene>
 #include <QObject>
-#include "common.h"
+#include "shared.hpp"
 
 class MulItem;
 class TArrow;

@@ -87,12 +87,12 @@ DEFINE_LOGGING_SPECIALIZATION(const QString&);
 }
 
 // 定义相关的宏，方便使用
-#ifndef INFO
-#define INFO logging::Logger::info
-#define DEBUG logging::Logger::debug
-#define WARN logging::Logger::warn
-#define ERROR logging::Logger::error
-#define CRITICAL logging::Logger::critical
+#ifndef LOG_INFO
+#define LOG_INFO logging::Logger::info
+#define LOG_DEBUG logging::Logger::debug
+#define LOG_WARN logging::Logger::warn
+#define LOG_ERROR logging::Logger::error
+#define LOG_CRITICAL logging::Logger::critical
 #endif
 
 #endif // LOGGING_H

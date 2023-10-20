@@ -7,7 +7,7 @@
 
 void ml::initialize() {
     logging::Logger::_initialize();
-    INFO << "Multiflow Core Library Initialized.";
+    LOG_INFO << "Multiflow Core Library Initialized.";
 }
 
 int ml::add(int x, int y)

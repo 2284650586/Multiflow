@@ -6,7 +6,7 @@
 #include <QDebug>
 #include "mulitem.h"
 #include "tarrow.h"
-#include "common.h"
+#include "shared.hpp"
 
 TGraphicsScene::TGraphicsScene(QObject *parent)
     : QGraphicsScene{parent}
