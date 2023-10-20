@@ -1,17 +1,20 @@
-#include "math.h"
+#include "math/math.h"
 
 #include <cmath>
-#include <algorithm>
 #include <stdexcept>
 
 namespace math
 {
 constexpr double ZERO_THRESHOLD = 1e-5;
 
+math_error::math_error(const char *what_arg): std::exception(what_arg)
+{
+}
+
 #define ASSERT_VALID(x) \
     if (std::isnan(x) || std::isinf(x)) \
     { \
-        throw std::runtime_error("数值非法，不可为NaN或无穷大"); \
+        throw math_error("数值非法，不可为NaN或无穷大"); \
     }
 
 bool z(double x)
@@ -95,7 +98,7 @@ double divide(double x, double y)
 
     if (z(y))
     {
-        throw std::runtime_error("不可除以0");
+        throw math_error("不可除以0");
     }
     return x / y;
 }
@@ -107,7 +110,7 @@ double power(double x, double y)
 
     if (lt(x, 0) && lt(y, 1))
     {
-        throw std::runtime_error("不可对负数开方");
+        throw math_error("不可对负数开方");
     }
     return std::pow(x, y);
 }
@@ -118,7 +121,7 @@ double square_root(double x)
 
     if (lt(x, 0))
     {
-        throw std::runtime_error("实数不可<0");
+        throw math_error("实数不可<0");
     }
     return std::sqrt(x);
 }
@@ -136,12 +139,12 @@ double logarithm(double base, double x)
 
     if (x <= 0)
     {
-        throw std::runtime_error("实数不可<=0");
+        throw math_error("实数不可<=0");
     }
 
     if (eq(base, 1) || lte(base, 0))
     {
-        throw std::runtime_error("底数不能为1或<=0");
+        throw math_error("底数不能为1或<=0");
     }
 
     // 自带的std::log不知道是什么底数

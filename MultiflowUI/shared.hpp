@@ -1,5 +1,9 @@
 #pragma once
 
+#include <QMainWindow>
+#include <QApplication>
+#include <QQmlApplicationEngine>
+
 enum MultiflowKind {
     Well,
     Source,
@@ -11,5 +15,9 @@ enum MultiflowKind {
     NONETYPE
 };
 
-extern bool propertyLegacyUI;
-extern bool propertyEnableVerbose;
+extern bool                     propertyLegacyUI;
+extern bool                     propertyEnableVerbose;
+
+extern QApplication*            gpApplication;
+extern QQmlApplicationEngine*   gpQmlApplicationEngine;
+extern QMainWindow*             gpMainWindow;

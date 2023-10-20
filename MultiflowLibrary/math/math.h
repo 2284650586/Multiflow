@@ -1,6 +1,8 @@
 #ifndef MATH_H
 #define MATH_H
 
+#include <stdexcept>
+
 #include "../MultiflowLibrary_global.h"
 
 /**
@@ -12,6 +14,11 @@
  */
 namespace math
 {
+
+class ML_PUBLIC math_error : public std::exception {
+public:
+    explicit math_error(const char* what_arg);
+};
 
 /**
  * @brief 判断x是否为零，兼容IEEE浮点数的误差

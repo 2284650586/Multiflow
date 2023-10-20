@@ -36,6 +36,8 @@ set(SOURCE_FILES
     mainwindow.cpp
     shared.cpp
     resources.qrc
+    qml/main.cpp
+    qml/utils/UIUtils.cpp
 )
 
 include_directories(
