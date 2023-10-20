@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "utility/utility.h"
+#include "constants.hpp"
 
 #include <QSplitter>
 #include <QAction>
@@ -50,7 +51,7 @@ void MainWindow::createActions()
     newFileAction = new QAction(QIcon(":/resources/image/file.png"), "新建文件", this);
     connect(newFileAction, &QAction::triggered, this, &MainWindow::createGraphicsView);
 
-    aboutAppAction = new QAction(tr("关于 " APPNAME), this);
+    aboutAppAction = new QAction(tr("关于 ") + AppName, this);
     connect(aboutAppAction, &QAction::triggered, this, &MainWindow::onAboutApp);
 
     deleteAction = new QAction(QIcon(":/resources/image/delete.png"), "删除", this);
@@ -177,7 +178,7 @@ void MainWindow::createWidget()
 void MainWindow::onAboutApp()
 {
     // TODO
-    QMessageBox::information(this, tr(APPNAME), tr(""));
+    QMessageBox::information(this, tr(AppName), tr(""));
 }
 
 /**
