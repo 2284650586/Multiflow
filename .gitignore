@@ -58,5 +58,5 @@ compile_commands.json
 # MS Office temp files
 **/~$*
 *.tmp
-*.wbk  # Word backup files
-*.xlk  # Excel backup files
+*.wbk
+*.xlk
