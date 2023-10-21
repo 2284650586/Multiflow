@@ -18,13 +18,9 @@ ApplicationWindow {
         topPadding: 12
         bottomPadding: 12
         onClicked: {
-            if (uiUtils.confirm("确认要退出 Multiflow 吗？", "退出", "取消")) {
+            if (UIUtils.confirm("确认要退出 Multiflow 吗？", "退出", "取消")) {
                 window.close()
             }
         }
-    }
-
-    UIUtils {
-        id: uiUtils
     }
 }

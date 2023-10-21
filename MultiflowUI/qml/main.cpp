@@ -5,7 +5,7 @@
 namespace qml {
 
 void registerQmlComponents() {
-    qmlRegisterType<UIUtils>("Multiflow.UI", 1, 0, "UIUtils");
+    UIUtils::getInstance()->registerSingleton();
 }
 
 }

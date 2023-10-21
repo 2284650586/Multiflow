@@ -10,13 +10,14 @@
 #include "shared.hpp"
 #include "constants.hpp"
 
-
-UIUtils::UIUtils(QObject *parent) : QObject(parent) {
+UIUtils::UIUtils(QObject *parent)
+: IQmlSingleton<UIUtils>("Multiflow.UI", 1, 0, "UIUtils") {
 
 }
 
 // NOLINTNEXTLINE(readability-convert-member-functions-to-static)
-[[maybe_unused]] bool UIUtils::confirm(const QString &message, const QString &positiveButtonText, const QString &negativeButtonText) {
+[[maybe_unused]] bool
+UIUtils::confirm(const QString &message, const QString &positiveButtonText, const QString &negativeButtonText) {
     auto dialog = QMessageBox();
     dialog.setWindowTitle(AppName);
     dialog.setText(message);
