@@ -16,6 +16,9 @@ Q_OBJECT
 friend class SingletonMixin<UIUtils>;
 
 public:
+    /**
+     * @return true if positive button is clicked, false otherwise
+     */
     Q_INVOKABLE [[maybe_unused]] static bool confirm(
         const QString &message,
         const QString &positiveButtonText,

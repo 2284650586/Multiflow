@@ -15,7 +15,6 @@ UIUtils::UIUtils(QObject *parent)
 
 }
 
-// NOLINTNEXTLINE(readability-convert-member-functions-to-static)
 [[maybe_unused]] bool
 UIUtils::confirm(const QString &message, const QString &positiveButtonText, const QString &negativeButtonText) {
     auto dialog = QMessageBox();
@@ -23,7 +22,7 @@ UIUtils::confirm(const QString &message, const QString &positiveButtonText, cons
     dialog.setText(message);
     dialog.addButton(negativeButtonText, QMessageBox::RejectRole);
     dialog.setIcon(QMessageBox::Question);
-    auto buttonExit = dialog.addButton(positiveButtonText, QMessageBox::AcceptRole);
+    auto buttonPositive = dialog.addButton(positiveButtonText, QMessageBox::AcceptRole);
     dialog.exec();
-    return dialog.clickedButton() == buttonExit;
+    return dialog.clickedButton() == buttonPositive;
 }
