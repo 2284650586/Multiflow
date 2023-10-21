@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "mainwindow.hpp"
 
 #include "third_party/argparse/argparse.hpp"
 
@@ -8,8 +8,8 @@
 
 #include <QQmlApplicationEngine>
 #include <QApplication>
-#include <MultiflowLibrary/core/core.h>
-#include <MultiflowLibrary/logging/logging.h>
+#include "MultiflowLibrary/core/core.hpp"
+#include "MultiflowLibrary/logging/logging.hpp"
 #include <MultiflowLibrary/constants.hpp>
 
 

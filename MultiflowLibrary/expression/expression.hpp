@@ -1,7 +1,7 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
-#include "../MultiflowLibrary_global.h"
+#include "../MultiflowLibrary_global.hpp"
 
 #include <QString>
 

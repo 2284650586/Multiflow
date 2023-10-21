@@ -1,8 +1,8 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
 
-#include "../MultiflowLibrary_global.h"
-#include "expression.h"
+#include "../MultiflowLibrary_global.hpp"
+#include "expression.hpp"
 
 #include <QString>
 

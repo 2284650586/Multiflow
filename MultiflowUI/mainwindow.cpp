@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "mainwindow.hpp"
 #include "ui_mainwindow.h"
 #include "utility/utility.h"
 #include "constants.hpp"
@@ -27,7 +27,7 @@
 #include "TView/mulitem.h"
 #include "TView/tarrow.h"
 
-#include <MultiflowLibrary/logging/logging.h>
+#include "MultiflowLibrary/logging/logging.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

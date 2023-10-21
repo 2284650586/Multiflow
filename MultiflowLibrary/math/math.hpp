@@ -3,7 +3,7 @@
 
 #include <stdexcept>
 
-#include "../MultiflowLibrary_global.h"
+#include "../MultiflowLibrary_global.hpp"
 
 /**
  * @brief 基本数学操作。包含了一系列保护措施，

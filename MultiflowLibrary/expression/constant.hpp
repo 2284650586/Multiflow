@@ -1,9 +1,9 @@
 #ifndef CONSTANT_H
 #define CONSTANT_H
 
-#include "../MultiflowLibrary_global.h"
+#include "../MultiflowLibrary_global.hpp"
 
-#include "expression.h"
+#include "expression.hpp"
 
 namespace expression
 {

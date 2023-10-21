@@ -1,7 +1,7 @@
 #ifndef LOGGING_H
 #define LOGGING_H
 
-#include "../MultiflowLibrary_global.h"
+#include "../MultiflowLibrary_global.hpp"
 
 #include <QString>
 #include <QDebug>

@@ -1,7 +1,7 @@
 #ifndef CORE_H
 #define CORE_H
 
-#include "../MultiflowLibrary_global.h"
+#include "../MultiflowLibrary_global.hpp"
 
 namespace ml {
 

@@ -1,5 +1,5 @@
-#include "core.h"
-#include "logging/logging.h"
+#include "core.hpp"
+#include "logging/logging.hpp"
 
 #include <stdexcept>
 
