@@ -1,6 +1,5 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
-#include "utility/utility.h"
 #include "constants.hpp"
 
 #include <QSplitter>
