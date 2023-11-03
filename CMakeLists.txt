@@ -12,7 +12,7 @@ if ( "$ENV{QT_DEV_ENV}" STREQUAL "Z" )
 
 elseif ( "$ENV{QT_DEV_ENV}" STREQUAL "LXT" )
     message(STATUS "Developer: lxt")
-    set(CMAKE_PREFIX_PATH "改成类似的目录")
+    set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/msvc2019_64")
 
 else ()
     message(FATAL_ERROR "Unknown developer")
