@@ -1,0 +1,4 @@
+[submodule "multiflow-backend"]
+	path = multiflow-backend
+	url = https://github.com/hatsune-miku/multiflow-backend
+	branch = main
