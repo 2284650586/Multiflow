@@ -1,0 +1,301 @@
+\doxysection{ml Namespace Reference}
+\hypertarget{namespaceml}{}\label{namespaceml}\index{ml@{ml}}
+
+
+基本数学操作。包含了一系列保护措施， 遇到各种非法操作会抛出异常 遇到\+Na\+N和\+Infinite也会抛出异常  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classml_1_1_add}{Add}}
+\begin{DoxyCompactList}\small\item\em 加法表达式，指示两个表达式相加 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classml_1_1_algorithm}{Algorithm}}
+\item 
+class \mbox{\hyperlink{classml_1_1_constant}{Constant}}
+\begin{DoxyCompactList}\small\item\em 常数表达式，在表达式中扮演常数的角色 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classml_1_1_environment}{Environment}}
+\item 
+class \mbox{\hyperlink{classml_1_1_expression}{Expression}}
+\begin{DoxyCompactList}\small\item\em 表达式的基类。表达式用于计算。每个表达式\+: \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classml_1_1_key_not_found_exception}{Key\+Not\+Found\+Exception}}
+\item 
+class \mbox{\hyperlink{classml_1_1_logger}{Logger}}
+\begin{DoxyCompactList}\small\item\em 简单的日志系统，跨平台、可做导出库， 供整个项目使用。内部实际调用的q\+Debug \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classml_1_1math__error}{math\+\_\+error}}
+\item 
+class \mbox{\hyperlink{classml_1_1_not_implemented_exception}{Not\+Implemented\+Exception}}
+\item 
+class \mbox{\hyperlink{classml_1_1_variable}{Variable}}
+\begin{DoxyCompactList}\small\item\em 未知数表达式，在表达式中扮演未知数（自变量）的角色 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{Number}} = double
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} void \mbox{\hyperlink{namespaceml_ab9f80dbde88c2d12811ea86f6fdfa843}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em 整个\+Multiflow库的初始化。做以下事情\+: \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_a81d4fae3674ae92af04e4e78f7f81d0b}{z}} (double x)
+\begin{DoxyCompactList}\small\item\em 判断x是否为零，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_ae508a24743a243ac2dd5da5d6edd2ec3}{eq}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断两数是否相等，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_a8c34b08652241e0817f49b628eb48cee}{gt}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否大于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_a56ad0e7de9ea64e4374becea7b0cd592}{lt}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否小于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_a98d5289cf0b7955272d09b2bd8c1d11d}{gte}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否大于等于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_ad872fb9ed2c107b4d03e3a3962253395}{lte}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否小于等于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a3e9e317e41eb8cb4c62743e6b56bee2b}{add}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 加法，不带溢出检测 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a8d4cf7d6f6bd0ebb9beea17ab7da144f}{subtract}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 减法，不带溢出检测 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a7183aaab44821be413931bf5dccef4f3}{multiply}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 乘法，不带溢出检测 能够正确处理误差0和无穷大的情况 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a24bd792c3af51f7ccf8cc06e77b0dbd4}{divide}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 除法，不带溢出检测 能够正确处理被除数是误差0、出现无穷大的情况 遇到除以0会抛出异常 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a058d7bb16fa12c4b8750e3cde9a4244c}{power}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 幂函数，不带溢出检测 遇到对负数开方会抛出异常，即使有时候负数开方也是能开的 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a0df4c3fb35d3ab8f2c69bf06a3a53cc6}{square\+\_\+root}} (double x)
+\begin{DoxyCompactList}\small\item\em 平方根，遇到负数会抛出异常 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a98fb4fc2e5d656c8bc6231f709b7d5d1}{absolute\+\_\+value}} (double x)
+\begin{DoxyCompactList}\small\item\em 绝对值 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a7202eda40de9227b8e6a2e60ff50edbe}{logarithm}} (double base, double x)
+\begin{DoxyCompactList}\small\item\em 对数函数，不带溢出检测，遇到以下情况会抛出异常： base \texorpdfstring{$<$}{<}= 0, base == 1, 或 x \texorpdfstring{$<$}{<}= 0 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_ac2320060ed0dd522d14c43bac517f0f2}{minimum}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 取较小值 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a24bc9e9ff926b5405718a41d844abfe7}{maximum}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 取较大值 \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Derived , class Base $>$ }\\bool \mbox{\hyperlink{namespaceml_aced0f0d22caee51860c792aa5dff7b60}{instance\+\_\+of}} (const Base \&object)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{namespaceml_a745dcec84918d48a67e1690d9c6cfbde}{Version}} = \"{}0.\+1.\+0\"{}
+\item 
+constexpr double \mbox{\hyperlink{namespaceml_ac56d8dd3440ecb878c958afa91e8e4d6}{ZERO\+\_\+\+THRESHOLD}} = 1e-\/5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+基本数学操作。包含了一系列保护措施， 遇到各种非法操作会抛出异常 遇到\+Na\+N和\+Infinite也会抛出异常 
+
+\begin{DoxyAuthor}{Author}
+z 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceml_ac922e527200ded4dc10c077c8582f7dc}\label{namespaceml_ac922e527200ded4dc10c077c8582f7dc} 
+\index{ml@{ml}!Number@{Number}}
+\index{Number@{Number}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{Number}{Number}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} = typedef double}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceml_a98fb4fc2e5d656c8bc6231f709b7d5d1}\label{namespaceml_a98fb4fc2e5d656c8bc6231f709b7d5d1} 
+\index{ml@{ml}!absolute\_value@{absolute\_value}}
+\index{absolute\_value@{absolute\_value}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{absolute\_value()}{absolute\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::absolute\+\_\+value (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+绝对值 
+
+\Hypertarget{namespaceml_a3e9e317e41eb8cb4c62743e6b56bee2b}\label{namespaceml_a3e9e317e41eb8cb4c62743e6b56bee2b} 
+\index{ml@{ml}!add@{add}}
+\index{add@{add}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::add (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+加法，不带溢出检测 
+
+\Hypertarget{namespaceml_a24bd792c3af51f7ccf8cc06e77b0dbd4}\label{namespaceml_a24bd792c3af51f7ccf8cc06e77b0dbd4} 
+\index{ml@{ml}!divide@{divide}}
+\index{divide@{divide}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{divide()}{divide()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::divide (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+除法，不带溢出检测 能够正确处理被除数是误差0、出现无穷大的情况 遇到除以0会抛出异常 
+
+\Hypertarget{namespaceml_ae508a24743a243ac2dd5da5d6edd2ec3}\label{namespaceml_ae508a24743a243ac2dd5da5d6edd2ec3} 
+\index{ml@{ml}!eq@{eq}}
+\index{eq@{eq}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{eq()}{eq()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} bool ml\+::eq (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+判断两数是否相等，兼容\+IEEE浮点数的误差 
+
+\Hypertarget{namespaceml_a8c34b08652241e0817f49b628eb48cee}\label{namespaceml_a8c34b08652241e0817f49b628eb48cee} 
+\index{ml@{ml}!gt@{gt}}
+\index{gt@{gt}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{gt()}{gt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} bool ml\+::gt (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+判断x是否大于y，兼容\+IEEE浮点数的误差 
+
+\Hypertarget{namespaceml_a98d5289cf0b7955272d09b2bd8c1d11d}\label{namespaceml_a98d5289cf0b7955272d09b2bd8c1d11d} 
+\index{ml@{ml}!gte@{gte}}
+\index{gte@{gte}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{gte()}{gte()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} bool ml\+::gte (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+判断x是否大于等于y，兼容\+IEEE浮点数的误差 
+
+\Hypertarget{namespaceml_ab9f80dbde88c2d12811ea86f6fdfa843}\label{namespaceml_ab9f80dbde88c2d12811ea86f6fdfa843} 
+\index{ml@{ml}!initialize@{initialize}}
+\index{initialize@{initialize}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void ml\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+整个\+Multiflow库的初始化。做以下事情\+: 
+
+
+\begin{DoxyItemize}
+\item 初始化算法库，从配置中加载并实例化算法
+\item 初始化日志系统
+\item 连接数据库 \begin{DoxyAuthor}{Author}
+z 
+\end{DoxyAuthor}
+
+\end{DoxyItemize}\Hypertarget{namespaceml_aced0f0d22caee51860c792aa5dff7b60}\label{namespaceml_aced0f0d22caee51860c792aa5dff7b60} 
+\index{ml@{ml}!instance\_of@{instance\_of}}
+\index{instance\_of@{instance\_of}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{instance\_of()}{instance\_of()}}
+{\footnotesize\ttfamily template$<$class Derived , class Base $>$ \\
+bool ml\+::instance\+\_\+of (\begin{DoxyParamCaption}\item[{const Base \&}]{object }\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceml_a7202eda40de9227b8e6a2e60ff50edbe}\label{namespaceml_a7202eda40de9227b8e6a2e60ff50edbe} 
+\index{ml@{ml}!logarithm@{logarithm}}
+\index{logarithm@{logarithm}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{logarithm()}{logarithm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::logarithm (\begin{DoxyParamCaption}\item[{double}]{base,  }\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+对数函数，不带溢出检测，遇到以下情况会抛出异常： base \texorpdfstring{$<$}{<}= 0, base == 1, 或 x \texorpdfstring{$<$}{<}= 0 
+
+\Hypertarget{namespaceml_a56ad0e7de9ea64e4374becea7b0cd592}\label{namespaceml_a56ad0e7de9ea64e4374becea7b0cd592} 
+\index{ml@{ml}!lt@{lt}}
+\index{lt@{lt}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{lt()}{lt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} bool ml\+::lt (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+判断x是否小于y，兼容\+IEEE浮点数的误差 
+
+\Hypertarget{namespaceml_ad872fb9ed2c107b4d03e3a3962253395}\label{namespaceml_ad872fb9ed2c107b4d03e3a3962253395} 
+\index{ml@{ml}!lte@{lte}}
+\index{lte@{lte}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{lte()}{lte()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} bool ml\+::lte (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+判断x是否小于等于y，兼容\+IEEE浮点数的误差 
+
+\Hypertarget{namespaceml_a24bc9e9ff926b5405718a41d844abfe7}\label{namespaceml_a24bc9e9ff926b5405718a41d844abfe7} 
+\index{ml@{ml}!maximum@{maximum}}
+\index{maximum@{maximum}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{maximum()}{maximum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::maximum (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+取较大值 
+
+\Hypertarget{namespaceml_ac2320060ed0dd522d14c43bac517f0f2}\label{namespaceml_ac2320060ed0dd522d14c43bac517f0f2} 
+\index{ml@{ml}!minimum@{minimum}}
+\index{minimum@{minimum}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{minimum()}{minimum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::minimum (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+取较小值 
+
+\Hypertarget{namespaceml_a7183aaab44821be413931bf5dccef4f3}\label{namespaceml_a7183aaab44821be413931bf5dccef4f3} 
+\index{ml@{ml}!multiply@{multiply}}
+\index{multiply@{multiply}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::multiply (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+乘法，不带溢出检测 能够正确处理误差0和无穷大的情况 
+
+\Hypertarget{namespaceml_a058d7bb16fa12c4b8750e3cde9a4244c}\label{namespaceml_a058d7bb16fa12c4b8750e3cde9a4244c} 
+\index{ml@{ml}!power@{power}}
+\index{power@{power}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::power (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+幂函数，不带溢出检测 遇到对负数开方会抛出异常，即使有时候负数开方也是能开的 
+
+\Hypertarget{namespaceml_a0df4c3fb35d3ab8f2c69bf06a3a53cc6}\label{namespaceml_a0df4c3fb35d3ab8f2c69bf06a3a53cc6} 
+\index{ml@{ml}!square\_root@{square\_root}}
+\index{square\_root@{square\_root}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{square\_root()}{square\_root()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::square\+\_\+root (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+平方根，遇到负数会抛出异常 
+
+\Hypertarget{namespaceml_a8d4cf7d6f6bd0ebb9beea17ab7da144f}\label{namespaceml_a8d4cf7d6f6bd0ebb9beea17ab7da144f} 
+\index{ml@{ml}!subtract@{subtract}}
+\index{subtract@{subtract}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{subtract()}{subtract()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} double ml\+::subtract (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+减法，不带溢出检测 
+
+\Hypertarget{namespaceml_a81d4fae3674ae92af04e4e78f7f81d0b}\label{namespaceml_a81d4fae3674ae92af04e4e78f7f81d0b} 
+\index{ml@{ml}!z@{z}}
+\index{z@{z}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{z()}{z()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\+\_\+\+PUBLIC}} bool ml\+::z (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+判断x是否为零，兼容\+IEEE浮点数的误差 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceml_a745dcec84918d48a67e1690d9c6cfbde}\label{namespaceml_a745dcec84918d48a67e1690d9c6cfbde} 
+\index{ml@{ml}!Version@{Version}}
+\index{Version@{Version}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{Version}{Version}}
+{\footnotesize\ttfamily constexpr auto ml\+::\+Version = \"{}0.\+1.\+0\"{}\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{namespaceml_ac56d8dd3440ecb878c958afa91e8e4d6}\label{namespaceml_ac56d8dd3440ecb878c958afa91e8e4d6} 
+\index{ml@{ml}!ZERO\_THRESHOLD@{ZERO\_THRESHOLD}}
+\index{ZERO\_THRESHOLD@{ZERO\_THRESHOLD}!ml@{ml}}
+\doxysubsubsection{\texorpdfstring{ZERO\_THRESHOLD}{ZERO\_THRESHOLD}}
+{\footnotesize\ttfamily constexpr double ml\+::\+ZERO\+\_\+\+THRESHOLD = 1e-\/5\hspace{0.3cm}{\ttfamily [constexpr]}}
+

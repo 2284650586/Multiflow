@@ -1,14 +1,21 @@
 var searchData=
 [
-  ['t_5fcat_0',['T_Cat',['../class_q_xlsx_1_1_xlsx_axis.html#a64329bb48c585a0acd6076cfecb23b54a74d4a628c74bb352f5a440f5fdc64106',1,'QXlsx::XlsxAxis']]],
-  ['t_5fdate_1',['T_Date',['../class_q_xlsx_1_1_xlsx_axis.html#a64329bb48c585a0acd6076cfecb23b54a4f29c0eeaecfafb73381a5bb78ffc7a2',1,'QXlsx::XlsxAxis']]],
-  ['t_5fser_2',['T_Ser',['../class_q_xlsx_1_1_xlsx_axis.html#a64329bb48c585a0acd6076cfecb23b54add30bc09723ed5d9840e7c6373ff1537',1,'QXlsx::XlsxAxis']]],
-  ['t_5fval_3',['T_Val',['../class_q_xlsx_1_1_xlsx_axis.html#a64329bb48c585a0acd6076cfecb23b54aae65370693ca9ccae12fc2561b26a992',1,'QXlsx::XlsxAxis']]],
-  ['textlength_4',['TextLength',['../class_data_validation.html#aac2ad7946e088db3789211ab429aa85aabf3247a7d1f439883a658c4f3208e34f',1,'DataValidation']]],
-  ['threed_5',['ThreeD',['../class_m_well_deviation.html#af54185c57d25ae36f93a29f143f31de3aa9d607bb294c02b4d61c361dd2eea991',1,'MWellDeviation']]],
-  ['time_6',['Time',['../class_data_validation.html#aac2ad7946e088db3789211ab429aa85aac70564595d9328a1c4c4631f0fa73e07',1,'DataValidation']]],
-  ['top_7',['Top',['../class_q_xlsx_1_1_xlsx_axis.html#a32d48ca0ddd395140c2b58ca7503e782a95b151c0f796d35c41de723072681677',1,'QXlsx::XlsxAxis']]],
-  ['tvd_8',['TVD',['../class_m_well_deviation.html#a93c886b60f23748e83de2fd217fd6736afb0e15d1cff78134b2c6b2bbd42e9a49',1,'MWellDeviation']]],
-  ['twod_9',['TwoD',['../class_m_well_deviation.html#af54185c57d25ae36f93a29f143f31de3aee58451728f232bb85072e3c1f3b23d0',1,'MWellDeviation']]],
-  ['type_10',['Type',['../class_mul_item.html#a62bbb8dee9300dee523a7f67608b609caab940abbbf5205e367194f6741cd81b9',1,'MulItem::Type'],['../class_t_arrow.html#af6286de92c0566d2172b98faf9d40f94af211981b1989d2c18ffdba181adcea9f',1,'TArrow::Type'],['../class_t_flowline_item.html#a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc',1,'TFlowlineItem::Type'],['../class_t_sink_item.html#a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed',1,'TSinkItem::Type'],['../class_t_source_item.html#a1a32b472852522ae22275f0edfcd774cad118d6a26385e3469c00a560b8cd5a8c',1,'TSourceItem::Type'],['../class_t_well_item.html#a33b42011756b5a78d97a10b0214bfddeaafb4a732318e445b144f1bb30bb87724',1,'TWellItem::Type']]]
+  ['scientific_0',['scientific',['../namespaceargparse_1_1details.html#a31b348511ba5e7ff131cf09d9b2d6460a55a95650a66b53ecbb960b53d985b964',1,'argparse::details']]],
+  ['setpointer_1',['setPointer',['../class_t_graphics_scene.html#aec608034f78628a856aa55ef7ca402f9a5d82912afb6eb4962597242b6b4ec831',1,'TGraphicsScene']]],
+  ['shape_2',['Shape',['../class_q_xlsx_1_1_drawing_anchor.html#a6161ae9faf2deb5a03d51131b7bbf77aa074ec82f00a4dc35ff33d77f360cc352',1,'QXlsx::DrawingAnchor']]],
+  ['sharedstringtype_3',['SharedStringType',['../class_cell.html#a17f4fc9beca099930fcbf72a4c9b59bda637b037d0000f4093cc23e68c5e2058c',1,'Cell']]],
+  ['sharedtype_4',['SharedType',['../class_cell_formula.html#aeb4622b928c9653057ceb4dbeaa5b186ae206762a9c8cc8b5dd4dea1b014e2309',1,'CellFormula']]],
+  ['simple_5',['Simple',['../class_m_flowline.html#a355bfed61a27d961d4e8da070241c084a92b7e767bbc9e21969267a500259185e',1,'MFlowline']]],
+  ['sink_6',['Sink',['../shared_8hpp.html#abaa8a12bf165b6351b4c61af85663250a0f509a1370158f1c4377f54c662f83ab',1,'shared.hpp']]],
+  ['source_7',['Source',['../shared_8hpp.html#abaa8a12bf165b6351b4c61af85663250a5fe22c90c9480346980656bbebc16da7',1,'shared.hpp']]],
+  ['ss_5fhidden_8',['SS_Hidden',['../class_abstract_sheet.html#a50de6274f4fe05ac3b83d4604ce40372aefbbbcb21ba949be565ab39e60ea055b',1,'AbstractSheet']]],
+  ['ss_5fveryhidden_9',['SS_VeryHidden',['../class_abstract_sheet.html#a50de6274f4fe05ac3b83d4604ce40372a61c8497c72b2506e55130df8450b1f5a',1,'AbstractSheet']]],
+  ['ss_5fvisible_10',['SS_Visible',['../class_abstract_sheet.html#a50de6274f4fe05ac3b83d4604ce40372afb3048180c59c0d3689d82de357895e4',1,'AbstractSheet']]],
+  ['st_5fchartsheet_11',['ST_ChartSheet',['../class_abstract_sheet.html#a54d967ecbaf067b0e2ded9f82396d346a05710c1f9f0cad5872bedda33ff082f1',1,'AbstractSheet']]],
+  ['st_5fdialogsheet_12',['ST_DialogSheet',['../class_abstract_sheet.html#a54d967ecbaf067b0e2ded9f82396d346a9f0b52cb155437bd8cf96bdee1219f4f',1,'AbstractSheet']]],
+  ['st_5fmacrosheet_13',['ST_MacroSheet',['../class_abstract_sheet.html#a54d967ecbaf067b0e2ded9f82396d346aa83f0f3c3543053b7383aa4ac31ade70',1,'AbstractSheet']]],
+  ['st_5fworksheet_14',['ST_WorkSheet',['../class_abstract_sheet.html#a54d967ecbaf067b0e2ded9f82396d346a1a8a4ade25e8c5d999be080d29afab80',1,'AbstractSheet']]],
+  ['stop_15',['Stop',['../class_data_validation.html#a30023072f73fb9007b1c754cda0dc22ca4d5b314ebb7c7313a960cbfae1371c65',1,'DataValidation']]],
+  ['stringtype_16',['StringType',['../class_cell.html#a17f4fc9beca099930fcbf72a4c9b59bda5c37041745dfcb9d961bcee0bfb2c4b3',1,'Cell']]],
+  ['subsea_17',['Subsea',['../class_m_flowline.html#a63edff4d7c148fe1395c0a80ff22037caa7f3cf72735b3d5f80d59afa375dd921',1,'MFlowline']]]
 ];

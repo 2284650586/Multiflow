@@ -26,14 +26,17 @@ var NAVTREE =
 [
   [ "Multiflow", "index.html", [
     [ "Project Multiflow", "md__r_e_a_d_m_e.html", [
-      [ "Versions", "md__r_e_a_d_m_e.html#autotoc_md1", null ]
+      [ "Building with CLion", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Versions", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ]
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -52,12 +55,12 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
   ] ]
@@ -65,19 +68,25 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_multiflow_library__global_8h.html",
-"class_conditional_formatting.html#af0bfbcfbf96944ee06c09c98055150f8a0d77e907b1d7209f605f0f2250d3aa9d",
-"class_format.html#a7aa338cca8fcad3eff785b94af489f54",
-"class_m_source_dialog.html",
-"class_m_well_reservoir.html",
-"class_q_xlsx_1_1_doc_props_app.html#a02e3f002f0c6ab7bac7ebb62a758e8c7",
-"class_q_xlsx_1_1_format_private.html#a8ea2f8c5d3948728faeca677e61652b0a37c6cf184d50b9411819ce31c414e508",
-"class_q_xlsx_1_1_workbook_private.html#a2bfc61b383992faa695689eae35cffe4",
-"class_q_xlsx_1_1_zip_reader.html#abc63e97f17c7443df977a8344e72acdf",
-"class_ui___m_well_window.html#a4820a6524076243dad5335ff9b16ad02",
-"class_worksheet.html#a0406ee058b4d4ab540c2bc3a3b395f76",
-"functions_vars_r.html",
-"struct_q_xlsx_1_1_xlsx_sheet_format_props.html#a30059cf1d61be6b5102d851b0e9b6ec3"
+"66b85ba3778c75df079c60b81b9900b7b997e892b43ed1ef8ac27eece72d15ff_8d.html",
+"class_chart.html#a57a8183cef3e67e2c5e56d422e767566",
+"class_format.html#a099f263fec68f5aa44f3a3357df415d4",
+"class_m_flowline.html#a84d36a7c48011a94f14f241543c88788",
+"class_m_well_heat.html#a6efbed895b3e60f59b69259c4f631b8c",
+"class_q_xlsx_1_1_chart_private.html#a6af3c47b5fe0f73b6206a91a2fe753be",
+"class_q_xlsx_1_1_drawing_one_cell_anchor.html#adf8d3d96b327d356a3307e68cbc7fc6c",
+"class_q_xlsx_1_1_shared_strings.html#a319272635f8108d34885e2c7ea8b6e8c",
+"class_q_xlsx_1_1_xlsx_axis.html#a0a0b2dea5c43e2ec32a34a018a15c8d6",
+"class_ui___m_well_window.html#a0432b3d76916b8e5ad6c5c502ebda732",
+"class_ui___m_well_window.html#ac968cbcc84b89d99cb10d6b058e26f21",
+"classargparse_1_1_argument.html#a93a68634f7f4bd7496f6cd0bdc8d3e79",
+"files.html",
+"moc__mflowlinedialog_8cpp_source.html",
+"moc__predefs_8h.html#a711d7b7f27671b10b11a74c37f653ad7",
+"moc__predefs_8h.html#afc6ac46966747a9423f4a6bb3af94b55",
+"struct_q_t___w_a_r_n_i_n_g___d_i_s_a_b_l_e___d_e_p_r_e_c_a_t_e_d_1_1qt__meta__stringdata___c_l_a4410d910dbc87da40b5a27bd5c3556df.html#a9a044022c97d4455197c31bf327651b0",
+"struct_q_xlsx_1_1_xlsx_define_name_data.html#adbaccd6d2a4119780dc6e7f96788195b",
+"xlsxcontenttypes_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

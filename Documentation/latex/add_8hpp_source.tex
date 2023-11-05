@@ -1,0 +1,37 @@
+\doxysection{add.\+hpp}
+\hypertarget{add_8hpp_source}{}\label{add_8hpp_source}\index{MultiflowLibrary/expression/add.hpp@{MultiflowLibrary/expression/add.hpp}}
+\mbox{\hyperlink{add_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ADD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ADD\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../MultiflowLibrary\_global.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{expression_8hpp}{expression.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceml}{ml}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\_PUBLIC}}\ \mbox{\hyperlink{classml_1_1_add}{Add}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classml_1_1_expression}{Expression}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_expression}{Expression}}\&\ \_x;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_expression}{Expression}}\&\ \_y;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classml_1_1_add}{Add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_expression}{Expression}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_expression}{Expression}}\&\ y);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml::Number}}\ evaluate(\textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_environment}{Environment}}\&\ env)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ to\_string()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Expression>\ operands()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ADD\_H}}
+
+\end{DoxyCode}

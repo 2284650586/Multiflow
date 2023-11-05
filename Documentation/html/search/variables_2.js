@@ -7,5 +7,7 @@ var searchData=
   ['border_5fdirty_4',['border_dirty',['../class_q_xlsx_1_1_format_private.html#a85530d482375aa6cabe956e85e371e08',1,'QXlsx::FormatPrivate']]],
   ['border_5findex_5',['border_index',['../class_q_xlsx_1_1_format_private.html#a49d7c237cbefc519b4b73b2c67961383',1,'QXlsx::FormatPrivate']]],
   ['border_5findex_5fvalid_6',['border_index_valid',['../class_q_xlsx_1_1_format_private.html#abeaee6950bcf883f527e28f9331be987',1,'QXlsx::FormatPrivate']]],
-  ['border_5fkey_7',['border_key',['../class_q_xlsx_1_1_format_private.html#ab0e5824492813d6625ec44ad4728aba3',1,'QXlsx::FormatPrivate']]]
+  ['border_5fkey_7',['border_key',['../class_q_xlsx_1_1_format_private.html#ab0e5824492813d6625ec44ad4728aba3',1,'QXlsx::FormatPrivate']]],
+  ['btncancel_8',['btnCancel',['../class_ui__sink_dialog.html#a2e93136d3303c12c896f61bf597a41ad',1,'Ui_sinkDialog']]],
+  ['btnok_9',['btnOK',['../class_ui__sink_dialog.html#a66b3ba62ccaaaa1067dbdb3a5b902205',1,'Ui_sinkDialog']]]
 ];

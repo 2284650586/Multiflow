@@ -1,7 +1,26 @@
 var searchData=
 [
-  ['sharedstrings_0',['SharedStrings',['../class_q_xlsx_1_1_shared_strings.html',1,'QXlsx']]],
-  ['simpleooxmlfile_1',['SimpleOOXmlFile',['../class_q_xlsx_1_1_simple_o_o_xml_file.html',1,'QXlsx']]],
-  ['sinkdialog_2',['sinkDialog',['../classsink_dialog.html',1,'']]],
-  ['styles_3',['Styles',['../class_q_xlsx_1_1_styles.html',1,'QXlsx']]]
+  ['mainwindow_0',['MainWindow',['../class_main_window.html',1,'MainWindow'],['../class_ui_1_1_main_window.html',1,'Ui::MainWindow']]],
+  ['math_5ferror_1',['math_error',['../classml_1_1math__error.html',1,'ml']]],
+  ['mdeviationpar_2',['MDeviationPar',['../class_m_deviation_par.html',1,'']]],
+  ['mediafile_3',['MediaFile',['../class_q_xlsx_1_1_media_file.html',1,'QXlsx']]],
+  ['mflowline_4',['MFlowline',['../class_m_flowline.html',1,'']]],
+  ['mflowlinedialog_5',['MFlowlineDialog',['../class_m_flowline_dialog.html',1,'']]],
+  ['mflowlinepar_6',['MFlowlinePar',['../class_m_flowline_par.html',1,'']]],
+  ['mjunction_7',['MJunction',['../class_m_junction.html',1,'']]],
+  ['mjunctiondialog_8',['MJunctionDialog',['../class_m_junction_dialog.html',1,'']]],
+  ['msink_9',['MSink',['../class_m_sink.html',1,'']]],
+  ['msinkdialog_10',['MSinkDialog',['../class_m_sink_dialog.html',1,'']]],
+  ['msource_11',['MSource',['../class_m_source.html',1,'']]],
+  ['msourcedialog_12',['MSourceDialog',['../class_m_source_dialog.html',1,'']]],
+  ['mulitem_13',['MulItem',['../class_mul_item.html',1,'']]],
+  ['mwell_14',['MWell',['../class_m_well.html',1,'']]],
+  ['mwellcasing_15',['MWellCasing',['../class_m_well_casing.html',1,'']]],
+  ['mwelldeviation_16',['MWellDeviation',['../class_m_well_deviation.html',1,'']]],
+  ['mwellheat_17',['MWellHeat',['../class_m_well_heat.html',1,'']]],
+  ['mwellpacker_18',['MWellPacker',['../class_m_well_packer.html',1,'']]],
+  ['mwellreservoir_19',['MWellReservoir',['../class_m_well_reservoir.html',1,'']]],
+  ['mwelltunbing_20',['MWellTunbing',['../class_m_well_tunbing.html',1,'']]],
+  ['mwellwidget_21',['MWellWidget',['../class_m_well_widget.html',1,'MWellWidget'],['../class_ui_1_1_m_well_widget.html',1,'Ui::MWellWidget']]],
+  ['mwellwindow_22',['MWellWindow',['../class_m_well_window.html',1,'MWellWindow'],['../class_ui_1_1_m_well_window.html',1,'Ui::MWellWindow']]]
 ];

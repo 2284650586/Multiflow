@@ -1,10 +1,25 @@
 \doxysection{Multiflow\+UI/main.cpp File Reference}
 \hypertarget{main_8cpp}{}\label{main_8cpp}\index{MultiflowUI/main.cpp@{MultiflowUI/main.cpp}}
-{\ttfamily \#include \"{}mainwindow.\+h\"{}}\newline
+{\ttfamily \#include \"{}mainwindow.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}third\+\_\+party/argparse/argparse.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}shared.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}constants.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}qml/main.\+hpp\"{}}\newline
+{\ttfamily \#include $<$QQml\+Application\+Engine$>$}\newline
 {\ttfamily \#include $<$QApplication$>$}\newline
-{\ttfamily \#include $<$Multiflow\+Library/core/core.\+h$>$}\newline
+{\ttfamily \#include \"{}Multiflow\+Library/core/core.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}Multiflow\+Library/logging/logging.\+hpp\"{}}\newline
+{\ttfamily \#include $<$Multiflow\+Library/constants.\+hpp$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument_parser}{argparse\+::\+Argument\+Parser}} \mbox{\hyperlink{main_8cpp_a268fecd9c23471699d5eeb5d8a92d809}{prepare\+Parser}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_ad9065938c7db5fa13daea32342a9f348}{startup\+UILegacy}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_ad4341684b610198d6b1ad56a122c3f81}{startup\+UI}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a4d655f7999db948bc1242bd10b60d482}{print\+Versions}} ()
 \item 
 int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
@@ -16,4 +31,28 @@ int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int ar
 \index{main@{main}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a268fecd9c23471699d5eeb5d8a92d809}\label{main_8cpp_a268fecd9c23471699d5eeb5d8a92d809} 
+\index{main.cpp@{main.cpp}!prepareParser@{prepareParser}}
+\index{prepareParser@{prepareParser}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{prepareParser()}{prepareParser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument_parser}{argparse\+::\+Argument\+Parser}} prepare\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a4d655f7999db948bc1242bd10b60d482}\label{main_8cpp_a4d655f7999db948bc1242bd10b60d482} 
+\index{main.cpp@{main.cpp}!printVersions@{printVersions}}
+\index{printVersions@{printVersions}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{printVersions()}{printVersions()}}
+{\footnotesize\ttfamily void print\+Versions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_ad4341684b610198d6b1ad56a122c3f81}\label{main_8cpp_ad4341684b610198d6b1ad56a122c3f81} 
+\index{main.cpp@{main.cpp}!startupUI@{startupUI}}
+\index{startupUI@{startupUI}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{startupUI()}{startupUI()}}
+{\footnotesize\ttfamily void startup\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_ad9065938c7db5fa13daea32342a9f348}\label{main_8cpp_ad9065938c7db5fa13daea32342a9f348} 
+\index{main.cpp@{main.cpp}!startupUILegacy@{startupUILegacy}}
+\index{startupUILegacy@{startupUILegacy}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{startupUILegacy()}{startupUILegacy()}}
+{\footnotesize\ttfamily void startup\+UILegacy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 

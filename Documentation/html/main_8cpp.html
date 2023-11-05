@@ -96,12 +96,27 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
   <div class="headertitle"><div class="title">main.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="mainwindow_8hpp_source.html">mainwindow.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="argparse_8hpp_source.html">third_party/argparse/argparse.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="shared_8hpp_source.html">shared.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_multiflow_u_i_2constants_8hpp_source.html">constants.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="main_8hpp_source.html">qml/main.hpp</a>&quot;</code><br />
+<code>#include &lt;QQmlApplicationEngine&gt;</code><br />
 <code>#include &lt;QApplication&gt;</code><br />
-<code>#include &lt;<a class="el" href="core_8h_source.html">MultiflowLibrary/core/core.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="core_8hpp_source.html">MultiflowLibrary/core/core.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="logging_8hpp_source.html">MultiflowLibrary/logging/logging.hpp</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="_multiflow_library_2constants_8hpp_source.html">MultiflowLibrary/constants.hpp</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a268fecd9c23471699d5eeb5d8a92d809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classargparse_1_1_argument_parser.html">argparse::ArgumentParser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a268fecd9c23471699d5eeb5d8a92d809">prepareParser</a> ()</td></tr>
+<tr class="separator:a268fecd9c23471699d5eeb5d8a92d809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9065938c7db5fa13daea32342a9f348"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad9065938c7db5fa13daea32342a9f348">startupUILegacy</a> ()</td></tr>
+<tr class="separator:ad9065938c7db5fa13daea32342a9f348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4341684b610198d6b1ad56a122c3f81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ad4341684b610198d6b1ad56a122c3f81">startupUI</a> ()</td></tr>
+<tr class="separator:ad4341684b610198d6b1ad56a122c3f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d655f7999db948bc1242bd10b60d482"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a4d655f7999db948bc1242bd10b60d482">printVersions</a> ()</td></tr>
+<tr class="separator:a4d655f7999db948bc1242bd10b60d482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -128,6 +143,74 @@ Functions</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a268fecd9c23471699d5eeb5d8a92d809" name="a268fecd9c23471699d5eeb5d8a92d809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a268fecd9c23471699d5eeb5d8a92d809">&#9670;&#160;</a></span>prepareParser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classargparse_1_1_argument_parser.html">argparse::ArgumentParser</a> prepareParser </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d655f7999db948bc1242bd10b60d482" name="a4d655f7999db948bc1242bd10b60d482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d655f7999db948bc1242bd10b60d482">&#9670;&#160;</a></span>printVersions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printVersions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4341684b610198d6b1ad56a122c3f81" name="ad4341684b610198d6b1ad56a122c3f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4341684b610198d6b1ad56a122c3f81">&#9670;&#160;</a></span>startupUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void startupUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9065938c7db5fa13daea32342a9f348" name="ad9065938c7db5fa13daea32342a9f348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9065938c7db5fa13daea32342a9f348">&#9670;&#160;</a></span>startupUILegacy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void startupUILegacy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

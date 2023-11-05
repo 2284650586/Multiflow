@@ -8,13 +8,13 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsPixmapItem>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msource_8h}{entity/msource.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{common.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shared_8hpp}{shared.hpp}}"{}}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_well_item}{TWellItem}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
 \DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_well_item_a33b42011756b5a78d97a10b0214bfddeaafb4a732318e445b144f1bb30bb87724}{Type}}\ =\ UserType\ +\ Multiflow\_TYPE::Well\ \};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_well_item_a33b42011756b5a78d97a10b0214bfddeaafb4a732318e445b144f1bb30bb87724}{Type}}\ =\ UserType\ +\ \mbox{\hyperlink{shared_8hpp_abaa8a12bf165b6351b4c61af85663250affd3d88638723e28f197adef4237b8fb}{MultiflowKind::Well}}\ \};}
 \DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_t_well_item}{TWellItem}}(QString\ wellName\ =\ \textcolor{stringliteral}{"{}well"{}},\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
@@ -25,7 +25,7 @@
 \DoxyCodeLine{00021\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_well_item_adbdb02f4773763fcee8cdfd76576b576}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_well_item_aa94c928c0343feadd43e9ce493f4ee42}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_well_item_a0b2c8df1af3a8ed81f6f68da46257657}{getId}}();}
+\DoxyCodeLine{00024\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_well_item_a8dba770a1f225195887df4783bd21e99}{getId}}();}
 \DoxyCodeLine{00025\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_well_item_ad00f7decb973057d76dbda94c1735918}{getName}}();}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_well_item_a3832b12334abce008628952e04a0800f}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_well_item_a33b42011756b5a78d97a10b0214bfddeaafb4a732318e445b144f1bb30bb87724}{Type}};\ \}}

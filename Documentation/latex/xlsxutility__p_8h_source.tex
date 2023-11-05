@@ -41,36 +41,37 @@
 \DoxyCodeLine{00037\ \textcolor{comment}{//}}
 \DoxyCodeLine{00038\ }
 \DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{xlsxglobal_8h}{xlsxglobal.h}}"{}}}
-\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }QPoint;}
-\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }QString;}
-\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }QStringList;}
-\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }QColor;}
-\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }QDateTime;}
-\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }QTime;}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
-\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_reference}{CellReference}};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_q_xlsx_a1d63efe65a7e9b1495a95cea8dc203a1}{parseXsdBoolean}}(\textcolor{keyword}{const}\ QString\ \&value,\ \textcolor{keywordtype}{bool}\ defaultValue\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QStringList\ \mbox{\hyperlink{namespace_q_xlsx_a0b70a9259a646852fa768faa4dce461b}{splitPath}}(\textcolor{keyword}{const}\ QString\ \&path);}
-\DoxyCodeLine{00053\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a39370c733267cc72041ed21da4d58d8b}{getRelFilePath}}(\textcolor{keyword}{const}\ QString\ \&filePath);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_q_xlsx_a88be8c9be93a581a59b4fb3a30aff735}{datetimeToNumber}}(\textcolor{keyword}{const}\ QDateTime\ \&dt,\ \textcolor{keywordtype}{bool}\ is1904\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00056\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QDateTime\ \mbox{\hyperlink{namespace_q_xlsx_a5f59d2129e29d0a8e272b12e3ede85c9}{datetimeFromNumber}}(\textcolor{keywordtype}{double}\ num,\ \textcolor{keywordtype}{bool}\ is1904\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00057\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_q_xlsx_ad7d0c8301522a90f4124053fa395aba1}{timeToNumber}}(\textcolor{keyword}{const}\ QTime\ \&t);}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_af1e6cde38a33ad149e3ffee844a6ddaa}{createSafeSheetName}}(\textcolor{keyword}{const}\ QString\ \&nameProposal);}
-\DoxyCodeLine{00060\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a3a314aeeb069abcf9f12eba57c8d235f}{escapeSheetName}}(\textcolor{keyword}{const}\ QString\ \&sheetName);}
-\DoxyCodeLine{00061\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a392e2e307e642dff6d768b5adc1607fa}{unescapeSheetName}}(\textcolor{keyword}{const}\ QString\ \&sheetName);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_q_xlsx_a4fec4d4da43f45717eab8b7255eb2937}{isSpaceReserveNeeded}}(\textcolor{keyword}{const}\ QString\ \&\textcolor{keywordtype}{string});}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a9b592d778c3a49765d3ffd7428472a7b}{convertSharedFormula}}(\textcolor{keyword}{const}\ QString\ \&rootFormula,}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&rootCell,}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&cell);}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \}\ \textcolor{comment}{//\ QXlsx}}
-\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXUTILITY\_H}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }QPoint;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }QString;}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }QStringList;}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }QColor;}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }QDateTime;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }QTime;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_q_xlsx}{QXlsx}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_reference}{CellReference}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_q_xlsx_a1d63efe65a7e9b1495a95cea8dc203a1}{parseXsdBoolean}}(\textcolor{keyword}{const}\ QString\ \&value,\ \textcolor{keywordtype}{bool}\ defaultValue\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QStringList\ \mbox{\hyperlink{namespace_q_xlsx_a0b70a9259a646852fa768faa4dce461b}{splitPath}}(\textcolor{keyword}{const}\ QString\ \&path);}
+\DoxyCodeLine{00054\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a39370c733267cc72041ed21da4d58d8b}{getRelFilePath}}(\textcolor{keyword}{const}\ QString\ \&filePath);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_q_xlsx_a88be8c9be93a581a59b4fb3a30aff735}{datetimeToNumber}}(\textcolor{keyword}{const}\ QDateTime\ \&dt,\ \textcolor{keywordtype}{bool}\ is1904\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00057\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QDateTime\ \mbox{\hyperlink{namespace_q_xlsx_a5f59d2129e29d0a8e272b12e3ede85c9}{datetimeFromNumber}}(\textcolor{keywordtype}{double}\ num,\ \textcolor{keywordtype}{bool}\ is1904\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00058\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_q_xlsx_ad7d0c8301522a90f4124053fa395aba1}{timeToNumber}}(\textcolor{keyword}{const}\ QTime\ \&t);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_af1e6cde38a33ad149e3ffee844a6ddaa}{createSafeSheetName}}(\textcolor{keyword}{const}\ QString\ \&nameProposal);}
+\DoxyCodeLine{00061\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a3a314aeeb069abcf9f12eba57c8d235f}{escapeSheetName}}(\textcolor{keyword}{const}\ QString\ \&sheetName);}
+\DoxyCodeLine{00062\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a392e2e307e642dff6d768b5adc1607fa}{unescapeSheetName}}(\textcolor{keyword}{const}\ QString\ \&sheetName);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_q_xlsx_a4fec4d4da43f45717eab8b7255eb2937}{isSpaceReserveNeeded}}(\textcolor{keyword}{const}\ QString\ \&\textcolor{keywordtype}{string});}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \mbox{\hyperlink{xlsxglobal_8h_a7e36d2834081cdef38f81fe94a7934fd}{XLSX\_AUTOTEST\_EXPORT}}\ QString\ \mbox{\hyperlink{namespace_q_xlsx_a9b592d778c3a49765d3ffd7428472a7b}{convertSharedFormula}}(\textcolor{keyword}{const}\ QString\ \&rootFormula,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&rootCell,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_reference}{CellReference}}\ \&cell);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \}\ \textcolor{comment}{//\ QXlsx}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ XLSXUTILITY\_H}}
 
 \end{DoxyCode}

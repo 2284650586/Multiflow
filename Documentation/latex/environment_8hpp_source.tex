@@ -1,0 +1,38 @@
+\doxysection{environment.\+hpp}
+\hypertarget{environment_8hpp_source}{}\label{environment_8hpp_source}\index{MultiflowLibrary/expression/environment.hpp@{MultiflowLibrary/expression/environment.hpp}}
+\mbox{\hyperlink{environment_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ miku\ on\ 11/5/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../MultiflowLibrary\_global.hpp"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceml}{ml}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{Number}}\ =\ double;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\_PUBLIC}}\ \mbox{\hyperlink{classml_1_1_environment}{Environment}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ std::map<std::string,\ ml::Number>\ env;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classml_1_1_environment_a56c27f4f736d3effddda56f02458a32f}{Environment}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classml_1_1_environment_ae93cb6405fc42e71a8bdd9dd4fcfbef2}{\string~Environment}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ std::string\&\ name,\ \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml::Number}}\ value);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml::Number}}\ get(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ present(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classml_1_1_key_not_found_exception}{KeyNotFoundException}}\ :\ \textcolor{keyword}{public}\ std::exception\ \{\};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}

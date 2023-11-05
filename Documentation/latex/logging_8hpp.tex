@@ -1,0 +1,69 @@
+\doxysection{Multiflow\+Library/logging/logging.hpp File Reference}
+\hypertarget{logging_8hpp}{}\label{logging_8hpp}\index{MultiflowLibrary/logging/logging.hpp@{MultiflowLibrary/logging/logging.hpp}}
+{\ttfamily \#include \"{}../\+Multiflow\+Library\+\_\+global.\+hpp\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classml_1_1_logger}{ml\+::\+Logger}}
+\begin{DoxyCompactList}\small\item\em 简单的日志系统，跨平台、可做导出库， 供整个项目使用。内部实际调用的q\+Debug \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceml}{ml}}
+\begin{DoxyCompactList}\small\item\em 基本数学操作。包含了一系列保护措施， 遇到各种非法操作会抛出异常 遇到\+Na\+N和\+Infinite也会抛出异常 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\+\_\+\+LOGGING\+\_\+\+SPECIALIZATION}}(type)~    const Logger\& operator$<$$<$(type data) const \{ return \+\_\+log(data); \}
+\item 
+\#define \mbox{\hyperlink{logging_8hpp_aeb4f36db01bd128c7afeac5889dac311}{LOG\+\_\+\+INFO}}~\mbox{\hyperlink{classml_1_1_logger_a7eac53fa442cddc77d7de2920da7f284}{ml\+::\+Logger\+::info}}
+\item 
+\#define \mbox{\hyperlink{logging_8hpp_a6ff63e8955665c4a58b1598f2b07c51a}{LOG\+\_\+\+DEBUG}}~logging\+::\+Logger\+::debug
+\item 
+\#define \mbox{\hyperlink{logging_8hpp_aea3f57d6dcc5b4ac957e2679e87dde27}{LOG\+\_\+\+WARN}}~logging\+::\+Logger\+::warn
+\item 
+\#define \mbox{\hyperlink{logging_8hpp_aced66975c154ea0e2a8ec3bc818b4e08}{LOG\+\_\+\+ERROR}}~logging\+::\+Logger\+::error
+\item 
+\#define \mbox{\hyperlink{logging_8hpp_ab62af997ebb13f48b08850fd761d67aa}{LOG\+\_\+\+CRITICAL}}~logging\+::\+Logger\+::critical
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}\label{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4} 
+\index{logging.hpp@{logging.hpp}!DEFINE\_LOGGING\_SPECIALIZATION@{DEFINE\_LOGGING\_SPECIALIZATION}}
+\index{DEFINE\_LOGGING\_SPECIALIZATION@{DEFINE\_LOGGING\_SPECIALIZATION}!logging.hpp@{logging.hpp}}
+\doxysubsubsection{\texorpdfstring{DEFINE\_LOGGING\_SPECIALIZATION}{DEFINE\_LOGGING\_SPECIALIZATION}}
+{\footnotesize\ttfamily \#define DEFINE\+\_\+\+LOGGING\+\_\+\+SPECIALIZATION(\begin{DoxyParamCaption}\item[{}]{type }\end{DoxyParamCaption})~    const Logger\& operator$<$$<$(type data) const \{ return \+\_\+log(data); \}}
+
+\Hypertarget{logging_8hpp_ab62af997ebb13f48b08850fd761d67aa}\label{logging_8hpp_ab62af997ebb13f48b08850fd761d67aa} 
+\index{logging.hpp@{logging.hpp}!LOG\_CRITICAL@{LOG\_CRITICAL}}
+\index{LOG\_CRITICAL@{LOG\_CRITICAL}!logging.hpp@{logging.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_CRITICAL}{LOG\_CRITICAL}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+CRITICAL~logging\+::\+Logger\+::critical}
+
+\Hypertarget{logging_8hpp_a6ff63e8955665c4a58b1598f2b07c51a}\label{logging_8hpp_a6ff63e8955665c4a58b1598f2b07c51a} 
+\index{logging.hpp@{logging.hpp}!LOG\_DEBUG@{LOG\_DEBUG}}
+\index{LOG\_DEBUG@{LOG\_DEBUG}!logging.hpp@{logging.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_DEBUG}{LOG\_DEBUG}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+DEBUG~logging\+::\+Logger\+::debug}
+
+\Hypertarget{logging_8hpp_aced66975c154ea0e2a8ec3bc818b4e08}\label{logging_8hpp_aced66975c154ea0e2a8ec3bc818b4e08} 
+\index{logging.hpp@{logging.hpp}!LOG\_ERROR@{LOG\_ERROR}}
+\index{LOG\_ERROR@{LOG\_ERROR}!logging.hpp@{logging.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_ERROR}{LOG\_ERROR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ERROR~logging\+::\+Logger\+::error}
+
+\Hypertarget{logging_8hpp_aeb4f36db01bd128c7afeac5889dac311}\label{logging_8hpp_aeb4f36db01bd128c7afeac5889dac311} 
+\index{logging.hpp@{logging.hpp}!LOG\_INFO@{LOG\_INFO}}
+\index{LOG\_INFO@{LOG\_INFO}!logging.hpp@{logging.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_INFO}{LOG\_INFO}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+INFO~\mbox{\hyperlink{classml_1_1_logger_a7eac53fa442cddc77d7de2920da7f284}{ml\+::\+Logger\+::info}}}
+
+\Hypertarget{logging_8hpp_aea3f57d6dcc5b4ac957e2679e87dde27}\label{logging_8hpp_aea3f57d6dcc5b4ac957e2679e87dde27} 
+\index{logging.hpp@{logging.hpp}!LOG\_WARN@{LOG\_WARN}}
+\index{LOG\_WARN@{LOG\_WARN}!logging.hpp@{logging.hpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_WARN}{LOG\_WARN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+WARN~logging\+::\+Logger\+::warn}
+

@@ -8,13 +8,13 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsPixmapItem>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msource_8h}{entity/msource.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{common.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shared_8hpp}{shared.hpp}}"{}}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_sink_item}{TSinkItem}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
 \DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed}{Type}}\ =\ UserType\ +\ Multiflow\_TYPE::Sink\ \};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed}{Type}}\ =\ UserType\ +\ \mbox{\hyperlink{shared_8hpp_abaa8a12bf165b6351b4c61af85663250a0f509a1370158f1c4377f54c662f83ab}{MultiflowKind::Sink}}\ \};}
 \DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_t_sink_item}{TSinkItem}}(QString\ sinkName\ =\ \textcolor{stringliteral}{"{}sink"{}},\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
@@ -25,7 +25,7 @@
 \DoxyCodeLine{00021\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_sink_item_a06b11c1066c93f1efdfb83d384887843}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_sink_item_aae1028ebef1058c1583c1bb09ade8022}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_sink_item_ae0bbef3acb8b65cd0cbacbd109b784f5}{getId}}();}
+\DoxyCodeLine{00024\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_sink_item_a0c293e13bbd520749525f0447688139b}{getId}}();}
 \DoxyCodeLine{00025\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_sink_item_abea6e4a9e63144c812658df4d0dfb595}{getName}}();}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_sink_item_a2e7cc71bf6b6934579b1005dff99fcce}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_sink_item_a7d8de4d587f27a60efa1cfb65494f666a785a9b07860a519f418308483d3618ed}{Type}};\ \}}

@@ -1,0 +1,107 @@
+\doxysection{ml\+::Logger Class Reference}
+\hypertarget{classml_1_1_logger}{}\label{classml_1_1_logger}\index{ml::Logger@{ml::Logger}}
+
+
+简单的日志系统，跨平台、可做导出库， 供整个项目使用。内部实际调用的q\+Debug  
+
+
+
+
+{\ttfamily \#include $<$logging.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classml_1_1_logger_a0aebb9c1ab46a4b12f0801235953cffe}{\texorpdfstring{$\sim$}{\string~}\+Logger}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classml_1_1_logger_afea4f3ee780dfff38e75fd37cbc86bba}{\+\_\+initialize}} ()
+\begin{DoxyCompactList}\small\item\em 日志的初始化。应当在程序启动时调用 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classml_1_1_logger}{Logger}} \mbox{\hyperlink{classml_1_1_logger_a166c379587d998af6a2cc18ebea0b14e}{debug}} = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}DEBUG\"{})
+\begin{DoxyCompactList}\small\item\em 全局共享的\+Logger对象们 \end{DoxyCompactList}\item 
+static const \mbox{\hyperlink{classml_1_1_logger}{Logger}} \mbox{\hyperlink{classml_1_1_logger_a7eac53fa442cddc77d7de2920da7f284}{info}} = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}INFO\"{})
+\item 
+static const \mbox{\hyperlink{classml_1_1_logger}{Logger}} \mbox{\hyperlink{classml_1_1_logger_a60ad991cb807564a20e72f8393986e7b}{warn}} = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}WARN\"{})
+\item 
+static const \mbox{\hyperlink{classml_1_1_logger}{Logger}} \mbox{\hyperlink{classml_1_1_logger_a59b2e1b235a8019af9fd17f4dc1b0a54}{error}} = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}ERROR\"{})
+\item 
+static const \mbox{\hyperlink{classml_1_1_logger}{Logger}} \mbox{\hyperlink{classml_1_1_logger_ad6008a840f99a874b4d3b8b3ee5d500b}{critical}} = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}CRITICAL\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+简单的日志系统，跨平台、可做导出库， 供整个项目使用。内部实际调用的q\+Debug 
+
+\begin{DoxyAuthor}{Author}
+z 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classml_1_1_logger_a0aebb9c1ab46a4b12f0801235953cffe}\label{classml_1_1_logger_a0aebb9c1ab46a4b12f0801235953cffe} 
+\index{ml::Logger@{ml::Logger}!````~Logger@{\texorpdfstring{$\sim$}{\string~}Logger}}
+\index{````~Logger@{\texorpdfstring{$\sim$}{\string~}Logger}!ml::Logger@{ml::Logger}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Logger()}{\string~Logger()}}
+{\footnotesize\ttfamily virtual ml\+::\+Logger\+::\texorpdfstring{$\sim$}{\string~}\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classml_1_1_logger_afea4f3ee780dfff38e75fd37cbc86bba}\label{classml_1_1_logger_afea4f3ee780dfff38e75fd37cbc86bba} 
+\index{ml::Logger@{ml::Logger}!\_initialize@{\_initialize}}
+\index{\_initialize@{\_initialize}!ml::Logger@{ml::Logger}}
+\doxysubsubsection{\texorpdfstring{\_initialize()}{\_initialize()}}
+{\footnotesize\ttfamily void ml\+::\+Logger\+::\+\_\+initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+日志的初始化。应当在程序启动时调用 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classml_1_1_logger_ad6008a840f99a874b4d3b8b3ee5d500b}\label{classml_1_1_logger_ad6008a840f99a874b4d3b8b3ee5d500b} 
+\index{ml::Logger@{ml::Logger}!critical@{critical}}
+\index{critical@{critical}!ml::Logger@{ml::Logger}}
+\doxysubsubsection{\texorpdfstring{critical}{critical}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_logger}{Logger}} ml\+::\+Logger\+::critical = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}CRITICAL\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classml_1_1_logger_a166c379587d998af6a2cc18ebea0b14e}\label{classml_1_1_logger_a166c379587d998af6a2cc18ebea0b14e} 
+\index{ml::Logger@{ml::Logger}!debug@{debug}}
+\index{debug@{debug}!ml::Logger@{ml::Logger}}
+\doxysubsubsection{\texorpdfstring{debug}{debug}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_logger}{Logger}} ml\+::\+Logger\+::debug = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}DEBUG\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+全局共享的\+Logger对象们 
+
+\Hypertarget{classml_1_1_logger_a59b2e1b235a8019af9fd17f4dc1b0a54}\label{classml_1_1_logger_a59b2e1b235a8019af9fd17f4dc1b0a54} 
+\index{ml::Logger@{ml::Logger}!error@{error}}
+\index{error@{error}!ml::Logger@{ml::Logger}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_logger}{Logger}} ml\+::\+Logger\+::error = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}ERROR\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classml_1_1_logger_a7eac53fa442cddc77d7de2920da7f284}\label{classml_1_1_logger_a7eac53fa442cddc77d7de2920da7f284} 
+\index{ml::Logger@{ml::Logger}!info@{info}}
+\index{info@{info}!ml::Logger@{ml::Logger}}
+\doxysubsubsection{\texorpdfstring{info}{info}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_logger}{Logger}} ml\+::\+Logger\+::info = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}INFO\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classml_1_1_logger_a60ad991cb807564a20e72f8393986e7b}\label{classml_1_1_logger_a60ad991cb807564a20e72f8393986e7b} 
+\index{ml::Logger@{ml::Logger}!warn@{warn}}
+\index{warn@{warn}!ml::Logger@{ml::Logger}}
+\doxysubsubsection{\texorpdfstring{warn}{warn}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_logger}{Logger}} ml\+::\+Logger\+::warn = \mbox{\hyperlink{classml_1_1_logger}{Logger}}(\"{}WARN\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+Library/logging/\mbox{\hyperlink{logging_8hpp}{logging.\+hpp}}\item 
+Multiflow\+Library/logging/\mbox{\hyperlink{logging_8cpp}{logging.\+cpp}}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['objecttype_0',['ObjectType',['../class_q_xlsx_1_1_drawing_anchor.html#a6161ae9faf2deb5a03d51131b7bbf77a',1,'QXlsx::DrawingAnchor']]]
+  ['nargs_5fpattern_0',['nargs_pattern',['../namespaceargparse.html#ab95dccbbd126a6baa4206b9db1731b59',1,'argparse']]]
 ];

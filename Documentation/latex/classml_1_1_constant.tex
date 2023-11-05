@@ -1,0 +1,138 @@
+\doxysection{ml\+::Constant Class Reference}
+\hypertarget{classml_1_1_constant}{}\label{classml_1_1_constant}\index{ml::Constant@{ml::Constant}}
+
+
+常数表达式，在表达式中扮演常数的角色  
+
+
+
+
+{\ttfamily \#include $<$constant.\+hpp$>$}
+
+Inheritance diagram for ml\+::Constant\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classml_1_1_constant}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classml_1_1_constant_a420e9153f99740b42cb8988410f71c79}{Constant}} (const std\+::string \&\mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}}, \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} value, const std\+::string \&\mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}})
+\item 
+\mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} \mbox{\hyperlink{classml_1_1_constant_a4a5de21bb4bdd70e0e039cb9cd952eef}{evaluate}} (const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&env) const override
+\begin{DoxyCompactList}\small\item\em 常数表达式的求值，自然就是常数本身 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classml_1_1_constant_abe125bb6b3de104013be35db42b3c3b8}{to\+\_\+string}} () const override
+\begin{DoxyCompactList}\small\item\em 表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classml_1_1_expression}{ml\+::\+Expression}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classml_1_1_expression_a2a3aafd288a4cc8f552cb9bff8824e8b}{Expression}} (std\+::string \mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}}, std\+::string \mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}})
+\begin{DoxyCompactList}\small\item\em 每个表达式起码要有名字和描述 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classml_1_1_expression_abeb4f223d7c8c2a1f9740eadc04fbe75}{\texorpdfstring{$\sim$}{\string~}\+Expression}} ()
+\item 
+virtual \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} \mbox{\hyperlink{classml_1_1_expression_aa572902409d93dd0192741a12a9d091b}{evaluate}} (const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&env) const
+\begin{DoxyCompactList}\small\item\em 求值 \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classml_1_1_expression_a7057901700cdfa4d9db3476e20decd3f}{to\+\_\+string}} () const
+\begin{DoxyCompactList}\small\item\em 表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) \end{DoxyCompactList}\item 
+virtual const std\+::string \& \mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}} () const
+\item 
+virtual const std\+::string \& \mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}} () const
+\item 
+virtual const std\+::vector$<$ \mbox{\hyperlink{classml_1_1_expression}{Expression}} $>$ \mbox{\hyperlink{classml_1_1_expression_af60c5fb5ae0ddb066145dee9376bca8e}{operands}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{classml_1_1_constant}{Constant}} \mbox{\hyperlink{classml_1_1_constant_acaed0349e41556d082ace60bbf354a38}{pi}} = \mbox{\hyperlink{classml_1_1_constant}{Constant}}(\"{}PI\"{}, 3.\+14159265358979323846, \"{}圆周率\"{})
+\begin{DoxyCompactList}\small\item\em 圆周率，预定义的常见常数 \end{DoxyCompactList}\item 
+static const \mbox{\hyperlink{classml_1_1_constant}{Constant}} \mbox{\hyperlink{classml_1_1_constant_a8fc12f38079af3e4f5f967ddcf7123ac}{e}} = \mbox{\hyperlink{classml_1_1_constant}{Constant}}(\"{}e\"{}, 2.\+71828182845904523536, \"{}自然对数的底\"{})
+\begin{DoxyCompactList}\small\item\em 自然对数的底，预定义的常见常数 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classml_1_1_expression}{ml\+::\+Expression}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classml_1_1_expression_a35dcb2e67dbddc72e7b54dc8810b71e4}{\+\_\+name}}
+\item 
+std\+::string \mbox{\hyperlink{classml_1_1_expression_ae2685e31ac1ee8c20ef81b440f4470da}{\+\_\+description}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+常数表达式，在表达式中扮演常数的角色 
+
+\begin{DoxyAuthor}{Author}
+z 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classml_1_1_constant_a420e9153f99740b42cb8988410f71c79}\label{classml_1_1_constant_a420e9153f99740b42cb8988410f71c79} 
+\index{ml::Constant@{ml::Constant}!Constant@{Constant}}
+\index{Constant@{Constant}!ml::Constant@{ml::Constant}}
+\doxysubsubsection{\texorpdfstring{Constant()}{Constant()}}
+{\footnotesize\ttfamily ml\+::\+Constant\+::\+Constant (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}}}]{value,  }\item[{const std\+::string \&}]{description }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classml_1_1_constant_a4a5de21bb4bdd70e0e039cb9cd952eef}\label{classml_1_1_constant_a4a5de21bb4bdd70e0e039cb9cd952eef} 
+\index{ml::Constant@{ml::Constant}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ml::Constant@{ml::Constant}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} ml\+::\+Constant\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&}]{env }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+常数表达式的求值，自然就是常数本身 
+
+
+
+Reimplemented from \mbox{\hyperlink{classml_1_1_expression_aa572902409d93dd0192741a12a9d091b}{ml\+::\+Expression}}.
+
+\Hypertarget{classml_1_1_constant_abe125bb6b3de104013be35db42b3c3b8}\label{classml_1_1_constant_abe125bb6b3de104013be35db42b3c3b8} 
+\index{ml::Constant@{ml::Constant}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!ml::Constant@{ml::Constant}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily std\+::string ml\+::\+Constant\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) 
+
+\begin{DoxyReturn}{Returns}
+字符串描述 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classml_1_1_expression_a7057901700cdfa4d9db3476e20decd3f}{ml\+::\+Expression}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classml_1_1_constant_a8fc12f38079af3e4f5f967ddcf7123ac}\label{classml_1_1_constant_a8fc12f38079af3e4f5f967ddcf7123ac} 
+\index{ml::Constant@{ml::Constant}!e@{e}}
+\index{e@{e}!ml::Constant@{ml::Constant}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_constant}{Constant}} ml\+::\+Constant\+::e = \mbox{\hyperlink{classml_1_1_constant}{Constant}}(\"{}e\"{}, 2.\+71828182845904523536, \"{}自然对数的底\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+自然对数的底，预定义的常见常数 
+
+\Hypertarget{classml_1_1_constant_acaed0349e41556d082ace60bbf354a38}\label{classml_1_1_constant_acaed0349e41556d082ace60bbf354a38} 
+\index{ml::Constant@{ml::Constant}!pi@{pi}}
+\index{pi@{pi}!ml::Constant@{ml::Constant}}
+\doxysubsubsection{\texorpdfstring{pi}{pi}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_constant}{Constant}} ml\+::\+Constant\+::pi = \mbox{\hyperlink{classml_1_1_constant}{Constant}}(\"{}PI\"{}, 3.\+14159265358979323846, \"{}圆周率\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+圆周率，预定义的常见常数 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+Library/expression/\mbox{\hyperlink{constant_8hpp}{constant.\+hpp}}\item 
+Multiflow\+Library/expression/\mbox{\hyperlink{constant_8cpp}{constant.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,217 @@
+\doxysection{argparse\+::Argument Class Reference}
+\hypertarget{classargparse_1_1_argument}{}\label{classargparse_1_1_argument}\index{argparse::Argument@{argparse::Argument}}
+
+
+{\ttfamily \#include $<$argparse.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\\mbox{\hyperlink{classargparse_1_1_argument_a3acacb3d6458ba97ee4359f6466fe9f6}{Argument}} (std\+::string\+\_\+view prefix\+\_\+chars, std\+::array$<$ std\+::string\+\_\+view, N $>$ \&\&a)
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_a5011f7a72a5b69fe1ca27e1baff20411}{help}} (std\+::string help\+\_\+text)
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_acdf8341266ee361132b7fa0a3823b1d3}{metavar}} (std\+::string metavar)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_a6723d8728efb851a46b9dd39e1620e0c}{default\+\_\+value}} (T \&\&value)
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_a611b811d9f8f71f88c08807496fabc04}{default\+\_\+value}} (const char \texorpdfstring{$\ast$}{*}value)
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_a9870d5c9efd218ad7bab39855f3ea57f}{required}} ()
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_afe376b29b99d506a24473e88bab5b517}{implicit\+\_\+value}} (std\+::any value)
+\item 
+{\footnotesize template$<$class F , class... Args$>$ }\\auto \mbox{\hyperlink{classargparse_1_1_argument_a39626a4414ce2ac38e9d59f0d583c178}{action}} (F \&\&callable, Args \&\&... bound\+\_\+args) -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+invocable\+\_\+v$<$ F, Args..., std\+::string const $>$, \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& $>$
+\item 
+auto \& \mbox{\hyperlink{classargparse_1_1_argument_a6bfed1ff20081d558148dafe89aaa9da}{append}} ()
+\item 
+{\footnotesize template$<$char Shape, typename T $>$ }\\auto \mbox{\hyperlink{classargparse_1_1_argument_a09053d140082d45bc47bed74f0f00210}{scan}} () -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+arithmetic\+\_\+v$<$ T $>$, \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& $>$
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_a53782d59766fb6b6b2e35e626689f2a5}{nargs}} (std\+::size\+\_\+t num\+\_\+args)
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_ad7d78ec8800bc61dfca95c359607a54e}{nargs}} (std\+::size\+\_\+t num\+\_\+args\+\_\+min, std\+::size\+\_\+t num\+\_\+args\+\_\+max)
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_a60a2efdbc55b9b575756be2c3ac91bb7}{nargs}} (\mbox{\hyperlink{namespaceargparse_ab95dccbbd126a6baa4206b9db1731b59}{nargs\+\_\+pattern}} pattern)
+\item 
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& \mbox{\hyperlink{classargparse_1_1_argument_a93a68634f7f4bd7496f6cd0bdc8d3e79}{remaining}} ()
+\item 
+{\footnotesize template$<$typename Iterator $>$ }\\Iterator \mbox{\hyperlink{classargparse_1_1_argument_ad2ee169eea20d67e8beb410dbe2f9f2f}{consume}} (Iterator start, Iterator end, std\+::string\+\_\+view used\+\_\+name=\{\})
+\item 
+void \mbox{\hyperlink{classargparse_1_1_argument_a36116c082d6afa0be1910d29dcbb8c55}{validate}} () const
+\item 
+std\+::string \mbox{\hyperlink{classargparse_1_1_argument_af46efcbe4957e9306fc21c7b051c9205}{get\+\_\+inline\+\_\+usage}} () const
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classargparse_1_1_argument_ad8aaf2df6d3bb3fde0d09b2a04cba378}{get\+\_\+arguments\+\_\+length}} () const
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classargparse_1_1_argument_a68fb2ffd4e2dcaea80aefd7812f1e850}{operator!=}} (const T \&rhs) const
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classargparse_1_1_argument_aa3bd4389cb5362f88906ec1286bdc2b7}{operator==}} (const T \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classargparse_1_1_argument_a55c9e1ac006a645af402e3aee6b64e00}{Argument\+Parser}}
+\item 
+auto \mbox{\hyperlink{classargparse_1_1_argument_aa4d339774ec7cbdd83321a17e2cda661}{operator$<$$<$}} (std\+::ostream \&stream, const \mbox{\hyperlink{classargparse_1_1_argument_parser}{Argument\+Parser}} \&parser) -\/$>$ std\+::ostream \&
+\item 
+std\+::ostream \& \mbox{\hyperlink{classargparse_1_1_argument_a8ee97386cf348b35c5fec033ab7d8925}{operator$<$$<$}} (std\+::ostream \&stream, const \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \&argument)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classargparse_1_1_argument_a3acacb3d6458ba97ee4359f6466fe9f6}\label{classargparse_1_1_argument_a3acacb3d6458ba97ee4359f6466fe9f6} 
+\index{argparse::Argument@{argparse::Argument}!Argument@{Argument}}
+\index{Argument@{Argument}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{Argument()}{Argument()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+argparse\+::\+Argument\+::\+Argument (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{prefix\+\_\+chars,  }\item[{std\+::array$<$ std\+::string\+\_\+view, N $>$ \&\&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classargparse_1_1_argument_a39626a4414ce2ac38e9d59f0d583c178}\label{classargparse_1_1_argument_a39626a4414ce2ac38e9d59f0d583c178} 
+\index{argparse::Argument@{argparse::Argument}!action@{action}}
+\index{action@{action}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{action()}{action()}}
+{\footnotesize\ttfamily template$<$class F , class... Args$>$ \\
+auto argparse\+::\+Argument\+::action (\begin{DoxyParamCaption}\item[{F \&\&}]{callable,  }\item[{Args \&\&...}]{bound\+\_\+args }\end{DoxyParamCaption}) -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+invocable\+\_\+v$<$F, Args..., std\+::string const$>$,                 \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \&$>$ \hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a6bfed1ff20081d558148dafe89aaa9da}\label{classargparse_1_1_argument_a6bfed1ff20081d558148dafe89aaa9da} 
+\index{argparse::Argument@{argparse::Argument}!append@{append}}
+\index{append@{append}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily auto \& argparse\+::\+Argument\+::append (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_ad2ee169eea20d67e8beb410dbe2f9f2f}\label{classargparse_1_1_argument_ad2ee169eea20d67e8beb410dbe2f9f2f} 
+\index{argparse::Argument@{argparse::Argument}!consume@{consume}}
+\index{consume@{consume}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{consume()}{consume()}}
+{\footnotesize\ttfamily template$<$typename Iterator $>$ \\
+Iterator argparse\+::\+Argument\+::consume (\begin{DoxyParamCaption}\item[{Iterator}]{start,  }\item[{Iterator}]{end,  }\item[{std\+::string\+\_\+view}]{used\+\_\+name = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a611b811d9f8f71f88c08807496fabc04}\label{classargparse_1_1_argument_a611b811d9f8f71f88c08807496fabc04} 
+\index{argparse::Argument@{argparse::Argument}!default\_value@{default\_value}}
+\index{default\_value@{default\_value}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{default\_value()}{default\_value()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::default\+\_\+value (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a6723d8728efb851a46b9dd39e1620e0c}\label{classargparse_1_1_argument_a6723d8728efb851a46b9dd39e1620e0c} 
+\index{argparse::Argument@{argparse::Argument}!default\_value@{default\_value}}
+\index{default\_value@{default\_value}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{default\_value()}{default\_value()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::default\+\_\+value (\begin{DoxyParamCaption}\item[{T \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_ad8aaf2df6d3bb3fde0d09b2a04cba378}\label{classargparse_1_1_argument_ad8aaf2df6d3bb3fde0d09b2a04cba378} 
+\index{argparse::Argument@{argparse::Argument}!get\_arguments\_length@{get\_arguments\_length}}
+\index{get\_arguments\_length@{get\_arguments\_length}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{get\_arguments\_length()}{get\_arguments\_length()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t argparse\+::\+Argument\+::get\+\_\+arguments\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_af46efcbe4957e9306fc21c7b051c9205}\label{classargparse_1_1_argument_af46efcbe4957e9306fc21c7b051c9205} 
+\index{argparse::Argument@{argparse::Argument}!get\_inline\_usage@{get\_inline\_usage}}
+\index{get\_inline\_usage@{get\_inline\_usage}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{get\_inline\_usage()}{get\_inline\_usage()}}
+{\footnotesize\ttfamily std\+::string argparse\+::\+Argument\+::get\+\_\+inline\+\_\+usage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a5011f7a72a5b69fe1ca27e1baff20411}\label{classargparse_1_1_argument_a5011f7a72a5b69fe1ca27e1baff20411} 
+\index{argparse::Argument@{argparse::Argument}!help@{help}}
+\index{help@{help}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{help()}{help()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::help (\begin{DoxyParamCaption}\item[{std\+::string}]{help\+\_\+text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_afe376b29b99d506a24473e88bab5b517}\label{classargparse_1_1_argument_afe376b29b99d506a24473e88bab5b517} 
+\index{argparse::Argument@{argparse::Argument}!implicit\_value@{implicit\_value}}
+\index{implicit\_value@{implicit\_value}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{implicit\_value()}{implicit\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::implicit\+\_\+value (\begin{DoxyParamCaption}\item[{std\+::any}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_acdf8341266ee361132b7fa0a3823b1d3}\label{classargparse_1_1_argument_acdf8341266ee361132b7fa0a3823b1d3} 
+\index{argparse::Argument@{argparse::Argument}!metavar@{metavar}}
+\index{metavar@{metavar}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{metavar()}{metavar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::metavar (\begin{DoxyParamCaption}\item[{std\+::string}]{metavar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a60a2efdbc55b9b575756be2c3ac91bb7}\label{classargparse_1_1_argument_a60a2efdbc55b9b575756be2c3ac91bb7} 
+\index{argparse::Argument@{argparse::Argument}!nargs@{nargs}}
+\index{nargs@{nargs}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{nargs()}{nargs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::nargs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceargparse_ab95dccbbd126a6baa4206b9db1731b59}{nargs\+\_\+pattern}}}]{pattern }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a53782d59766fb6b6b2e35e626689f2a5}\label{classargparse_1_1_argument_a53782d59766fb6b6b2e35e626689f2a5} 
+\index{argparse::Argument@{argparse::Argument}!nargs@{nargs}}
+\index{nargs@{nargs}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{nargs()}{nargs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::nargs (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{num\+\_\+args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_ad7d78ec8800bc61dfca95c359607a54e}\label{classargparse_1_1_argument_ad7d78ec8800bc61dfca95c359607a54e} 
+\index{argparse::Argument@{argparse::Argument}!nargs@{nargs}}
+\index{nargs@{nargs}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{nargs()}{nargs()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::nargs (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{num\+\_\+args\+\_\+min,  }\item[{std\+::size\+\_\+t}]{num\+\_\+args\+\_\+max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a68fb2ffd4e2dcaea80aefd7812f1e850}\label{classargparse_1_1_argument_a68fb2ffd4e2dcaea80aefd7812f1e850} 
+\index{argparse::Argument@{argparse::Argument}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool argparse\+::\+Argument\+::operator!= (\begin{DoxyParamCaption}\item[{const T \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_aa3bd4389cb5362f88906ec1286bdc2b7}\label{classargparse_1_1_argument_aa3bd4389cb5362f88906ec1286bdc2b7} 
+\index{argparse::Argument@{argparse::Argument}!operator==@{operator==}}
+\index{operator==@{operator==}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool argparse\+::\+Argument\+::operator== (\begin{DoxyParamCaption}\item[{const T \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a93a68634f7f4bd7496f6cd0bdc8d3e79}\label{classargparse_1_1_argument_a93a68634f7f4bd7496f6cd0bdc8d3e79} 
+\index{argparse::Argument@{argparse::Argument}!remaining@{remaining}}
+\index{remaining@{remaining}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{remaining()}{remaining()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::remaining (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a9870d5c9efd218ad7bab39855f3ea57f}\label{classargparse_1_1_argument_a9870d5c9efd218ad7bab39855f3ea57f} 
+\index{argparse::Argument@{argparse::Argument}!required@{required}}
+\index{required@{required}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{required()}{required()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \& argparse\+::\+Argument\+::required (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a09053d140082d45bc47bed74f0f00210}\label{classargparse_1_1_argument_a09053d140082d45bc47bed74f0f00210} 
+\index{argparse::Argument@{argparse::Argument}!scan@{scan}}
+\index{scan@{scan}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily template$<$char Shape, typename T $>$ \\
+auto argparse\+::\+Argument\+::scan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+arithmetic\+\_\+v$<$T$>$, \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \&$>$ \hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classargparse_1_1_argument_a36116c082d6afa0be1910d29dcbb8c55}\label{classargparse_1_1_argument_a36116c082d6afa0be1910d29dcbb8c55} 
+\index{argparse::Argument@{argparse::Argument}!validate@{validate}}
+\index{validate@{validate}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily void argparse\+::\+Argument\+::validate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classargparse_1_1_argument_a55c9e1ac006a645af402e3aee6b64e00}\label{classargparse_1_1_argument_a55c9e1ac006a645af402e3aee6b64e00} 
+\index{argparse::Argument@{argparse::Argument}!ArgumentParser@{ArgumentParser}}
+\index{ArgumentParser@{ArgumentParser}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{ArgumentParser}{ArgumentParser}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classargparse_1_1_argument_parser}{Argument\+Parser}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classargparse_1_1_argument_a8ee97386cf348b35c5fec033ab7d8925}\label{classargparse_1_1_argument_a8ee97386cf348b35c5fec033ab7d8925} 
+\index{argparse::Argument@{argparse::Argument}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{const \mbox{\hyperlink{classargparse_1_1_argument}{Argument}} \&}]{argument }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classargparse_1_1_argument_aa4d339774ec7cbdd83321a17e2cda661}\label{classargparse_1_1_argument_aa4d339774ec7cbdd83321a17e2cda661} 
+\index{argparse::Argument@{argparse::Argument}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!argparse::Argument@{argparse::Argument}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily auto operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{const \mbox{\hyperlink{classargparse_1_1_argument_parser}{Argument\+Parser}} \&}]{parser }\end{DoxyParamCaption}) -\/$>$  std\+::ostream \&\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/third\+\_\+party/argparse/\mbox{\hyperlink{argparse_8hpp}{argparse.\+hpp}}\end{DoxyCompactItemize}

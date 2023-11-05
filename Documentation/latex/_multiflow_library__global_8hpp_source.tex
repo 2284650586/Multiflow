@@ -1,0 +1,17 @@
+\doxysection{Multiflow\+Library\+\_\+global.\+hpp}
+\hypertarget{_multiflow_library__global_8hpp_source}{}\label{_multiflow_library__global_8hpp_source}\index{MultiflowLibrary/MultiflowLibrary\_global.hpp@{MultiflowLibrary/MultiflowLibrary\_global.hpp}}
+\mbox{\hyperlink{_multiflow_library__global_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \#include\ <QtCore/qglobal.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#if\ defined(MULTIFLOWLIBRARY\_LIBRARY)}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#\ \ define\ ML\_PUBLIC\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#\ \ define\ ML\_PUBLIC\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ML\_PRIVATE}}
+
+\end{DoxyCode}

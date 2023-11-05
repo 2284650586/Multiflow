@@ -2,7 +2,7 @@ var class_t_sink_item =
 [
     [ "TSinkItem", "class_t_sink_item.html#ace0b69cdaefb30d7795e5eacd2f27eea", null ],
     [ "boundingRect", "class_t_sink_item.html#a06b11c1066c93f1efdfb83d384887843", null ],
-    [ "getId", "class_t_sink_item.html#ae0bbef3acb8b65cd0cbacbd109b784f5", null ],
+    [ "getId", "class_t_sink_item.html#a0c293e13bbd520749525f0447688139b", null ],
     [ "getName", "class_t_sink_item.html#abea6e4a9e63144c812658df4d0dfb595", null ],
     [ "itemChange", "class_t_sink_item.html#a2ec2a2200b2be70d907448108d1f57f9", null ],
     [ "mouseDoubleClickEvent", "class_t_sink_item.html#a0415120bebb888010fd14dbc2ede8937", null ],

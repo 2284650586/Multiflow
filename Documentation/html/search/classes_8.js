@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numformatparser_0',['NumFormatParser',['../class_q_xlsx_1_1_num_format_parser.html',1,'QXlsx']]]
+  ['keynotfoundexception_0',['KeyNotFoundException',['../classml_1_1_key_not_found_exception.html',1,'ml']]]
 ];

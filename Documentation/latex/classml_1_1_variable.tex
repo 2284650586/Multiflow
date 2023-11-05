@@ -1,0 +1,116 @@
+\doxysection{ml\+::Variable Class Reference}
+\hypertarget{classml_1_1_variable}{}\label{classml_1_1_variable}\index{ml::Variable@{ml::Variable}}
+
+
+未知数表达式，在表达式中扮演未知数（自变量）的角色  
+
+
+
+
+{\ttfamily \#include $<$variable.\+hpp$>$}
+
+Inheritance diagram for ml\+::Variable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classml_1_1_variable}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classml_1_1_variable_a8193392bd45a49f0af81a28ca5bc43a5}{Variable}} (const std\+::string \&\mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}}, const std\+::string \&\mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}})
+\item 
+\mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} \mbox{\hyperlink{classml_1_1_variable_af0f10fce9d9fbf4f9fab54d68b45bc6b}{evaluate}} (const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&env) const override
+\begin{DoxyCompactList}\small\item\em 求值 \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classml_1_1_variable_ac7ac9130e51c85d513b36dcfe3bbf530}{to\+\_\+string}} () const override
+\begin{DoxyCompactList}\small\item\em 表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classml_1_1_expression}{ml\+::\+Expression}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classml_1_1_expression_a2a3aafd288a4cc8f552cb9bff8824e8b}{Expression}} (std\+::string \mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}}, std\+::string \mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}})
+\begin{DoxyCompactList}\small\item\em 每个表达式起码要有名字和描述 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classml_1_1_expression_abeb4f223d7c8c2a1f9740eadc04fbe75}{\texorpdfstring{$\sim$}{\string~}\+Expression}} ()
+\item 
+virtual \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} \mbox{\hyperlink{classml_1_1_expression_aa572902409d93dd0192741a12a9d091b}{evaluate}} (const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&env) const
+\begin{DoxyCompactList}\small\item\em 求值 \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classml_1_1_expression_a7057901700cdfa4d9db3476e20decd3f}{to\+\_\+string}} () const
+\begin{DoxyCompactList}\small\item\em 表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) \end{DoxyCompactList}\item 
+virtual const std\+::string \& \mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}} () const
+\item 
+virtual const std\+::string \& \mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}} () const
+\item 
+virtual const std\+::vector$<$ \mbox{\hyperlink{classml_1_1_expression}{Expression}} $>$ \mbox{\hyperlink{classml_1_1_expression_af60c5fb5ae0ddb066145dee9376bca8e}{operands}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classml_1_1_expression}{ml\+::\+Expression}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classml_1_1_expression_a35dcb2e67dbddc72e7b54dc8810b71e4}{\+\_\+name}}
+\item 
+std\+::string \mbox{\hyperlink{classml_1_1_expression_ae2685e31ac1ee8c20ef81b440f4470da}{\+\_\+description}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+未知数表达式，在表达式中扮演未知数（自变量）的角色 
+
+\begin{DoxyAuthor}{Author}
+z 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classml_1_1_variable_a8193392bd45a49f0af81a28ca5bc43a5}\label{classml_1_1_variable_a8193392bd45a49f0af81a28ca5bc43a5} 
+\index{ml::Variable@{ml::Variable}!Variable@{Variable}}
+\index{Variable@{Variable}!ml::Variable@{ml::Variable}}
+\doxysubsubsection{\texorpdfstring{Variable()}{Variable()}}
+{\footnotesize\ttfamily ml\+::\+Variable\+::\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{description }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classml_1_1_variable_af0f10fce9d9fbf4f9fab54d68b45bc6b}\label{classml_1_1_variable_af0f10fce9d9fbf4f9fab54d68b45bc6b} 
+\index{ml::Variable@{ml::Variable}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ml::Variable@{ml::Variable}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} ml\+::\+Variable\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&}]{env }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+求值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em environment} & 未知数的实际值的表 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+求值结果 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classml_1_1_expression_aa572902409d93dd0192741a12a9d091b}{ml\+::\+Expression}}.
+
+\Hypertarget{classml_1_1_variable_ac7ac9130e51c85d513b36dcfe3bbf530}\label{classml_1_1_variable_ac7ac9130e51c85d513b36dcfe3bbf530} 
+\index{ml::Variable@{ml::Variable}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!ml::Variable@{ml::Variable}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily std\+::string ml\+::\+Variable\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) 
+
+\begin{DoxyReturn}{Returns}
+字符串描述 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classml_1_1_expression_a7057901700cdfa4d9db3476e20decd3f}{ml\+::\+Expression}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+Library/expression/\mbox{\hyperlink{variable_8hpp}{variable.\+hpp}}\item 
+Multiflow\+Library/expression/\mbox{\hyperlink{variable_8cpp}{variable.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,77 @@
+\doxysection{logging.\+hpp}
+\hypertarget{logging_8hpp_source}{}\label{logging_8hpp_source}\index{MultiflowLibrary/logging/logging.hpp@{MultiflowLibrary/logging/logging.hpp}}
+\mbox{\hyperlink{logging_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOGGING\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOGGING\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../MultiflowLibrary\_global.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceml}{ml}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{_multiflow_library__global_8hpp_ae769a7fe630b6b53fb9ed9a75f01a6de}{ML\_PUBLIC}}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ Functions}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}(std::string\ level);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \_initialize();}
+\DoxyCodeLine{00027\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classml_1_1_logger_a0aebb9c1ab46a4b12f0801235953cffe}{\string~Logger}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Fields}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ std::string\ \_level;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}\ \mbox{\hyperlink{classml_1_1_logger_a166c379587d998af6a2cc18ebea0b14e}{debug}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}\ \mbox{\hyperlink{classml_1_1_logger_a7eac53fa442cddc77d7de2920da7f284}{info}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}\ \mbox{\hyperlink{classml_1_1_logger_a60ad991cb807564a20e72f8393986e7b}{warn}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}\ \mbox{\hyperlink{classml_1_1_logger_a59b2e1b235a8019af9fd17f4dc1b0a54}{error}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}\ \mbox{\hyperlink{classml_1_1_logger_ad6008a840f99a874b4d3b8b3ee5d500b}{critical}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00053\ [[nodiscard]]\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classml_1_1_logger}{Logger}}\&\ \_log(\textcolor{keyword}{const}\ T\&\ data)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00055\ \ \ \ \ std::clog\ <<\ \textcolor{stringliteral}{"{}["{}}\ <<\ \_level\ <<\ \textcolor{stringliteral}{"{}]"{}}\ <<\ data;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ DEFINE\_LOGGING\_SPECIALIZATION(type)\ \(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ const\ Logger\&\ operator<<(type\ data)\ const\ \{\ return\ \_log(data);\ \}}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ 对1,2,4,8,16字节的基本数据类型的特化}}
+\DoxyCodeLine{00064\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(\textcolor{keywordtype}{char})}
+\DoxyCodeLine{00065\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(\textcolor{keywordtype}{short})}
+\DoxyCodeLine{00066\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00067\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(\textcolor{keywordtype}{long})}
+\DoxyCodeLine{00068\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long})}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ 浮点数特化}}
+\DoxyCodeLine{00071\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(\textcolor{keywordtype}{float})}
+\DoxyCodeLine{00072\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(\textcolor{keywordtype}{double})}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ 字符串特化}}
+\DoxyCodeLine{00075\ \mbox{\hyperlink{logging_8hpp_a1be5dfbf66da52a69153895df107aaa4}{DEFINE\_LOGGING\_SPECIALIZATION}}(std::string)}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#undef\ DEFINE\_LOGGING\_SPECIALIZATION}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ 定义相关的宏，方便使用}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifndef\ LOG\_INFO}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ LOG\_INFO\ ml::Logger::info}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ LOG\_DEBUG\ logging::Logger::debug}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ LOG\_WARN\ logging::Logger::warn}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ LOG\_ERROR\ logging::Logger::error}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ LOG\_CRITICAL\ logging::Logger::critical}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOGGING\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,71 @@
+\doxysection{Multiflow\+Library/math/math.cpp File Reference}
+\hypertarget{math_8cpp}{}\label{math_8cpp}\index{MultiflowLibrary/math/math.cpp@{MultiflowLibrary/math/math.cpp}}
+{\ttfamily \#include \"{}math/math.\+hpp\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceml}{ml}}
+\begin{DoxyCompactList}\small\item\em 基本数学操作。包含了一系列保护措施， 遇到各种非法操作会抛出异常 遇到\+Na\+N和\+Infinite也会抛出异常 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{math_8cpp_afaf595d0e115c7275257bc77fa106ef1}{ASSERT\+\_\+\+VALID}}(x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceml_a81d4fae3674ae92af04e4e78f7f81d0b}{ml\+::z}} (double x)
+\begin{DoxyCompactList}\small\item\em 判断x是否为零，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_ae508a24743a243ac2dd5da5d6edd2ec3}{ml\+::eq}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断两数是否相等，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_a8c34b08652241e0817f49b628eb48cee}{ml\+::gt}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否大于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_a56ad0e7de9ea64e4374becea7b0cd592}{ml\+::lt}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否小于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_a98d5289cf0b7955272d09b2bd8c1d11d}{ml\+::gte}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否大于等于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceml_ad872fb9ed2c107b4d03e3a3962253395}{ml\+::lte}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 判断x是否小于等于y，兼容\+IEEE浮点数的误差 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a3e9e317e41eb8cb4c62743e6b56bee2b}{ml\+::add}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 加法，不带溢出检测 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a8d4cf7d6f6bd0ebb9beea17ab7da144f}{ml\+::subtract}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 减法，不带溢出检测 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a7183aaab44821be413931bf5dccef4f3}{ml\+::multiply}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 乘法，不带溢出检测 能够正确处理误差0和无穷大的情况 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a24bd792c3af51f7ccf8cc06e77b0dbd4}{ml\+::divide}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 除法，不带溢出检测 能够正确处理被除数是误差0、出现无穷大的情况 遇到除以0会抛出异常 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a058d7bb16fa12c4b8750e3cde9a4244c}{ml\+::power}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 幂函数，不带溢出检测 遇到对负数开方会抛出异常，即使有时候负数开方也是能开的 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a0df4c3fb35d3ab8f2c69bf06a3a53cc6}{ml\+::square\+\_\+root}} (double x)
+\begin{DoxyCompactList}\small\item\em 平方根，遇到负数会抛出异常 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a98fb4fc2e5d656c8bc6231f709b7d5d1}{ml\+::absolute\+\_\+value}} (double x)
+\begin{DoxyCompactList}\small\item\em 绝对值 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a7202eda40de9227b8e6a2e60ff50edbe}{ml\+::logarithm}} (double base, double x)
+\begin{DoxyCompactList}\small\item\em 对数函数，不带溢出检测，遇到以下情况会抛出异常： base \texorpdfstring{$<$}{<}= 0, base == 1, 或 x \texorpdfstring{$<$}{<}= 0 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_ac2320060ed0dd522d14c43bac517f0f2}{ml\+::minimum}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 取较小值 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceml_a24bc9e9ff926b5405718a41d844abfe7}{ml\+::maximum}} (double x, double y)
+\begin{DoxyCompactList}\small\item\em 取较大值 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr double \mbox{\hyperlink{namespaceml_ac56d8dd3440ecb878c958afa91e8e4d6}{ml\+::\+ZERO\+\_\+\+THRESHOLD}} = 1e-\/5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{math_8cpp_afaf595d0e115c7275257bc77fa106ef1}\label{math_8cpp_afaf595d0e115c7275257bc77fa106ef1} 
+\index{math.cpp@{math.cpp}!ASSERT\_VALID@{ASSERT\_VALID}}
+\index{ASSERT\_VALID@{ASSERT\_VALID}!math.cpp@{math.cpp}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_VALID}{ASSERT\_VALID}}
+{\footnotesize\ttfamily \#define ASSERT\+\_\+\+VALID(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (std::isnan(x)\ ||\ std::isinf(x))\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ math\_error(\textcolor{stringliteral}{"{}数值非法，不可为NaN或无穷大"{}});\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}

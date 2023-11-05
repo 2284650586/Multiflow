@@ -1,0 +1,76 @@
+\doxysection{ml\+::Algorithm Class Reference}
+\hypertarget{classml_1_1_algorithm}{}\label{classml_1_1_algorithm}\index{ml::Algorithm@{ml::Algorithm}}
+
+
+{\ttfamily \#include $<$algorithm.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classml_1_1_algorithm_ad7b140cb61489e2e39a2c5fbe0b50114}{Algorithm}} (std\+::string \mbox{\hyperlink{classml_1_1_algorithm_aa291b06a24481c3eaf762a0f15a20f72}{name}}, std\+::string \mbox{\hyperlink{classml_1_1_algorithm_a8ab57b09600a57acec3b6211fa06353c}{description}}, const \mbox{\hyperlink{classml_1_1_expression}{Expression}} \&\mbox{\hyperlink{classml_1_1_algorithm_af7477a4c88aaf85d8e5475a687cd9cea}{expression}})
+\item 
+virtual \mbox{\hyperlink{classml_1_1_algorithm_a559dc8eae8a7fd9d2a89e9fc7038a6cd}{\texorpdfstring{$\sim$}{\string~}\+Algorithm}} ()=default
+\item 
+const std\+::string \& \mbox{\hyperlink{classml_1_1_algorithm_aa291b06a24481c3eaf762a0f15a20f72}{name}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{classml_1_1_algorithm_a8ab57b09600a57acec3b6211fa06353c}{description}} () const
+\item 
+const \mbox{\hyperlink{classml_1_1_expression}{Expression}} \& \mbox{\hyperlink{classml_1_1_algorithm_af7477a4c88aaf85d8e5475a687cd9cea}{expression}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classml_1_1_variable}{Variable}} $>$ \mbox{\hyperlink{classml_1_1_algorithm_ad3cc87058035d91ea4498dbb671428c8}{extract\+Variables}} () const
+\begin{DoxyCompactList}\small\item\em 递归地提取表达式中的参数，不应该反复调用 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classml_1_1_algorithm_ad7b140cb61489e2e39a2c5fbe0b50114}\label{classml_1_1_algorithm_ad7b140cb61489e2e39a2c5fbe0b50114} 
+\index{ml::Algorithm@{ml::Algorithm}!Algorithm@{Algorithm}}
+\index{Algorithm@{Algorithm}!ml::Algorithm@{ml::Algorithm}}
+\doxysubsubsection{\texorpdfstring{Algorithm()}{Algorithm()}}
+{\footnotesize\ttfamily ml\+::\+Algorithm\+::\+Algorithm (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{description,  }\item[{const \mbox{\hyperlink{classml_1_1_expression}{Expression}} \&}]{expression }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\Hypertarget{classml_1_1_algorithm_a559dc8eae8a7fd9d2a89e9fc7038a6cd}\label{classml_1_1_algorithm_a559dc8eae8a7fd9d2a89e9fc7038a6cd} 
+\index{ml::Algorithm@{ml::Algorithm}!````~Algorithm@{\texorpdfstring{$\sim$}{\string~}Algorithm}}
+\index{````~Algorithm@{\texorpdfstring{$\sim$}{\string~}Algorithm}!ml::Algorithm@{ml::Algorithm}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Algorithm()}{\string~Algorithm()}}
+{\footnotesize\ttfamily virtual ml\+::\+Algorithm\+::\texorpdfstring{$\sim$}{\string~}\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classml_1_1_algorithm_a8ab57b09600a57acec3b6211fa06353c}\label{classml_1_1_algorithm_a8ab57b09600a57acec3b6211fa06353c} 
+\index{ml::Algorithm@{ml::Algorithm}!description@{description}}
+\index{description@{description}!ml::Algorithm@{ml::Algorithm}}
+\doxysubsubsection{\texorpdfstring{description()}{description()}}
+{\footnotesize\ttfamily const std\+::string \& ml\+::\+Algorithm\+::description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classml_1_1_algorithm_af7477a4c88aaf85d8e5475a687cd9cea}\label{classml_1_1_algorithm_af7477a4c88aaf85d8e5475a687cd9cea} 
+\index{ml::Algorithm@{ml::Algorithm}!expression@{expression}}
+\index{expression@{expression}!ml::Algorithm@{ml::Algorithm}}
+\doxysubsubsection{\texorpdfstring{expression()}{expression()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classml_1_1_expression}{Expression}} \& ml\+::\+Algorithm\+::expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classml_1_1_algorithm_ad3cc87058035d91ea4498dbb671428c8}\label{classml_1_1_algorithm_ad3cc87058035d91ea4498dbb671428c8} 
+\index{ml::Algorithm@{ml::Algorithm}!extractVariables@{extractVariables}}
+\index{extractVariables@{extractVariables}!ml::Algorithm@{ml::Algorithm}}
+\doxysubsubsection{\texorpdfstring{extractVariables()}{extractVariables()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classml_1_1_variable}{Variable}} $>$ ml\+::\+Algorithm\+::extract\+Variables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+递归地提取表达式中的参数，不应该反复调用 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classml_1_1_algorithm_aa291b06a24481c3eaf762a0f15a20f72}\label{classml_1_1_algorithm_aa291b06a24481c3eaf762a0f15a20f72} 
+\index{ml::Algorithm@{ml::Algorithm}!name@{name}}
+\index{name@{name}!ml::Algorithm@{ml::Algorithm}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily const std\+::string \& ml\+::\+Algorithm\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+Library/algorithm/\mbox{\hyperlink{algorithm_8hpp}{algorithm.\+hpp}}\item 
+Multiflow\+Library/algorithm/\mbox{\hyperlink{algorithm_8cpp}{algorithm.\+cpp}}\end{DoxyCompactItemize}

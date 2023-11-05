@@ -1,0 +1,86 @@
+\doxysection{UIUtils Class Reference}
+\hypertarget{class_u_i_utils}{}\label{class_u_i_utils}\index{UIUtils@{UIUtils}}
+
+
+{\ttfamily \#include $<$UIUtils.\+hpp$>$}
+
+Inheritance diagram for UIUtils\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_u_i_utils}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Q\+\_\+\+INVOKABLE bool \mbox{\hyperlink{class_u_i_utils_a24acf989775f480721ca0bfd793335e1}{confirm}} (const QString \&message, const QString \&positive\+Button\+Text, const QString \&negative\+Button\+Text)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_singleton_mixin}{Singleton\+Mixin$<$ UIUtils $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_u_i_utils}{UIUtils}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_singleton_mixin_a1cd95b832971fb9d9acdc4fc677c5937}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_u_i_utils_ab85ba03e11dffe2fb099e3a155e2e27c}{Singleton\+Mixin$<$ UIUtils $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_qml_singleton}{IQml\+Singleton$<$ UIUtils $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_qml_singleton_a71de32f34f311f00940623823e0efdb6}{register\+Singleton}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_qml_object}{IQml\+Object$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_qml_object_a3a290e046ad126057a7d464c277f0cbf}{register\+Object\+Type}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_i_qml_singleton}{IQml\+Singleton$<$ UIUtils $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_qml_singleton_adf0475636a00df1533943cc9ce5adfaa}{IQml\+Singleton}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}}, int \mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{major\+Version}}, int \mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minor\+Version}}, const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_i_qml_object}{IQml\+Object$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_qml_object_a8d55bf0dac8c49f05e21cb05a522fa5f}{IQml\+Object}} (const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}}, int \mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{major\+Version}}, int \mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minor\+Version}}, const char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_i_qml_object}{IQml\+Object$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}}
+\item 
+int \mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{major\+Version}}
+\item 
+int \mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minor\+Version}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_u_i_utils_a24acf989775f480721ca0bfd793335e1}\label{class_u_i_utils_a24acf989775f480721ca0bfd793335e1} 
+\index{UIUtils@{UIUtils}!confirm@{confirm}}
+\index{confirm@{confirm}!UIUtils@{UIUtils}}
+\doxysubsubsection{\texorpdfstring{confirm()}{confirm()}}
+{\footnotesize\ttfamily bool UIUtils\+::confirm (\begin{DoxyParamCaption}\item[{const QString \&}]{message,  }\item[{const QString \&}]{positive\+Button\+Text,  }\item[{const QString \&}]{negative\+Button\+Text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+true if positive button is clicked, false otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_u_i_utils_ab85ba03e11dffe2fb099e3a155e2e27c}\label{class_u_i_utils_ab85ba03e11dffe2fb099e3a155e2e27c} 
+\index{UIUtils@{UIUtils}!SingletonMixin$<$ UIUtils $>$@{SingletonMixin$<$ UIUtils $>$}}
+\index{SingletonMixin$<$ UIUtils $>$@{SingletonMixin$<$ UIUtils $>$}!UIUtils@{UIUtils}}
+\doxysubsubsection{\texorpdfstring{SingletonMixin$<$ UIUtils $>$}{SingletonMixin< UIUtils >}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_singleton_mixin}{Singleton\+Mixin}}$<$ \mbox{\hyperlink{class_u_i_utils}{UIUtils}} $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+UI/qml/utils/\mbox{\hyperlink{_u_i_utils_8hpp}{UIUtils.\+hpp}}\item 
+Multiflow\+UI/qml/utils/\mbox{\hyperlink{_u_i_utils_8cpp}{UIUtils.\+cpp}}\end{DoxyCompactItemize}

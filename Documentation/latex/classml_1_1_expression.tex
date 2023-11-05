@@ -1,0 +1,174 @@
+\doxysection{ml\+::Expression Class Reference}
+\hypertarget{classml_1_1_expression}{}\label{classml_1_1_expression}\index{ml::Expression@{ml::Expression}}
+
+
+表达式的基类。表达式用于计算。每个表达式\+:  
+
+
+
+
+{\ttfamily \#include $<$expression.\+hpp$>$}
+
+Inheritance diagram for ml\+::Expression\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classml_1_1_expression}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classml_1_1_expression_a2a3aafd288a4cc8f552cb9bff8824e8b}{Expression}} (std\+::string \mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}}, std\+::string \mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}})
+\begin{DoxyCompactList}\small\item\em 每个表达式起码要有名字和描述 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classml_1_1_expression_abeb4f223d7c8c2a1f9740eadc04fbe75}{\texorpdfstring{$\sim$}{\string~}\+Expression}} ()
+\item 
+virtual \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} \mbox{\hyperlink{classml_1_1_expression_aa572902409d93dd0192741a12a9d091b}{evaluate}} (const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&env) const
+\begin{DoxyCompactList}\small\item\em 求值 \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classml_1_1_expression_a7057901700cdfa4d9db3476e20decd3f}{to\+\_\+string}} () const
+\begin{DoxyCompactList}\small\item\em 表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) \end{DoxyCompactList}\item 
+virtual const std\+::string \& \mbox{\hyperlink{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}{name}} () const
+\item 
+virtual const std\+::string \& \mbox{\hyperlink{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}{description}} () const
+\item 
+virtual const std\+::vector$<$ \mbox{\hyperlink{classml_1_1_expression}{Expression}} $>$ \mbox{\hyperlink{classml_1_1_expression_af60c5fb5ae0ddb066145dee9376bca8e}{operands}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classml_1_1_expression_a35dcb2e67dbddc72e7b54dc8810b71e4}{\+\_\+name}}
+\item 
+std\+::string \mbox{\hyperlink{classml_1_1_expression_ae2685e31ac1ee8c20ef81b440f4470da}{\+\_\+description}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+表达式的基类。表达式用于计算。每个表达式\+: 
+
+
+\begin{DoxyItemize}
+\item 最基本的求值当然得有
+\item 有一个名字，代表这个量在我们软件中的意义
+\item 有一个描述，是对某个量更加详尽的描述
+\item 可以转换为字符串，以便于显示
+\end{DoxyItemize}
+
+例如： J \texorpdfstring{$\ast$}{*} (pr -\/ pwf)
+
+这个表达式的名字是\"{}产液量\"{} 描述：\"{}产液量，不考虑泡点压力\"{}
+
+\begin{DoxyAuthor}{Author}
+z 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classml_1_1_expression_a2a3aafd288a4cc8f552cb9bff8824e8b}\label{classml_1_1_expression_a2a3aafd288a4cc8f552cb9bff8824e8b} 
+\index{ml::Expression@{ml::Expression}!Expression@{Expression}}
+\index{Expression@{Expression}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{Expression()}{Expression()}}
+{\footnotesize\ttfamily ml\+::\+Expression\+::\+Expression (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{description }\end{DoxyParamCaption})}
+
+
+
+每个表达式起码要有名字和描述 
+
+\Hypertarget{classml_1_1_expression_abeb4f223d7c8c2a1f9740eadc04fbe75}\label{classml_1_1_expression_abeb4f223d7c8c2a1f9740eadc04fbe75} 
+\index{ml::Expression@{ml::Expression}!````~Expression@{\texorpdfstring{$\sim$}{\string~}Expression}}
+\index{````~Expression@{\texorpdfstring{$\sim$}{\string~}Expression}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Expression()}{\string~Expression()}}
+{\footnotesize\ttfamily ml\+::\+Expression\+::\texorpdfstring{$\sim$}{\string~}\+Expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713}\label{classml_1_1_expression_a6d92fff8c5f99464bde9bec6e2c44713} 
+\index{ml::Expression@{ml::Expression}!description@{description}}
+\index{description@{description}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{description()}{description()}}
+{\footnotesize\ttfamily const std\+::string \& ml\+::\+Expression\+::description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+对表达式的更详细的描述 
+\end{DoxyReturn}
+\Hypertarget{classml_1_1_expression_aa572902409d93dd0192741a12a9d091b}\label{classml_1_1_expression_aa572902409d93dd0192741a12a9d091b} 
+\index{ml::Expression@{ml::Expression}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceml_ac922e527200ded4dc10c077c8582f7dc}{ml\+::\+Number}} ml\+::\+Expression\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classml_1_1_environment}{Environment}} \&}]{env }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+求值 
+
+
+\begin{DoxyParams}{Parameters}
+{\em environment} & 未知数的实际值的表 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+求值结果 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classml_1_1_add_aa8da318ffea070a071a12af3452d43f6}{ml\+::\+Add}}, \mbox{\hyperlink{classml_1_1_constant_a4a5de21bb4bdd70e0e039cb9cd952eef}{ml\+::\+Constant}}, and \mbox{\hyperlink{classml_1_1_variable_af0f10fce9d9fbf4f9fab54d68b45bc6b}{ml\+::\+Variable}}.
+
+\Hypertarget{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e}\label{classml_1_1_expression_aae7a4fd2bddfb9e0c14a5e94b948905e} 
+\index{ml::Expression@{ml::Expression}!name@{name}}
+\index{name@{name}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily const std\+::string \& ml\+::\+Expression\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+表达式所代表的量的意义 
+\end{DoxyReturn}
+\Hypertarget{classml_1_1_expression_af60c5fb5ae0ddb066145dee9376bca8e}\label{classml_1_1_expression_af60c5fb5ae0ddb066145dee9376bca8e} 
+\index{ml::Expression@{ml::Expression}!operands@{operands}}
+\index{operands@{operands}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{operands()}{operands()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classml_1_1_expression}{Expression}} $>$ ml\+::\+Expression\+::operands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+表达式中的所有操作数 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classml_1_1_add_af526aa63c4085d5d22dfaf600d44a045}{ml\+::\+Add}}.
+
+\Hypertarget{classml_1_1_expression_a7057901700cdfa4d9db3476e20decd3f}\label{classml_1_1_expression_a7057901700cdfa4d9db3476e20decd3f} 
+\index{ml::Expression@{ml::Expression}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily std\+::string ml\+::\+Expression\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+表达式的字符串描述。例如 \doxylink{classml_1_1_add}{Add}(Variable(\+X), Constant(5)) 对应 (X + 5) 
+
+\begin{DoxyReturn}{Returns}
+字符串描述 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classml_1_1_add_a638577e75658a9ba58172d213c8bcd82}{ml\+::\+Add}}, \mbox{\hyperlink{classml_1_1_constant_abe125bb6b3de104013be35db42b3c3b8}{ml\+::\+Constant}}, and \mbox{\hyperlink{classml_1_1_variable_ac7ac9130e51c85d513b36dcfe3bbf530}{ml\+::\+Variable}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classml_1_1_expression_ae2685e31ac1ee8c20ef81b440f4470da}\label{classml_1_1_expression_ae2685e31ac1ee8c20ef81b440f4470da} 
+\index{ml::Expression@{ml::Expression}!\_description@{\_description}}
+\index{\_description@{\_description}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{\_description}{\_description}}
+{\footnotesize\ttfamily std\+::string ml\+::\+Expression\+::\+\_\+description\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classml_1_1_expression_a35dcb2e67dbddc72e7b54dc8810b71e4}\label{classml_1_1_expression_a35dcb2e67dbddc72e7b54dc8810b71e4} 
+\index{ml::Expression@{ml::Expression}!\_name@{\_name}}
+\index{\_name@{\_name}!ml::Expression@{ml::Expression}}
+\doxysubsubsection{\texorpdfstring{\_name}{\_name}}
+{\footnotesize\ttfamily std\+::string ml\+::\+Expression\+::\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Multiflow\+Library/expression/\mbox{\hyperlink{expression_8hpp}{expression.\+hpp}}\item 
+Multiflow\+Library/expression/\mbox{\hyperlink{expression_8cpp}{expression.\+cpp}}\end{DoxyCompactItemize}

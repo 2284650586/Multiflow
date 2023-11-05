@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ui_5fmainwindow_2eh_0',['ui_mainwindow.h',['../ui__mainwindow_8h.html',1,'']]],
-  ['ui_5fmwellwindow_2eh_1',['ui_mwellwindow.h',['../ui__mwellwindow_8h.html',1,'']]]
+  ['iqmlobject_2ehpp_0',['IQmlObject.hpp',['../_i_qml_object_8hpp.html',1,'']]],
+  ['iqmlsingleton_2ehpp_1',['IQmlSingleton.hpp',['../_i_qml_singleton_8hpp.html',1,'']]]
 ];

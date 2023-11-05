@@ -1,0 +1,27 @@
+\doxysection{IQml\+Object.\+hpp}
+\hypertarget{_i_qml_object_8hpp_source}{}\label{_i_qml_object_8hpp_source}\index{MultiflowUI/qml/interface/IQmlObject.hpp@{MultiflowUI/qml/interface/IQmlObject.hpp}}
+\mbox{\hyperlink{_i_qml_object_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_qml_object}{IQmlObject}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{majorVersion}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minorVersion}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_i_qml_object_a8d55bf0dac8c49f05e21cb05a522fa5f}{IQmlObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{majorVersion}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minorVersion}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}})}
+\DoxyCodeLine{00015\ \ \ \ \ :\ \mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}}(\mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}}),\ \mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{majorVersion}}(\mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{majorVersion}}),\ \mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minorVersion}}(\mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minorVersion}}),\ \mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}}(\mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}})\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_qml_object_a3a290e046ad126057a7d464c277f0cbf}{registerObjectType}}()\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ qmlRegisterType<T>(\mbox{\hyperlink{class_i_qml_object_a625312ef13d277d16fba3f7a0ad8cc4f}{uri}},\ \mbox{\hyperlink{class_i_qml_object_a4db781532d7bc4eb104022a9d5eb66bf}{majorVersion}},\ \mbox{\hyperlink{class_i_qml_object_a5acf7c76cc17343078909c532fbbef56}{minorVersion}},\ \mbox{\hyperlink{class_i_qml_object_a5e49cd98327d4a526079b0cab2036dc1}{name}});}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \};}
+
+\end{DoxyCode}

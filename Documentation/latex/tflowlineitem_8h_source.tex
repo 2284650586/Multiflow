@@ -8,13 +8,13 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QGraphicsPixmapItem>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QObject>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{msource_8h}{entity/msource.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{common_8h}{common.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shared_8hpp}{shared.hpp}}"{}}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_flowline_item}{TFlowlineItem}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QGraphicsPixmapItem}
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
 \DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc}{Type}}\ =\ UserType\ +\ Multiflow\_TYPE::Flowline\ \};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{enum}\ \{\ \mbox{\hyperlink{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc}{Type}}\ =\ UserType\ +\ \mbox{\hyperlink{shared_8hpp_abaa8a12bf165b6351b4c61af85663250ab1a9ad0ff89c4a4e0c36296b8e561400}{MultiflowKind::Flowline}}\ \};}
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_t_flowline_item}{TFlowlineItem}}(QString\ flowlineName\ =\ \textcolor{stringliteral}{"{}flowline"{}},\ QGraphicsItem\ *parent\ =\ \textcolor{keyword}{nullptr});}
 \DoxyCodeLine{00016\ }
@@ -26,7 +26,7 @@
 \DoxyCodeLine{00022\ \ \ \ \ QRectF\ \mbox{\hyperlink{class_t_flowline_item_a1fe7d40ff205ac1abf39fbd665e714d2}{boundingRect}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_flowline_item_add24905f6ae52b271d1018606bf62729}{paint}}(QPainter\ *painter,\ \textcolor{keyword}{const}\ QStyleOptionGraphicsItem\ *option,\ QWidget\ *widget)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_flowline_item_ade20d918d74a2253f9380119d1ed7848}{getId}}();}
+\DoxyCodeLine{00025\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_flowline_item_a95d249c30663f9a2bd3b8c3b55629fd8}{getId}}();}
 \DoxyCodeLine{00026\ \ \ \ \ QString\ \mbox{\hyperlink{class_t_flowline_item_ab14e41ff31278639670106dc7dfc22d8}{getName}}();}
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_t_flowline_item_aba6a4874a95a8f46673d26a6dec6e4aa}{type}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_t_flowline_item_a820dafa96c08c9341103b8ffefa0fb78a568709e2dc638dfc262c50e59b75fffc}{Type}};\ \}}

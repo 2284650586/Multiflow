@@ -30,7 +30,8 @@ var searchData=
   ['conditionalformattinglist_27',['conditionalFormattingList',['../class_q_xlsx_1_1_worksheet_private.html#a211ec353291c2f8011fd37cb6ccca3fb',1,'QXlsx::WorksheetPrivate']]],
   ['contenttypes_28',['contentTypes',['../class_q_xlsx_1_1_document_private.html#a292e7157a7b9670052e44cef18c2f325',1,'QXlsx::DocumentPrivate']]],
   ['count_29',['count',['../class_q_xlsx_1_1_xlsx_shared_string_info.html#acd6f4187d48e7b3348ac4c69cb16e605',1,'QXlsx::XlsxSharedStringInfo']]],
-  ['crossax_30',['crossAx',['../class_q_xlsx_1_1_xlsx_axis.html#a0a0b2dea5c43e2ec32a34a018a15c8d6',1,'QXlsx::XlsxAxis']]],
-  ['customheight_31',['customHeight',['../struct_q_xlsx_1_1_xlsx_sheet_format_props.html#af477dd77de7fd0a6d2a10d6d176a75b4',1,'QXlsx::XlsxSheetFormatProps::customHeight'],['../struct_q_xlsx_1_1_xlsx_row_info.html#a17f3d82da2f9e398d11077a5b8a53ead',1,'QXlsx::XlsxRowInfo::customHeight']]],
-  ['customwidth_32',['customWidth',['../struct_q_xlsx_1_1_xlsx_column_info.html#aa44ca1390b2e19c02145c7dbc7c04101',1,'QXlsx::XlsxColumnInfo']]]
+  ['critical_30',['critical',['../classml_1_1_logger.html#ad6008a840f99a874b4d3b8b3ee5d500b',1,'ml::Logger']]],
+  ['crossax_31',['crossAx',['../class_q_xlsx_1_1_xlsx_axis.html#a0a0b2dea5c43e2ec32a34a018a15c8d6',1,'QXlsx::XlsxAxis']]],
+  ['customheight_32',['customHeight',['../struct_q_xlsx_1_1_xlsx_sheet_format_props.html#af477dd77de7fd0a6d2a10d6d176a75b4',1,'QXlsx::XlsxSheetFormatProps::customHeight'],['../struct_q_xlsx_1_1_xlsx_row_info.html#a17f3d82da2f9e398d11077a5b8a53ead',1,'QXlsx::XlsxRowInfo::customHeight']]],
+  ['customwidth_33',['customWidth',['../struct_q_xlsx_1_1_xlsx_column_info.html#aa44ca1390b2e19c02145c7dbc7c04101',1,'QXlsx::XlsxColumnInfo']]]
 ];
