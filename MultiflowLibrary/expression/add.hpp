@@ -4,9 +4,10 @@
 #include "../MultiflowLibrary_global.hpp"
 #include "expression.hpp"
 
-#include <QString>
+#include <string>
+#include <vector>
 
-namespace expression
+namespace ml
 {
 
 /**
@@ -26,9 +27,11 @@ public:
     /**
      * @brief 计算相加结果
      */
-    Expression::Number evaluate() const override;
+    ml::Number evaluate(const Environment& env) const override;
 
-    QString to_string() const override;
+    std::string to_string() const override;
+
+    const std::vector<Expression> operands() const override;
 };
 
 }

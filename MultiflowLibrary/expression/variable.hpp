@@ -4,9 +4,9 @@
 #include "../MultiflowLibrary_global.hpp"
 #include "expression.hpp"
 
-#include <QString>
+#include <string>
 
-namespace expression
+namespace ml
 {
 
 /**
@@ -17,20 +17,15 @@ class ML_PUBLIC Variable: public Expression
 {
 private:
     /**
-     * @brief 实际带入的值
+     * @brief 参数名
      */
-    Expression::Number _value;
+    std::string _name;
 
 public:
-    Variable(const QString& name, Expression::Number value, const QString& description);
+    Variable(const std::string& name, const std::string& description);
 
-    /**
-     * @brief 改变未知数的带入的值
-     */
-    void set_value(Expression::Number value);
-
-    Expression::Number evaluate() const override;
-    QString to_string() const override;
+    ml::Number evaluate(const Environment& env) const override;
+    std::string to_string() const override;
 };
 
 }

@@ -14,8 +14,6 @@ namespace ml {
  */
 ML_PUBLIC void initialize();
 
-ML_PUBLIC int add(int x, int y);
-
 }
 
 #endif // CORE_H

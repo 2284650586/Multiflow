@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (propertyEnableVerbose) {
-        LOG_INFO << "Verbose logging enabled.";
+        LOG_INFO << "Verbose ml enabled.";
         printVersions();
     }
 
@@ -96,7 +96,7 @@ argparse::ArgumentParser prepareParser() {
         .implicit_value(true);
 
     parser.add_argument("--verbose")
-        .help("enable verbose logging")
+        .help("enable verbose ml")
         .default_value(false)
         .implicit_value(true);
     return parser;

@@ -1,13 +1,11 @@
 #include "expression.hpp"
 
-#include <stdexcept>
-
-namespace expression
+namespace ml
 {
 
-Expression::Expression(const QString& name, const QString& description):
-    _name(name),
-    _description(description)
+Expression::Expression(std::string name, std::string description):
+    _name(std::move(name)),
+    _description(std::move(description))
 {
 
 }
@@ -17,24 +15,28 @@ Expression::~Expression()
 
 }
 
-Expression::Number Expression::evaluate() const
+ml::Number Expression::evaluate(const Environment& env) const
 {
-    throw std::runtime_error("Not implemented");
+    throw NotImplementedException();
 }
 
-QString Expression::to_string() const
+std::string Expression::to_string() const
 {
-    throw std::runtime_error("Not implemented");
+    throw NotImplementedException();
 }
 
-const QString& Expression::name() const
+const std::string& Expression::name() const
 {
     return _name;
 }
 
-const QString& Expression::description() const
+const std::string& Expression::description() const
 {
     return _description;
+}
+
+const std::vector<Expression> Expression::operands() const {
+    throw NotImplementedException();
 }
 
 }

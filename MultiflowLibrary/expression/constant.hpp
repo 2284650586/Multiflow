@@ -5,7 +5,7 @@
 
 #include "expression.hpp"
 
-namespace expression
+namespace ml
 {
 
 /**
@@ -16,17 +16,17 @@ namespace expression
 class ML_PUBLIC Constant: public Expression
 {
 private:
-    Expression::Number _value;
+    ml::Number _value;
 
 public:
-    Constant(const QString& name, Expression::Number value, const QString& description);
+    Constant(const std::string& name, ml::Number value, const std::string& description);
 
     /**
      * @brief 常数表达式的求值，自然就是常数本身
      */
-    Expression::Number evaluate() const override;
+    ml::Number evaluate(const Environment& env) const override;
 
-    QString to_string() const override;
+    std::string to_string() const override;
 
     /**
      * @brief 圆周率，预定义的常见常数

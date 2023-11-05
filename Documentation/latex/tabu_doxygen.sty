@@ -16,7 +16,7 @@
 %% \begin{tabu} to     <dimen>{ preamble } => target specified
 %% \begin{tabu} spread <dimen>{ preamble } => target relative to the ``natural width''
 %% 
-%%  tabu works in text and in math modes.
+%%  tabu works in text and in ml modes.
 %% 
 %%  X columns: automatic width adjustment + horizontal and vertical alignment
 %%  \begin{tabu}   { X[4c] X[1c] X[-2ml]  }
@@ -41,7 +41,7 @@
 %%       \abovetabulinesep=<dimen>  \belowtabulinesep=<dimen>
 %%   or:      \tabulinesep=<dimen>               => may be prefixed by \global
 %% 
-%%  delarray.sty shortcuts: in math and text modes
+%%  delarray.sty shortcuts: in ml and text modes
 %%  \begin{tabu} ....        \({ preamble }\)
 %% 
 %%  Algorithms reports:
@@ -77,7 +77,7 @@
 \TMP@EnsureCode 33 = 12 % !
 \TMP@EnsureCode 58 = 12 % : (for siunitx)
 \TMP@EnsureCode124 = 12 % |
-\TMP@EnsureCode 36 =  3 % $ = math shift
+\TMP@EnsureCode 36 =  3 % $ = ml shift
 \TMP@EnsureCode 38 =  4 % & = tab alignment character
 \TMP@EnsureCode 32 = 10 % space
 \TMP@EnsureCode 94 =  7 % ^
@@ -620,7 +620,7 @@
 \let\tabu@tabular \tabular % <For LyX: some users redefine \tabular...>
 \expandafter\def\csname tabu*\endcsname{\tabuscantokenstrue \tabu}
 \newcommand*\longtabu {\tabu@longtrue
-   \ifmmode\PackageError{tabu}{longtabu not allowed in math mode}\fi
+   \ifmmode\PackageError{tabu}{longtabu not allowed in ml mode}\fi
    \def\tabu@{\longtable}\def\endlongtabu{\endlongtable}%
    \LTchunksize=\@M
    \expandafter\let\csname tabu*\endcsname \tabu
@@ -1687,7 +1687,7 @@
 \def\tabu@endtabus  {\end{tabu*}}
 %% Measuring the heights and depths - store the results -------------
 \def\tabu@verticalmeasure{\everypar{}%
-    \ifnum \currentgrouptype>12         % 14=semi-simple, 15=math shift group
+    \ifnum \currentgrouptype>12         % 14=semi-simple, 15=ml shift group
         \setbox\tabu@box =\hbox\bgroup
             \let\tabu@verticalspacing \tabu@verticalsp@lcr
             \d@llarbegin                % after \hbox ...

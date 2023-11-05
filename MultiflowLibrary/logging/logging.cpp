@@ -1,8 +1,6 @@
 #include "logging.hpp"
 
-#include <QDebug>
-
-namespace logging {
+namespace ml {
 
 const Logger Logger::debug = Logger("DEBUG");
 const Logger Logger::info = Logger("INFO");
@@ -15,12 +13,7 @@ void Logger::_initialize()
     Logger::info << "Logger initialized.";
 }
 
-Logger::Logger(const QString& level): _level(level)
-{
-
-}
-
-Logger::~Logger()
+Logger::Logger(std::string level): _level(std::move(level))
 {
 
 }

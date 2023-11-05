@@ -1,14 +1,16 @@
 #include "math/math.hpp"
 
 #include <cmath>
-#include <stdexcept>
 
-namespace math
+namespace ml
 {
 constexpr double ZERO_THRESHOLD = 1e-5;
 
-math_error::math_error(const char *what_arg): std::exception(what_arg)
-{
+math_error::math_error(const char* what): _what(what) {
+}
+
+const char *math_error::what() const {
+    return _what;
 }
 
 #define ASSERT_VALID(x) \
@@ -19,63 +21,63 @@ math_error::math_error(const char *what_arg): std::exception(what_arg)
 
 bool z(double x)
 {
-    ASSERT_VALID(x);
+    ASSERT_VALID(x)
     return std::abs(x) < ZERO_THRESHOLD;
 }
 
 bool eq(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return z(x - y);
 }
 
 bool gt(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return x > y + ZERO_THRESHOLD;
 }
 
 bool lt(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return x < y - ZERO_THRESHOLD;
 }
 
 bool gte(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return gt(x, y) || eq(x, y);
 }
 
 bool lte(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return lt(x, y) || eq(x, y);
 }
 
 double add(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return x + y;
 }
 
 double subtract(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return x - y;
 }
 
 double multiply(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
 
     // 避免超大的数和带有误差的0相乘不等于0的情况
     if (z(x) || z(y))
@@ -87,8 +89,8 @@ double multiply(double x, double y)
 
 double divide(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
 
     // 避免带有误差的0除以极小的数不等于0的情况
     if (z(x))
@@ -105,8 +107,8 @@ double divide(double x, double y)
 
 double power(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
 
     if (lt(x, 0) && lt(y, 1))
     {
@@ -117,7 +119,7 @@ double power(double x, double y)
 
 double square_root(double x)
 {
-    ASSERT_VALID(x);
+    ASSERT_VALID(x)
 
     if (lt(x, 0))
     {
@@ -128,14 +130,14 @@ double square_root(double x)
 
 double absolute_value(double x)
 {
-    ASSERT_VALID(x);
+    ASSERT_VALID(x)
     return std::abs(x);
 }
 
 double logarithm(double base, double x)
 {
-    ASSERT_VALID(base);
-    ASSERT_VALID(x);
+    ASSERT_VALID(base)
+    ASSERT_VALID(x)
 
     if (x <= 0)
     {
@@ -155,15 +157,15 @@ double logarithm(double base, double x)
 
 double minimum(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return std::min(x, y);
 }
 
 double maximum(double x, double y)
 {
-    ASSERT_VALID(x);
-    ASSERT_VALID(y);
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
     return std::max(x, y);
 }
 

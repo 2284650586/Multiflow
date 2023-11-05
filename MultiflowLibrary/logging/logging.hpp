@@ -3,14 +3,10 @@
 
 #include "../MultiflowLibrary_global.hpp"
 
-#include <QString>
-#include <QDebug>
-#include <QTime>
-
 #include <iostream>
 #include <ostream>
 
-namespace logging {
+namespace ml {
 
 /**
  * @brief 简单的日志系统，跨平台、可做导出库，
@@ -21,18 +17,18 @@ namespace logging {
 class ML_PUBLIC Logger {
 // Functions
 private:
-Logger(const QString& level);
+explicit Logger(std::string level);
 
 public:
 /**
  * @brief 日志的初始化。应当在程序启动时调用
  */
 static void _initialize();
-virtual ~Logger();
+virtual ~Logger() = default;
 
 // Fields
 private:
-const QString _level;
+std::string _level;
 
 public:
 /**
@@ -48,18 +44,15 @@ static const Logger critical;
  * @brief 打印日志，会打印时间、日志级别、内容
  *
  * @param data 可以是1,2,4,8,16字节的
- * 基本类型，或浮点数，或者QString
+ * 基本类型，或浮点数，或者std::string
  *
  * @return
  */
 private:
 template<typename T>
-const Logger& _log(const T& data) const
+[[nodiscard]] const Logger& _log(const T& data) const
 {
-    qDebug().noquote()
-        << QTime::currentTime().toString()
-        << "[" << _level << "]"
-        << data;
+    std::clog << "[" << _level << "]" << data;
     return *this;
 }
 
@@ -78,8 +71,8 @@ DEFINE_LOGGING_SPECIALIZATION(long long)
 DEFINE_LOGGING_SPECIALIZATION(float)
 DEFINE_LOGGING_SPECIALIZATION(double)
 
-// QString 特化。以上类型若不专门特化一下，是不能当成库函数来用的
-DEFINE_LOGGING_SPECIALIZATION(const QString&);
+// 字符串特化
+DEFINE_LOGGING_SPECIALIZATION(std::string)
 
 #undef DEFINE_LOGGING_SPECIALIZATION
 
@@ -88,7 +81,7 @@ DEFINE_LOGGING_SPECIALIZATION(const QString&);
 
 // 定义相关的宏，方便使用
 #ifndef LOG_INFO
-#define LOG_INFO logging::Logger::info
+#define LOG_INFO ml::Logger::info
 #define LOG_DEBUG logging::Logger::debug
 #define LOG_WARN logging::Logger::warn
 #define LOG_ERROR logging::Logger::error

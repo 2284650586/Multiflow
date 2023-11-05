@@ -1,27 +1,17 @@
 #include "variable.hpp"
 
-namespace expression
-{
+namespace ml {
 
-Variable::Variable(const QString& name, Expression::Number value, const QString& description):
-    Expression(name, description),
-    _value(value)
-{
+Variable::Variable(const std::string &name, const std::string &description) :
+    Expression(name, description) {
 
 }
 
-void Variable::set_value(Expression::Number value)
-{
-    _value = value;
+ml::Number Variable::evaluate(const Environment& env) const {
+    return env.get(_name);
 }
 
-Expression::Number Variable::evaluate() const
-{
-    return _value;
-}
-
-QString Variable::to_string() const
-{
+std::string Variable::to_string() const {
     return _name;
 }
 

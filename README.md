@@ -2,6 +2,12 @@
 
 留空
 
+## Building with CLion
+
+- Use MSVC 2019 as default compiler
+- Use Ninja as default build tool
+- Otherwise, build will fail
+
 ## Versions
 
 | Framework | Version |

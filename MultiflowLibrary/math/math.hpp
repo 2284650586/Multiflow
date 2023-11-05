@@ -1,9 +1,9 @@
 #ifndef MATH_H
 #define MATH_H
 
-#include <stdexcept>
-
 #include "../MultiflowLibrary_global.hpp"
+
+#include <stdexcept>
 
 /**
  * @brief 基本数学操作。包含了一系列保护措施，
@@ -12,12 +12,15 @@
  *
  * @author z
  */
-namespace math
+namespace ml
 {
 
 class ML_PUBLIC math_error : public std::exception {
+private:
+    const char* _what;
 public:
-    explicit math_error(const char* what_arg);
+    explicit math_error(const char* what);
+    const char* what() const override;
 };
 
 /**

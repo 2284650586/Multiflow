@@ -10,6 +10,12 @@ add_library(MultiflowLibrary SHARED
     expression/variable.cpp
     math/math.cpp
     logging/logging.cpp
+    expression/environment.cpp
+    expression/environment.hpp
+    algorithm/algorithm.cpp
+    algorithm/algorithm.hpp
+    utils/type_utils.cpp
+    utils/type_utils.hpp
 )
 
 add_definitions(-DMULTIFLOWLIBRARY_LIBRARY)

@@ -1,14 +1,11 @@
-#ifndef MULTIFLOWLIBRARY_GLOBAL_H
-#define MULTIFLOWLIBRARY_GLOBAL_H
+#pragma once
 
-#include <QtCore/qglobal.h>
+// #include <QtCore/qglobal.h>
 
 #if defined(MULTIFLOWLIBRARY_LIBRARY)
-#  define ML_PUBLIC Q_DECL_EXPORT
+#  define ML_PUBLIC __declspec(dllexport)
 #else
-#  define ML_PUBLIC Q_DECL_IMPORT
+#  define ML_PUBLIC __declspec(dllimport)
 #endif
 
 #define ML_PRIVATE
-
-#endif // MULTIFLOWLIBRARY_GLOBAL_H
