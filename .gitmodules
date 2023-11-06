@@ -2,3 +2,6 @@
 	path = multiflow-backend
 	url = https://github.com/hatsune-miku/multiflow-backend
 	branch = main
+[submodule "yaml-cpp"]
+	path = yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp.git

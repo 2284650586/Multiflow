@@ -65,7 +65,7 @@ std::unique_ptr<ASTNode> LispParser::parseExpression(const std::string &input) {
     auto node = std::make_unique<ASTNode>(NodeType::Function, token);
 
     while (index < input.size() && input[index] != ')') {
-        node->args.push_back(parseElement(input));
+        node->args.push_back(std::move(parseElement(input)));
         consumeWhitespace(input);
     }
 

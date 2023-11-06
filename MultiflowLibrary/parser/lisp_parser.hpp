@@ -20,7 +20,7 @@ enum class NodeType {
 struct ASTNode {
     NodeType type;
     std::string value;
-    std::vector<std::unique_ptr<ASTNode>> args;
+    std::vector<std::shared_ptr<ASTNode>> args;
 
     ASTNode(NodeType t, std::string val);
 

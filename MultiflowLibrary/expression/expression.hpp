@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <algorithm>
+#include <sstream>
 
 namespace ml {
 
@@ -74,3 +76,6 @@ class NotImplementedException : public std::exception {
 };
 
 }
+
+std::string joinArray(const std::vector<std::string>& v, const std::string& delimiter);
+std::string join(const std::vector<ml::Expression>& v, const std::string& delimiter);

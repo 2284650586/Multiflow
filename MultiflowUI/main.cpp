@@ -8,12 +8,16 @@
 
 #include <QQmlApplicationEngine>
 #include <QApplication>
+#include <QQmlContext>
+
 #include "MultiflowLibrary/core/core.hpp"
 #include "MultiflowLibrary/logging/logging.hpp"
 #include <MultiflowLibrary/constants.hpp>
 
+#include <MultiflowLibrary/parser/formula_parser.hpp>
 
 argparse::ArgumentParser prepareParser();
+void initialize();
 void startupUILegacy();
 void startupUI();
 void printVersions();
@@ -45,6 +49,7 @@ int main(int argc, char *argv[]) {
     propertyLegacyUI = parser.get<bool>("--legacy");
     propertyEnableVerbose = parser.get<bool>("--verbose");
 
+    initialize();
     if (propertyLegacyUI) {
         startupUILegacy();
     } else {
@@ -52,17 +57,23 @@ int main(int argc, char *argv[]) {
     }
 
     if (propertyEnableVerbose) {
-        LOG_INFO << "Verbose ml enabled.";
+        LOG_INFO << "Verbose ml enabled.\n";
         printVersions();
     }
 
-    LOG_INFO << "Multiflow UI launched and entered event loop.";
+    LOG_INFO << "Multiflow UI launched and entered event loop.\n";
     int result = a.exec(); // NOLINT(readability-static-accessed-through-instance)
 
     delete gpQmlApplicationEngine;
     delete gpMainWindow;
 
     return result;
+}
+
+void initialize() {
+    ml::FormulaParser parser{};
+    auto formulae = parser.parseDistribution("D:\\dist.yaml");
+    std::copy(formulae.begin(), formulae.end(), std::back_inserter(gFormulae));
 }
 
 void startupUILegacy() {
@@ -76,6 +87,9 @@ void startupUI() {
     // Window shows as the engine create and load.
     gpQmlApplicationEngine = new QQmlApplicationEngine{
         QUrl("qrc:/qml/main.qml"), gpApplication};
+
+    auto* context = gpQmlApplicationEngine->rootContext();
+    context->setContextProperty("gFormulae", QVariant::fromValue(gFormulae));
 }
 
 void printVersions() {

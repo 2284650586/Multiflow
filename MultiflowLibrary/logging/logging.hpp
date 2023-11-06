@@ -52,7 +52,7 @@ private:
 template<typename T>
 [[nodiscard]] const Logger& _log(const T& data) const
 {
-    std::clog << "[" << _level << "]" << data;
+    std::clog << "[" << _level << "] " << data;
     return *this;
 }
 
@@ -66,13 +66,14 @@ DEFINE_LOGGING_SPECIALIZATION(short)
 DEFINE_LOGGING_SPECIALIZATION(int)
 DEFINE_LOGGING_SPECIALIZATION(long)
 DEFINE_LOGGING_SPECIALIZATION(long long)
+DEFINE_LOGGING_SPECIALIZATION(unsigned long long)
 
 // 浮点数特化
 DEFINE_LOGGING_SPECIALIZATION(float)
 DEFINE_LOGGING_SPECIALIZATION(double)
 
-// 字符串特化
-DEFINE_LOGGING_SPECIALIZATION(std::string)
+DEFINE_LOGGING_SPECIALIZATION(const char*)
+DEFINE_LOGGING_SPECIALIZATION(const std::string&)
 
 #undef DEFINE_LOGGING_SPECIALIZATION
 

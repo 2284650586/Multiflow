@@ -7,28 +7,28 @@
 #include "math/math.hpp"
 
 #include <vector>
+#include <numeric>
 
 namespace ml
 {
-    Divide::Divide(const Expression& x, const Expression& y):
-        Expression("Divide", "Divide"),
-        _x(x),
-        _y(y)
-    {
+    Divide::Divide(std::vector<Expression> operands)
+        : Expression("Divide", "Divide"), _operands(std::move(operands)) {}
 
+    ml::Number Divide::evaluate(const Environment &env) const {
+        auto first = _operands.begin();
+        Number firstValue = first->evaluate(env);
+        return std::accumulate(
+            ++first, _operands.end(),
+            firstValue, [env] (Number acc, const Expression& v) {
+                return ml::divide(acc, v.evaluate(env));
+            });
     }
 
-    ml::Number Divide::evaluate(const Environment& env) const
-    {
-        return ml::divide(_x.evaluate(env), _y.evaluate(env));
-    }
-
-    std::string Divide::to_string() const
-    {
-        return "(" + _x.to_string() + " / " + _y.to_string() + ")";
+    std::string Divide::to_string() const {
+        return join(_operands, " / ");
     }
 
     std::vector<Expression> Divide::operands() const {
-        return std::vector<Expression>{ _x, _y };
+        return _operands;
     }
 }

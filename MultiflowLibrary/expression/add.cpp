@@ -3,32 +3,25 @@
 #include "math/math.hpp"
 
 #include <vector>
+#include <numeric>
 
-namespace ml
-{
+namespace ml {
+    Add::Add(std::vector<Expression> operands)
+        : Expression("Add", "Add"), _operands(std::move(operands)) {}
 
-Add::Add(const Expression& x, const Expression& y):
-    Expression("Add", "Add"),
-    _x(x),
-    _y(y)
-{
+    ml::Number Add::evaluate(const Environment &env) const {
+        return std::accumulate(
+            _operands.begin(), _operands.end(),
+            static_cast<ml::Number>(0), [env] (Number acc, const Expression& v) {
+            return ml::add(acc, v.evaluate(env));
+        });
+    }
 
-}
+    std::string Add::to_string() const {
+        return join(_operands, " + ");
+    }
 
-ml::Number Add::evaluate(const Environment& env) const
-{
-    // 哪怕是最最基本的两数相加，也将其逻辑抽离开来，放到math模块中
-    // 也许未来会需要引入大整数等操作呢
-    return ml::add(_x.evaluate(env), _y.evaluate(env));
-}
-
-std::string Add::to_string() const
-{
-    return "(" + _x.to_string() + " + " + _y.to_string() + ")";
-}
-
-std::vector<Expression> Add::operands() const {
-    return std::vector<Expression>{ _x, _y };
-}
-
+    std::vector<Expression> Add::operands() const {
+        return _operands;
+    }
 }

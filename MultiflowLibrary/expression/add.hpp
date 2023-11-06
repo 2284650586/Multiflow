@@ -8,20 +8,13 @@
 
 namespace ml
 {
-
-/**
- * @brief 加法表达式，指示两个表达式相加
- *
- * @author z
- */
 class ML_PUBLIC Add: public Expression
 {
 private:
-    const Expression& _x;
-    const Expression& _y;
+    std::vector<Expression> _operands;
 
 public:
-    Add(const Expression& x, const Expression& y);
+    Add(std::vector<Expression> _operands);
 
     /**
      * @brief 计算相加结果

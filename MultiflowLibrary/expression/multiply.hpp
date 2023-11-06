@@ -12,26 +12,21 @@
 
 namespace ml
 {
-
-/**
- * @brief 加法表达式，指示两个表达式相加
- *
- * @author z
- */
     class ML_PUBLIC Multiply: public Expression
     {
     private:
-        const Expression& _x;
-        const Expression& _y;
+        std::vector<Expression> _operands;
 
     public:
-        Multiply(const Expression& x, const Expression& y);
+        Multiply(std::vector<Expression>_operands);
 
-        ml::Number evaluate(const Environment& env) const override;
+        /**
+         * @brief 计算相加结果
+         */
+        ml::Number evaluate(const Environment &env) const override;
 
         std::string to_string() const override;
 
         std::vector<Expression> operands() const override;
     };
-
 }

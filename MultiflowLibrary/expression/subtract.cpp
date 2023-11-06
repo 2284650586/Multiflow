@@ -7,28 +7,27 @@
 #include "math/math.hpp"
 
 #include <vector>
+#include <numeric>
 
-namespace ml
-{
-    Subtract::Subtract(const Expression& x, const Expression& y):
-        Expression("Subtract", "Subtract"),
-        _x(x),
-        _y(y)
-    {
+namespace ml {
+    Subtract::Subtract(std::vector<Expression> operands)
+        : Expression("Subtract", "Subtract"), _operands(std::move(operands)) {}
 
+    ml::Number Subtract::evaluate(const Environment &env) const {
+        auto first = _operands.begin();
+        Number firstValue = first->evaluate(env);
+        return std::accumulate(
+            ++first, _operands.end(),
+            firstValue, [env] (Number acc, const Expression& v) {
+                return ml::subtract(acc, v.evaluate(env));
+            });
     }
 
-    ml::Number Subtract::evaluate(const Environment& env) const
-    {
-        return ml::subtract(_x.evaluate(env), _y.evaluate(env));
-    }
-
-    std::string Subtract::to_string() const
-    {
-        return "(" + _x.to_string() + " - " + _y.to_string() + ")";
+    std::string Subtract::to_string() const {
+        return join(_operands, " - ");
     }
 
     std::vector<Expression> Subtract::operands() const {
-        return std::vector<Expression>{ _x, _y };
+        return _operands;
     }
 }

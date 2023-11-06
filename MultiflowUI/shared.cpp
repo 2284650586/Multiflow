@@ -6,3 +6,4 @@ bool propertyEnableVerbose = false;
 QApplication* gpApplication = nullptr;
 QQmlApplicationEngine* gpQmlApplicationEngine = nullptr;
 QMainWindow* gpMainWindow = nullptr;
+QVector<ml::Formula> gFormulae{};

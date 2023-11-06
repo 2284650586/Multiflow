@@ -38,6 +38,8 @@ set(SOURCE_FILES
     resources.qrc
     qml/main.cpp
     qml/utils/UIUtils.cpp
+        qml/model/qml_formula.cpp
+        qml/model/qml_formula.hpp
 )
 
 include_directories(

@@ -11,28 +11,21 @@
 #include <string>
 #include <vector>
 
-namespace ml
-{
-
-/**
- * @brief 加法表达式，指示两个表达式相加
- *
- * @author z
- */
-    class ML_PUBLIC Divide: public Expression
-    {
+namespace ml {
+    class ML_PUBLIC Divide : public Expression {
     private:
-        const Expression& _x;
-        const Expression& _y;
+        std::vector<Expression> _operands;
 
     public:
-        Divide(const Expression& x, const Expression& y);
+        Divide(std::vector<Expression>_operands);
 
-        ml::Number evaluate(const Environment& env) const override;
+        /**
+         * @brief 计算相加结果
+         */
+        ml::Number evaluate(const Environment &env) const override;
 
         std::string to_string() const override;
 
         std::vector<Expression> operands() const override;
     };
-
 }

@@ -19,7 +19,7 @@ private:
     ml::Number _value;
 
 public:
-    Constant(const std::string& name, ml::Number value, const std::string& description);
+    Constant(const std::string& name, const std::string& description, ml::Number value);
 
     /**
      * @brief 常数表达式的求值，自然就是常数本身
