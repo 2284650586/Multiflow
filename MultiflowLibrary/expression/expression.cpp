@@ -35,7 +35,7 @@ const std::string& Expression::description() const
     return _description;
 }
 
-const std::vector<Expression> Expression::operands() const {
+std::vector<Expression> Expression::operands() const {
     throw NotImplementedException();
 }
 

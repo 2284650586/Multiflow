@@ -16,6 +16,16 @@ add_library(MultiflowLibrary SHARED
     algorithm/algorithm.hpp
     utils/type_utils.cpp
     utils/type_utils.hpp
+    expression/multiply.cpp
+    expression/multiply.hpp
+    expression/divide.cpp
+    expression/divide.hpp
+        expression/subtract.cpp
+        expression/subtract.hpp
+        expression/minus.cpp
+        expression/minus.hpp
+        parser/lisp_parser.cpp
+        parser/lisp_parser.hpp
 )
 
 add_definitions(-DMULTIFLOWLIBRARY_LIBRARY)

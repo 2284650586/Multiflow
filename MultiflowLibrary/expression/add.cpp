@@ -27,7 +27,7 @@ std::string Add::to_string() const
     return "(" + _x.to_string() + " + " + _y.to_string() + ")";
 }
 
-const std::vector<Expression> Add::operands() const {
+std::vector<Expression> Add::operands() const {
     return std::vector<Expression>{ _x, _y };
 }
 

@@ -1,5 +1,4 @@
-#ifndef ADD_H
-#define ADD_H
+#pragma once
 
 #include "../MultiflowLibrary_global.hpp"
 #include "expression.hpp"
@@ -31,9 +30,7 @@ public:
 
     std::string to_string() const override;
 
-    const std::vector<Expression> operands() const override;
+    std::vector<Expression> operands() const override;
 };
 
 }
-
-#endif // ADD_H

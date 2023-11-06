@@ -67,7 +67,7 @@ public:
     /**
      * @return 表达式中的所有操作数
      */
-    virtual const std::vector<Expression> operands() const;
+    virtual std::vector<Expression> operands() const;
 };
 
 class NotImplementedException : public std::exception {
