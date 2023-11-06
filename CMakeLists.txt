@@ -42,5 +42,14 @@ FetchContent_MakeAvailable(yaml-cpp)
 find_package(yaml-cpp)
 include_directories(${yaml-cpp_SOURCE_DIR}/include)
 
+# Include spdlog
+FetchContent_Declare(
+    spdlog
+    URL https://github.com/gabime/spdlog/archive/refs/tags/v1.12.0.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP 1
+)
+FetchContent_MakeAvailable(spdlog)
+include_directories(${spdlog_SOURCE_DIR}/include)
+
 add_subdirectory(MultiflowLibrary)
 add_subdirectory(MultiflowUI)

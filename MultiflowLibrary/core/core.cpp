@@ -2,7 +2,5 @@
 #include "logging/logging.hpp"
 
 void ml::initialize() {
-    ml::Logger::_initialize();
-
-    LOG_INFO << "Multiflow Core Library Initialized.\n";
+    info("Multiflow Core Library Initialized.");
 }

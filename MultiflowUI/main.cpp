@@ -56,11 +56,12 @@ int main(int argc, char *argv[]) {
     }
 
     if (propertyEnableVerbose) {
-        LOG_INFO << "Verbose ml enabled.\n";
+        trace("Verbose ml enabled.");
         printVersions();
     }
 
-    LOG_INFO << "Multiflow UI launched and entered event loop.\n";
+    info("Multiflow UI launched and entered event loop.");
+
     int result = a.exec(); // NOLINT(readability-static-accessed-through-instance)
 
     delete gpQmlApplicationEngine;
