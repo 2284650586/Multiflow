@@ -6,18 +6,20 @@
 
 #include "math/math.hpp"
 
+#include <utility>
 #include <vector>
 #include <numeric>
 
-namespace ml {
-    Multiply::Multiply(std::vector<Expression> operands)
+namespace ml
+{
+    Multiply::Multiply(std::vector<std::shared_ptr<Expression>> operands)
         : Expression("Multiply", "Multiply"), _operands(std::move(operands)) {}
 
     ml::Number Multiply::evaluate(const Environment &env) const {
         return std::accumulate(
             _operands.begin(), _operands.end(),
-            static_cast<ml::Number>(1), [env](Number acc, const Expression &v) {
-                return ml::multiply(acc, v.evaluate(env));
+            static_cast<Number>(1), [env] (Number acc, const std::shared_ptr<Expression>& v) {
+                return ml::multiply(acc, v->evaluate(env));
             });
     }
 
@@ -25,7 +27,7 @@ namespace ml {
         return join(_operands, " * ");
     }
 
-    std::vector<Expression> Multiply::operands() const {
+    std::vector<std::shared_ptr<Expression>> Multiply::operands() const {
         return _operands;
     }
 }

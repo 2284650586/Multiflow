@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "MultiflowLibrary_global.hpp"
+
 #include <iostream>
 #include <memory>
 #include <string>
@@ -11,13 +13,13 @@
 #include <cctype>
 #include <stdexcept>
 
-enum class NodeType {
+enum class ML_PUBLIC NodeType {
     Function,
     Constant,
     Variable
 };
 
-struct ASTNode {
+struct ML_PUBLIC ASTNode {
     NodeType type;
     std::string value;
     std::vector<std::shared_ptr<ASTNode>> args;
@@ -28,7 +30,7 @@ struct ASTNode {
 };
 
 
-class LispParser {
+class ML_PUBLIC LispParser {
 public:
     std::unique_ptr<ASTNode> parse(const std::string& input);
 

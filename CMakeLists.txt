@@ -27,5 +27,20 @@ find_package(Qt6 REQUIRED COMPONENTS Core)
 qt_standard_project_setup()
 set(CMAKE_AUTORCC ON)
 
+include(FetchContent)
+cmake_policy(SET CMP0135 NEW)
+
+include_directories(MultiflowLibrary MultiflowUI)
+
+# Include yaml-cpp
+FetchContent_Declare(
+    yaml-cpp
+    URL https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.8.0.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP 1
+)
+FetchContent_MakeAvailable(yaml-cpp)
+find_package(yaml-cpp)
+include_directories(${yaml-cpp_SOURCE_DIR}/include)
+
 add_subdirectory(MultiflowLibrary)
 add_subdirectory(MultiflowUI)

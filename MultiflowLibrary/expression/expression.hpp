@@ -44,6 +44,7 @@ public:
      * @param environment 未知数的实际值的表
      * @return 求值结果
      */
+    [[nodiscard]]
     virtual ml::Number evaluate(const Environment& env) const;
 
     /**
@@ -54,22 +55,26 @@ public:
      *
      * @return 字符串描述
      */
+    [[nodiscard]]
     virtual std::string to_string() const;
 
     /**
      * @return 表达式所代表的量的意义
      */
+    [[nodiscard]]
     virtual const std::string &name() const;
 
     /**
      * @return 对表达式的更详细的描述
      */
+    [[nodiscard]]
     virtual const std::string &description() const;
 
     /**
      * @return 表达式中的所有操作数
      */
-    virtual std::vector<Expression> operands() const;
+    [[nodiscard]]
+    virtual std::vector<std::shared_ptr<Expression>> operands() const;
 };
 
 class NotImplementedException : public std::exception {
@@ -78,4 +83,4 @@ class NotImplementedException : public std::exception {
 }
 
 std::string joinArray(const std::vector<std::string>& v, const std::string& delimiter);
-std::string join(const std::vector<ml::Expression>& v, const std::string& delimiter);
+std::string join(const std::vector<std::shared_ptr<ml::Expression> >& v, const std::string& delimiter);

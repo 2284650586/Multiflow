@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "MultiflowLibrary_global.hpp"
+
 #include "formula/formula.hpp"
 #include "lisp_parser.hpp"
 
@@ -16,51 +18,55 @@
 
 namespace ml {
 
-struct VariableInfo {
-    std::string name;
-    std::string description;
-    std::string type;
+    struct ML_PUBLIC VariableInfo {
+        std::string name;
+        std::string description;
+        std::string type;
 
-    static VariableInfo fromYaml(const YAML::Node& node);
-};
+        static VariableInfo fromYaml(const YAML::Node &node);
+    };
 
-struct ConstantInfo {
-    std::string name;
-    std::string description;
-    Number value;
+    struct ML_PUBLIC ConstantInfo {
+        std::string name;
+        std::string description;
+        Number value;
 
-    static ConstantInfo fromYaml(const YAML::Node& node);
-};
+        static ConstantInfo fromYaml(const YAML::Node &node);
+    };
 
-struct FormulaInfo {
-    std::string name;
-    std::string description;
-    std::string expression;
-    std::vector<VariableInfo> variables;
-    std::vector<ConstantInfo> constants;
+    struct ML_PUBLIC FormulaInfo {
+        std::string name;
+        std::string description;
+        std::string expression;
+        std::vector<VariableInfo> variables;
+        std::vector<ConstantInfo> constants;
 
-    static FormulaInfo fromYaml(const YAML::Node& node);
-};
+        static FormulaInfo fromYaml(const YAML::Node &node);
+    };
 
-class FormulaParser {
-private:
-    std::unordered_map<std::string, std::string> variableMap;
-    std::unordered_map<std::string, ConstantInfo> constantMap;
+    class ML_PUBLIC FormulaParser {
+    private:
+        std::unordered_map<std::string, std::string> variableNameToDescription;
+        std::unordered_map<std::string, ConstantInfo> constantNameToDescription;
 
-public:
-    explicit FormulaParser() = default;
-    virtual ~FormulaParser() = default;
+    public:
+        explicit FormulaParser() = default;
 
-    [[nodiscard]]
-    std::vector<Formula> parseDistribution(const YAML::Node& config);
+        virtual ~FormulaParser() = default;
 
-    [[nodiscard]]
-    std::vector<Formula> parseDistribution(const std::string& configPath);
+        [[nodiscard]]
+        std::vector<Formula> parseDistribution(const YAML::Node &config);
 
-    std::shared_ptr<Expression> _internalTraverseAst(const std::shared_ptr<ASTNode>& root);
-};
+        [[nodiscard]]
+        std::vector<Formula> loadDistribution(const std::string &configPath);
 
-class MalformedDistException : public std::exception {};
-class FunctionNotDefinedException : public std::exception {};
+        std::shared_ptr<Expression> _internalTraverseAst(const std::shared_ptr<ASTNode> &root);
+    };
+
+    class MalformedDistException : public std::exception {
+    };
+
+    class FunctionNotDefinedException : public std::exception {
+    };
 
 }

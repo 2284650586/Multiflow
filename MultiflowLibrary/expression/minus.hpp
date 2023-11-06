@@ -10,15 +10,18 @@ namespace ml {
 
 class Minus : public Expression {
 private:
-    const Expression& _v;
+    const std::shared_ptr<Expression> _v;
 
 public:
-    Minus(const Expression& v);
+    explicit Minus(std::shared_ptr<Expression> v);
 
+    [[nodiscard]]
     ml::Number evaluate(const ml::Environment &env) const override;
 
-    std::vector<Expression> operands() const override;
+    [[nodiscard]]
+    std::vector<std::shared_ptr<Expression>> operands() const override;
 
+    [[nodiscard]]
     std::string to_string() const override;
 };
 

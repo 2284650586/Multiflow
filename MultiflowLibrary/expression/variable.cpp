@@ -3,9 +3,7 @@
 namespace ml {
 
 Variable::Variable(const std::string &name, const std::string &description) :
-    Expression(name, description) {
-
-}
+    Expression(name, description) {}
 
 ml::Number Variable::evaluate(const Environment& env) const {
     return env.get(_name);

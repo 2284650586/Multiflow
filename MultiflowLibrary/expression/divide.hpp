@@ -4,7 +4,6 @@
 
 #pragma once
 
-
 #include "../MultiflowLibrary_global.hpp"
 #include "expression.hpp"
 
@@ -14,18 +13,18 @@
 namespace ml {
     class ML_PUBLIC Divide : public Expression {
     private:
-        std::vector<Expression> _operands;
+        std::vector<std::shared_ptr<Expression>> _operands;
 
     public:
-        Divide(std::vector<Expression>_operands);
+        explicit Divide(std::vector<std::shared_ptr<Expression>> _operands);
 
-        /**
-         * @brief 计算相加结果
-         */
+        [[nodiscard]]
         ml::Number evaluate(const Environment &env) const override;
 
+        [[nodiscard]]
         std::string to_string() const override;
 
-        std::vector<Expression> operands() const override;
+        [[nodiscard]]
+        std::vector<std::shared_ptr<Expression>> operands() const override;
     };
 }

@@ -6,24 +6,21 @@
 #include <string>
 #include <vector>
 
-namespace ml
-{
-class ML_PUBLIC Add: public Expression
-{
-private:
-    std::vector<Expression> _operands;
+namespace ml {
+    class ML_PUBLIC Add : public Expression {
+    private:
+        std::vector<std::shared_ptr<Expression>> _operands;
 
-public:
-    Add(std::vector<Expression> _operands);
+    public:
+        explicit Add(std::vector<std::shared_ptr<Expression>> _operands);
 
-    /**
-     * @brief 计算相加结果
-     */
-    ml::Number evaluate(const Environment& env) const override;
+        [[nodiscard]]
+        ml::Number evaluate(const Environment &env) const override;
 
-    std::string to_string() const override;
+        [[nodiscard]]
+        std::string to_string() const override;
 
-    std::vector<Expression> operands() const override;
-};
-
+        [[nodiscard]]
+        std::vector<std::shared_ptr<Expression>> operands() const override;
+    };
 }

@@ -12,7 +12,6 @@
 
 #include "MultiflowLibrary/core/core.hpp"
 #include "MultiflowLibrary/logging/logging.hpp"
-#include <MultiflowLibrary/constants.hpp>
 
 #include <MultiflowLibrary/parser/formula_parser.hpp>
 
@@ -72,7 +71,7 @@ int main(int argc, char *argv[]) {
 
 void initialize() {
     ml::FormulaParser parser{};
-    auto formulae = parser.parseDistribution("D:\\dist.yaml");
+    auto formulae = parser.loadDistribution("D:\\dist.yaml");
     std::copy(formulae.begin(), formulae.end(), std::back_inserter(gFormulae));
 }
 
@@ -89,12 +88,11 @@ void startupUI() {
         QUrl("qrc:/qml/main.qml"), gpApplication};
 
     auto* context = gpQmlApplicationEngine->rootContext();
-    context->setContextProperty("gFormulae", QVariant::fromValue(gFormulae));
+    // context->setContextProperty("gFormulae", QVariant::fromValue(gFormulae));
 }
 
 void printVersions() {
-    std::cout << "MultiflowLibrary version " << ml::Version << std::endl;
-    std::cout << "Multiflow UI version " << Version << std::endl;
+    std::cout << "Multiflow version " << Version << std::endl;
 }
 
 argparse::ArgumentParser prepareParser() {

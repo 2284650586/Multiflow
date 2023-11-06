@@ -10,20 +10,22 @@
 #include "expression/multiply.hpp"
 #include "expression/divide.hpp"
 
+#include <memory>
 #include <string>
 #include <utility>
 #include <vector>
+#include <functional>
 
 namespace ml {
-    static std::vector<Expression> expressionsFromAstNodes(
+    static std::vector<std::shared_ptr<Expression> > expressionsFromAstNodes(
         FormulaParser &parser,
         const std::vector<std::shared_ptr<ASTNode>> &v
     ) {
-        std::vector<Expression> ret{};
+        std::vector<std::shared_ptr<Expression> > ret{};
 
         std::transform(v.begin(), v.end(), std::back_inserter(ret),
                        [&parser](const std::shared_ptr<ASTNode> &node) {
-                           return *parser._internalTraverseAst(node);
+                           return parser._internalTraverseAst(node);
                        });
         return ret;
     }
@@ -34,20 +36,20 @@ namespace ml {
             std::vector<std::string>,
 
             /* Function */
-            std::shared_ptr<Expression> (*)(FormulaParser &, const std::vector<std::shared_ptr<ASTNode>> &)
+            std::function<std::shared_ptr<Expression>(FormulaParser &, const std::vector<std::shared_ptr<ASTNode>> &)>
         >
     > functionMap{
         {{"+", "Add"},         [](FormulaParser &parser, const auto &args) {
-            return std::shared_ptr<Expression>{new Add{expressionsFromAstNodes(parser, args)}};
+            return std::make_shared<Add>(expressionsFromAstNodes(parser, args));
         }},
         {{"-", "Sub"},         [](FormulaParser &parser, const auto &args) {
-            return std::shared_ptr<Expression>{new Subtract{expressionsFromAstNodes(parser, args)}};
+            return std::make_shared<Subtract>(expressionsFromAstNodes(parser, args));
         }},
         {{"*", "Mul", "Mult"}, [](FormulaParser &parser, const auto &args) {
-            return std::shared_ptr<Expression>{new Multiply{expressionsFromAstNodes(parser, args)}};
+            return std::make_shared<Multiply>(expressionsFromAstNodes(parser, args));
         }},
         {{"/", "Div"},         [](FormulaParser &parser, const auto &args) {
-            return std::shared_ptr<Expression>{new Divide{expressionsFromAstNodes(parser, args)}};
+            return std::make_shared<Divide>(expressionsFromAstNodes(parser, args));
         }},
     };
 
@@ -58,18 +60,24 @@ namespace ml {
                 for (auto pair: functionMap) {
                     if (std::ranges::any_of(pair.first,
                                             [functionName](const std::string &fn) { return fn == functionName; })) {
-                        return pair.second(*this, root->args);
+                        auto ptr = pair.second(*this, root->args);
+                        return ptr;
                     }
                 }
                 throw FunctionNotDefinedException();
             }
             case NodeType::Variable: {
                 const std::string &variableName = root->value;
-                return std::make_shared<Variable>(variableName, variableMap[variableName]);
+                // Check if variable is a constant.
+                if (constantNameToDescription.contains(variableName)) {
+                    root->type = NodeType::Constant;
+                    return _internalTraverseAst(root);
+                }
+                return std::make_shared<Variable>(variableName, variableNameToDescription[variableName]);
             }
             case NodeType::Constant: {
                 const std::string &constantName = root->value;
-                const auto &constantInfo = constantMap[constantName];
+                const auto &constantInfo = constantNameToDescription[constantName];
                 return std::make_shared<Constant>(constantName, constantInfo.description, constantInfo.value);
             }
             default: {
@@ -78,7 +86,7 @@ namespace ml {
         }
     }
 
-    std::vector<Formula> FormulaParser::parseDistribution(const std::string& configPath) {
+    std::vector<Formula> FormulaParser::loadDistribution(const std::string &configPath) {
         YAML::Node config = YAML::LoadFile(configPath);
         return parseDistribution(config);
     }
@@ -101,19 +109,19 @@ namespace ml {
             auto formulaInfo = FormulaInfo::fromYaml(formula);
 
             // Build variable map.
-            variableMap.clear();
+            variableNameToDescription.clear();
             std::for_each(
                 formulaInfo.variables.begin(), formulaInfo.variables.end(),
                 [this](const VariableInfo &info) {
-                    variableMap[info.name] = info.description;
+                    variableNameToDescription[info.name] = info.description;
                 });
 
             // Build constant map.
-            constantMap.clear();
+            constantNameToDescription.clear();
             std::for_each(
                 formulaInfo.constants.begin(), formulaInfo.constants.end(),
                 [this](const ConstantInfo &info) {
-                    constantMap[info.name] = info;
+                    constantNameToDescription[info.name] = info;
                 });
 
             LispParser lispParser{};
@@ -122,7 +130,7 @@ namespace ml {
 
             // Traverse AST and build expression.
             auto expression = _internalTraverseAst(ast);
-            ret.emplace_back(formulaInfo.name, formulaInfo.description, *expression);
+            ret.emplace_back(formulaInfo.name, formulaInfo.description, expression);
         }
         return ret;
     }

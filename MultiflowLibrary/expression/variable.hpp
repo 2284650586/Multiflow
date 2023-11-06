@@ -15,16 +15,13 @@ namespace ml
  */
 class ML_PUBLIC Variable: public Expression
 {
-private:
-    /**
-     * @brief 参数名
-     */
-    std::string _name;
-
 public:
     Variable(const std::string& name, const std::string& description);
 
+    [[nodiscard]]
     ml::Number evaluate(const Environment& env) const override;
+
+    [[nodiscard]]
     std::string to_string() const override;
 };
 
