@@ -9,39 +9,29 @@ ApplicationWindow {
     height: 480
     visible: true
     title: "Multiflow"
+    menuBar: MenuBar {
+        Menu {
+            title: "文件(&F)"
 
-    ListView {
-        anchors.fill: parent
-        model: windowMain.formulae
+            MenuItem {
+                text: "退出(&E)"
+                onTriggered: handleExit()
+            }
+        }
 
-        delegate: Rectangle {
-            width: parent.width
-            height: 50
-            color: "lightblue"
+        Menu {
+            title: "工具(&U)"
 
-            Text {
-                text: modelData.name + " ~ " + modelData.description + " ~ " + modelData.expression.name
-                anchors.centerIn: parent
+            MenuItem {
+                text: "打开公式查看器(&F)"
+                onTriggered: vmWindowMain.onFormulaViewerButtonClicked()
             }
         }
     }
 
-    TextField {
-        id: input
-        anchors.centerIn: parent
-    }
-
-    Button {
-        text: input.text
-        anchors.bottom: parent.bottom
-        leftPadding: 24
-        rightPadding: 24
-        topPadding: 12
-        bottomPadding: 12
-        onClicked: {
-            if (UIUtils.confirm("确认要退出 Multiflow 吗？", "退出", "取消")) {
-                window.close()
-            }
+    function handleExit() {
+        if (UIUtils.confirm("确认要退出 Multiflow 吗？", "退出", "取消")) {
+            window.close()
         }
     }
 }

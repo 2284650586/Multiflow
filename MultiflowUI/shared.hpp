@@ -30,3 +30,4 @@ extern std::unique_ptr<QMainWindow> gpMainWindow;
 
 extern QVector<ml::Formula> gFormulae;
 extern std::unique_ptr<QObject> gpWindowMain;
+extern std::unique_ptr<QObject> gpWindowFormulaViewer;

@@ -3,31 +3,23 @@
 //
 
 #include "window_main.hpp"
+#include "window_formula_viewer.hpp"
 #include "shared.hpp"
 
 #include <QUrl>
 
-#include <memory>
+namespace qml {
 
-qml::WindowMain::WindowMain(QObject *parent) {
-    // Window shows as the engine create and load.
-    gpQmlApplicationEngine = std::make_unique<QQmlApplicationEngine>(
-        gpApplication.get());
+WindowMain::WindowMain(QObject* parent) {
+    gpQmlApplicationEngine->rootContext()->setContextProperty(
+        "vmWindowMain", this);
 
-    std::transform(
-        gFormulae.begin(), gFormulae.end(), std::back_inserter(_qmlFormulae),
-        [](const auto& formula) { return QmlFormula{formula}; });
-
-    auto* context = gpQmlApplicationEngine->rootContext();
-    context->setContextProperty("windowMain", this);
-
+    // Window shows as the engine loads.
     gpQmlApplicationEngine->load(QUrl("qrc:/qml/main.qml"));
 }
 
-QVariantList qml::WindowMain::formulae() const {
-    QVariantList ret{};
-    for (const QmlFormula& f : _qmlFormulae) {
-        ret << QVariant::fromValue(f);
-    }
-    return ret;
+void WindowMain::onFormulaViewerButtonClicked() {
+    gpWindowFormulaViewer = std::make_unique<WindowFormulaViewer>();
+}
+
 }

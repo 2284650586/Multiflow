@@ -17,5 +17,6 @@
         <file>resources/image/header.png</file>
         <file>resources/image/PCP.png</file>
         <file>qml/main.qml</file>
+        <file>qml/components/formula_viewer.qml</file>
     </qresource>
 </RCC>

@@ -1,5 +1,4 @@
-#ifndef VARIABLE_H
-#define VARIABLE_H
+#pragma once
 
 #include "../MultiflowLibrary_global.hpp"
 #include "expression.hpp"
@@ -26,5 +25,3 @@ public:
 };
 
 }
-
-#endif // VARIABLE_H

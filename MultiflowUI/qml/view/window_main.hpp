@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "qml/model/qml_formula.hpp"
-
 #include <QObject>
 #include <QQmlApplicationEngine>
 #include <QApplication>
@@ -15,16 +13,13 @@ namespace qml {
 
 class WindowMain: public QObject {
 Q_OBJECT
-Q_PROPERTY(QVariantList formulae READ formulae)
 
 public:
     explicit WindowMain(QObject *parent = nullptr);
     ~WindowMain() override = default;
 
-    QVariantList formulae() const;
-
-private:
-    QVector<QmlFormula> _qmlFormulae;
+public slots:
+    void onFormulaViewerButtonClicked();
 };
 
 }
