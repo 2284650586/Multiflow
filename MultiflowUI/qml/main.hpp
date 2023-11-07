@@ -2,7 +2,8 @@
 
 #include <QQmlApplicationEngine>
 #include <QApplication>
+#include <QQmlContext>
 
 namespace qml {
-    void registerQmlComponents();
+    void start();
 }

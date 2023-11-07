@@ -1,11 +1,14 @@
 #pragma once
 
+#include "MultiflowLibrary/formula/formula.hpp"
+
+#include <QObject>
 #include <QMainWindow>
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QVector>
 
-#include "MultiflowLibrary/formula/formula.hpp"
+#include <memory>
 
 enum MultiflowKind {
     Well,
@@ -18,11 +21,12 @@ enum MultiflowKind {
     NONETYPE
 };
 
-extern bool                     propertyLegacyUI;
-extern bool                     propertyEnableVerbose;
+extern bool propertyLegacyUI;
+extern bool propertyEnableVerbose;
 
-extern QApplication*            gpApplication;
-extern QQmlApplicationEngine*   gpQmlApplicationEngine;
-extern QMainWindow*             gpMainWindow;
+extern std::unique_ptr<QApplication> gpApplication;
+extern std::unique_ptr<QQmlApplicationEngine> gpQmlApplicationEngine;
+extern std::unique_ptr<QMainWindow> gpMainWindow;
 
-extern QVector<ml::Formula>     gFormulae;
+extern QVector<ml::Formula> gFormulae;
+extern std::unique_ptr<QObject> gpWindowMain;

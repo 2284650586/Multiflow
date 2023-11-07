@@ -6,14 +6,12 @@
 #include "constants.hpp"
 #include "qml/main.hpp"
 
-#include <QQmlApplicationEngine>
-#include <QApplication>
-#include <QQmlContext>
-
 #include "MultiflowLibrary/core/core.hpp"
 #include "MultiflowLibrary/logging/logging.hpp"
 
 #include <MultiflowLibrary/parser/formula_parser.hpp>
+
+#include <memory>
 
 argparse::ArgumentParser prepareParser();
 void initialize();
@@ -28,7 +26,7 @@ static constexpr int ErrorInvalidArgument = 1;
 int main(int argc, char *argv[]) {
     ml::initialize();
     QApplication a(argc, argv);
-    gpApplication = &a;
+    gpApplication = std::unique_ptr<QApplication>(&a);
 
     auto parser = prepareParser();
     try {
@@ -64,32 +62,23 @@ int main(int argc, char *argv[]) {
 
     int result = a.exec(); // NOLINT(readability-static-accessed-through-instance)
 
-    delete gpQmlApplicationEngine;
-    delete gpMainWindow;
-
     return result;
 }
 
 void initialize() {
     ml::FormulaParser parser{};
     auto formulae = parser.loadDistribution("D:\\dist.yaml");
+    info("Loaded {} formula(e).", formulae.size());
     std::copy(formulae.begin(), formulae.end(), std::back_inserter(gFormulae));
 }
 
 void startupUILegacy() {
-    gpMainWindow = new MainWindow{};
+    gpMainWindow = std::make_unique<MainWindow>();
     gpMainWindow->show();
 }
 
 void startupUI() {
-    qml::registerQmlComponents();
-
-    // Window shows as the engine create and load.
-    gpQmlApplicationEngine = new QQmlApplicationEngine{
-        QUrl("qrc:/qml/main.qml"), gpApplication};
-
-    auto* context = gpQmlApplicationEngine->rootContext();
-    // context->setContextProperty("gFormulae", QVariant::fromValue(gFormulae));
+    qml::start();
 }
 
 void printVersions() {

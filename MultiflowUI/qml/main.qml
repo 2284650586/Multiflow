@@ -10,9 +10,30 @@ ApplicationWindow {
     visible: true
     title: "Multiflow"
 
-    Button {
-        text: "嘟嘟嘟"
+    ListView {
+        anchors.fill: parent
+        model: windowMain.formulae
+
+        delegate: Rectangle {
+            width: parent.width
+            height: 50
+            color: "lightblue"
+
+            Text {
+                text: modelData.name + " ~ " + modelData.description + " ~ " + modelData.expression.name
+                anchors.centerIn: parent
+            }
+        }
+    }
+
+    TextField {
+        id: input
         anchors.centerIn: parent
+    }
+
+    Button {
+        text: input.text
+        anchors.bottom: parent.bottom
         leftPadding: 24
         rightPadding: 24
         topPadding: 12

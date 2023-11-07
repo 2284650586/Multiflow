@@ -38,14 +38,18 @@ set(SOURCE_FILES
     resources.qrc
     qml/main.cpp
     qml/utils/UIUtils.cpp
-        qml/model/qml_formula.cpp
-        qml/model/qml_formula.hpp
+    qml/model/qml_formula.cpp
+    qml/model/qml_formula.hpp
+    qml/view/window_main.cpp
+    qml/view/window_main.hpp
+    qml/model/qml_expression.cpp
+    qml/model/qml_expression.hpp
 )
 
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR} 
+    ${CMAKE_CURRENT_SOURCE_DIR}
     PRIVATE
-        ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
     ../
 )
 
@@ -59,9 +63,9 @@ qt_add_qml_module(
     URI qml.main
     RESOURCE_PREFIX qml
     QML_FILES
-        ${QML_SRC}
+    ${QML_SRC}
     RESOURCES
-        resources.qrc
+    resources.qrc
 )
 
 target_link_libraries(
