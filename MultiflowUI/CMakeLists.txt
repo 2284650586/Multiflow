@@ -3,9 +3,13 @@ cmake_minimum_required(VERSION 3.16)
 find_package(
     Qt6 6.5
     COMPONENTS Core Gui Charts Widgets
-    Quick QuickWidgets
+    Quick QuickWidgets QuickControls2
     REQUIRED
 )
+
+qt_standard_project_setup()
+set(CMAKE_AUTORCC ON)
+
 aux_source_directory(entity ENTITY)
 aux_source_directory(entity/component/flowline ENTITY_FLOWLINE)
 aux_source_directory(entity/component/well ENTITY_WELL)
@@ -44,6 +48,8 @@ set(SOURCE_FILES
     qml/view/window_main.hpp
     qml/model/qml_expression.cpp
     qml/model/qml_expression.hpp
+    qml/view/window_formula_viewer.cpp
+    qml/view/window_formula_viewer.hpp
 )
 
 include_directories(
@@ -78,5 +84,6 @@ target_link_libraries(
     Qt6::Widgets
     Qt6::Quick
     Qt6::QuickWidgets
+    Qt6::QuickControls2
     MultiflowLibrary
 )

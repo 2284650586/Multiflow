@@ -1,5 +1,4 @@
-#ifndef MATH_H
-#define MATH_H
+#pragma once
 
 #include "../MultiflowLibrary_global.hpp"
 
@@ -111,5 +110,3 @@ ML_PUBLIC double minimum(double x, double y);
 ML_PUBLIC double maximum(double x, double y);
 
 }
-
-#endif // MATH_H

@@ -2,14 +2,13 @@
 
 #include <cmath>
 
-namespace ml
-{
+namespace ml {
 constexpr double ZERO_THRESHOLD = 1e-5;
 
-math_error::math_error(const char* what): _what(what) {
+math_error::math_error(const char* what) : _what(what) {
 }
 
-const char *math_error::what() const {
+const char* math_error::what() const {
     return _what;
 }
 
@@ -19,133 +18,112 @@ const char *math_error::what() const {
         throw math_error("数值非法，不可为NaN或无穷大"); \
     }
 
-bool z(double x)
-{
+bool z(double x) {
     ASSERT_VALID(x)
     return std::abs(x) < ZERO_THRESHOLD;
 }
 
-bool eq(double x, double y)
-{
+bool eq(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return z(x - y);
 }
 
-bool gt(double x, double y)
-{
+bool gt(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return x > y + ZERO_THRESHOLD;
 }
 
-bool lt(double x, double y)
-{
+bool lt(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return x < y - ZERO_THRESHOLD;
 }
 
-bool gte(double x, double y)
-{
+bool gte(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return gt(x, y) || eq(x, y);
 }
 
-bool lte(double x, double y)
-{
+bool lte(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return lt(x, y) || eq(x, y);
 }
 
-double add(double x, double y)
-{
+double add(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return x + y;
 }
 
-double subtract(double x, double y)
-{
+double subtract(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return x - y;
 }
 
-double multiply(double x, double y)
-{
+double multiply(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
     // 避免超大的数和带有误差的0相乘不等于0的情况
-    if (z(x) || z(y))
-    {
+    if (z(x) || z(y)) {
         return 0;
     }
     return x * y;
 }
 
-double divide(double x, double y)
-{
+double divide(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
     // 避免带有误差的0除以极小的数不等于0的情况
-    if (z(x))
-    {
+    if (z(x)) {
         return 0;
     }
 
-    if (z(y))
-    {
+    if (z(y)) {
         throw math_error("不可除以0");
     }
     return x / y;
 }
 
-double power(double x, double y)
-{
+double power(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
-    if (lt(x, 0) && lt(y, 1))
-    {
+    if (lt(x, 0) && lt(y, 1)) {
         throw math_error("不可对负数开方");
     }
     return std::pow(x, y);
 }
 
-double square_root(double x)
-{
+double square_root(double x) {
     ASSERT_VALID(x)
 
-    if (lt(x, 0))
-    {
+    if (lt(x, 0)) {
         throw math_error("实数不可<0");
     }
     return std::sqrt(x);
 }
 
-double absolute_value(double x)
-{
+double absolute_value(double x) {
     ASSERT_VALID(x)
     return std::abs(x);
 }
 
-double logarithm(double base, double x)
-{
+double logarithm(double base, double x) {
     ASSERT_VALID(base)
     ASSERT_VALID(x)
 
-    if (x <= 0)
-    {
+    if (x <= 0) {
         throw math_error("实数不可<=0");
     }
 
-    if (eq(base, 1) || lte(base, 0))
-    {
+    if (eq(base, 1) || lte(base, 0)) {
         throw math_error("底数不能为1或<=0");
     }
 
@@ -155,15 +133,13 @@ double logarithm(double base, double x)
     return divide(std::log(x), std::log(base));
 }
 
-double minimum(double x, double y)
-{
+double minimum(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return std::min(x, y);
 }
 
-double maximum(double x, double y)
-{
+double maximum(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return std::max(x, y);

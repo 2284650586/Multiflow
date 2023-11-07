@@ -1,7 +1,5 @@
 #pragma once
 
-// #include <QtCore/qglobal.h>
-
 #if defined(MULTIFLOWLIBRARY_LIBRARY)
 #  define ML_PUBLIC __declspec(dllexport)
 #else

@@ -22,11 +22,6 @@ endif ()
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Core)
-
-qt_standard_project_setup()
-set(CMAKE_AUTORCC ON)
-
 include(FetchContent)
 cmake_policy(SET CMP0135 NEW)
 
@@ -50,6 +45,10 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(spdlog)
 include_directories(${spdlog_SOURCE_DIR}/include)
+
+# Place executables and libraries in the same directory
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 add_subdirectory(MultiflowLibrary)
 add_subdirectory(MultiflowUI)

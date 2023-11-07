@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
 
-find_package(Qt6 COMPONENTS Core REQUIRED)
-
 add_library(MultiflowLibrary SHARED
     core/core.cpp
     expression/add.cpp
@@ -30,8 +28,13 @@ add_library(MultiflowLibrary SHARED
     parser/formula_parser.hpp
 )
 
+if(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /utf-8")
+    set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} /utf-8")
+endif()
+
 add_definitions(-DMULTIFLOWLIBRARY_LIBRARY)
 
 include_directories(. ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(MultiflowLibrary PRIVATE Qt6::Core yaml-cpp spdlog)
+target_link_libraries(MultiflowLibrary PRIVATE yaml-cpp spdlog)
