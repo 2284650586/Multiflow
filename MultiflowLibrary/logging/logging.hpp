@@ -1,5 +1,4 @@
-#ifndef LOGGING_H
-#define LOGGING_H
+#pragma once
 
 #include "../MultiflowLibrary_global.hpp"
 
@@ -11,5 +10,3 @@
 #define error spdlog::error
 #define critical spdlog::critical
 #define trace spdlog::trace
-
-#endif // LOGGING_H

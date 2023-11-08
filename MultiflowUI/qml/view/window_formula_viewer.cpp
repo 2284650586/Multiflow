@@ -19,7 +19,7 @@ qml::WindowFormulaViewer::WindowFormulaViewer(QObject* parent) {
         "vmFormulaViewer", this);
 
     // Window shows as the engine loads.
-    gpQmlApplicationEngine->load(QUrl("qrc:/qml/components/formula_viewer.qml"));
+    gpQmlApplicationEngine->load(QUrl("qrc:/qml/components/window/FormulaViewer.qml"));
 }
 
 QVariantList qml::WindowFormulaViewer::formulae() const {

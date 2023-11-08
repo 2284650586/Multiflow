@@ -24,10 +24,15 @@ enum MultiflowKind {
 extern bool propertyLegacyUI;
 extern bool propertyEnableVerbose;
 
-extern std::unique_ptr<QApplication> gpApplication;
-extern std::unique_ptr<QQmlApplicationEngine> gpQmlApplicationEngine;
-extern std::unique_ptr<QMainWindow> gpMainWindow;
+// Memory managed by Qt.
+extern QApplication* gpApplication;
+
+// Memory managed by Qt.
+extern QQmlApplicationEngine* gpQmlApplicationEngine;
 
 extern QVector<ml::Formula> gFormulae;
+
+extern std::unique_ptr<QMainWindow> gpMainWindow;
+
 extern std::unique_ptr<QObject> gpWindowMain;
 extern std::unique_ptr<QObject> gpWindowFormulaViewer;

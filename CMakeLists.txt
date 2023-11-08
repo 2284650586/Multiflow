@@ -51,4 +51,9 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 add_subdirectory(MultiflowLibrary)
+
+set(FLUENTUI_BUILD_EXAMPLES OFF)
+set(FLUENTUI_BUILD_FRAMELESSHELPER OFF)
+add_subdirectory(FluentUI)
+
 add_subdirectory(MultiflowUI)

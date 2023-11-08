@@ -6,50 +6,60 @@
 
 #include <utility>
 #include "expression/variable.hpp"
+#include "expression/constant.hpp"
+#include "expression/expression.hpp"
 
 #include "utils/type_utils.hpp"
 
-static void _internalExtractVariables(
+#include "logging/logging.hpp"
+
+static void _internalExtractVariablesAndConstants(
     const std::shared_ptr<ml::Expression>& expression,
-    std::vector<std::shared_ptr<ml::Variable>>& ret
+    std::vector<std::shared_ptr<ml::Expression>>& ret
 ) {
-    if (ml::instance_of<ml::Variable>(expression)) {
-        ret.push_back(std::dynamic_pointer_cast<ml::Variable>(expression));
+    if (ml::instance_of<ml::Variable>(expression) || ml::instance_of<ml::Constant>(expression)) {
+        ret.push_back(expression);
         return;
     }
 
     try {
         const auto& operands = expression->operands();
-        for (const auto& operand : operands) {
-            _internalExtractVariables(operand, ret);
+        for (const auto& operand: operands) {
+            _internalExtractVariablesAndConstants(operand, ret);
         }
     }
-    catch (const std::exception& e) {}
+    catch (const ml::NotImplementedException& e) {}
 }
 
 namespace ml {
-    Formula::Formula(std::string name, std::string description, std::shared_ptr<Expression> expression) :
-        _name(std::move(name)),
-        _description(std::move(description)),
-        _expression(std::move(expression)) {
+Formula::Formula(std::string name, std::string description, std::shared_ptr<Expression> expression, std::string lisp) :
+    _name(std::move(name)),
+    _description(std::move(description)),
+    _expression(std::move(expression)),
+    _lisp(std::move(lisp)) {
 
-    }
+}
 
-    const std::string &Formula::name() const {
-        return _name;
-    }
+const std::string& Formula::name() const {
+    return _name;
+}
 
-    const std::string &Formula::description() const {
-        return _description;
-    }
+const std::string& Formula::description() const {
+    return _description;
+}
 
-    std::shared_ptr<Expression> Formula::expression() const {
-        return _expression;
-    }
+std::shared_ptr<Expression> Formula::expression() const {
+    return _expression;
+}
 
-    std::vector<std::shared_ptr<Variable>> Formula::extractVariables() const {
-        std::vector<std::shared_ptr<Variable>> ret{};
-        _internalExtractVariables(_expression, ret);
-        return ret;
-    }
+const std::string& Formula::lisp() const {
+    return _lisp;
+}
+std::vector<std::shared_ptr<Expression>> Formula::extractVariablesAndConstants() const {
+    std::vector<std::shared_ptr<Expression>> ret{};
+    _internalExtractVariablesAndConstants(_expression, ret);
+    info("Formula {} has {} variable(s) and constant(s).", _expression->name(), ret.size());
+    return ret;
+}
+
 }

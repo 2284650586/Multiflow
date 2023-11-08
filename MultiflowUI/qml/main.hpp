@@ -5,5 +5,5 @@
 #include <QQmlContext>
 
 namespace qml {
-    void start();
+    void start(int argc, char* argv[]);
 }

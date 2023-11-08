@@ -50,6 +50,8 @@ set(SOURCE_FILES
     qml/model/qml_expression.hpp
     qml/view/window_formula_viewer.cpp
     qml/view/window_formula_viewer.hpp
+    helper/settings_helper.cpp
+    helper/settings_helper.hpp
 )
 
 include_directories(
@@ -86,4 +88,5 @@ target_link_libraries(
     Qt6::QuickWidgets
     Qt6::QuickControls2
     MultiflowLibrary
+    fluentuiplugin
 )

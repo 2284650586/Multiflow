@@ -15,10 +15,9 @@ namespace ml
  */
 class ML_PUBLIC Constant: public Expression
 {
-private:
+public:
     ml::Number _value;
 
-public:
     Constant(const std::string& name, const std::string& description, ml::Number value);
 
     /**

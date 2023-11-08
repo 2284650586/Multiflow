@@ -15,8 +15,8 @@
 
 argparse::ArgumentParser prepareParser();
 void initialize();
-void startupUILegacy();
-void startupUI();
+void startupUILegacy(int argc, char* argv[]);
+void startupUI(int argc, char* argv[]);
 void printVersions();
 
 static constexpr int ErrorSuccess = 0;
@@ -26,7 +26,7 @@ static constexpr int ErrorInvalidArgument = 1;
 int main(int argc, char *argv[]) {
     ml::initialize();
     QApplication a(argc, argv);
-    gpApplication = std::unique_ptr<QApplication>(&a);
+    gpApplication = &a;
 
     auto parser = prepareParser();
     try {
@@ -48,9 +48,9 @@ int main(int argc, char *argv[]) {
 
     initialize();
     if (propertyLegacyUI) {
-        startupUILegacy();
+        startupUILegacy(argc, argv);
     } else {
-        startupUI();
+        startupUI(argc, argv);
     }
 
     if (propertyEnableVerbose) {
@@ -72,13 +72,13 @@ void initialize() {
     std::copy(formulae.begin(), formulae.end(), std::back_inserter(gFormulae));
 }
 
-void startupUILegacy() {
+void startupUILegacy(int argc, char* argv[]) {
     gpMainWindow = std::make_unique<MainWindow>();
     gpMainWindow->show();
 }
 
-void startupUI() {
-    qml::start();
+void startupUI(int argc, char* argv[]) {
+    qml::start(argc, argv);
 }
 
 void printVersions() {

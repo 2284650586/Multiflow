@@ -130,7 +130,8 @@ namespace ml {
 
             // Traverse AST and build expression.
             auto expression = _internalTraverseAst(ast);
-            ret.emplace_back(formulaInfo.name, formulaInfo.description, expression);
+            ret.emplace_back(
+                formulaInfo.name, formulaInfo.description, expression, formulaInfo.expression);
         }
         return ret;
     }

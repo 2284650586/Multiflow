@@ -2,36 +2,48 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Multiflow.UI
+import FluentUI
 
-ApplicationWindow {
-    id: window
-    width: 640
-    height: 480
-    visible: true
-    title: "Multiflow"
-    menuBar: MenuBar {
-        Menu {
-            title: "文件(&F)"
+Item {
+    id: app
 
-            MenuItem {
-                text: "退出(&E)"
-                onTriggered: handleExit()
-            }
-        }
+    Connections {
+        target: FluTheme
 
-        Menu {
-            title: "工具(&U)"
-
-            MenuItem {
-                text: "打开公式查看器(&F)"
-                onTriggered: vmWindowMain.onFormulaViewerButtonClicked()
-            }
+        function onDarkModeChanged() {
+            SettingsHelper.setDarkMode(FluTheme.darkMode)
         }
     }
 
-    function handleExit() {
-        if (UIUtils.confirm("确认要退出 Multiflow 吗？", "退出", "取消")) {
-            window.close()
+    Connections {
+        target: FluApp
+
+        function onVsyncChanged() {
+            SettingsHelper.setVsync(FluApp.vsync)
         }
+    }
+
+    Component.onCompleted: {
+        FluApp.init(app)
+        FluApp.vsync = SettingsHelper.getVsync()
+        FluTheme.darkMode = SettingsHelper.getDarkMode()
+        FluTheme.enableAnimation = true
+        FluTheme.nativeText = false
+        FluTextStyle.Body = Qt.font({
+            family: 'Microsoft YaHei',
+            italic: false,
+            pointSize: 10,
+        })
+        FluTextStyle.Subtitle = Qt.font({
+            family: 'Microsoft YaHei',
+            italic: false,
+            pointSize: 16,
+        })
+        FluApp.routes = {
+            "/": "qrc:/qml/components/window/Welcome.qml",
+            "/formula-viewer": "qrc:/qml/components/window/FormulaViewer.qml",
+        }
+        FluApp.initialRoute = "/"
+        FluApp.run()
     }
 }

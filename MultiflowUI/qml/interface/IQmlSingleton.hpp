@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QJSEngine>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include "qml/interface/IQmlObject.hpp"
 #include "qml/mixin/SingletonMixin.hpp"
@@ -16,7 +18,7 @@ protected:
     }
 
 public:
-    virtual void registerSingleton() {
+    virtual void registerSingleton(const QQmlApplicationEngine& engine) {
         qmlRegisterSingletonType<Derived>(
             this->uri,
             this->majorVersion,
@@ -26,5 +28,6 @@ public:
             Q_UNUSED(scriptEngine)
             return Derived::getInstance();
         });
+        engine.rootContext()->setContextProperty(this->name, Derived::getInstance());
     }
 };
