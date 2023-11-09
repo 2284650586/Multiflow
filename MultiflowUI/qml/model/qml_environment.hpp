@@ -31,10 +31,13 @@ public:
 
     Q_INVOKABLE void set(const QString& name, const ml::Number& value);
 
+    Q_INVOKABLE void resetValues();
+
     [[nodiscard]]
     Q_INVOKABLE const QVariantList& variableNames() const;
 
     Q_INVOKABLE void setVariableNames(const QVariantList& variables);
+
 
     std::shared_ptr<ml::Environment> _environment;
     QVariantList _variables;

@@ -72,17 +72,25 @@ FluScrollablePage {
             id: repeaterVariables
             model: formula.variables
 
-            RowLayout {
+            Row {
+                property var initialText: `${environment.get(modelData.name)}`
+
                 spacing: 8
                 Layout.fillWidth: true
 
                 FluText {
+                    anchors.verticalCenter: parent.verticalCenter
                     text: `${modelData.name} = `
                     font.pointSize: 11
                     font.weight: Font.DemiBold
+                    horizontalAlignment: Text.AlignRight
+                    width: 80
                 }
                 FluTextBox {
-                    text: `${environment.get(modelData.name)}`
+                    id: textBox
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: initialText
+                    width: 120
                     maximumLength: 10
                     onTextChanged: {
                         onUpdateEnvironment(modelData.name, text)
@@ -90,6 +98,7 @@ FluScrollablePage {
                 }
                 HSpacer {}
                 FluText {
+                    anchors.verticalCenter: parent.verticalCenter
                     text: `(${modelData.description})`
                     color: "gray"
                 }
@@ -116,12 +125,14 @@ FluScrollablePage {
 
             FluButton {
                 text: "计算"
-                onClicked: {
-                    onCalculate()
-                }
+                onClicked: onCalculate()
             }
             FluButton {
                 text: "图表"
+            }
+            FluButton {
+                text: "清空"
+                onClicked: onClear()
             }
         }
     }
@@ -177,5 +188,14 @@ FluScrollablePage {
 
     function onCalculate() {
         textResult.text = `${formula.expression.evaluate(environment)}`
+    }
+
+    function onClear() {
+        environment.resetValues();
+        var count = repeaterVariables.count
+        console.log(count)
+        for (var i = 0; i < count; i++) {
+            repeaterVariables.itemAt(i).initialText = ""
+        }
     }
 }

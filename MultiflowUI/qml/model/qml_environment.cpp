@@ -16,14 +16,17 @@ void QmlEnvironment::set(const QString& name, const ml::Number& value) {
     return _environment->set(name.toStdString(), value);
 }
 
+void QmlEnvironment::resetValues() {
+    for (const auto& variable: _variables) {
+        auto key = variable.value<QString>();
+        _environment->set(key.toStdString(), static_cast<ml::Number>(0));
+    }
+}
+
 void QmlEnvironment::setVariableNames(const QVariantList& variables) {
     _variables = variables;
-    ml::Environment env;
-    for (const auto& variable: variables) {
-        auto key = variable.value<QString>();
-        env.set(key.toStdString(), static_cast<ml::Number>(0));
-    }
-    _environment = std::make_shared<ml::Environment>(env);
+    _environment = std::make_shared<ml::Environment>();
+    resetValues();
 }
 
 const QVariantList& QmlEnvironment::variableNames() const {
