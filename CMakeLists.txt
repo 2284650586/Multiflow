@@ -13,6 +13,8 @@ if ( "$ENV{QT_DEV_ENV}" STREQUAL "Z" )
 elseif ( "$ENV{QT_DEV_ENV}" STREQUAL "LXT" )
     message(STATUS "Developer: lxt")
     set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/msvc2019_64")
+    set(ENV{http_proxy} "http://127.0.0.1:7890")
+    set(ENV{https_proxy} "http://127.0.0.1:7890")
 
 else ()
     message(FATAL_ERROR "Unknown developer")
