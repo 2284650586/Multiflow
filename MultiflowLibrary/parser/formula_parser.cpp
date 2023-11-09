@@ -77,7 +77,7 @@ std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::share
         case NodeType::Variable: {
             const std::string& variableName = root->value;
             // Check if variable is a constant.
-            if (constantNameToDescription.contains(variableName)) {
+            if (constantNameToConstantInfo.contains(variableName)) {
                 root->type = NodeType::Constant;
                 return _internalTraverseAst(root);
             }
@@ -85,7 +85,15 @@ std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::share
         }
         case NodeType::Constant: {
             const std::string& constantName = root->value;
-            const auto& constantInfo = constantNameToDescription[constantName];
+            if (variableNameToDescription.contains(constantName)) {
+                root->type = NodeType::Variable;
+                return _internalTraverseAst(root);
+            }
+            if (!constantNameToConstantInfo.contains(constantName)) {
+                // Raw number.
+                return std::make_shared<Constant>("Constant", "Constant", std::stod(constantName));
+            }
+            const auto& constantInfo = constantNameToConstantInfo[constantName];
             return std::make_shared<Constant>(constantName, constantInfo.description, constantInfo.value);
         }
         default: {
@@ -125,11 +133,11 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
             });
 
         // Build constant map.
-        constantNameToDescription.clear();
+        constantNameToConstantInfo.clear();
         std::for_each(
             formulaInfo.constants.begin(), formulaInfo.constants.end(),
             [this](const ConstantInfo& info) {
-                constantNameToDescription[info.name] = info;
+                constantNameToConstantInfo[info.name] = info;
             });
 
         LispParser lispParser{};

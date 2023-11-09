@@ -26,16 +26,6 @@ public:
     ml::Number evaluate(const Environment& env) const override;
 
     std::string to_string() const override;
-
-    /**
-     * @brief 圆周率，预定义的常见常数
-     */
-    static const Constant pi;
-
-    /**
-     * @brief 自然对数的底，预定义的常见常数
-     */
-    static const Constant e;
 };
 
 }

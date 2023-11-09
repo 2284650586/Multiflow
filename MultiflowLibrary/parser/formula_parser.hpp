@@ -47,7 +47,7 @@ namespace ml {
     class ML_PUBLIC FormulaParser {
     private:
         std::unordered_map<std::string, std::string> variableNameToDescription;
-        std::unordered_map<std::string, ConstantInfo> constantNameToDescription;
+        std::unordered_map<std::string, ConstantInfo> constantNameToConstantInfo;
 
     public:
         explicit FormulaParser() = default;
