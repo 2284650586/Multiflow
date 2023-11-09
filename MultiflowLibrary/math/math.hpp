@@ -22,6 +22,10 @@ public:
     const char* what() const override;
 };
 
+constexpr double TRUE = 1;
+constexpr double FALSE = 0;
+constexpr double ZERO = 0;
+
 /**
  * @brief 判断x是否为零，兼容IEEE浮点数的误差
  */
@@ -108,5 +112,20 @@ ML_PUBLIC double minimum(double x, double y);
  * @brief 取较大值
  */
 ML_PUBLIC double maximum(double x, double y);
+
+/**
+ * @brief 逻辑与，要求x和y同时在浮点数意义上不为零
+ */
+double logical_and(double x, double y);
+
+/**
+ * @brief 逻辑或，要求x或y至少有一个在浮点数意义上不为零
+ */
+double logical_or(double x, double y);
+
+/**
+ * @brief 如果x在浮点数意义上不等于零，返回1，否则返回0
+ */
+double is_logical_true(double x);
 
 }

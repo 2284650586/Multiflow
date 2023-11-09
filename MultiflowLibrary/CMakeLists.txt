@@ -30,6 +30,20 @@ add_library(MultiflowLibrary SHARED
     expression/power.hpp
     expression/logarithm.cpp
     expression/logarithm.hpp
+    expression/logical_and.cpp
+    expression/logical_and.hpp
+    expression/logical_or.cpp
+    expression/logical_or.hpp
+    expression/logical_not.cpp
+    expression/logical_not.hpp
+    expression/condition.cpp
+    expression/condition.hpp
+    expression/greater_than.cpp
+    expression/greater_than.hpp
+    expression/lower_than.cpp
+    expression/lower_than.hpp
+    expression/equal_to.cpp
+    expression/equal_to.hpp
 )
 
 if(MSVC)

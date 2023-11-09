@@ -1,5 +1,5 @@
 //
-// Created by miku on 11/5/2023.
+// Created by miku on 11/9/2023.
 //
 
 #pragma once
@@ -11,12 +11,12 @@
 #include <vector>
 
 namespace ml {
-class ML_PUBLIC Minus : public Expression {
+class ML_PUBLIC LowerThan : public Expression {
 private:
     std::vector<std::shared_ptr<Expression>> _operands;
 
 public:
-    explicit Minus(std::vector<std::shared_ptr<Expression>> _operands);
+    explicit LowerThan(std::vector<std::shared_ptr<Expression>> _operands);
 
     [[nodiscard]]
     ml::Number evaluate(const Environment &env) const override;

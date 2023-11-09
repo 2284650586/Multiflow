@@ -8,21 +8,31 @@
 
 #include <utility>
 #include <vector>
+#include <format>
 
-namespace ml {
-    Minus::Minus(std::shared_ptr<Expression> v) :
-        Expression("Minus", "Minus"),
-        _v(std::move(v)) {}
-
-    ml::Number Minus::evaluate(const Environment &env) const {
-        return ml::subtract(0, _v->evaluate(env));
+namespace ml
+{
+Minus::Minus(std::vector<std::shared_ptr<Expression>> operands)
+    : Expression("Minus", "Minus"), _operands(std::move(operands)) {
+    if (_operands.size() != 1) {
+        throw MalformedExpressionException("Minus must have exactly 1 operand");
     }
+}
 
-    std::string Minus::to_string() const {
-        return "-" + _v->to_string();
-    }
+ml::Number Minus::evaluate(const Environment &env) const {
+    ml::Number v = _operands[0]->evaluate(env);
+    return ml::subtract(0, v);
+}
 
-    std::vector<std::shared_ptr<Expression>> Minus::operands() const {
-        return {_v};
+std::string Minus::to_string() const {
+    const auto& operandRepresentation = _operands[0]->to_string();
+    if (operandRepresentation.starts_with('-')) {
+        return operandRepresentation.substr(1);
     }
+    return "-" + operandRepresentation;
+}
+
+std::vector<std::shared_ptr<Expression>> Minus::operands() const {
+    return _operands;
+}
 }

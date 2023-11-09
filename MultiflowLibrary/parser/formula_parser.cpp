@@ -11,6 +11,14 @@
 #include "expression/divide.hpp"
 #include "expression/power.hpp"
 #include "expression/logarithm.hpp"
+#include "expression/minus.hpp"
+#include "expression/logical_and.hpp"
+#include "expression/logical_or.hpp"
+#include "expression/logical_not.hpp"
+#include "expression/greater_than.hpp"
+#include "expression/lower_than.hpp"
+#include "expression/equal_to.hpp"
+#include "expression/condition.hpp"
 
 #include <memory>
 #include <string>
@@ -41,23 +49,47 @@ static std::vector<
         std::function<std::shared_ptr<Expression>(FormulaParser&, const std::vector<std::shared_ptr<ASTNode>>&)>
     >
 > functionMap{
-    {{"+",  "add"}, [](FormulaParser& parser, const auto& args) {
+    {{"add", "+"},      [](FormulaParser& parser, const auto& args) {
         return std::make_shared<Add>(expressionsFromAstNodes(parser, args));
     }},
-    {{"-",  "sub"}, [](FormulaParser& parser, const auto& args) {
+    {{"sub", "-"},      [](FormulaParser& parser, const auto& args) {
         return std::make_shared<Subtract>(expressionsFromAstNodes(parser, args));
     }},
-    {{"*",  "mul"}, [](FormulaParser& parser, const auto& args) {
+    {{"mul", "*"},      [](FormulaParser& parser, const auto& args) {
         return std::make_shared<Multiply>(expressionsFromAstNodes(parser, args));
     }},
-    {{"/",  "div"}, [](FormulaParser& parser, const auto& args) {
+    {{"div", "/"},      [](FormulaParser& parser, const auto& args) {
         return std::make_shared<Divide>(expressionsFromAstNodes(parser, args));
     }},
-    {{"**", "pow"}, [](FormulaParser& parser, const auto& args) {
+    {{"pow", "**"},     [](FormulaParser& parser, const auto& args) {
         return std::make_shared<Power>(expressionsFromAstNodes(parser, args));
     }},
-    {{"**", "log"}, [](FormulaParser& parser, const auto& args) {
+    {{"log"},           [](FormulaParser& parser, const auto& args) {
         return std::make_shared<Logarithm>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"minus"},         [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<Minus>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"and", "&&"},     [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<LogicalAnd>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"or",  "||"},     [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<LogicalOr>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"not", "!", "~"}, [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<LogicalNot>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"gt",  ">"},      [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<GreaterThan>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"lt",  "<"},      [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<LowerThan>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"eq",  "=="},     [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<EqualTo>(expressionsFromAstNodes(parser, args));
+    }},
+    {{"piecewise"},     [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<Condition>(expressionsFromAstNodes(parser, args));
     }},
 };
 

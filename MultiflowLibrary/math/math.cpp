@@ -32,13 +32,13 @@ bool eq(double x, double y) {
 bool gt(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return x > y + ZERO_THRESHOLD;
+    return x > (y + ZERO_THRESHOLD);
 }
 
 bool lt(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return x < y - ZERO_THRESHOLD;
+    return x < (y - ZERO_THRESHOLD);
 }
 
 bool gte(double x, double y) {
@@ -71,7 +71,7 @@ double multiply(double x, double y) {
 
     // 避免超大的数和带有误差的0相乘不等于0的情况
     if (z(x) || z(y)) {
-        return 0;
+        return ZERO;
     }
     return x * y;
 }
@@ -82,11 +82,11 @@ double divide(double x, double y) {
 
     // 避免带有误差的0除以极小的数不等于0的情况
     if (z(x)) {
-        return 0;
+        return ZERO;
     }
 
     if (z(y)) {
-        throw math_error("不可除以0");
+        throw math_error("不可除以零");
     }
     return x / y;
 }
@@ -95,7 +95,7 @@ double power(double x, double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
-    if (lt(x, 0) && lt(y, 1)) {
+    if (lt(x, ZERO) && lt(y, 1)) {
         throw math_error("不可对负数开方");
     }
     return std::pow(x, y);
@@ -104,7 +104,7 @@ double power(double x, double y) {
 double square_root(double x) {
     ASSERT_VALID(x)
 
-    if (lt(x, 0)) {
+    if (lt(x, ZERO)) {
         throw math_error("实数不可<0");
     }
     return std::sqrt(x);
@@ -119,11 +119,11 @@ double logarithm(double base, double x) {
     ASSERT_VALID(base)
     ASSERT_VALID(x)
 
-    if (x <= 0) {
+    if (lte(x, ZERO)) {
         throw math_error("实数不可<=0");
     }
 
-    if (eq(base, 1) || lte(base, 0)) {
+    if (eq(base, 1) || lte(base, ZERO)) {
         throw math_error("底数不能为1或<=0");
     }
 
@@ -145,4 +145,20 @@ double maximum(double x, double y) {
     return std::max(x, y);
 }
 
+double logical_and(double x, double y) {
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
+    return (!z(x) && !z(y)) ? TRUE : FALSE;
+}
+
+double logical_or(double x, double y) {
+    ASSERT_VALID(x)
+    ASSERT_VALID(y)
+    return (!z(x) || !z(y)) ? TRUE : FALSE;
+}
+
+double is_logical_true(double x) {
+    ASSERT_VALID(x)
+    return z(x) ? FALSE : TRUE;
+}
 }
