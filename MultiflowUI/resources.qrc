@@ -22,5 +22,9 @@
         <file>qml/components/singleton/FormulaItemsSingleton.qml</file>
         <file>qml/components/page/FormulaGeneric.qml</file>
         <file>qml/components/widget/FormulaPaneItem.qml</file>
+        <file>qml/components/widget/HSpacer.qml</file>
+        <file>qml/components/widget/VSpacer.qml</file>
+        <file>qml/components/widget/Tag.qml</file>
+        <file>qml/components/widget/FormulaText.qml</file>
     </qresource>
 </RCC>

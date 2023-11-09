@@ -17,3 +17,7 @@ QmlExpression::QmlExpression(std::shared_ptr<ml::Expression> expression)
         _value = std::dynamic_pointer_cast<ml::Constant>(_expression)->_value;
     }
 }
+
+ml::Number QmlExpression::evaluate(const QmlEnvironment* environment) const {
+    return _expression->evaluate(*environment->_environment);
+}

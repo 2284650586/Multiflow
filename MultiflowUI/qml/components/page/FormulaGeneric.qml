@@ -3,9 +3,11 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Multiflow.UI
 import FluentUI
+import "qrc:/qml/components/widget"
 
 FluScrollablePage {
     property var formula
+
     title: formula.name
 
     component Card: FluArea {
@@ -27,10 +29,11 @@ FluScrollablePage {
         }
     }
 
-    FluText {
-        text: "公式描述"
-        font: FluTextStyle.Subtitle
+    QmlEnvironment {
+        id: environment
+        variableNames: formula.variables.map(v => v.name)
     }
+
     Card {
         FluText {
             text: formula.description
@@ -43,9 +46,8 @@ FluScrollablePage {
         font: FluTextStyle.Subtitle
     }
     Card {
-        FluCopyableText {
+        FormulaText {
             text: formula.expression.representation
-            font: FluTextStyle.BodyStrong
         }
     }
 
@@ -54,26 +56,76 @@ FluScrollablePage {
         font: FluTextStyle.Subtitle
     }
     Card {
-        FluCopyableText {
+        FormulaText {
             text: formula.lisp
-            font: FluTextStyle.BodyStrong
         }
     }
 
     FluText {
-        text: "自变量表"
+        text: "代入"
         font: FluTextStyle.Subtitle
     }
     Card {
+        Layout.alignment: Qt.AlignCenter
+
         Repeater {
             id: repeaterVariables
             model: formula.variables
 
+            RowLayout {
+                spacing: 8
+                Layout.fillWidth: true
+
+                FluText {
+                    text: `${modelData.name} = `
+                    font.pointSize: 11
+                    font.weight: Font.DemiBold
+                }
+                FluTextBox {
+                    text: `${environment.get(modelData.name)}`
+                    maximumLength: 10
+                    onTextChanged: {
+                        onUpdateEnvironment(modelData.name, text)
+                    }
+                }
+                HSpacer {}
+                FluText {
+                    text: `(${modelData.description})`
+                    color: "gray"
+                }
+            }
+        }
+
+        RowLayout {
+            spacing: 8
+            Layout.fillWidth: true
+
             FluText {
-                text: modelData.name + " - " + modelData.description
+                text: `f(${ formula.variables.map(v => v.name).join(", ") }) = `
+                font.pointSize: 11
+            }
+            FormulaText {
+                id: textResult
+                text: "-"
+            }
+        }
+
+        FluDivider {}
+        Row {
+            spacing: 8
+
+            FluButton {
+                text: "计算"
+                onClicked: {
+                    onCalculate()
+                }
+            }
+            FluButton {
+                text: "图表"
             }
         }
     }
+
 
     FluText {
         text: "常数表"
@@ -107,5 +159,23 @@ FluScrollablePage {
             }
             sourceComponent: formula.constants.length > 0 ? anyConstants : noConstant
         }
+    }
+
+    function _isNumeric(str) {
+        if (typeof str != "string") {
+            return false
+        }
+        return !isNaN(str) && !isNaN(parseFloat(str))
+    }
+
+    function onUpdateEnvironment(key, value) {
+        if (!_isNumeric(value)) {
+            return
+        }
+        environment.set(key, parseFloat(value))
+    }
+
+    function onCalculate() {
+        textResult.text = `${formula.expression.evaluate(environment)}`
     }
 }

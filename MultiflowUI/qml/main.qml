@@ -37,7 +37,7 @@ Item {
         FluTextStyle.Subtitle = Qt.font({
             family: 'Microsoft YaHei',
             italic: false,
-            pointSize: 16,
+            pointSize: 12,
         })
         FluApp.routes = {
             "/": "qrc:/qml/components/window/Welcome.qml",

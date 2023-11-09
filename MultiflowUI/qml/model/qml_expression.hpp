@@ -8,6 +8,8 @@
 #include <MultiflowLibrary/expression/variable.hpp>
 #include <MultiflowLibrary/expression/constant.hpp>
 
+#include "qml_environment.hpp"
+
 #include <QQmlContext>
 #include <QString>
 #include <QVariantList>
@@ -33,6 +35,8 @@ public:
 
     explicit QmlExpression(std::shared_ptr<ml::Expression> expression);
     QmlExpression() = default;
+
+    Q_INVOKABLE ml::Number evaluate(const QmlEnvironment* environment) const;
 
     std::shared_ptr<ml::Expression> _expression;
 };

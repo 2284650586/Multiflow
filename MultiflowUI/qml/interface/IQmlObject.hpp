@@ -2,6 +2,7 @@
 
 #include <QString>
 #include <QObject>
+#include <QQmlEngine>
 
 template<typename T>
 class IQmlObject {

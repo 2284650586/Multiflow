@@ -1,6 +1,7 @@
 #include "qml/main.hpp"
 
 #include "qml/utils/UIUtils.hpp"
+#include "qml/model/qml_environment.hpp"
 #include "view/window_main.hpp"
 #include "helper/settings_helper.hpp"
 #include "shared.hpp"
@@ -20,6 +21,7 @@ void _registerSingletons() {
     const auto& engine = *gpQmlApplicationEngine;
     UIUtils::getInstance()->registerSingleton(engine);
     SettingsHelper::getInstance()->registerSingleton(engine);
+    QmlEnvironment::createInstance()->registerObjectType();
 
     qmlRegisterSingletonType(
         QUrl("qrc:/qml/components/singleton/FormulaItemsSingleton.qml"),

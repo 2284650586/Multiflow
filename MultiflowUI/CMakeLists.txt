@@ -52,6 +52,8 @@ set(SOURCE_FILES
     qml/view/window_formula_viewer.hpp
     helper/settings_helper.cpp
     helper/settings_helper.hpp
+    qml/model/qml_environment.cpp
+    qml/model/qml_environment.hpp
 )
 
 include_directories(
