@@ -8,6 +8,8 @@ import "qrc:/qml/components/widget"
 FluScrollablePage {
     property var formula
 
+    property var errorMessage: "计算出现错误"
+
     title: formula.name
 
     component Card: FluArea {
@@ -172,6 +174,14 @@ FluScrollablePage {
         }
     }
 
+    FluContentDialog {
+        id: dialogError
+        title: "计算出现错误"
+        message: errorMessage
+        buttonFlags: FluContentDialogType.NeutralButton
+        neutralText: "好"
+    }
+
     function _isNumeric(str) {
         if (typeof str != "string") {
             return false
@@ -187,7 +197,14 @@ FluScrollablePage {
     }
 
     function onCalculate() {
-        textResult.text = `${formula.expression.evaluate(environment)}`
+        const result = formula.expression.evaluate(environment);
+        if (result.success) {
+            textResult.text = `${result.value}`
+        }
+        else {
+            errorMessage = result.message
+            dialogError.open()
+        }
     }
 
     function onClear() {

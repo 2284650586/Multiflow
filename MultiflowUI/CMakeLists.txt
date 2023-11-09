@@ -54,6 +54,8 @@ set(SOURCE_FILES
     helper/settings_helper.hpp
     qml/model/qml_environment.cpp
     qml/model/qml_environment.hpp
+    qml/model/qml_result.cpp
+    qml/model/qml_result.hpp
 )
 
 include_directories(

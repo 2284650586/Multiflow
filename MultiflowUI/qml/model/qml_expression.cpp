@@ -5,6 +5,7 @@
 #include "qml_expression.hpp"
 
 #include <MultiflowLibrary/utils/type_utils.hpp>
+#include <MultiflowLibrary/math/math.hpp>
 
 QmlExpression::QmlExpression(std::shared_ptr<ml::Expression> expression)
     : _expression(std::move(expression)), _name(QString::fromStdString(expression->name())),
@@ -18,6 +19,18 @@ QmlExpression::QmlExpression(std::shared_ptr<ml::Expression> expression)
     }
 }
 
-ml::Number QmlExpression::evaluate(const QmlEnvironment* environment) const {
-    return _expression->evaluate(*environment->_environment);
+QmlResult QmlExpression::evaluate(const QmlEnvironment* environment) const {
+    try {
+        ml::Number result = _expression->evaluate(*environment->_environment);
+        return QmlResult::success(result);
+    }
+    catch (const ml::math_error& e) {
+        return QmlResult::failure(QString::fromStdString(e.what()));
+    }
+    catch (const ml::MalformedExpressionException& e) {
+        return QmlResult::failure(QString::fromStdString(e.what()));
+    }
+    catch (const ml::NotImplementedException& e) {
+        return QmlResult::failure("使用了尚未实现的函数");
+    }
 }

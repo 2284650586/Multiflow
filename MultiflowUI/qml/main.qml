@@ -39,6 +39,11 @@ Item {
             italic: false,
             pointSize: 12,
         })
+        FluTextStyle.TitleLarge = Qt.font({
+            family: 'Microsoft YaHei',
+            italic: false,
+            pointSize: 16,
+        })
         FluApp.routes = {
             "/": "qrc:/qml/components/window/Welcome.qml",
             "/formula-viewer": "qrc:/qml/components/window/FormulaViewer.qml",
