@@ -24,7 +24,7 @@ namespace ml
     }
 
     std::string Multiply::to_string() const {
-        return join(_operands, " * ");
+        return joinExpression(_operands, " * ");
     }
 
     std::vector<std::shared_ptr<Expression>> Multiply::operands() const {

@@ -20,7 +20,7 @@ namespace ml
     }
 
     std::string Add::to_string() const {
-        return join(_operands, " + ");
+        return joinExpression(_operands, " + ");
     }
 
     std::vector<std::shared_ptr<Expression>> Add::operands() const {

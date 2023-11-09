@@ -26,7 +26,7 @@ namespace ml
     }
 
     std::string Subtract::to_string() const {
-        return join(_operands, " - ");
+        return joinExpression(_operands, " - ");
     }
 
     std::vector<std::shared_ptr<Expression>> Subtract::operands() const {

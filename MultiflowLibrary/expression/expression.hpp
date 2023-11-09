@@ -62,13 +62,13 @@ public:
      * @return 表达式所代表的量的意义
      */
     [[nodiscard]]
-    virtual const std::string &name() const;
+    virtual const std::string& name() const;
 
     /**
      * @return 对表达式的更详细的描述
      */
     [[nodiscard]]
-    virtual const std::string &description() const;
+    virtual const std::string& description() const;
 
     /**
      * @return 表达式中的所有操作数
@@ -80,7 +80,19 @@ public:
 class NotImplementedException : public std::exception {
 };
 
+class MalformedExpressionException : public std::exception {
+private:
+    const char* _message;
+
+public:
+    MalformedExpressionException(const char* message) : _message(message) {}
+    const char* what() const override {
+        return _message;
+    }
+};
+
 }
 
 std::string joinArray(const std::vector<std::string>& v, const std::string& delimiter);
-std::string join(const std::vector<std::shared_ptr<ml::Expression> >& v, const std::string& delimiter);
+
+std::string joinExpression(const std::vector<std::shared_ptr<ml::Expression> >& v, const std::string& delimiter);

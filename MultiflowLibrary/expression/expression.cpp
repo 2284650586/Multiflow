@@ -52,7 +52,7 @@ std::string joinArray(const std::vector<std::string>& v, const std::string& deli
     return ss.str();
 }
 
-std::string join(const std::vector<std::shared_ptr<ml::Expression> >& v, const std::string& delimiter) {
+std::string joinExpression(const std::vector<std::shared_ptr<ml::Expression> >& v, const std::string& delimiter) {
     std::vector<std::string> mappedOperands;
     std::transform(v.begin(), v.end(), std::back_inserter(mappedOperands), [] (const std::shared_ptr<ml::Expression>& exp) {
         return exp->to_string();

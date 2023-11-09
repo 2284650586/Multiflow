@@ -26,7 +26,7 @@ namespace ml
     }
 
     std::string Divide::to_string() const {
-        return join(_operands, " / ");
+        return joinExpression(_operands, " / ");
     }
 
     std::vector<std::shared_ptr<Expression>> Divide::operands() const {

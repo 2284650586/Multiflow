@@ -26,6 +26,10 @@ add_library(MultiflowLibrary SHARED
     parser/lisp_parser.hpp
     parser/formula_parser.cpp
     parser/formula_parser.hpp
+    expression/power.cpp
+    expression/power.hpp
+    expression/logarithm.cpp
+    expression/logarithm.hpp
 )
 
 if(MSVC)
