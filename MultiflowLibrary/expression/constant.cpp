@@ -4,14 +4,14 @@
 
 namespace ml {
 
-Constant::Constant(const std::string& name, const std::string& description, ml::Number value):
+Constant::Constant(const std::string& name, const std::string& description, const Number value):
     Expression(name, description),
     _value(value)
 {
 
 }
 
-ml::Number Constant::evaluate(const Environment& env) const
+Number Constant::evaluate(const Environment& env) const
 {
     return _value;
 }

@@ -15,13 +15,13 @@ namespace ml
     Subtract::Subtract(std::vector<std::shared_ptr<Expression>> operands)
         : Expression("Subtract", "Subtract"), _operands(std::move(operands)) {}
 
-    ml::Number Subtract::evaluate(const Environment &env) const {
+Number Subtract::evaluate(const Environment &env) const {
         auto first = _operands.begin();
-        Number firstValue = first->get()->evaluate(env);
+        const Number firstValue = first->get()->evaluate(env);
         return std::accumulate(
             ++first, _operands.end(),
-            firstValue, [env] (Number acc, const std::shared_ptr<Expression>& v) {
-                return ml::subtract(acc, v->evaluate(env));
+            firstValue, [env] (const Number acc, const std::shared_ptr<Expression>& v) {
+                return subtract(acc, v->evaluate(env));
             });
     }
 

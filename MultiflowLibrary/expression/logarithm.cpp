@@ -19,10 +19,10 @@ Logarithm::Logarithm(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-ml::Number Logarithm::evaluate(const Environment &env) const {
-    ml::Number x = _operands[0]->evaluate(env);
-    ml::Number y = _operands[1]->evaluate(env);
-    return ml::logarithm(x, y);
+Number Logarithm::evaluate(const Environment &env) const {
+    const Number x = _operands[0]->evaluate(env);
+    const Number y = _operands[1]->evaluate(env);
+    return logarithm(x, y);
 }
 
 std::string Logarithm::to_string() const {

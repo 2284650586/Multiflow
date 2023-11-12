@@ -11,17 +11,18 @@
 #include <vector>
 
 namespace ml {
-
-class ML_PUBLIC Formula {
-private:
+class ML_PUBLIC Formula final {
     std::string _name;
     std::string _description;
     std::string _lisp;
     std::shared_ptr<Expression> _expression;
 
 public:
-    explicit Formula(std::string name, std::string description, std::shared_ptr<Expression> expression, std::string lisp);
-    virtual ~Formula() = default;
+    explicit Formula(
+        std::string name, std::string description, std::shared_ptr<Expression> expression,
+        std::string lisp);
+
+    ~Formula() = default;
 
     [[nodiscard]]
     const std::string& name() const;
@@ -42,5 +43,4 @@ public:
     [[nodiscard]]
     std::vector<std::shared_ptr<Expression>> extractVariablesAndConstants() const;
 };
-
 }

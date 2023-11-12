@@ -13,9 +13,9 @@ namespace ml {
 LogicalAnd::LogicalAnd(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("And", "And"), _operands(std::move(operands)) {}
 
-ml::Number LogicalAnd::evaluate(const Environment& env) const {
+Number LogicalAnd::evaluate(const Environment& env) const {
     for (auto& operand: _operands) {
-        if (ml::z(operand->evaluate(env))) {
+        if (z(operand->evaluate(env))) {
             return 0;
         }
     }

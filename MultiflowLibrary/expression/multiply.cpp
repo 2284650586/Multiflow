@@ -15,11 +15,11 @@ namespace ml
     Multiply::Multiply(std::vector<std::shared_ptr<Expression>> operands)
         : Expression("Multiply", "Multiply"), _operands(std::move(operands)) {}
 
-    ml::Number Multiply::evaluate(const Environment &env) const {
+    Number Multiply::evaluate(const Environment &env) const {
         return std::accumulate(
             _operands.begin(), _operands.end(),
-            static_cast<Number>(1), [env] (Number acc, const std::shared_ptr<Expression>& v) {
-                return ml::multiply(acc, v->evaluate(env));
+            static_cast<Number>(1), [env] (const Number acc, const std::shared_ptr<Expression>& v) {
+                return multiply(acc, v->evaluate(env));
             });
     }
 

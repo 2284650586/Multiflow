@@ -11,15 +11,14 @@
 #include <vector>
 
 namespace ml {
-class ML_PUBLIC Power : public Expression {
-private:
+class ML_PUBLIC Power final : public Expression {
     std::vector<std::shared_ptr<Expression>> _operands;
 
 public:
-    explicit Power(std::vector<std::shared_ptr<Expression>> _operands);
+    explicit Power(std::vector<std::shared_ptr<Expression>> operands);
 
     [[nodiscard]]
-    ml::Number evaluate(const Environment &env) const override;
+    Number evaluate(const Environment &env) const override;
 
     [[nodiscard]]
     std::string to_string() const override;

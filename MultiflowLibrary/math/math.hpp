@@ -11,15 +11,14 @@
  *
  * @author z
  */
-namespace ml
-{
-
-class ML_PUBLIC math_error : public std::exception {
-private:
+namespace ml {
+class ML_PUBLIC math_error final : public std::exception {
     const char* _what;
+
 public:
     explicit math_error(const char* what);
-    const char* what() const override;
+
+    [[nodiscard]] const char* what() const override;
 };
 
 constexpr double TRUE = 1;
@@ -126,6 +125,5 @@ double logical_or(double x, double y);
 /**
  * @brief 如果x在浮点数意义上不等于零，返回1，否则返回0
  */
-double is_logical_true(double x);
-
+bool is_logical_true(double x);
 }

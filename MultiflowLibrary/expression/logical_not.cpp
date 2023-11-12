@@ -19,9 +19,9 @@ LogicalNot::LogicalNot(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-ml::Number LogicalNot::evaluate(const Environment &env) const {
-    ml::Number v = _operands[0]->evaluate(env);
-    return ml::is_logical_true(v) ? ml::FALSE : ml::TRUE;
+Number LogicalNot::evaluate(const Environment &env) const {
+    const Number v = _operands[0]->evaluate(env);
+    return is_logical_true(v) ? FALSE : TRUE;
 }
 
 std::string LogicalNot::to_string() const {

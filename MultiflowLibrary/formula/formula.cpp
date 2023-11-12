@@ -13,6 +13,7 @@
 
 #include "logging/logging.hpp"
 
+// NOLINTNEXTLINE
 static void _internalExtractVariablesAndConstants(
     const std::shared_ptr<ml::Expression>& expression,
     std::vector<std::shared_ptr<ml::Expression>>& ret
@@ -25,12 +26,11 @@ static void _internalExtractVariablesAndConstants(
     }
 
     try {
-        const auto& operands = expression->operands();
-        for (const auto& operand: operands) {
+        for (const auto& operand: expression->operands()) {
             _internalExtractVariablesAndConstants(operand, ret);
         }
     }
-    catch (const ml::NotImplementedException& e) {}
+    catch (const ml::NotImplementedException&) {}
 }
 
 namespace ml {

@@ -6,11 +6,9 @@
 
 #include "MultiflowLibrary_global.hpp"
 
-#include <iostream>
 #include <memory>
 #include <string>
 #include <vector>
-#include <cctype>
 #include <stdexcept>
 
 enum class ML_PUBLIC NodeType {
@@ -25,13 +23,13 @@ struct ML_PUBLIC ASTNode {
     std::vector<std::shared_ptr<ASTNode>> args;
 
     ASTNode(NodeType t, std::string val);
-
-    void print(int level = 0) const;
 };
 
 
-class ML_PUBLIC LispParser {
+class ML_PUBLIC LispParser final {
 public:
+    LispParser() = default;
+
     std::unique_ptr<ASTNode> parse(const std::string& input);
 
 private:
@@ -44,4 +42,11 @@ private:
     std::string parseToken(const std::string& input);
 
     void consumeWhitespace(const std::string& input);
+};
+
+class ML_PUBLIC LispParserException final : public std::runtime_error {
+    const char* _what;
+
+public:
+    explicit LispParserException(const char* what) : std::runtime_error(what), _what(what) {}
 };

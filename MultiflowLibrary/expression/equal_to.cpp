@@ -19,10 +19,10 @@ EqualTo::EqualTo(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-ml::Number EqualTo::evaluate(const Environment &env) const {
-    ml::Number x = _operands[0]->evaluate(env);
-    ml::Number y = _operands[1]->evaluate(env);
-    return ml::eq(x, y);
+Number EqualTo::evaluate(const Environment &env) const {
+    const Number x = _operands[0]->evaluate(env);
+    const Number y = _operands[1]->evaluate(env);
+    return eq(x, y);
 }
 
 std::string EqualTo::to_string() const {

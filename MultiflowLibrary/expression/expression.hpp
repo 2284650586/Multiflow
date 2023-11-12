@@ -6,11 +6,9 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include <algorithm>
 #include <sstream>
 
 namespace ml {
-
 /**
 * @brief 表达式的基类。表达式用于计算。每个表达式:
 * - 最基本的求值当然得有
@@ -37,15 +35,15 @@ public:
      */
     Expression(std::string name, std::string description);
 
-    virtual ~Expression();
+    virtual ~Expression() = default;
 
     /**
      * @brief 求值
-     * @param environment 未知数的实际值的表
+     * @param env 未知数的实际值的表
      * @return 求值结果
      */
     [[nodiscard]]
-    virtual ml::Number evaluate(const Environment& env) const;
+    virtual Number evaluate(const Environment& env) const;
 
     /**
      * @brief 表达式的字符串描述。例如
@@ -77,22 +75,22 @@ public:
     virtual std::vector<std::shared_ptr<Expression>> operands() const;
 };
 
-class NotImplementedException : public std::exception {
+class NotImplementedException final : public std::exception {
 };
 
-class MalformedExpressionException : public std::exception {
-private:
+class MalformedExpressionException final : public std::exception {
     const char* _message;
 
 public:
-    MalformedExpressionException(const char* message) : _message(message) {}
-    const char* what() const override {
+    explicit MalformedExpressionException(const char* message) : _message(message) {
+    }
+
+    [[nodiscard]] const char* what() const override {
         return _message;
     }
 };
-
 }
 
 std::string joinArray(const std::vector<std::string>& v, const std::string& delimiter);
 
-std::string joinExpression(const std::vector<std::shared_ptr<ml::Expression> >& v, const std::string& delimiter);
+std::string joinExpression(const std::vector<std::shared_ptr<ml::Expression>>& v, const std::string& delimiter);

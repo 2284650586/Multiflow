@@ -6,24 +6,24 @@
 #include <vector>
 #include <numeric>
 
-namespace ml
-{
-    Add::Add(std::vector<std::shared_ptr<Expression>> operands)
-        : Expression("Add", "Add"), _operands(std::move(operands)) {}
+namespace ml {
+Add::Add(std::vector<std::shared_ptr<Expression>> operands)
+    : Expression("Add", "Add"), _operands(std::move(operands)) {
+}
 
-    ml::Number Add::evaluate(const Environment &env) const {
-        return std::accumulate(
-            _operands.begin(), _operands.end(),
-            static_cast<Number>(0), [env] (Number acc, const std::shared_ptr<Expression>& v) {
-                return ml::add(acc, v->evaluate(env));
-            });
-    }
+Number Add::evaluate(const Environment& env) const {
+    return std::accumulate(
+        _operands.begin(), _operands.end(),
+        static_cast<Number>(0), [env](const Number acc, const std::shared_ptr<Expression>& v) {
+            return add(acc, v->evaluate(env));
+        });
+}
 
-    std::string Add::to_string() const {
-        return joinExpression(_operands, " + ");
-    }
+std::string Add::to_string() const {
+    return joinExpression(_operands, " + ");
+}
 
-    std::vector<std::shared_ptr<Expression>> Add::operands() const {
-        return _operands;
-    }
+std::vector<std::shared_ptr<Expression>> Add::operands() const {
+    return _operands;
+}
 }

@@ -13,9 +13,9 @@ namespace ml {
 LogicalOr::LogicalOr(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("Or", "Or"), _operands(std::move(operands)) {}
 
-ml::Number LogicalOr::evaluate(const Environment& env) const {
+Number LogicalOr::evaluate(const Environment& env) const {
     for (auto& operand: _operands) {
-        if (!ml::z(operand->evaluate(env))) {
+        if (!z(operand->evaluate(env))) {
             return 1;
         }
     }

@@ -11,22 +11,23 @@
 #include <stdexcept>
 
 namespace ml {
-
 using Number = double;
 
-class ML_PUBLIC Environment {
-private:
-    std::map<std::string, ml::Number> env;
+class ML_PUBLIC Environment final {
+    std::map<std::string, Number> env;
 
 public:
     explicit Environment() = default;
-    virtual ~Environment() = default;
 
-    void set(const std::string& name, ml::Number value);
-    ml::Number get(const std::string& name) const;
-    bool present(const std::string& name) const;
+    ~Environment() = default;
+
+    void set(const std::string& name, Number value);
+
+    [[nodiscard]] Number get(const std::string& name) const;
+
+    [[nodiscard]] bool present(const std::string& name) const;
 };
 
-class KeyNotFoundException : public std::exception {};
-
+class KeyNotFoundException final : public std::exception {
+};
 }

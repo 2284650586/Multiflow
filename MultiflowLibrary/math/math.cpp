@@ -18,54 +18,54 @@ const char* math_error::what() const {
         throw math_error("数值非法，不可为NaN或无穷大"); \
     }
 
-bool z(double x) {
+bool z(const double x) {
     ASSERT_VALID(x)
     return std::abs(x) < ZERO_THRESHOLD;
 }
 
-bool eq(double x, double y) {
+bool eq(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return z(x - y);
 }
 
-bool gt(double x, double y) {
+bool gt(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return x > (y + ZERO_THRESHOLD);
+    return x > y + ZERO_THRESHOLD;
 }
 
-bool lt(double x, double y) {
+bool lt(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return x < (y - ZERO_THRESHOLD);
+    return x < y - ZERO_THRESHOLD;
 }
 
-bool gte(double x, double y) {
+bool gte(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return gt(x, y) || eq(x, y);
 }
 
-bool lte(double x, double y) {
+bool lte(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return lt(x, y) || eq(x, y);
 }
 
-double add(double x, double y) {
+double add(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return x + y;
 }
 
-double subtract(double x, double y) {
+double subtract(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return x - y;
 }
 
-double multiply(double x, double y) {
+double multiply(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
@@ -76,7 +76,7 @@ double multiply(double x, double y) {
     return x * y;
 }
 
-double divide(double x, double y) {
+double divide(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
@@ -91,7 +91,7 @@ double divide(double x, double y) {
     return x / y;
 }
 
-double power(double x, double y) {
+double power(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
@@ -101,7 +101,7 @@ double power(double x, double y) {
     return std::pow(x, y);
 }
 
-double square_root(double x) {
+double square_root(const double x) {
     ASSERT_VALID(x)
 
     if (lt(x, ZERO)) {
@@ -110,12 +110,12 @@ double square_root(double x) {
     return std::sqrt(x);
 }
 
-double absolute_value(double x) {
+double absolute_value(const double x) {
     ASSERT_VALID(x)
     return std::abs(x);
 }
 
-double logarithm(double base, double x) {
+double logarithm(const double base, const double x) {
     ASSERT_VALID(base)
     ASSERT_VALID(x)
 
@@ -133,32 +133,32 @@ double logarithm(double base, double x) {
     return divide(std::log(x), std::log(base));
 }
 
-double minimum(double x, double y) {
+double minimum(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return std::min(x, y);
 }
 
-double maximum(double x, double y) {
+double maximum(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
     return std::max(x, y);
 }
 
-double logical_and(double x, double y) {
+double logical_and(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return (!z(x) && !z(y)) ? TRUE : FALSE;
+    return !z(x) && !z(y) ? TRUE : FALSE;
 }
 
-double logical_or(double x, double y) {
+double logical_or(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return (!z(x) || !z(y)) ? TRUE : FALSE;
+    return !z(x) || !z(y) ? TRUE : FALSE;
 }
 
-double is_logical_true(double x) {
+bool is_logical_true(const double x) {
     ASSERT_VALID(x)
-    return z(x) ? FALSE : TRUE;
+    return !z(x);
 }
 }

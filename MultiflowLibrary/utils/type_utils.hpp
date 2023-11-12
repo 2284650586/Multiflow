@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include <type_traits>
-#include <typeinfo>
 #include <memory>
 
 namespace ml {

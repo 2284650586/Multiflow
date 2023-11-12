@@ -11,15 +11,14 @@
 #include <vector>
 
 namespace ml {
-class ML_PUBLIC LowerThan : public Expression {
-private:
+class ML_PUBLIC LowerThan final : public Expression {
     std::vector<std::shared_ptr<Expression>> _operands;
 
 public:
-    explicit LowerThan(std::vector<std::shared_ptr<Expression>> _operands);
+    explicit LowerThan(std::vector<std::shared_ptr<Expression>> operands);
 
     [[nodiscard]]
-    ml::Number evaluate(const Environment &env) const override;
+    Number evaluate(const Environment &env) const override;
 
     [[nodiscard]]
     std::string to_string() const override;

@@ -19,10 +19,10 @@ Power::Power(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-ml::Number Power::evaluate(const Environment &env) const {
-    ml::Number x = _operands[0]->evaluate(env);
-    ml::Number y = _operands[1]->evaluate(env);
-    return ml::power(x, y);
+Number Power::evaluate(const Environment &env) const {
+    const Number x = _operands[0]->evaluate(env);
+    const Number y = _operands[1]->evaluate(env);
+    return power(x, y);
 }
 
 std::string Power::to_string() const {

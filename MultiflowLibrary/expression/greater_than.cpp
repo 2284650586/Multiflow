@@ -19,10 +19,10 @@ GreaterThan::GreaterThan(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-ml::Number GreaterThan::evaluate(const Environment &env) const {
-    ml::Number x = _operands[0]->evaluate(env);
-    ml::Number y = _operands[1]->evaluate(env);
-    return ml::gt(x, y);
+Number GreaterThan::evaluate(const Environment &env) const {
+    const Number x = _operands[0]->evaluate(env);
+    const Number y = _operands[1]->evaluate(env);
+    return gt(x, y);
 }
 
 std::string GreaterThan::to_string() const {
