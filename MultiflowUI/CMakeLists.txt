@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.28)
 
 find_package(
     Qt6 6.5
@@ -42,20 +42,17 @@ set(SOURCE_FILES
     resources.qrc
     qml/main.cpp
     qml/utils/UIUtils.cpp
-    qml/model/qml_formula.cpp
-    qml/model/qml_formula.hpp
-    qml/view/window_main.cpp
-    qml/view/window_main.hpp
     qml/model/qml_expression.cpp
     qml/model/qml_expression.hpp
-    qml/view/window_formula_viewer.cpp
-    qml/view/window_formula_viewer.hpp
     helper/settings_helper.cpp
     helper/settings_helper.hpp
     qml/model/qml_environment.cpp
     qml/model/qml_environment.hpp
     qml/model/qml_result.cpp
     qml/model/qml_result.hpp
+    qml/model/qml_formula.ixx
+    qml/view/formula_viewer.ixx
+    qml/view/main_view.ixx
 )
 
 include_directories(

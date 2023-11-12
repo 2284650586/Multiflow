@@ -1,8 +1,6 @@
 #ifndef CONSTANT_H
 #define CONSTANT_H
 
-#include "../MultiflowLibrary_global.hpp"
-
 #include "expression.hpp"
 
 namespace ml
@@ -13,7 +11,7 @@ namespace ml
  *
  * @author z
  */
-class ML_PUBLIC Constant: public Expression
+class  __declspec(dllexport) Constant: public Expression
 {
 public:
     ml::Number _value;

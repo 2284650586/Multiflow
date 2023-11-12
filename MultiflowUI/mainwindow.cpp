@@ -19,14 +19,14 @@
 #include <QButtonGroup>
 #include <QMessageBox>
 
+#include <spdlog/spdlog.h>
+
 #include "TWidget/ttreewidget.h"
 #include "TWidget/ttabwidget.h"
 #include "TView/tgraphicsview.h"
 #include "TView/tgraphicsscene.h"
 #include "TView/mulitem.h"
 #include "TView/tarrow.h"
-
-#include "MultiflowLibrary/logging/logging.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

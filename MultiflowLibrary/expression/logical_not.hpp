@@ -4,14 +4,13 @@
 
 #pragma once
 
-#include "../MultiflowLibrary_global.hpp"
 #include "expression.hpp"
 
 #include <string>
 #include <vector>
 
 namespace ml {
-class ML_PUBLIC LogicalNot : public Expression {
+class  __declspec(dllexport) LogicalNot : public Expression {
 private:
     std::vector<std::shared_ptr<Expression>> _operands;
 

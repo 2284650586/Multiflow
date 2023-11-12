@@ -53,7 +53,7 @@ var searchData=
   ['mjunctiondialog_2eh_50',['mjunctiondialog.h',['../mjunctiondialog_8h.html',1,'']]],
   ['ml_51',['ml',['../namespaceml.html',1,'']]],
   ['ml_5fprivate_52',['ML_PRIVATE',['../_multiflow_library__global_8hpp.html#ae831cce7bcfdb05a4a8583e382cf0f7d',1,'MultiflowLibrary_global.hpp']]],
-  ['ml_5fpublic_53',['ML_PUBLIC',['../_multiflow_library__global_8hpp.html#ae769a7fe630b6b53fb9ed9a75f01a6de',1,'MultiflowLibrary_global.hpp']]],
+  ['ml_5fpublic_53',[' __declspec(dllexport)',['../_multiflow_library__global_8hpp.html#ae769a7fe630b6b53fb9ed9a75f01a6de',1,'MultiflowLibrary_global.hpp']]],
   ['mname_54',['mName',['../class_m_junction_dialog.html#a1a37dbfddea46d3d0950f4409ab992f2',1,'MJunctionDialog']]],
   ['moc_5fmainwindow_2ecpp_55',['moc_mainwindow.cpp',['../moc__mainwindow_8cpp.html',1,'']]],
   ['moc_5fmainwindow_2ecpp_2ed_56',['moc_mainwindow.cpp.d',['../moc__mainwindow_8cpp_8d.html',1,'']]],

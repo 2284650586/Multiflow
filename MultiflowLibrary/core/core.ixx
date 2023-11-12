@@ -1,8 +1,10 @@
-#pragma once
+module;
 
-#include "../MultiflowLibrary_global.hpp"
+#include <spdlog/spdlog.h>
 
-namespace ml {
+export module core;
+
+export namespace ml {
 
 /**
  * @brief 整个Multiflow库的初始化。做以下事情:
@@ -11,6 +13,8 @@ namespace ml {
  *  - 连接数据库
  * @author z
  */
-ML_PUBLIC void initialize();
+void __declspec(dllexport) initialize() {
+    spdlog::info("Multiflow Core Library Initialized.");
+}
 
 }

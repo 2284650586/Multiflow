@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include "../MultiflowLibrary_global.hpp"
-
 #include <string>
 #include <map>
 #include <stdexcept>
@@ -14,7 +12,7 @@ namespace ml {
 
 using Number = double;
 
-class ML_PUBLIC Environment {
+class  __declspec(dllexport) Environment {
 private:
     std::map<std::string, ml::Number> env;
 

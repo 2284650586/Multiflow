@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.28)
 
 project(
     Multiflow
@@ -52,10 +52,10 @@ include_directories(${spdlog_SOURCE_DIR}/include)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
-add_subdirectory(MultiflowLibrary)
-
+# Include FluentUI
 set(FLUENTUI_BUILD_EXAMPLES OFF)
 set(FLUENTUI_BUILD_FRAMELESSHELPER OFF)
 add_subdirectory(FluentUI)
 
+add_subdirectory(MultiflowLibrary)
 add_subdirectory(MultiflowUI)

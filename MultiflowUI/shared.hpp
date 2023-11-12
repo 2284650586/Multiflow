@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MultiflowLibrary/formula/formula.hpp"
+import formula;
 
 #include <QObject>
 #include <QMainWindow>

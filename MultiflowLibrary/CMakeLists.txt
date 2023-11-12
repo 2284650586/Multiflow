@@ -1,17 +1,16 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.28)
 
 add_library(MultiflowLibrary SHARED
-    core/core.cpp
+    core/core.ixx
+    formula/formula.ixx
+    parser/formula_parser.ixx
     expression/add.cpp
     expression/expression.cpp
     expression/constant.cpp
     expression/variable.cpp
     math/math.cpp
-    logging/logging.cpp
     expression/environment.cpp
     expression/environment.hpp
-    formula/formula.cpp
-    formula/formula.hpp
     utils/type_utils.cpp
     utils/type_utils.hpp
     expression/multiply.cpp
@@ -24,8 +23,6 @@ add_library(MultiflowLibrary SHARED
     expression/minus.hpp
     parser/lisp_parser.cpp
     parser/lisp_parser.hpp
-    parser/formula_parser.cpp
-    parser/formula_parser.hpp
     expression/power.cpp
     expression/power.hpp
     expression/logarithm.cpp

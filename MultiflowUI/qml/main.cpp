@@ -2,12 +2,15 @@
 
 #include "qml/utils/UIUtils.hpp"
 #include "qml/model/qml_environment.hpp"
-#include "view/window_main.hpp"
 #include "helper/settings_helper.hpp"
 #include "shared.hpp"
 
 #include <QQuickStyle>
 #include <QQuickWindow>
+
+import formula;
+import formula_viewer;
+import main_view;
 
 namespace qml {
 

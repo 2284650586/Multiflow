@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../MultiflowLibrary_global.hpp"
 #include "environment.hpp"
 
 #include <string>
@@ -26,7 +25,7 @@ namespace ml {
 *
 * @author z
 */
-class ML_PUBLIC Expression {
+class  __declspec(dllexport) Expression {
 protected:
     std::string _name;
     std::string _description;

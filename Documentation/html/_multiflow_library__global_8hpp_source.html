@@ -99,9 +99,9 @@ $(document).ready(function(){initNavTree('_multiflow_library__global_8hpp_source
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// #include &lt;QtCore/qglobal.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#if defined(MULTIFLOWLIBRARY_LIBRARY)</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#  define ML_PUBLIC __declspec(dllexport)</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#  define  __declspec(dllexport) __declspec(dllexport)</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="_multiflow_library__global_8hpp.html#ae769a7fe630b6b53fb9ed9a75f01a6de">    8</a></span><span class="preprocessor">#  define ML_PUBLIC __declspec(dllimport)</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="_multiflow_library__global_8hpp.html#ae769a7fe630b6b53fb9ed9a75f01a6de">    8</a></span><span class="preprocessor">#  define  __declspec(dllexport) __declspec(dllimport)</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="_multiflow_library__global_8hpp.html#ae831cce7bcfdb05a4a8583e382cf0f7d">   11</a></span><span class="preprocessor">#define ML_PRIVATE</span></div>

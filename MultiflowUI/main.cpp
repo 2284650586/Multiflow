@@ -1,17 +1,24 @@
 #include "mainwindow.hpp"
-
-#include "third_party/argparse/argparse.hpp"
-
 #include "shared.hpp"
 #include "constants.hpp"
 #include "qml/main.hpp"
 
-#include "MultiflowLibrary/core/core.hpp"
-#include "MultiflowLibrary/logging/logging.hpp"
-
-#include <MultiflowLibrary/parser/formula_parser.hpp>
+#include "third_party/argparse/argparse.hpp"
+#include <spdlog/spdlog.h>
 
 #include <memory>
+#include <utility>
+#include <functional>
+#include <algorithm>
+#include <ranges>
+#include <string>
+#include <vector>
+#include <unordered_map>
+#include <stdexcept>
+
+import core;
+import formula;
+import formula_parser;
 
 argparse::ArgumentParser prepareParser();
 void initialize();
@@ -54,11 +61,11 @@ int main(int argc, char *argv[]) {
     }
 
     if (propertyEnableVerbose) {
-        trace("Verbose ml enabled.");
+        spdlog::trace("Verbose ml enabled.");
         printVersions();
     }
 
-    info("Multiflow UI launched and entered event loop.");
+    spdlog::info("Multiflow UI launched and entered event loop.");
 
     int result = a.exec(); // NOLINT(readability-static-accessed-through-instance)
 
@@ -68,7 +75,7 @@ int main(int argc, char *argv[]) {
 void initialize() {
     ml::FormulaParser parser{};
     auto formulae = parser.loadDistribution("D:\\dist.yaml");
-    info("Loaded {} formula(e).", formulae.size());
+    spdlog::info("Loaded {} formula(e).", formulae.size());
     std::copy(formulae.begin(), formulae.end(), std::back_inserter(gFormulae));
 }
 
