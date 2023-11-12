@@ -38,11 +38,7 @@ void _applyVisualStyles() {
         Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
 
     if (SettingsHelper::getInstance()->getRender() == "software") {
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
         QQuickWindow::setGraphicsApi(QSGRendererInterface::Software);
-#elif (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
-        QQuickWindow::setSceneGraphBackend(QSGRendererInterface::Software);
-#endif
     }
 }
 

@@ -21,8 +21,7 @@ QmlExpression::QmlExpression(std::shared_ptr<ml::Expression> expression)
 
 QmlResult QmlExpression::evaluate(const QmlEnvironment* environment) const {
     try {
-        ml::Number result = _expression->evaluate(*environment->_environment);
-        return QmlResult::success(result);
+        return QmlResult::success(_expression->evaluate(*environment->_environment));
     }
     catch (const ml::math_error& e) {
         return QmlResult::failure(QString::fromStdString(e.what()));
@@ -30,7 +29,7 @@ QmlResult QmlExpression::evaluate(const QmlEnvironment* environment) const {
     catch (const ml::MalformedExpressionException& e) {
         return QmlResult::failure(QString::fromStdString(e.what()));
     }
-    catch (const ml::NotImplementedException& e) {
+    catch (const ml::NotImplementedException&) {
         return QmlResult::failure("使用了尚未实现的函数");
     }
 }

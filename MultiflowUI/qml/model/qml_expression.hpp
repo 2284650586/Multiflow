@@ -5,8 +5,6 @@
 #pragma once
 
 #include <MultiflowLibrary/expression/expression.hpp>
-#include <MultiflowLibrary/expression/variable.hpp>
-#include <MultiflowLibrary/expression/constant.hpp>
 
 #include "qml_environment.hpp"
 #include "qml_result.hpp"
@@ -30,9 +28,9 @@ public:
     QString _name;
     QString _description;
     QString _representation;
-    bool _isVariable;
-    bool _isConstant;
-    ml::Number _value;
+    bool _isVariable = false;
+    bool _isConstant = false;
+    ml::Number _value = 0;
 
     explicit QmlExpression(std::shared_ptr<ml::Expression> expression);
     QmlExpression() = default;
