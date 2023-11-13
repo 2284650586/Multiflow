@@ -1,23 +1,23 @@
 #include "mainwindow.hpp"
 
-#include "third_party/argparse/argparse.hpp"
-
 #include "shared.hpp"
 #include "constants.hpp"
 #include "qml/main.hpp"
 
-#include "MultiflowLibrary/core/core.hpp"
-#include "MultiflowLibrary/logging/logging.hpp"
+#include "third_party/argparse/argparse.hpp"
 
+#include <MultiflowLibrary/core/core.hpp>
+#include <MultiflowLibrary/logging/logging.hpp>
 #include <MultiflowLibrary/parser/formula_parser.hpp>
 
+#include <QApplication>
 #include <memory>
 
 argparse::ArgumentParser prepareParser();
-void initialize();
-void startupUILegacy(int argc, char* argv[]);
+void parserAndLoadFormulae();
 void startupUI(int argc, char* argv[]);
 void printVersions();
+
 
 static constexpr int ErrorSuccess = 0;
 static constexpr int ErrorInvalidArgument = 1;
@@ -43,15 +43,10 @@ int main(int argc, char *argv[]) {
         return ErrorSuccess;
     }
 
-    propertyLegacyUI = parser.get<bool>("--legacy");
     propertyEnableVerbose = parser.get<bool>("--verbose");
 
-    initialize();
-    if (propertyLegacyUI) {
-        startupUILegacy(argc, argv);
-    } else {
-        startupUI(argc, argv);
-    }
+    parserAndLoadFormulae();
+    startupUI(argc, argv);
 
     if (propertyEnableVerbose) {
         trace("Verbose ml enabled.");
@@ -59,22 +54,14 @@ int main(int argc, char *argv[]) {
     }
 
     info("Multiflow UI launched and entered event loop.");
-
-    int result = a.exec(); // NOLINT(readability-static-accessed-through-instance)
-
-    return result;
+    return a.exec(); // NOLINT(readability-static-accessed-through-instance);
 }
 
-void initialize() {
+void parserAndLoadFormulae() {
     ml::FormulaParser parser{};
     auto formulae = parser.loadDistribution("D:\\dist.yaml");
     info("Loaded {} formula(e).", formulae.size());
-    std::copy(formulae.begin(), formulae.end(), std::back_inserter(gFormulae));
-}
-
-void startupUILegacy(int argc, char* argv[]) {
-    gpMainWindow = std::make_unique<MainWindow>();
-    gpMainWindow->show();
+    std::ranges::copy(formulae, std::back_inserter(gFormulae));
 }
 
 void startupUI(int argc, char* argv[]) {
@@ -89,11 +76,6 @@ argparse::ArgumentParser prepareParser() {
     auto parser = argparse::ArgumentParser{"Multiflow UI"};
     parser.add_argument("-v", "--version")
         .help("show version and exit")
-        .default_value(false)
-        .implicit_value(true);
-
-    parser.add_argument("-l", "--legacy")
-        .help("start legacy UI")
         .default_value(false)
         .implicit_value(true);
 

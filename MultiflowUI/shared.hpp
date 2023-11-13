@@ -1,12 +1,9 @@
 #pragma once
 
-#include "MultiflowLibrary/formula/formula.hpp"
+#include <MultiflowLibrary/formula/formula.hpp>
 
-#include <QObject>
 #include <QMainWindow>
-#include <QApplication>
 #include <QQmlApplicationEngine>
-#include <QVector>
 
 #include <memory>
 
@@ -21,7 +18,6 @@ enum MultiflowKind {
     NONETYPE
 };
 
-extern bool propertyLegacyUI;
 extern bool propertyEnableVerbose;
 
 // Memory managed by Qt.
