@@ -1,5 +1,7 @@
 #pragma once
 
 namespace qml {
-    void start(int argc, char* argv[]);
+void initialize(int argc, const char* argv[]);
+
+void loadMainWindow();
 }

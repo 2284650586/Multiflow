@@ -7,13 +7,15 @@
 
 #include <QUrl>
 
+#include "service/FormulaService.hpp"
+
 namespace qml {
 
-qml::WindowFormulaViewer::WindowFormulaViewer(QObject* parent) {
+WindowFormulaViewer::WindowFormulaViewer(QObject* parent) {
     // Wrap Formula in QmlFormula.
-    std::transform(
-        gFormulae.begin(), gFormulae.end(), std::back_inserter(_qmlFormulae),
-        [](const auto& formula) { return QmlFormula{formula}; });
+    std::ranges::transform(
+        FormulaService::getInstance()->formulae(), std::back_inserter(_qmlFormulae),
+        [](const auto& f) { return QmlFormula{f}; });
 
     gpQmlApplicationEngine->rootContext()->setContextProperty(
         "vmFormulaViewer", this);
@@ -22,7 +24,7 @@ qml::WindowFormulaViewer::WindowFormulaViewer(QObject* parent) {
     gpQmlApplicationEngine->load(QUrl("qrc:/qml/components/window/FormulaViewer.qml"));
 }
 
-QVariantList qml::WindowFormulaViewer::formulae() const {
+QVariantList WindowFormulaViewer::formulae() const {
     QVariantList ret{};
     for (const QmlFormula& f: _qmlFormulae) {
         ret << QVariant::fromValue(f);

@@ -10,10 +10,9 @@
 #include <QQuickWindow>
 
 namespace qml {
-
 void _tryCreateApplicationEngine() {
     if (!gpQmlApplicationEngine) {
-        gpQmlApplicationEngine = new QQmlApplicationEngine(gpApplication);
+        gpQmlApplicationEngine = new QQmlApplicationEngine(gpApplication.get());
     }
 }
 
@@ -28,10 +27,6 @@ void _registerSingletons() {
         "qml.main", 1, 0, "FormulaItemsSingleton");
 }
 
-void _loadMainWindow() {
-    gpWindowMain = std::make_unique<WindowMain>();
-}
-
 void _applyVisualStyles() {
     QQuickStyle::setStyle("Basic");
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(
@@ -42,7 +37,7 @@ void _applyVisualStyles() {
     }
 }
 
-void start(int argc, char* argv[]) {
+void initialize(int argc, const char* argv[]) {
     QGuiApplication::setOrganizationName("CNU");
     QGuiApplication::setApplicationName("Multiflow");
     SettingsHelper::getInstance()->init(argv);
@@ -51,7 +46,9 @@ void start(int argc, char* argv[]) {
     _tryCreateApplicationEngine();
     _applyVisualStyles();
     _registerSingletons();
-    _loadMainWindow();
 }
 
+void loadMainWindow() {
+    gpQmlWindowMain = std::make_unique<WindowMain>();
+}
 }

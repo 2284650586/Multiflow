@@ -1,7 +1,6 @@
 #pragma once
 
-#include <MultiflowLibrary/formula/formula.hpp>
-
+#include <QApplication>
 #include <QMainWindow>
 #include <QQmlApplicationEngine>
 
@@ -20,15 +19,27 @@ enum MultiflowKind {
 
 extern bool propertyEnableVerbose;
 
-// Memory managed by Qt.
-extern QApplication* gpApplication;
-
-// Memory managed by Qt.
+/**
+ * @brief The global QML application engine.
+ */
 extern QQmlApplicationEngine* gpQmlApplicationEngine;
 
-extern QVector<ml::Formula> gFormulae;
+/**
+ * @brief The global QML application object.
+ */
+extern std::unique_ptr<QApplication> gpApplication;
 
-extern std::unique_ptr<QMainWindow> gpMainWindow;
+/**
+ * @brief The global Widget-based main window.
+ */
+extern std::unique_ptr<QMainWindow> gpWindowMain;
 
-extern std::unique_ptr<QObject> gpWindowMain;
-extern std::unique_ptr<QObject> gpWindowFormulaViewer;
+/**
+ * @brief The global QML-based main window.
+ */
+extern std::unique_ptr<QObject> gpQmlWindowMain;
+
+/**
+ * @brief The global QML-based formula viewer window.
+ */
+extern std::unique_ptr<QObject> gpQmlWindowFormulaViewer;

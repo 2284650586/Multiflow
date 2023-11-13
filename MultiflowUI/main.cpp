@@ -1,4 +1,4 @@
-#include "mainwindow.hpp"
+#include "widget/mainwindow.hpp"
 
 #include "shared.hpp"
 #include "constants.hpp"
@@ -8,14 +8,12 @@
 
 #include <MultiflowLibrary/core/core.hpp>
 #include <MultiflowLibrary/logging/logging.hpp>
-#include <MultiflowLibrary/parser/formula_parser.hpp>
 
 #include <QApplication>
 #include <memory>
 
 argparse::ArgumentParser prepareParser();
-void parserAndLoadFormulae();
-void startupUI(int argc, char* argv[]);
+void startupUI(const int argc, const char* argv[]);
 void printVersions();
 
 
@@ -25,8 +23,7 @@ static constexpr int ErrorInvalidArgument = 1;
 
 int main(int argc, char *argv[]) {
     ml::initialize();
-    QApplication a(argc, argv);
-    gpApplication = &a;
+    gpApplication = std::make_unique<QApplication>(argc, argv);
 
     auto parser = prepareParser();
     try {
@@ -44,9 +41,7 @@ int main(int argc, char *argv[]) {
     }
 
     propertyEnableVerbose = parser.get<bool>("--verbose");
-
-    parserAndLoadFormulae();
-    startupUI(argc, argv);
+    startupUI(argc, const_cast<const char**>(argv));
 
     if (propertyEnableVerbose) {
         trace("Verbose ml enabled.");
@@ -54,18 +49,15 @@ int main(int argc, char *argv[]) {
     }
 
     info("Multiflow UI launched and entered event loop.");
-    return a.exec(); // NOLINT(readability-static-accessed-through-instance);
+    const int result = gpApplication->exec(); // NOLINT(readability-static-accessed-through-instance);
+
+    return result;
 }
 
-void parserAndLoadFormulae() {
-    ml::FormulaParser parser{};
-    auto formulae = parser.loadDistribution("D:\\dist.yaml");
-    info("Loaded {} formula(e).", formulae.size());
-    std::ranges::copy(formulae, std::back_inserter(gFormulae));
-}
-
-void startupUI(int argc, char* argv[]) {
-    qml::start(argc, argv);
+void startupUI(const int argc, const char* argv[]) {
+    info("Creating main window.");
+    gpWindowMain = std::make_unique<MainWindow>(nullptr, argc, argv);
+    gpWindowMain->show();
 }
 
 void printVersions() {

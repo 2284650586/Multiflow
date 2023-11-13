@@ -16,12 +16,12 @@ Q_OBJECT
 
 explicit SettingsHelper(QObject* parent = nullptr);
 
-friend class SingletonMixin<SettingsHelper>;
+friend class SingletonMixin;
 
 public:
     ~SettingsHelper() override;
 
-    void init(char* argv[]);
+    void init(const char* argv[]);
 
     Q_INVOKABLE void setRender(const QVariant& render) { save("render", render); }
 
@@ -36,9 +36,9 @@ public:
     Q_INVOKABLE QVariant getVsync() { return get("vsync", QVariant(true)); }
 
 private:
-    void save(const QString& key, const QVariant& val);
+    void save(const QString& key, const QVariant& val) const;
 
-    QVariant get(const QString& key, QVariant def = {});
+    [[nodiscard]] QVariant get(const QString& key, QVariant def = {}) const;
 
 private:
     QScopedPointer<QSettings> m_settings;

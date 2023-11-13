@@ -11,13 +11,13 @@
 
 SettingsHelper::SettingsHelper(QObject* parent)
     : QObject(parent),
-      IQmlSingleton<SettingsHelper>("Multiflow.UI", 1, 0, "SettingsHelper") {
+      IQmlSingleton("Multiflow.UI", 1, 0, "SettingsHelper") {
 
 }
 
 SettingsHelper::~SettingsHelper() = default;
 
-void SettingsHelper::save(const QString& key, const QVariant& val) {
+void SettingsHelper::save(const QString& key, const QVariant& val) const {
     QByteArray data = {};
     QDataStream stream(&data, QIODevice::WriteOnly);
     stream.setVersion(QDataStream::Qt_6_5);
@@ -25,7 +25,7 @@ void SettingsHelper::save(const QString& key, const QVariant& val) {
     m_settings->setValue(key, data);
 }
 
-QVariant SettingsHelper::get(const QString& key, QVariant def) {
+QVariant SettingsHelper::get(const QString& key, QVariant def) const {
     const QByteArray data = m_settings->value(key).toByteArray();
     if (data.isEmpty()) {
         return def;
@@ -37,8 +37,8 @@ QVariant SettingsHelper::get(const QString& key, QVariant def) {
     return val;
 }
 
-void SettingsHelper::init(char* argv[]) {
-    auto applicationPath = QString::fromStdString(argv[0]);
+void SettingsHelper::init(const char* argv[]) {
+    const auto applicationPath = QString::fromStdString(argv[0]);
     const QFileInfo fileInfo(applicationPath);
     const QString iniFileName = fileInfo.completeBaseName() + ".ini";
     const QString iniFilePath =

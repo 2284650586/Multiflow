@@ -1,52 +1,74 @@
 #include "mainwindow.hpp"
-#include "ui_mainwindow.h"
 #include "constants.hpp"
-
-#include <QSplitter>
-#include <QAction>
-#include <QIcon>
-#include <QMenu>
-#include <QMenuBar>
-#include <QStatusBar>
-#include <QDebug>
-#include <QTabWidget>
-#include <QPixmap>
-#include <QGraphicsItem>
-#include <QComboBox>
-#include <QToolBar>
-#include <QHBoxLayout>
-#include <QToolButton>
-#include <QButtonGroup>
-#include <QMessageBox>
-
-#include "TWidget/ttreewidget.h"
-#include "TWidget/ttabwidget.h"
-#include "TView/tgraphicsview.h"
+#include "service/FormulaService.hpp"
+#include "qml/main.hpp"
 #include "TView/tgraphicsscene.h"
-#include "TView/mulitem.h"
 #include "TView/tarrow.h"
 
 #include "MultiflowLibrary/logging/logging.hpp"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{
+#include <QSplitter>
+#include <QIcon>
+#include <QMenu>
+#include <QMenuBar>
+#include <QStatusBar>
+#include <QTabWidget>
+#include <QPixmap>
+#include <QHBoxLayout>
+#include <QToolButton>
+#include <QButtonGroup>
+#include <QTimer>
+#include <QComboBox>
+#include <QToolBar>
+
+
+MainWindow::MainWindow(QWidget* parent, int argc, const char* argv[])
+    : QMainWindow(parent), _argc(argc), _argv(argv) {
+    loadAndShowSplashScreen();
+}
+
+void MainWindow::loadAndShowSplashScreen() {
+    connect(this, &MainWindow::onLoadStart, this, &MainWindow::showLoadingDialog);
+    connect(this, &MainWindow::onLoadUpdate, this, &MainWindow::updateLoadingDialog);
+    connect(this, &MainWindow::onLoadFinish, this, &MainWindow::closeLoadingDialog);
+
+    emit onLoadStart();
+    emit onLoadUpdate("加载图标资源...");
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
+
+    emit onLoadUpdate("加载主窗口...");
     resize(1300, 800);
     createActions();
     createToolBar();
     createMenu();
     createStatusBar();
     createWidget();
+
+    emit onLoadUpdate("加载公式数据...");
+    info("Loading formulae.");
+    FormulaService::getInstance()->parserAndLoadFormulae();
+
+    emit onLoadUpdate("加载 QML 引擎...");
+    info("Initializing QML engine.");
+    qml::initialize(_argc, _argv);
+
+    emit onLoadUpdate("欢迎使用 " + tr(AppName) + "！");
+    QTimer::singleShot(1000, this, &MainWindow::onLoadFinish);
 }
 
-MainWindow::~MainWindow()
-{
-
+void MainWindow::showLoadingDialog() {
+    _splashDialog = SplashDialog::createAndShow();
 }
 
-void MainWindow::createActions()
-{
+void MainWindow::updateLoadingDialog(const QString& statusMessage) const {
+    _splashDialog->updateStatus(statusMessage);
+}
+
+void MainWindow::closeLoadingDialog() const {
+    _splashDialog->close();
+}
+
+void MainWindow::createActions() {
     newFileAction = new QAction(QIcon(":/resources/image/file.png"), "新建文件", this);
     connect(newFileAction, &QAction::triggered, this, &MainWindow::createGraphicsView);
 
@@ -74,12 +96,11 @@ void MainWindow::createActions()
     connect(newJunctionAction, &QAction::triggered, this, &MainWindow::createMulItem);
 }
 
-void MainWindow::createToolBar()
-{
+void MainWindow::createToolBar() {
     itemToolBar = new QToolBar(this);
     itemToolBar->setIconSize(QSize(40, 40));
     itemToolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    itemToolBar->addActions({ newWellAction, newSourceAction, newSinkAction, newJunctionAction });
+    itemToolBar->addActions({newWellAction, newSourceAction, newSinkAction, newJunctionAction});
     addToolBar(Qt::TopToolBarArea, itemToolBar);
 
     otherToolBar = new QToolBar(this);
@@ -90,7 +111,7 @@ void MainWindow::createToolBar()
     disableToolbars();
 
     sceneScaleCombo = new QComboBox;
-    sceneScaleCombo->addItems({ tr("50%"), tr("75%"), tr("100%"), tr("125%"), tr("150%") });
+    sceneScaleCombo->addItems({tr("50%"), tr("75%"), tr("100%"), tr("125%"), tr("150%")});
     sceneScaleCombo->setCurrentIndex(2);
 
     QFont font = sceneScaleCombo->font();
@@ -113,27 +134,24 @@ void MainWindow::createToolBar()
     pointerTypeGroup->addButton(pointerButton, TGraphicsScene::setPointer);
     pointerTypeGroup->addButton(linePointerButton, TGraphicsScene::InsertLine);
 
-    connect(pointerTypeGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked),
+    connect(pointerTypeGroup, QOverload<QAbstractButton*>::of(&QButtonGroup::buttonClicked),
             this, &MainWindow::pointerGroupClicked);
 
     otherToolBar->addWidget(pointerButton);
     otherToolBar->addWidget(linePointerButton);
 }
 
-void MainWindow::disableToolbars()
-{
+void MainWindow::disableToolbars() {
     itemToolBar->setEnabled(false);
     otherToolBar->setEnabled(false);
 }
 
-void MainWindow::enableToolbars()
-{
+void MainWindow::enableToolbars() {
     itemToolBar->setEnabled(true);
     otherToolBar->setEnabled(true);
 }
 
-void MainWindow::createMenu()
-{
+void MainWindow::createMenu() {
     QFont font;
     font.setPointSize(12);
     menuBar()->setFont(font);
@@ -147,14 +165,12 @@ void MainWindow::createMenu()
     aboutMenu->setFont(font);
 }
 
-void MainWindow::createStatusBar()
-{
+void MainWindow::createStatusBar() {
     statusBar = new QStatusBar(this);
     setStatusBar(statusBar);
 }
 
-void MainWindow::createWidget()
-{
+void MainWindow::createWidget() {
     treeWidget = new TTreeWidget(this);
     tabWidget = new TTabWidget(this);
     tabWidget->setTabsClosable(true);
@@ -174,8 +190,7 @@ void MainWindow::createWidget()
     centralWidget()->setContentsMargins(5, 0, 5, 0);
 }
 
-void MainWindow::onAboutApp()
-{
+void MainWindow::onAboutApp() {
     // TODO
     QMessageBox::information(this, tr(AppName), tr(""));
 }
@@ -183,20 +198,19 @@ void MainWindow::onAboutApp()
 /**
  * @brief 新建新场景的时候调用，设置一些按钮的状态
  */
-void MainWindow::createGraphicsView()
-{
+void MainWindow::createGraphicsView() {
     treeWidget->addItem();
     enableToolbars();
     pointerButton->setChecked(true);
 
-    TGraphicsView *tView = new TGraphicsView(this);
-    TGraphicsScene *tScene = new TGraphicsScene(tView);
+    TGraphicsView* tView = new TGraphicsView(this);
+    TGraphicsScene* tScene = new TGraphicsScene(tView);
 
     tScene->setSceneRect(QRectF(0, 0, tabWidget->width() + 200, tabWidget->height() + 200));
     tScene->setBackgroundBrush(QPixmap(":/resources/image/background3.png"));
     tView->setScene(tScene);
 
-    QHBoxLayout *layout = new QHBoxLayout;
+    QHBoxLayout* layout = new QHBoxLayout;
     layout->addWidget(tView);
 
     tabWidget->insertTab(tabWidget->count(), tView, QString("场景 %1").arg(tabWidget->count() + 1));
@@ -206,55 +220,49 @@ void MainWindow::createGraphicsView()
     connect(tScene, &TGraphicsScene::setPointerCursor, this, &MainWindow::setPointerCursor);
 }
 
-void MainWindow::createMulItem()
-{
+void MainWindow::createMulItem() {
     QAction* action = qobject_cast<QAction*>(sender());
     int type = action->data().toInt();
-    TGraphicsView *view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene *scene = dynamic_cast<TGraphicsScene*>(view->scene());
+    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
+    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
     scene->setMode(TGraphicsScene::InsertItem);
     scene->setItemType(MultiflowKind(type));
     setCursor(Qt::CrossCursor);
 }
 
-void MainWindow::pointerGroupClicked()
-{
-    TGraphicsView *view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene *scene = dynamic_cast<TGraphicsScene*>(view->scene());
+void MainWindow::pointerGroupClicked() {
+    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
+    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
     scene->setMode(TGraphicsScene::Mode(pointerTypeGroup->checkedId()));
 }
 
-void MainWindow::mulItemInserted(MulItem *item)
-{
+void MainWindow::mulItemInserted(MulItem* item) {
     Q_UNUSED(item);
     unsetCursor();
-    TGraphicsView *view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene *scene = dynamic_cast<TGraphicsScene*>(view->scene());
+    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
+    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
     scene->setMode(TGraphicsScene::setPointer);
-//    treeWidget->addFlowlineItem(item);
+    //    treeWidget->addFlowlineItem(item);
 }
 
-void MainWindow::linePointerInserted()
-{
+void MainWindow::linePointerInserted() {
     unsetCursor();
 }
 
-void MainWindow::setPointerCursor()
-{
+void MainWindow::setPointerCursor() {
     unsetCursor();
 }
 
-void MainWindow::closeTab(int index)
-{
+void MainWindow::closeTab(int index) {
     if (index == -1) {
         return;
     }
-//    qDebug() << index;
+    //    qDebug() << index;
     QWidget* tabItem = tabWidget->widget(index);
     tabWidget->removeTab(index);
     delete(tabItem);
     tabItem = nullptr;
-//    qDebug() << "123";
+    //    qDebug() << "123";
     if (tabWidget->count() == 0) {
         sceneScaleCombo->setCurrentIndex(2);
         disableToolbars();
@@ -262,37 +270,35 @@ void MainWindow::closeTab(int index)
     }
 }
 
-void MainWindow::tabChanged(int index)
-{
+void MainWindow::tabChanged(int index) {
     if (index == -1) {
         return;
     }
-    TGraphicsView *view = dynamic_cast<TGraphicsView*>(tabWidget->widget(index));
-//    qDebug() << index;
+    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(index));
+    //    qDebug() << index;
     QString scale = view->getScale();
     if (scale.isEmpty()) {
         sceneScaleCombo->setCurrentIndex(2);
         view->setScale(sceneScaleCombo->currentText());
         return;
-    } else {
+    }
+    else {
         //sceneScaleCombo->setCurrentText(scale);
         setViewScale(view, scale);
     }
-//    qDebug() << scale;
+    //    qDebug() << scale;
     setViewScale(view, scale);
 }
 
-void MainWindow::sceneScaleChanged(const QString &scale)
-{
+void MainWindow::sceneScaleChanged(const QString& scale) {
     if (tabWidget->count() == 0) {
         return;
     }
-    TGraphicsView *view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
+    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
     setViewScale(view, scale);
 }
 
-void MainWindow::setViewScale(TGraphicsView *view, const QString &scale)
-{
+void MainWindow::setViewScale(TGraphicsView* view, const QString& scale) {
     double newScale = scale.left(scale.indexOf(tr("%"))).toDouble() / 100.0;
     QTransform oldMatrix = view->transform();
     view->resetTransform();
@@ -301,29 +307,29 @@ void MainWindow::setViewScale(TGraphicsView *view, const QString &scale)
     view->setScale(scale);
 }
 
-void MainWindow::deleteItem()
-{
-    TGraphicsView *view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene *scene = dynamic_cast<TGraphicsScene*>(view->scene());
+void MainWindow::deleteItem() {
+    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
+    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
     if (scene->selectedItems().count() == 0) {
         return;
     }
-    QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "删除确认", "确定要删除该item项吗？", QMessageBox::Yes | QMessageBox::No);
+    QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "删除确认", "确定要删除该item项吗？",
+                                                              QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        QList<QGraphicsItem *> selectedItems = scene->selectedItems();
-        for (QGraphicsItem *item : qAsConst(selectedItems)) {
+        QList<QGraphicsItem*> selectedItems = scene->selectedItems();
+        for (QGraphicsItem* item: qAsConst(selectedItems)) {
             if (item->type() == TArrow::Type) {
                 scene->removeItem(item);
-                TArrow *arrow = qgraphicsitem_cast<TArrow *>(item);
+                TArrow* arrow = qgraphicsitem_cast<TArrow*>(item);
                 arrow->getStartItem()->removeArrow(arrow);
                 arrow->getEndItem()->removeArrow(arrow);
                 delete item;
             }
         }
         selectedItems = scene->selectedItems();
-        for (QGraphicsItem *item : qAsConst(selectedItems)) {
+        for (QGraphicsItem* item: qAsConst(selectedItems)) {
             if (item->type() == MulItem::Type)
-                qgraphicsitem_cast<MulItem *>(item)->removeArrows();
+                qgraphicsitem_cast<MulItem*>(item)->removeArrows();
             scene->removeItem(item);
             delete item;
         }

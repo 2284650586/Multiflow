@@ -19,7 +19,7 @@ WindowMain::WindowMain(QObject* parent) {
 }
 
 void WindowMain::onFormulaViewerButtonClicked() {
-    gpWindowFormulaViewer = std::make_unique<WindowFormulaViewer>();
+    gpQmlWindowFormulaViewer = std::make_unique<WindowFormulaViewer>();
 }
 
 }

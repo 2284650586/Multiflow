@@ -2,9 +2,8 @@
 
 bool propertyEnableVerbose = false;
 
-QApplication* gpApplication = nullptr;
+std::unique_ptr<QApplication> gpApplication = nullptr;
 QQmlApplicationEngine* gpQmlApplicationEngine = nullptr;
-std::unique_ptr<QMainWindow> gpMainWindow = nullptr;
-QVector<ml::Formula> gFormulae{};
-std::unique_ptr<QObject> gpWindowMain = nullptr;
-std::unique_ptr<QObject> gpWindowFormulaViewer = nullptr;
+std::unique_ptr<QMainWindow> gpWindowMain = nullptr;
+std::unique_ptr<QObject> gpQmlWindowMain = nullptr;
+std::unique_ptr<QObject> gpQmlWindowFormulaViewer = nullptr;

@@ -20,6 +20,8 @@ aux_source_directory(util UTIL)
 aux_source_directory(util/delegate UTIL_DELEGATE)
 aux_source_directory(util/validator UTIL_VALIDATOR)
 aux_source_directory(utility UTILITY)
+aux_source_directory(widget WIDGET)
+aux_source_directory(service SERVICE)
 
 set(QML_SRC
     qml/main.qml
@@ -36,8 +38,11 @@ set(SOURCE_FILES
     ${UTIL_DELEGATE}
     ${UTIL_VALIDATOR}
     ${UTILITY}
+    ${WIDGET}
+    ${SERVICE}
     main.cpp
-    mainwindow.cpp
+    widget/mainwindow.cpp
+    widget/SplashDialog.cpp
     shared.cpp
     resources.qrc
     qml/main.cpp
@@ -56,6 +61,8 @@ set(SOURCE_FILES
     qml/model/qml_environment.hpp
     qml/model/qml_result.cpp
     qml/model/qml_result.hpp
+    service/FormulaService.cpp
+    service/FormulaService.hpp
 )
 
 include_directories(
@@ -78,6 +85,8 @@ qt_add_qml_module(
     ${QML_SRC}
     RESOURCES
     resources.qrc
+    SOURCES
+    RESOURCES widget/SplashDialog.ui
 )
 
 target_link_libraries(
