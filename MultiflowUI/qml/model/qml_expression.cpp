@@ -4,6 +4,9 @@
 
 #include "qml_expression.hpp"
 
+#include <MultiflowLibrary/expression/expression.hpp>
+#include <MultiflowLibrary/expression/constant.hpp>
+#include <MultiflowLibrary/expression/variable.hpp>
 #include <MultiflowLibrary/utils/type_utils.hpp>
 #include <MultiflowLibrary/math/math.hpp>
 

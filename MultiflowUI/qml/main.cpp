@@ -29,10 +29,6 @@ void _registerSingletons() {
     UIUtils::getInstance()->registerSingleton(engine);
     SettingsHelper::getInstance()->registerSingleton(engine);
     QmlEnvironment::createInstance()->registerObjectType();
-
-    qmlRegisterSingletonType(
-        QUrl("qrc:/qml/components/singleton/FormulaItemsSingleton.qml"),
-        "qml.main", 1, 0, "FormulaItemsSingleton");
 }
 
 void _applyVisualStyles() {

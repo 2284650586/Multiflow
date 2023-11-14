@@ -5,21 +5,21 @@
 #include "qml_environment.hpp"
 
 QmlEnvironment::QmlEnvironment()
-     : IQmlObject<QmlEnvironment>("Multiflow.UI", 1, 0, "QmlEnvironment") {
+    : IQmlObject("Multiflow.UI", 1, 0, "QmlEnvironment") {
 }
 
 ml::Number QmlEnvironment::get(const QString& name) const {
     return _environment->get(name.toStdString());
 }
 
-void QmlEnvironment::set(const QString& name, const ml::Number& value) {
+void QmlEnvironment::set(const QString& name, const ml::Number& value) const {
     return _environment->set(name.toStdString(), value);
 }
 
 void QmlEnvironment::resetValues() {
     for (const auto& variable: _variables) {
         auto key = variable.value<QString>();
-        _environment->set(key.toStdString(), static_cast<ml::Number>(0));
+        _environment->set(key.toStdString(), 0);
     }
 }
 

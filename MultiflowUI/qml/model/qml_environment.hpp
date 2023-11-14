@@ -5,8 +5,6 @@
 #pragma once
 
 #include <MultiflowLibrary/expression/expression.hpp>
-#include <MultiflowLibrary/expression/variable.hpp>
-#include <MultiflowLibrary/expression/constant.hpp>
 
 #include "qml/interface/IQmlObject.hpp"
 #include "qml/mixin/StaticConstructorMixin.hpp"
@@ -17,19 +15,21 @@
 
 #include <memory>
 
-struct QmlEnvironment: public QObject, public StaticConstructorMixin<QmlEnvironment>, public IQmlObject<QmlEnvironment> {
-Q_OBJECT
- Q_PROPERTY(QVariantList variableNames READ variableNames WRITE setVariableNames)
+// QmlEnvironment can not be final - Qt internally subclasses it.
+// NOLINTNEXTLINE
+struct QmlEnvironment : QObject, StaticConstructorMixin<QmlEnvironment>, IQmlObject<QmlEnvironment> {
+    Q_OBJECT
+    Q_PROPERTY(QVariantList variableNames READ variableNames WRITE setVariableNames)
 
 public:
-    friend class StaticConstructorMixin<QmlEnvironment>;
+    friend class StaticConstructorMixin;
 
     explicit QmlEnvironment();
 
     [[nodiscard]]
     Q_INVOKABLE ml::Number get(const QString& name) const;
 
-    Q_INVOKABLE void set(const QString& name, const ml::Number& value);
+    Q_INVOKABLE void set(const QString& name, const ml::Number& value) const;
 
     Q_INVOKABLE void resetValues();
 

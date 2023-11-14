@@ -781,10 +781,6 @@ Item {
 
     function setCurrentIndex(index) {
         nav_list.currentIndex = index
-        var item = nav_list.model[index]
-        if (item instanceof FluPaneItem) {
-            item.tap()
-        }
     }
 
     function getItems() {

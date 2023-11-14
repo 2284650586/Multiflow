@@ -3,17 +3,16 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Multiflow.UI
 import FluentUI
-import "qrc:/qml/components/widget"
+import "qrc:/qml/components/widget/"
 
 FluScrollablePage {
     property var formula
-
     property var errorMessage: "计算出现错误"
 
     title: formula.name
 
     component Card: FluArea {
-        default property alias subdata : itemContainer.data
+        default property alias data: itemContainer.data
 
         id: card
         Layout.bottomMargin: 10
@@ -98,7 +97,8 @@ FluScrollablePage {
                         onUpdateEnvironment(modelData.name, text)
                     }
                 }
-                HSpacer {}
+                HSpacer {
+                }
                 FluText {
                     anchors.verticalCenter: parent.verticalCenter
                     text: `(${modelData.description})`
@@ -112,7 +112,7 @@ FluScrollablePage {
             Layout.fillWidth: true
 
             FluText {
-                text: `f(${ formula.variables.map(v => v.name).join(", ") }) = `
+                text: `f(${formula.variables.map(v => v.name).join(", ")}) = `
                 font.pointSize: 11
             }
             FormulaText {
@@ -121,7 +121,8 @@ FluScrollablePage {
             }
         }
 
-        FluDivider {}
+        FluDivider {
+        }
         Row {
             spacing: 8
 
@@ -200,8 +201,7 @@ FluScrollablePage {
         const result = formula.expression.evaluate(environment);
         if (result.success) {
             textResult.text = `${result.value}`
-        }
-        else {
+        } else {
             errorMessage = result.message
             dialogError.open()
         }
