@@ -9,7 +9,7 @@
 
 namespace qml {
 
-WindowFormulaViewer::WindowFormulaViewer(QObject* parent) {
+WindowFormulaViewer::WindowFormulaViewer(QObject*) {
     // Wrap Formula in QmlFormula.
     std::ranges::transform(
         FormulaService::getInstance()->formulae(), std::back_inserter(_qmlFormulae),

@@ -5,14 +5,14 @@
 #include "qml_result.hpp"
 
 QmlResult QmlResult::success(ml::Number value) {
-    return QmlResult({}, true, value);
+    return {{}, true, value};
 }
 
 QmlResult QmlResult::failure(QString message) {
-    return QmlResult(std::move(message), false, static_cast<ml::Number>(0));
+    return {std::move(message), false, static_cast<ml::Number>(0)};
 }
 
-QmlResult::QmlResult(QString message, bool success, ml::Number value)
+QmlResult::QmlResult(QString message, const bool success, const ml::Number value)
     : _message(std::move(message)), _success(success), _value(value) {
 
 }

@@ -7,7 +7,6 @@
 #include "shared.hpp"
 
 #include <QQuickStyle>
-#include <QQuickWindow>
 
 #include <QtQml/qqmlextensionplugin.h>
 
@@ -45,7 +44,7 @@ void _initializeViewModels() {
     gpQmlWindowFormulaViewer = std::make_unique<WindowFormulaViewer>();
 }
 
-void initialize(int argc, const char* argv[]) {
+void initialize(int, const char* argv[]) {
     QGuiApplication::setOrganizationName("CNU");
     QGuiApplication::setApplicationName("Multiflow");
     SettingsHelper::getInstance()->init(argv);
