@@ -17,8 +17,8 @@ Q_PROPERTY(ml::Number value MEMBER _value CONSTANT)
 
 public:
     QString _message;
-    bool _success;
-    ml::Number _value;
+    bool _success = false;
+    ml::Number _value = 0;
 
     static QmlResult success(ml::Number value);
     static QmlResult failure(QString message);

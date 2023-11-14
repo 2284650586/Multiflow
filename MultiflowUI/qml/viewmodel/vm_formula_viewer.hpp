@@ -9,7 +9,6 @@
 #include <QObject>
 #include <QQmlApplicationEngine>
 #include <QApplication>
-#include <QQmlContext>
 
 namespace qml {
 class WindowFormulaViewer final : public QObject {
