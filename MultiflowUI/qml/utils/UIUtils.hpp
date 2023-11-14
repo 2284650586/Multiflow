@@ -10,21 +10,21 @@
 #include "qml/mixin/SingletonMixin.hpp"
 #include "qml/interface/IQmlSingleton.hpp"
 
-class UIUtils : public QObject, public SingletonMixin<UIUtils>, public IQmlSingleton<UIUtils> {
-Q_OBJECT
+class UIUtils final : public QObject, public SingletonMixin<UIUtils>, public IQmlSingleton<UIUtils> {
+    Q_OBJECT
 
-friend class SingletonMixin<UIUtils>;
+    friend class SingletonMixin;
 
 public:
     /**
      * @return true if positive button is clicked, false otherwise
      */
     Q_INVOKABLE [[maybe_unused]] static bool confirm(
-        const QString &message,
-        const QString &positiveButtonText,
-        const QString &negativeButtonText
+        const QString& message,
+        const QString& positiveButtonText,
+        const QString& negativeButtonText
     );
 
 private:
-    explicit UIUtils(QObject *parent = nullptr);
+    explicit UIUtils(QObject* parent = nullptr);
 };

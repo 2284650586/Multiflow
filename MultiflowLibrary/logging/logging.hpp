@@ -4,9 +4,9 @@
 
 #include <spdlog/spdlog.h>
 
-#define info spdlog::info
-#define debug spdlog::debug
-#define warn spdlog::warn
-#define error spdlog::error
-#define critical spdlog::critical
-#define trace spdlog::trace
+#define log_info spdlog::info
+#define log_debug spdlog::debug
+#define log_warn spdlog::warn
+#define log_error spdlog::error
+#define log_critical spdlog::critical
+#define log_trace spdlog::trace

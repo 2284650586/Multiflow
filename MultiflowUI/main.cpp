@@ -44,18 +44,18 @@ int main(int argc, char *argv[]) {
     startupUI(argc, const_cast<const char**>(argv));
 
     if (propertyEnableVerbose) {
-        trace("Verbose ml enabled.");
+        log_trace("Verbose ml enabled.");
         printVersions();
     }
 
-    info("Multiflow UI launched and entered event loop.");
+    log_info("Multiflow UI launched and entered event loop.");
     const int result = gpApplication->exec(); // NOLINT(readability-static-accessed-through-instance);
 
     return result;
 }
 
 void startupUI(const int argc, const char* argv[]) {
-    info("Creating main window.");
+    log_info("Creating main window.");
     gpWindowMain = std::make_unique<MainWindow>(nullptr, argc, argv);
     gpWindowMain->show();
 }

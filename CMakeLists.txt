@@ -56,6 +56,7 @@ add_subdirectory(MultiflowLibrary)
 
 set(FLUENTUI_BUILD_EXAMPLES OFF)
 set(FLUENTUI_BUILD_FRAMELESSHELPER OFF)
+set(FLUENTUI_BUILD_STATIC_LIB ON)
 add_subdirectory(FluentUI)
 
 add_subdirectory(MultiflowUI)

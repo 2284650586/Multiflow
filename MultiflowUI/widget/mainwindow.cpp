@@ -20,9 +20,13 @@
 #include <QTimer>
 #include <QComboBox>
 #include <QToolBar>
+#include <FluentUI/src/FluApp.h>
+#include <qml/utils/UIUtils.hpp>
+
+constexpr int LoadingDialogTimeoutMillis = 1000;
 
 
-MainWindow::MainWindow(QWidget* parent, int argc, const char* argv[])
+MainWindow::MainWindow(QWidget* parent, const int argc, const char* argv[])
     : QMainWindow(parent), _argc(argc), _argv(argv) {
     loadAndShowSplashScreen();
 }
@@ -45,15 +49,18 @@ void MainWindow::loadAndShowSplashScreen() {
     createWidget();
 
     emit onLoadUpdate("加载公式数据...");
-    info("Loading formulae.");
+    log_info("Loading formulae.");
     FormulaService::getInstance()->parserAndLoadFormulae();
 
     emit onLoadUpdate("加载 QML 引擎...");
-    info("Initializing QML engine.");
+    log_info("Initializing QML engine.");
     qml::initialize(_argc, _argv);
 
     emit onLoadUpdate("欢迎使用 " + tr(AppName) + "！");
-    QTimer::singleShot(1000, this, &MainWindow::onLoadFinish);
+
+    // 加载框关闭如果太快了，用户就感受不到我们的热情
+    QTimer::singleShot(
+        LoadingDialogTimeoutMillis, this, &MainWindow::onLoadFinish);
 }
 
 void MainWindow::showLoadingDialog() {
@@ -94,6 +101,20 @@ void MainWindow::createActions() {
     newJunctionAction = new QAction(QIcon(":/resources/image/junction.png"), "新建接合点", this);
     newJunctionAction->setData(MultiflowKind::Junction);
     connect(newJunctionAction, &QAction::triggered, this, &MainWindow::createMulItem);
+
+    _exitAction = new QAction(tr("退出(&X)"), this);
+    connect(_exitAction, &QAction::triggered, this, &MainWindow::onUserExit);
+
+    _openFormulaViewerAction = new QAction(tr("打开公式查看器(&F)"), this);
+    connect(_openFormulaViewerAction, &QAction::triggered, this, &MainWindow::openFormulaViewer);
+}
+
+void MainWindow::onUserExit() {
+    if (UIUtils::confirm(
+        QString("确认要退出 %1 嘛？").arg(AppName),
+        "退出", "取消")) {
+        close();
+    }
 }
 
 void MainWindow::createToolBar() {
@@ -141,12 +162,12 @@ void MainWindow::createToolBar() {
     otherToolBar->addWidget(linePointerButton);
 }
 
-void MainWindow::disableToolbars() {
+void MainWindow::disableToolbars() const {
     itemToolBar->setEnabled(false);
     otherToolBar->setEnabled(false);
 }
 
-void MainWindow::enableToolbars() {
+void MainWindow::enableToolbars() const {
     itemToolBar->setEnabled(true);
     otherToolBar->setEnabled(true);
 }
@@ -156,13 +177,19 @@ void MainWindow::createMenu() {
     font.setPointSize(12);
     menuBar()->setFont(font);
 
-    newFileMenu = menuBar()->addMenu("文件(&F)");
-    newFileMenu->addAction(newFileAction);
-    newFileMenu->setFont(font);
+    _newFileMenu = menuBar()->addMenu("文件(&F)");
+    _newFileMenu->setFont(font);
+    _newFileMenu->addAction(newFileAction);
+    _newFileMenu->addSeparator();
+    _newFileMenu->addAction(_exitAction);
 
-    aboutMenu = menuBar()->addMenu("关于(&A)");
-    aboutMenu->addAction(aboutAppAction);
-    aboutMenu->setFont(font);
+    _toolsMenu = menuBar()->addMenu("工具(&U)");
+    _toolsMenu->setFont(font);
+    _toolsMenu->addAction(_openFormulaViewerAction);
+
+    _aboutMenu = menuBar()->addMenu("关于(&A)");
+    _aboutMenu->setFont(font);
+    _aboutMenu->addAction(aboutAppAction);
 }
 
 void MainWindow::createStatusBar() {
@@ -203,14 +230,14 @@ void MainWindow::createGraphicsView() {
     enableToolbars();
     pointerButton->setChecked(true);
 
-    TGraphicsView* tView = new TGraphicsView(this);
-    TGraphicsScene* tScene = new TGraphicsScene(tView);
+    auto* tView = new TGraphicsView(this);
+    auto* tScene = new TGraphicsScene(tView);
 
     tScene->setSceneRect(QRectF(0, 0, tabWidget->width() + 200, tabWidget->height() + 200));
     tScene->setBackgroundBrush(QPixmap(":/resources/image/background3.png"));
     tView->setScene(tScene);
 
-    QHBoxLayout* layout = new QHBoxLayout;
+    auto* layout = new QHBoxLayout;
     layout->addWidget(tView);
 
     tabWidget->insertTab(tabWidget->count(), tView, QString("场景 %1").arg(tabWidget->count() + 1));
@@ -220,29 +247,31 @@ void MainWindow::createGraphicsView() {
     connect(tScene, &TGraphicsScene::setPointerCursor, this, &MainWindow::setPointerCursor);
 }
 
+void MainWindow::openFormulaViewer() {
+    qml::navigate("/formula-viewer");
+}
+
 void MainWindow::createMulItem() {
-    QAction* action = qobject_cast<QAction*>(sender());
+    const auto* action = qobject_cast<QAction*>(sender());
     int type = action->data().toInt();
-    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
+    const auto* view = tabWidget->currentTGraphicsView();
+    auto* scene = view->scene();
     scene->setMode(TGraphicsScene::InsertItem);
-    scene->setItemType(MultiflowKind(type));
+    scene->setItemType(static_cast<MultiflowKind>(type));
     setCursor(Qt::CrossCursor);
 }
 
-void MainWindow::pointerGroupClicked() {
-    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
-    scene->setMode(TGraphicsScene::Mode(pointerTypeGroup->checkedId()));
+void MainWindow::pointerGroupClicked() const {
+    const auto* view = tabWidget->currentTGraphicsView();
+    view->scene()->setMode(static_cast<TGraphicsScene::Mode>(pointerTypeGroup->checkedId()));
 }
 
-void MainWindow::mulItemInserted(MulItem* item) {
-    Q_UNUSED(item);
+void MainWindow::mulItemInserted(const MulItem* item) {
+    Q_UNUSED(item)
+
     unsetCursor();
-    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
-    scene->setMode(TGraphicsScene::setPointer);
-    //    treeWidget->addFlowlineItem(item);
+    const auto* view = tabWidget->currentTGraphicsView();
+    view->scene()->setMode(TGraphicsScene::setPointer);
 }
 
 void MainWindow::linePointerInserted() {
@@ -253,16 +282,14 @@ void MainWindow::setPointerCursor() {
     unsetCursor();
 }
 
-void MainWindow::closeTab(int index) {
+void MainWindow::closeTab(const int index) const {
     if (index == -1) {
         return;
     }
-    //    qDebug() << index;
-    QWidget* tabItem = tabWidget->widget(index);
+    const auto* tabItem = tabWidget->widget(index);
     tabWidget->removeTab(index);
-    delete(tabItem);
-    tabItem = nullptr;
-    //    qDebug() << "123";
+    delete tabItem;
+
     if (tabWidget->count() == 0) {
         sceneScaleCombo->setCurrentIndex(2);
         disableToolbars();
@@ -270,37 +297,32 @@ void MainWindow::closeTab(int index) {
     }
 }
 
-void MainWindow::tabChanged(int index) {
+void MainWindow::tabChanged(const int index) const {
     if (index == -1) {
         return;
     }
-    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(index));
-    //    qDebug() << index;
-    QString scale = view->getScale();
+    auto* view = tabWidget->widgetAt(index);
+    const QString scale = view->getScale();
     if (scale.isEmpty()) {
         sceneScaleCombo->setCurrentIndex(2);
         view->setScale(sceneScaleCombo->currentText());
         return;
     }
-    else {
-        //sceneScaleCombo->setCurrentText(scale);
-        setViewScale(view, scale);
-    }
-    //    qDebug() << scale;
+    //sceneScaleCombo->setCurrentText(scale);
     setViewScale(view, scale);
 }
 
-void MainWindow::sceneScaleChanged(const QString& scale) {
+void MainWindow::sceneScaleChanged(const QString& scale) const {
     if (tabWidget->count() == 0) {
         return;
     }
-    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
+    auto* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
     setViewScale(view, scale);
 }
 
 void MainWindow::setViewScale(TGraphicsView* view, const QString& scale) {
-    double newScale = scale.left(scale.indexOf(tr("%"))).toDouble() / 100.0;
-    QTransform oldMatrix = view->transform();
+    const double newScale = scale.left(scale.indexOf(tr("%"))).toDouble() / 100.0;
+    const QTransform oldMatrix = view->transform();
     view->resetTransform();
     view->translate(oldMatrix.dx(), oldMatrix.dy());
     view->scale(newScale, newScale);
@@ -308,19 +330,21 @@ void MainWindow::setViewScale(TGraphicsView* view, const QString& scale) {
 }
 
 void MainWindow::deleteItem() {
-    TGraphicsView* view = dynamic_cast<TGraphicsView*>(tabWidget->widget(tabWidget->currentIndex()));
-    TGraphicsScene* scene = dynamic_cast<TGraphicsScene*>(view->scene());
-    if (scene->selectedItems().count() == 0) {
+    const auto* view = tabWidget->currentTGraphicsView();
+    auto* scene = view->scene();
+    const auto itemCount = scene->selectedItems().count();
+    if (itemCount == 0) {
         return;
     }
-    QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "删除确认", "确定要删除该item项吗？",
-                                                              QMessageBox::Yes | QMessageBox::No);
-    if (reply == QMessageBox::Yes) {
+    if (
+        QMessageBox::question(this, "删除确认", QString("确定要删除该 %1 项吗？").arg(itemCount))
+        == QMessageBox::Yes
+    ) {
         QList<QGraphicsItem*> selectedItems = scene->selectedItems();
         for (QGraphicsItem* item: qAsConst(selectedItems)) {
             if (item->type() == TArrow::Type) {
                 scene->removeItem(item);
-                TArrow* arrow = qgraphicsitem_cast<TArrow*>(item);
+                auto* arrow = qgraphicsitem_cast<TArrow*>(item);
                 arrow->getStartItem()->removeArrow(arrow);
                 arrow->getEndItem()->removeArrow(arrow);
                 delete item;

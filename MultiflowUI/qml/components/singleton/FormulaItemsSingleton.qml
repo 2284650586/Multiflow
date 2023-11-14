@@ -21,11 +21,11 @@ FluObject {
 
     function render() {
         itemGroup.children = []
-        var component = Qt.createComponent("../widget/FormulaPaneItem.qml")
-        for (var i = 0; i < formulae.length; i++) {
-            var formula = formulae[i]
-            if (component.status === Component.Ready) {
-                var item = component.createObject(itemGroup, {
+        const component = Qt.createComponent("../widget/FormulaPaneItem.qml")
+        if (component.status === Component.Ready) {
+            for (let i = 0; i < formulae.length; i++) {
+                const formula = formulae[i]
+                const item = component.createObject(itemGroup, {
                     formula: formula,
                     navigationView: navigationView,
                 })
@@ -35,24 +35,22 @@ FluObject {
     }
 
     function getRecentlyAddedData() {
-        var arr = []
-        for (var i = 0; i < children.length; i++) {
-            var item = children[i]
+        let arr = []
+        for (let i = 0; i < children.length; i++) {
+            const item = children[i]
             if (item instanceof FluPaneItem && item.recentlyAdded) {
                 arr.push(item)
             }
             if (item instanceof FluPaneItemExpander) {
-                for (var j = 0; j < item.children.length; j++) {
-                    var itemChild = item.children[j]
+                for (let j = 0; j < item.children.length; j++) {
+                    const itemChild = item.children[j]
                     if (itemChild instanceof FluPaneItem && itemChild.recentlyAdded) {
                         arr.push(itemChild)
                     }
                 }
             }
         }
-        arr.sort(function (o1, o2) {
-            return o2.order - o1.order
-        })
+        arr.sort((o1, o2) => o2.order - o1.order)
         return arr
     }
 

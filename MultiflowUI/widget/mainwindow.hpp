@@ -33,38 +33,41 @@ private:
     const char** _argv;
 
     // Action
-    QAction* newFileAction;
-    QAction* aboutAppAction;
-    QAction* newWellAction;
-    QAction* newSourceAction;
-    QAction* newSinkAction;
-    QAction* newJunctionAction;
-    QAction* deleteAction;
+    QAction* newFileAction{};
+    QAction* aboutAppAction{};
+    QAction* newWellAction{};
+    QAction* newSourceAction{};
+    QAction* newSinkAction{};
+    QAction* newJunctionAction{};
+    QAction* deleteAction{};
+    QAction* _openFormulaViewerAction{};
+    QAction* _exitAction{};
 
     // Menu
-    QMenu* newFileMenu;
-    QMenu* aboutMenu;
+    QMenu* _newFileMenu{};
+    QMenu* _toolsMenu{};
+    QMenu* _aboutMenu{};
 
     // Widget
-    TTabWidget* tabWidget;
-    TTreeWidget* treeWidget;
+    TTabWidget* tabWidget{};
+    TTreeWidget* treeWidget{};
     std::unique_ptr<SplashDialog> _splashDialog;
 
     // Bar
-    QToolBar* itemToolBar;
-    QToolBar* otherToolBar;
-    QStatusBar* statusBar;
+    QToolBar* itemToolBar{};
+    QToolBar* otherToolBar{};
+    QStatusBar* statusBar{};
 
     // Button
-    QButtonGroup* pointerTypeGroup;
+    QButtonGroup* pointerTypeGroup{};
 
-    QToolButton* pointerButton;
-    QToolButton* linePointerButton;
+    QToolButton* pointerButton{};
+    QToolButton* linePointerButton{};
 
-    QComboBox* sceneScaleCombo;
+    QComboBox* sceneScaleCombo{};
 
     // 布局
-    QSplitter* splitterTreeTab;
+    QSplitter* splitterTreeTab{};
 
     void createActions();
 
@@ -80,15 +83,15 @@ private:
      * @brief 禁用工具栏，及其子控件
      * @author z
      */
-    void disableToolbars();
+    void disableToolbars() const;
 
     /**
      * @brief 启用工具栏
      * @author z
      */
-    void enableToolbars();
+    void enableToolbars() const;
 
-    void setViewScale(TGraphicsView* view, const QString& scale);
+    static void setViewScale(TGraphicsView* view, const QString& scale);
 
     void loadAndShowSplashScreen();
 
@@ -102,15 +105,19 @@ signals:
 private slots:
     void onAboutApp();
 
+    void onUserExit();
+
     void createGraphicsView();
 
     void createMulItem();
 
-    void pointerGroupClicked();
+    static void openFormulaViewer();
 
-    void sceneScaleChanged(const QString& scale);
+    void pointerGroupClicked() const;
 
-    void mulItemInserted(MulItem* item);
+    void sceneScaleChanged(const QString& scale) const;
+
+    void mulItemInserted(const MulItem* item);
 
     void linePointerInserted();
 
@@ -118,9 +125,9 @@ private slots:
 
     void setPointerCursor();
 
-    void closeTab(int index);
+    void closeTab(int index) const;
 
-    void tabChanged(int index);
+    void tabChanged(int index) const;
 
     /**
      * @brief 初始化程序开始运行

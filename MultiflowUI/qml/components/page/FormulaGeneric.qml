@@ -210,7 +210,6 @@ FluScrollablePage {
     function onClear() {
         environment.resetValues();
         var count = repeaterVariables.count
-        console.log(count)
         for (var i = 0; i < count; i++) {
             repeaterVariables.itemAt(i).initialText = ""
         }

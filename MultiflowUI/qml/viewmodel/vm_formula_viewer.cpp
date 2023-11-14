@@ -2,10 +2,8 @@
 // Created by miku on 11/7/2023.
 //
 
-#include "window_formula_viewer.hpp"
+#include "vm_formula_viewer.hpp"
 #include "shared.hpp"
-
-#include <QUrl>
 
 #include "service/FormulaService.hpp"
 
@@ -19,9 +17,6 @@ WindowFormulaViewer::WindowFormulaViewer(QObject* parent) {
 
     gpQmlApplicationEngine->rootContext()->setContextProperty(
         "vmFormulaViewer", this);
-
-    // Window shows as the engine loads.
-    gpQmlApplicationEngine->load(QUrl("qrc:/qml/components/window/FormulaViewer.qml"));
 }
 
 QVariantList WindowFormulaViewer::formulae() const {

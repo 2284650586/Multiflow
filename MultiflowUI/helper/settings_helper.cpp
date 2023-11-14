@@ -43,6 +43,6 @@ void SettingsHelper::init(const char* argv[]) {
     const QString iniFileName = fileInfo.completeBaseName() + ".ini";
     const QString iniFilePath =
         QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/" + iniFileName;
-    info("Application configuration file path {}", iniFilePath.toStdString());
+    log_info("Application configuration file path {}", iniFilePath.toStdString());
     m_settings.reset(new QSettings(iniFilePath, QSettings::IniFormat));
 }

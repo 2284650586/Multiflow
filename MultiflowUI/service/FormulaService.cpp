@@ -12,7 +12,7 @@ void FormulaService::parserAndLoadFormulae() {
 
     // TODO: hardcoded path
     auto formulae = parser.loadDistribution("D:\\dist.yaml");
-    info("Loaded {} formula(e).", formulae.size());
+    log_info("Loaded {} formula(e).", formulae.size());
 
     std::ranges::copy(formulae, std::back_inserter(_formulae));
     emit formulaeLoaded();

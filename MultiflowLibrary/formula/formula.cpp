@@ -60,7 +60,7 @@ const std::string& Formula::lisp() const {
 std::vector<std::shared_ptr<Expression>> Formula::extractVariablesAndConstants() const {
     std::vector<std::shared_ptr<Expression>> ret{};
     _internalExtractVariablesAndConstants(_expression, ret);
-    info("Formula {} has {} variable(s) and constant(s).", _expression->name(), ret.size());
+    log_info("Formula {} has {} variable(s) and constant(s).", _expression->name(), ret.size());
     return ret;
 }
 

@@ -49,12 +49,10 @@ set(SOURCE_FILES
     qml/utils/UIUtils.cpp
     qml/model/qml_formula.cpp
     qml/model/qml_formula.hpp
-    qml/view/window_main.cpp
-    qml/view/window_main.hpp
     qml/model/qml_expression.cpp
     qml/model/qml_expression.hpp
-    qml/view/window_formula_viewer.cpp
-    qml/view/window_formula_viewer.hpp
+    qml/viewmodel/vm_formula_viewer.cpp
+    qml/viewmodel/vm_formula_viewer.hpp
     helper/settings_helper.cpp
     helper/settings_helper.hpp
     qml/model/qml_environment.cpp
@@ -81,17 +79,16 @@ qt_add_qml_module(
     MultiflowUI
     URI qml.main
     RESOURCE_PREFIX qml
-    QML_FILES
-    ${QML_SRC}
-    RESOURCES
-    resources.qrc
+    QML_FILES ${QML_SRC}
+    RESOURCES resources.qrc widget/SplashDialog.ui
     SOURCES
-    RESOURCES widget/SplashDialog.ui
 )
 
 target_link_libraries(
     MultiflowUI
     PRIVATE
+    MultiflowLibrary
+    fluentuiplugin
     Qt6::Core
     Qt6::Gui
     Qt6::Charts
@@ -100,6 +97,4 @@ target_link_libraries(
     Qt6::Quick
     Qt6::QuickWidgets
     Qt6::QuickControls2
-    MultiflowLibrary
-    fluentuiplugin
 )

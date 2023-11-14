@@ -3,7 +3,8 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Multiflow.UI
 import FluentUI
-import "qrc:/qml/components/singleton/"
+import "qrc:/qml/components/widget/"
+// import "qrc:/qml/components/singleton/"
 
 FluWindow {
     id: window
@@ -15,6 +16,37 @@ FluWindow {
     property int selectedIndex: vmFormulaViewer.selectedFormulaIndex
     property var currentFormula: selectedIndex === -1 ? null : vmFormulaViewer.formulae[selectedIndex]
 
+    NavigationView {
+        id: navigationView
+        visible: true
+        anchors.fill: parent
+        displayMode: FluNavigationViewType.Open
+        model: vmFormulaViewer.formulae
+        topPadding: FluTools.isMacos() ? 20 : 5
+        title: "公式库"
+        itemDelegate: (formula, index) => {
+            return {
+                _parent: null,
+                disabled: false,
+                title: formula.name,
+                tap: () => {
+                    navigationView.push("")
+                    navigationView.push("qrc:/qml/components/page/FormulaGeneric.qml", {
+                        formula: formula,
+                    })
+                }
+            }
+        }
+
+        Component.onCompleted: {
+            // FormulaItemsSingleton.navigationView = navigationView
+            // FormulaItemsSingleton.formulae = vmFormulaViewer.formulae
+            // FormulaItemsSingleton.render()
+            setCurrentIndex(0)
+        }
+    }
+
+    /*
     FluNavigationView {
         id: navigationView
         anchors.fill: parent
@@ -41,4 +73,5 @@ FluWindow {
             setCurrentIndex(0)
         }
     }
+     */
 }
