@@ -102,18 +102,22 @@ std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::share
                 root->type = NodeType::Constant;
                 return _internalTraverseAst(root);
             }
+
+            // Not declared as a variable? Create it.
+            if (!variableNameToDescription.contains(variableName)) {
+                variableNameToDescription[variableName] = "(无描述)";
+            }
+
             return std::make_shared<Variable>(variableName, variableNameToDescription[variableName]);
         }
         case NodeType::Constant: {
             const std::string& constantName = root->value;
-            if (variableNameToDescription.contains(constantName)) {
-                root->type = NodeType::Variable;
-                return _internalTraverseAst(root);
-            }
+
+            // Raw number?
             if (!constantNameToConstantInfo.contains(constantName)) {
-                // Raw number.
                 return std::make_shared<Constant>("Constant", "Constant", std::stod(constantName));
             }
+
             const auto& [_, description, value] = constantNameToConstantInfo[constantName];
             return std::make_shared<Constant>(constantName, description, value);
         }
