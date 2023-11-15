@@ -19,6 +19,7 @@ static void _internalExtractVariablesAndConstants(
     std::vector<std::shared_ptr<ml::Expression>>& ret
 ) {
     if (ml::instance_of<ml::Variable>(expression) || ml::instance_of<ml::Constant>(expression)) {
+        // Skip raw numbers.
         if (expression->name() != "Constant") {
             ret.push_back(expression);
         }

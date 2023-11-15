@@ -97,8 +97,9 @@ std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::share
         }
         case NodeType::Variable: {
             const std::string& variableName = root->value;
+            // Named constants could first be recognized as variables.
             // Check if variable is a constant.
-            if (constantNameToConstantInfo.contains(variableName)) {
+            if (constantNameToInfo.contains(variableName) || globalConstantNameToInfo.contains(variableName)) {
                 root->type = NodeType::Constant;
                 return _internalTraverseAst(root);
             }
@@ -113,13 +114,20 @@ std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::share
         case NodeType::Constant: {
             const std::string& constantName = root->value;
 
-            // Raw number?
-            if (!constantNameToConstantInfo.contains(constantName)) {
-                return std::make_shared<Constant>("Constant", "Constant", std::stod(constantName));
+            // A declared scoped constant?
+            if (constantNameToInfo.contains(constantName)) {
+                const auto& [_, description, value] = constantNameToInfo[constantName];
+                return std::make_shared<Constant>(constantName, description, value);
             }
 
-            const auto& [_, description, value] = constantNameToConstantInfo[constantName];
-            return std::make_shared<Constant>(constantName, description, value);
+            // A declared global constant?
+            if (globalConstantNameToInfo.contains(constantName)) {
+                const auto& [_, description, value] = globalConstantNameToInfo[constantName];
+                return std::make_shared<Constant>(constantName, description, value);
+            }
+
+            // Raw number.
+            return std::make_shared<Constant>("Constant", "Constant", std::stod(constantName));
         }
         default: {
             throw MalformedDistException();
@@ -132,12 +140,24 @@ std::vector<Formula> FormulaParser::loadDistribution(const std::string& configPa
     return parseDistribution(config);
 }
 
+void FormulaParser::_handleGlobalConstants(const YAML::Node& constants) {
+    globalConstantNameToInfo.clear();
+    for (const auto& constant: constants) {
+        const auto constantInfo = ConstantInfo::fromYaml(constant);
+        globalConstantNameToInfo[constantInfo.name] = constantInfo;
+    }
+}
+
 std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) {
     _tryInitializeFunctionMap();
 
     // Is multiflow config?
     if (!config["multiflow-dist"].IsDefined()) {
         throw MalformedDistException();
+    }
+
+    if (const auto& globalConstants = config["global-constants"]; globalConstants.IsDefined()) {
+        _handleGlobalConstants(globalConstants);
     }
 
     // Data present?
@@ -166,11 +186,11 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
             });
 
         // Build constant map.
-        constantNameToConstantInfo.clear();
+        constantNameToInfo.clear();
         std::ranges::for_each(
             constants,
             [this](const ConstantInfo& info) {
-                constantNameToConstantInfo[info.name] = info;
+                constantNameToInfo[info.name] = info;
             });
 
         LispParser lispParser{};

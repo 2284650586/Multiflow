@@ -43,8 +43,11 @@ struct ML_PUBLIC FormulaInfo final {
 };
 
 class ML_PUBLIC FormulaParser final {
-    std::unordered_map<std::string, std::string> variableNameToDescription;
-    std::unordered_map<std::string, ConstantInfo> constantNameToConstantInfo;
+    std::unordered_map<std::string, std::string> variableNameToDescription{};
+    std::unordered_map<std::string, ConstantInfo> constantNameToInfo{};
+    std::unordered_map<std::string, ConstantInfo> globalConstantNameToInfo{};
+
+    void _handleGlobalConstants(const YAML::Node& constants);
 
 public:
     explicit FormulaParser() = default;
