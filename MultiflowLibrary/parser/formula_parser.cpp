@@ -40,99 +40,58 @@ static std::vector<std::shared_ptr<Expression>> expressionsFromAstNodes(
     return ret;
 }
 
-static std::vector<
-    std::pair<
-        /* Validator: any_of */
-        std::vector<std::string>,
+typedef std::function<
+    std::shared_ptr<Expression>(
+        FormulaParser&,
+        const std::vector<std::shared_ptr<ASTNode>>&
+    )
+> ExpressionFactory;
 
-        /* Function */
-        std::function<std::shared_ptr<Expression>(FormulaParser&, const std::vector<std::shared_ptr<ASTNode>>&)>
-    >
-> functionMap{
-    {
-        {"add", "+"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Add>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"sub", "-"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Subtract>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"mul", "*"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Multiply>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"div", "/"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Divide>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"pow", "**"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Power>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"log"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Logarithm>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"minus"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Minus>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"and", "&&"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<LogicalAnd>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"or", "||"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<LogicalOr>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"not", "!", "~"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<LogicalNot>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"gt", ">"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<GreaterThan>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"lt", "<"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<LowerThan>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"eq", "=="}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<EqualTo>(expressionsFromAstNodes(parser, args));
-        }
-    },
-    {
-        {"piecewise"}, [](FormulaParser& parser, const auto& args) {
-            return std::make_shared<Condition>(expressionsFromAstNodes(parser, args));
-        }
-    },
+// Expression Factory Factory :(
+template<class EType>
+ExpressionFactory _makeEf() {
+    return [](FormulaParser& parser, const auto& args) {
+        return std::make_shared<EType>(expressionsFromAstNodes(parser, args));
+    };
+}
+
+static const std::vector<std::pair<std::vector<std::string>, ExpressionFactory>> _fMap{
+    {{"add", "+"}, _makeEf<Add>()},
+    {{"sub", "-"}, _makeEf<Subtract>()},
+    {{"mul", "*"}, _makeEf<Multiply>()},
+    {{"div", "/"}, _makeEf<Divide>()},
+    {{"pow", "**"}, _makeEf<Power>()},
+    {{"log"}, _makeEf<Logarithm>()},
+    {{"minus"}, _makeEf<Minus>()},
+    {{"and", "&&"}, _makeEf<LogicalAnd>()},
+    {{"or", "||"}, _makeEf<LogicalOr>()},
+    {{"not", "!", "~"}, _makeEf<LogicalNot>()},
+    {{"gt", ">"}, _makeEf<GreaterThan>()},
+    {{"lt", "<"}, _makeEf<LowerThan>()},
+    {{"eq", "=="}, _makeEf<EqualTo>()},
+    {{"piecewise"}, _makeEf<Condition>()},
 };
+
+static std::map<std::string, ExpressionFactory> functionMap{};
+
+static void _tryInitializeFunctionMap() {
+    if (!functionMap.empty()) {
+        return;
+    }
+    for (const auto& [keys, ef]: _fMap) {
+        for (const std::string& key: keys) {
+            functionMap[key] = ef;
+        }
+    }
+}
 
 // NOLINTNEXTLINE
 std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::shared_ptr<ASTNode>& root) {
     switch (root->type) {
         case NodeType::Function: {
-            const std::string& functionName = root->value;
-            for (auto [keywords, factory]: functionMap) {
-                if (std::ranges::any_of(
-                    keywords,
-                    [functionName](const std::string& fn) { return fn == functionName; })) {
-                    auto ptr = factory(*this, root->args);
-                    return ptr;
-                }
+            if (const auto it = functionMap.find(root->value); it != functionMap.end()) {
+                // Prevent second lookup.
+                return it->second(*this, root->args);
             }
             throw FunctionNotDefinedException();
         }
@@ -170,6 +129,8 @@ std::vector<Formula> FormulaParser::loadDistribution(const std::string& configPa
 }
 
 std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) {
+    _tryInitializeFunctionMap();
+
     // Is multiflow config?
     if (!config["multiflow-dist"].IsDefined()) {
         throw MalformedDistException();
