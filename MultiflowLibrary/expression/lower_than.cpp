@@ -25,9 +25,9 @@ Number LowerThan::evaluate(const Environment &env) const {
     return lt(x, y);
 }
 
-std::string LowerThan::to_string() const {
+std::string LowerThan::representation() const {
     return std::format(
-        "{} < {}", _operands[0]->to_string(), _operands[1]->to_string());
+        "{} < {}", _operands[0]->representation(), _operands[1]->representation());
 }
 
 std::vector<std::shared_ptr<Expression>> LowerThan::operands() const {

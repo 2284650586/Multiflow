@@ -24,8 +24,8 @@ Number LogicalNot::evaluate(const Environment &env) const {
     return is_logical_true(v) ? FALSE : TRUE;
 }
 
-std::string LogicalNot::to_string() const {
-    return std::format("(not {})", _operands[0]->to_string());
+std::string LogicalNot::representation() const {
+    return std::format("(not {})", _operands[0]->representation());
 }
 
 std::vector<std::shared_ptr<Expression>> LogicalNot::operands() const {

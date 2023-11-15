@@ -25,7 +25,7 @@ Number Subtract::evaluate(const Environment &env) const {
             });
     }
 
-    std::string Subtract::to_string() const {
+    std::string Subtract::representation() const {
         return joinExpression(_operands, " - ");
     }
 

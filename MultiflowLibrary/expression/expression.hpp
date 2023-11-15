@@ -54,7 +54,7 @@ public:
      * @return 字符串描述
      */
     [[nodiscard]]
-    virtual std::string to_string() const;
+    virtual std::string representation() const;
 
     /**
      * @return 表达式所代表的量的意义

@@ -2,20 +2,21 @@
 
 #include <string>
 
-std::string removingTailingZeros(const std::string& str) {
+std::string removingFpTrailingZeros(const std::string& str) {
     if (str.find('.') == std::string::npos) {
         // Not a floating point number?
         return str;
     }
-    size_t strEnd = str.find_last_not_of('0');
-    if (strEnd == std::string::npos) {
-        return "";
+    size_t indexLastZero = str.find_last_not_of('0');
+    if (indexLastZero == std::string::npos) {
+        // No trailing zeros?
+        return str;
     }
-    if (str[strEnd] == '.') {
+    if (str[indexLastZero] == '.') {
     // Remove the decimal point as well if it is the last character.
-        --strEnd;
+        --indexLastZero;
     }
-    return str.substr(0, strEnd + 1);
+    return str.substr(0, indexLastZero + 1);
 }
 
 namespace ml {
@@ -28,7 +29,7 @@ Number Constant::evaluate(const Environment& env) const {
     return _value;
 }
 
-std::string Constant::to_string() const {
-    return removingTailingZeros(std::to_string(_value));
+std::string Constant::representation() const {
+    return removingFpTrailingZeros(std::to_string(_value));
 }
 }

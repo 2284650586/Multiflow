@@ -24,8 +24,8 @@ Number Minus::evaluate(const Environment &env) const {
     return subtract(0, v);
 }
 
-std::string Minus::to_string() const {
-    const auto& operandRepresentation = _operands[0]->to_string();
+std::string Minus::representation() const {
+    const auto& operandRepresentation = _operands[0]->representation();
     if (operandRepresentation.starts_with('-')) {
         return operandRepresentation.substr(1);
     }

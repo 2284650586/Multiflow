@@ -25,9 +25,9 @@ Number Power::evaluate(const Environment &env) const {
     return power(x, y);
 }
 
-std::string Power::to_string() const {
+std::string Power::representation() const {
     return std::format(
-        "({} ^ {})", _operands[0]->to_string(), _operands[1]->to_string());
+        "({} ^ {})", _operands[0]->representation(), _operands[1]->representation());
 }
 
 std::vector<std::shared_ptr<Expression>> Power::operands() const {

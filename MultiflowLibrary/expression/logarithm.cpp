@@ -25,9 +25,9 @@ Number Logarithm::evaluate(const Environment &env) const {
     return logarithm(x, y);
 }
 
-std::string Logarithm::to_string() const {
+std::string Logarithm::representation() const {
     return std::format(
-        "log({}, {})", _operands[0]->to_string(), _operands[1]->to_string());
+        "log({}, {})", _operands[0]->representation(), _operands[1]->representation());
 }
 
 std::vector<std::shared_ptr<Expression>> Logarithm::operands() const {

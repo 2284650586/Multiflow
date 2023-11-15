@@ -12,7 +12,7 @@ Number Expression::evaluate(const Environment& env) const {
     throw NotImplementedException();
 }
 
-std::string Expression::to_string() const {
+std::string Expression::representation() const {
     throw NotImplementedException();
 }
 
@@ -44,7 +44,7 @@ std::string joinExpression(const std::vector<std::shared_ptr<ml::Expression>>& v
     std::vector<std::string> mappedOperands;
     std::ranges::transform(v, std::back_inserter(mappedOperands),
                    [](const std::shared_ptr<ml::Expression>& exp) {
-                       return exp->to_string();
+                       return exp->representation();
                    });
     return "(" + joinArray(mappedOperands, delimiter) + ")";
 }

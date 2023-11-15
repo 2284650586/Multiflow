@@ -19,7 +19,7 @@ Number Add::evaluate(const Environment& env) const {
         });
 }
 
-std::string Add::to_string() const {
+std::string Add::representation() const {
     return joinExpression(_operands, " + ");
 }
 

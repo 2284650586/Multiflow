@@ -25,7 +25,7 @@ Number Divide::evaluate(const Environment &env) const {
             });
     }
 
-    std::string Divide::to_string() const {
+    std::string Divide::representation() const {
         return joinExpression(_operands, " / ");
     }
 

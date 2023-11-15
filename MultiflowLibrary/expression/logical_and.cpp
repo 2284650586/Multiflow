@@ -22,7 +22,7 @@ Number LogicalAnd::evaluate(const Environment& env) const {
     return 1;
 }
 
-std::string LogicalAnd::to_string() const {
+std::string LogicalAnd::representation() const {
     return joinExpression(_operands, " and ");
 }
 

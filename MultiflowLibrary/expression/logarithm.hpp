@@ -21,7 +21,7 @@ public:
     Number evaluate(const Environment &env) const override;
 
     [[nodiscard]]
-    std::string to_string() const override;
+    std::string representation() const override;
 
     [[nodiscard]]
     std::vector<std::shared_ptr<Expression>> operands() const override;

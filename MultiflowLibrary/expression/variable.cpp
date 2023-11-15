@@ -9,7 +9,7 @@ Number Variable::evaluate(const Environment& env) const {
     return env.get(_name);
 }
 
-std::string Variable::to_string() const {
+std::string Variable::representation() const {
     return _name;
 }
 }

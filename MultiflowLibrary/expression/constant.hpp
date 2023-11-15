@@ -21,6 +21,6 @@ public:
      */
     [[nodiscard]] Number evaluate(const Environment& env) const override;
 
-    [[nodiscard]] std::string to_string() const override;
+    [[nodiscard]] std::string representation() const override;
 };
 }

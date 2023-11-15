@@ -31,12 +31,12 @@ Number Condition::evaluate(const Environment &env) const {
     return _operands[_operands.size() - 1]->evaluate(env);
 }
 
-std::string Condition::to_string() const {
+std::string Condition::representation() const {
     std::stringstream ss;
     for (int i = 0; i < _operands.size() - 1; i += 2) {
-        ss << _operands[i]->to_string() << " (" << _operands[i + 1]->to_string() << ")\n";
+        ss << _operands[i]->representation() << " (" << _operands[i + 1]->representation() << ")\n";
     }
-    ss << _operands[_operands.size() - 1]->to_string() << " (Else)";
+    ss << _operands[_operands.size() - 1]->representation() << " (Else)";
     return ss.str();
 }
 

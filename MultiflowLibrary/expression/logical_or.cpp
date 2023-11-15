@@ -22,7 +22,7 @@ Number LogicalOr::evaluate(const Environment& env) const {
     return 0;
 }
 
-std::string LogicalOr::to_string() const {
+std::string LogicalOr::representation() const {
     return joinExpression(_operands, " or ");
 }
 

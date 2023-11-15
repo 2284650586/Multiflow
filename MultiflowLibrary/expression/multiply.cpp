@@ -23,7 +23,7 @@ namespace ml
             });
     }
 
-    std::string Multiply::to_string() const {
+    std::string Multiply::representation() const {
         return joinExpression(_operands, " * ");
     }
 

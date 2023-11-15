@@ -13,7 +13,7 @@
 QmlExpression::QmlExpression(std::shared_ptr<ml::Expression> expression)
     : _expression(std::move(expression)), _name(QString::fromStdString(expression->name())),
       _description(QString::fromStdString(expression->description())),
-      _representation(QString::fromStdString(expression->to_string())) {
+      _representation(QString::fromStdString(expression->representation())) {
     _isConstant = ml::instance_of<ml::Constant>(_expression);
     _isVariable = ml::instance_of<ml::Variable>(_expression);
 
