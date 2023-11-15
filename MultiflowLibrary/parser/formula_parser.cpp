@@ -145,7 +145,13 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
     std::vector<Formula> ret{};
 
     for (const auto& formula: formulae) {
-        auto [name, description, expression, variables, constants] = FormulaInfo::fromYaml(formula);
+        const auto [
+            name,
+            description,
+            expression,
+            variables,
+            constants
+        ] = FormulaInfo::fromYaml(formula);
 
         // Build variable map.
         variableNameToDescription.clear();
@@ -175,17 +181,15 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
 
 VariableInfo VariableInfo::fromYaml(const YAML::Node& node) {
     const auto& name = node["name"];
-    const auto& type = node["type"];
     const auto& description = node["desc"];
 
-    if (!name.IsDefined() || !type.IsDefined() || !description.IsDefined()) {
+    if (!name.IsDefined()) {
         throw MalformedDistException();
     }
 
     return VariableInfo{
         .name = name.as<std::string>(),
-        .description = description.as<std::string>(),
-        .type = type.as<std::string>(),
+        .description = description.as<std::string>("(无描述)"),
     };
 }
 
@@ -195,7 +199,7 @@ FormulaInfo FormulaInfo::fromYaml(const YAML::Node& node) {
     const auto& variables = node["variables"];
     const auto& constants = node["constants"];
     const auto& expression = node["expression"];
-    if (!name.IsDefined() || !description.IsDefined() || !expression.IsDefined() || (
+    if (!name.IsDefined() || !expression.IsDefined() || (
             !constants.IsDefined() && !variables.IsDefined()
         )) {
         throw MalformedDistException();
@@ -213,7 +217,7 @@ FormulaInfo FormulaInfo::fromYaml(const YAML::Node& node) {
 
     return FormulaInfo{
         .name = name.as<std::string>(),
-        .description = description.as<std::string>(),
+        .description = description.as<std::string>("(无描述)"),
         .expression = expression.as<std::string>(),
         .variables = variablesInfos,
         .constants = constantInfos,
@@ -227,7 +231,7 @@ ConstantInfo ConstantInfo::fromYaml(const YAML::Node& node) {
 
     return ConstantInfo{
         .name = name.as<std::string>(),
-        .description = description.as<std::string>(),
+        .description = description.as<std::string>("(无描述)"),
         .value = value.as<Number>(),
     };
 }

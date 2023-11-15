@@ -20,7 +20,6 @@ namespace ml {
 struct ML_PUBLIC VariableInfo {
     std::string name;
     std::string description;
-    std::string type;
 
     static VariableInfo fromYaml(const YAML::Node& node);
 };
