@@ -30,7 +30,7 @@ std::string Power::representation() const {
         "({} ^ {})", _operands[0]->representation(), _operands[1]->representation());
 }
 
-std::vector<std::shared_ptr<Expression>> Power::operands() const {
+const std::vector<std::shared_ptr<Expression>>& Power::operands() const {
     return _operands;
 }
 }

@@ -20,11 +20,9 @@ QmlFormula::QmlFormula(const ml::Formula& formula)
 
         QmlExpression expressionWrapped{expression};
         if (expressionWrapped._isConstant) {
-            log_info("Adding constant: {}", expressionWrapped._name.toStdString());
             _constants.append(QVariant::fromValue(expressionWrapped));
         }
         if (expressionWrapped._isVariable) {
-            log_info("Adding variable: {}", expressionWrapped._name.toStdString());
             _variables.append(QVariant::fromValue(expressionWrapped));
         }
     }

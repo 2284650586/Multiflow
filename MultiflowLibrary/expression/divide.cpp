@@ -29,7 +29,7 @@ Number Divide::evaluate(const Environment &env) const {
         return joinExpression(_operands, " / ");
     }
 
-    std::vector<std::shared_ptr<Expression>> Divide::operands() const {
+    const std::vector<std::shared_ptr<Expression>>& Divide::operands() const {
         return _operands;
     }
 }

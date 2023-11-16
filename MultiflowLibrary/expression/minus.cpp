@@ -32,7 +32,7 @@ std::string Minus::representation() const {
     return "-" + operandRepresentation;
 }
 
-std::vector<std::shared_ptr<Expression>> Minus::operands() const {
+const std::vector<std::shared_ptr<Expression>>& Minus::operands() const {
     return _operands;
 }
 }

@@ -26,7 +26,7 @@ std::string LogicalOr::representation() const {
     return joinExpression(_operands, " or ");
 }
 
-std::vector<std::shared_ptr<Expression>> LogicalOr::operands() const {
+const std::vector<std::shared_ptr<Expression>>& LogicalOr::operands() const {
     return _operands;
 }
 }

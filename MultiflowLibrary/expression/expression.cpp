@@ -20,11 +20,15 @@ const std::string& Expression::name() const {
     return _name;
 }
 
+void Expression::setName(const std::string& name) {
+    _name = name;
+}
+
 const std::string& Expression::description() const {
     return _description;
 }
 
-std::vector<std::shared_ptr<Expression>> Expression::operands() const {
+const std::vector<std::shared_ptr<Expression>>& Expression::operands() const {
     throw NotImplementedException();
 }
 }

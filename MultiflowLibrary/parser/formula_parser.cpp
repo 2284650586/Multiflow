@@ -19,12 +19,15 @@
 #include "expression/lower_than.hpp"
 #include "expression/equal_to.hpp"
 #include "expression/condition.hpp"
+#include "expression/referencing_function.hpp"
 
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 #include <functional>
+
+#include "utils/type_utils.hpp"
 
 namespace ml {
 static std::vector<std::shared_ptr<Expression>> expressionsFromAstNodes(
@@ -89,10 +92,27 @@ static void _tryInitializeFunctionMap() {
 std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::shared_ptr<ASTNode>& root) {
     switch (root->type) {
         case NodeType::Function: {
-            if (const auto it = functionMap.find(root->value); it != functionMap.end()) {
+            const std::string& functionName = root->value;
+
+            // Referencing an existing function?
+            if (globalFunctionNameToExpression.contains(functionName)) {
+                const auto expression = globalFunctionNameToExpression[functionName];
+                expression->setName(functionName);
+
+                std::vector<std::shared_ptr<Expression>> args{expression};
+                for (const auto& arg: root->args) {
+                    args.push_back(_internalTraverseAst(arg));
+                }
+                return std::make_shared<ReferencingFunction>(args);
+            }
+
+            // A builtin function?
+            if (const auto it = functionMap.find(functionName); it != functionMap.end()) {
                 // Prevent second lookup.
                 return it->second(*this, root->args);
             }
+
+            // Neither?
             throw FunctionNotDefinedException();
         }
         case NodeType::Variable: {
@@ -149,6 +169,7 @@ void FormulaParser::_handleGlobalConstants(const YAML::Node& constants) {
 }
 
 std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) {
+    globalFunctionNameToExpression.clear();
     _tryInitializeFunctionMap();
 
     // Is multiflow config?
@@ -198,6 +219,10 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
 
         // Traverse AST and build expression.
         auto expressionParsed = _internalTraverseAst(ast);
+
+        // Register as a global function.
+        globalFunctionNameToExpression[name] = expressionParsed;
+
         ret.emplace_back(name, description, expressionParsed, expression);
     }
     return ret;
@@ -223,9 +248,7 @@ FormulaInfo FormulaInfo::fromYaml(const YAML::Node& node) {
     const auto& variables = node["variables"];
     const auto& constants = node["constants"];
     const auto& expression = node["expression"];
-    if (!name.IsDefined() || !expression.IsDefined() || (
-            !constants.IsDefined() && !variables.IsDefined()
-        )) {
+    if (!name.IsDefined() || !expression.IsDefined()) {
         throw MalformedDistException();
     }
 

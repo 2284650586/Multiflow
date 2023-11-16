@@ -14,7 +14,7 @@ namespace ml {
 using Number = double;
 
 class ML_PUBLIC Environment final {
-    std::map<std::string, Number> env;
+    std::map<std::string, Number> env{};
 
 public:
     explicit Environment() = default;

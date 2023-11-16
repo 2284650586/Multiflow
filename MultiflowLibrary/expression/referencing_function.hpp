@@ -1,5 +1,5 @@
 //
-// Created by miku on 11/9/2023.
+// Created by miku on 11/15/2023.
 //
 
 #pragma once
@@ -11,11 +11,11 @@
 #include <vector>
 
 namespace ml {
-class ML_PUBLIC LogicalNot final : public Expression {
+class ML_PUBLIC ReferencingFunction final : public Expression {
     std::vector<std::shared_ptr<Expression>> _operands;
 
 public:
-    explicit LogicalNot(std::vector<std::shared_ptr<Expression>> operands);
+    explicit ReferencingFunction(std::vector<std::shared_ptr<Expression>> operands);
 
     [[nodiscard]]
     Number evaluate(const Environment& env) const override;

@@ -62,6 +62,8 @@ public:
     [[nodiscard]]
     virtual const std::string& name() const;
 
+    void setName(const std::string& name);
+
     /**
      * @return 对表达式的更详细的描述
      */
@@ -72,7 +74,7 @@ public:
      * @return 表达式中的所有操作数
      */
     [[nodiscard]]
-    virtual std::vector<std::shared_ptr<Expression>> operands() const;
+    virtual const std::vector<std::shared_ptr<Expression>>& operands() const;
 };
 
 class NotImplementedException final : public std::exception {

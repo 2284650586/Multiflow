@@ -46,6 +46,7 @@ class ML_PUBLIC FormulaParser final {
     std::unordered_map<std::string, std::string> variableNameToDescription{};
     std::unordered_map<std::string, ConstantInfo> constantNameToInfo{};
     std::unordered_map<std::string, ConstantInfo> globalConstantNameToInfo{};
+    std::unordered_map<std::string, std::shared_ptr<Expression>> globalFunctionNameToExpression{};
 
     void _handleGlobalConstants(const YAML::Node& constants);
 

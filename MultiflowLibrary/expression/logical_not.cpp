@@ -10,8 +10,7 @@
 #include <vector>
 #include <format>
 
-namespace ml
-{
+namespace ml {
 LogicalNot::LogicalNot(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("Not", "Not"), _operands(std::move(operands)) {
     if (_operands.size() != 1) {
@@ -19,7 +18,7 @@ LogicalNot::LogicalNot(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number LogicalNot::evaluate(const Environment &env) const {
+Number LogicalNot::evaluate(const Environment& env) const {
     const Number v = _operands[0]->evaluate(env);
     return is_logical_true(v) ? FALSE : TRUE;
 }
@@ -28,7 +27,7 @@ std::string LogicalNot::representation() const {
     return std::format("(not {})", _operands[0]->representation());
 }
 
-std::vector<std::shared_ptr<Expression>> LogicalNot::operands() const {
+const std::vector<std::shared_ptr<Expression>>& LogicalNot::operands() const {
     return _operands;
 }
 }

@@ -10,8 +10,7 @@
 #include <vector>
 #include <format>
 
-namespace ml
-{
+namespace ml {
 Logarithm::Logarithm(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("Log", "Log"), _operands(std::move(operands)) {
     if (_operands.size() != 2) {
@@ -19,7 +18,7 @@ Logarithm::Logarithm(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number Logarithm::evaluate(const Environment &env) const {
+Number Logarithm::evaluate(const Environment& env) const {
     const Number x = _operands[0]->evaluate(env);
     const Number y = _operands[1]->evaluate(env);
     return logarithm(x, y);
@@ -30,7 +29,7 @@ std::string Logarithm::representation() const {
         "log({}, {})", _operands[0]->representation(), _operands[1]->representation());
 }
 
-std::vector<std::shared_ptr<Expression>> Logarithm::operands() const {
+const std::vector<std::shared_ptr<Expression>>& Logarithm::operands() const {
     return _operands;
 }
 }

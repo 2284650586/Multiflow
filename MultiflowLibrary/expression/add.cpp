@@ -23,7 +23,7 @@ std::string Add::representation() const {
     return joinExpression(_operands, " + ");
 }
 
-std::vector<std::shared_ptr<Expression>> Add::operands() const {
+const std::vector<std::shared_ptr<Expression>>& Add::operands() const {
     return _operands;
 }
 }

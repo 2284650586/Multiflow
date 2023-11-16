@@ -11,7 +11,8 @@
 
 namespace ml {
 LogicalAnd::LogicalAnd(std::vector<std::shared_ptr<Expression>> operands)
-    : Expression("And", "And"), _operands(std::move(operands)) {}
+    : Expression("And", "And"), _operands(std::move(operands)) {
+}
 
 Number LogicalAnd::evaluate(const Environment& env) const {
     for (auto& operand: _operands) {
@@ -26,7 +27,7 @@ std::string LogicalAnd::representation() const {
     return joinExpression(_operands, " and ");
 }
 
-std::vector<std::shared_ptr<Expression>> LogicalAnd::operands() const {
+const std::vector<std::shared_ptr<Expression>>& LogicalAnd::operands() const {
     return _operands;
 }
 }

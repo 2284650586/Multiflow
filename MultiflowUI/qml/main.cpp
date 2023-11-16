@@ -50,11 +50,6 @@ void initialize(int, const char* argv[]) {
     SettingsHelper::getInstance()->init(argv);
     SettingsHelper::getInstance()->setRender("hardware");
 
-    QSurfaceFormat format;
-    format.setVersion(3, 2);
-    format.setProfile(QSurfaceFormat::CoreProfile);
-    QSurfaceFormat::setDefaultFormat(format);
-
     _tryCreateApplicationEngine();
     _applyVisualStyles();
     _registerSingletons();

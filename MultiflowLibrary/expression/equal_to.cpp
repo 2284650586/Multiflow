@@ -10,8 +10,7 @@
 #include <vector>
 #include <format>
 
-namespace ml
-{
+namespace ml {
 EqualTo::EqualTo(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("EqualTo", "EqualTo"), _operands(std::move(operands)) {
     if (_operands.size() != 2) {
@@ -19,7 +18,7 @@ EqualTo::EqualTo(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number EqualTo::evaluate(const Environment &env) const {
+Number EqualTo::evaluate(const Environment& env) const {
     const Number x = _operands[0]->evaluate(env);
     const Number y = _operands[1]->evaluate(env);
     return eq(x, y);
@@ -30,7 +29,7 @@ std::string EqualTo::representation() const {
         "{} == {}", _operands[0]->representation(), _operands[1]->representation());
 }
 
-std::vector<std::shared_ptr<Expression>> EqualTo::operands() const {
+const std::vector<std::shared_ptr<Expression>>& EqualTo::operands() const {
     return _operands;
 }
 }

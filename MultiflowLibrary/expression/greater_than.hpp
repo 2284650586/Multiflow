@@ -24,6 +24,6 @@ public:
     std::string representation() const override;
 
     [[nodiscard]]
-    std::vector<std::shared_ptr<Expression>> operands() const override;
+    const std::vector<std::shared_ptr<Expression>>& operands() const override;
 };
 }

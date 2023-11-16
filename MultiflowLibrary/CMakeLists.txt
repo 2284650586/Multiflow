@@ -44,6 +44,10 @@ add_library(MultiflowLibrary SHARED
     expression/lower_than.hpp
     expression/equal_to.cpp
     expression/equal_to.hpp
+    expression/referencing_function.cpp
+    expression/referencing_function.hpp
+    utils/formula_utils.cpp
+    utils/formula_utils.hpp
 )
 
 if(MSVC)

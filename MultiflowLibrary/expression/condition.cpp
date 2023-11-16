@@ -40,7 +40,7 @@ std::string Condition::representation() const {
     return ss.str();
 }
 
-std::vector<std::shared_ptr<Expression>> Condition::operands() const {
+const std::vector<std::shared_ptr<Expression>>& Condition::operands() const {
     return _operands;
 }
 }
