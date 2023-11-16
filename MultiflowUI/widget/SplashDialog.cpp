@@ -3,7 +3,7 @@
 SplashDialog::SplashDialog(QWidget* parent)
     : QDialog{parent}, ui(new Ui::SplashDialog) {
     ui->setupUi(this);
-    setWindowFlags(Qt::WindowTitleHint | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::WindowTitleHint);
 }
 
 std::unique_ptr<SplashDialog> SplashDialog::createAndShow() {

@@ -25,6 +25,11 @@ public:
         const QString& negativeButtonText
     );
 
+    Q_INVOKABLE [[maybe_unused]] static void error(
+        const QString& message,
+        const QString& positiveButtonText
+    );
+
 private:
     explicit UIUtils(QObject* parent = nullptr);
 };

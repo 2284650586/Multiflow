@@ -22,7 +22,17 @@ UIUtils::confirm(const QString &message, const QString &positiveButtonText, cons
     dialog.setText(message);
     dialog.addButton(negativeButtonText, QMessageBox::RejectRole);
     dialog.setIcon(QMessageBox::Question);
-    auto buttonPositive = dialog.addButton(positiveButtonText, QMessageBox::AcceptRole);
+    const auto buttonPositive = dialog.addButton(positiveButtonText, QMessageBox::AcceptRole);
     dialog.exec();
     return dialog.clickedButton() == buttonPositive;
+}
+
+[[maybe_unused]] void
+UIUtils::error(const QString &message, const QString &positiveButtonText) {
+    auto dialog = QMessageBox();
+    dialog.setWindowTitle(AppName);
+    dialog.setText(message);
+    dialog.addButton(positiveButtonText, QMessageBox::AcceptRole);
+    dialog.setIcon(QMessageBox::Critical);
+    dialog.exec();
 }
