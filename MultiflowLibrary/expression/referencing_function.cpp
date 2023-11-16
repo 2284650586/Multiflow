@@ -16,6 +16,9 @@
 #include "variable.hpp"
 #include "utils/type_utils.hpp"
 
+#include <algorithm>
+#include <set>
+
 namespace ml {
 ReferencingFunction::ReferencingFunction(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("ReferencingFunction", "ReferencingFunction"), _operands(std::move(operands)) {
@@ -30,16 +33,27 @@ Number ReferencingFunction::evaluate(const Environment& env) const {
     const auto fun = _operands[0];
     int operandIndex = 1;
 
-    // Traverse all variables.
+    std::vector<std::shared_ptr<Expression>> variableAndConstants{};
     std::vector<std::shared_ptr<Expression>> variables{};
-    _internalExtractVariablesAndConstants(fun, variables);
+
+    // Traverse all variables.
+    _internalExtractVariablesAndConstants(fun, variableAndConstants);
+
+    // Filter out duplicated variables.
+    std::ranges::for_each(variableAndConstants, [&variables](const auto& exp) {
+        if (ml::instance_of<Variable>(exp) && std::ranges::none_of(variables, [&exp](const auto& v) {
+            // Merge duplicated use of variables: (* pi r r) -> [r]
+            return v->name() == exp->name();
+        })) {
+            variables.push_back(exp);
+        }
+    });
 
     if (variables.size() != _operands.size() - 1) {
-        const std::string errorMessage = std::format(
+        throw MalformedExpressionException(std::format(
             "调用 {} 需要 {} 个参数，但是只给了 {} 个",
             fun->name(), variables.size(), _operands.size() - 1
-        );
-        throw MalformedExpressionException(errorMessage.c_str());
+        ));
     }
 
     // Create isolated environment.

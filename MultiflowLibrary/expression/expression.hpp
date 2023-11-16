@@ -81,14 +81,14 @@ class NotImplementedException final : public std::exception {
 };
 
 class MalformedExpressionException final : public std::exception {
-    const char* _message;
+    std::string _message;
 
 public:
-    explicit MalformedExpressionException(const char* message) : _message(message) {
+    explicit MalformedExpressionException(std::string message) : _message(std::move(message)) {
     }
 
     [[nodiscard]] const char* what() const override {
-        return _message;
+        return _message.c_str();
     }
 };
 }
