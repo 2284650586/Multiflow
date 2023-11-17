@@ -15,12 +15,12 @@ Subtract::Subtract(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("Subtract", "Subtract"), _operands(std::move(operands)) {
 }
 
-Number Subtract::evaluate(const Environment& env) const {
+Number Subtract::evaluate(Environment& env) {
     auto first = _operands.begin();
     const Number firstValue = first->get()->evaluate(env);
     return std::accumulate(
         ++first, _operands.end(),
-        firstValue, [env](const Number acc, const std::shared_ptr<Expression>& v) {
+        firstValue, [&env](const Number acc, const std::shared_ptr<Expression>& v) {
             return subtract(acc, v->evaluate(env));
         });
 }

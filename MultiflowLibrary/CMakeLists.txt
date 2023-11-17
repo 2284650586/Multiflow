@@ -48,6 +48,10 @@ add_library(MultiflowLibrary SHARED
     expression/referencing_function.hpp
     utils/formula_utils.cpp
     utils/formula_utils.hpp
+    expression/closure.cpp
+    expression/closure.hpp
+    expression/set_environment.cpp
+    expression/set_environment.hpp
 )
 
 if(MSVC)

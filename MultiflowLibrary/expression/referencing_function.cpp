@@ -29,7 +29,7 @@ ReferencingFunction::ReferencingFunction(std::vector<std::shared_ptr<Expression>
     }
 }
 
-Number ReferencingFunction::evaluate(const Environment& env) const {
+Number ReferencingFunction::evaluate(Environment& env) {
     const auto fun = _operands[0];
     int operandIndex = 1;
 

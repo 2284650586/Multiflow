@@ -43,7 +43,7 @@ public:
      * @return 求值结果
      */
     [[nodiscard]]
-    virtual Number evaluate(const Environment& env) const;
+    virtual Number evaluate(Environment& env);
 
     /**
      * @brief 表达式的字符串描述。例如

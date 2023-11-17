@@ -14,7 +14,7 @@ LogicalAnd::LogicalAnd(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("And", "And"), _operands(std::move(operands)) {
 }
 
-Number LogicalAnd::evaluate(const Environment& env) const {
+Number LogicalAnd::evaluate(Environment& env) {
     for (auto& operand: _operands) {
         if (z(operand->evaluate(env))) {
             return 0;

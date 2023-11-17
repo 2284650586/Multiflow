@@ -11,13 +11,20 @@ namespace ml {
  * @author z
  */
 class ML_PUBLIC Variable final : public Expression {
+bool _shouldIgnore = false;
+
 public:
     Variable(const std::string& name, const std::string& description);
 
     [[nodiscard]]
-    Number evaluate(const Environment& env) const override;
+    Number evaluate(Environment& env) override;
 
     [[nodiscard]]
     std::string representation() const override;
+
+    [[nodiscard]]
+    bool shouldIgnore() const;
+
+    void setShouldIgnore(bool shouldIgnore);
 };
 }

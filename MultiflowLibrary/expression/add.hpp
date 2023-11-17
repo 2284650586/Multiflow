@@ -14,7 +14,7 @@ public:
     explicit Add(std::vector<std::shared_ptr<Expression>> operands);
 
     [[nodiscard]]
-    Number evaluate(const Environment& env) const override;
+    Number evaluate(Environment& env) override;
 
     [[nodiscard]]
     std::string representation() const override;

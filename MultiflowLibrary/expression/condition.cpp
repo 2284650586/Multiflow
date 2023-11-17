@@ -22,7 +22,7 @@ Condition::Condition(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number Condition::evaluate(const Environment &env) const {
+Number Condition::evaluate(Environment& env) {
     for (int i = 0; i < _operands.size() - 1; i += 2) {
         if (is_logical_true(_operands[i + 1]->evaluate(env))) {
             return _operands[i]->evaluate(env);

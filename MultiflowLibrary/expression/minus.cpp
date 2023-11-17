@@ -19,7 +19,7 @@ Minus::Minus(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number Minus::evaluate(const Environment &env) const {
+Number Minus::evaluate(Environment& env) {
     const Number v = _operands[0]->evaluate(env);
     return subtract(0, v);
 }

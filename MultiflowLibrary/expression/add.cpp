@@ -11,10 +11,10 @@ Add::Add(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("Add", "Add"), _operands(std::move(operands)) {
 }
 
-Number Add::evaluate(const Environment& env) const {
+Number Add::evaluate(Environment& env) {
     return std::accumulate(
         _operands.begin(), _operands.end(),
-        static_cast<Number>(0), [env](const Number acc, const std::shared_ptr<Expression>& v) {
+        static_cast<Number>(0), [&env](const Number acc, const std::shared_ptr<Expression>& v) {
             return add(acc, v->evaluate(env));
         });
 }

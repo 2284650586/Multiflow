@@ -19,7 +19,7 @@ LowerThan::LowerThan(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number LowerThan::evaluate(const Environment &env) const {
+Number LowerThan::evaluate(Environment& env) {
     const Number x = _operands[0]->evaluate(env);
     const Number y = _operands[1]->evaluate(env);
     return lt(x, y);

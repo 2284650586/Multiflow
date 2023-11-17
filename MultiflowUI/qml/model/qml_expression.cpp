@@ -18,7 +18,7 @@ QmlExpression::QmlExpression(std::shared_ptr<ml::Expression> expression)
     _isVariable = ml::instance_of<ml::Variable>(_expression);
 
     if (_isConstant) {
-        _value = std::dynamic_pointer_cast<ml::Constant>(_expression)->_value;
+        _value = ml::as<ml::Constant>(_expression)->_value;
     }
 }
 
@@ -34,5 +34,11 @@ QmlResult QmlExpression::evaluate(const QmlEnvironment* environment) const {
     }
     catch (const ml::NotImplementedException&) {
         return QmlResult::failure("使用了尚未实现的函数");
+    }
+    catch (const ml::KeyNotFoundException&) {
+        return QmlResult::failure("使用了未定义的变量");
+    }
+    catch (const std::exception& e) {
+        return QmlResult::failure(QString::fromStdString(e.what()));
     }
 }

@@ -19,6 +19,8 @@ class ML_PUBLIC Environment final {
 public:
     explicit Environment() = default;
 
+    Environment(const Environment& env);
+
     ~Environment() = default;
 
     void set(const std::string& name, Number value);

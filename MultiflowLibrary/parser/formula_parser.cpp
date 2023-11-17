@@ -20,14 +20,15 @@
 #include "expression/equal_to.hpp"
 #include "expression/condition.hpp"
 #include "expression/referencing_function.hpp"
+#include "expression/set_environment.hpp"
+#include "expression/closure.hpp"
 
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 #include <functional>
-
-#include "utils/type_utils.hpp"
+#include <logging/logging.hpp>
 
 namespace ml {
 static std::vector<std::shared_ptr<Expression>> expressionsFromAstNodes(
@@ -36,10 +37,11 @@ static std::vector<std::shared_ptr<Expression>> expressionsFromAstNodes(
 ) {
     std::vector<std::shared_ptr<Expression>> ret{};
 
-    std::ranges::transform(v, std::back_inserter(ret),
-                           [&parser](const std::shared_ptr<ASTNode>& node) {
-                               return parser._internalTraverseAst(node);
-                           });
+    std::ranges::transform(
+        v, std::back_inserter(ret),
+        [&parser](const std::shared_ptr<ASTNode>& node) {
+            return parser._internalTraverseAst(node);
+        });
     return ret;
 }
 
@@ -73,6 +75,8 @@ static const std::vector<std::pair<std::vector<std::string>, ExpressionFactory>>
     {{"lt", "<"}, _makeEf<LowerThan>()},
     {{"eq", "=="}, _makeEf<EqualTo>()},
     {{"piecewise"}, _makeEf<Condition>()},
+    {{"closure"}, _makeEf<Closure>()},
+    {{"setq"}, _makeEf<SetEnvironment>()},
 };
 
 static std::map<std::string, ExpressionFactory> functionMap{};
@@ -88,70 +92,85 @@ static void _tryInitializeFunctionMap() {
     }
 }
 
-// NOLINTNEXTLINE
+
+// NOLINTNEXTLINE(misc-no-recursion)
+std::shared_ptr<Expression> FormulaParser::_handleFunction(const std::shared_ptr<ASTNode>& root) {
+    const std::string& functionName = root->value;
+
+    // Referencing an existing function?
+    if (globalFunctionNameToExpression.contains(functionName)) {
+        const auto expression = globalFunctionNameToExpression[functionName];
+        expression->setName(functionName);
+
+        std::vector<std::shared_ptr<Expression>> args{expression};
+        for (const auto& arg: root->args) {
+            args.push_back(_internalTraverseAst(arg));
+        }
+        return std::make_shared<ReferencingFunction>(args);
+    }
+
+    // A builtin function?
+    if (const auto it = functionMap.find(functionName); it != functionMap.end()) {
+        // Prevent second lookup.
+        return it->second(*this, root->args);
+    }
+
+    // Neither?
+    throw FunctionNotDefinedException();
+}
+
+// NOLINTNEXTLINE(misc-no-recursion)
+std::shared_ptr<Expression> FormulaParser::_handleVariable(const std::shared_ptr<ASTNode>& root) {
+    const std::string& variableName = root->value;
+    // Named constants could first be recognized as variables.
+    // Check if variable is a constant.
+    if (constantNameToInfo.contains(variableName) || globalConstantNameToInfo.contains(variableName)) {
+        root->type = NodeType::Constant;
+        return _internalTraverseAst(root);
+    }
+
+    // Not declared as a variable? Create it.
+    if (!variableNameToDescription.contains(variableName)) {
+        variableNameToDescription[variableName] = "(无描述)";
+    }
+
+    return std::make_shared<Variable>(variableName, variableNameToDescription[variableName]);
+}
+
+// NOLINTNEXTLINE(misc-no-recursion)
+std::shared_ptr<Expression> FormulaParser::_handleConstant(const std::shared_ptr<ASTNode>& root) {
+    const std::string& constantName = root->value;
+
+    // A declared scoped constant?
+    if (constantNameToInfo.contains(constantName)) {
+        const auto& [_, description, value] = constantNameToInfo[constantName];
+        return std::make_shared<Constant>(constantName, description, value);
+    }
+
+    // A declared global constant?
+    if (globalConstantNameToInfo.contains(constantName)) {
+        const auto& [_, description, value] = globalConstantNameToInfo[constantName];
+        return std::make_shared<Constant>(constantName, description, value);
+    }
+
+    // Raw number.
+    return std::make_shared<Constant>("Constant", "Constant", std::stod(constantName));
+}
+
+// NOLINTNEXTLINE(misc-no-recursion)
 std::shared_ptr<Expression> FormulaParser::_internalTraverseAst(const std::shared_ptr<ASTNode>& root) {
     switch (root->type) {
-        case NodeType::Function: {
-            const std::string& functionName = root->value;
+        case NodeType::Function:
+            return _handleFunction(root);
 
-            // Referencing an existing function?
-            if (globalFunctionNameToExpression.contains(functionName)) {
-                const auto expression = globalFunctionNameToExpression[functionName];
-                expression->setName(functionName);
+        case NodeType::Variable:
+            return _handleVariable(root);
 
-                std::vector<std::shared_ptr<Expression>> args{expression};
-                for (const auto& arg: root->args) {
-                    args.push_back(_internalTraverseAst(arg));
-                }
-                return std::make_shared<ReferencingFunction>(args);
-            }
+        case NodeType::Constant:
+            return _handleConstant(root);
 
-            // A builtin function?
-            if (const auto it = functionMap.find(functionName); it != functionMap.end()) {
-                // Prevent second lookup.
-                return it->second(*this, root->args);
-            }
-
-            // Neither?
-            throw FunctionNotDefinedException();
-        }
-        case NodeType::Variable: {
-            const std::string& variableName = root->value;
-            // Named constants could first be recognized as variables.
-            // Check if variable is a constant.
-            if (constantNameToInfo.contains(variableName) || globalConstantNameToInfo.contains(variableName)) {
-                root->type = NodeType::Constant;
-                return _internalTraverseAst(root);
-            }
-
-            // Not declared as a variable? Create it.
-            if (!variableNameToDescription.contains(variableName)) {
-                variableNameToDescription[variableName] = "(无描述)";
-            }
-
-            return std::make_shared<Variable>(variableName, variableNameToDescription[variableName]);
-        }
-        case NodeType::Constant: {
-            const std::string& constantName = root->value;
-
-            // A declared scoped constant?
-            if (constantNameToInfo.contains(constantName)) {
-                const auto& [_, description, value] = constantNameToInfo[constantName];
-                return std::make_shared<Constant>(constantName, description, value);
-            }
-
-            // A declared global constant?
-            if (globalConstantNameToInfo.contains(constantName)) {
-                const auto& [_, description, value] = globalConstantNameToInfo[constantName];
-                return std::make_shared<Constant>(constantName, description, value);
-            }
-
-            // Raw number.
-            return std::make_shared<Constant>("Constant", "Constant", std::stod(constantName));
-        }
-        default: {
+        default:
             throw MalformedDistException();
-        }
     }
 }
 

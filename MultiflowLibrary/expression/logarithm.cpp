@@ -18,7 +18,7 @@ Logarithm::Logarithm(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number Logarithm::evaluate(const Environment& env) const {
+Number Logarithm::evaluate(Environment& env) {
     const Number x = _operands[0]->evaluate(env);
     const Number y = _operands[1]->evaluate(env);
     return logarithm(x, y);

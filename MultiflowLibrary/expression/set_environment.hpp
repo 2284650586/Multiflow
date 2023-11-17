@@ -1,5 +1,5 @@
 //
-// Created by miku on 11/9/2023.
+// Created by miku on 11/16/2023.
 //
 
 #pragma once
@@ -10,12 +10,18 @@
 #include <string>
 #include <vector>
 
+struct SetqPair {
+    std::shared_ptr<ml::Expression> expression;
+    std::shared_ptr<ml::Expression> value;
+};
+
 namespace ml {
-class ML_PUBLIC Condition final : public Expression {
+class ML_PUBLIC SetEnvironment final : public Expression {
     std::vector<std::shared_ptr<Expression>> _operands;
+    std::vector<SetqPair> _setqPairs;
 
 public:
-    explicit Condition(std::vector<std::shared_ptr<Expression>> operands);
+    explicit SetEnvironment(std::vector<std::shared_ptr<Expression>> operands);
 
     [[nodiscard]]
     Number evaluate(Environment& env) override;

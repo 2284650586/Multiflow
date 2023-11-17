@@ -1,5 +1,5 @@
 //
-// Created by miku on 11/9/2023.
+// Created by miku on 11/16/2023.
 //
 
 #pragma once
@@ -11,11 +11,11 @@
 #include <vector>
 
 namespace ml {
-class ML_PUBLIC Condition final : public Expression {
+class ML_PUBLIC Closure final : public Expression {
     std::vector<std::shared_ptr<Expression>> _operands;
 
 public:
-    explicit Condition(std::vector<std::shared_ptr<Expression>> operands);
+    explicit Closure(std::vector<std::shared_ptr<Expression>> operands);
 
     [[nodiscard]]
     Number evaluate(Environment& env) override;

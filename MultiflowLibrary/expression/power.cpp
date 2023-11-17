@@ -19,7 +19,7 @@ Power::Power(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number Power::evaluate(const Environment &env) const {
+Number Power::evaluate(Environment& env) {
     const Number x = _operands[0]->evaluate(env);
     const Number y = _operands[1]->evaluate(env);
     return power(x, y);

@@ -4,6 +4,10 @@
 
 #include "environment.hpp"
 
+ml::Environment::Environment(const Environment& env) {
+    this->env = env.env;
+}
+
 void ml::Environment::set(const std::string &name, const Number value) {
     env[name] = value;
 }

@@ -25,7 +25,7 @@ Constant::Constant(const std::string& name, const std::string& description, cons
       _value(value) {
 }
 
-Number Constant::evaluate(const Environment& env) const {
+Number Constant::evaluate(Environment& env) {
     return _value;
 }
 

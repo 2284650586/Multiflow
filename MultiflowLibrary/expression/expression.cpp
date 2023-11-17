@@ -8,7 +8,7 @@ Expression::Expression(std::string name, std::string description)
       _description(std::move(description)) {
 }
 
-Number Expression::evaluate(const Environment& env) const {
+Number Expression::evaluate(Environment& env) {
     throw NotImplementedException();
 }
 

@@ -18,7 +18,7 @@ EqualTo::EqualTo(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number EqualTo::evaluate(const Environment& env) const {
+Number EqualTo::evaluate(Environment& env) {
     const Number x = _operands[0]->evaluate(env);
     const Number y = _operands[1]->evaluate(env);
     return eq(x, y);

@@ -15,10 +15,10 @@ Multiply::Multiply(std::vector<std::shared_ptr<Expression>> operands)
     : Expression("Multiply", "Multiply"), _operands(std::move(operands)) {
 }
 
-Number Multiply::evaluate(const Environment& env) const {
+Number Multiply::evaluate(Environment& env) {
     return std::accumulate(
         _operands.begin(), _operands.end(),
-        static_cast<Number>(1), [env](const Number acc, const std::shared_ptr<Expression>& v) {
+        static_cast<Number>(1), [&env](const Number acc, const std::shared_ptr<Expression>& v) {
             return multiply(acc, v->evaluate(env));
         });
 }

@@ -12,7 +12,8 @@ QmlFormula::QmlFormula(const ml::Formula& formula)
       _expression(formula.expression()),
       _lisp(formula.lisp().c_str()) {
     QSet<std::string> names;
-    for (const auto& expression : formula.extractVariablesAndConstants()) {
+    for (const auto& expressions = formula.extractVariablesAndConstants();
+         const auto& expression: expressions) {
         if (names.contains(expression->name())) {
             continue;
         }

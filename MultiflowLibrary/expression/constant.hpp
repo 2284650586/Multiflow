@@ -19,7 +19,7 @@ public:
     /**
      * @brief 常数表达式的求值，自然就是常数本身
      */
-    [[nodiscard]] Number evaluate(const Environment& env) const override;
+    [[nodiscard]] Number evaluate(Environment& env) override;
 
     [[nodiscard]] std::string representation() const override;
 };

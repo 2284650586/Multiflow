@@ -18,7 +18,7 @@ GreaterThan::GreaterThan(std::vector<std::shared_ptr<Expression>> operands)
     }
 }
 
-Number GreaterThan::evaluate(const Environment& env) const {
+Number GreaterThan::evaluate(Environment& env) {
     const Number x = _operands[0]->evaluate(env);
     const Number y = _operands[1]->evaluate(env);
     return gt(x, y);

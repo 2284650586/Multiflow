@@ -61,6 +61,10 @@ public:
     [[nodiscard]]
     std::vector<Formula> loadDistribution(const std::string& configPath);
 
+    std::shared_ptr<Expression> _handleFunction(const std::shared_ptr<ASTNode>& root);
+    std::shared_ptr<Expression> _handleVariable(const std::shared_ptr<ASTNode>& root);
+    std::shared_ptr<Expression> _handleConstant(const std::shared_ptr<ASTNode>& root);
+
     std::shared_ptr<Expression> _internalTraverseAst(const std::shared_ptr<ASTNode>& root);
 };
 
