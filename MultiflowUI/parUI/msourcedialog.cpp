@@ -7,26 +7,19 @@
 #include <QPushButton>
 #include <QSharedPointer>
 
-MSourceDialog::MSourceDialog(MSource* source, bool isNew, QString name, QWidget *parent)
-    : QDialog(parent)
-{
+MSourceDialog::MSourceDialog(const std::shared_ptr<MSource>& source, QString name, QWidget* parent)
+    : QDialog(parent), _source(source) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
-    mSource = source;
     mName = name;
     setupUI();
     updateName();
-    if (!isNew) {
-        updateDialogFromMSource();
-    }
+    updateDialogFromMSource();
 }
 
-MSourceDialog::~MSourceDialog()
-{
-
+MSourceDialog::~MSourceDialog() {
 }
 
-void MSourceDialog::setupUI()
-{
+void MSourceDialog::setupUI() {
     // Create UI components
     sourceNameLabel = new QLabel("名称: ", this);
     sourcePressureLabel = new QLabel("源压力(Mpa a):", this);
@@ -77,80 +70,70 @@ void MSourceDialog::setupUI()
     connect(cancelButton, &QPushButton::clicked, this, &MSourceDialog::rejectDialog);
 
     setStyleSheet("QDialog { background-color: #f0f0f0; }"
-                  "QLabel { font-weight: bold; color: #333333; }"
-                  "QLineEdit { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
-                  "QComboBox { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
-                  "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 10px; }"
-                  "QPushButton:hover { background-color: #45a049; }"
-                  "QPushButton:pressed { background-color: #367c39; }");
+        "QLabel { font-weight: bold; color: #333333; }"
+        "QLineEdit { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
+        "QComboBox { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
+        "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 10px; }"
+        "QPushButton:hover { background-color: #45a049; }"
+        "QPushButton:pressed { background-color: #367c39; }");
 }
 
-void MSourceDialog::updateDialogFromMSource()
-{
-    if (mSource)
-    {
-        sourcePressureLineEdit->setText(QString::number(mSource->getSourcePressure()));
-        sourceTemperatureLineEdit->setText(QString::number(mSource->getSourceTemperature()));
-        sourceFlowRateLineEdit->setText(QString::number(mSource->getSourceFlowRate()));
+void MSourceDialog::updateDialogFromMSource() {
+    if (_source) {
+        sourcePressureLineEdit->setText(QString::number(_source->getSourcePressure()));
+        sourceTemperatureLineEdit->setText(QString::number(_source->getSourceTemperature()));
+        sourceFlowRateLineEdit->setText(QString::number(_source->getSourceFlowRate()));
 
-        switch (mSource->getSourceFlowType())
-        {
-        case MSource::Liquid:
-            sourceFlowTypeComboBox->setCurrentIndex(0);
-            break;
-        case MSource::Gas:
-            sourceFlowTypeComboBox->setCurrentIndex(1);
-            break;
-        case MSource::Mass:
-            sourceFlowTypeComboBox->setCurrentIndex(2);
-            break;
+        switch (_source->getSourceFlowType()) {
+            case MSource::Liquid:
+                sourceFlowTypeComboBox->setCurrentIndex(0);
+                break;
+            case MSource::Gas:
+                sourceFlowTypeComboBox->setCurrentIndex(1);
+                break;
+            case MSource::Mass:
+                sourceFlowTypeComboBox->setCurrentIndex(2);
+                break;
         }
     }
 }
 
-void MSourceDialog::updateMSourceFromDialog()
-{
-    if (mSource)
-    {
+void MSourceDialog::updateMSourceFromDialog() {
+    if (_source) {
         mName = sourceNameLineEdit->text();
-        mSource->setSourcePressure(sourcePressureLineEdit->text().toDouble());
-        mSource->setSourceTemperature(sourceTemperatureLineEdit->text().toDouble());
-        mSource->setSourceFlowRate(sourceFlowRateLineEdit->text().toDouble());
+        _source->setSourcePressure(sourcePressureLineEdit->text().toDouble());
+        _source->setSourceTemperature(sourceTemperatureLineEdit->text().toDouble());
+        _source->setSourceFlowRate(sourceFlowRateLineEdit->text().toDouble());
 
-        switch (sourceFlowTypeComboBox->currentIndex())
-        {
-        case 0:
-            mSource->setSourceFlowType(MSource::Liquid);
-            break;
-        case 1:
-            mSource->setSourceFlowType(MSource::Gas);
-            break;
-        case 2:
-            mSource->setSourceFlowType(MSource::Mass);
-            break;
+        switch (sourceFlowTypeComboBox->currentIndex()) {
+            case 0:
+                _source->setSourceFlowType(MSource::Liquid);
+                break;
+            case 1:
+                _source->setSourceFlowType(MSource::Gas);
+                break;
+            case 2:
+                _source->setSourceFlowType(MSource::Mass);
+                break;
         }
     }
 }
 
-void MSourceDialog::updateName()
-{
+void MSourceDialog::updateName() {
     if (!mName.isEmpty()) {
         sourceNameLineEdit->setText(mName);
     }
 }
 
-QString MSourceDialog::getName()
-{
+QString MSourceDialog::getName() {
     return mName;
 }
 
-void MSourceDialog::acceptDialog()
-{
+void MSourceDialog::acceptDialog() {
     updateMSourceFromDialog();
     accept();
 }
 
-void MSourceDialog::rejectDialog()
-{
+void MSourceDialog::rejectDialog() {
     reject();
 }

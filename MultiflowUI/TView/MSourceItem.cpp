@@ -1,0 +1,40 @@
+//
+// Created by miku on 11/17/2023.
+//
+
+#include "MSourceItem.hpp"
+#include "parUI/msourcedialog.h"
+
+#include <QGraphicsSceneMouseEvent>
+
+MSourceItem::MSourceItem(QGraphicsPixmapItem* parent)
+    : MAbstractItem(Source, ":/resources/image/source.png", parent),
+      _source(std::make_shared<MSource>()) {
+}
+
+void MSourceItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
+    event->accept();
+    if (event->button() != Qt::LeftButton) {
+        return;
+    }
+
+    auto* dialog = new MSourceDialog(_source, _itemName, nullptr);
+    dialog->exec();
+    update();
+}
+
+bool MSourceItem::canConnectWith(const MAbstractItem& other, const ConnectionKind kind) const {
+    switch (kind) {
+        case START_TO_END:
+            return countStartArrows() == 0
+                   && other.itemKind() != Well
+                   && other.itemKind() != Source;
+
+        case END_TO_START:
+            return countEndArrows() == 0
+                   && other.itemKind() != Well;
+
+        default:
+            return false;
+    }
+}

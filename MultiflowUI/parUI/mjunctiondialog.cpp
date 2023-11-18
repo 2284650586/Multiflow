@@ -5,20 +5,16 @@
 #include <QLineEdit>
 #include <QPushButton>
 
-MJunctionDialog::MJunctionDialog(MJunction *junction, bool isNew, QString name, QWidget *parent) : QDialog(parent)
-{
+MJunctionDialog::MJunctionDialog(std::shared_ptr<MJunction> junction, QString name, QWidget* parent)
+    : QDialog(parent), _junction(junction) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
-    mJunction = junction;
     mName = name;
     setupUI();
     updateName();
-    if (!isNew) {
-        updateDialogFromMJuction();
-    }
+    updateDialogFromMJuction();
 }
 
-void MJunctionDialog::setupUI()
-{
+void MJunctionDialog::setupUI() {
     junctionNameLabel = new QLabel("名称: ", this);
     junctionNameLineEdit = new QLineEdit(this);
 
@@ -40,42 +36,35 @@ void MJunctionDialog::setupUI()
     connect(cancelButton, &QPushButton::clicked, this, &MJunctionDialog::rejectDialog);
 
     setStyleSheet("QDialog { background-color: #f0f0f0; }"
-                  "QLabel { font-weight: bold; color: #333333; }"
-                  "QLineEdit { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
-                  "QComboBox { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
-                  "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 10px; }"
-                  "QPushButton:hover { background-color: #45a049; }"
-                  "QPushButton:pressed { background-color: #367c39; }");
+        "QLabel { font-weight: bold; color: #333333; }"
+        "QLineEdit { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
+        "QComboBox { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
+        "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 10px; }"
+        "QPushButton:hover { background-color: #45a049; }"
+        "QPushButton:pressed { background-color: #367c39; }");
 }
 
-void MJunctionDialog::updateDialogFromMJuction()
-{
-
+void MJunctionDialog::updateDialogFromMJuction() {
 }
 
-void MJunctionDialog::updateMJuctionFromDialog()
-{
+void MJunctionDialog::updateMJuctionFromDialog() {
     mName = junctionNameLineEdit->text();
 }
 
-QString MJunctionDialog::getName()
-{
+QString MJunctionDialog::getName() {
     return mName;
 }
 
-void MJunctionDialog::acceptDialog()
-{
+void MJunctionDialog::acceptDialog() {
     updateMJuctionFromDialog();
     accept();
 }
 
-void MJunctionDialog::rejectDialog()
-{
+void MJunctionDialog::rejectDialog() {
     reject();
 }
 
-void MJunctionDialog::updateName()
-{
+void MJunctionDialog::updateName() {
     if (!mName.isEmpty()) {
         junctionNameLineEdit->setText(mName);
     }

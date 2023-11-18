@@ -1,12 +1,9 @@
-#ifndef TGRAPHICSVIEW_H
-#define TGRAPHICSVIEW_H
+#pragma once
 
-#include "tgraphicsscene.h"
+#include "MGraphicsScene.hpp"
 
 #include <QGraphicsView>
 #include <QObject>
-
-#include "TView/mulitem.h"
 
 class TGraphicsView : public QGraphicsView {
     Q_OBJECT
@@ -18,7 +15,7 @@ public:
 
     void setScale(QString newScale);
 
-    [[nodiscard]] TGraphicsScene* scene() const;
+    [[nodiscard]] MGraphicsScene* scene() const;
 
 protected:
     void keyPressEvent(QKeyEvent* event) override;
@@ -28,5 +25,3 @@ protected:
 private:
     QString m_scale;
 };
-
-#endif // TGRAPHICSVIEW_H

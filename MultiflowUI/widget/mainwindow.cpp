@@ -2,8 +2,8 @@
 #include "constants.hpp"
 #include "service/FormulaService.hpp"
 #include "qml/main.hpp"
-#include "TView/tgraphicsscene.h"
-#include "TView/tarrow.h"
+#include "..\TView\MGraphicsScene.hpp"
+#include "..\TView\MArrow.hpp"
 
 #include "MultiflowLibrary/logging/logging.hpp"
 
@@ -76,29 +76,29 @@ void MainWindow::closeLoadingDialog() const {
 }
 
 void MainWindow::createActions() {
-    newFileAction = new QAction(QIcon(":/resources/image/file.png"), "新建文件", this);
+    newFileAction = new QAction(QIcon(":/resources/image/file.png"), "新建项目(&N)", this);
     connect(newFileAction, &QAction::triggered, this, &MainWindow::createGraphicsView);
 
     aboutAppAction = new QAction(tr("关于 ") + AppName, this);
     connect(aboutAppAction, &QAction::triggered, this, &MainWindow::onAboutApp);
 
-    deleteAction = new QAction(QIcon(":/resources/image/delete.png"), "删除", this);
+    deleteAction = new QAction(QIcon(":/resources/image/delete.png"), "删除(&D)", this);
     deleteAction->setShortcut(QKeySequence::Delete);
     connect(deleteAction, &QAction::triggered, this, &MainWindow::deleteItem);
 
-    newWellAction = new QAction(QIcon(":/resources/image/Well.png"), "新建井", this);
+    newWellAction = new QAction(QIcon(":/resources/image/Well.png"), "新建井(&W)", this);
     newWellAction->setData(MultiflowKind::Well);
     connect(newWellAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
-    newSourceAction = new QAction(QIcon(":/resources/image/source.png"), "新建源", this);
+    newSourceAction = new QAction(QIcon(":/resources/image/source.png"), "新建源(&S)", this);
     newSourceAction->setData(MultiflowKind::Source);
     connect(newSourceAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
-    newSinkAction = new QAction(QIcon(":/resources/image/sink.png"), "新建 Sink", this);
+    newSinkAction = new QAction(QIcon(":/resources/image/sink.png"), "新建 S&ink", this);
     newSinkAction->setData(MultiflowKind::Sink);
     connect(newSinkAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
-    newJunctionAction = new QAction(QIcon(":/resources/image/junction.png"), "新建接合点", this);
+    newJunctionAction = new QAction(QIcon(":/resources/image/junction.png"), "新建接合点(&C)", this);
     newJunctionAction->setData(MultiflowKind::Junction);
     connect(newJunctionAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
@@ -152,8 +152,8 @@ void MainWindow::createToolBar() {
     linePointerButton->setIcon(QIcon(":/resources/image/linepointer.png"));
 
     pointerTypeGroup = new QButtonGroup(this);
-    pointerTypeGroup->addButton(pointerButton, TGraphicsScene::setPointer);
-    pointerTypeGroup->addButton(linePointerButton, TGraphicsScene::InsertLine);
+    pointerTypeGroup->addButton(pointerButton, MGraphicsScene::setPointer);
+    pointerTypeGroup->addButton(linePointerButton, MGraphicsScene::InsertLine);
 
     connect(pointerTypeGroup, QOverload<QAbstractButton*>::of(&QButtonGroup::buttonClicked),
             this, &MainWindow::pointerGroupClicked);
@@ -198,8 +198,8 @@ void MainWindow::createStatusBar() {
 }
 
 void MainWindow::createWidget() {
-    treeWidget = new TTreeWidget(this);
-    tabWidget = new TTabWidget(this);
+    treeWidget = new MTreeWidget(this);
+    tabWidget = new MTabWidget(this);
     tabWidget->setTabsClosable(true);
     tabWidget->setStyleSheet("background-color: #E0E0E0; border: #E0E0E0;");
 
@@ -226,12 +226,12 @@ void MainWindow::onAboutApp() {
  * @brief 新建新场景的时候调用，设置一些按钮的状态
  */
 void MainWindow::createGraphicsView() {
-    treeWidget->addItem();
+    treeWidget->initializeItems();
     enableToolbars();
     pointerButton->setChecked(true);
 
     auto* tView = new TGraphicsView(this);
-    auto* tScene = new TGraphicsScene(tView);
+    auto* tScene = new MGraphicsScene(tView);
 
     tScene->setSceneRect(QRectF(0, 0, tabWidget->width() + 200, tabWidget->height() + 200));
     tScene->setBackgroundBrush(QPixmap(":/resources/image/background3.png"));
@@ -242,9 +242,9 @@ void MainWindow::createGraphicsView() {
 
     tabWidget->insertTab(tabWidget->count(), tView, QString("场景 %1").arg(tabWidget->count() + 1));
 
-    connect(tScene, &TGraphicsScene::mulItemInserted, this, &MainWindow::mulItemInserted);
-    connect(tScene, &TGraphicsScene::linePointerInserted, this, &MainWindow::linePointerInserted);
-    connect(tScene, &TGraphicsScene::setPointerCursor, this, &MainWindow::setPointerCursor);
+    connect(tScene, &MGraphicsScene::mulItemInserted, this, &MainWindow::mulItemInserted);
+    connect(tScene, &MGraphicsScene::linePointerInserted, this, &MainWindow::linePointerInserted);
+    connect(tScene, &MGraphicsScene::setPointerCursor, this, &MainWindow::setPointerCursor);
 }
 
 void MainWindow::openFormulaViewer() {
@@ -256,22 +256,22 @@ void MainWindow::createMulItem() {
     int type = action->data().toInt();
     const auto* view = tabWidget->currentTGraphicsView();
     auto* scene = view->scene();
-    scene->setMode(TGraphicsScene::InsertItem);
+    scene->setMode(MGraphicsScene::InsertItem);
     scene->setItemType(static_cast<MultiflowKind>(type));
     setCursor(Qt::CrossCursor);
 }
 
 void MainWindow::pointerGroupClicked() const {
     const auto* view = tabWidget->currentTGraphicsView();
-    view->scene()->setMode(static_cast<TGraphicsScene::Mode>(pointerTypeGroup->checkedId()));
+    view->scene()->setMode(static_cast<MGraphicsScene::Mode>(pointerTypeGroup->checkedId()));
 }
 
-void MainWindow::mulItemInserted(const MulItem* item) {
+void MainWindow::mulItemInserted(const MAbstractItem* item) {
     Q_UNUSED(item)
 
     unsetCursor();
     const auto* view = tabWidget->currentTGraphicsView();
-    view->scene()->setMode(TGraphicsScene::setPointer);
+    view->scene()->setMode(MGraphicsScene::setPointer);
 }
 
 void MainWindow::linePointerInserted() {
@@ -293,7 +293,7 @@ void MainWindow::closeTab(const int index) const {
     if (tabWidget->count() == 0) {
         sceneScaleCombo->setCurrentIndex(2);
         disableToolbars();
-        treeWidget->clearItem();
+        treeWidget->clearItems();
     }
 }
 
@@ -342,18 +342,19 @@ void MainWindow::deleteItem() {
     ) {
         QList<QGraphicsItem*> selectedItems = scene->selectedItems();
         for (QGraphicsItem* item: qAsConst(selectedItems)) {
-            if (item->type() == TArrow::Type) {
+            if (item->type() == MAbstractItem::ArrowType::Type) {
                 scene->removeItem(item);
-                auto* arrow = qgraphicsitem_cast<TArrow*>(item);
-                arrow->getStartItem()->removeArrow(arrow);
-                arrow->getEndItem()->removeArrow(arrow);
+                auto* arrow = qgraphicsitem_cast<MAbstractItem::ArrowType*>(item);
+                auto arrowShared = std::shared_ptr<MAbstractItem::ArrowType>(arrow);
+                arrow->getStartItem()->removeArrow(arrowShared);
+                arrow->getEndItem()->removeArrow(arrowShared);
                 delete item;
             }
         }
         selectedItems = scene->selectedItems();
         for (QGraphicsItem* item: qAsConst(selectedItems)) {
-            if (item->type() == MulItem::Type)
-                qgraphicsitem_cast<MulItem*>(item)->removeArrows();
+            if (item->type() == MAbstractItem::Type)
+                qgraphicsitem_cast<MAbstractItem*>(item)->removeAllArrows();
             scene->removeItem(item);
             delete item;
         }

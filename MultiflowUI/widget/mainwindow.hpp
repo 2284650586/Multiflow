@@ -1,9 +1,9 @@
 #pragma once
 
 #include "widget/SplashDialog.hpp"
-#include "TView/mulitem.h"
-#include "TWidget/ttabwidget.h"
-#include "TWidget/ttreewidget.h"
+#include "TView/MAbstractItem.hpp"
+#include "TWidget/MTabWidget.h"
+#include "TWidget/MTreeWidget.h"
 #include "TView/tgraphicsview.h"
 #include "shared.hpp"
 
@@ -49,8 +49,8 @@ private:
     QMenu* _aboutMenu{};
 
     // Widget
-    TTabWidget* tabWidget{};
-    TTreeWidget* treeWidget{};
+    MTabWidget* tabWidget{};
+    MTreeWidget* treeWidget{};
     std::unique_ptr<SplashDialog> _splashDialog;
 
     // Bar
@@ -117,7 +117,7 @@ private slots:
 
     void sceneScaleChanged(const QString& scale) const;
 
-    void mulItemInserted(const MulItem* item);
+    void mulItemInserted(const MAbstractItem* item);
 
     void linePointerInserted();
 

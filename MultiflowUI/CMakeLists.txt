@@ -22,6 +22,10 @@ aux_source_directory(util/validator UTIL_VALIDATOR)
 aux_source_directory(utility UTILITY)
 aux_source_directory(widget WIDGET)
 aux_source_directory(service SERVICE)
+file(GLOB_RECURSE HEADERS
+    *.h
+    *.hpp
+)
 
 set(QML_SRC
     qml/main.qml
@@ -40,6 +44,7 @@ set(SOURCE_FILES
     ${UTILITY}
     ${WIDGET}
     ${SERVICE}
+    ${HEADERS}
     main.cpp
     widget/mainwindow.cpp
     widget/SplashDialog.cpp
@@ -61,6 +66,18 @@ set(SOURCE_FILES
     qml/model/qml_result.hpp
     service/FormulaService.cpp
     service/FormulaService.hpp
+    TView/MAbstractItem.cpp
+    TView/MAbstractItem.hpp
+    TView/MAbstractItem.hpp
+    TView/MSourceItem.cpp
+    TView/MSourceItem.hpp
+    TView/MSourceItem.hpp
+    TView/MSinkItem.cpp
+    TView/MSinkItem.hpp
+    TView/MJunctionItem.cpp
+    TView/MJunctionItem.hpp
+    TView/MWellItem.cpp
+    TView/MWellItem.hpp
 )
 
 include_directories(

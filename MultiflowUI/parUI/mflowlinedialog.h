@@ -19,7 +19,7 @@ class MFlowlineDialog : public QDialog
     Q_OBJECT
 
 public:
-    MFlowlineDialog(MFlowline* flowline, bool isNew, QString name, QWidget *parent = nullptr);
+    MFlowlineDialog(const std::shared_ptr<MFlowline>& flowline, QString name, QWidget *parent = nullptr);
     ~MFlowlineDialog();
 
 private slots:
@@ -38,7 +38,7 @@ private:
     void updateMFlowlineFromDialog();
     void updateName();
 
-    MFlowline* mFlowline = nullptr; // 指向MFlowline对象的指针
+    std::shared_ptr<MFlowline> _flowline{}; // 指向MFlowline对象的指针
     QString mName;
 
     QLabel* flowlineNameLabel;

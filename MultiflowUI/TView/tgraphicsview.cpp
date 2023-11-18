@@ -15,8 +15,8 @@ void TGraphicsView::setScale(QString newScale) {
     m_scale = newScale;
 }
 
-TGraphicsScene* TGraphicsView::scene() const {
-    return dynamic_cast<TGraphicsScene*>(
+MGraphicsScene* TGraphicsView::scene() const {
+    return dynamic_cast<MGraphicsScene*>(
         QGraphicsView::scene());
 }
 

@@ -1,10 +1,10 @@
-#include "ttreewidget.h"
+#include "MTreeWidget.h"
+
 #include <QIcon>
 #include <QFont>
 #include <QSize>
 
-TTreeWidget::TTreeWidget(QWidget *parent) : QTreeWidget(parent)
-{
+MTreeWidget::MTreeWidget(QWidget* parent) : QTreeWidget(parent) {
     wellIcon = QIcon(":/resources/image/Well.png");
     sourceIcon = QIcon(":/resources/image/source.png");
     sinkIcon = QIcon(":/resources/image/sink.png");
@@ -13,18 +13,16 @@ TTreeWidget::TTreeWidget(QWidget *parent) : QTreeWidget(parent)
 
     font = headerItem()->font(0);
     font.setPixelSize(20);
+    font.setPixelSize(15);
 
     headerItem()->setFont(0, font);
     headerItem()->setText(0, "输入组件");
 }
 
-void TTreeWidget::addItem()
-{
-    font.setPixelSize(15);
-//    QIcon wellIcon = QIcon(":/resources/image/Well.png");
-//    QIcon sourceIcon = QIcon(":/resources/image/source.png");
-//    QIcon sinkIcon = QIcon(":/resources/image/sink.png");
-//    QIcon flowlineIcon = QIcon(":/resources/image/flowline.png");
+void MTreeWidget::initializeItems() {
+    if (wellItem) {
+        return;
+    }
 
     wellItem = new QTreeWidgetItem(this);
     wellItem->setFont(0, font);
@@ -57,8 +55,6 @@ void TTreeWidget::addItem()
     flowlineItem->setExpanded(true);
 }
 
-void TTreeWidget::clearItem()
-{
+void MTreeWidget::clearItems() {
     clear();
 }
-

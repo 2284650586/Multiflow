@@ -4,11 +4,11 @@
 
 #include <QTabWidget>
 
-class TTabWidget final : public QTabWidget {
+class MTabWidget final : public QTabWidget {
     Q_OBJECT
 
 public:
-    explicit TTabWidget(QWidget* parent = nullptr);
+    explicit MTabWidget(QWidget* parent = nullptr);
 
     [[nodiscard]] TGraphicsView* widgetAt(int index) const;
 

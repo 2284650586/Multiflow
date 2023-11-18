@@ -12,10 +12,10 @@ class MJunctionDialog : public QDialog
 {
     Q_OBJECT
 public:
-    MJunctionDialog(MJunction *junction, bool isNew, QString name, QWidget *parent = nullptr);
+    MJunctionDialog(std::shared_ptr<MJunction> junction, QString name, QWidget *parent = nullptr);
 
     QString mName;
-    MJunction *mJunction;
+    std::shared_ptr<MJunction> _junction;
 
     QString getName();
 

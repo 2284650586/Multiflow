@@ -14,7 +14,7 @@ class MSourceDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit MSourceDialog(MSource* source, bool isNew, QString name, QWidget *parent = nullptr);
+    explicit MSourceDialog(const std::shared_ptr<MSource>& source, QString name, QWidget *parent = nullptr);
     ~MSourceDialog();
 
 
@@ -23,7 +23,7 @@ private slots:
     void rejectDialog();
 
 private:
-    MSource *mSource = nullptr;
+    std::shared_ptr<MSource> _source{};
     QString mName;
 
     QLabel* sourceNameLabel;

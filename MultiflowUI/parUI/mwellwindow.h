@@ -41,14 +41,14 @@ class MWellWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MWellWindow(MWell* well, QString name, QWidget *parent = nullptr);
+    MWellWindow(std::shared_ptr<MWell> well, QString name, QWidget *parent = nullptr);
     ~MWellWindow();
 
 
 
 private:
     QString mName;
-    MWell *mWell;
+    std::shared_ptr<MWell> _well{};
 
     QStandardItemModel *casingModel;
     QStandardItemModel *tubingModel;

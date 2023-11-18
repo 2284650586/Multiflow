@@ -16,11 +16,11 @@
 #include <util/delegate/compviprdelegate.h>
 #include <util/delegate/geometrydelegate.h>
 
-MWellWindow::MWellWindow(MWell* well, QString name, QWidget *parent) :
+MWellWindow::MWellWindow(std::shared_ptr<MWell> well, QString name, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MWellWindow)
 {
-    mWell = well;
+    _well = well;
     mName = name;
     ui->setupUi(this);
     this->resize(1350, 700);
@@ -261,11 +261,11 @@ void MWellWindow::initConnect()
 
 void MWellWindow::initWellData()
 {
-    if (mWell->getDeviation() == nullptr) {
-        mWell->setDeviation(new MWellDeviation());
+    if (_well->getDeviation() == nullptr) {
+        _well->setDeviation(new MWellDeviation());
     }
-    if (mWell->getHeat() == nullptr) {
-        mWell->setHeat(new MWellHeat());
+    if (_well->getHeat() == nullptr) {
+        _well->setHeat(new MWellHeat());
     }
 }
 
@@ -752,7 +752,7 @@ void MWellWindow::setPara()
 
 void MWellWindow::setDeviationSurvey()
 {
-    MWellDeviation *tempDeviation = mWell->getDeviation();
+    MWellDeviation *tempDeviation = _well->getDeviation();
     tempDeviation->clearPar();
     if (ui->surveyType->currentText() == "vertical") {
         tempDeviation->setSurVeytype(MWellDeviation::SurveyType::Vertical);
@@ -797,8 +797,8 @@ void MWellWindow::setDeviationSurvey()
 
 void MWellWindow::setTubular()
 {
-    mWell->clearCasingList();
-    mWell->clearTubingList();
+    _well->clearCasingList();
+    _well->clearTubingList();
     int casingRowCount = casingModel->rowCount();
     int tubingRowCount = tubingModel->rowCount();
     for (int row = 0; row < casingRowCount; ++row) {
@@ -814,7 +814,7 @@ void MWellWindow::setTubular()
         if (cementMap[row].cementTop != 0x7FFFFFF) temp->setCementTop(cementMap[row].cementTop);
         if (cementMap[row].cementDensity != 0x7FFFFFF) temp->setCementDensity(cementMap[row].cementDensity);
         if (cementMap[row].cementThermal != 0x7FFFFFF) temp->setCementTheramlCond(cementMap[row].cementThermal);
-        mWell->addCasing(temp);
+        _well->addCasing(temp);
     }
     for (int row = 0; row < tubingRowCount; ++row) {
         MWellTunbing *temp = new MWellTunbing();
@@ -829,7 +829,7 @@ void MWellWindow::setTubular()
         if (fluidMap[row].fluidType != "") temp->setFluidType(fluidMap[row].fluidType);
         if (fluidMap[row].fluidDensity != 0x7FFFFFF) temp->setFluidDensity(fluidMap[row].fluidDensity);
         if (fluidMap[row].fluidThermal != 0x7FFFFFF) temp->setFluidThermalCond(fluidMap[row].fluidThermal);
-        mWell->addTubing(temp);
+        _well->addTubing(temp);
     }
 }
 
@@ -860,19 +860,19 @@ void MWellWindow::setFluidType(int index)
 
 void MWellWindow::setPacker()
 {
-    mWell->clearPackerList();
+    _well->clearPackerList();
     int rowCount = packerModel->rowCount();
     for (int row = 0; row < rowCount; ++row) {
         MWellPacker *packer = new MWellPacker();
         if (packerModel->item(row, 0) != nullptr) packer->setName(packerModel->item(row, 0)->text());
         if (packerModel->item(row, 1) != nullptr) packer->setMeasuredDepth(packerModel->item(row, 1)->text().toDouble());
-        mWell->addPacker(packer);
+        _well->addPacker(packer);
     }
 }
 
 void MWellWindow::setHeat()
 {
-    MWellHeat *heat = mWell->getHeat();
+    MWellHeat *heat = _well->getHeat();
     heat->clearHtcCalAtiMultList();
     heat->clearUMultAtiMultList();
     heat->clearHtcCalList();

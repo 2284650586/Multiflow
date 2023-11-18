@@ -1,32 +1,23 @@
 #include "msinkdialog.h"
-#include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QComboBox>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QSharedPointer>
 
-MSinkDialog::MSinkDialog(MSink* sink, bool isNew, QString name, QWidget *parent)
-    : QDialog(parent)
-{
+MSinkDialog::MSinkDialog(std::shared_ptr<MSink> sink, QString name, QWidget* parent)
+    : QDialog(parent), _sink(sink) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
-    mSink = sink;
     mName = name;
     setupUI();
     updateName();
-    if (!isNew) {
-        updateDialogFromMSink();
-    }
+    updateDialogFromMSink();
 }
 
-MSinkDialog::~MSinkDialog()
-{
-
+MSinkDialog::~MSinkDialog() {
 }
 
-void MSinkDialog::setupUI()
-{
+void MSinkDialog::setupUI() {
     // Create UI components
     sinkNameLabel = new QLabel("名称: ", this);
     sinkPressureLabel = new QLabel("源压力(Mpa a):", this);
@@ -77,80 +68,70 @@ void MSinkDialog::setupUI()
     connect(cancelButton, &QPushButton::clicked, this, &MSinkDialog::rejectDialog);
 
     setStyleSheet("QDialog { background-color: #f0f0f0; }"
-                  "QLabel { font-weight: bold; color: #333333; }"
-                  "QLineEdit { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
-                  "QComboBox { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
-                  "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 10px; }"
-                  "QPushButton:hover { background-color: #45a049; }"
-                  "QPushButton:pressed { background-color: #367c39; }");
+        "QLabel { font-weight: bold; color: #333333; }"
+        "QLineEdit { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
+        "QComboBox { background-color: #ffffff; border: 1px solid #cccccc; padding: 5px; }"
+        "QPushButton { background-color: #4CAF50; color: white; border: none; padding: 10px; }"
+        "QPushButton:hover { background-color: #45a049; }"
+        "QPushButton:pressed { background-color: #367c39; }");
 }
 
-void MSinkDialog::updateDialogFromMSink()
-{
-    if (mSink)
-    {
-        sinkPressureLineEdit->setText(QString::number(mSink->getSinkPressure()));
-        sinkTemperatureLineEdit->setText(QString::number(mSink->getSinkTemperature()));
-        sinkFlowRateLineEdit->setText(QString::number(mSink->getSinkFlowRate()));
+void MSinkDialog::updateDialogFromMSink() {
+    if (_sink) {
+        sinkPressureLineEdit->setText(QString::number(_sink->getSinkPressure()));
+        sinkTemperatureLineEdit->setText(QString::number(_sink->getSinkTemperature()));
+        sinkFlowRateLineEdit->setText(QString::number(_sink->getSinkFlowRate()));
 
-        switch (mSink->getSinkFlowType())
-        {
-        case MSink::Liquid:
-            sinkFlowTypeComboBox->setCurrentIndex(0);
-            break;
-        case MSink::Gas:
-            sinkFlowTypeComboBox->setCurrentIndex(1);
-            break;
-        case MSink::Mass:
-            sinkFlowTypeComboBox->setCurrentIndex(2);
-            break;
+        switch (_sink->getSinkFlowType()) {
+            case MSink::Liquid:
+                sinkFlowTypeComboBox->setCurrentIndex(0);
+                break;
+            case MSink::Gas:
+                sinkFlowTypeComboBox->setCurrentIndex(1);
+                break;
+            case MSink::Mass:
+                sinkFlowTypeComboBox->setCurrentIndex(2);
+                break;
         }
     }
 }
 
-void MSinkDialog::updateMSinkFromDialog()
-{
-    if (mSink)
-    {
+void MSinkDialog::updateMSinkFromDialog() {
+    if (_sink) {
         mName = sinkNameLineEdit->text();
-        mSink->setSinkPressure(sinkPressureLineEdit->text().toDouble());
-        mSink->setSinkTemperature(sinkTemperatureLineEdit->text().toDouble());
-        mSink->setSinkFlowRate(sinkFlowRateLineEdit->text().toDouble());
+        _sink->setSinkPressure(sinkPressureLineEdit->text().toDouble());
+        _sink->setSinkTemperature(sinkTemperatureLineEdit->text().toDouble());
+        _sink->setSinkFlowRate(sinkFlowRateLineEdit->text().toDouble());
 
-        switch (sinkFlowTypeComboBox->currentIndex())
-        {
-        case 0:
-            mSink->setSinkFlowType(MSink::Liquid);
-            break;
-        case 1:
-            mSink->setSinkFlowType(MSink::Gas);
-            break;
-        case 2:
-            mSink->setSinkFlowType(MSink::Mass);
-            break;
+        switch (sinkFlowTypeComboBox->currentIndex()) {
+            case 0:
+                _sink->setSinkFlowType(MSink::Liquid);
+                break;
+            case 1:
+                _sink->setSinkFlowType(MSink::Gas);
+                break;
+            case 2:
+                _sink->setSinkFlowType(MSink::Mass);
+                break;
         }
     }
 }
 
-void MSinkDialog::updateName()
-{
+void MSinkDialog::updateName() {
     if (!mName.isEmpty()) {
         sinkNameLineEdit->setText(mName);
     }
 }
 
-QString MSinkDialog::getName()
-{
+QString MSinkDialog::getName() {
     return mName;
 }
 
-void MSinkDialog::acceptDialog()
-{
+void MSinkDialog::acceptDialog() {
     updateMSinkFromDialog();
     accept();
 }
 
-void MSinkDialog::rejectDialog()
-{
+void MSinkDialog::rejectDialog() {
     reject();
 }

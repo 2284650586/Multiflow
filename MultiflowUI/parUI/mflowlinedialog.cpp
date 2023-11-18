@@ -19,30 +19,22 @@
 #include <QValueAxis>
 
 
-
-MFlowlineDialog::MFlowlineDialog(MFlowline* flowline, bool isNew, QString name, QWidget *parent)
-    : QDialog(parent)
-{
+MFlowlineDialog::MFlowlineDialog(const std::shared_ptr<MFlowline>& flowline, QString name, QWidget* parent)
+    : QDialog(parent), _flowline(flowline) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
     setMinimumHeight(700);
     setMinimumWidth(870);
-    mFlowline = flowline;
     mName = name;
     setupUI();
     createTableModel();
     updateName();
-    if (!isNew) {
-        updateDialogFromMFlowline();
-    }
+    updateDialogFromMFlowline();
 }
 
-MFlowlineDialog::~MFlowlineDialog()
-{
-
+MFlowlineDialog::~MFlowlineDialog() {
 }
 
-void MFlowlineDialog::setupUI()
-{
+void MFlowlineDialog::setupUI() {
     // 创建UI组件
     flowlineNameLabel = new QLabel("名称:", this);
     flowlineNameLineEdit = new QLineEdit(this);
@@ -112,14 +104,14 @@ void MFlowlineDialog::setupUI()
     QValueAxis* axisX = new QValueAxis(this);
     axisX->setTitleText("Horizontal Distance (Km)");
     axisX->setRange(0, 300); // 设置x轴范围为0到300
-    axisX->setTickCount(4);  // 设置x轴刻度数量为4，即每个100取一个点
+    axisX->setTickCount(4); // 设置x轴刻度数量为4，即每个100取一个点
     chart->addAxis(axisX, Qt::AlignBottom);
     lineSeries->attachAxis(axisX);
     scatterSeries->attachAxis(axisX);
 
     QValueAxis* axisY = new QValueAxis(this);
     axisY->setTitleText("Elevation Difference (Km)");
-    axisY->setRange(0, 5);   // 设置y轴范围为0到5
+    axisY->setRange(0, 5); // 设置y轴范围为0到5
     axisY->setTickCount(11); // 设置y轴刻度数量为11，即每隔0.5取一个点
     chart->addAxis(axisY, Qt::AlignLeft);
     lineSeries->attachAxis(axisY);
@@ -243,44 +235,40 @@ void MFlowlineDialog::setupUI()
 }
 
 
-
-void MFlowlineDialog::updateDialogFromMFlowline()
-{
-    if (mFlowline)
-    {
+void MFlowlineDialog::updateDialogFromMFlowline() {
+    if (_flowline) {
         // 设置流动类型
-        if (mFlowline->getFlowlineType() == MFlowline::Pipe)
+        if (_flowline->getFlowlineType() == MFlowline::Pipe)
             flowlineTypeComboBox->setCurrentIndex(0);
         else
             flowlineTypeComboBox->setCurrentIndex(1);
 
         // 设置管线模式
-        if (mFlowline->getFlowlineMode() == MFlowline::Simple)
+        if (_flowline->getFlowlineMode() == MFlowline::Simple)
             flowlineModeComboBox->setCurrentIndex(0);
         else
             flowlineModeComboBox->setCurrentIndex(1);
 
         // 设置管线环境
-        if (mFlowline->getFlowlineEnviroment() == MFlowline::Land)
+        if (_flowline->getFlowlineEnviroment() == MFlowline::Land)
             flowlineEnvComboBox->setCurrentIndex(0);
         else
             flowlineEnvComboBox->setCurrentIndex(1);
 
         // 设置其余参数
-        pipInsideDiameterLineEdit->setText(QString::number(mFlowline->getPipInsideDiameter()));
-        pipWallThicknessLineEdit->setText(QString::number(mFlowline->getPipWallThickness()));
-        pipeRoughnessLineEdit->setText(QString::number(mFlowline->getPipeRoughness()));
-        profileHorizontalDistanceLineEdit->setText(QString::number(mFlowline->getProfileHorizontalDistance()));
-        profileElevationDifferenceLineEdit->setText(QString::number(mFlowline->getProfileElevatiaonDifference()));
-        heatTransferCoefficientLineEdit->setText(QString::number(mFlowline->getHeatTransferCoefficient()));
+        pipInsideDiameterLineEdit->setText(QString::number(_flowline->getPipInsideDiameter()));
+        pipWallThicknessLineEdit->setText(QString::number(_flowline->getPipWallThickness()));
+        pipeRoughnessLineEdit->setText(QString::number(_flowline->getPipeRoughness()));
+        profileHorizontalDistanceLineEdit->setText(QString::number(_flowline->getProfileHorizontalDistance()));
+        profileElevationDifferenceLineEdit->setText(QString::number(_flowline->getProfileElevatiaonDifference()));
+        heatTransferCoefficientLineEdit->setText(QString::number(_flowline->getHeatTransferCoefficient()));
 
 
         dataModel->removeRows(0, dataModel->rowCount());
 
         // 加载数据到数据模型
-        auto parList = mFlowline->getParList();
-        for (auto *par : parList)
-        {
+        auto parList = _flowline->getParList();
+        for (auto* par: parList) {
             double hd1, evl, hd2, tempear;
             hd1 = par->getHd1();
             evl = par->getElevation();
@@ -303,47 +291,43 @@ void MFlowlineDialog::updateDialogFromMFlowline()
                 updateChartFromTable();
             }
         }
-
     }
 }
 
-void MFlowlineDialog::updateMFlowlineFromDialog()
-{
-    if (mFlowline)
-    {
+void MFlowlineDialog::updateMFlowlineFromDialog() {
+    if (_flowline) {
         mName = flowlineNameLineEdit->text();
         // 获取流动类型
         if (flowlineTypeComboBox->currentIndex() == 0)
-            mFlowline->setFlowlineType(MFlowline::Pipe);
+            _flowline->setFlowlineType(MFlowline::Pipe);
         else
-            mFlowline->setFlowlineType(MFlowline::Annulus);
+            _flowline->setFlowlineType(MFlowline::Annulus);
 
         // 获取管线模式
         if (flowlineModeComboBox->currentIndex() == 0)
-            mFlowline->setFlowlineMode(MFlowline::Simple);
+            _flowline->setFlowlineMode(MFlowline::Simple);
         else
-            mFlowline->setFlowlineMode(MFlowline::Detailed);
+            _flowline->setFlowlineMode(MFlowline::Detailed);
 
         // 获取管线环境
         if (flowlineEnvComboBox->currentIndex() == 0)
-            mFlowline->setFlowlineEnviroment(MFlowline::Land);
+            _flowline->setFlowlineEnviroment(MFlowline::Land);
         else
-            mFlowline->setFlowlineEnviroment(MFlowline::Subsea);
+            _flowline->setFlowlineEnviroment(MFlowline::Subsea);
 
         // 获取其余参数
-        mFlowline->setPipInsideDiameter(pipInsideDiameterLineEdit->text().toDouble());
-        mFlowline->setPipWallThickness(pipWallThicknessLineEdit->text().toDouble());
-        mFlowline->setPipeRoughness(pipeRoughnessLineEdit->text().toDouble());
-        mFlowline->setProfileHorizontalDistance(profileHorizontalDistanceLineEdit->text().toDouble());
-        mFlowline->setProfileElevatiaonDifference(profileElevationDifferenceLineEdit->text().toDouble());
-        mFlowline->setHeatTransferCoefficient(heatTransferCoefficientLineEdit->text().toDouble());
+        _flowline->setPipInsideDiameter(pipInsideDiameterLineEdit->text().toDouble());
+        _flowline->setPipWallThickness(pipWallThicknessLineEdit->text().toDouble());
+        _flowline->setPipeRoughness(pipeRoughnessLineEdit->text().toDouble());
+        _flowline->setProfileHorizontalDistance(profileHorizontalDistanceLineEdit->text().toDouble());
+        _flowline->setProfileElevatiaonDifference(profileElevationDifferenceLineEdit->text().toDouble());
+        _flowline->setHeatTransferCoefficient(heatTransferCoefficientLineEdit->text().toDouble());
 
-        mFlowline->clearPar();
+        _flowline->clearPar();
 
         // 获取表格中的数据并存储到 mFlowline 中
         int rowCount = dataModel->rowCount();
-        for (int row = 0; row < rowCount; ++row)
-        {
+        for (int row = 0; row < rowCount; ++row) {
             QString hd1 = dataModel->item(row, 0) ? dataModel->item(row, 0)->text() : "";
             QString evl = dataModel->item(row, 1) ? dataModel->item(row, 1)->text() : "";
             QString hd2 = dataModel->item(row, 2) ? dataModel->item(row, 2)->text() : "";
@@ -359,66 +343,55 @@ void MFlowlineDialog::updateMFlowlineFromDialog()
             if (!hd2.isEmpty()) d_hd2 = hd2.toDouble();
             if (!tempear.isEmpty()) d_tempear = tempear.toDouble();
 
-            mFlowline->addPar(d_hd1, d_evl, d_hd2, d_tempear);
+            _flowline->addPar(d_hd1, d_evl, d_hd2, d_tempear);
         }
-
-
     }
 }
 
-void MFlowlineDialog::updateName()
-{
+void MFlowlineDialog::updateName() {
     if (!mName.isEmpty()) {
         flowlineNameLineEdit->setText(mName);
     }
 }
 
-QString MFlowlineDialog::getName()
-{
+QString MFlowlineDialog::getName() {
     return mName;
 }
 
-void MFlowlineDialog::acceptDialog()
-{
+void MFlowlineDialog::acceptDialog() {
     updateMFlowlineFromDialog();
     accept();
 }
 
-void MFlowlineDialog::rejectDialog()
-{
+void MFlowlineDialog::rejectDialog() {
     reject();
 }
 
-void MFlowlineDialog::createTableModel()
-{
+void MFlowlineDialog::createTableModel() {
     dataModel = new QStandardItemModel(this);
 
     // 设置表头
-    QStringList headerLabels = { "水平距离1", "高程", "水平距离2", "环境温度" };
+    QStringList headerLabels = {"水平距离1", "高程", "水平距离2", "环境温度"};
     dataModel->setHorizontalHeaderLabels(headerLabels);
 
     tableView->setModel(dataModel);
     connect(dataModel, &QStandardItemModel::dataChanged, this, &MFlowlineDialog::updateChartFromTable);
 }
 
-void MFlowlineDialog::addRow()
-{
+void MFlowlineDialog::addRow() {
     int newRow = dataModel->rowCount();
     dataModel->insertRow(newRow);
 }
 
-void MFlowlineDialog::deleteRow()
-{
+void MFlowlineDialog::deleteRow() {
     QModelIndexList selectedRows = tableView->selectionModel()->selectedRows();
-    if (!selectedRows.isEmpty())
-    {
+    if (!selectedRows.isEmpty()) {
         int rowToDelete = selectedRows.first().row();
         dataModel->removeRow(rowToDelete);
     }
 }
 
-void MFlowlineDialog::importFromCsv()
-{
+void MFlowlineDialog::importFromCsv() {
     QString filePath = QFileDialog::getOpenFileName(this, "选择CSV文件", "", "CSV Files (*.csv)");
     if (!filePath.isEmpty()) {
         QFile file(filePath);
@@ -452,7 +425,8 @@ void MFlowlineDialog::importFromCsv()
                             break;
                         }
                     }
-                } else {
+                }
+                else {
                     // 如果不是第一行，将数据导入表格中
                     for (int col = 0; col < values.size(); ++col) {
                         QStandardItem* item = new QStandardItem(values[col]);
@@ -466,8 +440,7 @@ void MFlowlineDialog::importFromCsv()
     }
 }
 
-void MFlowlineDialog::exportToCsv()
-{
+void MFlowlineDialog::exportToCsv() {
     QString filePath = QFileDialog::getSaveFileName(this, "保存CSV文件", "", "CSV Files (*.csv)");
     if (!filePath.isEmpty()) {
         QFile file(filePath);
@@ -489,7 +462,8 @@ void MFlowlineDialog::exportToCsv()
                     if (item) {
                         QString value = item->text();
                         rowData.append(value);
-                    } else {
+                    }
+                    else {
                         // 处理空指针情况，可以插入默认值或者其他处理逻辑
                         rowData.append("");
                     }
@@ -501,22 +475,19 @@ void MFlowlineDialog::exportToCsv()
     }
 }
 
-void MFlowlineDialog::updateChartFromTable()
-{
+void MFlowlineDialog::updateChartFromTable() {
     // 清空原有的数据
     lineSeries->clear();
     scatterSeries->clear();
 
     // 遍历表格数据，提取x坐标和y坐标，然后将点添加到Qt Charts中
-    for (int row = 0; row < dataModel->rowCount(); ++row)
-    {
+    for (int row = 0; row < dataModel->rowCount(); ++row) {
         QString xStr = dataModel->item(row, 0) ? dataModel->item(row, 0)->text() : "";
         QString yStr = dataModel->item(row, 1) ? dataModel->item(row, 1)->text() : "";
 
 
         // 检查点是否为空
-        if (!xStr.isEmpty() && !yStr.isEmpty())
-        {
+        if (!xStr.isEmpty() && !yStr.isEmpty()) {
             double x = xStr.toDouble();
             double y = yStr.toDouble();
 
@@ -525,5 +496,3 @@ void MFlowlineDialog::updateChartFromTable()
         }
     }
 }
-
-

@@ -6,12 +6,13 @@
 #include "entity/msource.h"
 #include "shared.hpp"
 
-class TWellItem : public QObject, public QGraphicsPixmapItem
-{
+class TWellItem : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
+
 public:
     enum { Type = UserType + MultiflowKind::Well };
-    TWellItem(QString wellName = "well", QGraphicsItem *parent = nullptr);
+
+    TWellItem(QString wellName = "well", QGraphicsItem* parent = nullptr);
 
 private:
     QString wellName;
@@ -19,9 +20,11 @@ private:
 
 public:
     QRectF boundingRect() const override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
+    void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
     QString getId();
+
     QString getName();
 
     int type() const override { return Type; }
@@ -32,11 +35,11 @@ signals:
 
     // QGraphicsItem interface
 protected:
-    QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
+    QVariant itemChange(GraphicsItemChange change, const QVariant& value) override;
 
     // QGraphicsItem interface
 protected:
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
 };
 
 #endif // TWELLITEM_H
