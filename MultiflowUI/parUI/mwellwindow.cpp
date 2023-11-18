@@ -16,7 +16,7 @@
 #include <util/delegate/compviprdelegate.h>
 #include <util/delegate/geometrydelegate.h>
 
-MWellWindow::MWellWindow(std::shared_ptr<MWell> well, QString name, QWidget *parent) :
+MWellWindow::MWellWindow(MWell* well, QString name, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MWellWindow)
 {

@@ -30,39 +30,41 @@ void MGraphicsScene::setItemType(const MultiflowKind kind) {
 }
 
 void MGraphicsScene::_handleInsertItem(const QGraphicsSceneMouseEvent* event) {
-    std::shared_ptr<MAbstractItem> item{};
+    MAbstractItem* item;
     switch (_itemKind) {
         case Well:
-            item = std::make_shared<MWellItem>();
+            item = new MWellItem{};
             break;
 
         case Source:
-            item = std::make_shared<MSourceItem>();
+            item = new MSourceItem{};
             break;
 
         case Sink:
-            item = std::make_shared<MSinkItem>();
+            item = new MSinkItem{};
             break;
 
         case Junction:
-            item = std::make_shared<MJunctionItem>();
+            item = new MJunctionItem{};
             break;
 
         default:
             return;
     }
-    addItem(item.get());
+    addItem(item);
     item->setPos(event->scenePos());
     update();
-    emit mulItemInserted(item.get());
+    log_info("Insert {} item at ({}, {})", name().toStdString(), event->scenePos().x(), event->scenePos().y());
+    emit mulItemInserted(item);
 }
 
 void MGraphicsScene::_handleInsertLine(const QGraphicsSceneMouseEvent* event) {
-    _line = std::make_shared<QGraphicsLineItem>(
-        QLineF{event->scenePos(), event->scenePos()});
+    _line = new QGraphicsLineItem{
+        QLineF{event->scenePos(), event->scenePos()}
+    };
     _line->setPen(QPen(lineColor, 2));
 
-    addItem(_line.get());
+    addItem(_line);
     update();
     emit linePointerInserted();
 }
@@ -116,17 +118,8 @@ void MGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
         return;
     }
 
-    QList<QGraphicsItem*> startItemPtrs = items(_line->line().p1());
-    QList<QGraphicsItem*> endItemsPtrs = items(_line->line().p2());
-    QList<std::shared_ptr<QGraphicsItem>> startItems{};
-    QList<std::shared_ptr<QGraphicsItem>> endItems{};
-
-    std::ranges::transform(startItemPtrs, std::back_inserter(startItems), [](QGraphicsItem* item) {
-        return std::shared_ptr<QGraphicsItem>(item);
-    });
-    std::ranges::transform(endItemsPtrs, std::back_inserter(endItems), [](QGraphicsItem* item) {
-        return std::shared_ptr<QGraphicsItem>(item);
-    });
+    QList<QGraphicsItem*> startItems = items(_line->line().p1());
+    QList<QGraphicsItem*> endItems = items(_line->line().p2());
 
     if (startItems.count() && startItems.first() == _line) {
         startItems.removeFirst();
@@ -135,8 +128,8 @@ void MGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
         endItems.removeFirst();
     }
 
-    removeItem(_line.get());
-    _line = nullptr;
+    removeItem(_line);
+    delete _line;
 
     if (startItems.count() <= 0 || endItems.count() <= 0) {
         QGraphicsScene::mouseReleaseEvent(event);
@@ -151,22 +144,19 @@ void MGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
         return;
     }
 
-    std::shared_ptr<MAbstractItem> startItem = ml::as<MAbstractItem>(startItems.first());
-    std::shared_ptr<MAbstractItem> endItem = ml::as<MAbstractItem>(endItems.first());
-
-    if (!ml::instance_of<MAbstractItem>(startItems.first())) {
-        log_error("startItems.first() is not MItem! 实在是太惨了");
-    }
+    auto* startItem = qgraphicsitem_cast<MAbstractItem*>(startItems.first());
+    auto* endItem = qgraphicsitem_cast<MAbstractItem*>(endItems.first());
 
     if (judgeConnect(startItem, endItem)) {
-        const auto arrow = std::make_shared<MAbstractItem::ArrowType>(startItem, endItem);
+        const auto arrow = new MAbstractItem::ArrowType{startItem, endItem};
         startItem->addArrow(arrow);
         endItem->addArrow(arrow);
         arrow->setZValue(-1000.0);
+        addItem(arrow);
         arrow->updatePosition();
-        addItem(arrow.get());
     }
 
+    _line = nullptr;
     QGraphicsScene::mouseReleaseEvent(event);
 }
 
@@ -179,10 +169,7 @@ bool MGraphicsScene::isItemChange(const int type) const {
     );
 }
 
-bool MGraphicsScene::judgeConnect(
-    const std::shared_ptr<MAbstractItem>& startItem,
-    const std::shared_ptr<MAbstractItem>& endItem
-) {
+bool MGraphicsScene::judgeConnect(const MAbstractItem* startItem, const MAbstractItem* endItem) {
     return startItem->canConnectWith(*endItem, START_TO_END)
            && endItem->canConnectWith(*startItem, END_TO_START);
 }

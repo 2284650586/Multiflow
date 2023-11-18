@@ -1,18 +1,18 @@
 #include "tgraphicsview.h"
+
 #include <QKeyEvent>
-#include <QDebug>
 
 TGraphicsView::TGraphicsView(QWidget* parent) : QGraphicsView(parent) {
     setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
-    setDragMode(QGraphicsView::RubberBandDrag);
+    setDragMode(RubberBandDrag);
 }
 
 QString TGraphicsView::getScale() const {
-    return m_scale;
+    return _scale;
 }
 
-void TGraphicsView::setScale(QString newScale) {
-    m_scale = newScale;
+void TGraphicsView::setScale(const QString& newScale) {
+    _scale = newScale;
 }
 
 MGraphicsScene* TGraphicsView::scene() const {
@@ -22,14 +22,14 @@ MGraphicsScene* TGraphicsView::scene() const {
 
 void TGraphicsView::keyPressEvent(QKeyEvent* event) {
     if ((event->modifiers() & Qt::KeyboardModifier::ControlModifier) != 0) {
-        setDragMode(DragMode::ScrollHandDrag);
+        setDragMode(ScrollHandDrag);
     }
     QGraphicsView::keyPressEvent(event);
 }
 
 void TGraphicsView::keyReleaseEvent(QKeyEvent* event) {
     if ((event->modifiers() & Qt::KeyboardModifier::ControlModifier) == 0) {
-        setDragMode(DragMode::RubberBandDrag);
+        setDragMode(RubberBandDrag);
     }
     QGraphicsView::keyReleaseEvent(event);
 }

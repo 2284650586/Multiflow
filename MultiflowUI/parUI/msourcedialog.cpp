@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <QSharedPointer>
 
-MSourceDialog::MSourceDialog(const std::shared_ptr<MSource>& source, QString name, QWidget* parent)
+MSourceDialog::MSourceDialog(MSource* source, QString name, QWidget* parent)
     : QDialog(parent), _source(source) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
     mName = name;

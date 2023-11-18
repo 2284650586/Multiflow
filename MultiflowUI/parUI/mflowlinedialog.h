@@ -14,31 +14,41 @@ class QChartView;
 class QLineSeries;
 class QScatterSeries;
 
-class MFlowlineDialog : public QDialog
-{
+class MFlowlineDialog : public QDialog {
     Q_OBJECT
 
 public:
-    MFlowlineDialog(const std::shared_ptr<MFlowline>& flowline, QString name, QWidget *parent = nullptr);
+    MFlowlineDialog(MFlowline* flowline, QString name, QWidget* parent = nullptr);
+
     ~MFlowlineDialog();
 
 private slots:
     void acceptDialog();
+
     void rejectDialog();
+
     void updateChartFromTable();
+
     void createTableModel();
+
     void addRow();
+
     void deleteRow();
+
     void importFromCsv();
+
     void exportToCsv();
 
 private:
     void setupUI();
+
     void updateDialogFromMFlowline();
+
     void updateMFlowlineFromDialog();
+
     void updateName();
 
-    std::shared_ptr<MFlowline> _flowline{}; // 指向MFlowline对象的指针
+    MFlowline* _flowline{}; // 指向MFlowline对象的指针
     QString mName;
 
     QLabel* flowlineNameLabel;
@@ -83,10 +93,9 @@ private:
     QPushButton* okButton;
     QPushButton* cancelButton;
 
-    QChartView *chartView;
-    QLineSeries *lineSeries;
-    QScatterSeries *scatterSeries;
-
+    QChartView* chartView;
+    QLineSeries* lineSeries;
+    QScatterSeries* scatterSeries;
 
 public:
     QString getName();

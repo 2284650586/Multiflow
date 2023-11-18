@@ -8,8 +8,8 @@
 #include <QGraphicsSceneMouseEvent>
 
 MSourceItem::MSourceItem(QGraphicsPixmapItem* parent)
-    : MAbstractItem(Source, ":/resources/image/source.png", parent),
-      _source(std::make_shared<MSource>()) {
+    : MAbstractItem(Source, "Source", ":/resources/image/source.png", parent),
+      _source(new MSource{}) {
 }
 
 void MSourceItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {

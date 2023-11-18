@@ -13,7 +13,7 @@ class MSinkDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit MSinkDialog(std::shared_ptr<MSink> sink, QString name, QWidget *parent = nullptr);
+    explicit MSinkDialog(MSink* sink, QString name, QWidget *parent = nullptr);
     ~MSinkDialog();
 
 
@@ -22,7 +22,7 @@ private slots:
     void rejectDialog();
 
 private:
-    std::shared_ptr<MSink> _sink{};
+    MSink* _sink{};
     QString mName;
 
     QLabel* sinkNameLabel;

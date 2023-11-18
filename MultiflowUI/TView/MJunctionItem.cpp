@@ -10,8 +10,8 @@
 #include "parUI/mjunctiondialog.h"
 
 MJunctionItem::MJunctionItem(QGraphicsPixmapItem* parent)
-    : MAbstractItem(Junction, ":/resources/image/junction.png", parent),
-      _junction(std::make_shared<MJunction>()) {
+    : MAbstractItem(Junction, "Junction", ":/resources/image/junction.png", parent),
+      _junction(new MJunction{}) {
 }
 
 void MJunctionItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {

@@ -5,7 +5,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 
-MJunctionDialog::MJunctionDialog(std::shared_ptr<MJunction> junction, QString name, QWidget* parent)
+MJunctionDialog::MJunctionDialog(MJunction* junction, QString name, QWidget* parent)
     : QDialog(parent), _junction(junction) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
     mName = name;

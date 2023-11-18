@@ -11,15 +11,14 @@ constexpr qreal ArrowSize = 10;
 
 template<class ItemType>
 class MArrow final : public QGraphicsLineItem {
-
 public:
     enum { Type = UserType + 2 };
 
     explicit MArrow(
-        std::shared_ptr<ItemType> startItem,
-        std::shared_ptr<ItemType> endItem,
+        ItemType* startItem,
+        ItemType* endItem,
         QWidget* parent = nullptr
-    ): _startItem(startItem), _endItem(endItem), _flowline(std::make_shared<MFlowline>()), _parent(parent) {
+    ): _startItem(startItem), _endItem(endItem), _flowline(new MFlowline{}), _parent(parent) {
         setFlag(ItemIsSelectable, true);
         setPen(QPen{_arrowColor, 2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin});
     }
@@ -28,11 +27,11 @@ public:
 
     [[nodiscard]] int type() const override { return Type; }
 
-    std::shared_ptr<ItemType> getStartItem() {
+    ItemType* getStartItem() const {
         return _startItem;
     }
 
-    std::shared_ptr<ItemType> getEndItem() {
+    ItemType* getEndItem() const {
         return _endItem;
     }
 
@@ -73,7 +72,7 @@ protected:
         Q_UNUSED(option)
         Q_UNUSED(widget)
 
-        if (_startItem->collidesWithItem(_endItem.get())) {
+        if (_startItem->collidesWithItem(_endItem)) {
             return;
         }
 
@@ -144,9 +143,9 @@ protected:
     }
 
 private:
-    std::shared_ptr<ItemType> _startItem{};
-    std::shared_ptr<ItemType> _endItem{};
-    std::shared_ptr<MFlowline> _flowline{};
+    ItemType* _startItem{};
+    ItemType* _endItem{};
+    MFlowline* _flowline{};
     QPolygonF _arrowHead{};
     QWidget* _parent{};
 
@@ -159,7 +158,7 @@ protected:
             return;
         }
 
-        auto* dialog = new MFlowlineDialog(_flowline, _name, _parent);
+        auto* dialog = new MFlowlineDialog{_flowline, _name, _parent};
         dialog->exec();
         update();
     }

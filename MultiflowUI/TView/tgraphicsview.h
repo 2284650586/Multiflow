@@ -13,7 +13,7 @@ public:
 
     [[nodiscard]] QString getScale() const;
 
-    void setScale(QString newScale);
+    void setScale(const QString& newScale);
 
     [[nodiscard]] MGraphicsScene* scene() const;
 
@@ -23,5 +23,5 @@ protected:
     void keyReleaseEvent(QKeyEvent* event) override;
 
 private:
-    QString m_scale;
+    QString _scale;
 };

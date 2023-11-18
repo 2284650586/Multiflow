@@ -14,15 +14,15 @@ enum ConnectionKind {
     END_TO_START
 };
 
-class MAbstractItem : public QObject, public QGraphicsPixmapItem {
-    Q_OBJECT
-
+class MAbstractItem : public QGraphicsPixmapItem {
 public:
     enum { Type = UserType + 1 };
+
     using ArrowType = MArrow<MAbstractItem>;
 
     explicit MAbstractItem(
         MultiflowKind kind,
+        QString  itemName,
         const QString& resourceFileName,
         QGraphicsPixmapItem* parent = nullptr
     );
@@ -35,15 +35,15 @@ public:
 
     [[nodiscard]] const QString& itemName() const;
 
-    [[nodiscard]] const QList<std::shared_ptr<ArrowType>>& arrows() const;
+    [[nodiscard]] const QList<ArrowType*>& arrows() const;
 
     [[nodiscard]] MultiflowKind itemKind() const;
 
     [[nodiscard]] int type() const override;
 
-    void addArrow(const std::shared_ptr<ArrowType>& arrow);
+    void addArrow(ArrowType* arrow);
 
-    void removeArrow(const std::shared_ptr<ArrowType>& arrow);
+    void removeArrow(const ArrowType* arrow);
 
     void removeAllArrows();
 
@@ -59,6 +59,6 @@ protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant& value) override;
 
     QString _itemName{};
-    QList<std::shared_ptr<ArrowType>> _arrows{};
+    QList<ArrowType*> _arrows{};
     MultiflowKind _kind;
 };

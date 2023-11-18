@@ -5,7 +5,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 
-MSinkDialog::MSinkDialog(std::shared_ptr<MSink> sink, QString name, QWidget* parent)
+MSinkDialog::MSinkDialog(MSink* sink, QString name, QWidget* parent)
     : QDialog(parent), _sink(sink) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
     mName = name;

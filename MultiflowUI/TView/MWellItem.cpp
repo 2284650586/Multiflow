@@ -8,8 +8,9 @@
 
 #include <QGraphicsSceneMouseEvent>
 
-MWellItem::MWellItem(QGraphicsPixmapItem* parent): MAbstractItem(Well, ":/resources/image/Well.png", parent),
-   _well(std::make_shared<MWell>()) {
+MWellItem::MWellItem(QGraphicsPixmapItem* parent)
+    : MAbstractItem(Well, "Well", ":/resources/image/Well.png", parent),
+      _well(new MWell{}) {
 }
 
 void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
@@ -18,8 +19,8 @@ void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
         return;
     }
 
-    auto *window = new MWellWindow(_well, _itemName, nullptr);
-    QObject::connect(window, &MWellWindow::itemNameChange, [this] (const QString& name) {
+    auto* window = new MWellWindow(_well, _itemName, nullptr);
+    QObject::connect(window, &MWellWindow::itemNameChange, [this](const QString& name) {
         setItemName(name);
         update();
     });

@@ -44,10 +44,7 @@ signals:
 private:
     [[nodiscard]] bool isItemChange(int type) const;
 
-    static bool judgeConnect(
-        const std::shared_ptr<MAbstractItem>& startItem,
-        const std::shared_ptr<MAbstractItem>& endItem
-    );
+    static bool judgeConnect(const MAbstractItem* startItem, const MAbstractItem* endItem);
 
     void _handleInsertItem(const QGraphicsSceneMouseEvent* event);
 
@@ -55,10 +52,10 @@ private:
 
     void _handleSetPointer(const QGraphicsSceneMouseEvent* event);
 
-    [[nodiscard]]QString name() const;
+    [[nodiscard]] QString name() const;
 
     MultiflowKind _itemKind{};
     Mode _sceneMode{};
-    std::shared_ptr<QGraphicsLineItem> _line{};
+    QGraphicsLineItem* _line{};
     QColor lineColor{Qt::black};
 };

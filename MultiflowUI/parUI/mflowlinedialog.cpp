@@ -19,7 +19,7 @@
 #include <QValueAxis>
 
 
-MFlowlineDialog::MFlowlineDialog(const std::shared_ptr<MFlowline>& flowline, QString name, QWidget* parent)
+MFlowlineDialog::MFlowlineDialog(MFlowline* flowline, QString name, QWidget* parent)
     : QDialog(parent), _flowline(flowline) {
     setWindowIcon(QIcon(":/resources/image/icon.jpeg"));
     setMinimumHeight(700);

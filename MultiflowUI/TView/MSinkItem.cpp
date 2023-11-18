@@ -8,8 +8,8 @@
 #include <QGraphicsSceneMouseEvent>
 
 MSinkItem::MSinkItem(QGraphicsPixmapItem* parent)
-    : MAbstractItem(Sink, ":/resources/image/sink.png", parent),
-      _sink(std::make_shared<MSink>()) {
+    : MAbstractItem(Sink, "Sink", ":/resources/image/sink.png", parent),
+      _sink(new MSink{}) {
 }
 
 void MSinkItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {

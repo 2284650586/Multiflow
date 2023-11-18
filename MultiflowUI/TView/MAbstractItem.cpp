@@ -4,8 +4,10 @@
 
 #include "MAbstractItem.hpp"
 
-MAbstractItem::MAbstractItem(const MultiflowKind kind, const QString& resourceFileName, QGraphicsPixmapItem* parent)
-    : _kind(kind), QGraphicsPixmapItem(parent) {
+#include <utility>
+
+MAbstractItem::MAbstractItem(const MultiflowKind kind, QString itemName, const QString& resourceFileName, QGraphicsPixmapItem* parent)
+    : _kind(kind), _itemName(std::move(itemName)), QGraphicsPixmapItem(parent) {
     setPixmap(QPixmap{resourceFileName}
         .scaled(30, 30, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     setFlags(
@@ -56,7 +58,7 @@ const QString& MAbstractItem::itemName() const {
     return _itemName;
 }
 
-const QList<std::shared_ptr<MAbstractItem::ArrowType>>& MAbstractItem::arrows() const {
+const QList<MAbstractItem::ArrowType*>& MAbstractItem::arrows() const {
     return _arrows;
 }
 
@@ -65,14 +67,14 @@ MultiflowKind MAbstractItem::itemKind() const {
 }
 
 int MAbstractItem::type() const {
-    return _kind;
+    return QGraphicsPixmapItem::type();
 }
 
-void MAbstractItem::addArrow(const std::shared_ptr<ArrowType>& arrow) {
+void MAbstractItem::addArrow(ArrowType* arrow) {
     _arrows.append(arrow);
 }
 
-void MAbstractItem::removeArrow(const std::shared_ptr<ArrowType>& arrow) {
+void MAbstractItem::removeArrow(const ArrowType* arrow) {
     _arrows.removeAll(arrow);
 }
 
@@ -85,14 +87,14 @@ void MAbstractItem::setItemName(const QString& name) {
 }
 
 size_t MAbstractItem::countStartArrows() const {
-    return std::ranges::count_if(_arrows, [this](const std::shared_ptr<ArrowType>& arrow) {
-        return arrow->getStartItem().get() == this;
+    return std::ranges::count_if(_arrows, [this](const ArrowType* arrow) {
+        return arrow->getStartItem() == this;
     });
 }
 
 size_t MAbstractItem::countEndArrows() const {
-    return std::ranges::count_if(_arrows, [this](const std::shared_ptr<ArrowType>& arrow) {
-        return arrow->getEndItem().get() == this;
+    return std::ranges::count_if(_arrows, [this](const ArrowType* arrow) {
+        return arrow->getEndItem() == this;
     });
 }
 

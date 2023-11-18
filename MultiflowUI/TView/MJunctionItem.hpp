@@ -8,8 +8,6 @@
 #include "entity/mjunction.h"
 
 class MJunctionItem final : public MAbstractItem {
-    Q_OBJECT
-
 public:
     explicit MJunctionItem(QGraphicsPixmapItem* parent = nullptr);
 
@@ -18,5 +16,5 @@ public:
     [[nodiscard]] bool canConnectWith(const MAbstractItem& other, ConnectionKind kind) const override;
 
 private:
-    std::shared_ptr<MJunction> _junction{};
+    MJunction* _junction{};
 };

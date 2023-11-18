@@ -344,10 +344,9 @@ void MainWindow::deleteItem() {
         for (QGraphicsItem* item: qAsConst(selectedItems)) {
             if (item->type() == MAbstractItem::ArrowType::Type) {
                 scene->removeItem(item);
-                auto* arrow = qgraphicsitem_cast<MAbstractItem::ArrowType*>(item);
-                auto arrowShared = std::shared_ptr<MAbstractItem::ArrowType>(arrow);
-                arrow->getStartItem()->removeArrow(arrowShared);
-                arrow->getEndItem()->removeArrow(arrowShared);
+                const auto* arrow = qgraphicsitem_cast<MAbstractItem::ArrowType*>(item);
+                arrow->getStartItem()->removeArrow(arrow);
+                arrow->getEndItem()->removeArrow(arrow);
                 delete item;
             }
         }

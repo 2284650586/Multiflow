@@ -8,8 +8,6 @@
 #include "entity/msource.h"
 
 class MSourceItem final : public MAbstractItem {
-    Q_OBJECT
-
 public:
     explicit MSourceItem(QGraphicsPixmapItem* parent = nullptr);
 
@@ -18,5 +16,5 @@ public:
     [[nodiscard]] bool canConnectWith(const MAbstractItem& other, ConnectionKind kind) const override;
 
 private:
-    std::shared_ptr<MSource> _source{};
+    MSource* _source{};
 };
