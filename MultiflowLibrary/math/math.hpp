@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../MultiflowLibrary_global.hpp"
+#include "MultiflowLibrary_global.hpp"
 
 #include <stdexcept>
 

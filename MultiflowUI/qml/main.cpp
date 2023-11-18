@@ -1,9 +1,9 @@
 #include "qml/main.hpp"
 
 #include "qml/utils/UIUtils.hpp"
-#include "qml/model/qml_environment.hpp"
-#include "viewmodel\vm_formula_viewer.hpp"
-#include "helper/settings_helper.hpp"
+#include "model\QmlEnvironment.hpp"
+#include "viewmodel\VMFormulaViewer.hpp"
+#include "..\helper\SettingsHelper.hpp"
 #include "shared.hpp"
 
 #include <QQuickStyle>

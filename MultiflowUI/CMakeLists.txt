@@ -13,9 +13,9 @@ set(CMAKE_AUTORCC ON)
 aux_source_directory(entity ENTITY)
 aux_source_directory(entity/component/flowline ENTITY_FLOWLINE)
 aux_source_directory(entity/component/well ENTITY_WELL)
-aux_source_directory(parUI PARUI)
-aux_source_directory(TView TVIEW)
-aux_source_directory(TWidget TWIDGET)
+aux_source_directory(editor EDITOR)
+aux_source_directory(graphics_view GRAPHICS_VIEW)
+aux_source_directory(graphics_view/widget TWIDGET)
 aux_source_directory(util UTIL)
 aux_source_directory(util/delegate UTIL_DELEGATE)
 aux_source_directory(util/validator UTIL_VALIDATOR)
@@ -35,8 +35,8 @@ set(SOURCE_FILES
     ${ENTITY}
     ${ENTITY_FLOWLINE}
     ${ENTITY_WELL}
-    ${PARUI}
-    ${TVIEW}
+    ${EDITOR}
+    ${GRAPHICS_VIEW}
     ${TWIDGET}
     ${UTIL}
     ${UTIL_DELEGATE}
@@ -46,38 +46,38 @@ set(SOURCE_FILES
     ${SERVICE}
     ${HEADERS}
     main.cpp
-    widget/mainwindow.cpp
+    widget/MainWindow.cpp
     widget/SplashDialog.cpp
     shared.cpp
     resources.qrc
     qml/main.cpp
     qml/utils/UIUtils.cpp
-    qml/model/qml_formula.cpp
-    qml/model/qml_formula.hpp
-    qml/model/qml_expression.cpp
-    qml/model/qml_expression.hpp
-    qml/viewmodel/vm_formula_viewer.cpp
-    qml/viewmodel/vm_formula_viewer.hpp
-    helper/settings_helper.cpp
-    helper/settings_helper.hpp
-    qml/model/qml_environment.cpp
-    qml/model/qml_environment.hpp
-    qml/model/qml_result.cpp
-    qml/model/qml_result.hpp
+    qml/model/QmlFormula.cpp
+    qml/model/QmlFormula.hpp
+    qml/model/QmlExpression.cpp
+    qml/model/QmlExpression.hpp
+    qml/viewmodel/VMFormulaViewer.cpp
+    qml/viewmodel/VMFormulaViewer.hpp
+    helper/SettingsHelper.cpp
+    helper/SettingsHelper.hpp
+    qml/model/QmlEnvironment.cpp
+    qml/model/QmlEnvironment.hpp
+    qml/model/QmlResult.cpp
+    qml/model/QmlResult.hpp
     service/FormulaService.cpp
     service/FormulaService.hpp
-    TView/MAbstractItem.cpp
-    TView/MAbstractItem.hpp
-    TView/MAbstractItem.hpp
-    TView/MSourceItem.cpp
-    TView/MSourceItem.hpp
-    TView/MSourceItem.hpp
-    TView/MSinkItem.cpp
-    TView/MSinkItem.hpp
-    TView/MJunctionItem.cpp
-    TView/MJunctionItem.hpp
-    TView/MWellItem.cpp
-    TView/MWellItem.hpp
+    graphics_view/MAbstractItem.cpp
+    graphics_view/MAbstractItem.hpp
+    graphics_view/MAbstractItem.hpp
+    graphics_view/MSourceItem.cpp
+    graphics_view/MSourceItem.hpp
+    graphics_view/MSourceItem.hpp
+    graphics_view/MSinkItem.cpp
+    graphics_view/MSinkItem.hpp
+    graphics_view/MJunctionItem.cpp
+    graphics_view/MJunctionItem.hpp
+    graphics_view/MWellItem.cpp
+    graphics_view/MWellItem.hpp
 )
 
 include_directories(

@@ -1,4 +1,4 @@
-#include "widget/mainwindow.hpp"
+#include "widget/MainWindow.hpp"
 
 #include "shared.hpp"
 #include "constants.hpp"
