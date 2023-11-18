@@ -14,18 +14,19 @@ class MArrow final : public QGraphicsLineItem {
 public:
     enum { Type = UserType + 2 };
 
-    explicit MArrow(
-        ItemType* startItem,
-        ItemType* endItem,
-        QWidget* parent = nullptr
-    ): _startItem(startItem), _endItem(endItem), _flowline(new MFlowline{}), _parent(parent) {
+    explicit MArrow(ItemType* startItem, ItemType* endItem)
+        : _startItem(startItem), _endItem(endItem) {
         setFlag(ItemIsSelectable, true);
         setPen(QPen{_arrowColor, 2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin});
     }
 
-    ~MArrow() override = default;
+    ~MArrow() override {
+        delete _flowline;
+    }
 
-    [[nodiscard]] int type() const override { return Type; }
+    [[nodiscard]] int type() const override {
+        return Type;
+    }
 
     ItemType* getStartItem() const {
         return _startItem;
@@ -147,7 +148,6 @@ private:
     ItemType* _endItem{};
     MFlowline* _flowline{};
     QPolygonF _arrowHead{};
-    QWidget* _parent{};
 
     QColor _arrowColor = Qt::black;
     QString _name = "Flowline";
@@ -157,8 +157,10 @@ protected:
         if (event->button() != Qt::LeftButton) {
             return;
         }
-
-        auto* dialog = new MFlowlineDialog{_flowline, _name, _parent};
+        if (!_flowline) {
+            _flowline = new MFlowline{};
+        }
+        auto* dialog = new MFlowlineDialog{_flowline, _name};
         dialog->exec();
         update();
     }

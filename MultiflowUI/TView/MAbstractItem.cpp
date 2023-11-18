@@ -67,7 +67,7 @@ MultiflowKind MAbstractItem::itemKind() const {
 }
 
 int MAbstractItem::type() const {
-    return QGraphicsPixmapItem::type();
+    return Type;
 }
 
 void MAbstractItem::addArrow(ArrowType* arrow) {

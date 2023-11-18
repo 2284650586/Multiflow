@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QColor>
 #include <QGraphicsLineItem>
+#include <QSharedPointer>
 
 #include <memory>
 
@@ -15,7 +16,7 @@ class MGraphicsScene final : public QGraphicsScene {
     Q_OBJECT
 
 public:
-    enum Mode { InsertItem, InsertLine, MoveItem, setPointer };
+    enum Mode { InsertItem, InsertLine, MoveItem, SetPointer };
 
     explicit MGraphicsScene(QObject* parent = nullptr);
 
@@ -52,10 +53,9 @@ private:
 
     void _handleSetPointer(const QGraphicsSceneMouseEvent* event);
 
-    [[nodiscard]] QString name() const;
-
     MultiflowKind _itemKind{};
     Mode _sceneMode{};
     QGraphicsLineItem* _line{};
+    MAbstractItem* _startItem{};
     QColor lineColor{Qt::black};
 };

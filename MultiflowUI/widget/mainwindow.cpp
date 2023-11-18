@@ -152,7 +152,7 @@ void MainWindow::createToolBar() {
     linePointerButton->setIcon(QIcon(":/resources/image/linepointer.png"));
 
     pointerTypeGroup = new QButtonGroup(this);
-    pointerTypeGroup->addButton(pointerButton, MGraphicsScene::setPointer);
+    pointerTypeGroup->addButton(pointerButton, MGraphicsScene::SetPointer);
     pointerTypeGroup->addButton(linePointerButton, MGraphicsScene::InsertLine);
 
     connect(pointerTypeGroup, QOverload<QAbstractButton*>::of(&QButtonGroup::buttonClicked),
@@ -271,7 +271,7 @@ void MainWindow::mulItemInserted(const MAbstractItem* item) {
 
     unsetCursor();
     const auto* view = tabWidget->currentTGraphicsView();
-    view->scene()->setMode(MGraphicsScene::setPointer);
+    view->scene()->setMode(MGraphicsScene::SetPointer);
 }
 
 void MainWindow::linePointerInserted() {
@@ -340,23 +340,19 @@ void MainWindow::deleteItem() {
         QMessageBox::question(this, "删除确认", QString("确定要删除该 %1 项吗？").arg(itemCount))
         == QMessageBox::Yes
     ) {
-        QList<QGraphicsItem*> selectedItems = scene->selectedItems();
-        for (QGraphicsItem* item: qAsConst(selectedItems)) {
+        std::ranges::for_each(scene->selectedItems(), [scene](QGraphicsItem* item) {
             if (item->type() == MAbstractItem::ArrowType::Type) {
                 scene->removeItem(item);
                 const auto* arrow = qgraphicsitem_cast<MAbstractItem::ArrowType*>(item);
                 arrow->getStartItem()->removeArrow(arrow);
                 arrow->getEndItem()->removeArrow(arrow);
-                delete item;
             }
-        }
-        selectedItems = scene->selectedItems();
-        for (QGraphicsItem* item: qAsConst(selectedItems)) {
+        });
+        std::ranges::for_each(scene->selectedItems(), [scene](QGraphicsItem* item) {
             if (item->type() == MAbstractItem::Type)
                 qgraphicsitem_cast<MAbstractItem*>(item)->removeAllArrows();
             scene->removeItem(item);
-            delete item;
-        }
+        });
         scene->update();
     }
 }
