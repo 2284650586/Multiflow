@@ -5,7 +5,7 @@
 #pragma once
 
 #include "MAbstractItem.hpp"
-#include "..\entity\MJunction.hpp"
+#include "entity/MJunction.hpp"
 
 class MJunctionItem final : public MAbstractItem {
 public:

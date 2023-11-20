@@ -3,11 +3,10 @@
 //
 
 #include "MJunctionItem.hpp"
-#include "..\editor\MSinkDialog.hpp"
+#include "editor/MSinkDialog.hpp"
+#include "editor/MJunctionDialog.hpp"
 
 #include <QGraphicsSceneMouseEvent>
-
-#include "..\editor\MJunctionDialog.hpp"
 
 MJunctionItem::MJunctionItem(QGraphicsPixmapItem* parent)
     : MAbstractItem(Junction, "Junction", ":/resources/image/junction.png", parent),

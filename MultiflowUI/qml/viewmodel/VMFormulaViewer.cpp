@@ -9,7 +9,7 @@
 
 namespace qml {
 
-WindowFormulaViewer::WindowFormulaViewer(QObject*) {
+VMFormulaViewer::VMFormulaViewer(QObject*) {
     // Wrap Formula in QmlFormula.
     std::ranges::transform(
         FormulaService::getInstance()->formulae(), std::back_inserter(_qmlFormulae),
@@ -19,7 +19,7 @@ WindowFormulaViewer::WindowFormulaViewer(QObject*) {
         "vmFormulaViewer", this);
 }
 
-QVariantList WindowFormulaViewer::formulae() const {
+QVariantList VMFormulaViewer::formulae() const {
     QVariantList ret{};
     for (const QmlFormula& f: _qmlFormulae) {
         ret << QVariant::fromValue(f);

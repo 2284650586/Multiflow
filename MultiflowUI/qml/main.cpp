@@ -1,25 +1,24 @@
 #include "qml/main.hpp"
-
 #include "qml/utils/UIUtils.hpp"
-#include "model\QmlEnvironment.hpp"
-#include "viewmodel\VMFormulaViewer.hpp"
-#include "..\helper\SettingsHelper.hpp"
+#include "model/QmlEnvironment.hpp"
+#include "viewmodel/VMFormulaViewer.hpp"
+#include "helper/SettingsHelper.hpp"
 #include "shared.hpp"
 
 #include <QQuickStyle>
-
 #include <QtQml/qqmlextensionplugin.h>
 
 Q_IMPORT_QML_PLUGIN(FluentUIPlugin)
 #include <FluentUI/src/FluApp.h>
+#include <FluentUI/src/FluentUI.h>
 
 namespace qml {
-
 static bool _didInitialized = false;
 
 void _tryCreateApplicationEngine() {
     if (!gpQmlApplicationEngine) {
-        gpQmlApplicationEngine = new QQmlApplicationEngine(gpApplication.get());
+        gpQmlApplicationEngine = new QQmlApplicationEngine{gpApplication.get()};
+        FluentUI::getInstance()->registerTypes(gpQmlApplicationEngine);
     }
 }
 
@@ -28,6 +27,9 @@ void _registerSingletons() {
     UIUtils::getInstance()->registerSingleton(engine);
     SettingsHelper::getInstance()->registerSingleton(engine);
     QmlEnvironment::createInstance()->registerObjectType();
+
+    qmlRegisterSingletonType(
+        {"qrc:/qml/components/singleton/FluColors.qml"}, "Multiflow.UI", 1, 0, "FluColors");
 }
 
 void _applyVisualStyles() {
@@ -41,7 +43,7 @@ void _applyVisualStyles() {
 }
 
 void _initializeViewModels() {
-    gpQmlWindowFormulaViewer = std::make_unique<WindowFormulaViewer>();
+    gpQmlVMFormulaViewer = std::make_unique<VMFormulaViewer>();
 }
 
 void initialize(int, const char* argv[]) {

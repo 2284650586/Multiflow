@@ -5,7 +5,7 @@
 #pragma once
 
 #include "MAbstractItem.hpp"
-#include "..\entity\MSink.hpp"
+#include "entity/MSink.hpp"
 
 class MSinkItem final : public MAbstractItem {
 public:

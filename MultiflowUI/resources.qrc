@@ -16,9 +16,16 @@
         <file>resources/image/ESP.png</file>
         <file>resources/image/header.png</file>
         <file>resources/image/PCP.png</file>
+
         <file>qml/main.qml</file>
+
         <file>qml/components/window/FormulaViewer.qml</file>
+        <file>qml/components/window/WellEditor.qml</file>
+
         <file>qml/components/page/FormulaGeneric.qml</file>
+
+        <file>qml/components/singleton/FluColors.qml</file>
+
         <file>qml/components/widget/FormulaPaneItem.qml</file>
         <file>qml/components/widget/HSpacer.qml</file>
         <file>qml/components/widget/VSpacer.qml</file>

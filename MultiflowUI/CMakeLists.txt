@@ -78,6 +78,7 @@ set(SOURCE_FILES
     graphics_view/MJunctionItem.hpp
     graphics_view/MWellItem.cpp
     graphics_view/MWellItem.hpp
+    entity/common.hpp
 )
 
 include_directories(

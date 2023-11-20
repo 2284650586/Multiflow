@@ -49,7 +49,6 @@ MWellWindow::MWellWindow(MWell* well, QString name, QWidget* parent)
     initConnect();
     initValidator();
     initStatus();
-    initWellData();
 }
 
 MWellWindow::~MWellWindow() {
@@ -264,15 +263,6 @@ void MWellWindow::initConnect() {
 
     connect(ui->addRowPump, &QPushButton::clicked, this, &MWellWindow::addPumpRow);
     connect(ui->deleteRowPump, &QPushButton::clicked, this, &MWellWindow::deletePumpRow);
-}
-
-void MWellWindow::initWellData() {
-    if (mWell->getDeviation() == nullptr) {
-        mWell->setDeviation(new MWellDeviation());
-    }
-    if (mWell->getHeat() == nullptr) {
-        mWell->setHeat(new MWellHeat());
-    }
 }
 
 void MWellWindow::initValidator() {
@@ -722,89 +712,91 @@ void MWellWindow::setPara() {
 }
 
 void MWellWindow::setDeviationSurvey() {
-    MWellDeviation* tempDeviation = mWell->getDeviation();
-    tempDeviation->clearPar();
+    mWell->deviation.parameters.clear();
     if (ui->surveyType->currentText() == "vertical") {
-        tempDeviation->setSurVeytype(MWellDeviation::SurveyType::Vertical);
-        tempDeviation->setWellHeadDpeth(ui->WDVertical->text().toDouble());
-        tempDeviation->setBottomDepth(ui->BDVertical->text().toDouble());
+        mWell->deviation.surVeytype = MWellDeviation::SurveyType::Vertical;
+        mWell->deviation.wellHeadDpeth = ui->WDVertical->text().toDouble();
+        mWell->deviation.bottomDepth = ui->BDVertical->text().toDouble();
     }
     else if (ui->surveyType->currentText() == "2D") {
-        tempDeviation->setSurVeytype(MWellDeviation::SurveyType::TwoD);
-        tempDeviation->setDepType(MWellDeviation::DependentPara(ui->DP2D->currentIndex()));
-        tempDeviation->setCalMedthod(ui->CM2D->text());
-        tempDeviation->setWellHeadDpeth(ui->WD2D->text().toDouble());
-        tempDeviation->setWellHeadDpeth(ui->BD2D->text().toDouble());
+        mWell->deviation.surVeytype = MWellDeviation::SurveyType::TwoD;
+        mWell->deviation.depType = MWellDeviation::DependentPara(ui->DP2D->currentIndex());
+        mWell->deviation.calMedthod = ui->CM2D->text();
+        mWell->deviation.wellHeadDpeth = ui->WD2D->text().toDouble();
+        mWell->deviation.bottomDepth = ui->BD2D->text().toDouble();
+
         int rowCount = twoDModel->rowCount();
         for (int row = 0; row < rowCount; ++row) {
-            MDeviationParameter* para = new MDeviationParameter();
-            if (twoDModel->item(row, 0) != nullptr) para->setMD(twoDModel->item(row, 0)->text().toDouble());
-            if (twoDModel->item(row, 1) != nullptr) para->setTVD(twoDModel->item(row, 1)->text().toDouble());
-            if (twoDModel->item(row, 2) != nullptr)
-                para->setHorizontalDisplacement(
-                    twoDModel->item(row, 2)->text().toDouble());
-            if (twoDModel->item(row, 3) != nullptr) para->setAngle(twoDModel->item(row, 3)->text().toDouble());
-            if (twoDModel->item(row, 4) != nullptr) para->setAzimuth(twoDModel->item(row, 4)->text().toDouble());
-            if (twoDModel->item(row, 5) != nullptr) para->setMaxDog(twoDModel->item(row, 5)->text().toDouble());
-            tempDeviation->addPar(para);
+            MDeviationParameter p{};
+            if (twoDModel->item(row, 0)) p.MD = twoDModel->item(row, 0)->text().toDouble();
+            if (twoDModel->item(row, 1)) p.TVD = twoDModel->item(row, 1)->text().toDouble();
+            if (twoDModel->item(row, 2)) p.horizontalDisplacement = twoDModel->item(row, 2)->text().toDouble();
+            if (twoDModel->item(row, 3)) p.angle = twoDModel->item(row, 3)->text().toDouble();
+            if (twoDModel->item(row, 4)) p.azimuth = twoDModel->item(row, 4)->text().toDouble();
+            if (twoDModel->item(row, 5)) p.maxDog = twoDModel->item(row, 5)->text().toDouble();
+            mWell->deviation.parameters.append(p);
         }
     }
     else if (ui->surveyType->currentText() == "3D") {
-        tempDeviation->setSurVeytype(MWellDeviation::SurveyType::ThreeD);
-        tempDeviation->setDepType(MWellDeviation::DependentPara(ui->DP3D->currentIndex()));
-        tempDeviation->setCalMedthod(ui->CM3D->text());
-        tempDeviation->setWellHeadDpeth(ui->WD3D->text().toDouble());
-        tempDeviation->setWellHeadDpeth(ui->BD3D->text().toDouble());
+        mWell->deviation.surVeytype = MWellDeviation::SurveyType::ThreeD;
+        mWell->deviation.depType = MWellDeviation::DependentPara(ui->DP3D->currentIndex());
+        mWell->deviation.calMedthod = ui->CM3D->text();
+        mWell->deviation.wellHeadDpeth = ui->WD3D->text().toDouble();
+        mWell->deviation.bottomDepth = ui->BD3D->text().toDouble();
+
         int rowCount = threeDModel->rowCount();
         for (int row = 0; row < rowCount; ++row) {
-            MDeviationParameter* para = new MDeviationParameter();
-            if (threeDModel->item(row, 0) != nullptr) para->setMD(threeDModel->item(row, 0)->text().toDouble());
-            if (threeDModel->item(row, 1) != nullptr) para->setTVD(threeDModel->item(row, 1)->text().toDouble());
-            if (threeDModel->item(row, 2) != nullptr)
-                para->setHorizontalDisplacement(
-                    threeDModel->item(row, 2)->text().toDouble());
-            if (threeDModel->item(row, 3) != nullptr) para->setAngle(threeDModel->item(row, 3)->text().toDouble());
-            if (threeDModel->item(row, 4) != nullptr) para->setAzimuth(threeDModel->item(row, 4)->text().toDouble());
-            if (threeDModel->item(row, 5) != nullptr) para->setMaxDog(threeDModel->item(row, 5)->text().toDouble());
-            tempDeviation->addPar(para);
+            MDeviationParameter p{};
+            if (threeDModel->item(row, 0)) p.MD = threeDModel->item(row, 0)->text().toDouble();
+            if (threeDModel->item(row, 1)) p.TVD = threeDModel->item(row, 1)->text().toDouble();
+            if (threeDModel->item(row, 2)) p.horizontalDisplacement = threeDModel->item(row, 2)->text().toDouble();
+            if (threeDModel->item(row, 3)) p.angle = threeDModel->item(row, 3)->text().toDouble();
+            if (threeDModel->item(row, 4)) p.azimuth = threeDModel->item(row, 4)->text().toDouble();
+            if (threeDModel->item(row, 5)) p.maxDog = threeDModel->item(row, 5)->text().toDouble();
+            mWell->deviation.parameters.append(p);
         }
     }
 }
 
 void MWellWindow::setTubular() {
-    mWell->clearCasingList();
-    mWell->clearTubingList();
+    mWell->casings.clear();
+    mWell->tubings.clear();
     int casingRowCount = casingModel->rowCount();
     int tubingRowCount = tubingModel->rowCount();
+
     for (int row = 0; row < casingRowCount; ++row) {
-        MWellCasingParameter* temp = new MWellCasingParameter();
-        if (casingModel->item(row, 0) != nullptr) temp->setName(casingModel->item(row, 0)->text());
-        if (casingModel->item(row, 1) != nullptr) temp->setGrade(casingModel->item(row, 1)->text());
-        if (casingModel->item(row, 2) != nullptr) temp->setDensity(casingModel->item(row, 2)->text().toDouble());
-        if (casingModel->item(row, 3) != nullptr) temp->setThermal(casingModel->item(row, 3)->text().toDouble());
-        if (casingModel->item(row, 4) != nullptr) temp->setToMD(casingModel->item(row, 4)->text().toDouble());
-        if (casingModel->item(row, 5) != nullptr) temp->setInnerDiameter(casingModel->item(row, 5)->text().toDouble());
-        if (casingModel->item(row, 6) != nullptr) temp->setWallThickness(casingModel->item(row, 6)->text().toDouble());
-        if (casingModel->item(row, 7) != nullptr) temp->setRoughness(casingModel->item(row, 7)->text().toDouble());
-        if (cementMap[row].cementTop != 0x7FFFFFF) temp->setCementTop(cementMap[row].cementTop);
-        if (cementMap[row].cementDensity != 0x7FFFFFF) temp->setCementDensity(cementMap[row].cementDensity);
-        if (cementMap[row].cementThermal != 0x7FFFFFF) temp->setCementTheramlCond(cementMap[row].cementThermal);
-        mWell->addCasing(temp);
+        MWellCasing cs{};
+        if (casingModel->item(row, 0)) cs.name = casingModel->item(row, 0)->text();
+        if (casingModel->item(row, 1)) cs.grade = casingModel->item(row, 1)->text();
+        if (casingModel->item(row, 2)) cs.density = casingModel->item(row, 2)->text().toDouble();
+        if (casingModel->item(row, 3)) cs.thermal = casingModel->item(row, 3)->text().toDouble();
+        if (casingModel->item(row, 4)) cs.toMD = casingModel->item(row, 4)->text().toDouble();
+        if (casingModel->item(row, 5)) cs.innerDiameter = casingModel->item(row, 5)->text().toDouble();
+        if (casingModel->item(row, 6)) cs.wallThickness = casingModel->item(row, 6)->text().toDouble();
+        if (casingModel->item(row, 7)) cs.roughness = casingModel->item(row, 7)->text().toDouble();
+
+        if (cementMap[row].cementTop != 0x7FFFFFF) cs.cementTop = cementMap[row].cementTop;
+        if (cementMap[row].cementDensity != 0x7FFFFFF) cs.cementDensity = cementMap[row].cementDensity;
+        if (cementMap[row].cementThermal != 0x7FFFFFF) cs.cementTheramlCond = cementMap[row].cementThermal;
+        mWell->casings.append(cs);
     }
     for (int row = 0; row < tubingRowCount; ++row) {
-        MWellTunbing* temp = new MWellTunbing();
-        if (tubingModel->item(row, 0) != nullptr) temp->setName(tubingModel->item(row, 0)->text());
-        if (tubingModel->item(row, 1) != nullptr) temp->setGrade(tubingModel->item(row, 1)->text());
-        if (tubingModel->item(row, 2) != nullptr) temp->setDensity(tubingModel->item(row, 2)->text().toDouble());
-        if (tubingModel->item(row, 3) != nullptr) temp->setThermal(tubingModel->item(row, 3)->text().toDouble());
-        if (tubingModel->item(row, 4) != nullptr) temp->setToMD(tubingModel->item(row, 4)->text().toDouble());
-        if (tubingModel->item(row, 5) != nullptr) temp->setInnerDiameter(tubingModel->item(row, 5)->text().toDouble());
-        if (tubingModel->item(row, 6) != nullptr) temp->setWallThickness(tubingModel->item(row, 6)->text().toDouble());
-        if (tubingModel->item(row, 7) != nullptr) temp->setRoughness(tubingModel->item(row, 7)->text().toDouble());
-        if (fluidMap[row].fluidType != "") temp->setFluidType(fluidMap[row].fluidType);
-        if (fluidMap[row].fluidDensity != 0x7FFFFFF) temp->setFluidDensity(fluidMap[row].fluidDensity);
-        if (fluidMap[row].fluidThermal != 0x7FFFFFF) temp->setFluidThermalCond(fluidMap[row].fluidThermal);
-        mWell->addTubing(temp);
+        MWellTunbing tb{};
+
+        if (tubingModel->item(row, 0)) tb.name = tubingModel->item(row, 0)->text();
+        if (tubingModel->item(row, 1)) tb.grade = tubingModel->item(row, 1)->text();
+        if (tubingModel->item(row, 2)) tb.density = tubingModel->item(row, 2)->text().toDouble();
+        if (tubingModel->item(row, 3)) tb.thermal = tubingModel->item(row, 3)->text().toDouble();
+        if (tubingModel->item(row, 4)) tb.toMD = tubingModel->item(row, 4)->text().toDouble();
+        if (tubingModel->item(row, 5)) tb.innerDiameter = tubingModel->item(row, 5)->text().toDouble();
+        if (tubingModel->item(row, 6)) tb.wallThickness = tubingModel->item(row, 6)->text().toDouble();
+        if (tubingModel->item(row, 7)) tb.roughness = tubingModel->item(row, 7)->text().toDouble();
+
+        if (fluidMap[row].fluidType != "") tb.fluid = fluidMap[row].fluidType;
+        if (fluidMap[row].fluidDensity != 0x7FFFFFF) tb.fluidDensity = fluidMap[row].fluidDensity;
+        if (fluidMap[row].fluidThermal != 0x7FFFFFF) tb.fluidThermalCond = fluidMap[row].fluidThermal;
+
+        mWell->tubings.append(tb);
     }
 }
 
@@ -832,75 +824,69 @@ void MWellWindow::setFluidType(int index) {
 }
 
 void MWellWindow::setPacker() {
-    mWell->clearPackerList();
+    mWell->packers.clear();
     int rowCount = packerModel->rowCount();
     for (int row = 0; row < rowCount; ++row) {
-        MWellPacker* packer = new MWellPacker();
-        if (packerModel->item(row, 0) != nullptr) packer->setName(packerModel->item(row, 0)->text());
+        MWellPacker packer{};
+        if (packerModel->item(row, 0) != nullptr)
+            packer.name = packerModel->item(row, 0)->text();
         if (packerModel->item(row, 1) != nullptr)
-            packer->
-                setMeasuredDepth(packerModel->item(row, 1)->text().toDouble());
-        mWell->addPacker(packer);
+            packer.measuredDepth = packerModel->item(row, 1)->text().toDouble();
+        mWell->packers.append(packer);
     }
 }
 
 void MWellWindow::setHeat() {
-    MWellHeat* heat = mWell->getHeat();
-    heat->clearHtcCalAtiMultList();
-    heat->clearUMultAtiMultList();
-    heat->clearHtcCalList();
+    mWell->heat.htcCalATIMultList.clear();
+    mWell->heat.uMultATIMultList.clear();
+    mWell->heat.htcCalculateList.clear();
 
-    heat->setTime(ui->timeLineEdit->text().toDouble());
-    heat->setAverageUValue(ui->averageULineEdit->text().toDouble());
-    heat->setSoilTemperatureWellhead(ui->STAWLineEdit->text().toDouble());
+    mWell->heat.time = ui->timeLineEdit->text().toDouble();
+    mWell->heat.averageUValue = ui->averageULineEdit->text().toDouble();
+    mWell->heat.soilTemperatureWellhead = ui->STAWLineEdit->text().toDouble();
 
     int htcCalAtiMultRowCount = HTCCalATIMultMode->rowCount();
     int uMultiAtiMulRowCount = UMultATIMultMode->rowCount();
     int htcCalRowCount = HTCCalculateMode->rowCount();
 
     for (int row = 0; row < htcCalAtiMultRowCount; ++row) {
-        HTCCalATIMult* temp = new HTCCalATIMult();
-        if (HTCCalATIMultMode->item(row, 0) != nullptr) temp->setMD(HTCCalATIMultMode->item(row, 0)->text().toDouble());
+        HTCCalATIMult temp{};
+        if (HTCCalATIMultMode->item(row, 0) != nullptr)
+            temp.MD = HTCCalATIMultMode->item(row, 0)->text().toDouble();
         if (HTCCalATIMultMode->item(row, 1) != nullptr)
-            temp->setAmbientTemperature(
-                HTCCalATIMultMode->item(row, 1)->text().toDouble());
+            temp.ambientTemperature = HTCCalATIMultMode->item(row, 1)->text().toDouble();
         if (HTCCalATIMultMode->item(row, 2) != nullptr)
-            temp->setGroundDensity(
-                HTCCalATIMultMode->item(row, 2)->text().toDouble());
+            temp.groundDensity = HTCCalATIMultMode->item(row, 2)->text().toDouble();
         if (HTCCalATIMultMode->item(row, 3) != nullptr)
-            temp->setGroundK(
-                HTCCalATIMultMode->item(row, 3)->text().toDouble());
+            temp.groundK = HTCCalATIMultMode->item(row, 3)->text().toDouble();
         if (HTCCalATIMultMode->item(row, 4) != nullptr)
-            temp->setGourndCp(
-                HTCCalATIMultMode->item(row, 4)->text().toDouble());
-        heat->addHtcCalAtiMul(temp);
+            temp.groundCp = HTCCalATIMultMode->item(row, 4)->text().toDouble();
+        mWell->heat.htcCalATIMultList.append(temp);
     }
 
     for (int row = 0; row < uMultiAtiMulRowCount; ++row) {
-        UMultATIMult* temp = new UMultATIMult();
-        if (UMultATIMultMode->item(row, 0) != nullptr) temp->setMD(UMultATIMultMode->item(row, 0)->text().toDouble());
+        UMultATIMult temp{};
+
+        if (UMultATIMultMode->item(row, 0) != nullptr)
+            temp.MD = UMultATIMultMode->item(row, 0)->text().toDouble();
         if (UMultATIMultMode->item(row, 1) != nullptr)
-            temp->setAmbientTemperature(
-                UMultATIMultMode->item(row, 1)->text().toDouble());
+            temp.ambientTemperature = UMultATIMultMode->item(row, 1)->text().toDouble();
         if (UMultATIMultMode->item(row, 2) != nullptr)
-            temp->setUValue(
-                UMultATIMultMode->item(row, 2)->text().toDouble());
-        heat->addUMultAtiMul(temp);
+            temp.UValue = UMultATIMultMode->item(row, 2)->text().toDouble();
+        mWell->heat.uMultATIMultList.append(temp);
     }
 
     for (int row = 0; row < htcCalRowCount; ++row) {
-        HTCCalculate* temp = new HTCCalculate();
-        if (HTCCalculateMode->item(row, 0) != nullptr) temp->setMD(HTCCalculateMode->item(row, 0)->text().toDouble());
+        HTCCalculate temp{};
+        if (HTCCalculateMode->item(row, 0) != nullptr)
+            temp.MD = HTCCalculateMode->item(row, 0)->text().toDouble();
         if (HTCCalculateMode->item(row, 1) != nullptr)
-            temp->setGroundDensity(
-                HTCCalculateMode->item(row, 1)->text().toDouble());
+            temp.groundDensity = HTCCalculateMode->item(row, 1)->text().toDouble();
         if (HTCCalculateMode->item(row, 2) != nullptr)
-            temp->setGroundK(
-                HTCCalculateMode->item(row, 2)->text().toDouble());
+            temp.groundK = HTCCalculateMode->item(row, 2)->text().toDouble();
         if (HTCCalculateMode->item(row, 3) != nullptr)
-            temp->setGroundCp(
-                HTCCalculateMode->item(row, 3)->text().toDouble());
-        heat->addHtcCal(temp);
+            temp.groundCp = HTCCalculateMode->item(row, 3)->text().toDouble();
+        mWell->heat.htcCalculateList.append(temp);
     }
 }
 

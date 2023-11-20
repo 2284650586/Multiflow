@@ -238,53 +238,46 @@ void MFlowlineDialog::setupUI() {
 void MFlowlineDialog::updateDialogFromMFlowline() {
     if (_flowline) {
         // 设置流动类型
-        if (_flowline->getFlowlineType() == MFlowline::Pipe)
+        if (_flowline->flowlineType == MFlowline::Pipe)
             flowlineTypeComboBox->setCurrentIndex(0);
         else
             flowlineTypeComboBox->setCurrentIndex(1);
 
         // 设置管线模式
-        if (_flowline->getFlowlineMode() == MFlowline::Simple)
+        if (_flowline->flowlineMode == MFlowline::Simple)
             flowlineModeComboBox->setCurrentIndex(0);
         else
             flowlineModeComboBox->setCurrentIndex(1);
 
         // 设置管线环境
-        if (_flowline->getFlowlineEnviroment() == MFlowline::Land)
+        if (_flowline->flowlineEnviroment == MFlowline::Land)
             flowlineEnvComboBox->setCurrentIndex(0);
         else
             flowlineEnvComboBox->setCurrentIndex(1);
 
         // 设置其余参数
-        pipInsideDiameterLineEdit->setText(QString::number(_flowline->getPipInsideDiameter()));
-        pipWallThicknessLineEdit->setText(QString::number(_flowline->getPipWallThickness()));
-        pipeRoughnessLineEdit->setText(QString::number(_flowline->getPipeRoughness()));
-        profileHorizontalDistanceLineEdit->setText(QString::number(_flowline->getProfileHorizontalDistance()));
-        profileElevationDifferenceLineEdit->setText(QString::number(_flowline->getProfileElevatiaonDifference()));
-        heatTransferCoefficientLineEdit->setText(QString::number(_flowline->getHeatTransferCoefficient()));
-
+        pipInsideDiameterLineEdit->setText(QString::number(_flowline->pipInsideDiameter));
+        pipWallThicknessLineEdit->setText(QString::number(_flowline->pipWallThickness));
+        pipeRoughnessLineEdit->setText(QString::number(_flowline->pipeRoughness));
+        profileHorizontalDistanceLineEdit->setText(QString::number(_flowline->profileHorizontalDistance));
+        profileElevationDifferenceLineEdit->setText(QString::number(_flowline->profileElevatiaonDifference));
+        heatTransferCoefficientLineEdit->setText(QString::number(_flowline->heatTransferCoefficient));
 
         dataModel->removeRows(0, dataModel->rowCount());
 
         // 加载数据到数据模型
-        auto parList = _flowline->getParList();
-        for (auto* par: parList) {
-            double hd1, evl, hd2, tempear;
-            hd1 = par->getHd1();
-            evl = par->getElevation();
-            hd2 = par->getHd2();
-            tempear = par->getTemperature();
+        for (auto [hd1, elevation, hd2, temperature]: _flowline->parameters) {
 
             // 只有当参数值不等于0x7FFFFFFF时，才加载数据
             QList<QStandardItem*> rowItems;
             if (hd1 != 0x7FFFFFFF)
                 rowItems.append(new QStandardItem(QString::number(hd1)));
-            if (evl != 0x7FFFFFFF)
-                rowItems.append(new QStandardItem(QString::number(evl)));
+            if (elevation != 0x7FFFFFFF)
+                rowItems.append(new QStandardItem(QString::number(elevation)));
             if (hd2 != 0x7FFFFFFF)
                 rowItems.append(new QStandardItem(QString::number(hd2)));
-            if (tempear != 0x7FFFFFFF)
-                rowItems.append(new QStandardItem(QString::number(tempear)));
+            if (temperature != 0x7FFFFFFF)
+                rowItems.append(new QStandardItem(QString::number(temperature)));
 
             if (!rowItems.isEmpty()) {
                 dataModel->appendRow(rowItems);
@@ -299,31 +292,31 @@ void MFlowlineDialog::updateMFlowlineFromDialog() {
         mName = flowlineNameLineEdit->text();
         // 获取流动类型
         if (flowlineTypeComboBox->currentIndex() == 0)
-            _flowline->setFlowlineType(MFlowline::Pipe);
+            _flowline->flowlineType = MFlowline::Pipe;
         else
-            _flowline->setFlowlineType(MFlowline::Annulus);
+            _flowline->flowlineType = MFlowline::Annulus;
 
         // 获取管线模式
         if (flowlineModeComboBox->currentIndex() == 0)
-            _flowline->setFlowlineMode(MFlowline::Simple);
+            _flowline->flowlineMode = MFlowline::Simple;
         else
-            _flowline->setFlowlineMode(MFlowline::Detailed);
+            _flowline->flowlineMode = MFlowline::Detailed;
 
         // 获取管线环境
         if (flowlineEnvComboBox->currentIndex() == 0)
-            _flowline->setFlowlineEnviroment(MFlowline::Land);
+            _flowline->flowlineEnviroment = MFlowline::Land;
         else
-            _flowline->setFlowlineEnviroment(MFlowline::Subsea);
+            _flowline->flowlineEnviroment = MFlowline::Subsea;
 
         // 获取其余参数
-        _flowline->setPipInsideDiameter(pipInsideDiameterLineEdit->text().toDouble());
-        _flowline->setPipWallThickness(pipWallThicknessLineEdit->text().toDouble());
-        _flowline->setPipeRoughness(pipeRoughnessLineEdit->text().toDouble());
-        _flowline->setProfileHorizontalDistance(profileHorizontalDistanceLineEdit->text().toDouble());
-        _flowline->setProfileElevatiaonDifference(profileElevationDifferenceLineEdit->text().toDouble());
-        _flowline->setHeatTransferCoefficient(heatTransferCoefficientLineEdit->text().toDouble());
+        _flowline->pipInsideDiameter = pipInsideDiameterLineEdit->text().toDouble();
+        _flowline->pipWallThickness = pipWallThicknessLineEdit->text().toDouble();
+        _flowline->pipeRoughness = pipeRoughnessLineEdit->text().toDouble();
+        _flowline->profileHorizontalDistance = profileHorizontalDistanceLineEdit->text().toDouble();
+        _flowline->profileElevatiaonDifference = profileElevationDifferenceLineEdit->text().toDouble();
+        _flowline->heatTransferCoefficient = heatTransferCoefficientLineEdit->text().toDouble();
 
-        _flowline->clearPar();
+        _flowline->parameters.clear();
 
         // 获取表格中的数据并存储到 mFlowline 中
         int rowCount = dataModel->rowCount();
@@ -343,7 +336,7 @@ void MFlowlineDialog::updateMFlowlineFromDialog() {
             if (!hd2.isEmpty()) d_hd2 = hd2.toDouble();
             if (!tempear.isEmpty()) d_tempear = tempear.toDouble();
 
-            _flowline->addPar(d_hd1, d_evl, d_hd2, d_tempear);
+            _flowline->parameters.emplace_back(d_hd1, d_evl, d_hd2, d_tempear);
         }
     }
 }

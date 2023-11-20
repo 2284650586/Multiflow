@@ -1,4 +1,4 @@
-#include "MTabWidget.h"
+#include "MTabWidget.hpp"
 
 MTabWidget::MTabWidget(QWidget* parent) : QTabWidget(parent) {
 }

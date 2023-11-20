@@ -3,14 +3,15 @@
 //
 
 #include "MWellItem.hpp"
-#include "..\editor\MSinkDialog.hpp"
-#include "..\editor\MWellWindow.hpp"
+#include "editor/MWellWindow.hpp"
+#include "qml/main.hpp"
 
 #include <QGraphicsSceneMouseEvent>
+#include <QQmlContext>
+
 
 MWellItem::MWellItem(QGraphicsPixmapItem* parent)
-    : MAbstractItem(Well, "Well", ":/resources/image/Well.png", parent),
-      _well(new MWell{}) {
+    : MAbstractItem(Well, "Well", ":/resources/image/Well.png", parent) {
 }
 
 void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
@@ -19,7 +20,10 @@ void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
         return;
     }
 
-    auto* window = new MWellWindow(_well, _itemName, nullptr);
+    gpQmlApplicationEngine->rootContext()->setContextProperty("well", QVariant::fromValue(_well));
+    qml::navigate("/well-editor");
+
+    auto* window = new MWellWindow(&_well, _itemName, nullptr);
     QObject::connect(window, &MWellWindow::itemNameChange, [this](const QString& name) {
         setItemName(name);
         update();

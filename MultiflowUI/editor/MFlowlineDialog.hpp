@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QDialog>
-#include "..\entity\MFlowline.hpp"
+#include "entity/MFlowline.hpp"
 
 class QStandardItemModel;
 class QTableView;

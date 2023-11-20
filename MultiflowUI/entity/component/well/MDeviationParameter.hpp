@@ -1,41 +1,17 @@
 #pragma once
 
-class MDeviationParameter {
+#include <QVariant>
+
+#include "entity/common.hpp"
+
+struct MDeviationParameter {
+    Q_GADGET
+
 public:
-    MDeviationParameter();
-
-    MDeviationParameter(double MD, double TVD, double horizontalDisplacement, double angle, double azimuth,
-                        double maxDog);
-
-    double getMD() const;
-
-    void setMD(double newMD);
-
-    double getTVD() const;
-
-    void setTVD(double newTVD);
-
-    double getHorizontalDisplacement() const;
-
-    void setHorizontalDisplacement(double newHorizontalDisplacement);
-
-    double getAngle() const;
-
-    void setAngle(double newAngle);
-
-    double getAzimuth() const;
-
-    void setAzimuth(double newAzimuth);
-
-    double getMaxDog() const;
-
-    void setMaxDog(double newMaxDog);
-
-private:
-    double MD;
-    double TVD;
-    double horizontalDisplacement;
-    double angle;
-    double azimuth;
-    double maxDog;
+    Q_MEMBER(double, MD)
+    Q_MEMBER(double, TVD)
+    Q_MEMBER(double, horizontalDisplacement)
+    Q_MEMBER(double, angle)
+    Q_MEMBER(double, azimuth)
+    Q_MEMBER(double, maxDog)
 };

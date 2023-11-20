@@ -78,8 +78,6 @@ private:
 
     void initConnect();
 
-    void initWellData();
-
     void initValidator();
 
     void initStatus();

@@ -3,7 +3,7 @@
 //
 
 #include "MSourceItem.hpp"
-#include "..\editor\MSourceDialog.hpp"
+#include "editor/MSourceDialog.hpp"
 
 #include <QGraphicsSceneMouseEvent>
 

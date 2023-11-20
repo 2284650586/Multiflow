@@ -37,4 +37,4 @@ extern std::unique_ptr<QMainWindow> gpWindowMain;
 /**
  * @brief The global QML-based formula viewer window.
  */
-extern std::unique_ptr<QObject> gpQmlWindowFormulaViewer;
+extern std::unique_ptr<QObject> gpQmlVMFormulaViewer;

@@ -2,8 +2,8 @@
 
 #include "widget/SplashDialog.hpp"
 #include "graphics_view/MAbstractItem.hpp"
-#include "graphics_view/widget/MTabWidget.h"
-#include "graphics_view/widget/MTreeWidget.h"
+#include "graphics_view/widget/MTabWidget.hpp"
+#include "graphics_view/widget/MTreeWidget.hpp"
 #include "graphics_view/MGraphicsView.h"
 #include "shared.hpp"
 

@@ -1,53 +1,30 @@
 #pragma once
 
-#include "component\well\mwelldeviation.hpp"
-#include "component\well\MWellCasingParameter.hpp"
+#include "component/well/MWellDeviation.hpp"
+#include "component/well/MWellCasing.hpp"
 #include "component/well/MWellTunbing.h"
-#include "component\well\MWellPacker.hpp"
-#include "component\well\MWellHeat.hpp"
+#include "component/well/MWellPacker.hpp"
+#include "component/well/MWellHeat.hpp"
+#include "entity/common.hpp"
 
-class MWell {
-public:
-    MWell();
+#include <QString>
 
-    ~MWell();
-
-    MWellDeviation* getDeviation() const;
-
-    void setDeviation(MWellDeviation* newDeviation);
-
-    void addCasing(MWellCasingParameter* casing) { casingList.append(casing); }
-    void addTubing(MWellTunbing* tubing) { tubingList.append(tubing); }
-    void addPacker(MWellPacker* packer) { packerList.append(packer); }
-
-    void clearCasingList() {
-        qDeleteAll(casingList);
-        casingList.clear();
-    }
-
-    void clearTubingList() {
-        qDeleteAll(tubingList);
-        tubingList.clear();
-    }
-
-    void clearPackerList() {
-        qDeleteAll(packerList);
-        packerList.clear();
-    }
-
-    int getCasingListCount() { return casingList.count(); }
-    int getTubingListCount() { return tubingList.count(); }
-    int getPackerListCount() { return packerList.count(); }
-
-
-    MWellHeat* getHeat() const;
-
-    void setHeat(MWellHeat* newHeat);
-
-private:
-    MWellDeviation* deviation = nullptr;
-    MWellHeat* heat = nullptr;
-    QList<MWellCasingParameter*> casingList;
-    QList<MWellTunbing*> tubingList;
-    QList<MWellPacker*> packerList;
+enum WellKind {
+    Production,
+    Injection
 };
+
+struct MWell {
+    Q_GADGET
+
+public:
+    Q_MEMBER(QString, name)
+    Q_MEMBER(WellKind, kind)
+    Q_MEMBER(MWellDeviation, deviation)
+    Q_MEMBER(MWellHeat, heat)
+    Q_MEMBER(QList<MWellCasing>, casings)
+    Q_MEMBER(QList<MWellTunbing>, tubings)
+    Q_MEMBER(QList<MWellPacker>, packers)
+};
+
+Q_DECLARE_METATYPE(MWell)
