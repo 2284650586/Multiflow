@@ -29,7 +29,7 @@ void _registerSingletons() {
     QmlEnvironment::createInstance()->registerObjectType();
 
     qmlRegisterSingletonType(
-        {"qrc:/qml/components/singleton/FluColors.qml"}, "Multiflow.UI", 1, 0, "FluColors");
+        {"qrc:/qml/components/singleton/Colors.qml"}, "Multiflow.UI", 1, 0, "Colors");
 }
 
 void _applyVisualStyles() {

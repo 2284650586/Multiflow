@@ -4,10 +4,14 @@ name: MWell.General
 
 properties:
   - id: name
-    name: Display Name
+    name: 名称
     type: string
 
   - id: kind
-    name: Well Type
+    name: 管井类型
     type: enum
     enum: Production, Injection
+
+  - id: length
+    name: 转换器测试
+    type: Builtin.Length

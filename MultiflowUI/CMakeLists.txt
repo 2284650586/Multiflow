@@ -89,6 +89,14 @@ set(SOURCE_FILES
     utils/YamlUtils.cpp
     utils/YamlUtils.hpp
     utils/YamlUtils.hpp
+    unit_converter/LengthConverter.cpp
+    unit_converter/LengthConverter.hpp
+    unit_converter/LengthConverter.hpp
+    unit_converter/AbstractUnitConverter.cpp
+    unit_converter/AbstractUnitConverter.hpp
+    unit_converter/AbstractUnitConverter.hpp
+    qml/bridge/MSignalBridge.hpp
+    qml/bridge/MSignalBridge.cpp
 )
 
 include_directories(
@@ -102,6 +110,10 @@ qt_add_executable(
     MultiflowUI
     ${SOURCE_FILES}
 )
+
+if(MSVC)
+    target_compile_options(MultiflowUI PRIVATE "/utf-8")
+endif()
 
 qt_add_qml_module(
     MultiflowUI

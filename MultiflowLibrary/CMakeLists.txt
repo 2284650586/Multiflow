@@ -64,3 +64,7 @@ add_definitions(-DMULTIFLOWLIBRARY_LIBRARY)
 include_directories(. ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(MultiflowLibrary PRIVATE yaml-cpp spdlog)
+
+if(MSVC)
+    target_compile_options(MultiflowLibrary PRIVATE "/utf-8")
+endif()

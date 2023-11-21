@@ -6,19 +6,23 @@
 
 #include "entity/common.hpp"
 
-#include <QVariant>
 #include <QString>
-#include <QMap>
-#include <QMetaType>
 #include <QQmlPropertyMap>
 
 struct MProperty {
     Q_GADGET
+    Q_PROPERTY(QString name MEMBER name)
+    Q_PROPERTY(QVariant type MEMBER type)
+    Q_PROPERTY(QVariant value MEMBER value)
+    Q_PROPERTY(QVariant extra MEMBER extra)
+    Q_PROPERTY(QVariant associateValue MEMBER associateValue)
 
 public:
-    Q_MEMBER(QString, name)
-    Q_MEMBER(QVariant, type)
-    Q_MEMBER(QVariant, value)
+    QString name;
+    QVariant type;
+    QVariant value;
+    QVariant extra;
+    QVariant associateValue{QVariant::fromValue(0)};
 };
 
 Q_DECLARE_METATYPE(MProperty)

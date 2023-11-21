@@ -31,7 +31,7 @@
 
         <file>qml/components/page/FormulaGeneric.qml</file>
 
-        <file>qml/components/singleton/FluColors.qml</file>
+        <file>qml/components/singleton/Colors.qml</file>
 
         <file>qml/components/widget/FormulaPaneItem.qml</file>
         <file>qml/components/widget/HSpacer.qml</file>

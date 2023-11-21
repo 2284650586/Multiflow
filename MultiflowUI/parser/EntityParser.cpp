@@ -4,6 +4,7 @@
 
 #include "EntityParser.hpp"
 #include "utils/YamlUtils.hpp"
+#include "unit_converter/LengthConverter.hpp"
 
 #include <QResource>
 #include <QDir>
@@ -76,7 +77,7 @@ void EntityParser::_parseDistribution(const YAML::Node& node) {
     if (!name.IsDefined()) {
         throw ParseException{"No name defined."};
     }
-    if (const auto& dependencies = node["dependencies"];
+    if (const auto& dependencies = node["import"];
         dependencies.IsDefined()) {
         _handleDependencies(dependencies);
     }
@@ -158,7 +159,8 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
             context.propertyId, QVariant::fromValue(MProperty{
                 .name = context.propertyName,
                 .type = builtinType,
-                .value = 0 // TODO
+                .value = 0,
+                .extra = QVariant::fromValue(new LengthConverter{}),
             }));
     }
     else {
@@ -179,7 +181,8 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
         context.propertyId, QVariant::fromValue(MProperty{
             .name = context.propertyName,
             .type = QVariant::fromValue(referenceType),
-            .value = QVariant::fromValue(new MEntity{*entityValue})
+            .value = QVariant::fromValue(new MEntity{*entityValue}),
+            .extra = QVariant{}
         })
     );
 }
@@ -191,6 +194,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
                 .value = QVariant::fromValue(static_cast<double>(0)),
+                .extra = QVariant{}
             }));
     }
     else if (primitiveType == "string") {
@@ -199,6 +203,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
                 .value = QVariant::fromValue(QString{}),
+                .extra = QVariant{},
             }));
     }
     else if (primitiveType == "enum") {
@@ -211,7 +216,8 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
             context.propertyId, QVariant::fromValue(MProperty{
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
-                .value = QVariant::fromValue(qFromNode(enumField)) // TODO
+                .value = QVariant::fromValue(QString{}),
+                .extra = QVariant::fromValue(qFromNode(enumField))
             }));
     }
     else {
