@@ -13,24 +13,37 @@ properties:
     type: enum
     enum: MD, TVD
 
-high-frequency-properties:
-  - name: MD
-    type: double
+  - id: md
+    name: MD
+    type: number
+    independent: Yes
 
-  - name: TVD
-    type: double
+  - id: tvd
+    name: TVD
+    type: number
+    independent: Yes
 
-  - name: Ambient Temperature
-    type: double
+  - id: ambient-temperature
+    name: Ambient Temperature
+    type: number
+    independent: Yes
 
-  - name: U Value
-    type: double
+  - id: u-value
+    name: U Value
+    type: number
+    independent: Yes
 
-  - name: Ground Density
-    type: double
+  - id: ground-density
+    name: Ground Density
+    type: number
+    independent: Yes
 
-  - name: Ground K
-    type: double
+  - id: ground-k
+    name: Ground K
+    type: number
+    independent: Yes
 
-  - name: Ground Cp
-    type: double
+  - id: ground-cp
+    name: Ground Cp
+    type: number
+    independent: Yes

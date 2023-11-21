@@ -82,12 +82,13 @@ void EntityParser::_parseDistribution(const YAML::Node& node) {
         _handleDependencies(dependencies);
     }
 
+    const QString entityName = qFromNode(name);
+
     const auto& properties = node["properties"];
     if (!properties.IsDefined()) {
         throw ParseException{"No properties defined."};
     }
-
-    _handleProperties(qFromNode(name), properties);
+    _handleProperties(entityName, properties);
 }
 
 // NOLINTNEXTLINE(misc-no-recursion)
@@ -116,6 +117,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
         const auto id = property["id"];
         const auto name = property["name"];
         const auto type = property["type"];
+        const bool isHighFrequency = property["independent"].IsDefined() && property["independent"].as<bool>();
 
         if (!id.IsDefined() || !name.IsDefined() || !type.IsDefined()) {
             throw ParseException{
@@ -128,7 +130,8 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                 .entity = entity,
                 .propertyName = qFromNode(name),
                 .propertyId = qFromNode(id),
-                .node = property
+                .node = property,
+                .isHighFrequency = isHighFrequency,
             });
     }
 
@@ -161,6 +164,7 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
                 .type = builtinType,
                 .value = 0,
                 .extra = QVariant::fromValue(new LengthConverter{}),
+                .isHighFrequency = context.isHighFrequency,
             }));
     }
     else {
@@ -182,7 +186,8 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
             .name = context.propertyName,
             .type = QVariant::fromValue(referenceType),
             .value = QVariant::fromValue(new MEntity{*entityValue}),
-            .extra = QVariant{}
+            .extra = QVariant{},
+            .isHighFrequency = context.isHighFrequency,
         })
     );
 }
@@ -194,7 +199,8 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
                 .value = QVariant::fromValue(static_cast<double>(0)),
-                .extra = QVariant{}
+                .extra = QVariant{},
+                .isHighFrequency = context.isHighFrequency,
             }));
     }
     else if (primitiveType == "string") {
@@ -204,6 +210,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .type = QVariant::fromValue(primitiveType),
                 .value = QVariant::fromValue(QString{}),
                 .extra = QVariant{},
+                .isHighFrequency = context.isHighFrequency,
             }));
     }
     else if (primitiveType == "enum") {
@@ -217,7 +224,8 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
                 .value = QVariant::fromValue(QString{}),
-                .extra = QVariant::fromValue(qFromNode(enumField))
+                .extra = QVariant::fromValue(qFromNode(enumField)),
+                .isHighFrequency = context.isHighFrequency,
             }));
     }
     else {

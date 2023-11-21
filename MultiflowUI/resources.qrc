@@ -40,5 +40,8 @@
         <file>qml/components/widget/FormulaText.qml</file>
         <file>qml/components/widget/NavigationView.qml</file>
         <file>qml/components/widget/AutoSuggestBox.qml</file>
+
+        <file>qml/components/widget/FTableView.qml</file>
+        <file>qml/components/widget/FTableModelColumn.qml</file>
     </qresource>
 </RCC>

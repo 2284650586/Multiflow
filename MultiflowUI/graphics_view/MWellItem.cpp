@@ -3,7 +3,6 @@
 //
 
 #include "MWellItem.hpp"
-#include "editor/MWellWindow.hpp"
 #include "qml/main.hpp"
 
 #include <QGraphicsSceneMouseEvent>
@@ -19,6 +18,8 @@
 MWellItem::MWellItem(QGraphicsPixmapItem* parent)
     : MAbstractItem(Well, "Well", ":/resources/image/Well.png", parent) {
     _entity = EntityService::getInstance()->createEntity("MWell");
+    _independentVariables = new MIndependentVariables{};
+    _wellReservoirUnit = new WellReservoirUnit{};
 }
 
 void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
@@ -30,6 +31,10 @@ void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
     auto* bridge = new MSignalBridge{};
     gpQmlApplicationEngine->rootContext()->setContextProperty("bridge", bridge);
     gpQmlApplicationEngine->rootContext()->setContextProperty("well", QVariant::fromValue(_entity));
+    gpQmlApplicationEngine->rootContext()->setContextProperty("independentVariables",
+                                                              QVariant::fromValue(_independentVariables));
+    gpQmlApplicationEngine->rootContext()->setContextProperty("calculationUnit",
+                                                              QVariant::fromValue(_wellReservoirUnit));
 
     QObject::connect(bridge, &MSignalBridge::onDataChanged, [this](const QVariant& data) {
         /// Casting directly to MEntity* will produce nullptr,

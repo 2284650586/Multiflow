@@ -16,6 +16,7 @@ struct MProperty {
     Q_PROPERTY(QVariant value MEMBER value)
     Q_PROPERTY(QVariant extra MEMBER extra)
     Q_PROPERTY(QVariant associateValue MEMBER associateValue)
+    Q_PROPERTY(bool isHighFrequency MEMBER isHighFrequency)
 
 public:
     QString name;
@@ -23,6 +24,7 @@ public:
     QVariant value;
     QVariant extra;
     QVariant associateValue{QVariant::fromValue(0)};
+    bool isHighFrequency{false};
 };
 
 Q_DECLARE_METATYPE(MProperty)

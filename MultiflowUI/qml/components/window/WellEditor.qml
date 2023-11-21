@@ -13,6 +13,7 @@ FluWindow {
   height: 600
   title: "管井数据"
   visible: true
+
   signal onDataChanged(var data)
 
   Component.onCompleted: {
@@ -38,6 +39,7 @@ FluWindow {
       radius: 8
       width: 300
     }
+
     FluArea {
       Layout.fillHeight: true
       Layout.fillWidth: true
@@ -50,21 +52,26 @@ FluWindow {
 
         addButtonVisibility: FluTabViewType.Nerver
         closeButtonVisibility: FluTabViewType.Nerver
+        anchors.fill: parent
 
         Component.onCompleted: {
           well.keys().forEach(key => {
-            _addTab(well[key].name, tab, {entity: well[key].value});
+            _addTab(well[key].name, tab, {category: key, entity: well[key].value})
           })
         }
       }
-
-      // Background
-      Rectangle {
-        anchors.fill: parent
-        color: "transparent"
-        radius: 8
-      }
     }
+  }
+
+  FluContentDialog {
+    property string dialogTitle
+    property string dialogMessage
+
+    id: dialog
+    title: dialogTitle
+    message: dialogMessage
+    buttonFlags: FluContentDialogType.NeutralButton
+    neutralText: "好"
   }
 
   Component {
@@ -73,9 +80,13 @@ FluWindow {
     TabContent {
       property int maxTextFieldWidth: 0
 
+      anchors.fill: parent
+      Layout.fillHeight: true
+      Layout.fillWidth: true
+
       Repeater {
         id: repeater
-        model: argument.entity.keys()
+        model: getProperties(argument.entity)
 
         RowLayout {
           property var id: modelData
@@ -131,7 +142,7 @@ FluWindow {
                 }
 
                 Component.onCompleted: {
-                  comboBoxEnum.currentIndex = entity.value ? items.indexOf(entity.value) : 0;
+                  comboBoxEnum.currentIndex = entity.value ? items.indexOf(entity.value) : 0
                 }
               }
             }
@@ -204,6 +215,137 @@ FluWindow {
         } // Row
       } // Repeater
 
+
+      // VSpacer
+      Item {
+        Layout.fillHeight: true
+        Layout.fillWidth: true
+      }
+
+      FluArea {
+        property var properties: getHighFrequencyProperties(argument.entity)
+
+        visible: properties.length > 0
+        id: hfArea
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Layout.margins: 10
+        radius: 8
+
+        ColumnLayout {
+          anchors.fill: parent
+          anchors.margins: 15
+          Layout.fillHeight: true
+          Layout.fillWidth: true
+
+          // 表头
+          RowLayout {
+            spacing: 0
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+            Repeater {
+              model: hfArea.properties
+
+              RowLayout {
+                id: row
+                Layout.preferredWidth: 150
+                property var property: argument.entity[modelData]
+                property var isLastItem: index === hfArea.properties.length - 1
+
+                FluText {
+                  Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                  text: row.property.name
+                  font.pointSize: 11
+                  font.weight: Font.DemiBold
+                }
+
+                FluText {
+                  text: "|"
+                  color: "gray"
+                  horizontalAlignment: Text.AlignHCenter
+                  visible: !isLastItem
+                }
+              }
+            } // Repeater
+          } // RowLayout 表头
+
+          Repeater {
+            id: repeaterIndependentVariables
+            model: independentVariables.size(argument.category)
+
+            RowLayout {
+              property var ivIndex: index
+
+              spacing: 0
+              Layout.fillWidth: true
+              Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+              Repeater {
+                model: hfArea.properties
+
+                RowLayout {
+                  property var key: modelData
+
+                  id: row
+                  Layout.preferredWidth: 150
+
+                  FluTextBox {
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                    onTextChanged: {
+                      independentVariables.set(argument.category, ivIndex, key, text)
+                    }
+
+                    Component.onCompleted: {
+                      text = independentVariables.get(argument.category, ivIndex, key)
+                    }
+                  }
+                }
+              } // Repeater
+            }
+          }
+
+          Component.onCompleted: {
+            independentVariables.sizeChanged.connect((category) => {
+              if (category !== argument.category) {
+                return
+              }
+              repeaterIndependentVariables.model = independentVariables.size(category)
+            })
+          }
+
+          FluButton {
+            text: "添加"
+            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+            Layout.margins: 10
+            onClicked: {
+              independentVariables.createEmpty(argument.category)
+            }
+          }
+        } // ColumnLayout
+      } // FluArea
+
+      RowLayout {
+        Layout.margins: 10
+        Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+
+        FluFilledButton {
+          text: "演算"
+          onClicked: {
+            _handleCalculation()
+          }
+        }
+
+        FluButton {
+          text: "完成"
+          onClicked: {
+            notifyDataChange()
+            window.close()
+          }
+        }
+      }
+
+
       Component.onCompleted: {
         _updateMaxWidth(repeater, 'label')
       }
@@ -221,14 +363,11 @@ FluWindow {
         }
       }
 
-      FluFilledButton {
-        text: "完成"
-        Layout.margins: 10
-
-        onClicked: {
-          notifyDataChange()
-          window.close()
-        }
+      function _handleCalculation() {
+        calculationUnit.update(argument.entity, independentVariables)
+        const results = calculationUnit.evaluate()
+        console.log(results)
+        showAlert("演算结果", results.join(", "))
       }
     } // TabContent
   } // Component
@@ -237,22 +376,46 @@ FluWindow {
     default property alias content: contentView.data
 
     id: tabContent
-    anchors.fill: parent
     anchors.margins: 10
 
     ColumnLayout {
       id: contentView
+      anchors.fill: parent
     }
   }
 
   function _addTab(title, control, args) {
     tabView.appendTab("qrc:/resources/image/linepointer.png", title, control, Object.assign({
       "title": title
-    }, args));
+    }, args))
   }
 
   function notifyDataChange() {
     onDataChanged(well)
+  }
+
+  function getProperties(entity) {
+    return entity.keys().filter(k => !entity[k].isHighFrequency)
+  }
+
+  function getHighFrequencyProperties(entity) {
+    return entity.keys().filter(k => entity[k].isHighFrequency)
+  }
+
+  function getColumnSource(properties) {
+    return properties.map(p => {
+      // 哎呀这箭头函数突然就不灵了
+      return {
+        title: p.name,
+        dataIndex: p.id,
+      }
+    })
+  }
+
+  function showAlert(title, message) {
+    dialog.dialogTitle = title
+    dialog.dialogMessage = message
+    dialog.open()
   }
 
   function _isNumeric(str) {

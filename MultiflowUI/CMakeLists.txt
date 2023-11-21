@@ -100,6 +100,14 @@ set(SOURCE_FILES
     qml/utils/QmlFormulaUtils.cpp
     qml/utils/QmlFormulaUtils.hpp
     qml/utils/QmlFormulaUtils.hpp
+    entity/MIndependentVariables.cpp
+    entity/MIndependentVariables.hpp
+    entity/MIndependentVariables.hpp
+    entity/unit/generic/CalculationUnit.cpp
+    entity/unit/generic/CalculationUnit.hpp
+    entity/unit/WellReservoirUnit.cpp
+    entity/unit/WellReservoirUnit.hpp
+    entity/unit/WellReservoirUnit.hpp
 )
 
 include_directories(

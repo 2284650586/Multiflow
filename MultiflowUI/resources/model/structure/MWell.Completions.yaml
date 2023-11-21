@@ -31,21 +31,32 @@ properties:
     name: Bottom Depth
     type: Builtin.Length
 
-high-frequency-properties:
-  - name: MD
-    type: double
+  - id: md
+    name: MD
+    type: number
+    independent: Yes
 
-  - name: TVD
-    type: double
+  - id: tvd
+    name: TVD
+    type: number
+    independent: Yes
 
-  - name: Horizontal Displacement
-    type: double
+  - id: horizontal-displacement
+    name: Horizontal Displacement
+    type: number
+    independent: Yes
 
-  - name: Angle
-    type: double
+  - id: angle
+    name: Angle
+    type: number
+    independent: Yes
 
-  - name: Azimuth
-    type: double
+  - id: azimuth
+    name: Azimuth
+    type: number
+    independent: Yes
 
-  - name: Max Dogleg Severity
-    type: double
+  - id: max-dogleg-severity
+    name: Max Dogleg Severity
+    type: number
+    independent: Yes
