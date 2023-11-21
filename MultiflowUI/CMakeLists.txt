@@ -97,6 +97,9 @@ set(SOURCE_FILES
     unit_converter/AbstractUnitConverter.hpp
     qml/bridge/MSignalBridge.hpp
     qml/bridge/MSignalBridge.cpp
+    qml/utils/QmlFormulaUtils.cpp
+    qml/utils/QmlFormulaUtils.hpp
+    qml/utils/QmlFormulaUtils.hpp
 )
 
 include_directories(

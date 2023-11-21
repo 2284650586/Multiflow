@@ -8,6 +8,8 @@
 #include <QQuickStyle>
 #include <QtQml/qqmlextensionplugin.h>
 
+#include "utils/QmlFormulaUtils.hpp"
+
 Q_IMPORT_QML_PLUGIN(FluentUIPlugin)
 #include <FluentUI/src/FluApp.h>
 #include <FluentUI/src/FluentUI.h>
@@ -25,6 +27,7 @@ void _tryCreateApplicationEngine() {
 void _registerSingletons() {
     const auto& engine = *gpQmlApplicationEngine;
     UIUtils::getInstance()->registerSingleton(engine);
+    QmlFormulaUtils::getInstance()->registerSingleton(engine);
     SettingsHelper::getInstance()->registerSingleton(engine);
     QmlEnvironment::createInstance()->registerObjectType();
 

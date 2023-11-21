@@ -13,7 +13,7 @@ properties:
     type: enum
     enum: MD, TVD
 
-form-model:
+high-frequency-properties:
   - name: MD
     type: double
 
