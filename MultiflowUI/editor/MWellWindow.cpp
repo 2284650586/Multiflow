@@ -1,11 +1,11 @@
 #include "MWellWindow.hpp"
 #include "ui_mwellwindow.h"
 #include "entity/MWell.hpp"
-#include "util/delegate/ReadOnlyDelegate.hpp"
-#include "util/delegate/GradeDelegate.hpp"
-#include "util/delegate/ComputeHIPRDelegate.hpp"
-#include "util/delegate/ComputeVIPRDelegate.hpp"
-#include "util/delegate/GeometryDelegate.hpp"
+#include "utils/delegate/ReadOnlyDelegate.hpp"
+#include "utils/delegate/GradeDelegate.hpp"
+#include "utils/delegate/ComputeHIPRDelegate.hpp"
+#include "utils/delegate/ComputeVIPRDelegate.hpp"
+#include "utils/delegate/GeometryDelegate.hpp"
 
 #include <QGroupBox>
 #include <QStandardItemModel>

@@ -17,7 +17,7 @@ class FormulaService final : public QObject, public SingletonMixin<FormulaServic
     ~FormulaService() override = default;
 
 public:
-    void parserAndLoadFormulae();
+    void parseAndLoadFormulae();
 
     [[nodiscard]]
     const QVector<ml::Formula>& formulae() const;

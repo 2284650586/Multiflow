@@ -8,10 +8,14 @@
 
 #include <QGraphicsSceneMouseEvent>
 #include <QQmlContext>
+#include <logging/logging.hpp>
+
+#include "service/EntityService.hpp"
 
 
 MWellItem::MWellItem(QGraphicsPixmapItem* parent)
     : MAbstractItem(Well, "Well", ":/resources/image/Well.png", parent) {
+    _entity = EntityService::getInstance()->createEntity("MWell");
 }
 
 void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
@@ -20,7 +24,8 @@ void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
         return;
     }
 
-    gpQmlApplicationEngine->rootContext()->setContextProperty("well", QVariant::fromValue(_well));
+    gpQmlApplicationEngine->rootContext()->setContextProperty(
+        "well", QVariant::fromValue(_entity));
     qml::navigate("/well-editor");
 
     auto* window = new MWellWindow(&_well, _itemName, nullptr);

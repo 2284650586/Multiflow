@@ -1,0 +1,13 @@
+multiflow-dist: 1.0
+
+name: MWell.General
+
+properties:
+  - id: name
+    name: Display Name
+    type: string
+
+  - id: kind
+    name: Well Type
+    type: enum
+    enum: Production, Injection

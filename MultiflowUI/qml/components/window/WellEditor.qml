@@ -9,16 +9,13 @@ import "qrc:/qml/components/singleton/"
 FluWindow {
     id: window
 
-    property string itemName: well.name
-
     height: 800
     title: "管井数据"
     visible: true
     width: 1280
 
     Component.onCompleted: {
-        window.title += ` - ${itemName}`;
-        console.log(`Bind well: ${well.name}`)
+        console.log(`Bind well: ${well.keys()}`)
     }
 
     RowLayout {

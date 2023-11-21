@@ -16,9 +16,9 @@ aux_source_directory(entity/component/well ENTITY_WELL)
 aux_source_directory(editor EDITOR)
 aux_source_directory(graphics_view GRAPHICS_VIEW)
 aux_source_directory(graphics_view/widget TWIDGET)
-aux_source_directory(util UTIL)
-aux_source_directory(util/delegate UTIL_DELEGATE)
-aux_source_directory(util/validator UTIL_VALIDATOR)
+aux_source_directory(utils utils)
+aux_source_directory(utils/delegate UTIL_DELEGATE)
+aux_source_directory(utils/validator UTIL_VALIDATOR)
 aux_source_directory(utility UTILITY)
 aux_source_directory(widget WIDGET)
 aux_source_directory(service SERVICE)
@@ -79,6 +79,16 @@ set(SOURCE_FILES
     graphics_view/MWellItem.cpp
     graphics_view/MWellItem.hpp
     entity/common.hpp
+    parser/EntityParser.cpp
+    parser/EntityParser.hpp
+    entity/MEntity.cpp
+    entity/MEntity.hpp
+    service/EntityService.cpp
+    service/EntityService.hpp
+    service/EntityService.hpp
+    utils/YamlUtils.cpp
+    utils/YamlUtils.hpp
+    utils/YamlUtils.hpp
 )
 
 include_directories(
@@ -119,4 +129,5 @@ target_link_libraries(
     Qt6::Quick
     Qt6::QuickWidgets
     Qt6::QuickControls2
+    yaml-cpp
 )

@@ -17,6 +17,13 @@
         <file>resources/image/header.png</file>
         <file>resources/image/PCP.png</file>
 
+        <file>resources/model/formulae.yaml</file>
+        <file>resources/model/structure/MWell.yaml</file>
+        <file>resources/model/structure/MWell.Completions.yaml</file>
+        <file>resources/model/structure/MWell.DeviationSurvey.yaml</file>
+        <file>resources/model/structure/MWell.General.yaml</file>
+        <file>resources/model/structure/MWell.HeatTransfer.yaml</file>
+
         <file>qml/main.qml</file>
 
         <file>qml/components/window/FormulaViewer.qml</file>

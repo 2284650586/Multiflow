@@ -1,0 +1,51 @@
+multiflow-dist: 1.0
+
+name: MWell.Completions
+
+properties:
+  - id: survey-type
+    name: Survey Type
+    type: enum
+    enum: Vertical, 2D, 3D
+
+  - id: dependent-parameter
+    name: Dependent Parameter
+    type: enum
+    enum: MD, TVD, Angle
+
+  - id: calculation-method
+    name: Calculation Method
+    type: enum
+    enum: Tangential, MinimumCurvature
+
+  - id: depth-reference
+    name: Depth Reference
+    type: enum
+    enum: OriginalRKB, RKB, GL, MSL, THF
+
+  - id: wellhead-depth
+    name: Wellhead Depth
+    type: Builtin.Length
+
+  - id: bottom-depth
+    name: Bottom Depth
+    type: Builtin.Length
+
+form-model:
+  - name: MD
+    type: double
+
+  - name: TVD
+    type: double
+
+  - name: Horizontal Displacement
+    type: double
+
+  - name: Angle
+    type: double
+
+  - name: Azimuth
+    type: double
+
+  - name: Max Dogleg Severity
+    type: double

@@ -3,17 +3,22 @@
 //
 
 #include "FormulaService.hpp"
+
 #include "parser/formula_parser.hpp"
+#include "utils/YamlUtils.hpp"
 
 #include <MultiflowLibrary/logging/logging.hpp>
 #include <qml/utils/UIUtils.hpp>
 
-void FormulaService::parserAndLoadFormulae() {
+void FormulaService::parseAndLoadFormulae() {
     ml::FormulaParser parser{};
 
-    // TODO: hardcoded path
     try {
-        auto formulae = parser.loadDistribution("D:\\dist.yaml");
+        YAML::Node node{};
+        if (!YamlUtils::loadFromQResourcePath(":/resources/model/formulae.yaml", OUT node)) {
+            throw std::runtime_error("无法加载公式文件。");
+        }
+        auto formulae = parser.parseDistribution(node);
         log_info("Loaded {} formula(e).", formulae.size());
 
         std::ranges::copy(formulae, std::back_inserter(_formulae));

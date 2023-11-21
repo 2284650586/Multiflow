@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "constants.hpp"
 #include "service/FormulaService.hpp"
+#include "service/EntityService.hpp"
 #include "qml/main.hpp"
 #include "graphics_view/MGraphicsScene.hpp"
 #include "graphics_view/MArrow.hpp"
@@ -50,7 +51,11 @@ void MainWindow::loadAndShowSplashScreen() {
 
     emit onLoadUpdate("加载公式数据...");
     log_info("Loading formulae.");
-    FormulaService::getInstance()->parserAndLoadFormulae();
+    FormulaService::getInstance()->parseAndLoadFormulae();
+
+    emit onLoadUpdate("加载实体数据...");
+    log_info("Loading entities.");
+    EntityService::getInstance()->parserAndLoadEntities();
 
     emit onLoadUpdate("加载 QML 引擎...");
     log_info("Initializing QML engine.");

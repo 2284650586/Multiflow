@@ -6,6 +6,7 @@
 
 #include "MAbstractItem.hpp"
 #include "entity/MWell.hpp"
+#include "entity/MEntity.hpp"
 
 class MWellItem final : public MAbstractItem {
 public:
@@ -17,4 +18,5 @@ public:
 
 private:
     MWell _well{};
+    MEntity* _entity;
 };
