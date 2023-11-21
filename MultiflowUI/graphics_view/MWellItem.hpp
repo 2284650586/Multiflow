@@ -5,7 +5,9 @@
 #pragma once
 
 #include "MAbstractItem.hpp"
-#include "..\entity\MWell.hpp"
+#include "entity/unit/WellReservoirUnit.hpp"
+#include "entity/MEntity.hpp"
+#include "entity/MIndependentVariables.hpp"
 
 class MWellItem final : public MAbstractItem {
 public:
@@ -16,5 +18,7 @@ public:
     [[nodiscard]] bool canConnectWith(const MAbstractItem& other, ConnectionKind kind) const override;
 
 private:
-    MWell* _well;
+    MEntity* _entity;
+    MIndependentVariables* _independentVariables;
+    WellReservoirUnit* _wellReservoirUnit;
 };

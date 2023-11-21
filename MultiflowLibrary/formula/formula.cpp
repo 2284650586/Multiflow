@@ -11,12 +11,11 @@
 #include <utility>
 
 namespace ml {
-Formula::Formula(std::string name, std::string description, std::shared_ptr<Expression> expression, std::string lisp) :
-    _name(std::move(name)),
-    _description(std::move(description)),
-    _expression(std::move(expression)),
-    _lisp(std::move(lisp)) {
-
+Formula::Formula(std::string name, std::string description, std::shared_ptr<Expression> expression, std::string lisp)
+    : _name(std::move(name)),
+      _description(std::move(description)),
+      _expression(std::move(expression)),
+      _lisp(std::move(lisp)) {
 }
 
 const std::string& Formula::name() const {
@@ -34,10 +33,10 @@ std::shared_ptr<Expression> Formula::expression() const {
 const std::string& Formula::lisp() const {
     return _lisp;
 }
+
 std::vector<std::shared_ptr<Expression>> Formula::extractVariablesAndConstants() const {
     std::vector<std::shared_ptr<Expression>> ret{};
     _internalExtractVariablesAndConstants(_expression, ret);
     return ret;
 }
-
 }

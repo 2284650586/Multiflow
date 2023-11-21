@@ -22,7 +22,7 @@ public:
 
     explicit MAbstractItem(
         MultiflowKind kind,
-        QString  itemName,
+        QString itemName,
         const QString& resourceFileName,
         QGraphicsPixmapItem* parent = nullptr
     );

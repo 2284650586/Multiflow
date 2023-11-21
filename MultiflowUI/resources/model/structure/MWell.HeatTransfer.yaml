@@ -1,0 +1,49 @@
+multiflow-dist: 1.0
+
+name: MWell.HeatTransfer
+
+properties:
+  - id: heat-transfer-coefficient
+    name: Heat Transfer Coefficient
+    type: enum
+    enum: Specify, Calculate
+
+  - id: depth-option
+    name: Depth Option
+    type: enum
+    enum: MD, TVD
+
+  - id: md
+    name: MD
+    type: number
+    independent: Yes
+
+  - id: tvd
+    name: TVD
+    type: number
+    independent: Yes
+
+  - id: ambient-temperature
+    name: Ambient Temperature
+    type: number
+    independent: Yes
+
+  - id: u-value
+    name: U Value
+    type: number
+    independent: Yes
+
+  - id: ground-density
+    name: Ground Density
+    type: number
+    independent: Yes
+
+  - id: ground-k
+    name: Ground K
+    type: number
+    independent: Yes
+
+  - id: ground-cp
+    name: Ground Cp
+    type: number
+    independent: Yes

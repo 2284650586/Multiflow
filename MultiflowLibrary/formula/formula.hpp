@@ -22,6 +22,8 @@ public:
         std::string name, std::string description, std::shared_ptr<Expression> expression,
         std::string lisp);
 
+    Formula() = default;
+
     ~Formula() = default;
 
     [[nodiscard]]

@@ -4,22 +4,22 @@
 
 #pragma once
 
-#include "..\model\QmlFormula.hpp"
+#include "qml/model/QmlFormula.hpp"
 
 #include <QObject>
 #include <QQmlApplicationEngine>
 #include <QApplication>
 
 namespace qml {
-class WindowFormulaViewer final : public QObject {
+class VMFormulaViewer final : public QObject {
     Q_OBJECT
     Q_PROPERTY(QVariantList formulae READ formulae NOTIFY onFormulaeUpdated)
     Q_PROPERTY(int selectedFormulaIndex MEMBER _selectedFormulaIndex NOTIFY onSelectFormula)
 
 public:
-    explicit WindowFormulaViewer(QObject* parent = nullptr);
+    explicit VMFormulaViewer(QObject* parent = nullptr);
 
-    ~WindowFormulaViewer() override = default;
+    ~VMFormulaViewer() override = default;
 
     [[nodiscard]] QVariantList formulae() const;
 

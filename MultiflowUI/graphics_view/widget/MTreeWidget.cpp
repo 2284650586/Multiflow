@@ -1,60 +1,40 @@
-#include "MTreeWidget.h"
+#include "MTreeWidget.hpp"
 
 #include <QIcon>
-#include <QFont>
 #include <QSize>
 
 MTreeWidget::MTreeWidget(QWidget* parent) : QTreeWidget(parent) {
-    wellIcon = QIcon(":/resources/image/Well.png");
-    sourceIcon = QIcon(":/resources/image/source.png");
-    sinkIcon = QIcon(":/resources/image/sink.png");
-    junctionIcon = QIcon(":/resources/image/junction.png");
-    flowlineIcon = QIcon(":/resources/image/flowline.png");
+    _font = headerItem()->font(0);
+    _font.setPixelSize(15);
 
-    font = headerItem()->font(0);
-    font.setPixelSize(20);
-    font.setPixelSize(15);
-
-    headerItem()->setFont(0, font);
+    headerItem()->setFont(0, _font);
     headerItem()->setText(0, "输入组件");
 }
 
+QTreeWidgetItem* MTreeWidget::_makeItem(const QString& name, const QString& iconPath) {
+    auto item = new QTreeWidgetItem{this};
+    item->setFont(0, _font);
+    item->setText(0, name);
+    item->setIcon(0, QIcon{iconPath});
+    item->setExpanded(true);
+    return item;
+}
+
 void MTreeWidget::initializeItems() {
-    if (wellItem) {
+    if (_didInitialized) {
         return;
     }
-
-    wellItem = new QTreeWidgetItem(this);
-    wellItem->setFont(0, font);
-    wellItem->setText(0, "油井");
-    wellItem->setIcon(0, wellIcon);
-    wellItem->setExpanded(true);
-
-    sourceItem = new QTreeWidgetItem(this);
-    sourceItem->setFont(0, font);
-    sourceItem->setText(0, "源");
-    sourceItem->setIcon(0, sourceIcon);
-    sourceItem->setExpanded(true);
-
-    sinkItem = new QTreeWidgetItem(this);
-    sinkItem->setFont(0, font);
-    sinkItem->setText(0, "Sink");
-    sinkItem->setIcon(0, sinkIcon);
-    sinkItem->setExpanded(true);
-
-    junctionItem = new QTreeWidgetItem(this);
-    junctionItem->setFont(0, font);
-    junctionItem->setText(0, "接合点");
-    junctionItem->setIcon(0, junctionIcon);
-    junctionItem->setExpanded(true);
-
-    flowlineItem = new QTreeWidgetItem(this);
-    flowlineItem->setFont(0, font);
-    flowlineItem->setText(0, "管道");
-    flowlineItem->setIcon(0, flowlineIcon);
-    flowlineItem->setExpanded(true);
+    _didInitialized = true;
+    _items = QVector<QTreeWidgetItem*>{
+        _makeItem("油井", ":/resources/image/Well.png"),
+        _makeItem("源", ":/resources/image/source.png"),
+        _makeItem("Sink", ":/resources/image/sink.png"),
+        _makeItem("接合点", ":/resources/image/junction.png"),
+        _makeItem("管道", ":/resources/image/flowline.png")
+    };
 }
 
 void MTreeWidget::clearItems() {
+    _didInitialized = false;
     clear();
 }

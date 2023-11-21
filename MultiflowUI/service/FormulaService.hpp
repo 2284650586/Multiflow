@@ -10,21 +10,35 @@
 
 #include <QObject>
 #include <QVector>
+#include <QMap>
 
 class FormulaService final : public QObject, public SingletonMixin<FormulaService> {
     Q_OBJECT
     friend class SingletonMixin;
+
     ~FormulaService() override = default;
 
 public:
-    void parserAndLoadFormulae();
+    void parseAndLoadFormulae();
 
     [[nodiscard]]
-    const QVector<ml::Formula>& formulae() const;
+    QVector<ml::Formula> formulae() const;
+
+    [[nodiscard]]
+    ml::Formula formula(const QString& name) const;
 
 signals:
     void formulaeLoaded();
 
 private:
-    QVector<ml::Formula> _formulae;
+    QMap<QString, ml::Formula> _nameToFormula{};
+};
+
+class FormulaNotFoundException final : public std::exception {
+    std::string _what;
+
+public:
+    explicit FormulaNotFoundException(std::string entityName) {
+        _what = std::format("Formula {} not found.", entityName);
+    }
 };

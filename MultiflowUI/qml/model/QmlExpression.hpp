@@ -33,6 +33,7 @@ public:
     ml::Number _value = 0;
 
     explicit QmlExpression(std::shared_ptr<ml::Expression> expression);
+
     QmlExpression() = default;
 
     Q_INVOKABLE QmlResult evaluate(const QmlEnvironment* environment) const;

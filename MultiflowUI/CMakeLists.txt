@@ -16,9 +16,9 @@ aux_source_directory(entity/component/well ENTITY_WELL)
 aux_source_directory(editor EDITOR)
 aux_source_directory(graphics_view GRAPHICS_VIEW)
 aux_source_directory(graphics_view/widget TWIDGET)
-aux_source_directory(util UTIL)
-aux_source_directory(util/delegate UTIL_DELEGATE)
-aux_source_directory(util/validator UTIL_VALIDATOR)
+aux_source_directory(utils utils)
+aux_source_directory(utils/delegate UTIL_DELEGATE)
+aux_source_directory(utils/validator UTIL_VALIDATOR)
 aux_source_directory(utility UTILITY)
 aux_source_directory(widget WIDGET)
 aux_source_directory(service SERVICE)
@@ -78,6 +78,36 @@ set(SOURCE_FILES
     graphics_view/MJunctionItem.hpp
     graphics_view/MWellItem.cpp
     graphics_view/MWellItem.hpp
+    entity/common.hpp
+    parser/EntityParser.cpp
+    parser/EntityParser.hpp
+    entity/MEntity.cpp
+    entity/MEntity.hpp
+    service/EntityService.cpp
+    service/EntityService.hpp
+    service/EntityService.hpp
+    utils/YamlUtils.cpp
+    utils/YamlUtils.hpp
+    utils/YamlUtils.hpp
+    unit_converter/LengthConverter.cpp
+    unit_converter/LengthConverter.hpp
+    unit_converter/LengthConverter.hpp
+    unit_converter/AbstractUnitConverter.cpp
+    unit_converter/AbstractUnitConverter.hpp
+    unit_converter/AbstractUnitConverter.hpp
+    qml/bridge/MSignalBridge.hpp
+    qml/bridge/MSignalBridge.cpp
+    qml/utils/QmlFormulaUtils.cpp
+    qml/utils/QmlFormulaUtils.hpp
+    qml/utils/QmlFormulaUtils.hpp
+    entity/MIndependentVariables.cpp
+    entity/MIndependentVariables.hpp
+    entity/MIndependentVariables.hpp
+    entity/unit/generic/CalculationUnit.cpp
+    entity/unit/generic/CalculationUnit.hpp
+    entity/unit/WellReservoirUnit.cpp
+    entity/unit/WellReservoirUnit.hpp
+    entity/unit/WellReservoirUnit.hpp
 )
 
 include_directories(
@@ -91,6 +121,10 @@ qt_add_executable(
     MultiflowUI
     ${SOURCE_FILES}
 )
+
+if(MSVC)
+    target_compile_options(MultiflowUI PRIVATE "/utf-8")
+endif()
 
 qt_add_qml_module(
     MultiflowUI
@@ -118,4 +152,5 @@ target_link_libraries(
     Qt6::Quick
     Qt6::QuickWidgets
     Qt6::QuickControls2
+    yaml-cpp
 )

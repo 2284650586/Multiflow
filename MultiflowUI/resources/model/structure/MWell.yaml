@@ -1,0 +1,25 @@
+multiflow-dist: 1.0
+
+name: MWell
+import:
+  - MWell.General
+  - MWell.DeviationSurvey
+  - MWell.HeatTransfer
+  - MWell.Completions
+
+properties:
+  - id: general
+    name: 基本信息
+    type: MWell.General
+
+  - id: deviation
+    name: Deviation
+    type: MWell.DeviationSurvey
+
+  - id: heat-transfer
+    name: 热传递
+    type: MWell.HeatTransfer
+
+  - id: completions
+    name: 仿真
+    type: MWell.Completions

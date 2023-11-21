@@ -10,13 +10,12 @@
 #include "shared.hpp"
 #include "constants.hpp"
 
-UIUtils::UIUtils(QObject *parent)
-: IQmlSingleton<UIUtils>("Multiflow.UI", 1, 0, "UIUtils") {
-
+UIUtils::UIUtils(QObject* parent)
+    : QObject(parent), IQmlSingleton("Multiflow.UI", 1, 0, "UIUtils") {
 }
 
 [[maybe_unused]] bool
-UIUtils::confirm(const QString &message, const QString &positiveButtonText, const QString &negativeButtonText) {
+UIUtils::confirm(const QString& message, const QString& positiveButtonText, const QString& negativeButtonText) {
     auto dialog = QMessageBox();
     dialog.setWindowTitle(AppName);
     dialog.setText(message);
@@ -28,7 +27,7 @@ UIUtils::confirm(const QString &message, const QString &positiveButtonText, cons
 }
 
 [[maybe_unused]] void
-UIUtils::error(const QString &message, const QString &positiveButtonText) {
+UIUtils::error(const QString& message, const QString& positiveButtonText) {
     auto dialog = QMessageBox();
     dialog.setWindowTitle(AppName);
     dialog.setText(message);

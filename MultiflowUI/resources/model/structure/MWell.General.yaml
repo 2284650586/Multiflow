@@ -1,0 +1,17 @@
+multiflow-dist: 1.0
+
+name: MWell.General
+
+properties:
+  - id: name
+    name: 名称
+    type: string
+
+  - id: kind
+    name: 管井类型
+    type: enum
+    enum: Production, Injection
+
+  - id: length
+    name: 转换器测试
+    type: Builtin.Length

@@ -3,5 +3,5 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Item {
-    Layout.fillWidth: true
+  Layout.fillWidth: true
 }

@@ -13,7 +13,7 @@
 #include <memory>
 
 argparse::ArgumentParser prepareParser();
-void startupUI(const int argc, const char* argv[]);
+void startupUI(int argc, const char* argv[]);
 void printVersions();
 
 
@@ -23,6 +23,8 @@ static constexpr int ErrorInvalidArgument = 1;
 
 int main(int argc, char *argv[]) {
     ml::initialize();
+    log_init(MultiflowUI, level::debug);
+
     gpApplication = std::make_unique<QApplication>(argc, argv);
 
     auto parser = prepareParser();
@@ -44,6 +46,7 @@ int main(int argc, char *argv[]) {
     startupUI(argc, const_cast<const char**>(argv));
 
     if (propertyEnableVerbose) {
+        log_init(MultiflowUI, level::trace);
         log_trace("Verbose ml enabled.");
         printVersions();
     }

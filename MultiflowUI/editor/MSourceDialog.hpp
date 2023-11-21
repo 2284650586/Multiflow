@@ -3,7 +3,7 @@
 #include <QDialog>
 #include <QObject>
 
-#include "..\entity\MSource.hpp"
+#include "entity/MSource.hpp"
 
 class QLabel;
 class QLineEdit;

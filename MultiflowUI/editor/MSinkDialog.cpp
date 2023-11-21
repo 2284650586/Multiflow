@@ -78,11 +78,11 @@ void MSinkDialog::setupUI() {
 
 void MSinkDialog::updateDialogFromMSink() {
     if (_sink) {
-        sinkPressureLineEdit->setText(QString::number(_sink->getSinkPressure()));
-        sinkTemperatureLineEdit->setText(QString::number(_sink->getSinkTemperature()));
-        sinkFlowRateLineEdit->setText(QString::number(_sink->getSinkFlowRate()));
+        sinkPressureLineEdit->setText(QString::number(_sink->sinkPressure));
+        sinkTemperatureLineEdit->setText(QString::number(_sink->sinkTemperature));
+        sinkFlowRateLineEdit->setText(QString::number(_sink->sinkFlowRate));
 
-        switch (_sink->getSinkFlowType()) {
+        switch (_sink->sinkFlowType) {
             case MSink::Liquid:
                 sinkFlowTypeComboBox->setCurrentIndex(0);
                 break;
@@ -99,19 +99,19 @@ void MSinkDialog::updateDialogFromMSink() {
 void MSinkDialog::updateMSinkFromDialog() {
     if (_sink) {
         mName = sinkNameLineEdit->text();
-        _sink->setSinkPressure(sinkPressureLineEdit->text().toDouble());
-        _sink->setSinkTemperature(sinkTemperatureLineEdit->text().toDouble());
-        _sink->setSinkFlowRate(sinkFlowRateLineEdit->text().toDouble());
+        _sink->sinkPressure = sinkPressureLineEdit->text().toDouble();
+        _sink->sinkTemperature = sinkTemperatureLineEdit->text().toDouble();
+        _sink->sinkFlowRate = sinkFlowRateLineEdit->text().toDouble();
 
         switch (sinkFlowTypeComboBox->currentIndex()) {
             case 0:
-                _sink->setSinkFlowType(MSink::Liquid);
+                _sink->sinkFlowType = MSink::Liquid;
                 break;
             case 1:
-                _sink->setSinkFlowType(MSink::Gas);
+                _sink->sinkFlowType = MSink::Gas;
                 break;
             case 2:
-                _sink->setSinkFlowType(MSink::Mass);
+                _sink->sinkFlowType = MSink::Mass;
                 break;
         }
     }

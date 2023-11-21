@@ -5,7 +5,7 @@
 #pragma once
 
 #include "MAbstractItem.hpp"
-#include "..\entity\MSource.hpp"
+#include "entity/MSource.hpp"
 
 class MSourceItem final : public MAbstractItem {
 public:

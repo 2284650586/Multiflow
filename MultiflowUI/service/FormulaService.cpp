@@ -3,20 +3,27 @@
 //
 
 #include "FormulaService.hpp"
+
 #include "parser/formula_parser.hpp"
+#include "utils/YamlUtils.hpp"
 
 #include <MultiflowLibrary/logging/logging.hpp>
 #include <qml/utils/UIUtils.hpp>
 
-void FormulaService::parserAndLoadFormulae() {
+void FormulaService::parseAndLoadFormulae() {
     ml::FormulaParser parser{};
 
-    // TODO: hardcoded path
     try {
-        auto formulae = parser.loadDistribution("D:\\dist.yaml");
+        YAML::Node node{};
+        if (!YamlUtils::loadFromQResourcePath(":/resources/model/formulae.yaml", OUT node)) {
+            throw std::runtime_error("无法加载公式文件。");
+        }
+        const auto formulae = parser.parseDistribution(node);
         log_info("Loaded {} formula(e).", formulae.size());
 
-        std::ranges::copy(formulae, std::back_inserter(_formulae));
+        for (const auto& formula: formulae) {
+            _nameToFormula.insert(QString::fromStdString(formula.name()), formula);
+        }
         emit formulaeLoaded();
     }
     catch (const ml::MalformedDistException& e) {
@@ -30,6 +37,13 @@ void FormulaService::parserAndLoadFormulae() {
     }
 }
 
-const QVector<ml::Formula>& FormulaService::formulae() const {
-    return _formulae;
+QVector<ml::Formula> FormulaService::formulae() const {
+    return {_nameToFormula.values()};
+}
+
+ml::Formula FormulaService::formula(const QString& name) const {
+    if (!_nameToFormula.contains(name)) {
+        throw FormulaNotFoundException{name.toStdString()};
+    }
+    return std::move(_nameToFormula[name]);
 }

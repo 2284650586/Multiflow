@@ -80,11 +80,11 @@ void MSourceDialog::setupUI() {
 
 void MSourceDialog::updateDialogFromMSource() {
     if (_source) {
-        sourcePressureLineEdit->setText(QString::number(_source->getSourcePressure()));
-        sourceTemperatureLineEdit->setText(QString::number(_source->getSourceTemperature()));
-        sourceFlowRateLineEdit->setText(QString::number(_source->getSourceFlowRate()));
+        sourcePressureLineEdit->setText(QString::number(_source->sourcePressure));
+        sourceTemperatureLineEdit->setText(QString::number(_source->sourceTemperature));
+        sourceFlowRateLineEdit->setText(QString::number(_source->sourceFlowRate));
 
-        switch (_source->getSourceFlowType()) {
+        switch (_source->sourceFlowType) {
             case MSource::Liquid:
                 sourceFlowTypeComboBox->setCurrentIndex(0);
                 break;
@@ -101,19 +101,19 @@ void MSourceDialog::updateDialogFromMSource() {
 void MSourceDialog::updateMSourceFromDialog() {
     if (_source) {
         mName = sourceNameLineEdit->text();
-        _source->setSourcePressure(sourcePressureLineEdit->text().toDouble());
-        _source->setSourceTemperature(sourceTemperatureLineEdit->text().toDouble());
-        _source->setSourceFlowRate(sourceFlowRateLineEdit->text().toDouble());
+        _source->sourcePressure = sourcePressureLineEdit->text().toDouble();
+        _source->sourceTemperature = sourceTemperatureLineEdit->text().toDouble();
+        _source->sourceFlowRate = sourceFlowRateLineEdit->text().toDouble();
 
         switch (sourceFlowTypeComboBox->currentIndex()) {
             case 0:
-                _source->setSourceFlowType(MSource::Liquid);
+                _source->sourceFlowType = MSource::Liquid;
                 break;
             case 1:
-                _source->setSourceFlowType(MSource::Gas);
+                _source->sourceFlowType = MSource::Gas;
                 break;
             case 2:
-                _source->setSourceFlowType(MSource::Mass);
+                _source->sourceFlowType = MSource::Mass;
                 break;
         }
     }

@@ -3,7 +3,7 @@
 //
 
 #include "MSinkItem.hpp"
-#include "..\editor\MSinkDialog.hpp"
+#include "editor/MSinkDialog.hpp"
 
 #include <QGraphicsSceneMouseEvent>
 

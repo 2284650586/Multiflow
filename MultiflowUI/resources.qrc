@@ -16,9 +16,23 @@
         <file>resources/image/ESP.png</file>
         <file>resources/image/header.png</file>
         <file>resources/image/PCP.png</file>
+
+        <file>resources/model/formulae.yaml</file>
+        <file>resources/model/structure/MWell.yaml</file>
+        <file>resources/model/structure/MWell.Completions.yaml</file>
+        <file>resources/model/structure/MWell.DeviationSurvey.yaml</file>
+        <file>resources/model/structure/MWell.General.yaml</file>
+        <file>resources/model/structure/MWell.HeatTransfer.yaml</file>
+
         <file>qml/main.qml</file>
+
         <file>qml/components/window/FormulaViewer.qml</file>
+        <file>qml/components/window/WellEditor.qml</file>
+
         <file>qml/components/page/FormulaGeneric.qml</file>
+
+        <file>qml/components/singleton/Colors.qml</file>
+
         <file>qml/components/widget/FormulaPaneItem.qml</file>
         <file>qml/components/widget/HSpacer.qml</file>
         <file>qml/components/widget/VSpacer.qml</file>
@@ -26,5 +40,8 @@
         <file>qml/components/widget/FormulaText.qml</file>
         <file>qml/components/widget/NavigationView.qml</file>
         <file>qml/components/widget/AutoSuggestBox.qml</file>
+
+        <file>qml/components/widget/FTableView.qml</file>
+        <file>qml/components/widget/FTableModelColumn.qml</file>
     </qresource>
 </RCC>

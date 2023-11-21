@@ -1,7 +1,7 @@
 #pragma once
 
-#include "..\entity\MFlowline.hpp"
-#include "..\editor\MFlowlineDialog.hpp"
+#include "entity/MFlowline.hpp"
+#include "editor/MFlowlineDialog.hpp"
 
 #include <QGraphicsItem>
 #include <QPainter>
