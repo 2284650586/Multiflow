@@ -9,6 +9,8 @@
 #include <QDataStream>
 #include <QStandardPaths>
 #include <QString>
+#include <QByteArray>
+#include <QIODevice>
 
 SettingsHelper::SettingsHelper(QObject* parent)
     : QObject(parent),

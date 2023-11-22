@@ -10,6 +10,7 @@ if ("$ENV{QT_DEV_ENV}" STREQUAL "Z")
     message(STATUS "Developer: z")
     if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
         set(CMAKE_PREFIX_PATH "/Users/miku/Qt/6.5.3/macos")
+        set(CMAKE_OSX_ARCHITECTURES "arm64")
     else ()
         set(CMAKE_PREFIX_PATH "D:/Qt/6.5.2/msvc2019_64")
     endif ()
@@ -68,10 +69,10 @@ if (NOT (CMAKE_SYSTEM_NAME STREQUAL "Darwin"))
 endif ()
 
 add_subdirectory(MultiflowLibrary)
-add_subdirectory(MultiflowUI)
 
 # Include FluentUI
 # 这个库写的不行，一大堆警告，屏蔽一下
+set(FRAMELESSHELPER_NO_SUMMARY OFF)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE STRING "Initial CXX Flags" FORCE)
 add_compile_options(-w)
 set(FLUENTUI_BUILD_EXAMPLES OFF)
@@ -81,3 +82,5 @@ add_subdirectory(FluentUI)
 
 # 解除对警告的屏蔽
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE STRING "Restored CXX Flags" FORCE)
+
+add_subdirectory(MultiflowUI)

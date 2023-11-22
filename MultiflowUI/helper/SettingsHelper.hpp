@@ -10,7 +10,10 @@
 #include "qml/mixin/SingletonMixin.hpp"
 #include "qml/interface/IQmlSingleton.hpp"
 
-class SettingsHelper : public QObject, public SingletonMixin<SettingsHelper>, public IQmlSingleton<SettingsHelper> {
+#include <QVariant>
+#include <QObject>
+
+class SettingsHelper final : public QObject, public SingletonMixin<SettingsHelper>, public IQmlSingleton<SettingsHelper> {
 Q_OBJECT
 
 explicit SettingsHelper(QObject* parent = nullptr);
