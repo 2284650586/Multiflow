@@ -93,19 +93,19 @@ void MainWindow::createActions() {
     connect(deleteAction, &QAction::triggered, this, &MainWindow::deleteItem);
 
     newWellAction = new QAction(QIcon(":/resources/image/Well.png"), "新建井(&W)", this);
-    newWellAction->setData(MultiflowKind::Well);
+    newWellAction->setData(MItemKind::Well);
     connect(newWellAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
     newSourceAction = new QAction(QIcon(":/resources/image/source.png"), "新建源(&S)", this);
-    newSourceAction->setData(MultiflowKind::Source);
+    newSourceAction->setData(MItemKind::Source);
     connect(newSourceAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
     newSinkAction = new QAction(QIcon(":/resources/image/sink.png"), "新建 S&ink", this);
-    newSinkAction->setData(MultiflowKind::Sink);
+    newSinkAction->setData(MItemKind::Sink);
     connect(newSinkAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
     newJunctionAction = new QAction(QIcon(":/resources/image/junction.png"), "新建接合点(&C)", this);
-    newJunctionAction->setData(MultiflowKind::Junction);
+    newJunctionAction->setData(MItemKind::Junction);
     connect(newJunctionAction, &QAction::triggered, this, &MainWindow::createMulItem);
 
     _exitAction = new QAction(tr("退出(&X)"), this);
@@ -263,7 +263,7 @@ void MainWindow::createMulItem() {
     const auto* view = tabWidget->currentTGraphicsView();
     auto* scene = view->scene();
     scene->setMode(MGraphicsScene::InsertItem);
-    scene->setItemType(static_cast<MultiflowKind>(type));
+    scene->setItemType(static_cast<MItemKind>(type));
     setCursor(Qt::CrossCursor);
 }
 

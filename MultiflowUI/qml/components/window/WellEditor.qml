@@ -16,6 +16,8 @@ FluWindow {
 
   signal onDataChanged(var data)
 
+  property var well: entity
+
   Component.onCompleted: {
     /**
      * `well`: 管井数据
@@ -365,7 +367,7 @@ FluWindow {
 
       function _handleCalculation() {
         calculationUnit.update(argument.entity, independentVariables)
-        const results = calculationUnit.evaluate()
+        const results = calculationUnit.evaluate("reservoir")
         console.log(results)
         showAlert("演算结果", results.join(", "))
       }

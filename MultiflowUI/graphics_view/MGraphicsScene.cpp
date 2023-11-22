@@ -15,6 +15,11 @@
 #include <QApplication>
 #include <QGraphicsItem>
 
+#include "qml/utils/UIUtils.hpp"
+
+constexpr QGraphicsSceneMouseEvent* EventNothing = nullptr;
+
+
 MGraphicsScene::MGraphicsScene(QObject* parent)
     : QGraphicsScene{parent},
       _sceneMode(MoveItem) {
@@ -24,32 +29,31 @@ void MGraphicsScene::setMode(const Mode mode) {
     _sceneMode = mode;
 }
 
-void MGraphicsScene::setItemType(const MultiflowKind kind) {
+void MGraphicsScene::setItemType(const MItemKind kind) {
     _itemKind = kind;
+}
+
+MAbstractItem* MGraphicsScene::_createItem(const MItemKind kind) {
+    switch (kind) {
+        case Well: return new MWellItem{};
+        case Source: return new MSourceItem{};
+        case Sink: return new MSinkItem{};
+        case Junction: return new MJunctionItem{};
+        default: throw ItemNotFoundException{"不存在这种类型的图元"};
+    }
 }
 
 void MGraphicsScene::_handleInsertItem(const QGraphicsSceneMouseEvent* event) {
     MAbstractItem* item;
-    switch (_itemKind) {
-        case Well:
-            item = new MWellItem{};
-            break;
-
-        case Source:
-            item = new MSourceItem{};
-            break;
-
-        case Sink:
-            item = new MSinkItem{};
-            break;
-
-        case Junction:
-            item = new MJunctionItem{};
-            break;
-
-        default:
-            return;
+    try {
+        item = _createItem(_itemKind);
     }
+    catch (const ItemNotFoundException& e) {
+        _handleSetPointer(EventNothing);
+        UIUtils::error(e.what(), "好");
+        return;
+    }
+
     addItem(item);
     item->setPos(event->scenePos());
     update();
@@ -143,7 +147,7 @@ void MGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
         auto* startItem = qgraphicsitem_cast<MAbstractItem*>(startItems.first());
         auto* endItem = qgraphicsitem_cast<MAbstractItem*>(endItems.first());
 
-        if (judgeConnect(startItem, endItem)) {
+        if (canInterConnect(startItem, endItem)) {
             const auto arrow = new MAbstractItem::ArrowType{startItem, endItem};
             startItem->addArrow(arrow);
             endItem->addArrow(arrow);
@@ -165,7 +169,7 @@ bool MGraphicsScene::isItemChange(const int type) const {
     );
 }
 
-bool MGraphicsScene::judgeConnect(const MAbstractItem* startItem, const MAbstractItem* endItem) {
+bool MGraphicsScene::canInterConnect(const MAbstractItem* startItem, const MAbstractItem* endItem) {
     return startItem->canConnectWith(*endItem, START_TO_END)
            && endItem->canConnectWith(*startItem, END_TO_START);
 }

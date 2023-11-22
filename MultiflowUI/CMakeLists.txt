@@ -105,9 +105,9 @@ set(SOURCE_FILES
     entity/MIndependentVariables.hpp
     entity/unit/generic/CalculationUnit.cpp
     entity/unit/generic/CalculationUnit.hpp
-    entity/unit/WellReservoirUnit.cpp
-    entity/unit/WellReservoirUnit.hpp
-    entity/unit/WellReservoirUnit.hpp
+    entity/unit/WellCalculationUnit.cpp
+    entity/unit/WellCalculationUnit.hpp
+    entity/unit/WellCalculationUnit.hpp
 )
 
 include_directories(

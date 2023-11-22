@@ -3,11 +3,30 @@
 //
 
 #include "MAbstractItem.hpp"
+#include "qml/main.hpp"
+
+#include <logging/logging.hpp>
+
+#include <QQmlContext>
 
 #include <utility>
 
-MAbstractItem::MAbstractItem(const MultiflowKind kind, QString itemName, const QString& resourceFileName, QGraphicsPixmapItem* parent)
-    : _kind(kind), _itemName(std::move(itemName)), QGraphicsPixmapItem(parent) {
+MAbstractItem::MAbstractItem(
+    const MItemKind kind,
+    QString itemName,
+    const QString& resourceFileName,
+    QString route,
+    MEntity* entity,
+    CalculationUnit* calculationUnit,
+    QGraphicsPixmapItem* parent)
+    : QGraphicsPixmapItem(parent),
+      _kind(kind),
+      _itemName(std::move(itemName)),
+      _qmlRoute(std::move(route)),
+      _entity(entity),
+      _independentVariables(new MIndependentVariables{}),
+      _calculationUnit(calculationUnit),
+      _bridge(new MSignalBridge{}) {
     setPixmap(QPixmap{resourceFileName}
         .scaled(30, 30, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     setFlags(
@@ -16,6 +35,42 @@ MAbstractItem::MAbstractItem(const MultiflowKind kind, QString itemName, const Q
         | ItemSendsGeometryChanges
         | ItemIsFocusable
     );
+
+    QObject::connect(_bridge, &MSignalBridge::onDataChanged, [this](const QVariant& data) {
+        /// Casting directly to MEntity* will produce nullptr,
+        /// however, a middle step (QQmlPropertyMap*, aka MEntity's superclass)
+        /// can get the valid pointer. 好奇怪啊
+        const auto* entityStep1 = data.value<QQmlPropertyMap*>();
+        const auto* entityStep2 = dynamic_cast<const MEntity*>(entityStep1);
+        // const auto* entity = data.value<MEntity*>(); // nullptr
+
+        if (!entityStep2) {
+            log_critical("Failed to cast QVariant to MEntity*");
+            return;
+        }
+        // 其实是同一份啦
+        assert(_entity == entityStep2);
+        onUserDataSaved();
+    });
+}
+
+void MAbstractItem::openEditorDialog(const QString& route) const {
+    // TODO: Don't use global context
+    auto* context = gpQmlApplicationEngine->rootContext();
+    context->setContextProperty("bridge", _bridge);
+    context->setContextProperty("entity", QVariant::fromValue(_entity));
+    context->setContextProperty("independentVariables", QVariant::fromValue(_independentVariables));
+    context->setContextProperty("calculationUnit", QVariant::fromValue(_calculationUnit));
+    qml::navigate(route);
+}
+
+
+void MAbstractItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
+    event->accept();
+    if (event->button() != Qt::LeftButton) {
+        return;
+    }
+    openEditorDialog(_qmlRoute);
 }
 
 void MAbstractItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
@@ -62,7 +117,7 @@ const QList<MAbstractItem::ArrowType*>& MAbstractItem::arrows() const {
     return _arrows;
 }
 
-MultiflowKind MAbstractItem::itemKind() const {
+MItemKind MAbstractItem::itemKind() const {
     return _kind;
 }
 
@@ -100,7 +155,7 @@ size_t MAbstractItem::countEndArrows() const {
 
 QVariant MAbstractItem::itemChange(const GraphicsItemChange change, const QVariant& value) {
     if (change == ItemPositionChange) {
-        std::ranges::for_each(_arrows, [] (const auto& arrow) {
+        std::ranges::for_each(_arrows, [](const auto& arrow) {
             arrow->updatePosition();
         });
     }
