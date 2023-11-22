@@ -9,7 +9,7 @@ project(
 if ("$ENV{QT_DEV_ENV}" STREQUAL "Z")
     message(STATUS "Developer: z")
     if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-        set(CMAKE_PREFIX_PATH "/Users/miku/Qt/6.5.3/macos")
+        set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/qt/6.6.0")
         set(CMAKE_OSX_ARCHITECTURES "arm64")
     else ()
         set(CMAKE_PREFIX_PATH "D:/Qt/6.5.2/msvc2019_64")

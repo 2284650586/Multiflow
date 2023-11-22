@@ -21,6 +21,7 @@
 #include <QTimer>
 #include <QComboBox>
 #include <QToolBar>
+#include <QMessageBox>
 #include <FluentUI/src/FluApp.h>
 #include <qml/utils/UIUtils.hpp>
 

@@ -4,14 +4,8 @@
 #include "graphics_view/MAbstractItem.hpp"
 #include "graphics_view/widget/MTabWidget.hpp"
 #include "graphics_view/widget/MTreeWidget.hpp"
-#include "graphics_view/MGraphicsView.h"
+#include "graphics_view/MGraphicsView.hpp"
 #include "shared.hpp"
-
-// TODO: 这个对QMessageBox的包含看上去并没有在mainwindow中用到
-// TODO: 但是如果去掉，会出现大量来自Qt的qmessagebox.h内部的报错
-// TODO: 也许前面一系列头文件有互相包含的问题吧？暂时没找到原因
-// TODO: 尽量不使用 class xxx; 的前置声明，而是使用 #include 的方式，应该会好一些
-#include <QMessageBox>
 
 #include <QObject>
 #include <QAction>
