@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.27)
 
 project(
     Multiflow
@@ -6,15 +6,15 @@ project(
     LANGUAGES CXX
 )
 
-if ( "$ENV{QT_DEV_ENV}" STREQUAL "Z" )
+if ("$ENV{QT_DEV_ENV}" STREQUAL "Z")
     message(STATUS "Developer: z")
-    if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
         set(CMAKE_PREFIX_PATH "/Users/miku/Qt/6.5.3/macos")
     else ()
         set(CMAKE_PREFIX_PATH "D:/Qt/6.5.2/msvc2019_64")
     endif ()
 
-elseif ( "$ENV{QT_DEV_ENV}" STREQUAL "LXT" )
+elseif ("$ENV{QT_DEV_ENV}" STREQUAL "LXT")
     message(STATUS "Developer: lxt")
     set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/msvc2019_64")
     set(ENV{http_proxy} "http://127.0.0.1:7890")
@@ -54,14 +54,14 @@ include_directories(${spdlog_SOURCE_DIR}/include)
 
 # Include fmt
 FetchContent_Declare(
-        fmt
-        URL https://github.com/fmtlib/fmt/releases/download/10.1.1/fmt-10.1.1.zip
-        DOWNLOAD_EXTRACT_TIMESTAMP 1
+    fmt
+    URL https://github.com/fmtlib/fmt/releases/download/10.1.1/fmt-10.1.1.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP 1
 )
 FetchContent_MakeAvailable(fmt)
 include_directories(${fmt_SOURCE_DIR}/include)
 
-if(NOT (CMAKE_SYSTEM_NAME STREQUAL "Darwin"))
+if (NOT (CMAKE_SYSTEM_NAME STREQUAL "Darwin"))
     # Place executables and libraries in the same directory
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})

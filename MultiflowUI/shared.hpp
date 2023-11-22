@@ -27,14 +27,14 @@ extern QQmlApplicationEngine* gpQmlApplicationEngine;
 /**
  * @brief The global QML application object.
  */
-extern std::unique_ptr<QApplication> gpApplication;
+extern QApplication* gpApplication;
 
 /**
  * @brief The global Widget-based main window.
  */
-extern std::unique_ptr<QMainWindow> gpWindowMain;
+extern QMainWindow* gpWindowMain;
 
 /**
  * @brief The global QML-based formula viewer window.
  */
-extern std::unique_ptr<QObject> gpQmlVMFormulaViewer;
+extern QObject* gpQmlVMFormulaViewer;

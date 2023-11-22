@@ -1,7 +1,6 @@
 #pragma once
 
-#include <QtCore/qobject.h>
-#include <QtQml/qqml.h>
+#include <QObject>
 #include <QSettings>
 #include <QScopedPointer>
 #include <QFileInfo>

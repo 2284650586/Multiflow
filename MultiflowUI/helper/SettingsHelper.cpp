@@ -8,6 +8,7 @@
 
 #include <QDataStream>
 #include <QStandardPaths>
+#include <QString>
 
 SettingsHelper::SettingsHelper(QObject* parent)
     : QObject(parent),

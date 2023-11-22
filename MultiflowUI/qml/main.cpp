@@ -19,7 +19,7 @@ static bool _didInitialized = false;
 
 void _tryCreateApplicationEngine() {
     if (!gpQmlApplicationEngine) {
-        gpQmlApplicationEngine = new QQmlApplicationEngine{gpApplication.get()};
+        gpQmlApplicationEngine = new QQmlApplicationEngine{gpApplication};
         FluentUI::getInstance()->registerTypes(gpQmlApplicationEngine);
     }
 }
@@ -46,7 +46,7 @@ void _applyVisualStyles() {
 }
 
 void _initializeViewModels() {
-    gpQmlVMFormulaViewer = std::make_unique<VMFormulaViewer>();
+    gpQmlVMFormulaViewer = new VMFormulaViewer();
 }
 
 void initialize(int, const char* argv[]) {

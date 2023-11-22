@@ -6,8 +6,8 @@
 #include "utils/YamlUtils.hpp"
 #include "unit_converter/LengthConverter.hpp"
 
-#include <QResource>
 #include <QDir>
+#include <QVariant>
 #include <logging/logging.hpp>
 
 static QString qFromNode(const YAML::Node& node) {

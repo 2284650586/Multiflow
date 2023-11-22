@@ -1,17 +1,20 @@
 #pragma once
 
 #include <QDialog>
-#include "entity/MFlowline.hpp"
+#include <QObject>
+#include <QStandardItemModel>
+#include <QVector>
+#include <QMap>
+#include <QTableView>
+#include <QScrollArea>
+#include <QLabel>
+#include <QLineEdit>
+#include <QComboBox>
+#include <QChartView>
+#include <QLineSeries>
+#include <QScatterSeries>
 
-class QStandardItemModel;
-class QTableView;
-class QScrollArea;
-class QLabel;
-class QLineEdit;
-class QComboBox;
-class QChartView;
-class QLineSeries;
-class QScatterSeries;
+#include "entity/MFlowline.hpp"
 
 class MFlowlineDialog : public QDialog {
     Q_OBJECT
