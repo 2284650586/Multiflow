@@ -61,7 +61,7 @@ void EntityParser::_loadEntity(QString entityName) {
     if (const QString& path = _entityFileNameToPath[entityName];
         !YamlUtils::loadFromQResourcePath(path, OUT node)) {
         throw ParseException{
-            std::format("Failed to load entity file: {}", entityName.toStdString())
+            fmt::format("Failed to load entity file: {}", entityName.toStdString())
         };
     }
     _parseDistribution(node);
@@ -102,7 +102,7 @@ void EntityParser::_handleDependencies(const YAML::Node& dependencies) {
         if (_pendingEntities.contains(depName)) {
             // Dependency loop.
             throw ParseException{
-                std::format("Dependency loop detected: {}", depName.toStdString())
+                fmt::format("Dependency loop detected: {}", depName.toStdString())
             };
         }
         _pendingEntities.push(depName);
@@ -121,7 +121,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
 
         if (!id.IsDefined() || !name.IsDefined() || !type.IsDefined()) {
             throw ParseException{
-                std::format("Malformed property of entity {}.", entityName.toStdString())
+                fmt::format("Malformed property of entity {}.", entityName.toStdString())
             };
         }
 
@@ -169,7 +169,7 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
     }
     else {
         throw ParseException{
-            std::format("Unknown primitive type: {}", builtinType.toStdString())
+            fmt::format("Unknown primitive type: {}", builtinType.toStdString())
         };
     }
 }
@@ -177,7 +177,7 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
 void EntityParser::_handleReferenceType(const QString& referenceType, const ParserContext& context) {
     if (!_entityNameToEntity.contains(referenceType)) {
         throw ParseException{
-            std::format("Unknown reference type: {}", referenceType.toStdString())
+            fmt::format("Unknown reference type: {}", referenceType.toStdString())
         };
     }
     const auto* entityValue = _entityNameToEntity[referenceType];
@@ -193,7 +193,7 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
 }
 
 void EntityParser::_handlePrimitiveType(const QString& primitiveType, const ParserContext& context) {
-    if (QVector{"number"}.contains(primitiveType)) {
+    if (QVector<QString>{"number"}.contains(primitiveType)) {
         context.entity->insert(
             context.propertyId, QVariant::fromValue(MProperty{
                 .name = context.propertyName,
@@ -217,7 +217,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
         const auto& enumField = context.node["enum"];
         if (!enumField.IsDefined()) {
             throw ParseException(
-                std::format("没有给枚举类型定义数据: {}", context.propertyName.toStdString()));
+                fmt::format("没有给枚举类型定义数据: {}", context.propertyName.toStdString()));
         }
         context.entity->insert(
             context.propertyId, QVariant::fromValue(MProperty{
@@ -230,7 +230,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
     }
     else {
         throw ParseException{
-            std::format("Unknown primitive type: {}", primitiveType.toStdString())
+            fmt::format("Unknown primitive type: {}", primitiveType.toStdString())
         };
     }
 }

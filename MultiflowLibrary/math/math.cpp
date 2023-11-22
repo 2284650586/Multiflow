@@ -1,6 +1,7 @@
 #include "math/math.hpp"
 
 #include <cmath>
+#include <algorithm>
 
 namespace ml {
 constexpr double ZERO_THRESHOLD = 1e-5;
@@ -8,7 +9,7 @@ constexpr double ZERO_THRESHOLD = 1e-5;
 math_error::math_error(const char* what) : _what(what) {
 }
 
-const char* math_error::what() const {
+const char* math_error::what() const noexcept {
     return _what;
 }
 

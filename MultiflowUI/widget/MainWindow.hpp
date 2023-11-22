@@ -18,7 +18,9 @@
 #include <QSplitter>
 #include <QMenu>
 #include <QButtonGroup>
+#include <QToolButton>
 
+#include <memory>
 
 class MainWindow final : public QMainWindow {
     Q_OBJECT

@@ -8,7 +8,7 @@
 
 #include <utility>
 #include <vector>
-#include <format>
+#include <fmt/core.h>
 
 namespace ml {
 Logarithm::Logarithm(std::vector<std::shared_ptr<Expression>> operands)
@@ -25,7 +25,7 @@ Number Logarithm::evaluate(Environment& env) {
 }
 
 std::string Logarithm::representation() const {
-    return std::format(
+    return fmt::format(
         "log({}, {})", _operands[0]->representation(), _operands[1]->representation());
 }
 

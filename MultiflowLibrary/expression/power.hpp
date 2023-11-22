@@ -9,6 +9,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace ml {
 class ML_PUBLIC Power final : public Expression {

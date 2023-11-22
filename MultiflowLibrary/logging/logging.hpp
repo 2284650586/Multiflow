@@ -4,6 +4,11 @@
 
 // #define SPDLOG_WCHAR_TO_UTF8_SUPPORT
 #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_DEBUG
+#define SPDLOG_FMT_EXTERNAL
+#define SPDLOG_HEADER_ONLY
+#define FMT_HEADER_ONLY
+#undef SPDLOG_COMPILED_LIB
+
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 

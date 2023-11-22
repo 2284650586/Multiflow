@@ -10,6 +10,7 @@
 #include <QQmlContext>
 
 #include <logging/logging.hpp>
+#include <fmt/core.h>
 
 #include "qml/bridge/MSignalBridge.hpp"
 #include "service/EntityService.hpp"

@@ -153,4 +153,5 @@ target_link_libraries(
     Qt6::QuickWidgets
     Qt6::QuickControls2
     yaml-cpp
+    fmt
 )

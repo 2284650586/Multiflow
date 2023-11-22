@@ -8,7 +8,7 @@
 
 #include <utility>
 #include <vector>
-#include <format>
+#include <fmt/core.h>
 
 namespace ml {
 LogicalNot::LogicalNot(std::vector<std::shared_ptr<Expression>> operands)
@@ -24,7 +24,7 @@ Number LogicalNot::evaluate(Environment& env) {
 }
 
 std::string LogicalNot::representation() const {
-    return std::format("(not {})", _operands[0]->representation());
+    return fmt::format("(not {})", _operands[0]->representation());
 }
 
 const std::vector<std::shared_ptr<Expression>>& LogicalNot::operands() const {
