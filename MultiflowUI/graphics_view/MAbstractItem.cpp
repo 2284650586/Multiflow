@@ -54,14 +54,14 @@ MAbstractItem::MAbstractItem(
     });
 }
 
-void MAbstractItem::openEditorDialog(const QString& route) const {
+QQuickWindow* MAbstractItem::openEditorDialog(const QString& route) const {
     // TODO: Don't use global context
     auto* context = gpQmlApplicationEngine->rootContext();
     context->setContextProperty("bridge", _bridge);
     context->setContextProperty("entity", QVariant::fromValue(_entity));
     context->setContextProperty("independentVariables", QVariant::fromValue(_independentVariables));
     context->setContextProperty("calculationUnit", QVariant::fromValue(_calculationUnit));
-    qml::navigate(route);
+    return qml::navigate(route);
 }
 
 
@@ -70,7 +70,7 @@ void MAbstractItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
     if (event->button() != Qt::LeftButton) {
         return;
     }
-    openEditorDialog(_qmlRoute);
+    Q_UNUSED(openEditorDialog(_qmlRoute))
 }
 
 void MAbstractItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {

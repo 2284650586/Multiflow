@@ -1,9 +1,10 @@
 #pragma once
 
 #include <QString>
+#include <QQuickWindow>
 
 namespace qml {
 void initialize(int argc, const char* argv[]);
 
-void navigate(const QString& route);
+QQuickWindow* navigate(const QString& route);
 }

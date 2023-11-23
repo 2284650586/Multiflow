@@ -11,8 +11,8 @@
 #include "utils/QmlFormulaUtils.hpp"
 
 Q_IMPORT_QML_PLUGIN(FluentUIPlugin)
-#include <FluentUI/src/FluApp.h>
-#include <FluentUI/src/FluentUI.h>
+#include <FluentUIExt/src/FluApp.h>
+#include <FluentUIExt/src/FluentUI.h>
 
 namespace qml {
 static bool _didInitialized = false;
@@ -61,11 +61,11 @@ void initialize(int, const char* argv[]) {
     _initializeViewModels();
 }
 
-void navigate(const QString& route) {
+QQuickWindow* navigate(const QString& route) {
     if (!_didInitialized) {
         gpQmlApplicationEngine->load(QUrl("qrc:/qml/main.qml"));
         _didInitialized = true;
     }
-    FluApp::getInstance()->navigate(route);
+    return FluApp::getInstance()->navigate(route);
 }
 }

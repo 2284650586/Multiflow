@@ -6,7 +6,7 @@
 #include "service/EntityService.hpp"
 
 #include <logging/logging.hpp>
-#include <FluentUI/src/FluApp.h>
+#include <FluentUIExt/src/FluApp.h>
 
 #include <QQmlApplicationEngine>
 #include <QTimer>
@@ -14,32 +14,34 @@
 
 MWellItem::MWellItem(QGraphicsPixmapItem* parent)
     : MAbstractItem(
-        Well,
-        "Well",
-        ":/resources/image/Well.png",
-        "/well-editor",
-        EntityService::getInstance()->createEntity("MWell"),
-        new WellCalculationUnit{},
-        parent
-    ), _wellDisplayWindow(new MWellDisplayWindow{_entity}) {
+          Well,
+          "Well",
+          ":/resources/image/Well.png",
+          "/well-editor",
+          EntityService::getInstance()->createEntity("MWell"),
+          new WellCalculationUnit{},
+          parent
+      ), _wellDisplayWindow(new MWellDisplayWindow{_entity}) {
 }
 
 void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
-    // Call the base class implementation for QML window
-    MAbstractItem::mouseDoubleClickEvent(event);
-    QTimer::singleShot(5000, [this] () {
-        const auto* window = gpQmlApplicationEngine->rootObjects()
-            .first()->findChild<QQuickWindow*>("WellEditorWindow");
+    // Open the QML window, and the widget-based window.
+    const auto* qmlWindow = openEditorDialog(_qmlRoute);
+    _wellDisplayWindow->show();
+    _wellDisplayWindow->resize(300, 600);
 
-        _wellDisplayWindow->show();
-        _wellDisplayWindow->resize(300, 600);
-
+    const auto clip = [this, qmlWindow] {
+        if (!_wellDisplayWindow || !_wellDisplayWindow->isVisible()) {
+            return;
+        }
         // Clip _wellDisplayWindow to the left of the main window
         _wellDisplayWindow->move(
-            window->x() - _wellDisplayWindow->width(),
-            window->y()
+            qmlWindow->x() - _wellDisplayWindow->width(),
+            qmlWindow->y()
         );
-    });
+    };
+    QObject::connect(qmlWindow, &QQuickWindow::xChanged, clip);
+    QObject::connect(qmlWindow, &QQuickWindow::yChanged, clip);
 }
 
 

@@ -22,7 +22,7 @@
 #include <QComboBox>
 #include <QToolBar>
 #include <QMessageBox>
-#include <FluentUI/src/FluApp.h>
+#include <FluentUIExt/src/FluApp.h>
 #include <qml/utils/UIUtils.hpp>
 
 constexpr int LoadingDialogTimeoutMillis = 1000;

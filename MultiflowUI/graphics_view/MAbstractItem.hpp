@@ -12,6 +12,8 @@
 #include "entity/MIndependentVariables.hpp"
 #include "qml/bridge/MSignalBridge.hpp"
 
+#include <QQuickWindow>
+
 enum ConnectionKind {
     START_TO_END,
     END_TO_START
@@ -33,7 +35,8 @@ protected:
 
     QVariant itemChange(GraphicsItemChange change, const QVariant& value) override;
 
-    void openEditorDialog(const QString& route) const;
+    // NOLINTNEXTLINE
+    QQuickWindow* openEditorDialog(const QString& route) const;
 
     virtual void onUserDataSaved() const = 0;
 
