@@ -8,7 +8,7 @@
 
 #include <utility>
 #include <vector>
-#include <format>
+#include <fmt/core.h>
 
 namespace ml {
 GreaterThan::GreaterThan(std::vector<std::shared_ptr<Expression>> operands)
@@ -25,7 +25,7 @@ Number GreaterThan::evaluate(Environment& env) {
 }
 
 std::string GreaterThan::representation() const {
-    return std::format(
+    return fmt::format(
         "{} > {}", _operands[0]->representation(), _operands[1]->representation());
 }
 

@@ -50,7 +50,7 @@ Number ReferencingFunction::evaluate(Environment& env) {
     });
 
     if (variables.size() != _operands.size() - 1) {
-        throw MalformedExpressionException(std::format(
+        throw MalformedExpressionException(fmt::format(
             "调用 {} 需要 {} 个参数，但是只给了 {} 个",
             fun->name(), variables.size(), _operands.size() - 1
         ));

@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     ml::initialize();
     log_init(MultiflowUI, level::debug);
 
-    gpApplication = std::make_unique<QApplication>(argc, argv);
+    gpApplication = new QApplication{argc, argv};
 
     auto parser = prepareParser();
     try {
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 
 void startupUI(const int argc, const char* argv[]) {
     log_info("Creating main window.");
-    gpWindowMain = std::make_unique<MainWindow>(nullptr, argc, argv);
+    gpWindowMain = new MainWindow{nullptr, argc, argv};
     gpWindowMain->show();
 }
 

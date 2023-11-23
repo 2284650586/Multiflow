@@ -13,6 +13,8 @@ public:
 
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
 
+    void onUserDataSaved() const override;
+
     [[nodiscard]] bool canConnectWith(const MAbstractItem& other, ConnectionKind kind) const override;
 
 private:

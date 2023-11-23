@@ -27,5 +27,5 @@ public:
 
     ~CalculationUnit() override = default;
 
-    [[nodiscard]] virtual QVector<ml::Number> evaluate() const = 0;
+    [[nodiscard]] virtual QVector<ml::Number> evaluate(const QString& category) const = 0;
 };

@@ -11,15 +11,15 @@
 #include "utils/QmlFormulaUtils.hpp"
 
 Q_IMPORT_QML_PLUGIN(FluentUIPlugin)
-#include <FluentUI/src/FluApp.h>
-#include <FluentUI/src/FluentUI.h>
+#include <FluentUIExt/src/FluApp.h>
+#include <FluentUIExt/src/FluentUI.h>
 
 namespace qml {
 static bool _didInitialized = false;
 
 void _tryCreateApplicationEngine() {
     if (!gpQmlApplicationEngine) {
-        gpQmlApplicationEngine = new QQmlApplicationEngine{gpApplication.get()};
+        gpQmlApplicationEngine = new QQmlApplicationEngine{gpApplication};
         FluentUI::getInstance()->registerTypes(gpQmlApplicationEngine);
     }
 }
@@ -46,7 +46,7 @@ void _applyVisualStyles() {
 }
 
 void _initializeViewModels() {
-    gpQmlVMFormulaViewer = std::make_unique<VMFormulaViewer>();
+    gpQmlVMFormulaViewer = new VMFormulaViewer();
 }
 
 void initialize(int, const char* argv[]) {
@@ -61,11 +61,11 @@ void initialize(int, const char* argv[]) {
     _initializeViewModels();
 }
 
-void navigate(const QString& route) {
+QQuickWindow* navigate(const QString& route) {
     if (!_didInitialized) {
         gpQmlApplicationEngine->load(QUrl("qrc:/qml/main.qml"));
         _didInitialized = true;
     }
-    FluApp::getInstance()->navigate(route);
+    return FluApp::getInstance()->navigate(route);
 }
 }

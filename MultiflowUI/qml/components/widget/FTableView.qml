@@ -4,14 +4,18 @@ import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
 import FluentUI
+import "qrc:/qml/components/singleton/"
 
 Rectangle {
   property var columnSource
   property var dataSource
-  property color borderColor: FluTheme.dark ? "#252525" : "#e4e4e4"
+  property color borderColor: Colors.areaBorder
   property alias tableModel: table_model
   id: control
   color: FluTheme.dark ? Qt.rgba(39 / 255, 39 / 255, 39 / 255, 1) : Qt.rgba(251 / 255, 251 / 255, 253 / 255, 1)
+
+  signal cellUpdated(int row, int column, var value)
+
   onColumnSourceChanged: {
     if (columnSource.length !== 0) {
       var com_column = Qt.createComponent("FTableModelColumn.qml")
@@ -71,7 +75,7 @@ Rectangle {
   }
   Component {
     id: com_edit
-    FluTextBox {
+    FCellTextField {
       id: text_box
       text: display
       readOnly: true === columnSource[column].readOnly
@@ -79,10 +83,20 @@ Rectangle {
         forceActiveFocus()
         selectAll()
       }
+
+      // 特制的逻辑，点击外部也视同为提交
+      Component.onDestruction: {
+        save()
+      }
       onCommit: {
+        save()
+      }
+
+      function save() {
         if (!readOnly) {
           display = text_box.text
         }
+        cellUpdated(row, column, text_box.text)
         tableView.closeEditor()
       }
     }
@@ -116,6 +130,7 @@ Rectangle {
             if (!readOnly) {
               display = text
             }
+            cellUpdated(row, column, text)
             tableView.closeEditor()
           }
         }
@@ -185,8 +200,8 @@ Rectangle {
     }
     ScrollView {
       anchors.fill: parent
-      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+      ScrollBar.horizontal.policy: ScrollBar.AsNeeded
+      ScrollBar.vertical.policy: ScrollBar.AsNeeded
       TableView {
         id: table_view
         ListModel {
@@ -407,6 +422,7 @@ Rectangle {
         height: 1
         anchors.top: parent.top
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -414,6 +430,7 @@ Rectangle {
         height: 1
         anchors.bottom: parent.bottom
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -421,6 +438,7 @@ Rectangle {
         height: parent.height
         anchors.left: parent.left
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -429,6 +447,7 @@ Rectangle {
         anchors.right: parent.right
         color: "#00000000"
         visible: column === tableModel.columnCount - 1
+        radius: control.radius
       }
       MouseArea {
         id: column_item_control_mouse
@@ -443,8 +462,7 @@ Rectangle {
             column_item_control.canceled = false
           }
         }
-        onClicked:
-            (event) => {
+        onClicked: (event) => {
           closeEditor()
         }
       }
@@ -561,6 +579,7 @@ Rectangle {
         height: 1
         anchors.top: parent.top
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -569,6 +588,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         visible: row === tableModel.rowCount - 1
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -576,6 +596,7 @@ Rectangle {
         height: parent.height
         anchors.left: parent.left
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -583,6 +604,7 @@ Rectangle {
         height: parent.height
         anchors.right: parent.right
         color: "#00000000"
+        radius: control.radius
       }
       FluText {
         id: row_text

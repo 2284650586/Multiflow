@@ -11,6 +11,7 @@
 #include <QObject>
 #include <QVector>
 #include <QMap>
+#include <fmt/core.h>
 
 class FormulaService final : public QObject, public SingletonMixin<FormulaService> {
     Q_OBJECT
@@ -39,6 +40,6 @@ class FormulaNotFoundException final : public std::exception {
 
 public:
     explicit FormulaNotFoundException(std::string entityName) {
-        _what = std::format("Formula {} not found.", entityName);
+        _what = fmt::format("Formula {} not found.", entityName);
     }
 };

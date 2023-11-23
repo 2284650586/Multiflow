@@ -10,6 +10,7 @@
 
 #include <QString>
 #include <QStack>
+#include <QMap>
 
 struct ParserContext {
     MEntity* entity;

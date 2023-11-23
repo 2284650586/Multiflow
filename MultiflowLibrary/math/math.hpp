@@ -18,7 +18,7 @@ class ML_PUBLIC math_error final : public std::exception {
 public:
     explicit math_error(const char* what);
 
-    [[nodiscard]] const char* what() const override;
+    [[nodiscard]] const char* what() const noexcept override;
 };
 
 constexpr double TRUE = 1;

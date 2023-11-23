@@ -8,7 +8,7 @@
 
 #include <utility>
 #include <vector>
-#include <format>
+#include <fmt/core.h>
 
 namespace ml {
 EqualTo::EqualTo(std::vector<std::shared_ptr<Expression>> operands)
@@ -25,7 +25,7 @@ Number EqualTo::evaluate(Environment& env) {
 }
 
 std::string EqualTo::representation() const {
-    return std::format(
+    return fmt::format(
         "{} == {}", _operands[0]->representation(), _operands[1]->representation());
 }
 

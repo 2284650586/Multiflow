@@ -87,7 +87,7 @@ public:
     explicit MalformedExpressionException(std::string message) : _message(std::move(message)) {
     }
 
-    [[nodiscard]] const char* what() const override {
+    [[nodiscard]] const char* what() const noexcept override {
         return _message.c_str();
     }
 };

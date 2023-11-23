@@ -8,7 +8,9 @@
 #include "entity/MEntity.hpp"
 
 #include <QObject>
+#include <QMap>
 #include <QVector>
+#include <fmt/core.h>
 
 class EntityService final : public QObject, public SingletonMixin<EntityService> {
     Q_OBJECT
@@ -33,6 +35,6 @@ class EntityNotFoundException final : public std::exception {
 
 public:
     explicit EntityNotFoundException(std::string entityName) {
-        _what = std::format("Entity {} not found.", entityName);
+        _what = fmt::format("Entity {} not found.", entityName);
     }
 };

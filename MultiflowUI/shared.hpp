@@ -6,7 +6,7 @@
 
 #include <memory>
 
-enum MultiflowKind {
+enum MItemKind {
     Well,
     Source,
     Sink,
@@ -27,14 +27,22 @@ extern QQmlApplicationEngine* gpQmlApplicationEngine;
 /**
  * @brief The global QML application object.
  */
-extern std::unique_ptr<QApplication> gpApplication;
+extern QApplication* gpApplication;
 
 /**
  * @brief The global Widget-based main window.
  */
-extern std::unique_ptr<QMainWindow> gpWindowMain;
+extern QMainWindow* gpWindowMain;
 
 /**
  * @brief The global QML-based formula viewer window.
  */
-extern std::unique_ptr<QObject> gpQmlVMFormulaViewer;
+extern QObject* gpQmlVMFormulaViewer;
+
+#define MAKE_EXCEPTION(name) \
+  class name final : public std::exception {\
+   std::string _what; \
+  public: \
+   explicit name(std::string what) : _what{std::move(what)} {} \
+   const char* what() const noexcept override { return _what.c_str(); } \
+  }

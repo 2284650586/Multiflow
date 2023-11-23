@@ -3,18 +3,21 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Multiflow.UI
 import FluentUI
+import Qt.labs.qmlmodels
 import "qrc:/qml/components/widget/"
 import "qrc:/qml/components/singleton/"
 
 FluWindow {
   id: window
-  objectName: "wellEditor"
-  width: 1000
+  objectName: "WellEditorWindow"
+  width: 800
   height: 600
   title: "管井数据"
   visible: true
 
   signal onDataChanged(var data)
+
+  property var well: entity
 
   Component.onCompleted: {
     /**
@@ -29,40 +32,28 @@ FluWindow {
     onDataChanged.connect(bridge.onDataChanged)
   }
 
-  RowLayout {
+  FluArea {
     anchors.fill: parent
     anchors.margins: 10
+    border.color: Colors.border
+    color: Colors.background
+    radius: 8
+    clip: true
 
-    Rectangle {
-      Layout.fillHeight: true
-      color: "darkgray"
-      radius: 8
-      width: 300
-    }
+    FluTabView {
+      id: tabView
 
-    FluArea {
-      Layout.fillHeight: true
-      Layout.fillWidth: true
-      border.color: Colors.border
-      color: Colors.background
-      radius: 8
+      addButtonVisibility: FluTabViewType.Nerver
+      closeButtonVisibility: FluTabViewType.Nerver
+      anchors.fill: parent
 
-      FluTabView {
-        id: tabView
-
-        addButtonVisibility: FluTabViewType.Nerver
-        closeButtonVisibility: FluTabViewType.Nerver
-        anchors.fill: parent
-
-        Component.onCompleted: {
-          well.keys().forEach(key => {
-            _addTab(well[key].name, tab, {category: key, entity: well[key].value})
-          })
-        }
+      Component.onCompleted: {
+        well.keys().forEach(key => {
+          _addTab(well[key].name, tab, {category: key, entity: well[key].value})
+        })
       }
     }
   }
-
   FluContentDialog {
     property string dialogTitle
     property string dialogMessage
@@ -84,137 +75,143 @@ FluWindow {
       Layout.fillHeight: true
       Layout.fillWidth: true
 
-      Repeater {
-        id: repeater
-        model: getProperties(argument.entity)
+      ColumnLayout {
+        Layout.fillHeight: true
+        Layout.fillWidth: true
+        Layout.margins: 10
 
-        RowLayout {
-          property var id: modelData
-          property var entity: argument.entity[id]
-          property FluText label: label
+        // 表单区域
+        Repeater {
+          id: repeater
+          model: getKeys(argument.entity)
 
-          spacing: 8
-          Layout.fillWidth: true
+          RowLayout {
+            property var key: modelData
+            property var entity: argument.entity[key]
+            property FluText label: label
 
-          FluText {
-            id: label
-            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-            font.pointSize: 11
-            font.weight: Font.DemiBold
+            spacing: 8
+            Layout.fillWidth: true
 
-            Component.onCompleted: {
-              label.text = `${entity.name}: `
-            }
-          }
+            FluText {
+              id: label
+              Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+              font.pointSize: 11
+              font.weight: Font.DemiBold
 
-          Loader {
-            id: contentView
-            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-            Layout.preferredWidth: 200
-            sourceComponent: _getComponentId(entity)
-
-            Component {
-              id: componentTextField
-
-              FluTextBox {
-                id: textBoxString
-                onTextChanged: {
-                  entity.value = text
-                }
-
-                Component.onCompleted: {
-                  textBoxString.text = entity.value
-                }
+              Component.onCompleted: {
+                label.text = `${entity.name}: `
               }
             }
 
-            Component {
-              id: componentEnum
+            Loader {
+              id: contentView
+              Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+              Layout.preferredWidth: 200
+              sourceComponent: _getComponentId(entity)
 
-              FluComboBox {
-                property var items: entity.extra.split(", ")
-
-                id: comboBoxEnum
-                model: items
-                currentIndex: -1
-                onCurrentTextChanged: {
-                  entity.value = currentText
-                }
-
-                Component.onCompleted: {
-                  comboBoxEnum.currentIndex = entity.value ? items.indexOf(entity.value) : 0
-                }
-              }
-            }
-
-            Component {
-              id: componentConverter
-
-              RowLayout {
-                property var units: entity.extra.units()
+              Component {
+                id: componentTextField
 
                 FluTextBox {
-                  id: textBox
-                  Layout.preferredWidth: 120
+                  id: textBoxString
                   onTextChanged: {
                     entity.value = text
                   }
+
                   Component.onCompleted: {
-                    textBox.text = entity.value
+                    textBoxString.text = entity.value
                   }
                 }
+              }
+
+              Component {
+                id: componentEnum
 
                 FluComboBox {
-                  property var lastUnit: entity.associateValue ? units[entity.associateValue] : units[0]
+                  property var items: entity.extra.split(", ")
 
-                  id: comboBox
-                  model: units
-                  Layout.preferredWidth: 80
+                  id: comboBoxEnum
+                  model: items
+                  currentIndex: -1
                   onCurrentTextChanged: {
-                    if (!_isNumeric(textBox.text)) {
-                      return
-                    }
-                    let oldValue = parseFloat(textBox.text)
-                    let newUnit = currentText
-                    let newValue = entity.extra.convert(oldValue, lastUnit, newUnit)
-                    newValue = Number(newValue.toFixed(2))
-                    textBox.text = `${newValue}`
-                    entity.associateValue = currentIndex
-                    lastUnit = currentText
+                    entity.value = currentText
                   }
 
                   Component.onCompleted: {
-                    comboBox.currentIndex = entity.associateValue ? entity.associateValue : 0
+                    comboBoxEnum.currentIndex = entity.value ? items.indexOf(entity.value) : 0
                   }
+                }
+              }
+
+              Component {
+                id: componentConverter
+
+                RowLayout {
+                  property var units: entity.extra.units()
+
+                  FluTextBox {
+                    id: textBox
+                    Layout.preferredWidth: 120
+                    onTextChanged: {
+                      entity.value = text
+                    }
+                    Component.onCompleted: {
+                      textBox.text = entity.value
+                    }
+                  }
+
+                  FluComboBox {
+                    property var lastUnit: entity.associateValue ? units[entity.associateValue] : units[0]
+
+                    id: comboBox
+                    model: units
+                    Layout.preferredWidth: 80
+                    onCurrentTextChanged: {
+                      if (!_isNumeric(textBox.text)) {
+                        return
+                      }
+                      let oldValue = parseFloat(textBox.text)
+                      let newUnit = currentText
+                      let newValue = entity.extra.convert(oldValue, lastUnit, newUnit)
+                      newValue = Number(newValue.toFixed(2))
+                      textBox.text = `${newValue}`
+                      entity.associateValue = currentIndex
+                      lastUnit = currentText
+                    }
+
+                    Component.onCompleted: {
+                      comboBox.currentIndex = entity.associateValue ? entity.associateValue : 0
+                    }
+                  }
+                }
+              }
+
+              function _getComponentId(entity) {
+                if (entity.type.startsWith("Builtin.")) {
+                  return componentConverter
+                }
+                switch (entity.type) {
+                  case "string":
+                    return componentTextField
+
+                  case "enum":
+                    return componentEnum
+
+                  default:
+                    return componentTextField
                 }
               }
             }
 
-            function _getComponentId(entity) {
-              if (entity.type.startsWith("Builtin.")) {
-                return componentConverter
-              }
-              switch (entity.type) {
-                case "string":
-                  return componentTextField
-
-                case "enum":
-                  return componentEnum
-
-                default:
-                  return componentTextField
-              }
+            FluText {
+              Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+              text: `(${key})`
+              color: "gray"
             }
-          }
-
-          FluText {
-            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-            text: `(${id})`
-            color: "gray"
-          }
-        } // Row
-      } // Repeater
-
+          } // Row
+        } // Repeater
+      }
 
       // VSpacer
       Item {
@@ -222,129 +219,143 @@ FluWindow {
         Layout.fillWidth: true
       }
 
-      FluArea {
-        property var properties: getHighFrequencyProperties(argument.entity)
+      // 好！表格区域！
+      Loader {
+        id: loaderTableArea
 
-        visible: properties.length > 0
-        id: hfArea
         Layout.fillWidth: true
         Layout.fillHeight: true
         Layout.margins: 10
-        radius: 8
 
-        ColumnLayout {
-          anchors.fill: parent
-          anchors.margins: 15
-          Layout.fillHeight: true
-          Layout.fillWidth: true
+        // High frequency keys
+        property var keys: getHighFrequencyKeys(argument.entity)
+        property var dataSource: []
 
-          // 表头
-          RowLayout {
-            spacing: 0
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+        Component {
+          id: componentTableArea
 
-            Repeater {
-              model: hfArea.properties
+          FluArea {
+            id: hfArea
+            visible: keys.length > 0
+            radius: 8
+            clip: true
 
-              RowLayout {
-                id: row
-                Layout.preferredWidth: 150
-                property var property: argument.entity[modelData]
-                property var isLastItem: index === hfArea.properties.length - 1
+            FTableView {
+              id: tableView
+              radius: 8
+              color: "transparent"
+              anchors.fill: parent
+              anchors.leftMargin: -1
+              columnSource: getColumnSource()
 
-                FluText {
-                  Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                  text: row.property.name
-                  font.pointSize: 11
-                  font.weight: Font.DemiBold
-                }
-
-                FluText {
-                  text: "|"
-                  color: "gray"
-                  horizontalAlignment: Text.AlignHCenter
-                  visible: !isLastItem
-                }
-              }
-            } // Repeater
-          } // RowLayout 表头
-
-          Repeater {
-            id: repeaterIndependentVariables
-            model: independentVariables.size(argument.category)
-
-            RowLayout {
-              property var ivIndex: index
-
-              spacing: 0
-              Layout.fillWidth: true
-              Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-
-              Repeater {
-                model: hfArea.properties
-
+              Component {
+                id: componentActionArea
                 RowLayout {
-                  property var key: modelData
+                  anchors.fill: parent
 
-                  id: row
-                  Layout.preferredWidth: 150
-
-                  FluTextBox {
+                  FluButton {
                     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                    onTextChanged: {
-                      independentVariables.set(argument.category, ivIndex, key, text)
-                    }
-
-                    Component.onCompleted: {
-                      text = independentVariables.get(argument.category, ivIndex, key)
+                    text: "删除"
+                    onClicked: {
+                      tableView.closeEditor()
+                      independentVariables.remove(argument.category, row)
                     }
                   }
                 }
-              } // Repeater
-            }
-          }
-
-          Component.onCompleted: {
-            independentVariables.sizeChanged.connect((category) => {
-              if (category !== argument.category) {
-                return
               }
-              repeaterIndependentVariables.model = independentVariables.size(category)
-            })
-          }
 
-          FluButton {
-            text: "添加"
-            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
-            Layout.margins: 10
-            onClicked: {
-              independentVariables.createEmpty(argument.category)
+              function getColumnSource() {
+                const columns = []
+                for (const key of loaderTableArea.keys) {
+                  const property = argument.entity[key]
+                  columns.push({
+                    title: property.name,
+                    dataIndex: key,
+                    minimumWidth: 100,
+                    maximumWidth: 300,
+                  })
+                }
+                columns.push({
+                  title: "操作",
+                  dataIndex: "action",
+                })
+                return columns
+              }
+
+              function readFromIv() {
+                const rows = []
+                const size = independentVariables.size(argument.category)
+                for (let i = 0; i < size; ++i) {
+                  const row = {}
+                  for (const key of loaderTableArea.keys) {
+                    row[key] = independentVariables.get(argument.category, i, key) || '0'
+                  }
+                  row['action'] = tableView.customItem(componentActionArea)
+                  rows.push(row)
+                }
+                return rows
+              }
+
+              function refreshData() {
+                dataSource = readFromIv()
+                tableView.dataSource = dataSource
+              }
             }
-          }
-        } // ColumnLayout
-      } // FluArea
+
+            Component.onCompleted: {
+              tableView.refreshData()
+              tableView.cellUpdated.connect((row, column, value) => {
+                const key = loaderTableArea.keys[column]
+                independentVariables.set(argument.category, row, key, value)
+                console.log(`Setting iv[${argument.category}][${row}][${key}] = ${value}`)
+              })
+              independentVariables.sizeChanged.connect((category) => {
+                if (category !== argument.category) {
+                  return
+                }
+                tableView.refreshData()
+              })
+            }
+          } // FluArea
+        }
+
+        sourceComponent: keys.length > 0 ? componentTableArea : null
+      }
 
       RowLayout {
         Layout.margins: 10
-        Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+        Layout.fillWidth: true
+
+        FluButton {
+          visible: loaderTableArea.keys.length > 0
+          text: "添加一组数据"
+          Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+          onClicked: {
+            independentVariables.createEmpty(argument.category)
+          }
+        }
+
+        HSpacer {
+        }
 
         FluFilledButton {
-          text: "演算"
+          visible: loaderTableArea.keys.length > 0
+          text: "计算"
+          Layout.alignment: Qt.AlignRight | Qt.AlignBottom
           onClicked: {
-            _handleCalculation()
+            _handleCalculation(argument.category)
           }
         }
 
         FluButton {
-          text: "完成"
+          text: "保存"
+          Layout.alignment: Qt.AlignRight | Qt.AlignBottom
           onClicked: {
             notifyDataChange()
             window.close()
           }
         }
       }
-
 
       Component.onCompleted: {
         _updateMaxWidth(repeater, 'label')
@@ -363,11 +374,15 @@ FluWindow {
         }
       }
 
-      function _handleCalculation() {
+      function _handleCalculation(category) {
+        if (independentVariables.size(category) === 0) {
+          showAlert("无法计算", "请添加至少一组数据")
+          return
+        }
         calculationUnit.update(argument.entity, independentVariables)
-        const results = calculationUnit.evaluate()
+        const results = calculationUnit.evaluate(category)
         console.log(results)
-        showAlert("演算结果", results.join(", "))
+        showAlert("计算结果", results.join(", "))
       }
     } // TabContent
   } // Component
@@ -394,22 +409,12 @@ FluWindow {
     onDataChanged(well)
   }
 
-  function getProperties(entity) {
+  function getKeys(entity) {
     return entity.keys().filter(k => !entity[k].isHighFrequency)
   }
 
-  function getHighFrequencyProperties(entity) {
+  function getHighFrequencyKeys(entity) {
     return entity.keys().filter(k => entity[k].isHighFrequency)
-  }
-
-  function getColumnSource(properties) {
-    return properties.map(p => {
-      // 哎呀这箭头函数突然就不灵了
-      return {
-        title: p.name,
-        dataIndex: p.id,
-      }
-    })
   }
 
   function showAlert(title, message) {

@@ -1,4 +1,4 @@
-#include "MGraphicsView.h"
+#include "MGraphicsView.hpp"
 
 #include <QKeyEvent>
 

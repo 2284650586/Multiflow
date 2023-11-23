@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.27)
 
 find_package(
     Qt6 6.5
@@ -105,9 +105,13 @@ set(SOURCE_FILES
     entity/MIndependentVariables.hpp
     entity/unit/generic/CalculationUnit.cpp
     entity/unit/generic/CalculationUnit.hpp
-    entity/unit/WellReservoirUnit.cpp
-    entity/unit/WellReservoirUnit.hpp
-    entity/unit/WellReservoirUnit.hpp
+    entity/unit/WellCalculationUnit.cpp
+    entity/unit/WellCalculationUnit.hpp
+    entity/unit/WellCalculationUnit.hpp
+    graphics_view/window/MWellDisplayWindow.cpp
+    graphics_view/window/MWellDisplayWindow.hpp
+    graphics_view/window/MWellDisplayWindow.ui
+    graphics_view/window/MWellDisplayWindow.cpp
 )
 
 include_directories(
@@ -153,4 +157,5 @@ target_link_libraries(
     Qt6::QuickWidgets
     Qt6::QuickControls2
     yaml-cpp
+    fmt
 )
