@@ -7,7 +7,6 @@
 #include <logging/logging.hpp>
 
 MIndependentVariables::MIndependentVariables(QObject* parent): QObject(parent) {
-
 }
 
 size_t MIndependentVariables::size(const QString& category) const {
@@ -49,5 +48,8 @@ QVariant MIndependentVariables::get(const QString& category, const int index, co
 }
 
 QVector<QMap<QString, QVariant>> MIndependentVariables::get(const QString& category) const {
-    return _variables[category];
+    if (const auto it = _variables.find(category); it != _variables.end()) {
+        return it.value();
+    }
+    return {};
 }

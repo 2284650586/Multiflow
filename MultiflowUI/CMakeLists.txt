@@ -112,6 +112,14 @@ set(SOURCE_FILES
     graphics_view/window/MWellDisplayWindow.hpp
     graphics_view/window/MWellDisplayWindow.ui
     graphics_view/window/MWellDisplayWindow.cpp
+    graphics_view/well/MWellHead.cpp
+    graphics_view/well/MWellHead.hpp
+    helper/CoordinateHelper.cpp
+    helper/CoordinateHelper.hpp
+    graphics_view/well/MWellGeneric.cpp
+    graphics_view/well/MWellGeneric.hpp
+    helper/MEntityHelper.cpp
+    helper/MEntityHelper.hpp
 )
 
 include_directories(

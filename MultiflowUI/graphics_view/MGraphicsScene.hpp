@@ -4,12 +4,6 @@
 #include "MArrow.hpp"
 #include "MAbstractItem.hpp"
 
-#include <QGraphicsScene>
-#include <QObject>
-#include <QColor>
-#include <QGraphicsLineItem>
-#include <QSharedPointer>
-
 #include <memory>
 
 class MGraphicsScene final : public QGraphicsScene {

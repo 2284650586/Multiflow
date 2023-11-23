@@ -21,31 +21,17 @@ MWellItem::MWellItem(QGraphicsPixmapItem* parent)
           EntityService::getInstance()->createEntity("MWell"),
           new WellCalculationUnit{},
           parent
-      ), _wellDisplayWindow(new MWellDisplayWindow{_entity}) {
+      ), _wellDisplayWindow(new MWellDisplayWindow{_entity, _independentVariables, nullptr}) {
 }
 
 void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
     // Open the QML window, and the widget-based window.
     const auto* qmlWindow = openEditorDialog(_qmlRoute);
-    _wellDisplayWindow->show();
-    _wellDisplayWindow->resize(300, 600);
-
-    const auto clip = [this, qmlWindow] {
-        if (!_wellDisplayWindow || !_wellDisplayWindow->isVisible()) {
-            return;
-        }
-        // Clip _wellDisplayWindow to the left of the main window
-        _wellDisplayWindow->move(
-            qmlWindow->x() - _wellDisplayWindow->width(),
-            qmlWindow->y()
-        );
-    };
-    QObject::connect(qmlWindow, &QQuickWindow::xChanged, clip);
-    QObject::connect(qmlWindow, &QQuickWindow::yChanged, clip);
+    _wellDisplayWindow->showAndClipTo(qmlWindow);
 }
 
-
 void MWellItem::onUserDataSaved() const {
+    // TODO: 如存
     log_info("Well data saved");
 }
 
