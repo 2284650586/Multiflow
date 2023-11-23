@@ -23,6 +23,7 @@
         <file>resources/model/structure/MWell.DeviationSurvey.yaml</file>
         <file>resources/model/structure/MWell.General.yaml</file>
         <file>resources/model/structure/MWell.HeatTransfer.yaml</file>
+        <file>resources/model/structure/MWell.DownholeEquipment.yaml</file>
 
         <file>qml/main.qml</file>
 

@@ -14,24 +14,27 @@
 
 MWellItem::MWellItem(QGraphicsPixmapItem* parent)
     : MAbstractItem(
-          Well,
-          "Well",
-          ":/resources/image/Well.png",
-          "/well-editor",
-          EntityService::getInstance()->createEntity("MWell"),
-          new WellCalculationUnit{},
-          parent
-      ), _wellDisplayWindow(new MWellDisplayWindow{_entity, _independentVariables, nullptr}) {
+        Well,
+        "Well",
+        ":/resources/image/Well.png",
+        "/well-editor",
+        EntityService::getInstance()->createEntity("MWell"),
+        new WellCalculationUnit{},
+        parent
+    ) {
 }
 
 void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
     // Open the QML window, and the widget-based window.
     const auto* qmlWindow = openEditorDialog(_qmlRoute);
+
+    _wellDisplayWindow = new MWellDisplayWindow{_entity, _independentVariables, nullptr};
     _wellDisplayWindow->showAndClipTo(qmlWindow);
 }
 
 void MWellItem::onUserDataSaved() const {
     // TODO: 如存
+    _wellDisplayWindow->notifyDataChanged();
     log_info("Well data saved");
 }
 

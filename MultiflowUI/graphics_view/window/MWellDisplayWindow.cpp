@@ -5,7 +5,6 @@
 #include "MWellDisplayWindow.hpp"
 #include "ui_MWellDisplayWindow.h"
 
-
 MWellDisplayWindow::MWellDisplayWindow(MEntity* well, MIndependentVariables* iv, QWidget* parent)
     : _well(well), _iv(iv), ui(new Ui::MWellDisplayWindow{}) {
     ui->setupUi(this);
@@ -61,4 +60,8 @@ void MWellDisplayWindow::createGraphicsView() {
     _layout->setContentsMargins(0, 0, 0, 0);
 
     setLayout(_layout);
+}
+
+void MWellDisplayWindow::notifyDataChanged() const {
+    _scene->update();
 }

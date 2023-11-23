@@ -40,6 +40,7 @@ Rectangle {
     property int defaultItemWidth: 100
     property int defaultItemHeight: 42
     property var header_rows: []
+    property var isEditing: false
 
     function obtEditDelegate(column, row, cellItem) {
       var display = table_model.data(table_model.index(row, column), "display")
@@ -52,12 +53,17 @@ Rectangle {
       item_loader_layout.width = table_view.columnWidthProvider(column)
       item_loader_layout.height = table_view.rowHeightProvider(row)
       item_loader.display = display
+      item_loader.currentItem = table_model.getRow(row)
       var obj = columnSource[column].editDelegate
       if (obj) {
         return obj
       }
       if (columnSource[column].editMultiline === true) {
         return com_edit_multiline
+      }
+      if (columnSource[column].type === 'enum') {
+        item_loader.currentProperty = columnSource[column]
+        return com_combo
       }
       return com_edit
     }
@@ -97,6 +103,31 @@ Rectangle {
           display = text_box.text
         }
         cellUpdated(row, column, text_box.text)
+        tableView.closeEditor()
+      }
+    }
+  }
+  Component {
+    id: com_combo
+
+    FluComboBox {
+      property var items: currentProperty.extra.split(", ")
+      property var initialIndex: items.indexOf(currentValue)
+
+      id: combo_box
+      model: items
+      onCurrentTextChanged: {
+        if (items.includes(currentText)) {
+          save(currentText)
+        }
+      }
+      Component.onCompleted: {
+        forceActiveFocus()
+        combo_box.currentIndex = initialIndex !== -1 ? initialIndex : 0
+      }
+      function save(text) {
+        // currentValue = text
+        cellUpdated(row, column, text)
         tableView.closeEditor()
       }
     }
@@ -310,6 +341,7 @@ Rectangle {
                   return
                 }
                 item_loader.sourceComponent = d.obtEditDelegate(column, row, item_table)
+                d.isEditing = true
               }
               onClicked:
                   (event) => {
@@ -326,6 +358,10 @@ Rectangle {
               property var position: item_table.position
               property int row: position.y
               property int column: position.x
+              property var currentItem: table_model.getRow(row)
+              property var currentProperty: columnSource[column]
+              property var currentValue: currentItem[currentProperty.dataIndex]
+
               property var options: {
                 if (typeof (modelData) == "object") {
                   return modelData.options
@@ -336,6 +372,9 @@ Rectangle {
               sourceComponent: {
                 if (typeof (modelData) == "object") {
                   return modelData.comId
+                }
+                if (columnSource[column].type === 'enum') {
+                  return com_combo
                 }
                 return com_text
               }
@@ -361,6 +400,8 @@ Rectangle {
         FluLoader {
           id: item_loader
           property var display
+          property var currentItem
+          property var currentProperty
           property int column
           property int row
           property var tableView: control
@@ -682,7 +723,12 @@ Rectangle {
   }
 
   function closeEditor() {
+    d.isEditing = false
     item_loader.sourceComponent = null
+  }
+
+  function editing() {
+    return d.isEditing
   }
 
   function resetPosition() {

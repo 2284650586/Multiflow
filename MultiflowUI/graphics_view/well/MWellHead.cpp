@@ -162,16 +162,14 @@ QPainterPath MWellHead::shape() const {
 }
 
 bool MWellHead::_containsPacker() const {
-    return true;
-    const auto& items = _iv->get("MWell.DownholeEquipment");
+    const auto& items = _iv->get("downhole-equipment");
     return std::ranges::any_of(items, [](const QMap<QString, QVariant>& item) {
         return item["equipment"].toString() == "Packer";
     });
 }
 
 bool MWellHead::_containsChoke() const {
-    return true;
-    const auto& items = _iv->get("MWell.DownholeEquipment");
+    const auto& items = _iv->get("downhole-equipment");
     return std::ranges::any_of(items, [](const QMap<QString, QVariant>& item) {
         return item["equipment"].toString() == "Choke";
     });

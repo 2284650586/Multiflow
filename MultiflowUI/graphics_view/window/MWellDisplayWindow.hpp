@@ -30,6 +30,8 @@ public:
 
     void showAndClipTo(const QQuickWindow* qmlWindow);
 
+    void notifyDataChanged() const;
+
 protected:
     void resizeEvent(QResizeEvent* event) override;
 

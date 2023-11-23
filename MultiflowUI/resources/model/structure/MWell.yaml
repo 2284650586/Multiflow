@@ -6,6 +6,7 @@ import:
   - MWell.DeviationSurvey
   - MWell.HeatTransfer
   - MWell.Completions
+  - MWell.DownholeEquipment
 
 properties:
   - id: general
@@ -19,6 +20,10 @@ properties:
   - id: heat-transfer
     name: 热传递
     type: MWell.HeatTransfer
+
+  - id: downhole-equipment
+    name: Downhole
+    type: MWell.DownholeEquipment
 
   - id: completions
     name: 仿真

@@ -259,6 +259,7 @@ FluWindow {
                     onClicked: {
                       tableView.closeEditor()
                       independentVariables.remove(argument.category, row)
+                      notifyDataChange()
                     }
                   }
                 }
@@ -270,6 +271,8 @@ FluWindow {
                   const property = argument.entity[key]
                   columns.push({
                     title: property.name,
+                    type: property.type,
+                    extra: property.extra,
                     dataIndex: key,
                     minimumWidth: 100,
                     maximumWidth: 300,
@@ -307,7 +310,8 @@ FluWindow {
               tableView.cellUpdated.connect((row, column, value) => {
                 const key = loaderTableArea.keys[column]
                 independentVariables.set(argument.category, row, key, value)
-                console.log(`Setting iv[${argument.category}][${row}][${key}] = ${value}`)
+                console.log(`SET: iv[${argument.category}][${row}][${key}] = "${value}"`)
+                notifyDataChange()
               })
               independentVariables.sizeChanged.connect((category) => {
                 if (category !== argument.category) {
