@@ -5,10 +5,15 @@
 #pragma once
 
 #include "MAbstractItem.hpp"
+#include "graphics_view/window/MWellDisplayWindow.hpp"
 
 class MWellItem final : public MAbstractItem {
+    MWellDisplayWindow* _wellDisplayWindow{};
+
 public:
     explicit MWellItem(QGraphicsPixmapItem* parent = nullptr);
+
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
 
     void onUserDataSaved() const override;
 

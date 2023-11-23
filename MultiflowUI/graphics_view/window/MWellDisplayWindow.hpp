@@ -4,10 +4,12 @@
 
 #pragma once
 
-#include <QWidget>
-
 #include "entity/MEntity.hpp"
 
+#include <QWidget>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,6 +28,12 @@ public:
     ~MWellDisplayWindow() override;
 
 private:
+    void createGraphicsView();
+
     Ui::MWellDisplayWindow* ui;
     MEntity* _well{};
+
+    QGraphicsScene* _scene{};
+    QGraphicsView* _view{};
+    QVBoxLayout* _layout{};
 };

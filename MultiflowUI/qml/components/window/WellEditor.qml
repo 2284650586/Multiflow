@@ -9,7 +9,7 @@ import "qrc:/qml/components/singleton/"
 
 FluWindow {
   id: window
-  objectName: "wellEditor"
+  objectName: "WellEditorWindow"
   width: 800
   height: 600
   title: "管井数据"

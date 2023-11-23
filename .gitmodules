@@ -5,6 +5,6 @@
 [submodule "yaml-cpp"]
 	path = yaml-cpp
 	url = https://github.com/jbeder/yaml-cpp.git
-[submodule "FluentUI"]
-	path = FluentUI
-	url = https://github.com/zhuzichu520/FluentUI.git
+[submodule "FluentUIExt"]
+	path = FluentUIExt
+	url = https://github.com/hatsune-miku/FluentUIExt

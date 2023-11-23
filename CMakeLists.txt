@@ -78,7 +78,7 @@ add_compile_options(-w)
 set(FLUENTUI_BUILD_EXAMPLES OFF)
 set(FLUENTUI_BUILD_FRAMELESSHELPER OFF)
 set(FLUENTUI_BUILD_STATIC_LIB ON)
-add_subdirectory(FluentUI)
+add_subdirectory(FluentUIExt)
 
 # 解除对警告的屏蔽
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE STRING "Restored CXX Flags" FORCE)
