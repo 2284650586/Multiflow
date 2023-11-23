@@ -43,5 +43,6 @@
 
         <file>qml/components/widget/FTableView.qml</file>
         <file>qml/components/widget/FTableModelColumn.qml</file>
+        <file>qml/components/widget/FCellTextField.qml</file>
     </qresource>
 </RCC>

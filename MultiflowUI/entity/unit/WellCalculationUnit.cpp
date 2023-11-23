@@ -22,7 +22,7 @@ QVector<ml::Number> WellCalculationUnit::reservoirPressure() const {
         const double fx = formula.expression()->evaluate(env);
 
         ret.push_back(fx + bd - wd - md);
-         }
+    }
     return std::move(ret);
 }
 
@@ -30,7 +30,7 @@ WellCalculationUnit::WellCalculationUnit(QObject* parent): CalculationUnit(paren
 }
 
 QVector<ml::Number> WellCalculationUnit::evaluate(const QString& category) const {
-    if (category == "reservoir") {
+    if (category == "completions") {
         return reservoirPressure();
     }
     return {};

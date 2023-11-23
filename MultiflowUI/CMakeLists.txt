@@ -108,6 +108,10 @@ set(SOURCE_FILES
     entity/unit/WellCalculationUnit.cpp
     entity/unit/WellCalculationUnit.hpp
     entity/unit/WellCalculationUnit.hpp
+    graphics_view/window/MWellDisplayWindow.cpp
+    graphics_view/window/MWellDisplayWindow.hpp
+    graphics_view/window/MWellDisplayWindow.ui
+    graphics_view/window/MWellDisplayWindow.cpp
 )
 
 include_directories(
