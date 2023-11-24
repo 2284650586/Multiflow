@@ -9,7 +9,6 @@ import "qrc:/qml/components/singleton/"
 
 FluWindow {
   id: window
-  objectName: "WellEditorWindow"
   width: 800
   height: 600
   title: "管井数据"
@@ -20,14 +19,6 @@ FluWindow {
   property var well: entity
 
   Component.onCompleted: {
-    /**
-     * `well`: 管井数据
-     * `well.general`: general项
-     * `well.general.name`: general项的名字：“基本信息”
-     * `well.general.value`: general项的数据
-     * `well.general.value.name`: general项中的name项
-     * `well.general.value.name.value`: general项中的name项的值：管井实际名称
-     */
     window.title += ` - ${well.general.value.name.value}`
     onDataChanged.connect(bridge.onDataChanged)
   }
@@ -67,6 +58,7 @@ FluWindow {
       }
     }
   }
+
   FluContentDialog {
     property string dialogTitle
     property string dialogMessage
@@ -93,7 +85,6 @@ FluWindow {
         Layout.fillWidth: true
         Layout.margins: 10
 
-        // 表单区域
         Repeater {
           id: repeater
           model: d.categoryToKeys[argument.category]
@@ -142,6 +133,7 @@ FluWindow {
                 id: componentEnum
 
                 FluComboBox {
+                  property var didInitliazed: false
                   property var items: entity.extra.split(", ")
 
                   id: comboBoxEnum
@@ -150,11 +142,16 @@ FluWindow {
                   onCurrentTextChanged: {
                     entity.value = currentText
                     notifyDataChange()
-                    initPage(argument)
-                    repeater.reload()
+                    if (didInitliazed) {
+                      initPage(argument)
+                      repeater.reload()
+                      entity.value = currentText
+                      reloadTable()
+                    }
                   }
                   Component.onCompleted: {
                     comboBoxEnum.currentIndex = entity.value ? items.indexOf(entity.value) : 0
+                    didInitliazed = true
                   }
                 }
               }
@@ -250,112 +247,114 @@ FluWindow {
         Layout.fillWidth: true
       }
 
+      Component {
+        id: componentTableArea
+
+        FluArea {
+          //! property var keys: d.categoryToHfKeys[argument.category]
+          //! property var dataSource: []
+
+          id: hfArea
+          visible: d.categoryToHfKeys[argument.category].length > 0
+          radius: 8
+          clip: true
+          Layout.fillWidth: true
+          Layout.fillHeight: true
+          Layout.margins: 10
+
+          FTableView {
+            id: tableView
+            radius: 8
+            color: "transparent"
+            anchors.fill: parent
+            anchors.leftMargin: -1
+            columnSource: getColumnSource()
+
+            Component {
+              id: componentActionArea
+              RowLayout {
+                anchors.fill: parent
+
+                FluButton {
+                  Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                  text: "删除"
+                  onClicked: {
+                    tableView.closeEditor()
+                    independentVariables.remove(argument.category, row)
+                    notifyDataChange()
+                  }
+                }
+              }
+            }
+
+            function getColumnSource() {
+              const columns = []
+              for (const key of d.categoryToHfKeys[argument.category]) {
+                const property = argument.entity[key]
+                columns.push({
+                  title: property.name,
+                  type: property.type,
+                  extra: property.extra,
+                  dataIndex: key,
+                  minimumWidth: 100,
+                  maximumWidth: 300,
+                  width: 90,
+                })
+              }
+              columns.push({
+                title: "操作",
+                dataIndex: "action",
+              })
+              return columns
+            }
+
+            function readFromIv() {
+              const rows = []
+              const size = independentVariables.size(argument.category)
+              for (let i = 0; i < size; ++i) {
+                const row = {}
+                for (const key of getAllHfKeys(argument)) {
+                  row[key] = independentVariables.get(argument.category, i, key) || '0'
+                }
+                row['action'] = tableView.customItem(componentActionArea)
+                rows.push(row)
+              }
+              return rows
+            }
+
+            function refreshData() {
+              tableView.dataSource = readFromIv()
+            }
+          }
+
+          Component.onCompleted: {
+            tableView.refreshData()
+            tableView.cellUpdated.connect((row, column, value) => {
+              const key = d.categoryToHfKeys[argument.category][column]
+              independentVariables.set(argument.category, row, key, value)
+              // console.log(`SET: iv[${argument.category}][${row}][${key}] = "${value}"`)
+              notifyDataChange()
+            })
+            independentVariables.sizeChanged.connect((category) => {
+              if (category !== argument.category) {
+                return
+              }
+              tableView.refreshData()
+            })
+          }
+
+          function getTableView() {
+            return tableView
+          }
+        } // FluArea
+      }
+
       // 好！表格区域！
       Loader {
-        id: loaderTableArea
-
+        id: tableLoader
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Layout.margins: 10
-
-        // High frequency keys
-        property var keys: d.categoryToHfKeys[argument.category] || []
-        property var dataSource: []
-
-        Component {
-          id: componentTableArea
-
-          FluArea {
-            id: hfArea
-            visible: keys.length > 0
-            radius: 8
-            clip: true
-
-            FTableView {
-              id: tableView
-              radius: 8
-              color: "transparent"
-              anchors.fill: parent
-              anchors.leftMargin: -1
-              columnSource: getColumnSource()
-
-              Component {
-                id: componentActionArea
-                RowLayout {
-                  anchors.fill: parent
-
-                  FluButton {
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                    text: "删除"
-                    onClicked: {
-                      tableView.closeEditor()
-                      independentVariables.remove(argument.category, row)
-                      notifyDataChange()
-                    }
-                  }
-                }
-              }
-
-              function getColumnSource() {
-                const columns = []
-                for (const key of loaderTableArea.keys) {
-                  const property = argument.entity[key]
-                  columns.push({
-                    title: property.name,
-                    type: property.type,
-                    extra: property.extra,
-                    dataIndex: key,
-                    minimumWidth: 100,
-                    maximumWidth: 300,
-                    width: 90,
-                  })
-                }
-                columns.push({
-                  title: "操作",
-                  dataIndex: "action",
-                })
-                return columns
-              }
-
-              function readFromIv() {
-                const rows = []
-                const size = independentVariables.size(argument.category)
-                for (let i = 0; i < size; ++i) {
-                  const row = {}
-                  for (const key of loaderTableArea.keys) {
-                    row[key] = independentVariables.get(argument.category, i, key) || '0'
-                  }
-                  row['action'] = tableView.customItem(componentActionArea)
-                  rows.push(row)
-                }
-                return rows
-              }
-
-              function refreshData() {
-                dataSource = readFromIv()
-                tableView.dataSource = dataSource
-              }
-            }
-
-            Component.onCompleted: {
-              tableView.refreshData()
-              tableView.cellUpdated.connect((row, column, value) => {
-                const key = loaderTableArea.keys[column]
-                independentVariables.set(argument.category, row, key, value)
-                // console.log(`SET: iv[${argument.category}][${row}][${key}] = "${value}"`)
-                notifyDataChange()
-              })
-              independentVariables.sizeChanged.connect((category) => {
-                if (category !== argument.category) {
-                  return
-                }
-                tableView.refreshData()
-              })
-            }
-          } // FluArea
-        }
-
-        sourceComponent: keys.length > 0 ? componentTableArea : null
+        sourceComponent: d.categoryToHfKeys[argument.category].length > 0 ? componentTableArea : null
       }
 
       RowLayout {
@@ -363,7 +362,7 @@ FluWindow {
         Layout.fillWidth: true
 
         FluButton {
-          visible: loaderTableArea.keys.length > 0
+          visible: d.categoryToHfKeys[argument.category].length > 0
           text: "添加一组数据"
           Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
           onClicked: {
@@ -375,7 +374,7 @@ FluWindow {
         }
 
         FluFilledButton {
-          visible: loaderTableArea.keys.length > 0
+          visible: d.categoryToHfKeys[argument.category].length > 0
           text: "计算"
           Layout.alignment: Qt.AlignRight | Qt.AlignBottom
           onClicked: {
@@ -401,6 +400,22 @@ FluWindow {
         calculationUnit.update(argument.entity, independentVariables)
         const results = calculationUnit.evaluate(category)
         showAlert("计算结果", results.join(", "))
+      }
+
+      Component {
+        id: tableModelComponent
+        TableModel {
+        }
+      }
+
+      function reloadTable() {
+        const hfArea = tableLoader.item
+        if (hfArea) {
+          d.categoryToHfKeys[argument.category] = getHighFrequencyKeys(argument)
+          const tableView = hfArea.getTableView()
+          const globalD = tableView.getGlobal()
+          tableView.columnSource = tableView.getColumnSource()
+        }
       }
     } // TabContent
   } // Component
@@ -456,6 +471,12 @@ FluWindow {
     return argument.entity.keys().filter(
         k => !argument.entity[k].isHighFrequency
         && argument.entity[k].shouldEnable(argument.entity)
+    )
+  }
+
+  function getAllHfKeys(argument) {
+    return argument.entity.keys().filter(
+        k => argument.entity[k].isHighFrequency
     )
   }
 

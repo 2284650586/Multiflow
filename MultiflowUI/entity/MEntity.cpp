@@ -33,12 +33,14 @@ bool MProperty::shouldEnable(const QVariant& root) const {
     const auto* propertyMap = root.value<QQmlPropertyMap*>();
     const auto* entity = dynamic_cast<const MEntity*>(propertyMap);
 
-    for (auto it = enableConditions.begin(); it != enableConditions.end(); ++it) {
-        const auto value = entity->get(it.key()).value<MProperty>().value.toString();
-
-        if (value != it.value()) {
-            return false;
-        }
+    if (enableConditions.isEmpty()) {
+        return true;
     }
-    return true;
+
+    return std::ranges::any_of(enableConditions, [entity](const auto& pair) {
+        const QVariant value = entity->get(pair.first);
+        const auto actualValue = value.value<MProperty>().value.toString();
+
+        return actualValue == pair.second;
+    });
 }

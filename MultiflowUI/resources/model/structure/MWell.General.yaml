@@ -11,10 +11,3 @@ properties:
     name: 管井类型
     type: enum
     enum: Production, Injection
-
-  - id: length
-    name: 转换器测试
-    type: Builtin.Length
-    enable-if:
-      - enum-id: kind
-        value: Production

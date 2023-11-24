@@ -12,11 +12,23 @@ properties:
     name: 相关参数
     type: enum
     enum: MD, TVD, Angle
+    enable-if:
+      - enum-id: survey-type
+        value: 2D
+      - enum-id: survey-type
+        value: 3D
 
   - id: calculation-method
     name: 计算方法
     type: enum
     enum: Tangential, MinimumCurvature
+    enable-if:
+      - enum-id: survey-type
+        value: 2D
+      - enum-id: survey-type
+        value: 3D
+
+  #######################################
 
   - id: depth-reference
     name: 深度参考
@@ -31,32 +43,60 @@ properties:
     name: Bottom Depth
     type: Builtin.Length
 
+  #######################################
+
   - id: md
     name: MD
     type: number
     independent: Yes
+    enable-if:
+      - enum-id: survey-type
+        value: 2D
+      - enum-id: survey-type
+        value: 3D
 
   - id: tvd
     name: TVD
     type: number
     independent: Yes
+    enable-if:
+      - enum-id: survey-type
+        value: 2D
+      - enum-id: survey-type
+        value: 3D
 
   - id: horizontal-displacement
     name: 水平位移
     type: number
     independent: Yes
+    enable-if:
+      - enum-id: survey-type
+        value: 2D
+      - enum-id: survey-type
+        value: 3D
 
   - id: angle
     name: 角度
     type: number
     independent: Yes
+    enable-if:
+      - enum-id: survey-type
+        value: 2D
+      - enum-id: survey-type
+        value: 3D
 
   - id: azimuth
     name: 方位角
     type: number
     independent: Yes
+    enable-if:
+      - enum-id: survey-type
+        value: 3D
 
   - id: max-dogleg-severity
     name: Max Dogleg
     type: number
     independent: Yes
+    enable-if:
+      - enum-id: survey-type
+        value: 3D

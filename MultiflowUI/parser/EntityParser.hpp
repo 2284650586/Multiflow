@@ -18,7 +18,7 @@ struct ParserContext {
     const QString& propertyId;
     const YAML::Node& node;
     bool isHighFrequency;
-    const QMap<QString, QString>& enableConditions;
+    const QVector<QPair<QString, QString>>& enableConditions;
 };
 
 class EntityParser final {

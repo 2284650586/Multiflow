@@ -31,7 +31,7 @@ struct MProperty {
     Q_PROPERTY(QVariant value MEMBER value)
     Q_PROPERTY(QVariant extra MEMBER extra)
     Q_PROPERTY(QVariant associateValue MEMBER associateValue)
-    Q_PROPERTY(QMap<QString, QString> enableConditions MEMBER enableConditions)
+    Q_PROPERTY(QVector<QPair<QString, QString>> enableConditions MEMBER enableConditions)
     Q_PROPERTY(bool isHighFrequency MEMBER isHighFrequency)
 
 public:
@@ -40,7 +40,7 @@ public:
     QVariant value;
     QVariant extra;
     QVariant associateValue{QVariant::fromValue(0)};
-    QMap<QString, QString> enableConditions;
+    QVector<QPair<QString, QString>> enableConditions;
     bool isHighFrequency{false};
 
     Q_INVOKABLE [[nodiscard]] bool shouldEnable(const QVariant& root) const;

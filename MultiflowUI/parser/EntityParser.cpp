@@ -126,7 +126,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
         }
 
         const auto enableConditions = property["enable-if"];
-        QMap<QString, QString> conditions{};
+        QVector<QPair<QString, QString>> conditions{};
         for (const auto& condition: enableConditions) {
             const auto enumId = condition["enum-id"];
             const auto value = condition["value"];
@@ -135,7 +135,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                     fmt::format("Malformed enable-if of entity {}.", entityName.toStdString())
                 };
             }
-            conditions.insert(qFromNode(enumId), qFromNode(value));
+            conditions.emplace_back(qFromNode(enumId), qFromNode(value));
         }
 
         _handleType(
@@ -237,12 +237,13 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
             throw ParseException(
                 fmt::format("没有给枚举类型定义数据: {}", context.propertyName.toStdString()));
         }
+        const QString enums = qFromNode(enumField);
         context.entity->insert(
             context.propertyId, QVariant::fromValue(MProperty{
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
-                .value = QVariant::fromValue(QString{}),
-                .extra = QVariant::fromValue(qFromNode(enumField)),
+                .value = QVariant::fromValue(enums.split(", ").first()),
+                .extra = QVariant::fromValue(enums),
                 .isHighFrequency = context.isHighFrequency,
                 .enableConditions = context.enableConditions,
             }));

@@ -487,7 +487,7 @@ Rectangle {
                   return modelData.comId
                 }
                 const type = columnSource[column].type
-                if (typeof(type) === 'string' && type.startsWith("Builtin.")) {
+                if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
                   if (columnSource[column].extra) {
                     return com_conv
                   }
@@ -880,5 +880,13 @@ Rectangle {
     }
     table_model.clear()
     table_model.rows = sortedArray
+  }
+
+  function getHeaderView() {
+    return header_horizontal
+  }
+
+  function getGlobal() {
+    return d
   }
 }
