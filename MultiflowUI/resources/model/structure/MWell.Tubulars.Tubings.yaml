@@ -23,10 +23,21 @@ properties:
     type: Builtin.Length
     independent: Yes
 
+  - id: od
+    name: OD
+    type: Builtin.Length
+    independent: Yes
+    enable-if:
+      - enum-id: dimension-option
+        value: OD
+
   - id: well-thickness
     name: Wall Thickness
     type: Builtin.Length
     independent: Yes
+    enable-if:
+      - enum-id: dimension-option
+        value: Wall Thickness
 
   - id: roughness
     name: Roughness

@@ -145,7 +145,6 @@ FluWindow {
                     if (didInitliazed) {
                       initPage(argument)
                       repeater.reload()
-                      entity.value = currentText
                       reloadTable()
                     }
                   }
@@ -289,16 +288,19 @@ FluWindow {
 
             function getColumnSource() {
               const columns = []
+              const hidHfKeys = getHidHfKeys(argument)
+
               for (const key of d.categoryToHfKeys[argument.category]) {
                 const property = argument.entity[key]
+                const shouldHide = hidHfKeys.includes(key)
                 columns.push({
-                  title: property.name,
+                  title: shouldHide ? '' : property.name,
                   type: property.type,
                   extra: property.extra,
                   dataIndex: key,
-                  minimumWidth: 100,
-                  maximumWidth: 300,
-                  width: 90,
+                  minimumWidth: shouldHide ? 1 : 100,
+                  maximumWidth: shouldHide ? 1 : 300,
+                  width: shouldHide ? 1 : 90,
                 })
               }
               columns.push({
@@ -313,7 +315,7 @@ FluWindow {
               const size = independentVariables.size(argument.category)
               for (let i = 0; i < size; ++i) {
                 const row = {}
-                for (const key of getAllHfKeys(argument)) {
+                for (const key of getHfKeys(argument)) {
                   row[key] = independentVariables.get(argument.category, i, key) || '0'
                 }
                 row['action'] = tableView.customItem(componentActionArea)
@@ -402,18 +404,10 @@ FluWindow {
         showAlert("计算结果", results.join(", "))
       }
 
-      Component {
-        id: tableModelComponent
-        TableModel {
-        }
-      }
-
       function reloadTable() {
         const hfArea = tableLoader.item
         if (hfArea) {
-          d.categoryToHfKeys[argument.category] = getHighFrequencyKeys(argument)
           const tableView = hfArea.getTableView()
-          const globalD = tableView.getGlobal()
           tableView.columnSource = tableView.getColumnSource()
         }
       }
@@ -460,7 +454,7 @@ FluWindow {
 
   function initPage(argument) {
     d.categoryToKeys[argument.category] = getKeys(argument)
-    d.categoryToHfKeys[argument.category] = getHighFrequencyKeys(argument)
+    d.categoryToHfKeys[argument.category] = getHfKeys(argument)
   }
 
   function notifyDataChange() {
@@ -474,16 +468,16 @@ FluWindow {
     )
   }
 
-  function getAllHfKeys(argument) {
+  function getHfKeys(argument) {
     return argument.entity.keys().filter(
         k => argument.entity[k].isHighFrequency
     )
   }
 
-  function getHighFrequencyKeys(argument) {
+  function getHidHfKeys(argument) {
     return argument.entity.keys().filter(
         k => argument.entity[k].isHighFrequency
-        && argument.entity[k].shouldEnable(argument.entity)
+        && !argument.entity[k].shouldEnable(argument.entity)
     )
   }
 
