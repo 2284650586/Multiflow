@@ -40,8 +40,8 @@ public:
     QVariant value;
     QVariant extra;
     QVariant associateValue{QVariant::fromValue(0)};
-    QVector<QPair<QString, QString>> enableConditions;
     bool isHighFrequency{false};
+    QVector<QPair<QString, QString>> enableConditions;
 
     Q_INVOKABLE [[nodiscard]] bool shouldEnable(const QVariant& root) const;
 };
