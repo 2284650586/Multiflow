@@ -243,7 +243,7 @@ void MainWindow::createGraphicsView() {
     tScene->setBackgroundBrush(QPixmap(":/resources/image/background3.png"));
     tView->setScene(tScene);
 
-    auto* layout = new QHBoxLayout;
+    auto* layout = new QHBoxLayout{};
     layout->addWidget(tView);
 
     tabWidget->insertTab(tabWidget->count(), tView, QString("场景 %1").arg(tabWidget->count() + 1));

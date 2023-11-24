@@ -125,6 +125,19 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
             };
         }
 
+        const auto enableConditions = property["enable-if"];
+        QVector<QPair<QString, QString>> conditions{};
+        for (const auto& condition: enableConditions) {
+            const auto enumId = condition["enum-id"];
+            const auto value = condition["value"];
+            if (!enumId.IsDefined() || !value.IsDefined()) {
+                throw ParseException{
+                    fmt::format("Malformed enable-if of entity {}.", entityName.toStdString())
+                };
+            }
+            conditions.emplace_back(qFromNode(enumId), qFromNode(value));
+        }
+
         _handleType(
             qFromNode(type), {
                 .entity = entity,
@@ -132,6 +145,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                 .propertyId = qFromNode(id),
                 .node = property,
                 .isHighFrequency = isHighFrequency,
+                .enableConditions = conditions,
             });
     }
 
@@ -165,11 +179,12 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
                 .value = 0,
                 .extra = QVariant::fromValue(new LengthConverter{}),
                 .isHighFrequency = context.isHighFrequency,
+                .enableConditions = context.enableConditions,
             }));
     }
     else {
         throw ParseException{
-            fmt::format("Unknown primitive type: {}", builtinType.toStdString())
+            fmt::format("Unknown builtin type: {}", builtinType.toStdString())
         };
     }
 }
@@ -188,6 +203,7 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
             .value = QVariant::fromValue(new MEntity{*entityValue}),
             .extra = QVariant{},
             .isHighFrequency = context.isHighFrequency,
+            .enableConditions = context.enableConditions,
         })
     );
 }
@@ -201,6 +217,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .value = QVariant::fromValue(static_cast<double>(0)),
                 .extra = QVariant{},
                 .isHighFrequency = context.isHighFrequency,
+                .enableConditions = context.enableConditions,
             }));
     }
     else if (primitiveType == "string") {
@@ -211,6 +228,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .value = QVariant::fromValue(QString{}),
                 .extra = QVariant{},
                 .isHighFrequency = context.isHighFrequency,
+                .enableConditions = context.enableConditions,
             }));
     }
     else if (primitiveType == "enum") {
@@ -219,13 +237,15 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
             throw ParseException(
                 fmt::format("没有给枚举类型定义数据: {}", context.propertyName.toStdString()));
         }
+        const QString enums = qFromNode(enumField);
         context.entity->insert(
             context.propertyId, QVariant::fromValue(MProperty{
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
-                .value = QVariant::fromValue(QString{}),
-                .extra = QVariant::fromValue(qFromNode(enumField)),
+                .value = QVariant::fromValue(enums.split(", ").first()),
+                .extra = QVariant::fromValue(enums),
                 .isHighFrequency = context.isHighFrequency,
+                .enableConditions = context.enableConditions,
             }));
     }
     else {

@@ -23,6 +23,9 @@
         <file>resources/model/structure/MWell.DeviationSurvey.yaml</file>
         <file>resources/model/structure/MWell.General.yaml</file>
         <file>resources/model/structure/MWell.HeatTransfer.yaml</file>
+        <file>resources/model/structure/MWell.DownholeEquipment.yaml</file>
+        <file>resources/model/structure/MWell.Tubulars.Casings.yaml</file>
+        <file>resources/model/structure/MWell.Tubulars.Tubings.yaml</file>
 
         <file>qml/main.qml</file>
 
@@ -40,6 +43,7 @@
         <file>qml/components/widget/FormulaText.qml</file>
         <file>qml/components/widget/NavigationView.qml</file>
         <file>qml/components/widget/AutoSuggestBox.qml</file>
+        <file>qml/components/widget/MTableView.qml</file>
 
         <file>qml/components/widget/FTableView.qml</file>
         <file>qml/components/widget/FTableModelColumn.qml</file>

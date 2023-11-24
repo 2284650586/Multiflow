@@ -1,0 +1,20 @@
+multiflow-dist: 1.0
+
+name: MWell.DownholeEquipment
+
+properties:
+  - id: equipment
+    name: Equipment
+    type: enum
+    enum: Choke, Packer
+    independent: Yes
+
+  - id: name
+    name: Name
+    type: string
+    independent: Yes
+
+  - id: md
+    name: MD
+    type: number
+    independent: Yes
