@@ -61,8 +61,16 @@ Rectangle {
       if (columnSource[column].editMultiline === true) {
         return com_edit_multiline
       }
-      if (columnSource[column].type === 'enum') {
-        item_loader.currentProperty = columnSource[column]
+
+      const type = columnSource[column].type
+      item_loader.currentProperty = columnSource[column]
+      if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
+        if (columnSource[column].extra) {
+          return com_conv
+        }
+        return com_loading
+      }
+      if (type === 'enum') {
         return com_combo
       }
       return com_edit
@@ -108,27 +116,132 @@ Rectangle {
     }
   }
   Component {
-    id: com_combo
+    id: com_loading
 
-    FluComboBox {
-      property var items: currentProperty.extra.split(", ")
-      property var initialIndex: items.indexOf(currentValue)
+    RowLayout {
+      anchors.fill: parent
+      spacing: 0
 
-      id: combo_box
-      model: items
-      onCurrentTextChanged: {
-        if (items.includes(currentText)) {
-          save(currentText)
+      FluText {
+        text: "Loading..."
+      }
+    }
+  }
+  Component {
+    id: com_conv
+
+    RowLayout {
+      property var units: currentProperty.extra.units()
+      property var initialUnit: units.indexOf(currentValue)
+      anchors.fill: parent
+      spacing: 0
+
+      Item {
+        Layout.preferredWidth: 6
+      }
+
+      FCellTextField {
+        id: textBox
+        readOnly: true === columnSource[column].readOnly
+        cleanEnabled: false
+        Layout.preferredHeight: 30
+        Layout.fillWidth: true
+        Component.onCompleted: {
+          forceActiveFocus()
+          selectAll()
+          textBox.text = currentValue
+        }
+        Component.onDestruction: {
+          save()
+        }
+        onCommit: {
+          save()
         }
       }
-      Component.onCompleted: {
-        forceActiveFocus()
-        combo_box.currentIndex = initialIndex !== -1 ? initialIndex : 0
+
+      FluComboBox {
+        property var lastUnit: currentProperty.associateValue ? units[currentProperty.associateValue] : units[0]
+
+        id: comboBox
+        model: units
+        width: 30
+        indicator: null
+        Layout.preferredHeight: 30
+        Layout.preferredWidth: 30
+        onCurrentTextChanged: {
+          if (!_isNumeric(textBox.text)) {
+            return
+          }
+          let oldValue = parseFloat(textBox.text)
+          let newUnit = currentText
+          let newValue = currentProperty.extra.convert(oldValue, lastUnit, newUnit)
+          newValue = Number(newValue.toFixed(2))
+          textBox.text = `${newValue}`
+          currentProperty.associateValue = currentIndex
+          lastUnit = currentText
+        }
+
+        Component.onCompleted: {
+          comboBox.currentIndex = currentProperty.associateValue ? currentProperty.associateValue : 0
+        }
       }
-      function save(text) {
-        // currentValue = text
-        cellUpdated(row, column, text)
+
+      Item {
+        Layout.preferredWidth: 6
+      }
+
+      function _isNumeric(str) {
+        if (typeof str != "string") {
+          return false
+        }
+        return !isNaN(str) && !isNaN(parseFloat(str))
+      }
+
+      function save() {
+        cellUpdated(row, column, textBox.text)
         tableView.closeEditor()
+      }
+    }
+  }
+  Component {
+    id: com_combo
+
+    RowLayout {
+      anchors.fill: parent
+      spacing: 0
+
+      Item {
+        Layout.preferredWidth: 6
+      }
+
+      FluComboBox {
+        property var items: currentProperty.extra.split(", ")
+        property var initialIndex: items.indexOf(currentValue)
+
+        id: combo_box
+        model: items
+        Layout.fillWidth: true
+        Layout.preferredHeight: 30
+
+        onCurrentTextChanged: {
+          if (items.includes(currentText)) {
+            save(currentText)
+          }
+        }
+        Component.onCompleted: {
+          forceActiveFocus()
+          combo_box.currentIndex = initialIndex !== -1 ? initialIndex : 0
+        }
+
+        function save(text) {
+          // currentValue = text
+          cellUpdated(row, column, text)
+          tableView.closeEditor()
+        }
+      }
+
+      Item {
+        Layout.preferredWidth: 6
       }
     }
   }
@@ -373,7 +486,14 @@ Rectangle {
                 if (typeof (modelData) == "object") {
                   return modelData.comId
                 }
-                if (columnSource[column].type === 'enum') {
+                const type = columnSource[column].type
+                if (typeof(type) === 'string' && type.startsWith("Builtin.")) {
+                  if (columnSource[column].extra) {
+                    return com_conv
+                  }
+                  return com_loading
+                }
+                if (type === 'enum') {
                   return com_combo
                 }
                 return com_text

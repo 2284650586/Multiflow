@@ -9,7 +9,7 @@
 QVector<ml::Number> WellCalculationUnit::reservoirPressure() const {
     QVector<ml::Number> ret{};
 
-    for (const auto variables = _independentVariables->get("completions");
+    for (const auto& variables = _independentVariables->get("completions");
          const auto& variable: variables) {
         log_debug("Calculation vmap: ({})", variable.size());
 

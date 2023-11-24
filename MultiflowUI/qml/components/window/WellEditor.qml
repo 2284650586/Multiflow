@@ -32,6 +32,17 @@ FluWindow {
     onDataChanged.connect(bridge.onDataChanged)
   }
 
+  Item {
+    id: d
+
+    property var categoryToKeys: ({})
+    property var categoryToHfKeys: ({})
+
+    Component.onCompleted: {
+      init()
+    }
+  }
+
   FluArea {
     anchors.fill: parent
     anchors.margins: 10
@@ -49,7 +60,9 @@ FluWindow {
 
       Component.onCompleted: {
         well.keys().forEach(key => {
-          _addTab(well[key].name, tab, {category: key, entity: well[key].value})
+          const argument = {category: key, entity: well[key].value}
+          initPage(argument)
+          addTab(well[key].name, tab, argument)
         })
       }
     }
@@ -83,7 +96,7 @@ FluWindow {
         // 表单区域
         Repeater {
           id: repeater
-          model: getKeys(argument.entity)
+          model: d.categoryToKeys[argument.category]
 
           RowLayout {
             property var key: modelData
@@ -136,8 +149,10 @@ FluWindow {
                   currentIndex: -1
                   onCurrentTextChanged: {
                     entity.value = currentText
+                    notifyDataChange()
+                    initPage(argument)
+                    repeater.reload()
                   }
-
                   Component.onCompleted: {
                     comboBoxEnum.currentIndex = entity.value ? items.indexOf(entity.value) : 0
                   }
@@ -149,10 +164,12 @@ FluWindow {
 
                 RowLayout {
                   property var units: entity.extra.units()
+                  spacing: 0
 
                   FluTextBox {
                     id: textBox
-                    Layout.preferredWidth: 120
+                    Layout.preferredWidth: 125
+                    Layout.fillHeight: true
                     onTextChanged: {
                       entity.value = text
                     }
@@ -166,7 +183,8 @@ FluWindow {
 
                     id: comboBox
                     model: units
-                    Layout.preferredWidth: 80
+                    Layout.preferredWidth: 75
+                    Layout.fillHeight: true
                     onCurrentTextChanged: {
                       if (!_isNumeric(textBox.text)) {
                         return
@@ -210,6 +228,19 @@ FluWindow {
               color: "gray"
             }
           } // Row
+
+          function reload() {
+            repeater.model = d.categoryToKeys[argument.category]
+            rearrange()
+          }
+
+          function rearrange() {
+            updateMaxWidth(repeater, repeater.model.length, 'label')
+          }
+
+          Component.onCompleted: {
+            rearrange()
+          }
         } // Repeater
       }
 
@@ -228,7 +259,7 @@ FluWindow {
         Layout.margins: 10
 
         // High frequency keys
-        property var keys: getHighFrequencyKeys(argument.entity)
+        property var keys: d.categoryToHfKeys[argument.category] || []
         property var dataSource: []
 
         Component {
@@ -276,6 +307,7 @@ FluWindow {
                     dataIndex: key,
                     minimumWidth: 100,
                     maximumWidth: 300,
+                    width: 90,
                   })
                 }
                 columns.push({
@@ -310,7 +342,7 @@ FluWindow {
               tableView.cellUpdated.connect((row, column, value) => {
                 const key = loaderTableArea.keys[column]
                 independentVariables.set(argument.category, row, key, value)
-                console.log(`SET: iv[${argument.category}][${row}][${key}] = "${value}"`)
+                // console.log(`SET: iv[${argument.category}][${row}][${key}] = "${value}"`)
                 notifyDataChange()
               })
               independentVariables.sizeChanged.connect((category) => {
@@ -361,23 +393,6 @@ FluWindow {
         }
       }
 
-      Component.onCompleted: {
-        _updateMaxWidth(repeater, 'label')
-      }
-
-      // Update max width programmatically
-      function _updateMaxWidth(repeater, itemId) {
-        let maxWidth = 0
-        for (let i = 0; i < repeater.count; ++i) {
-          let item = repeater.itemAt(i)[itemId]
-          maxWidth = Math.max(maxWidth, item.paintedWidth)
-        }
-        for (let i = 0; i < repeater.count; ++i) {
-          let item = repeater.itemAt(i)[itemId]
-          item.Layout.preferredWidth = maxWidth
-        }
-      }
-
       function _handleCalculation(category) {
         if (independentVariables.size(category) === 0) {
           showAlert("无法计算", "请添加至少一组数据")
@@ -385,7 +400,6 @@ FluWindow {
         }
         calculationUnit.update(argument.entity, independentVariables)
         const results = calculationUnit.evaluate(category)
-        console.log(results)
         showAlert("计算结果", results.join(", "))
       }
     } // TabContent
@@ -403,22 +417,53 @@ FluWindow {
     }
   }
 
-  function _addTab(title, control, args) {
+  // Update max width programmatically
+  function updateMaxWidth(repeater, count, itemId) {
+    let maxWidth = 0
+    for (let i = 0; i < count; ++i) {
+      if (!repeater.itemAt(i)) {
+        return
+      }
+      let item = repeater.itemAt(i)[itemId]
+      maxWidth = Math.max(maxWidth, item.paintedWidth)
+    }
+    for (let i = 0; i < count; ++i) {
+      let item = repeater.itemAt(i)[itemId]
+      item.Layout.preferredWidth = maxWidth
+    }
+  }
+
+  function addTab(title, control, args) {
     tabView.appendTab("qrc:/resources/image/linepointer.png", title, control, Object.assign({
       "title": title
     }, args))
+  }
+
+  function init() {
+    console.log("init")
+  }
+
+  function initPage(argument) {
+    d.categoryToKeys[argument.category] = getKeys(argument)
+    d.categoryToHfKeys[argument.category] = getHighFrequencyKeys(argument)
   }
 
   function notifyDataChange() {
     onDataChanged(well)
   }
 
-  function getKeys(entity) {
-    return entity.keys().filter(k => !entity[k].isHighFrequency)
+  function getKeys(argument) {
+    return argument.entity.keys().filter(
+        k => !argument.entity[k].isHighFrequency
+        && argument.entity[k].shouldEnable(argument.entity)
+    )
   }
 
-  function getHighFrequencyKeys(entity) {
-    return entity.keys().filter(k => entity[k].isHighFrequency)
+  function getHighFrequencyKeys(argument) {
+    return argument.entity.keys().filter(
+        k => argument.entity[k].isHighFrequency
+        && argument.entity[k].shouldEnable(argument.entity)
+    )
   }
 
   function showAlert(title, message) {

@@ -20,13 +20,21 @@ void MIndependentVariables::createEmpty(const QString& category) {
 }
 
 void MIndependentVariables::remove(const QString& category, const int index) {
-    _variables[category].remove(index);
-    log_debug("Removed IV at index {}", index);
+    log_debug("Removing IV (size={}) at index {}", _variables[category].size(), index);
+    auto& m = _variables[category];
+    if (index >= m.size()) {
+        return;
+    }
+    m.remove(index);
     emit sizeChanged(category);
 }
 
 void MIndependentVariables::set(const QString& category, const int index, const QString& key, const QVariant& value) {
-    _variables[category][index][key] = value;
+    auto& m = _variables[category];
+    if (index >= m.size()) {
+        return;
+    }
+    m[index][key] = value;
     log_debug("Set IV at index {} with key {}", index, key.toStdString());
     emit propertyChanged(category);
 }
@@ -34,7 +42,7 @@ void MIndependentVariables::set(const QString& category, const int index, const 
 QVariant MIndependentVariables::get(const QString& category, const int index, const QString& key) const {
     log_debug("Returning IV at index {} with key {}", index, key.toStdString());
     const QVector<QMap<QString, QVariant>>& v = _variables[category];
-    if (v.size() <= index) {
+    if (index >= v.size()) {
         log_critical("IV at index {} does not exist", index);
         return QVariant::fromValue(QString{});
     }
@@ -47,9 +55,10 @@ QVariant MIndependentVariables::get(const QString& category, const int index, co
     return m[key];
 }
 
-QVector<QMap<QString, QVariant>> MIndependentVariables::get(const QString& category) const {
+const QVector<QMap<QString, QVariant>>& MIndependentVariables::get(const QString& category) const {
+    static const QVector<QMap<QString, QVariant>> empty{};
     if (const auto it = _variables.find(category); it != _variables.end()) {
         return it.value();
     }
-    return {};
+    return empty;
 }
