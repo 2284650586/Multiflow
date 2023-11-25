@@ -1,0 +1,77 @@
+multiflow-dist: 1.0
+
+name: MWell.Tubulars.Tubings
+
+properties:
+  - id: dimension-option
+    name: Dimension Option
+    type: enum
+    enum: OD, Wall Thickness
+
+  - id: name
+    name: Name
+    type: string
+    independent: Yes
+
+  - id: to-md
+    name: To MD
+    type: Builtin.Length
+    independent: Yes
+
+  - id: id
+    name: ID
+    type: Builtin.Length
+    independent: Yes
+
+  - id: od
+    name: OD
+    type: Builtin.Length
+    independent: Yes
+    enable-if:
+      - enum-id: dimension-option
+        value: OD
+
+  - id: well-thickness
+    name: Wall Thickness
+    type: Builtin.Length
+    independent: Yes
+    enable-if:
+      - enum-id: dimension-option
+        value: Wall Thickness
+
+  - id: roughness
+    name: Roughness
+    type: Builtin.Length
+    independent: Yes
+
+  - id: grade
+    name: Grade
+    type: enum
+    enum: 13CR80, B, C75, C90, C95, D0075, D01, D015, E0075, E01, E015, H40, 155, K01, K015, K55, L015, 180, M0075, M01, M015, M65, N80, 095, P0075, P01, P015, P105, P110, Q125, SC85, T0075, T01, T015, T95, TN100SS, TN110HC, TN110HS, TN110LT, TN110SS, TN110HC, TN110HS, TN110LT, TN110SS, TN125HC, TN125LT, TN140DW, TN150DW, TN55CS, TN55LT, TN70CS, TN75CS, TN80HC, TN80LT, TN80SS, TN90SS, TN95HC, TN95HS, TN95LT, TN95SS, U140, X52, X56
+    independent: Yes
+
+  - id: density
+    name: Density
+    type: Builtin.Length # TODO
+    independent: Yes
+
+  - id: thermal-conductivity
+    name: Thermal Conductivity
+    type: Builtin.Length # TODO
+    independent: Yes
+
+  - id: fluid
+    name: Fluid
+    type: enum
+    enum: Mud, Brine, Water, Gas, Oil, Diesel, Acid
+    independent: Yes
+
+  - id: fluid-density
+    name: Fluid Density
+    type: Builtin.Length # TODO
+    independent: Yes
+
+  - id: fluid-thermal-conductivity
+    name: Fluid Thermal Cond.
+    type: Builtin.Length # TODO
+    independent: Yes

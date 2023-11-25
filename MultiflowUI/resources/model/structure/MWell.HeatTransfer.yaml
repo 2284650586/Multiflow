@@ -4,12 +4,12 @@ name: MWell.HeatTransfer
 
 properties:
   - id: heat-transfer-coefficient
-    name: Heat Transfer Coefficient
+    name: 热传递系数
     type: enum
     enum: Specify, Calculate
 
   - id: depth-option
-    name: Depth Option
+    name: 深度选项
     type: enum
     enum: MD, TVD
 
@@ -24,7 +24,7 @@ properties:
     independent: Yes
 
   - id: ambient-temperature
-    name: Ambient Temperature
+    name: 环境温度
     type: number
     independent: Yes
 

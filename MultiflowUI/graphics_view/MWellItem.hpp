@@ -5,20 +5,17 @@
 #pragma once
 
 #include "MAbstractItem.hpp"
-#include "entity/unit/WellReservoirUnit.hpp"
-#include "entity/MEntity.hpp"
-#include "entity/MIndependentVariables.hpp"
+#include "graphics_view/window/MWellDisplayWindow.hpp"
 
 class MWellItem final : public MAbstractItem {
+    MWellDisplayWindow* _wellDisplayWindow{};
+
 public:
     explicit MWellItem(QGraphicsPixmapItem* parent = nullptr);
 
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
 
-    [[nodiscard]] bool canConnectWith(const MAbstractItem& other, ConnectionKind kind) const override;
+    void onUserDataSaved() const override;
 
-private:
-    MEntity* _entity;
-    MIndependentVariables* _independentVariables;
-    WellReservoirUnit* _wellReservoirUnit;
+    [[nodiscard]] bool canConnectWith(const MAbstractItem& other, ConnectionKind kind) const override;
 };

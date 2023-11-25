@@ -7,7 +7,12 @@
 #include "shared.hpp"
 #include "MArrow.hpp"
 
-#include <QGraphicsPixmapItem>
+#include "entity/unit/WellCalculationUnit.hpp"
+#include "entity/MEntity.hpp"
+#include "entity/MIndependentVariables.hpp"
+#include "qml/bridge/MSignalBridge.hpp"
+
+#include <QQuickWindow>
 
 enum ConnectionKind {
     START_TO_END,
@@ -16,14 +21,35 @@ enum ConnectionKind {
 
 class MAbstractItem : public QGraphicsPixmapItem {
 public:
-    enum { Type = UserType + 1 };
-
     using ArrowType = MArrow<MAbstractItem>;
 
+protected:
+    MEntity* _entity{};
+    MIndependentVariables* _independentVariables{};
+    MSignalBridge* _bridge{};
+    CalculationUnit* _calculationUnit{};
+    QString _itemName{};
+    QString _qmlRoute{};
+    QList<ArrowType*> _arrows{};
+    MItemKind _kind;
+
+    QVariant itemChange(GraphicsItemChange change, const QVariant& value) override;
+
+    // NOLINTNEXTLINE
+    QQuickWindow* openEditorDialog(const QString& route) const;
+
+    virtual void onUserDataSaved() const = 0;
+
+public:
+    enum { Type = UserType + 1 };
+
     explicit MAbstractItem(
-        MultiflowKind kind,
+        MItemKind kind,
         QString itemName,
         const QString& resourceFileName,
+        QString route,
+        MEntity* entity,
+        CalculationUnit* calculationUnit,
         QGraphicsPixmapItem* parent = nullptr
     );
 
@@ -37,7 +63,7 @@ public:
 
     [[nodiscard]] const QList<ArrowType*>& arrows() const;
 
-    [[nodiscard]] MultiflowKind itemKind() const;
+    [[nodiscard]] MItemKind itemKind() const;
 
     [[nodiscard]] int type() const override;
 
@@ -49,16 +75,11 @@ public:
 
     void setItemName(const QString& name);
 
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) override;
+
     [[nodiscard]] size_t countStartArrows() const;
 
     [[nodiscard]] size_t countEndArrows() const;
 
     [[nodiscard]] virtual bool canConnectWith(const MAbstractItem& other, ConnectionKind kind) const = 0;
-
-protected:
-    QVariant itemChange(GraphicsItemChange change, const QVariant& value) override;
-
-    QString _itemName{};
-    QList<ArrowType*> _arrows{};
-    MultiflowKind _kind;
 };

@@ -4,6 +4,7 @@
   <component name="CidrRootsConfiguration">
     <libraryRoots>
       <file path="$PROJECT_DIR$/FluentUI" />
+      <file path="$PROJECT_DIR$/FluentUIExt" />
       <file path="$PROJECT_DIR$/multiflow-backend" />
     </libraryRoots>
     <excludeRoots>

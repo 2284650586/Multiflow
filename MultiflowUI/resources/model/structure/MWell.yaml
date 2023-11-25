@@ -1,11 +1,15 @@
 multiflow-dist: 1.0
 
-name: MWell
 import:
   - MWell.General
   - MWell.DeviationSurvey
   - MWell.HeatTransfer
   - MWell.Completions
+  - MWell.DownholeEquipment
+  - MWell.Tubulars.Casings
+  - MWell.Tubulars.Tubings
+
+name: MWell
 
 properties:
   - id: general
@@ -19,6 +23,18 @@ properties:
   - id: heat-transfer
     name: 热传递
     type: MWell.HeatTransfer
+
+  - id: tubulars-casings
+    name: Tubulars Casings
+    type: MWell.Tubulars.Casings
+
+  - id: tubulars-tubings
+    name: Tubulars Tubings
+    type: MWell.Tubulars.Tubings
+
+  - id: downhole-equipment
+    name: Downhole
+    type: MWell.DownholeEquipment
 
   - id: completions
     name: 仿真

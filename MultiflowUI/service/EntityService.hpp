@@ -8,6 +8,7 @@
 #include "entity/MEntity.hpp"
 
 #include <QObject>
+#include <QMap>
 #include <QVector>
 #include <fmt/core.h>
 

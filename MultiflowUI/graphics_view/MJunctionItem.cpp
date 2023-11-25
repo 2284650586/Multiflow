@@ -9,7 +9,7 @@
 #include <QGraphicsSceneMouseEvent>
 
 MJunctionItem::MJunctionItem(QGraphicsPixmapItem* parent)
-    : MAbstractItem(Junction, "Junction", ":/resources/image/junction.png", parent),
+    : MAbstractItem(Junction, "Junction", ":/resources/image/junction.png", "", nullptr, nullptr, parent),
       _junction(new MJunction{}) {
 }
 
@@ -22,6 +22,9 @@ void MJunctionItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
     auto* dialog = new MJunctionDialog(_junction, _itemName, nullptr);
     dialog->exec();
     update();
+}
+
+void MJunctionItem::onUserDataSaved() const {
 }
 
 bool MJunctionItem::canConnectWith(const MAbstractItem& other, const ConnectionKind kind) const {

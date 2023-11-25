@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.27)
 
 add_library(MultiflowLibrary SHARED
     core/core.cpp

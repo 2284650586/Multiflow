@@ -14,10 +14,12 @@ namespace ml {
 using Number = double;
 
 class ML_PUBLIC Environment final {
-    std::map<std::string, Number> env{};
+    std::map<std::string, Number> _env{};
 
 public:
     explicit Environment() = default;
+
+    Environment(std::initializer_list<std::pair<std::string, Number>> init);
 
     Environment(const Environment& env);
 

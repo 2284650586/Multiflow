@@ -4,14 +4,18 @@ import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
 import FluentUI
+import "qrc:/qml/components/singleton/"
 
 Rectangle {
   property var columnSource
   property var dataSource
-  property color borderColor: FluTheme.dark ? "#252525" : "#e4e4e4"
+  property color borderColor: Colors.areaBorder
   property alias tableModel: table_model
   id: control
   color: FluTheme.dark ? Qt.rgba(39 / 255, 39 / 255, 39 / 255, 1) : Qt.rgba(251 / 255, 251 / 255, 253 / 255, 1)
+
+  signal cellUpdated(int row, int column, var value)
+
   onColumnSourceChanged: {
     if (columnSource.length !== 0) {
       var com_column = Qt.createComponent("FTableModelColumn.qml")
@@ -36,6 +40,7 @@ Rectangle {
     property int defaultItemWidth: 100
     property int defaultItemHeight: 42
     property var header_rows: []
+    property var isEditing: false
 
     function obtEditDelegate(column, row, cellItem) {
       var display = table_model.data(table_model.index(row, column), "display")
@@ -48,12 +53,25 @@ Rectangle {
       item_loader_layout.width = table_view.columnWidthProvider(column)
       item_loader_layout.height = table_view.rowHeightProvider(row)
       item_loader.display = display
+      item_loader.currentItem = table_model.getRow(row)
       var obj = columnSource[column].editDelegate
       if (obj) {
         return obj
       }
       if (columnSource[column].editMultiline === true) {
         return com_edit_multiline
+      }
+
+      const type = columnSource[column].type
+      item_loader.currentProperty = columnSource[column]
+      if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
+        if (columnSource[column].extra) {
+          return com_conv
+        }
+        return com_loading
+      }
+      if (type === 'enum') {
+        return com_combo
       }
       return com_edit
     }
@@ -71,7 +89,7 @@ Rectangle {
   }
   Component {
     id: com_edit
-    FluTextBox {
+    FCellTextField {
       id: text_box
       text: display
       readOnly: true === columnSource[column].readOnly
@@ -79,11 +97,151 @@ Rectangle {
         forceActiveFocus()
         selectAll()
       }
+
+      // 特制的逻辑，点击外部也视同为提交
+      Component.onDestruction: {
+        save()
+      }
       onCommit: {
+        save()
+      }
+
+      function save() {
         if (!readOnly) {
           display = text_box.text
         }
+        cellUpdated(row, column, text_box.text)
         tableView.closeEditor()
+      }
+    }
+  }
+  Component {
+    id: com_loading
+
+    RowLayout {
+      anchors.fill: parent
+      spacing: 0
+
+      FluText {
+        text: "Loading..."
+      }
+    }
+  }
+  Component {
+    id: com_conv
+
+    RowLayout {
+      property var units: currentProperty.extra.units()
+      property var initialUnit: units.indexOf(currentValue)
+      anchors.fill: parent
+      spacing: 0
+
+      Item {
+        Layout.preferredWidth: 6
+      }
+
+      FCellTextField {
+        id: textBox
+        readOnly: true === columnSource[column].readOnly
+        cleanEnabled: false
+        Layout.preferredHeight: 30
+        Layout.fillWidth: true
+        Component.onCompleted: {
+          forceActiveFocus()
+          selectAll()
+          textBox.text = currentValue
+        }
+        Component.onDestruction: {
+          save()
+        }
+        onCommit: {
+          save()
+        }
+      }
+
+      FluComboBox {
+        property var lastUnit: currentProperty.associateValue ? units[currentProperty.associateValue] : units[0]
+
+        id: comboBox
+        model: units
+        width: 30
+        indicator: null
+        Layout.preferredHeight: 30
+        Layout.preferredWidth: 30
+        onCurrentTextChanged: {
+          if (!_isNumeric(textBox.text)) {
+            return
+          }
+          let oldValue = parseFloat(textBox.text)
+          let newUnit = currentText
+          let newValue = currentProperty.extra.convert(oldValue, lastUnit, newUnit)
+          newValue = Number(newValue.toFixed(2))
+          textBox.text = `${newValue}`
+          currentProperty.associateValue = currentIndex
+          lastUnit = currentText
+        }
+
+        Component.onCompleted: {
+          comboBox.currentIndex = currentProperty.associateValue ? currentProperty.associateValue : 0
+        }
+      }
+
+      Item {
+        Layout.preferredWidth: 6
+      }
+
+      function _isNumeric(str) {
+        if (typeof str != "string") {
+          return false
+        }
+        return !isNaN(str) && !isNaN(parseFloat(str))
+      }
+
+      function save() {
+        cellUpdated(row, column, textBox.text)
+        tableView.closeEditor()
+      }
+    }
+  }
+  Component {
+    id: com_combo
+
+    RowLayout {
+      anchors.fill: parent
+      spacing: 0
+
+      Item {
+        Layout.preferredWidth: 6
+      }
+
+      FluComboBox {
+        property var items: currentProperty.extra.split(", ")
+        property var initialIndex: items.indexOf(currentValue)
+
+        id: combo_box
+        model: items
+        Layout.fillWidth: true
+        Layout.preferredHeight: 30
+
+        onCurrentTextChanged: {
+          if (items.includes(currentText)) {
+            save(currentText)
+          }
+        }
+        Component.onCompleted: {
+          forceActiveFocus()
+          combo_box.currentIndex = initialIndex !== -1 ? initialIndex : 0
+        }
+
+        function save(text) {
+          // currentValue = text
+          cellUpdated(row, column, text)
+          tableView.closeEditor()
+        }
+      }
+
+      Item {
+        Layout.preferredWidth: 6
       }
     }
   }
@@ -116,6 +274,7 @@ Rectangle {
             if (!readOnly) {
               display = text
             }
+            cellUpdated(row, column, text)
             tableView.closeEditor()
           }
         }
@@ -185,8 +344,8 @@ Rectangle {
     }
     ScrollView {
       anchors.fill: parent
-      ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+      ScrollBar.horizontal.policy: ScrollBar.AsNeeded
+      ScrollBar.vertical.policy: ScrollBar.AsNeeded
       TableView {
         id: table_view
         ListModel {
@@ -295,6 +454,7 @@ Rectangle {
                   return
                 }
                 item_loader.sourceComponent = d.obtEditDelegate(column, row, item_table)
+                d.isEditing = true
               }
               onClicked:
                   (event) => {
@@ -311,6 +471,10 @@ Rectangle {
               property var position: item_table.position
               property int row: position.y
               property int column: position.x
+              property var currentItem: table_model.getRow(row)
+              property var currentProperty: columnSource[column]
+              property var currentValue: currentItem[currentProperty.dataIndex]
+
               property var options: {
                 if (typeof (modelData) == "object") {
                   return modelData.options
@@ -321,6 +485,16 @@ Rectangle {
               sourceComponent: {
                 if (typeof (modelData) == "object") {
                   return modelData.comId
+                }
+                const type = columnSource[column].type
+                if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
+                  if (columnSource[column].extra) {
+                    return com_conv
+                  }
+                  return com_loading
+                }
+                if (type === 'enum') {
+                  return com_combo
                 }
                 return com_text
               }
@@ -346,6 +520,8 @@ Rectangle {
         FluLoader {
           id: item_loader
           property var display
+          property var currentItem
+          property var currentProperty
           property int column
           property int row
           property var tableView: control
@@ -407,6 +583,7 @@ Rectangle {
         height: 1
         anchors.top: parent.top
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -414,6 +591,7 @@ Rectangle {
         height: 1
         anchors.bottom: parent.bottom
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -421,6 +599,7 @@ Rectangle {
         height: parent.height
         anchors.left: parent.left
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -429,6 +608,7 @@ Rectangle {
         anchors.right: parent.right
         color: "#00000000"
         visible: column === tableModel.columnCount - 1
+        radius: control.radius
       }
       MouseArea {
         id: column_item_control_mouse
@@ -443,8 +623,7 @@ Rectangle {
             column_item_control.canceled = false
           }
         }
-        onClicked:
-            (event) => {
+        onClicked: (event) => {
           closeEditor()
         }
       }
@@ -561,6 +740,7 @@ Rectangle {
         height: 1
         anchors.top: parent.top
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -569,6 +749,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         visible: row === tableModel.rowCount - 1
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -576,6 +757,7 @@ Rectangle {
         height: parent.height
         anchors.left: parent.left
         color: "#00000000"
+        radius: control.radius
       }
       Rectangle {
         border.color: control.borderColor
@@ -583,6 +765,7 @@ Rectangle {
         height: parent.height
         anchors.right: parent.right
         color: "#00000000"
+        radius: control.radius
       }
       FluText {
         id: row_text
@@ -660,7 +843,12 @@ Rectangle {
   }
 
   function closeEditor() {
+    d.isEditing = false
     item_loader.sourceComponent = null
+  }
+
+  function editing() {
+    return d.isEditing
   }
 
   function resetPosition() {
@@ -692,5 +880,13 @@ Rectangle {
     }
     table_model.clear()
     table_model.rows = sortedArray
+  }
+
+  function getHeaderView() {
+    return header_horizontal
+  }
+
+  function getGlobal() {
+    return d
   }
 }

@@ -4,12 +4,6 @@
 #include "MArrow.hpp"
 #include "MAbstractItem.hpp"
 
-#include <QGraphicsScene>
-#include <QObject>
-#include <QColor>
-#include <QGraphicsLineItem>
-#include <QSharedPointer>
-
 #include <memory>
 
 class MGraphicsScene final : public QGraphicsScene {
@@ -32,7 +26,7 @@ protected:
 public slots:
     void setMode(Mode mode);
 
-    void setItemType(MultiflowKind kind);
+    void setItemType(MItemKind kind);
 
 signals:
     // Smart pointers have to downgrade to fit the signal.
@@ -45,7 +39,7 @@ signals:
 private:
     [[nodiscard]] bool isItemChange(int type) const;
 
-    static bool judgeConnect(const MAbstractItem* startItem, const MAbstractItem* endItem);
+    static bool canInterConnect(const MAbstractItem* startItem, const MAbstractItem* endItem);
 
     void _handleInsertItem(const QGraphicsSceneMouseEvent* event);
 
@@ -53,9 +47,13 @@ private:
 
     void _handleSetPointer(const QGraphicsSceneMouseEvent* event);
 
-    MultiflowKind _itemKind{};
+    [[nodiscard]] static MAbstractItem* _createItem(MItemKind kind);
+
+    MItemKind _itemKind{};
     Mode _sceneMode{};
     QGraphicsLineItem* _line{};
     MAbstractItem* _startItem{};
     QColor lineColor{Qt::black};
 };
+
+MAKE_EXCEPTION(ItemNotFoundException);

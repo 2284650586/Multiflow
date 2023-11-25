@@ -8,7 +8,7 @@
 #include <QGraphicsSceneMouseEvent>
 
 MSourceItem::MSourceItem(QGraphicsPixmapItem* parent)
-    : MAbstractItem(Source, "Source", ":/resources/image/source.png", parent),
+    : MAbstractItem(Source, "Source", ":/resources/image/source.png", "", nullptr, nullptr, parent),
       _source(new MSource{}) {
 }
 
@@ -21,6 +21,9 @@ void MSourceItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
     auto* dialog = new MSourceDialog(_source, _itemName, nullptr);
     dialog->exec();
     update();
+}
+
+void MSourceItem::onUserDataSaved() const {
 }
 
 bool MSourceItem::canConnectWith(const MAbstractItem& other, const ConnectionKind kind) const {

@@ -7,16 +7,26 @@
         <entry key="Debug">
           <value>
             <PerProfileState>
+<<<<<<< HEAD
               <option name="myQmlPath" value="$PROJECT_DIR$/../../../Qt/6.5.2/msvc2019_64/./qml" />
               <option name="myQtBinPath" value="$PROJECT_DIR$/../../../Qt/6.5.2/msvc2019_64/bin" />
+=======
+              <option name="myQmlPath" value="/opt/homebrew/Cellar/qt/6.6.0/share/qt/qml" />
+              <option name="myQtBinPath" value="/opt/homebrew/Cellar/qt/6.6.0/bin" />
+>>>>>>> a1d5e6b6582c4404390b49521edd03fc55ac0f8d
             </PerProfileState>
           </value>
         </entry>
         <entry key="Release">
           <value>
             <PerProfileState>
+<<<<<<< HEAD
               <option name="myQmlPath" value="$PROJECT_DIR$/../../../Qt/6.5.2/msvc2019_64/./qml" />
               <option name="myQtBinPath" value="$PROJECT_DIR$/../../../Qt/6.5.2/msvc2019_64/bin" />
+=======
+              <option name="myQmlPath" value="/opt/homebrew/Cellar/qt/6.6.0/share/qt/qml" />
+              <option name="myQtBinPath" value="/opt/homebrew/Cellar/qt/6.6.0/bin" />
+>>>>>>> a1d5e6b6582c4404390b49521edd03fc55ac0f8d
             </PerProfileState>
           </value>
         </entry>

@@ -8,7 +8,7 @@
 #include <QGraphicsSceneMouseEvent>
 
 MSinkItem::MSinkItem(QGraphicsPixmapItem* parent)
-    : MAbstractItem(Sink, "Sink", ":/resources/image/sink.png", parent),
+    : MAbstractItem(Sink, "Sink", ":/resources/image/sink.png", "", nullptr, nullptr, parent),
       _sink(new MSink{}) {
 }
 
@@ -21,6 +21,9 @@ void MSinkItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
     auto* dialog = new MSinkDialog(_sink, _itemName, nullptr);
     dialog->exec();
     update();
+}
+
+void MSinkItem::onUserDataSaved() const {
 }
 
 bool MSinkItem::canConnectWith(const MAbstractItem& other, const ConnectionKind kind) const {

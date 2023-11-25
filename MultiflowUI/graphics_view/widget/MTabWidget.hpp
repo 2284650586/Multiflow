@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics_view/MGraphicsView.h"
+#include "graphics_view/MGraphicsView.hpp"
 
 #include <QTabWidget>
 

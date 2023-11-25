@@ -9,22 +9,22 @@ properties:
     enum: Vertical, 2D, 3D
 
   - id: dependent-parameter
-    name: Dependent Parameter
+    name: 相关参数
     type: enum
     enum: MD, TVD, Angle
 
   - id: calculation-method
-    name: Calculation Method
+    name: 计算方法
     type: enum
     enum: Tangential, MinimumCurvature
 
   - id: depth-reference
-    name: Depth Reference
+    name: 深度参考
     type: enum
     enum: OriginalRKB, RKB, GL, MSL, THF
 
   - id: wellhead-depth
-    name: Wellhead Depth
+    name: 井口深度
     type: Builtin.Length
 
   - id: bottom-depth
@@ -42,21 +42,21 @@ properties:
     independent: Yes
 
   - id: horizontal-displacement
-    name: Horizontal Displacement
+    name: 水平位移
     type: number
     independent: Yes
 
   - id: angle
-    name: Angle
+    name: 角度
     type: number
     independent: Yes
 
   - id: azimuth
-    name: Azimuth
+    name: 方位角
     type: number
     independent: Yes
 
   - id: max-dogleg-severity
-    name: Max Dogleg Severity
+    name: Max Dogleg
     type: number
     independent: Yes

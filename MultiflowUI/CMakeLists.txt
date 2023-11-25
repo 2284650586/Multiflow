@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.27)
 
 find_package(
     Qt6 6.5
@@ -105,9 +105,21 @@ set(SOURCE_FILES
     entity/MIndependentVariables.hpp
     entity/unit/generic/CalculationUnit.cpp
     entity/unit/generic/CalculationUnit.hpp
-    entity/unit/WellReservoirUnit.cpp
-    entity/unit/WellReservoirUnit.hpp
-    entity/unit/WellReservoirUnit.hpp
+    entity/unit/WellCalculationUnit.cpp
+    entity/unit/WellCalculationUnit.hpp
+    entity/unit/WellCalculationUnit.hpp
+    graphics_view/window/MWellDisplayWindow.cpp
+    graphics_view/window/MWellDisplayWindow.hpp
+    graphics_view/window/MWellDisplayWindow.ui
+    graphics_view/window/MWellDisplayWindow.cpp
+    graphics_view/well/MWellHead.cpp
+    graphics_view/well/MWellHead.hpp
+    helper/CoordinateHelper.cpp
+    helper/CoordinateHelper.hpp
+    graphics_view/well/MWellGeneric.cpp
+    graphics_view/well/MWellGeneric.hpp
+    helper/MEntityHelper.cpp
+    helper/MEntityHelper.hpp
 )
 
 include_directories(
