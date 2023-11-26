@@ -26,11 +26,13 @@
         <file>resources/model/structure/MWell.DownholeEquipment.yaml</file>
         <file>resources/model/structure/MWell.Tubulars.Casings.yaml</file>
         <file>resources/model/structure/MWell.Tubulars.Tubings.yaml</file>
+        <file>resources/model/structure/MFluid.yaml</file>
 
         <file>qml/main.qml</file>
 
         <file>qml/components/window/FormulaViewer.qml</file>
         <file>qml/components/window/WellEditor.qml</file>
+        <file>qml/components/window/FluidManager.qml</file>
 
         <file>qml/components/page/FormulaGeneric.qml</file>
 
@@ -46,9 +48,10 @@
         <file>qml/components/widget/AutoSuggestBox.qml</file>
         <file>qml/components/widget/MTableView.qml</file>
         <file>qml/components/widget/MEntityEditorView.qml</file>
+        <file>qml/components/widget/MCompletionsView.qml</file>
 
-        <file>qml/components/widget/FTableView.qml</file>
-        <file>qml/components/widget/FTableModelColumn.qml</file>
+        <file>qml/components/widget/FluentExtTableView.qml</file>
+        <file>qml/components/widget/FluentExtTableModelColumn.qml</file>
         <file>qml/components/widget/FCellTextField.qml</file>
     </qresource>
 </RCC>

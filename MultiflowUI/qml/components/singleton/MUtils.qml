@@ -23,4 +23,11 @@ Item {
         timer.triggered.connect(functionRef);
         timer.start();
     }
+
+    /**
+     * @param 防止associationValue出现在keys中
+     */
+    function wrapMEntityKeys(keys) {
+        return keys.filter(k => k !== "associateValue")
+    }
 }

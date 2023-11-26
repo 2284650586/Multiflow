@@ -9,8 +9,11 @@ class MSignalBridge final : public QObject {
 public:
     explicit MSignalBridge(QObject* parent = nullptr);
 
+    bool isConnected(const QMetaMethod &signal) const;
+
 signals:
     void onDataChanged(QVariant data);
+    void onOpenBlackOilManager();
 };
 
 Q_DECLARE_METATYPE(MSignalBridge)

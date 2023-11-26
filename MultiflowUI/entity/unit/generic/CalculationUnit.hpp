@@ -7,6 +7,7 @@
 #include "entity/MIndependentVariables.hpp"
 #include "entity/MEntity.hpp"
 #include "service/FormulaService.hpp"
+#include "helper/MEntityHelper.hpp"
 
 #include <MultiflowLibrary/expression/environment.hpp>
 
@@ -18,6 +19,7 @@ class CalculationUnit : public QObject {
 
 protected:
     MEntity* _entity;
+    MEntityHelper _helper{};
     MIndependentVariables* _independentVariables;
 
 public:

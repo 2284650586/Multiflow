@@ -37,6 +37,7 @@ private:
     QAction* newJunctionAction{};
     QAction* deleteAction{};
     QAction* _openFormulaViewerAction{};
+    QAction* _openBlackOilManagerAction{};
     QAction* _exitAction{};
 
     // Menu
@@ -98,6 +99,11 @@ signals:
 
     void onLoadFinish();
 
+public slots:
+    static void openFormulaViewer();
+
+    static void openBlackOilManager();
+
 private slots:
     void onAboutApp();
 
@@ -108,8 +114,6 @@ private slots:
     void createMulItem();
 
     void createDefaultTab();
-
-    static void openFormulaViewer();
 
     void pointerGroupClicked() const;
 

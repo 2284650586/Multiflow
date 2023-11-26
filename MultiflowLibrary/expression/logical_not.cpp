@@ -20,7 +20,7 @@ LogicalNot::LogicalNot(std::vector<std::shared_ptr<Expression>> operands)
 
 Number LogicalNot::evaluate(Environment& env) {
     const Number v = _operands[0]->evaluate(env);
-    return is_logical_true(v) ? FALSE : TRUE;
+    return is_logical_true(v) ? CONST_FALSE : CONST_TRUE;
 }
 
 std::string LogicalNot::representation() const {

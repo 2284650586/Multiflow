@@ -205,7 +205,7 @@ Item {
                     iv.sizeChanged.connect(onIndependentVariablesSizeChanged)
                 }
 
-                FTableView {
+                FluentExtTableView {
                     id: tableView
                     radius: 8
                     color: "transparent"
@@ -218,6 +218,9 @@ Item {
                     // Must bind directly, and immediately
                     // or the table will never be shown
                     columnSource: getColumnSource()
+                    Component.onCompleted: {
+                        reloadDataSource()
+                    }
                     Component {
                         id: componentActionArea
                         RowLayout {
@@ -336,7 +339,7 @@ Item {
             }
 
             FluFilledButton {
-                visible: g.keys.length > 0
+                visible: g.keys.length > 0 || g.hfKeys.length > 0
                 text: "计算"
                 Layout.alignment: Qt.AlignRight | Qt.AlignBottom
                 onClicked: handleCalculation()
@@ -379,6 +382,10 @@ Item {
     }
 
     function handleCalculation() {
+        if (!calculationUnit) {
+            showAlert("无法计算", `此模型类型 ${entity.name.value} (${category}) 不具有计算功能~`)
+            return
+        }
         if (iv.size(category) === 0) {
             showAlert("无法计算", "请添加至少一组数据")
             return
@@ -415,20 +422,20 @@ Item {
     }
 
     function getKeys() {
-        return entity.keys().filter(
+        return MUtils.wrapMEntityKeys(entity.keys()).filter(
                 k => !entity[k].isHighFrequency
                 && entity[k].shouldEnable(entity)
         )
     }
 
     function getHfKeys() {
-        return entity.keys().filter(
+        return MUtils.wrapMEntityKeys(entity.keys()).filter(
                 k => entity[k].isHighFrequency
         )
     }
 
     function getHidHfKeys() {
-        return entity.keys().filter(
+        return MUtils.wrapMEntityKeys(entity.keys()).filter(
                 k => entity[k].isHighFrequency
                 && !entity[k].shouldEnable(entity)
         )

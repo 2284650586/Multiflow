@@ -18,7 +18,7 @@ Rectangle {
 
   onColumnSourceChanged: {
     if (columnSource.length !== 0) {
-      var com_column = Qt.createComponent("FTableModelColumn.qml")
+      var com_column = Qt.createComponent("FluentExtTableModelColumn.qml")
       if (com_column.status === Component.Ready) {
         var columns = []
         var header_rows = {}
@@ -707,7 +707,7 @@ Rectangle {
     syncView: table_view
     clip: true
     model: TableModel {
-      FTableModelColumn {
+      FluentExtTableModelColumn {
       }
       rows: {
         if (dataSource)

@@ -12,6 +12,7 @@ CalculationUnit::CalculationUnit(QObject* parent): QObject(parent) {
 void CalculationUnit::update(const QVariant& entity, const QVariant& independentVariables) {
     _entity = dynamic_cast<MEntity*>(entity.value<QQmlPropertyMap*>());
     _independentVariables = independentVariables.value<MIndependentVariables*>();
+    _helper.setEntity(_entity);
 
     log_debug("Entity properties ({})", _entity->count());
 }

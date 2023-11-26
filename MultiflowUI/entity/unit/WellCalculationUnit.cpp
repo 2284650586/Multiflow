@@ -5,31 +5,42 @@
 #include "WellCalculationUnit.hpp"
 
 #include <logging/logging.hpp>
+#include <math/math.hpp>
 
-QVector<ml::Number> WellCalculationUnit::reservoirPressure() const {
-    QVector<ml::Number> ret{};
+using ml::Number;
+
+QVector<Number> WellCalculationUnit::reservoirPressure() const {
+    QVector<Number> ret{};
 
     for (const auto& variables = _independentVariables->get("completions");
          const auto& variable: variables) {
-        log_debug("Calculation vmap: ({})", variable.size());
+        const Number pr = variable["reservoir-pressure"].toDouble();
+        const Number j = variable["productivity-index"].toDouble();
+        const bool considerBubble = variable["vogel-below-bubble-point"].toString() == "考虑";
 
-        const double bd = _entity->property("bottom-depth").toDouble();
-        const double wd = _entity->property("wellhead-depth").toDouble();
-        const double md = variable["md"].toDouble();
+        const auto fPiCompletions = FormulaService::getInstance()->formula("PI-completions");
+        Number pwf = pr;
+        ml::Environment env{
+            {"consider_bubble", considerBubble ? 1 : 0},
+            {"J", j},
+            {"pr", pr},
+            {"pb", 0},
+        };
 
-        const auto formula = FormulaService::getInstance()->formula("area");
-        auto env = ml::Environment{{"r", 5}};
-        const double fx = formula.expression()->evaluate(env);
-
-        ret.push_back(fx + bd - wd - md);
+        while (!ml::z(pwf)) {
+            env.set("pwf", pwf);
+            const Number result = fPiCompletions.expression()->evaluate(env);
+            ret.push_back(result);
+            pwf -= 1;
+        }
     }
-    return std::move(ret);
+    return ret;
 }
 
 WellCalculationUnit::WellCalculationUnit(QObject* parent): CalculationUnit(parent) {
 }
 
-QVector<ml::Number> WellCalculationUnit::evaluate(const QString& category) const {
+QVector<Number> WellCalculationUnit::evaluate(const QString& category) const {
     if (category == "completions") {
         return reservoirPressure();
     }

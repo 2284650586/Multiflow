@@ -1,0 +1,36 @@
+multiflow-dist: 1.0
+
+name: MFluid
+
+properties:
+  - id: name
+    name: 名称
+    type: string
+    independent: Yes
+
+  - id: gas-ratio-type
+    name: 气比类型
+    type: enum
+    enum: GLR, GOR, LGR, OGR
+    independent: Yes
+
+  - id: gas-ratio
+    name: 气比
+    type: Builtin.GasRatio
+    independent: Yes
+
+  - id: water-ratio-type
+    name: 水比类型
+    type: enum
+    enum: Watercut, GWR, WGR
+    independent: Yes
+
+  - id: water-ratio
+    name: 水比
+    type: Builtin.RatioFraction
+    independent: Yes
+
+  - id: description
+    name: 描述
+    type: string
+    independent: Yes

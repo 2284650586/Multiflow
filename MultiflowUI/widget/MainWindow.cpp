@@ -1,12 +1,15 @@
 #include "MainWindow.hpp"
 #include "constants.hpp"
-#include "service/FormulaService.hpp"
-#include "service/EntityService.hpp"
 #include "qml/main.hpp"
+#include "qml/utils/UIUtils.hpp"
 #include "graphics_view/MGraphicsScene.hpp"
 #include "graphics_view/MArrow.hpp"
+#include "service/FormulaService.hpp"
+#include "service/EntityService.hpp"
+#include "service/FluidDataService.hpp"
 
-#include "MultiflowLibrary/logging/logging.hpp"
+#include <FluentUIExt/src/FluApp.h>
+#include <MultiflowLibrary/logging/logging.hpp>
 
 #include <QSplitter>
 #include <QIcon>
@@ -22,8 +25,6 @@
 #include <QComboBox>
 #include <QToolBar>
 #include <QMessageBox>
-#include <FluentUIExt/src/FluApp.h>
-#include <qml/utils/UIUtils.hpp>
 
 
 MainWindow::MainWindow(QWidget* parent, const int argc, const char* argv[])
@@ -56,6 +57,10 @@ void MainWindow::loadAndShowSplashScreen() {
     emit onLoadUpdate("加载实体数据...");
     log_info("Loading entities.");
     EntityService::getInstance()->parserAndLoadEntities();
+
+    emit onLoadUpdate("加载液体数据（黑油模型）...");
+    log_info("Loading black oil models.");
+    FluidDataService::getInstance()->loadData();
 
     emit onLoadUpdate("加载 QML 引擎...");
     log_info("Initializing QML engine.");
@@ -109,8 +114,11 @@ void MainWindow::createActions() {
     _exitAction = new QAction(tr("退出(&X)"), this);
     connect(_exitAction, &QAction::triggered, this, &MainWindow::onUserExit);
 
-    _openFormulaViewerAction = new QAction(tr("打开公式查看器(&F)"), this);
+    _openFormulaViewerAction = new QAction(tr("公式库(&F)"), this);
     connect(_openFormulaViewerAction, &QAction::triggered, this, &MainWindow::openFormulaViewer);
+
+    _openBlackOilManagerAction = new QAction(tr("液体模型管理器（黑油）(&B)"), this);
+    connect(_openBlackOilManagerAction, &QAction::triggered, this, &MainWindow::openBlackOilManager);
 }
 
 void MainWindow::onUserExit() {
@@ -190,6 +198,7 @@ void MainWindow::createMenu() {
     _toolsMenu = menuBar()->addMenu("工具(&U)");
     _toolsMenu->setFont(font);
     _toolsMenu->addAction(_openFormulaViewerAction);
+    _toolsMenu->addAction(_openBlackOilManagerAction);
 
     _aboutMenu = menuBar()->addMenu("关于(&A)");
     _aboutMenu->setFont(font);
@@ -253,6 +262,14 @@ void MainWindow::createGraphicsView() {
 
 void MainWindow::openFormulaViewer() {
     qml::navigate("/formula-viewer");
+}
+
+void MainWindow::openBlackOilManager() {
+    auto* context = gpQmlApplicationEngine->rootContext();
+    context->setContextProperty("fluidIv", FluidDataService::getInstance()->iv());
+    context->setContextProperty("fluidCategory", FluidDataService::categoryBlackOil());
+    context->setContextProperty("fluidEntity", EntityService::getInstance()->createEntity("MFluid"));
+    qml::navigate("/fluid-manager");
 }
 
 void MainWindow::createMulItem() {

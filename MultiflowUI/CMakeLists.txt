@@ -126,6 +126,12 @@ set(SOURCE_FILES
     unit_converter/TemperatureConverter.hpp
     unit_converter/FluidUnitConverter.cpp
     unit_converter/FluidUnitConverter.hpp
+    unit_converter/GasRatioConverter.cpp
+    unit_converter/GasRatioConverter.hpp
+    unit_converter/RatioFractionConverter.cpp
+    unit_converter/RatioFractionConverter.hpp
+    service/FluidDataService.cpp
+    service/FluidDataService.hpp
 )
 
 include_directories(

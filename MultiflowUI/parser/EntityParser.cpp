@@ -8,6 +8,8 @@
 #include "unit_converter/PressureConverter.hpp"
 #include "unit_converter/TemperatureConverter.hpp"
 #include "unit_converter/FluidUnitConverter.hpp"
+#include "unit_converter/GasRatioConverter.hpp"
+#include "unit_converter/RatioFractionConverter.hpp"
 
 #include <QDir>
 #include <QVariant>
@@ -18,6 +20,8 @@ static const auto BuiltinTypeToConverter = QMap<QString, std::function<AbstractU
     {"Builtin.Pressure", [] { return new PressureConverter{}; }},
     {"Builtin.Temperature", [] { return new TemperatureConverter{}; }},
     {"Builtin.FluidUnit", [] { return new FluidUnitConverter{}; }},
+    {"Builtin.GasRatio", [] { return new GasRatioConverter{}; }},
+    {"Builtin.RatioFraction", [] { return new RatioFractionConverter{}; }},
 };
 
 static const auto PrimitiveTypeToDefaultValue = QMap<QString, QVariant>{

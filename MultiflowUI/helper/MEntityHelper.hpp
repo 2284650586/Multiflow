@@ -13,7 +13,9 @@ protected:
     MEntity* _entity;
 
 public:
-    explicit MEntityHelper(MEntity* entity);
+    explicit MEntityHelper(MEntity* entity = nullptr);
+
+    void setEntity(MEntity* entity);
 
     MEntityHelper operator[](const char* property) const;
 

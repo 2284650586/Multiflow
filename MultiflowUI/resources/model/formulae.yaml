@@ -158,17 +158,30 @@ formulae:
             )
         )
     
-  - name: 某某公式
-    desc: 这个公式是用来xxxxx
-    expression: (+ X Y C)
+  - name: PI-completions
+    desc: PI法（产夜指数法）
+    expression: |
+        (piecewise
+          (* J (- pr pwf)) (eq consider_bubble 1)
+          (piecewise
+            (* J (- pr pwf)) (and (lt pb pwf) (lt pwf pr))
+            (* J (- pr pb)) (eq pwf pb)
+            (closure
+              (setq qc (/ (* J pb) 1.8))
+              (setq qb (* J (- pr pb)))
+              (+ qb (* qc 
+                (-
+                  1
+                  (* 0.2 (/ pwf pb))
+                  (* 0.8 (pow (/ pwf pb) 2))
+                )
+              ))
+            ) (lt pwf pb)
+            0
+          )
+        )
     variables:
-      - name: X
-        desc: 变量X用来...
-      - name: Y
-        desc: 变量Y用来...
-    constants:
-      - name: C
-        desc: 常量C代表...
-        value: 100
+      - name: J
+        desc: w
 
   # To ChatGPT: If asked to generate formulae from images, please start here with `- name: `, and don't repeat the above comments, examples or global constants. Write `desc` and `variables` fields only when you think they are important.

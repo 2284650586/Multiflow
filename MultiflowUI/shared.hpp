@@ -1,5 +1,7 @@
 #pragma once
 
+#include "entity/MIndependentVariables.hpp"
+
 #include <QApplication>
 #include <QMainWindow>
 #include <QQmlApplicationEngine>
@@ -38,6 +40,7 @@ extern QMainWindow* gpWindowMain;
  * @brief The global QML-based formula viewer window.
  */
 extern QObject* gpQmlVMFormulaViewer;
+
 
 #define MAKE_EXCEPTION(name) \
   class name final : public std::exception {\

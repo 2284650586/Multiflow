@@ -16,7 +16,7 @@ FluWindow {
 
     id: window
     width: 1200
-    height: 600
+    height: 800
     title: "管井数据"
     visible: true
 
@@ -41,7 +41,8 @@ FluWindow {
             Component.onCompleted: handleCreateTabs()
 
             function handleCreateTabs() {
-                for (const key of well.keys()) {
+                const keys = MUtils.wrapMEntityKeys(well.keys())
+                for (const key of keys) {
                     const argument = {category: key, entity: well[key].value}
                     addTab(well[key].name, tab, argument)
                 }
@@ -52,19 +53,41 @@ FluWindow {
     Component {
         id: tab
 
-        MEntityEditorView {
-            id: editor
+        ColumnLayout {
             anchors.fill: parent
             anchors.margins: 10
 
-            entity: argument.entity
-            iv: independentVariables
-            calculationUnit: cu
-            category: argument.category
-
-            Component.onCompleted: {
-                editor.onDataPartiallyChanged.connect(() => onDataChanged(well))
+            Loader {
+                property var args: argument
+                property var signalBridge: bridge
+                sourceComponent: argument.category === 'completions' ? componentCompletion : null
             }
+
+            MEntityEditorView {
+                id: editor
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                entity: argument.entity
+                iv: independentVariables
+                calculationUnit: cu
+                category: argument.category
+
+                Component.onCompleted: {
+                    editor.onDataPartiallyChanged.connect(() => onDataChanged(well))
+                }
+            }
+        }
+    }
+
+    Component {
+        id: componentCompletion
+
+        MCompletionsView {
+            id: completions
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            entity: args.entity
+            bridge: signalBridge
         }
     }
 

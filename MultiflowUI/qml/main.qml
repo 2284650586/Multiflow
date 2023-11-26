@@ -47,6 +47,7 @@ Item {
         FluApp.routes = {
             "/formula-viewer": "qrc:/qml/components/window/FormulaViewer.qml",
             "/well-editor": "qrc:/qml/components/window/WellEditor.qml",
+            "/fluid-manager": "qrc:/qml/components/window/FluidManager.qml",
         }
         FluApp.run()
     }

@@ -4,8 +4,6 @@
 #include <algorithm>
 
 namespace ml {
-constexpr double ZERO_THRESHOLD = 1e-5;
-
 math_error::math_error(const char* what) : _what(what) {
 }
 
@@ -72,7 +70,7 @@ double multiply(const double x, const double y) {
 
     // 避免超大的数和带有误差的0相乘不等于0的情况
     if (z(x) || z(y)) {
-        return ZERO;
+        return CONST_ZERO;
     }
     return x * y;
 }
@@ -83,7 +81,7 @@ double divide(const double x, const double y) {
 
     // 避免带有误差的0除以极小的数不等于0的情况
     if (z(x)) {
-        return ZERO;
+        return CONST_ZERO;
     }
 
     if (z(y)) {
@@ -96,7 +94,7 @@ double power(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
 
-    if (lt(x, ZERO) && lt(y, 1)) {
+    if (lt(x, CONST_ZERO) && lt(y, 1)) {
         throw math_error("不可对负数开方");
     }
     return std::pow(x, y);
@@ -105,7 +103,7 @@ double power(const double x, const double y) {
 double square_root(const double x) {
     ASSERT_VALID(x)
 
-    if (lt(x, ZERO)) {
+    if (lt(x, CONST_ZERO)) {
         throw math_error("实数不可<0");
     }
     return std::sqrt(x);
@@ -120,11 +118,11 @@ double logarithm(const double base, const double x) {
     ASSERT_VALID(base)
     ASSERT_VALID(x)
 
-    if (lte(x, ZERO)) {
+    if (lte(x, CONST_ZERO)) {
         throw math_error("实数不可<=0");
     }
 
-    if (eq(base, 1) || lte(base, ZERO)) {
+    if (eq(base, 1) || lte(base, CONST_ZERO)) {
         throw math_error("底数不能为1或<=0");
     }
 
@@ -149,13 +147,13 @@ double maximum(const double x, const double y) {
 double logical_and(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return !z(x) && !z(y) ? TRUE : FALSE;
+    return !z(x) && !z(y) ? CONST_TRUE : CONST_FALSE;
 }
 
 double logical_or(const double x, const double y) {
     ASSERT_VALID(x)
     ASSERT_VALID(y)
-    return !z(x) || !z(y) ? TRUE : FALSE;
+    return !z(x) || !z(y) ? CONST_TRUE : CONST_FALSE;
 }
 
 bool is_logical_true(const double x) {

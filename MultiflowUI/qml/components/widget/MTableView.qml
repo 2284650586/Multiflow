@@ -7,7 +7,7 @@ import Qt.labs.qmlmodels
 import "qrc:/qml/components/widget/"
 import "qrc:/qml/components/singleton/"
 
-FTableView {
+FluentExtTableView {
   // categoryToHfKeys, iv, entity, category
   property var argument
   property var onNotifyDataChange

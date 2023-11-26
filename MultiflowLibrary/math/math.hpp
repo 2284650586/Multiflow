@@ -21,9 +21,10 @@ public:
     [[nodiscard]] const char* what() const noexcept override;
 };
 
-constexpr double TRUE = 1;
-constexpr double FALSE = 0;
-constexpr double ZERO = 0;
+constexpr double ZERO_THRESHOLD = 1e-5;
+constexpr double CONST_TRUE = 1;
+constexpr double CONST_FALSE = 0;
+constexpr double CONST_ZERO = 0;
 
 /**
  * @brief 判断x是否为零，兼容IEEE浮点数的误差
