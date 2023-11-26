@@ -9,11 +9,14 @@
 
 using ml::Number;
 
-QVector<Number> WellCalculationUnit::reservoirPressure() const {
-    QVector<Number> ret{};
+// 作孽啊
+QVector<QVector<QVector<Number>>> WellCalculationUnit::reservoirPressure() const {
+    QVector<QVector<QVector<Number>>> ret{};
 
     for (const auto& variables = _independentVariables->get("completions");
          const auto& variable: variables) {
+        QVector<QVector<Number>> reservoirPressure{};
+
         const Number pr = variable["reservoir-pressure"].toDouble();
         const Number j = variable["productivity-index"].toDouble();
         const bool considerBubble = variable["vogel-below-bubble-point"].toString() == "考虑";
@@ -30,9 +33,10 @@ QVector<Number> WellCalculationUnit::reservoirPressure() const {
         while (!ml::z(pwf)) {
             env.set("pwf", pwf);
             const Number result = fPiCompletions.expression()->evaluate(env);
-            ret.push_back(result);
+            reservoirPressure.push_back({ pwf, result });
             pwf -= 1;
         }
+        ret.push_back(reservoirPressure);
     }
     return ret;
 }
@@ -40,7 +44,7 @@ QVector<Number> WellCalculationUnit::reservoirPressure() const {
 WellCalculationUnit::WellCalculationUnit(QObject* parent): CalculationUnit(parent) {
 }
 
-QVector<Number> WellCalculationUnit::evaluate(const QString& category) const {
+QVector<QVector<QVector<Number>>> WellCalculationUnit::evaluate(const QString& category) const {
     if (category == "completions") {
         return reservoirPressure();
     }

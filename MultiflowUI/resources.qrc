@@ -33,6 +33,7 @@
         <file>qml/components/window/FormulaViewer.qml</file>
         <file>qml/components/window/WellEditor.qml</file>
         <file>qml/components/window/FluidManager.qml</file>
+        <file>qml/components/window/ChartViewer.qml</file>
 
         <file>qml/components/page/FormulaGeneric.qml</file>
 

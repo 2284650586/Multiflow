@@ -14,7 +14,10 @@ Item {
     required property string category
 
     signal onDataPartiallyChanged(var entity)
+
     signal onReloadTableDataSource()
+
+    signal onDiagramRequested(var category, var yValues, var xValues, var yName, var xName)
 
     id: control
 
@@ -351,6 +354,7 @@ Item {
                 onClicked: handleSaveExit()
             }
         }
+
         function tryReloadTableDataSource() {
             const hfArea = getHfArea()
             if (hfArea) {
@@ -392,7 +396,28 @@ Item {
         }
         calculationUnit.update(entity, iv)
         const results = calculationUnit.evaluate(category)
-        showAlert("计算结果", results.join(", "))
+        let resultString = ""
+        for (const result of results) {
+            resultString += `${result.map(p => `(${p[0]}, ${p[1]})`).join(", ")};\n`
+        }
+        showAlert("计算结果", resultString)
+        prepareChartViewer(results, "Q (STB/d)", "Pwf (psia)")
+    }
+
+    function prepareChartViewer(results, yName, xName) {
+        const xValues = []
+        const yValues = []
+        for (const series of results) {
+            const yValueSeries = []
+            const xValueSeries = []
+            for (const pair of series) {
+                yValueSeries.push(pair[1])
+                xValueSeries.push(pair[0])
+            }
+            yValues.push(yValueSeries)
+            xValues.push(xValueSeries)
+        }
+        onDiagramRequested(category, yValues, xValues, yName, xName)
     }
 
     // Update max width programmatically

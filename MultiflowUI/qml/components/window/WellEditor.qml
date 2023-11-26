@@ -5,6 +5,7 @@ import Multiflow.UI
 import FluentUI
 import Qt.labs.qmlmodels
 import "qrc:/qml/components/widget/"
+import "qrc:/qml/components/window/"
 import "qrc:/qml/components/singleton/"
 
 FluWindow {
@@ -74,6 +75,7 @@ FluWindow {
 
                 Component.onCompleted: {
                     editor.onDataPartiallyChanged.connect(() => onDataChanged(well))
+                    editor.onDiagramRequested.connect(showDiagram)
                 }
             }
         }
@@ -88,6 +90,20 @@ FluWindow {
             Layout.fillHeight: true
             entity: args.entity
             bridge: signalBridge
+        }
+    }
+
+    function showDiagram(category, yValues, xValues, yName, xName) {
+        const component = Qt.createComponent("qrc:/qml/components/window/ChartViewer.qml")
+        if (component.status === Component.Ready) {
+            const chartViewer = component.createObject(window, {
+                category: category,
+                yValues: yValues,
+                xValues: xValues,
+                yName: yName,
+                xName: xName,
+            })
+            chartViewer.show()
         }
     }
 
