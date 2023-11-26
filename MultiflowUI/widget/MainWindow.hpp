@@ -107,6 +107,8 @@ private slots:
 
     void createMulItem();
 
+    void createDefaultTab();
+
     static void openFormulaViewer();
 
     void pointerGroupClicked() const;

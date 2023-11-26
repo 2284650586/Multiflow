@@ -13,35 +13,35 @@
 #include <QVariant>
 #include <QObject>
 
-class SettingsHelper final : public QObject, public SingletonMixin<SettingsHelper>, public IQmlSingleton<SettingsHelper> {
-Q_OBJECT
+class SettingsHelper final : public QObject, public SingletonMixin<SettingsHelper>,
+                             public IQmlSingleton<SettingsHelper> {
+    Q_OBJECT
 
-explicit SettingsHelper(QObject* parent = nullptr);
+    explicit SettingsHelper(QObject* parent = nullptr);
 
-friend class SingletonMixin;
+    friend class SingletonMixin;
 
 public:
-    ~SettingsHelper() override;
+    ~SettingsHelper() override = default;
 
     void init(const char* argv[]);
 
-    Q_INVOKABLE void setRender(const QVariant& render) { save("render", render); }
+    Q_INVOKABLE void setRender(const QVariant& render) const;
 
-    Q_INVOKABLE QVariant getRender() { return get("render"); }
+    Q_INVOKABLE [[nodiscard]] QVariant getRender() const;
 
-    Q_INVOKABLE void setDarkMode(int darkModel) { save("darkMode", darkModel); }
+    Q_INVOKABLE void setDarkMode(int darkModel) const;
 
-    Q_INVOKABLE QVariant getDarkMode() { return get("darkMode", QVariant(0)); }
+    Q_INVOKABLE [[nodiscard]] QVariant getDarkMode() const;
 
-    Q_INVOKABLE void setVsync(bool vsync) { save("vsync", vsync); }
+    Q_INVOKABLE void setVsync(bool vsync) const;
 
-    Q_INVOKABLE QVariant getVsync() { return get("vsync", QVariant(true)); }
-
-private:
-    void save(const QString& key, const QVariant& val) const;
-
-    [[nodiscard]] QVariant get(const QString& key, QVariant def = {}) const;
+    Q_INVOKABLE [[nodiscard]] QVariant getVsync() const;
 
 private:
-    QScopedPointer<QSettings> m_settings;
+    void _set(const QString& key, const QVariant& val) const;
+
+    [[nodiscard]] QVariant _get(const QString& key, QVariant def = {}) const;
+
+    QScopedPointer<QSettings> _settings;
 };

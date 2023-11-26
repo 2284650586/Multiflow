@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "shared.hpp"
+
 #include <QVector>
 #include <QObject>
 #include <QString>
@@ -22,3 +24,5 @@ public:
         const QString& to
     ) const = 0;
 };
+
+MAKE_EXCEPTION(ConverterException);

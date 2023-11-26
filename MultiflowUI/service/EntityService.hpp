@@ -9,7 +9,6 @@
 
 #include <QObject>
 #include <QMap>
-#include <QVector>
 #include <fmt/core.h>
 
 class EntityService final : public QObject, public SingletonMixin<EntityService> {

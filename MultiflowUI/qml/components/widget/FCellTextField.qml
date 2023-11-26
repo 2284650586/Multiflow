@@ -15,6 +15,9 @@ TextField {
   property color placeholderFocusColor: FluTheme.dark ? Qt.rgba(152 / 255, 152 / 255, 152 / 255, 1) : Qt.rgba(141 / 255, 141 / 255, 141 / 255, 1)
   property color placeholderDisableColor: FluTheme.dark ? Qt.rgba(131 / 255, 131 / 255, 131 / 255, 1) : Qt.rgba(160 / 255, 160 / 255, 160 / 255, 1)
   property bool cleanEnabled: true
+
+  property var oldText: text
+
   id: control
   padding: 7
   leftPadding: padding + 4
@@ -54,7 +57,12 @@ TextField {
   }
   onEditingFinished: {
     // 特制的逻辑，失去焦点也视同提交
+    if (oldText === text) {
+      return
+    }
+    console.log("OldText: " + oldText, "Text: " + text)
     d.handleCommit(null)
+    oldText = text
   }
   Keys.onEnterPressed: (event) => d.handleCommit(event)
   Keys.onReturnPressed: (event) => d.handleCommit(event)

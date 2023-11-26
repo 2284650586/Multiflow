@@ -31,8 +31,8 @@ void _registerSingletons() {
     SettingsHelper::getInstance()->registerSingleton(engine);
     QmlEnvironment::createInstance()->registerObjectType();
 
-    qmlRegisterSingletonType(
-        {"qrc:/qml/components/singleton/Colors.qml"}, "Multiflow.UI", 1, 0, "Colors");
+    qmlRegisterSingletonType({"qrc:/qml/components/singleton/Colors.qml"}, "Multiflow.UI", 1, 0, "Colors");
+    qmlRegisterSingletonType({"qrc:/qml/components/singleton/MUtils.qml"}, "Multiflow.UI", 1, 0, "MUtils");
 }
 
 void _applyVisualStyles() {

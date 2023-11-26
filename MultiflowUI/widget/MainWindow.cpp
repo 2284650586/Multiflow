@@ -25,8 +25,6 @@
 #include <FluentUIExt/src/FluApp.h>
 #include <qml/utils/UIUtils.hpp>
 
-constexpr int LoadingDialogTimeoutMillis = 1000;
-
 
 MainWindow::MainWindow(QWidget* parent, const int argc, const char* argv[])
     : QMainWindow(parent), _argc(argc), _argv(argv) {
@@ -37,6 +35,7 @@ void MainWindow::loadAndShowSplashScreen() {
     connect(this, &MainWindow::onLoadStart, this, &MainWindow::showLoadingDialog);
     connect(this, &MainWindow::onLoadUpdate, this, &MainWindow::updateLoadingDialog);
     connect(this, &MainWindow::onLoadFinish, this, &MainWindow::closeLoadingDialog);
+    connect(this, &MainWindow::onLoadFinish, this, &MainWindow::createDefaultTab);
 
     emit onLoadStart();
     emit onLoadUpdate("加载图标资源...");
@@ -65,8 +64,7 @@ void MainWindow::loadAndShowSplashScreen() {
     emit onLoadUpdate("欢迎使用 " + tr(AppName) + "！");
 
     // 加载框关闭如果太快了，用户就感受不到我们的热情
-    QTimer::singleShot(
-        LoadingDialogTimeoutMillis, this, &MainWindow::onLoadFinish);
+    emit onLoadFinish();
 }
 
 void MainWindow::showLoadingDialog() {
@@ -265,6 +263,10 @@ void MainWindow::createMulItem() {
     scene->setMode(MGraphicsScene::InsertItem);
     scene->setItemType(static_cast<MItemKind>(type));
     setCursor(Qt::CrossCursor);
+}
+
+void MainWindow::createDefaultTab() {
+    createGraphicsView();
 }
 
 void MainWindow::pointerGroupClicked() const {

@@ -102,7 +102,9 @@ void MWellHead::_drawBottomRectanglePackered(QPainter* painter) const {
         {hc(+.150), vc(.120)},
         {hc(+.175), vc(.120)}
     });
+
     painter->drawLines({
+        // 两个叉叉
         QLineF{
             {hc(-.150), vc(.100)},
             {hc(), vc(.120)}
@@ -119,6 +121,8 @@ void MWellHead::_drawBottomRectanglePackered(QPainter* painter) const {
             {hc(), vc(.120)},
             {hc(.150), vc(.100)},
         },
+
+        // 两个分割线
         QLineF{
             {hc(-.150), vc(.120)},
             {hc(.150), vc(.120)}

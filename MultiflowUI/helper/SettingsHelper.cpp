@@ -18,18 +18,40 @@ SettingsHelper::SettingsHelper(QObject* parent)
 
 }
 
-SettingsHelper::~SettingsHelper() = default;
+QVariant SettingsHelper::getRender() const {
+    return _get("render");
+}
 
-void SettingsHelper::save(const QString& key, const QVariant& val) const {
+void SettingsHelper::setDarkMode(const int darkModel) const {
+    _set("darkMode", darkModel);
+}
+
+QVariant SettingsHelper::getDarkMode() const {
+    return _get("darkMode", QVariant(0));
+}
+
+void SettingsHelper::setVsync(const bool vsync) const {
+    _set("vsync", vsync);
+}
+
+QVariant SettingsHelper::getVsync() const {
+    return _get("vsync", QVariant(true));
+}
+
+void SettingsHelper::setRender(const QVariant& render) const {
+    _set("render", render);
+}
+
+void SettingsHelper::_set(const QString& key, const QVariant& val) const {
     QByteArray data = {};
     QDataStream stream(&data, QIODevice::WriteOnly);
     stream.setVersion(QDataStream::Qt_6_5);
     stream << val;
-    m_settings->setValue(key, data);
+    _settings->setValue(key, data);
 }
 
-QVariant SettingsHelper::get(const QString& key, QVariant def) const {
-    const QByteArray data = m_settings->value(key).toByteArray();
+QVariant SettingsHelper::_get(const QString& key, QVariant def) const {
+    const QByteArray data = _settings->value(key).toByteArray();
     if (data.isEmpty()) {
         return def;
     }
@@ -47,5 +69,5 @@ void SettingsHelper::init(const char* argv[]) {
     const QString iniFilePath =
         QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/" + iniFileName;
     log_info("Application configuration file path {}", iniFilePath.toStdString());
-    m_settings.reset(new QSettings(iniFilePath, QSettings::IniFormat));
+    _settings.reset(new QSettings(iniFilePath, QSettings::IniFormat));
 }

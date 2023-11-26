@@ -15,7 +15,6 @@ size_t MIndependentVariables::size(const QString& category) const {
 
 void MIndependentVariables::createEmpty(const QString& category) {
     _variables[category].push_back(QMap<QString, QVariant>{});
-    log_debug("Created empty IV");
     emit sizeChanged(category);
 }
 
@@ -35,12 +34,10 @@ void MIndependentVariables::set(const QString& category, const int index, const 
         return;
     }
     m[index][key] = value;
-    log_debug("Set IV at index {} with key {}", index, key.toStdString());
     emit propertyChanged(category);
 }
 
 QVariant MIndependentVariables::get(const QString& category, const int index, const QString& key) const {
-    log_debug("Returning IV at index {} with key {}", index, key.toStdString());
     const QVector<QMap<QString, QVariant>>& v = _variables[category];
     if (index >= v.size()) {
         log_critical("IV at index {} does not exist", index);

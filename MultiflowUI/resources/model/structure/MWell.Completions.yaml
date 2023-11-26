@@ -3,60 +3,73 @@ multiflow-dist: 1.0
 name: MWell.Completions
 
 properties:
-  - id: survey-type
-    name: Survey Type
-    type: enum
-    enum: Vertical, 2D, 3D
+  - id: name
+    name: 名称
+    type: string
+    independent: Yes
 
-  - id: dependent-parameter
-    name: 相关参数
+  - id: geometry-profile
+    name: 方向
     type: enum
-    enum: MD, TVD, Angle
+    enum: Vertical, Horizontal
+    independent: Yes
 
-  - id: calculation-method
-    name: 计算方法
+  - id: fluid-entry
+    name: 流体入口
     type: enum
-    enum: Tangential, MinimumCurvature
+    enum: Single
+    independent: Yes
 
-  - id: depth-reference
-    name: 深度参考
-    type: enum
-    enum: OriginalRKB, RKB, GL, MSL, THF
-
-  - id: wellhead-depth
-    name: 井口深度
+  - id: top-md
+    name: Top MD
     type: Builtin.Length
+    independent: Yes
 
-  - id: bottom-depth
-    name: Bottom Depth
+  - id: middle-md
+    name: Mid MD
     type: Builtin.Length
-
-  - id: md
-    name: MD
-    type: number
     independent: Yes
 
-  - id: tvd
-    name: TVD
-    type: number
+  - id: bottom-md
+    name: Bottom MD
+    type: Builtin.Length
     independent: Yes
 
-  - id: horizontal-displacement
-    name: 水平位移
-    type: number
+  - id: type
+    name: 类型
+    type: enum
+    enum: Perforation
     independent: Yes
 
-  - id: angle
-    name: 角度
-    type: number
+  - id: ipr-model
+    name: IPR模型
+    type: enum
+    enum: Well PI, Vogel, Fetkovich, Jones, Back pressure, Darcy, Forchheimer, Hydraulic fracture
     independent: Yes
 
-  - id: azimuth
-    name: 方位角
-    type: number
+  - id: reservoir-pressure
+    name: 油藏压力
+    type: Builtin.Pressure
     independent: Yes
 
-  - id: max-dogleg-severity
-    name: Max Dogleg
-    type: number
+  - id: reservoir-temperature
+    name: 油藏温度
+    type: Builtin.Temperature
+    independent: Yes
+
+  - id: ipr-basis
+    name: IPR基础
+    type: enum
+    enum: Liquid, Gas
+    independent: Yes
+
+  - id: productivity-index
+    name: PI
+    type: Builtin.FluidUnit
+    independent: Yes
+
+  - id: vogel-below-bubble-point
+    name: 泡点压力
+    type: enum
+    enum: 考虑, 不考虑
     independent: Yes

@@ -1,1 +1,2 @@
-singleton FluColors 1.0 FluColors.qml
+singleton Colors 1.0 Colors.qml
+singleton MUtils 1.0 MUtils.qml

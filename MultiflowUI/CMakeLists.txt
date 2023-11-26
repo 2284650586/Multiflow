@@ -120,6 +120,12 @@ set(SOURCE_FILES
     graphics_view/well/MWellGeneric.hpp
     helper/MEntityHelper.cpp
     helper/MEntityHelper.hpp
+    unit_converter/PressureConverter.cpp
+    unit_converter/PressureConverter.hpp
+    unit_converter/TemperatureConverter.cpp
+    unit_converter/TemperatureConverter.hpp
+    unit_converter/FluidUnitConverter.cpp
+    unit_converter/FluidUnitConverter.hpp
 )
 
 include_directories(

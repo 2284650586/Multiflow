@@ -100,9 +100,11 @@ Rectangle {
 
       // 特制的逻辑，点击外部也视同为提交
       Component.onDestruction: {
+        console.log("com_edit onDestruction")
         save()
       }
       onCommit: {
+        console.log("com_edit onCommit")
         save()
       }
 
@@ -151,10 +153,8 @@ Rectangle {
           selectAll()
           textBox.text = currentValue
         }
-        Component.onDestruction: {
-          save()
-        }
         onCommit: {
+          console.log("com_conv onCommit")
           save()
         }
       }
@@ -167,7 +167,7 @@ Rectangle {
         width: 30
         indicator: null
         Layout.preferredHeight: 30
-        Layout.preferredWidth: 30
+        Layout.preferredWidth: 60
         onCurrentTextChanged: {
           if (!_isNumeric(textBox.text)) {
             return

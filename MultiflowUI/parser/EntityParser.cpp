@@ -5,10 +5,25 @@
 #include "EntityParser.hpp"
 #include "utils/YamlUtils.hpp"
 #include "unit_converter/LengthConverter.hpp"
+#include "unit_converter/PressureConverter.hpp"
+#include "unit_converter/TemperatureConverter.hpp"
+#include "unit_converter/FluidUnitConverter.hpp"
 
 #include <QDir>
 #include <QVariant>
 #include <logging/logging.hpp>
+
+static const auto BuiltinTypeToConverter = QMap<QString, std::function<AbstractUnitConverter*()>>{
+    {"Builtin.Length", [] { return new LengthConverter{}; }},
+    {"Builtin.Pressure", [] { return new PressureConverter{}; }},
+    {"Builtin.Temperature", [] { return new TemperatureConverter{}; }},
+    {"Builtin.FluidUnit", [] { return new FluidUnitConverter{}; }},
+};
+
+static const auto PrimitiveTypeToDefaultValue = QMap<QString, QVariant>{
+    {"number", QVariant::fromValue(static_cast<double>(0))},
+    {"string", QVariant::fromValue(QString{})},
+};
 
 static QString qFromNode(const YAML::Node& node) {
     return QString::fromStdString(node.as<std::string>());
@@ -171,22 +186,22 @@ void EntityParser::_handleType(const QString& typeName, const ParserContext& con
 }
 
 void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserContext& context) {
-    if (builtinType == "Builtin.Length") {
-        context.entity->insert(
-            context.propertyId, QVariant::fromValue(MProperty{
-                .name = context.propertyName,
-                .type = builtinType,
-                .value = 0,
-                .extra = QVariant::fromValue(new LengthConverter{}),
-                .isHighFrequency = context.isHighFrequency,
-                .enableConditions = context.enableConditions,
-            }));
-    }
-    else {
+    if (!BuiltinTypeToConverter.contains(builtinType)) {
         throw ParseException{
             fmt::format("Unknown builtin type: {}", builtinType.toStdString())
         };
     }
+    context.entity->insert(
+        context.propertyId,
+        QVariant::fromValue(MProperty{
+            .name = context.propertyName,
+            .type = builtinType,
+            .value = 0,
+            .extra = QVariant::fromValue(BuiltinTypeToConverter[builtinType]()),
+            .isHighFrequency = context.isHighFrequency,
+            .enableConditions = context.enableConditions,
+        })
+    );
 }
 
 void EntityParser::_handleReferenceType(const QString& referenceType, const ParserContext& context) {
@@ -209,48 +224,39 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
 }
 
 void EntityParser::_handlePrimitiveType(const QString& primitiveType, const ParserContext& context) {
-    if (QVector<QString>{"number"}.contains(primitiveType)) {
-        context.entity->insert(
-            context.propertyId, QVariant::fromValue(MProperty{
-                .name = context.propertyName,
-                .type = QVariant::fromValue(primitiveType),
-                .value = QVariant::fromValue(static_cast<double>(0)),
-                .extra = QVariant{},
-                .isHighFrequency = context.isHighFrequency,
-                .enableConditions = context.enableConditions,
-            }));
-    }
-    else if (primitiveType == "string") {
-        context.entity->insert(
-            context.propertyId, QVariant::fromValue(MProperty{
-                .name = context.propertyName,
-                .type = QVariant::fromValue(primitiveType),
-                .value = QVariant::fromValue(QString{}),
-                .extra = QVariant{},
-                .isHighFrequency = context.isHighFrequency,
-                .enableConditions = context.enableConditions,
-            }));
-    }
-    else if (primitiveType == "enum") {
+    if (primitiveType == "enum") {
         const auto& enumField = context.node["enum"];
         if (!enumField.IsDefined()) {
             throw ParseException(
                 fmt::format("没有给枚举类型定义数据: {}", context.propertyName.toStdString()));
         }
         const QString enums = qFromNode(enumField);
+        const auto enumList = enums.split(", ");
+
         context.entity->insert(
             context.propertyId, QVariant::fromValue(MProperty{
                 .name = context.propertyName,
                 .type = QVariant::fromValue(primitiveType),
-                .value = QVariant::fromValue(enums.split(", ").first()),
+                .value = QVariant::fromValue(enumList.first()),
                 .extra = QVariant::fromValue(enums),
                 .isHighFrequency = context.isHighFrequency,
                 .enableConditions = context.enableConditions,
             }));
+        return;
     }
-    else {
+
+    if (!PrimitiveTypeToDefaultValue.contains(primitiveType)) {
         throw ParseException{
             fmt::format("Unknown primitive type: {}", primitiveType.toStdString())
         };
     }
+    context.entity->insert(
+        context.propertyId, QVariant::fromValue(MProperty{
+            .name = context.propertyName,
+            .type = QVariant::fromValue(primitiveType),
+            .value = PrimitiveTypeToDefaultValue[primitiveType],
+            .extra = QVariant{},
+            .isHighFrequency = context.isHighFrequency,
+            .enableConditions = context.enableConditions,
+        }));
 }
