@@ -95,14 +95,14 @@ static void _tryInitializeFunctionMap() {
 
 // NOLINTNEXTLINE(misc-no-recursion)
 std::shared_ptr<Expression> FormulaParser::_handleFunction(const std::shared_ptr<ASTNode>& root) {
-    const std::string& functionName = root->value;
+    const std::string& functionId = root->value;
 
     // Referencing an existing function?
-    if (globalFunctionNameToExpression.contains(functionName)) {
-        const auto expression = globalFunctionNameToExpression[functionName];
-        expression->setName(functionName);
+    if (_globalFunctionIdToExpression.contains(functionId)) {
+        const auto expression = _globalFunctionIdToExpression[functionId];
+        expression->setName(functionId);
 
-        std::vector<std::shared_ptr<Expression>> args{expression};
+        std::vector args{expression};
         for (const auto& arg: root->args) {
             args.push_back(_internalTraverseAst(arg));
         }
@@ -110,7 +110,7 @@ std::shared_ptr<Expression> FormulaParser::_handleFunction(const std::shared_ptr
     }
 
     // A builtin function?
-    if (const auto it = functionMap.find(functionName); it != functionMap.end()) {
+    if (const auto it = functionMap.find(functionId); it != functionMap.end()) {
         // Prevent second lookup.
         return it->second(*this, root->args);
     }
@@ -124,17 +124,17 @@ std::shared_ptr<Expression> FormulaParser::_handleVariable(const std::shared_ptr
     const std::string& variableName = root->value;
     // Named constants could first be recognized as variables.
     // Check if variable is a constant.
-    if (constantNameToInfo.contains(variableName) || globalConstantNameToInfo.contains(variableName)) {
+    if (_constantNameToInfo.contains(variableName) || _globalConstantNameToInfo.contains(variableName)) {
         root->type = NodeType::Constant;
         return _internalTraverseAst(root);
     }
 
     // Not declared as a variable? Create it.
-    if (!variableNameToDescription.contains(variableName)) {
-        variableNameToDescription[variableName] = "(无描述)";
+    if (!_variableNameToDescription.contains(variableName)) {
+        _variableNameToDescription[variableName] = "(无描述)";
     }
 
-    return std::make_shared<Variable>(variableName, variableNameToDescription[variableName]);
+    return std::make_shared<Variable>(variableName, _variableNameToDescription[variableName]);
 }
 
 // NOLINTNEXTLINE(misc-no-recursion)
@@ -142,14 +142,14 @@ std::shared_ptr<Expression> FormulaParser::_handleConstant(const std::shared_ptr
     const std::string& constantName = root->value;
 
     // A declared scoped constant?
-    if (constantNameToInfo.contains(constantName)) {
-        const auto& [_, description, value] = constantNameToInfo[constantName];
+    if (_constantNameToInfo.contains(constantName)) {
+        const auto& [_, description, value] = _constantNameToInfo[constantName];
         return std::make_shared<Constant>(constantName, description, value);
     }
 
     // A declared global constant?
-    if (globalConstantNameToInfo.contains(constantName)) {
-        const auto& [_, description, value] = globalConstantNameToInfo[constantName];
+    if (_globalConstantNameToInfo.contains(constantName)) {
+        const auto& [_, description, value] = _globalConstantNameToInfo[constantName];
         return std::make_shared<Constant>(constantName, description, value);
     }
 
@@ -180,15 +180,15 @@ std::vector<Formula> FormulaParser::loadDistribution(const std::string& configPa
 }
 
 void FormulaParser::_handleGlobalConstants(const YAML::Node& constants) {
-    globalConstantNameToInfo.clear();
+    _globalConstantNameToInfo.clear();
     for (const auto& constant: constants) {
         const auto constantInfo = ConstantInfo::fromYaml(constant);
-        globalConstantNameToInfo[constantInfo.name] = constantInfo;
+        _globalConstantNameToInfo[constantInfo.name] = constantInfo;
     }
 }
 
 std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) {
-    globalFunctionNameToExpression.clear();
+    _globalFunctionIdToExpression.clear();
     _tryInitializeFunctionMap();
 
     // Is multiflow config?
@@ -210,6 +210,7 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
 
     for (const auto& formula: formulae) {
         const auto [
+            id,
             name,
             description,
             expression,
@@ -218,19 +219,19 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
         ] = FormulaInfo::fromYaml(formula);
 
         // Build variable map.
-        variableNameToDescription.clear();
+        _variableNameToDescription.clear();
         std::ranges::for_each(
             variables,
             [this](const VariableInfo& info) {
-                variableNameToDescription[info.name] = info.description;
+                _variableNameToDescription[info.name] = info.description;
             });
 
         // Build constant map.
-        constantNameToInfo.clear();
+        _constantNameToInfo.clear();
         std::ranges::for_each(
             constants,
             [this](const ConstantInfo& info) {
-                constantNameToInfo[info.name] = info;
+                _constantNameToInfo[info.name] = info;
             });
 
         LispParser lispParser{};
@@ -240,9 +241,9 @@ std::vector<Formula> FormulaParser::parseDistribution(const YAML::Node& config) 
         auto expressionParsed = _internalTraverseAst(ast);
 
         // Register as a global function.
-        globalFunctionNameToExpression[name] = expressionParsed;
+        _globalFunctionIdToExpression[id] = expressionParsed;
 
-        ret.emplace_back(name, description, expressionParsed, expression);
+        ret.emplace_back(id, name, description, expressionParsed, expression);
     }
     return ret;
 }
@@ -262,12 +263,13 @@ VariableInfo VariableInfo::fromYaml(const YAML::Node& node) {
 }
 
 FormulaInfo FormulaInfo::fromYaml(const YAML::Node& node) {
+    const auto& id = node["id"];
     const auto& name = node["name"];
     const auto& description = node["desc"];
     const auto& variables = node["variables"];
     const auto& constants = node["constants"];
     const auto& expression = node["expression"];
-    if (!name.IsDefined() || !expression.IsDefined()) {
+    if (!id.IsDefined() || !name.IsDefined() || !expression.IsDefined()) {
         throw MalformedDistException();
     }
 
@@ -282,6 +284,7 @@ FormulaInfo FormulaInfo::fromYaml(const YAML::Node& node) {
     }
 
     return FormulaInfo{
+        .id = id.as<std::string>(),
         .name = name.as<std::string>(),
         .description = description.as<std::string>("(无描述)"),
         .expression = expression.as<std::string>(),

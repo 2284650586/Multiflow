@@ -12,6 +12,7 @@
 
 namespace ml {
 class ML_PUBLIC Formula final {
+    std::string _id;
     std::string _name;
     std::string _description;
     std::string _lisp;
@@ -19,12 +20,15 @@ class ML_PUBLIC Formula final {
 
 public:
     explicit Formula(
-        std::string name, std::string description, std::shared_ptr<Expression> expression,
+        std::string id, std::string name, std::string description, std::shared_ptr<Expression> expression,
         std::string lisp);
 
     Formula() = default;
 
     ~Formula() = default;
+
+    [[nodiscard]]
+    const std::string& id() const;
 
     [[nodiscard]]
     const std::string& name() const;

@@ -26,13 +26,13 @@ public:
     QVector<ml::Formula> formulae() const;
 
     [[nodiscard]]
-    ml::Formula formula(const QString& name) const;
+    ml::Formula formula(const QString& id) const;
 
 signals:
     void formulaeLoaded();
 
 private:
-    QMap<QString, ml::Formula> _nameToFormula{};
+    QMap<QString, ml::Formula> _idToFormula{};
 };
 
 class FormulaNotFoundException final : public std::exception {

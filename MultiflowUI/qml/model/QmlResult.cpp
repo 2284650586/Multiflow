@@ -14,7 +14,6 @@ QmlResult QmlResult::failure(QString message) {
 
 QmlResult::QmlResult(QString message, const bool success, const ml::Number value)
     : _message(std::move(message)), _success(success), _value(value) {
-
 }
 
 const QString& QmlResult::message() const {

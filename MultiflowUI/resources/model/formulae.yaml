@@ -17,37 +17,40 @@ global-constants:
     desc: 10的自然对数
 
 formulae:
-  - name: 原油饱和压力 (Standing 方法)
+  - id: oil-standing
+    name: 原油饱和压力 (Standing 方法)
     expression: (* 18 (pow (/ Rsb yg) 0.83) (pow 10 (- (* 0.00091 Tr) (* 0.0125 gAPI))))
 
-  - name: M0
-    desc: Lasater方法中的M0
-    expression: |       # 用|表示多行字符串
+  - id: oil-lasater-m0
+    name: Lasater方法中的M0
+    expression: |
         (piecewise
             (- 646.9588 (* 1372.1287 (- (/ 1.076 y0) 1))) (> y0 0.8348)
             (- 490.2237 (*  857.6273 (- (/ 1.076 y0) 1))) (and (< y0 0.8348) (> y0 0.7883))
             (- 438.8889 (*  730.5556 (- (/ 1.076 y0) 1)))        
         )
 
-  - name: yg
-    desc: Lasater方法中的yg
-    expression: (/ Rs (+ Rs (* 24056 (/ y0 (M0 y0)))))
-   
-  - name: Lasater方法
+  - id: oil-lasater-yg
+    name: Lasater方法中的yg
+    expression: (/ Rs (+ Rs (* 24056 (/ y0 (oil-lasater-m0 y0)))))
+
+  - id:  oil-lasater
+    name: Lasater方法
     desc: 饱和压力的确定——Lasater（1958）计算法
     expression: |
         (piecewise
             (/
-                (* 0.0242 (+ T 273) (+ (* 4.2395 (pow (yg Rs y0) 3.52)) 1))
-                (yg Rs y0)
-            ) (> (yg Rs y0) 0.5)
+                (* 0.0242 (+ T 273) (+ (* 4.2395 (pow (oil-lasater-yg Rs y0) 3.52)) 1))
+                (oil-lasater-yg Rs y0)
+            ) (> (oil-lasater-yg Rs y0) 0.5)
             (/
-                (* 7.5084 (pow 10 -3) (+ T 273) (- (* 1.1704 (pow e (* 2.7866 (yg Rs y0)))) 1))
-                (yg Rs y0)
+                (* 7.5084 (pow 10 -3) (+ T 273) (- (* 1.1704 (pow e (* 2.7866 (oil-lasater-yg Rs y0)))) 1))
+                (oil-lasater-yg Rs y0)
             )
         )
     
-  - name: PI-completions
+  - id: pi-completions
+    name: PI法（产夜指数法）
     desc: PI法（产夜指数法）
     expression: |
         (piecewise
@@ -69,10 +72,3 @@ formulae:
             0
           )
         )
-    variables:
-      - name: J
-        desc: w
-
-  - name: XX
-
-  # To ChatGPT: If asked to generate formulae from images, please start here with `- name: `, and don't repeat the above comments, examples or global constants. Write `desc` and `variables` fields only when you think they are important.

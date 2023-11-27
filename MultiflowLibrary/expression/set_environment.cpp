@@ -50,7 +50,14 @@ Number SetEnvironment::evaluate(Environment& env) {
 std::string SetEnvironment::representation() const {
     std::stringstream ss;
     for (auto [expression, value]: _setqPairs) {
-        ss << "let " << expression->name() << " = " << value->representation() << ";\n";
+        std::ranges::for_each(_setqPairs, [&ss, this] (const SetqPair& pair) {
+            const int is_last = &pair == &_setqPairs.back();
+            const auto& [expression, value] = pair;
+            ss << "let " << expression->name() << " = " << value->representation() << "";
+            if (!is_last) {
+                ss << "\n";
+            }
+        });
     }
     return ss.str();
 }

@@ -22,7 +22,7 @@ void FormulaService::parseAndLoadFormulae() {
         log_info("Loaded {} formula(e).", formulae.size());
 
         for (const auto& formula: formulae) {
-            _nameToFormula.insert(QString::fromStdString(formula.name()), formula);
+            _idToFormula.insert(QString::fromStdString(formula.id()), formula);
         }
         emit formulaeLoaded();
     }
@@ -38,12 +38,12 @@ void FormulaService::parseAndLoadFormulae() {
 }
 
 QVector<ml::Formula> FormulaService::formulae() const {
-    return {_nameToFormula.values()};
+    return {_idToFormula.values()};
 }
 
-ml::Formula FormulaService::formula(const QString& name) const {
-    if (!_nameToFormula.contains(name)) {
-        throw FormulaNotFoundException{name.toStdString()};
+ml::Formula FormulaService::formula(const QString& id) const {
+    if (!_idToFormula.contains(id)) {
+        throw FormulaNotFoundException{id.toStdString()};
     }
-    return std::move(_nameToFormula[name]);
+    return _idToFormula[id];
 }

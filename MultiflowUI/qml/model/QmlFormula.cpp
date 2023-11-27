@@ -7,7 +7,7 @@
 #include <MultiflowLibrary/logging/logging.hpp>
 
 QmlFormula::QmlFormula(const ml::Formula& formula)
-    : _formula(formula), _name(formula.name().c_str()),
+    : _formula(formula), _id(formula.id().c_str()), _name(formula.name().c_str()),
       _description(formula.description().c_str()),
       _expression(formula.expression()),
       _lisp(formula.lisp().c_str()) {

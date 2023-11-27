@@ -14,6 +14,7 @@
 
 struct QmlFormula {
     Q_GADGET
+    Q_PROPERTY(QString id MEMBER _id CONSTANT)
     Q_PROPERTY(QString name MEMBER _name CONSTANT)
     Q_PROPERTY(QString description MEMBER _description CONSTANT)
     Q_PROPERTY(QString lisp MEMBER _lisp CONSTANT)
@@ -22,6 +23,7 @@ struct QmlFormula {
     Q_PROPERTY(QVariantList constants MEMBER _constants CONSTANT)
 
 public:
+    QString _id;
     QString _name;
     QString _description;
     QString _lisp;

@@ -21,7 +21,7 @@ QVector<QVector<QVector<Number>>> WellCalculationUnit::reservoirPressure() const
         const Number j = variable["productivity-index"].toDouble();
         const bool considerBubble = variable["vogel-below-bubble-point"].toString() == "考虑";
 
-        const auto fPiCompletions = FormulaService::getInstance()->formula("PI-completions");
+        const auto fPiCompletions = FormulaService::getInstance()->formula("pi-completions");
         Number pwf = pr;
         ml::Environment env{
             {"consider_bubble", considerBubble ? 1 : 0},
