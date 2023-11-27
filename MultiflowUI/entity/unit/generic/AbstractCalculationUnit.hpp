@@ -14,20 +14,20 @@
 #include <QVector>
 #include <QObject>
 
-class CalculationUnit : public QObject {
+class AbstractCalculationUnit : public QObject {
     Q_OBJECT
 
 protected:
-    MEntity* _entity;
+    MEntity* _entity{};
     MEntityHelper _helper{};
-    MIndependentVariables* _independentVariables;
+    MIndependentVariables* _independentVariables{};
 
 public:
-    explicit CalculationUnit(QObject* parent = nullptr);
+    explicit AbstractCalculationUnit(QObject* parent = nullptr);
 
     Q_INVOKABLE void update(const QVariant& entity, const QVariant& independentVariables);
 
-    ~CalculationUnit() override = default;
+    ~AbstractCalculationUnit() override = default;
 
     [[nodiscard]] virtual QVector<QVector<QVector<ml::Number>>> evaluate(const QString& category) const = 0;
 };

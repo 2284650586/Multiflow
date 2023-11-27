@@ -48,6 +48,7 @@ Item {
             "/formula-viewer": "qrc:/qml/components/window/FormulaViewer.qml",
             "/well-editor": "qrc:/qml/components/window/WellEditor.qml",
             "/fluid-manager": "qrc:/qml/components/window/FluidManager.qml",
+            "/pvt-calculator": "qrc:/qml/components/window/PvtCalculator.qml",
         }
         FluApp.run()
     }

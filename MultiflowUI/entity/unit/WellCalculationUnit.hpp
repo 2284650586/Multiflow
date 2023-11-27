@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "entity/unit/generic/CalculationUnit.hpp"
+#include "entity/unit/generic/AbstractCalculationUnit.hpp"
 
-class WellCalculationUnit final : public CalculationUnit {
+class WellCalculationUnit final : public AbstractCalculationUnit {
     Q_OBJECT
 
     [[nodiscard]]

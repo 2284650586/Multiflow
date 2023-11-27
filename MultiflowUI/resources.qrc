@@ -27,6 +27,7 @@
         <file>resources/model/structure/MWell.Tubulars.Casings.yaml</file>
         <file>resources/model/structure/MWell.Tubulars.Tubings.yaml</file>
         <file>resources/model/structure/MFluid.yaml</file>
+        <file>resources/model/structure/MPVT.yaml</file>
 
         <file>qml/main.qml</file>
 
@@ -34,6 +35,7 @@
         <file>qml/components/window/WellEditor.qml</file>
         <file>qml/components/window/FluidManager.qml</file>
         <file>qml/components/window/ChartViewer.qml</file>
+        <file>qml/components/window/PvtCalculator.qml</file>
 
         <file>qml/components/page/FormulaGeneric.qml</file>
 

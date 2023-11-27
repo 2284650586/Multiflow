@@ -41,7 +41,7 @@ QVector<QVector<QVector<Number>>> WellCalculationUnit::reservoirPressure() const
     return ret;
 }
 
-WellCalculationUnit::WellCalculationUnit(QObject* parent): CalculationUnit(parent) {
+WellCalculationUnit::WellCalculationUnit(QObject* parent): AbstractCalculationUnit(parent) {
 }
 
 QVector<QVector<QVector<Number>>> WellCalculationUnit::evaluate(const QString& category) const {

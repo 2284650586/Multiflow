@@ -38,6 +38,7 @@ private:
     QAction* deleteAction{};
     QAction* _openFormulaViewerAction{};
     QAction* _openBlackOilManagerAction{};
+    QAction* _openPvtCalculatorAction{};
     QAction* _exitAction{};
 
     // Menu
@@ -103,6 +104,8 @@ public slots:
     static void openFormulaViewer();
 
     static void openBlackOilManager();
+
+    static void openPvtCalculator();
 
 private slots:
     void onAboutApp();

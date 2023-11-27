@@ -103,8 +103,8 @@ set(SOURCE_FILES
     entity/MIndependentVariables.cpp
     entity/MIndependentVariables.hpp
     entity/MIndependentVariables.hpp
-    entity/unit/generic/CalculationUnit.cpp
-    entity/unit/generic/CalculationUnit.hpp
+    entity/unit/generic/AbstractCalculationUnit.cpp
+    entity/unit/generic/AbstractCalculationUnit.hpp
     entity/unit/WellCalculationUnit.cpp
     entity/unit/WellCalculationUnit.hpp
     entity/unit/WellCalculationUnit.hpp
@@ -132,6 +132,10 @@ set(SOURCE_FILES
     unit_converter/RatioFractionConverter.hpp
     service/FluidDataService.cpp
     service/FluidDataService.hpp
+    service/PVTService.cpp
+    service/PVTService.hpp
+    entity/unit/PvtCalculationUnit.cpp
+    entity/unit/PvtCalculationUnit.hpp
 )
 
 include_directories(

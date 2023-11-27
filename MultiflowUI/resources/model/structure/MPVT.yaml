@@ -1,0 +1,136 @@
+multiflow-dist: 1.0
+
+name: MPVT
+
+properties:
+  - id: 原油饱和压力模型
+    name: 原油饱和压力模型
+    type: enum
+    enum: Standing, Lasater, Vasquez-Beggs
+
+  - id: 溶解气油比模型
+    name: 溶解气油比模型
+    type: enum
+    enum: Standing, Vasquez-Beggs, Glaso
+
+  - id: 原油体积系数模型
+    name: 原油体积系数模型
+    type: enum
+    enum: Standing, Vasquez-Beggs
+
+  - id: 地面脱气原油粘度模型
+    name: 地面脱气原油粘度模型
+    type: enum
+    enum: Beggs-Robinson, Glaso
+
+  - id: 饱和原油粘度模型
+    name: 饱和原油粘度模型
+    type: enum
+    enum: Beggs-Robinson, Hossain et al.
+
+  - id: 未饱和原油粘度模型
+    name: 未饱和原油粘度模型
+    type: enum
+    enum: Vasquez-Beggs, Kartoatmodjo-Schmidt
+
+  - id: 截断含水率模型
+    name: 截断含水率模型
+    type: enum
+    enum: 给定值, Brauner-Ullmann
+
+  - id: 油水混合物粘度模型
+    name: 油水混合物粘度模型
+    type: enum
+    enum: 反转法, 体积比法, Woelflin, Brinkman
+
+  - id: 压力类型
+    name: 压力类型
+    type: enum
+    enum: 单一值, 范围
+
+  - id: 压力定值
+    name: 压力定值
+    type: Builtin.Pressure
+    enable-if:
+      - enum-id: 压力类型
+        value: 单一值
+
+  - id: 压力范围起始
+    name: 压力范围起始（含）
+    type: Builtin.Pressure
+    enable-if:
+      - enum-id: 压力类型
+        value: 范围
+
+  - id: 压力范围终止
+    name: 压力范围终止（含）
+    type: Builtin.Pressure
+    enable-if:
+      - enum-id: 压力类型
+        value: 范围
+
+  - id: 温度类型
+    name: 温度类型
+    type: enum
+    enum: 单一值, 范围
+
+  - id: 温度定值
+    name: 温度定值
+    type: Builtin.Temperature
+    enable-if:
+      - enum-id: 温度类型
+        value: 单一值
+
+  - id: 温度范围起始
+    name: 温度范围起始（含）
+    type: Builtin.Temperature
+    enable-if:
+      - enum-id: 温度类型
+        value: 范围
+
+  - id: 温度范围终止
+    name: 温度范围终止（含）
+    type: Builtin.Temperature
+    enable-if:
+      - enum-id: 温度类型
+        value: 范围
+
+  - id: 饱和压力
+    name: 饱和压力
+    type: Builtin.Pressure
+    independent: Yes
+
+  - id: 油藏温度
+    name: 油藏温度
+    type: Builtin.Temperature
+    independent: Yes
+
+  - id: 原油相对密度
+    name: 原油相对密度
+    type: number
+    independent: Yes
+
+  - id: 天然气相对密度
+    name: 天然气相对密度
+    type: number
+    independent: Yes
+
+  - id: 水相对密度
+    name: 水相对密度
+    type: number
+    independent: Yes
+
+  - id: 溶解气油比
+    name: 溶解气油比
+    type: Builtin.GasRatio
+    independent: Yes
+
+  - id: 含水率
+    name: 含水率
+    type: Builtin.RatioFraction
+    independent: Yes
+
+  - id: 截断含水率
+    name: 截断含水率
+    type: Builtin.RatioFraction
+    independent: Yes

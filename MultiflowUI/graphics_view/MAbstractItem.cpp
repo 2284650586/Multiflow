@@ -17,7 +17,7 @@ MAbstractItem::MAbstractItem(
     const QString& resourceFileName,
     QString route,
     MEntity* entity,
-    CalculationUnit* calculationUnit,
+    AbstractCalculationUnit* calculationUnit,
     QGraphicsPixmapItem* parent)
     : QGraphicsPixmapItem(parent),
       _kind(kind),

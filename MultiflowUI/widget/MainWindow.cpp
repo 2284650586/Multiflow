@@ -7,6 +7,7 @@
 #include "service/FormulaService.hpp"
 #include "service/EntityService.hpp"
 #include "service/FluidDataService.hpp"
+#include "service/PVTService.hpp"
 
 #include <FluentUIExt/src/FluApp.h>
 #include <MultiflowLibrary/logging/logging.hpp>
@@ -61,6 +62,10 @@ void MainWindow::loadAndShowSplashScreen() {
     emit onLoadUpdate("加载液体数据（黑油模型）...");
     log_info("Loading black oil models.");
     FluidDataService::getInstance()->loadData();
+
+    emit onLoadUpdate("加载 PVT 数据...");
+    log_info("Loading PVT data.");
+    PVTService::getInstance()->loadData();
 
     emit onLoadUpdate("加载 QML 引擎...");
     log_info("Initializing QML engine.");
@@ -119,6 +124,9 @@ void MainWindow::createActions() {
 
     _openBlackOilManagerAction = new QAction(tr("液体模型管理器（黑油）(&B)"), this);
     connect(_openBlackOilManagerAction, &QAction::triggered, this, &MainWindow::openBlackOilManager);
+
+    _openPvtCalculatorAction = new QAction(tr("PVT 计算器(&P)"), this);
+    connect(_openPvtCalculatorAction, &QAction::triggered, this, &MainWindow::openPvtCalculator);
 }
 
 void MainWindow::onUserExit() {
@@ -199,6 +207,7 @@ void MainWindow::createMenu() {
     _toolsMenu->setFont(font);
     _toolsMenu->addAction(_openFormulaViewerAction);
     _toolsMenu->addAction(_openBlackOilManagerAction);
+    _toolsMenu->addAction(_openPvtCalculatorAction);
 
     _aboutMenu = menuBar()->addMenu("关于(&A)");
     _aboutMenu->setFont(font);
@@ -270,6 +279,15 @@ void MainWindow::openBlackOilManager() {
     context->setContextProperty("fluidCategory", FluidDataService::categoryBlackOil());
     context->setContextProperty("fluidEntity", EntityService::getInstance()->createEntity("MFluid"));
     qml::navigate("/fluid-manager");
+}
+
+void MainWindow::openPvtCalculator() {
+    auto* context = gpQmlApplicationEngine->rootContext();
+    context->setContextProperty("pvtIv", PVTService::getInstance()->iv());
+    context->setContextProperty("pvtCategory", PVTService::category());
+    context->setContextProperty("pvtEntity", PVTService::getInstance()->entity());
+    context->setContextProperty("pvtCalculationUnit", PVTService::getInstance()->cu());
+    qml::navigate("/pvt-calculator");
 }
 
 void MainWindow::createMulItem() {

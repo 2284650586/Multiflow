@@ -27,7 +27,7 @@ protected:
     MEntity* _entity{};
     MIndependentVariables* _independentVariables{};
     MSignalBridge* _bridge{};
-    CalculationUnit* _calculationUnit{};
+    AbstractCalculationUnit* _calculationUnit{};
     QString _itemName{};
     QString _qmlRoute{};
     QList<ArrowType*> _arrows{};
@@ -49,7 +49,7 @@ public:
         const QString& resourceFileName,
         QString route,
         MEntity* entity,
-        CalculationUnit* calculationUnit,
+        AbstractCalculationUnit* calculationUnit,
         QGraphicsPixmapItem* parent = nullptr
     );
 
