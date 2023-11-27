@@ -134,3 +134,6 @@ properties:
     name: 截断含水率
     type: Builtin.RatioFraction
     independent: Yes
+    enable-if:
+      - enum-id: 截断含水率模型
+        value: 给定值

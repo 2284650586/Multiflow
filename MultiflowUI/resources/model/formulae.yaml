@@ -17,58 +17,343 @@ global-constants:
     desc: 10的自然对数
 
 formulae:
+  - id: y0-to-api
+    name: Calculate gAPI with y0
+    expression: (- (/ 141.5 y0) 131.5)
+
   - id: oil-standing
     name: 原油饱和压力 (Standing 方法)
-    expression: (* 18 (pow (/ Rsb yg) 0.83) (pow 10 (- (* 0.00091 Tr) (* 0.0125 gAPI))))
+    expression: (* 18 (pow (/ Rsb yg) 0.83) (pow 10 (- (* 0.00091 Tr) (* 0.0125 (y0-to-api y0)))))
 
   - id: oil-lasater-m0
     name: Lasater方法中的M0
     expression: |
-        (piecewise
-            (- 646.9588 (* 1372.1287 (- (/ 1.076 y0) 1))) (> y0 0.8348)
-            (- 490.2237 (*  857.6273 (- (/ 1.076 y0) 1))) (and (< y0 0.8348) (> y0 0.7883))
-            (- 438.8889 (*  730.5556 (- (/ 1.076 y0) 1)))        
-        )
+      (piecewise
+          (- 646.9588 (* 1372.1287 (- (/ 1.076 y0) 1))) (> y0 0.8348)
+          (- 490.2237 (*  857.6273 (- (/ 1.076 y0) 1))) (and (< y0 0.8348) (> y0 0.7883))
+          (- 438.8889 (*  730.5556 (- (/ 1.076 y0) 1)))        
+      )
 
   - id: oil-lasater-yg
     name: Lasater方法中的yg
     expression: (/ Rs (+ Rs (* 24056 (/ y0 (oil-lasater-m0 y0)))))
 
-  - id:  oil-lasater
+  - id: oil-lasater
     name: Lasater方法
     desc: 饱和压力的确定——Lasater（1958）计算法
     expression: |
-        (piecewise
-            (/
-                (* 0.0242 (+ T 273) (+ (* 4.2395 (pow (oil-lasater-yg Rs y0) 3.52)) 1))
-                (oil-lasater-yg Rs y0)
-            ) (> (oil-lasater-yg Rs y0) 0.5)
-            (/
-                (* 7.5084 (pow 10 -3) (+ T 273) (- (* 1.1704 (pow e (* 2.7866 (oil-lasater-yg Rs y0)))) 1))
-                (oil-lasater-yg Rs y0)
-            )
+      (piecewise
+          (/
+              (* 0.0242 (+ T 273) (+ (* 4.2395 (pow (oil-lasater-yg Rs y0) 3.52)) 1))
+              (oil-lasater-yg Rs y0)
+          ) (> (oil-lasater-yg Rs y0) 0.5)
+          (/
+              (* 7.5084 (pow 10 -3) (+ T 273) (- (* 1.1704 (pow e (* 2.7866 (oil-lasater-yg Rs y0)))) 1))
+              (oil-lasater-yg Rs y0)
+          )
+      )
+
+  - id: oil-vasquez-beggs
+    name: Vasquez-Beggs方法，算饱和压力用的
+    expression: |
+      (closure
+        (setq gAPI (y0-to-api y0))
+        (setq c1 (piecewise 0.0362 (< gAPI 30) 0.0178))
+        (setq c2 (piecewise 1.0937 (< gAPI 30) 1.1870))
+        (setq c3 (piecewise 25.724 (< gAPI 30) 25.931))
+        (pow
+          (/ Rsb (*
+            c1 yg (pow e (/ (* c3 gAPI) (+ Tr 460)))
+          ))
+          (/ 1 c2)
         )
-    
+      )
+
+  - id: dissolve-gf-ratio-standing
+    name: 溶解油气比，Standing方法
+    expression: |
+      (closure
+        (setq gAPI (y0-to-api y0))
+        (setq Yg (closure
+            (- (* 0.00091 Tr) (* 0.0125 gAPI))
+        ))
+        (pow (* yg (
+            / P (* 18 (pow 10 Yg))
+        )) 1.204)
+      )
+    variables:
+      - name: Tr
+      - name: yg
+      - name: P
+
+  - id: dissolve-gf-vasquez-beggs
+    name: 溶解油气比，vb方法
+    expression: |
+      (closure
+        (setq gAPI (y0-to-api y0))
+        (setq c1 (piecewise 0.0362 (< gAPI 30) 0.0178))
+        (setq c2 (piecewise 1.0937 (< gAPI 30) 1.1870))
+        (setq c3 (piecewise 25.724 (< gAPI 30) 25.931))
+        (*
+          c1
+          yg
+          (pow p c2)
+          (pow e (/
+            (* c3 gAPI)
+            (+ T 460)
+          ))
+        )
+      )
+    variables:
+      - name: yg
+      - name: p
+      - name: T
+
+  - id: dissolve-gf-glaso
+    name: 溶解油气比，glaso方法
+    expression: |
+      (closure
+        (setq gAPI (y0-to-api y0))
+        (setq pb-star (pow 10 (- 2.8869 (pow
+          (- 14.1811 (* 3.3093 (log 10 P))) 0.5
+        ))))
+        (* yg (pow (
+          *
+          (/ (pow gAPI 0.989) (pow T 0.172))
+          pb-star
+        ) 1.2255))
+      )
+
+  - id: oil-volume-coefficient-standing
+    name: 原油体积系数，standing
+    expression: |
+      (closure
+        (setq
+          F
+          (+ (* Rs (pow (/ yg y0) 0.5)) (* 1.25 T))
+        )
+        (+ 0.972 (* 0.000147 (pow F 1.175)))
+      )
+
+  - id: oil-volume-coefficient-vb-b0b
+    name: 原油体积系数vb中的b0b
+    expression: |
+      (closure
+          (setq gAPI (y0-to-api y0))
+          (setq c1 (piecewise
+             (* 4.677 (pow 10 -4)) (< gAPI 30)
+             (* 4.670 (pow 10 -4))
+          ))
+          (setq c2 (piecewise
+             (* 1.751 (pow 10 -5)) (< gAPI 30)
+             (* 1.100 (pow 10 -5))
+          ))
+          (setq c3 (piecewise
+             (* 1.811 (pow 10 -8)) (< gAPI 30)
+             (* 1.337 (pow 10 -9))
+          ))
+          (+
+            1
+            (* c1 Rs)
+            (* c2 (- T 60) (/ gAPI yg))
+            (* c3 Rs (- T 60) (/ gAPI yg))
+          )
+        )
+    variables:
+      - name: y0
+      - name: Rs
+      - name: T
+      - name: yg
+
+  - id: oil-volume-coefficient-vb
+    name: 原油体积系数，vb
+    expression: |
+      (piecewise
+        (oil-volume-coefficient-vb-b0b y0 Rs T yg) (< P pb)
+        (closure
+          (setq b0b (oil-volume-coefficient-vb-b0b y0 Rs T yg))
+          (setq c0 (/ (+
+            -1433
+            (* 5.0 Rs)
+            (* 17.2 T)
+            (* -1180 yg)
+            (* 12.61 y0)
+          ) 2))
+          (* b0b (pow e (* c0 (- pb P))))
+        )
+      )
+
+  - id: ground-miu-od-beggs-robinson
+    name: 地面脱气原油粘度miu-od，beggs-robinson
+    expression: |
+      (closure
+        (setq Z (- 3.0324 (* 0.02023 (y0-to-api y0))))
+        (setq XX (* (pow 10 Z) (pow T -1.163)))
+        (- (pow 10 XX) 1)
+      )
+
+  - id: ground-miu-od-glaso
+    name: 地面脱气原油粘度miu-od，glaso
+    expression: |
+      (closure
+        (setq c (* 3.141 (pow 10 10) (pow T -3.444)))
+        (setq d (- (* 10.313 (log 10 T)) 36.447))
+        (* c (pow (* (log 10 (y0-to-api y0))) d))
+      )
+
+  - id: saturated-oil-beggs-robinson
+    name: 饱和原油粘度beggs-robinson
+    expression: |
+      (closure
+        (setq A (* 10.715 (pow (+ Rs 100) -0.515)))
+        (setq B (* 005.44 (pow (+ Rs 150) -0.338)))
+        (* A (pow miu-od B))
+      )
+
+  - id: saturated-oil-hossian-etal
+    name: 饱和原油粘度hossian-etal
+    expression: |
+      (closure
+        (setq A (+
+          (- 1 (* 0.0017188311 Rs))
+          (* (* 1.58031 (pow 10 -6)) (pow Rs 2))
+        ))
+        (setq B (+
+          (- 1 (* 0.002052461 Rs))
+          (* (* 3.47559 (pow 10 -6)) (pow Rs 2))
+        ))
+        (* A (pow miu-od B))
+      )
+
+  - id: unsaturated-oil-vasquez-beggs
+    name: 未饱和原油粘度vasquez-beggs
+    expression: |
+      (closure
+        (setq A (* 2.6 (pow P 1.187) (pow e (
+          - (* -8.98 (pow 10 -5) P) 11.513
+        ))))
+        (* miu-ob (pow (/ P pb) A))
+      )
+
+  - id: unsaturated-oil-kartoatmodjo-schmidt
+    name: 未饱和原油粘度kartoatmodjo-schmidt
+    expression: |
+      (closure
+        (setq A (+
+          (* -0.006517 (pow miu-ob 1.8148))
+          (* 00.038000 (pow miu-ob 1.5900))
+        ))
+        (+
+          (* 1.000810 miu-ob)
+          (* 0.001127 A (- P pb))
+        )
+      )
+
+  - id: gas-viscosity-lee-etal
+    name: 气体粘度Lee et al.
+    expression: |
+      (closure
+        (setq gAPI (y0-to-api y0))
+        (setq mw (+
+          677.3893
+          (* -13.216100 gAPI)
+          (* 0.02477500 (pow gAPI 2))
+          (* 0.00067851 (pow gAPI 3))
+        ))
+        (setq rho-g (/ (* 2.7 P yg) (* 0.8 (+ T 460))))
+        (setq X (+ 3.5 (/ 986 (+ T 460)) (* 0.01 mw)))
+        (setq XX (- 2.4 (* 0.2 X)))
+        (setq K (/
+          (* (+ 9.4 (* 0.02 mw)) (pow (+ T 460) 1.5))
+          (+ 209 (* 19 mw) (+ T 460))
+        ))
+        (*
+          (pow 10 -4)
+          K
+          (pow e (* X (pow (/ rho-g 62.4) XX)))
+        )
+      )
+
+  - id: water-viscosity
+    name: 水的粘度
+    expression: |
+      (pow e (+ 
+        1.003
+        (* -1.479 (pow 10 -2) T)
+        (* 01.982 (pow 10 -5) (pow T -2))
+      ))
+
+  - id: truncated-water-ratio-manual
+    name: 截断含水率manual
+    expression: (closure v)
+
+  - id: truncated-water-ratio-brauner-ullmann
+    name: 截断含水率brauner-ullmann
+    expression: |
+      (closure
+        (setq rho-t (/ rho-0 rho-w))
+        (setq miu-t (/ miu-0 miu-w))
+        (- 1 (/
+          (* (pow rho-t 0.6) (pow miu-t 0.4))
+          (+ 1 (* (pow rho-t 0.6) (pow miu-t 0.4)))
+        ))
+      )
+
+  - id: oil-water-mixture-viscosity-reverse-method
+    name: 油水混合物粘度，反转法
+    expression: |
+      (piecewise
+        wv (> water-ratio fw0)
+        fv
+      )
+
+  - id: oil-water-mixture-viscosity-volume-ratio
+    name: 油水混合物粘度，体积比法
+    expression: |
+      (+ (* miu-0 (- 1 fw0)) (* miu-w fw0))
+
+  - id: oil-water-mixture-viscosity-woelflin
+    name: 油水混合物粘度woelflin方法
+    expression: (* miu-0 (+ 1 (* 0.0023 (pow fw0 2.2))))
+
+  - id: oil-water-mixture-viscosity-brinkman
+    name: 油水混合物粘度brinkman方法
+    expression: (* miu-0 (pow (- 1 fw0) -2.5))
+
+  - id: oil-density
+    name: 原油密度
+    expression: |
+      (/
+        (+ (* 62.4 y0) (* 0.0136 Rs y0))
+        (pow (+
+          0.972
+          (* 0.000147 (+
+            (* Rs (pow (/ yg y0) 0.5))
+            (* 1.25 T)
+          ))
+        ) 1.175)
+      )
+
   - id: pi-completions
     name: PI法（产夜指数法）
     desc: PI法（产夜指数法）
     expression: |
+      (piecewise
+        (* J (- pr pwf)) (eq consider_bubble 1)
         (piecewise
-          (* J (- pr pwf)) (eq consider_bubble 1)
-          (piecewise
-            (* J (- pr pwf)) (and (lt pb pwf) (lt pwf pr))
-            (* J (- pr pb)) (eq pwf pb)
-            (closure
-              (setq qc (/ (* J pb) 1.8))
-              (setq qb (* J (- pr pb)))
-              (+ qb (* qc 
-                (-
-                  1
-                  (* 0.2 (/ pwf pb))
-                  (* 0.8 (pow (/ pwf pb) 2))
-                )
-              ))
-            ) (lt pwf pb)
-            0
-          )
+          (* J (- pr pwf)) (and (lt pb pwf) (lt pwf pr))
+          (* J (- pr pb)) (eq pwf pb)
+          (closure
+            (setq qc (/ (* J pb) 1.8))
+            (setq qb (* J (- pr pb)))
+            (+ qb (* qc 
+              (-
+                1
+                (* 0.2 (/ pwf pb))
+                (* 0.8 (pow (/ pwf pb) 2))
+              )
+            ))
+          ) (lt pwf pb)
+          0
         )
+      )
