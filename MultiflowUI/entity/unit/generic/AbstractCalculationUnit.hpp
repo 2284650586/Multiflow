@@ -8,6 +8,7 @@
 #include "entity/MEntity.hpp"
 #include "service/FormulaService.hpp"
 #include "helper/MEntityHelper.hpp"
+#include "shared.hpp"
 
 #include <MultiflowLibrary/expression/environment.hpp>
 

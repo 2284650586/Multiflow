@@ -4,8 +4,11 @@
 
 #include "environment.hpp"
 
+#include <logging/logging.hpp>
+
 ml::Environment::Environment(std::initializer_list<std::pair<std::string, Number>> init) {
     for (const auto& [k, v]: init) {
+        log_debug("Environment: set {} = {}", k, v);
         _env[k] = v;
     }
 }
@@ -15,11 +18,13 @@ ml::Environment::Environment(const Environment& env) {
 }
 
 void ml::Environment::set(const std::string& name, const Number value) {
+    log_debug("Environment: set {} = {}", name, value);
     _env[name] = value;
 }
 
 ml::Number ml::Environment::get(const std::string& name) const {
     if (!present(name)) {
+        log_error("Environment: key not found: {}", name);
         throw KeyNotFoundException();
     }
     return _env.at(name);

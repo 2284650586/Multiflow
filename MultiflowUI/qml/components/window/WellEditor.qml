@@ -75,7 +75,30 @@ FluWindow {
 
                 Component.onCompleted: {
                     editor.onDataPartiallyChanged.connect(() => onDataChanged(well))
-                    editor.onDiagramRequested.connect(showDiagram)
+                    editor.onDataEvaluated.connect((results) => {
+                        let resultString = ""
+                        for (const result of results) {
+                            resultString += `${result.map(p => `(${p[0]}, ${p[1]})`).join(", ")};\n`
+                        }
+                        showAlert("计算结果", resultString)
+                        prepareChartViewer(results, "Q (STB/d)", "Pwf (psia)")
+                    })
+                }
+
+                function prepareChartViewer(results, yName, xName) {
+                    const xValues = []
+                    const yValues = []
+                    for (const series of results) {
+                        const yValueSeries = []
+                        const xValueSeries = []
+                        for (const pair of series) {
+                            yValueSeries.push(pair[1])
+                            xValueSeries.push(pair[0])
+                        }
+                        yValues.push(yValueSeries)
+                        xValues.push(xValueSeries)
+                    }
+                    showDiagram(category, yValues, xValues, yName, xName)
                 }
             }
         }
@@ -93,6 +116,17 @@ FluWindow {
         }
     }
 
+    FluContentDialog {
+        property string dialogTitle
+        property string dialogMessage
+
+        id: dialog
+        title: dialogTitle
+        message: dialogMessage
+        buttonFlags: FluContentDialogType.NeutralButton
+        neutralText: "好"
+    }
+
     function showDiagram(category, yValues, xValues, yName, xName) {
         const component = Qt.createComponent("qrc:/qml/components/window/ChartViewer.qml")
         if (component.status === Component.Ready) {
@@ -105,6 +139,12 @@ FluWindow {
             })
             chartViewer.show()
         }
+    }
+
+    function showAlert(title, message) {
+        dialog.dialogTitle = title
+        dialog.dialogMessage = message
+        dialog.open()
     }
 
     function addTab(title, control, args) {

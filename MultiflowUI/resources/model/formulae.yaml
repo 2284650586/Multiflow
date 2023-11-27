@@ -97,7 +97,7 @@ formulae:
         (*
           c1
           yg
-          (pow p c2)
+          (pow P c2)
           (pow e (/
             (* c3 gAPI)
             (+ T 460)
@@ -188,7 +188,9 @@ formulae:
     expression: |
       (closure
         (setq Z (- 3.0324 (* 0.02023 (y0-to-api y0))))
+        (disp Z)
         (setq XX (* (pow 10 Z) (pow T -1.163)))
+        (disp XX)
         (- (pow 10 XX) 1)
       )
 
@@ -232,7 +234,7 @@ formulae:
         (setq A (* 2.6 (pow P 1.187) (pow e (
           - (* -8.98 (pow 10 -5) P) 11.513
         ))))
-        (* miu-ob (pow (/ P pb) A))
+        (* miu-0 (pow (/ P pb) A))
       )
 
   - id: unsaturated-oil-kartoatmodjo-schmidt
@@ -240,11 +242,11 @@ formulae:
     expression: |
       (closure
         (setq A (+
-          (* -0.006517 (pow miu-ob 1.8148))
-          (* 00.038000 (pow miu-ob 1.5900))
+          (* -0.006517 (pow miu-0 1.8148))
+          (* 00.038000 (pow miu-0 1.5900))
         ))
         (+
-          (* 1.000810 miu-ob)
+          (* 1.000810 miu-0)
           (* 0.001127 A (- P pb))
         )
       )
@@ -303,7 +305,7 @@ formulae:
     name: 油水混合物粘度，反转法
     expression: |
       (piecewise
-        wv (> water-ratio fw0)
+        wv (> fw fw0)
         fv
       )
 

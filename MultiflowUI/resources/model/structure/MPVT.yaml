@@ -8,8 +8,8 @@ properties:
     type: enum
     enum: Standing, Lasater, Vasquez-Beggs
 
-  - id: 溶解气油比模型
-    name: 溶解气油比模型
+  - id: 溶解油气比模型
+    name: 溶解油气比模型
     type: enum
     enum: Standing, Vasquez-Beggs, Glaso
 
@@ -37,6 +37,11 @@ properties:
     name: 截断含水率模型
     type: enum
     enum: 给定值, Brauner-Ullmann
+
+  - id: 气体粘度模型
+    name: 气体粘度模型
+    type: enum
+    enum: Lee et al.
 
   - id: 油水混合物粘度模型
     name: 油水混合物粘度模型
@@ -95,41 +100,38 @@ properties:
       - enum-id: 温度类型
         value: 范围
 
-  - id: 饱和压力
-    name: 饱和压力
-    type: Builtin.Pressure
-    independent: Yes
+  ################################
 
-  - id: 油藏温度
-    name: 油藏温度
-    type: Builtin.Temperature
-    independent: Yes
-
+  # y0, rho-0
   - id: 原油相对密度
     name: 原油相对密度
     type: number
     independent: Yes
 
+  # yg
   - id: 天然气相对密度
     name: 天然气相对密度
     type: number
     independent: Yes
 
+  # rho-w
   - id: 水相对密度
     name: 水相对密度
     type: number
     independent: Yes
 
-  - id: 溶解气油比
-    name: 溶解气油比
+  # Rsb
+  - id: 饱和溶解油气比
+    name: 饱和溶解油气比
     type: Builtin.GasRatio
     independent: Yes
 
-  - id: 含水率
-    name: 含水率
+  - id: 实际含水率
+    name: 实际含水率
     type: Builtin.RatioFraction
     independent: Yes
 
+    # fw0
   - id: 截断含水率
     name: 截断含水率
     type: Builtin.RatioFraction

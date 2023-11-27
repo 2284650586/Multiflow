@@ -17,7 +17,7 @@ Item {
 
     signal onReloadTableDataSource()
 
-    signal onDiagramRequested(var category, var yValues, var xValues, var yName, var xName)
+    signal onDataEvaluated(var results)
 
     id: control
 
@@ -396,28 +396,7 @@ Item {
         }
         calculationUnit.update(entity, iv)
         const results = calculationUnit.evaluate(category)
-        let resultString = ""
-        for (const result of results) {
-            resultString += `${result.map(p => `(${p[0]}, ${p[1]})`).join(", ")};\n`
-        }
-        showAlert("计算结果", resultString)
-        prepareChartViewer(results, "Q (STB/d)", "Pwf (psia)")
-    }
-
-    function prepareChartViewer(results, yName, xName) {
-        const xValues = []
-        const yValues = []
-        for (const series of results) {
-            const yValueSeries = []
-            const xValueSeries = []
-            for (const pair of series) {
-                yValueSeries.push(pair[1])
-                xValueSeries.push(pair[0])
-            }
-            yValues.push(yValueSeries)
-            xValues.push(xValueSeries)
-        }
-        onDiagramRequested(category, yValues, xValues, yName, xName)
+        onDataEvaluated(results)
     }
 
     // Update max width programmatically

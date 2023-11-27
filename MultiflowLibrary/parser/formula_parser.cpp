@@ -22,10 +22,9 @@
 #include "expression/referencing_function.hpp"
 #include "expression/set_environment.hpp"
 #include "expression/closure.hpp"
+#include "expression/disp.hpp"
 
-#include <memory>
 #include <string>
-#include <utility>
 #include <vector>
 #include <functional>
 #include <logging/logging.hpp>
@@ -77,6 +76,7 @@ static const std::vector<std::pair<std::vector<std::string>, ExpressionFactory>>
     {{"piecewise"}, _makeEf<Condition>()},
     {{"closure"}, _makeEf<Closure>()},
     {{"setq"}, _makeEf<SetEnvironment>()},
+    {{"disp"}, _makeEf<Disp>()},
 };
 
 static std::map<std::string, ExpressionFactory> functionMap{};

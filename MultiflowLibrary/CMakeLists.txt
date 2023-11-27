@@ -52,6 +52,8 @@ add_library(MultiflowLibrary SHARED
     expression/closure.hpp
     expression/set_environment.cpp
     expression/set_environment.hpp
+    expression/disp.cpp
+    expression/disp.hpp
 )
 
 if(MSVC)

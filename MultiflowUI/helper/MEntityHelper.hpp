@@ -17,9 +17,5 @@ public:
 
     void setEntity(MEntity* entity);
 
-    MEntityHelper operator[](const char* property) const;
-
-    QString str(const char* property) const;
-
-    double num(const char* property) const;
+    MProperty operator[](const char* property) const;
 };
