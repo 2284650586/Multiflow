@@ -22,6 +22,11 @@ Item {
      */
     required property var casings
 
+    /**
+     * length, innerMargin, thickness
+     */
+    required property var liners
+
     QtObject {
         id: g
         readonly property var headerDesignedHeight: 10
@@ -146,8 +151,8 @@ Item {
                                 // Loader?
                                 if (child.item) {
                                     child = child.item
+                                    child.y = g.designedToActual(child.altitute)
                                 }
-                                child.y = g.designedToActual(child.altitute)
                             }
                         })
                     }
@@ -162,6 +167,54 @@ Item {
                                 width: parent.width
                             }
                         }
+                    }
+
+                    RowLayout {
+                        anchors.fill: parent
+                        spacing: 0
+
+                        ColumnLayout {
+                            Layout.alignment: Qt.AlignRight | Qt.AlignTop
+                            spacing: 1
+
+                            Repeater {
+                                id: repeaterLinerLeft
+                                Layout.alignment: Qt.AlignRight | Qt.AlignTop
+                                model: control.liners.length
+                                Liner {
+                                    required property var index
+                                    property var modelData: control.liners[index]
+                                    length: modelData.length - sumLinersLength(index)
+                                    innerMargin: modelData.innerMargin
+                                    thickness: modelData.thickness
+                                    side: g.sideLeft
+                                }
+                            }
+                        }
+
+                        Item {
+                            Layout.fillWidth: true
+                        }
+
+                        ColumnLayout {
+                            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                            spacing: 1
+
+                            Repeater {
+                                id: repeaterLinerRight
+                                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                                model: control.liners.length
+                                Liner {
+                                    required property var index
+                                    property var modelData: control.liners[index]
+                                    length: modelData.length - sumLinersLength(index)
+                                    innerMargin: modelData.innerMargin
+                                    thickness: modelData.thickness
+                                    side: g.sideRight
+                                }
+                            }
+                        }
+
                     }
                 }
                 RowLayout {
@@ -197,6 +250,14 @@ Item {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             spacing: 0
         }
+    }
+
+    function sumLinersLength(firstN) {
+        let ret = 0
+        for (let i = 0; i < Math.min(firstN, control.liners.length); ++i) {
+            ret += control.liners[i].length
+        }
+        return ret
     }
 
     component AltituteMark: Rectangle {
@@ -289,7 +350,7 @@ Item {
         Layout.preferredHeight: calculatedLength
         Layout.preferredWidth: thickness
         Layout.alignment: Qt.AlignTop
-        color: "gray"
+        color: "darkblue"
         border.color: "black"
     }
 

@@ -29,10 +29,12 @@ FluWindow {
         id: g
         property var hasChoke: false
         property var casings: []
+        property var liners: []
 
         function handleDataChange(entity) {
             hasChoke = getHasChoke()
             casings = getCasings()
+            liners = getLiners()
             bridge.onDataChanged(entity)
         }
 
@@ -41,6 +43,16 @@ FluWindow {
                 return {
                     length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
                     displayLength: tubular['to-md'],
+                    innerMargin: tubular['od'] * 6 / 121,
+                    thickness: tubular['id'] * 6 / 121, // 121 ~= 6
+                }
+            })
+        }
+
+        function getLiners() {
+            return ivMap("tubulars-tubings", (tubular) => {
+                return {
+                    length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
                     innerMargin: tubular['od'] * 6 / 121,
                     thickness: tubular['id'] * 6 / 121, // 121 ~= 6
                 }
@@ -92,6 +104,7 @@ FluWindow {
                 cu: calculationUnit
                 hasChoke: g.hasChoke
                 casings: g.casings
+                liners: g.liners
             }
         }
 

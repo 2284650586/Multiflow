@@ -280,10 +280,17 @@ Item {
                             const row = {}
                             for (const key of hfKeys) {
                                 const example = entity[key].example
-                                row[key] = iv.get(category, i, key) || example
+                                const actual = iv.get(category, i, key)
+                                if (actual) {
+                                    row[key] = actual
+                                    continue
+                                }
                                 if (example) {
                                     iv.set(category, i, key, example)
+                                    row[key] = example
+                                    continue
                                 }
+                                row[key] = ""
                             }
                             row['action'] = tableView.customItem(componentActionArea)
                             rows.push(row)
