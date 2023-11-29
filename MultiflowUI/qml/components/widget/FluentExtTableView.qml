@@ -137,8 +137,6 @@ Rectangle {
                 Layout.preferredHeight: 30
                 Layout.fillWidth: true
                 Component.onCompleted: {
-                    forceActiveFocus()
-                    selectAll()
                     textBox.text = initialText
                 }
                 onCommit: {
@@ -184,6 +182,7 @@ Rectangle {
                 if (shouldCloseEditor) {
                     tableView.closeEditor()
                 }
+                triggerTableModelUpdate(textBox.text)
                 cellUpdated(row, column, textBox.text)
             }
 
@@ -228,16 +227,16 @@ Rectangle {
                         }
                     })
                 }
-
-                function save() {
-                    // currentValue = text
-                    cellUpdated(row, column, combo_box.currentText)
-                    tableView.closeEditor()
-                }
             }
 
             Item {
                 Layout.preferredWidth: 6
+            }
+
+            function save() {
+                cellUpdated(row, column, combo_box.currentText)
+                triggerTableModelUpdate(combo_box.currentText)
+                tableView.closeEditor()
             }
         }
     }
@@ -470,6 +469,11 @@ Rectangle {
                             property var currentItem: table_model.getRow(row)
                             property var currentProperty: columnSource[column]
                             property var currentValue: currentItem[currentProperty.dataIndex]
+                            property var triggerTableModelUpdate: (newValue) => {
+                                let obj = table_model.getRow(row)
+                                obj[currentProperty.dataIndex] = newValue
+                                table_model.setRow(row, obj)
+                            }
 
                             property var options: {
                                 if (typeof (modelData) == "object") {

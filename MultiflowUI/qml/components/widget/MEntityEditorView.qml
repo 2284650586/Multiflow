@@ -298,7 +298,6 @@ Item {
                 function onTableViewCellUpdated(row, column, value) {
                     const key = g.hfKeys[column]
                     iv.set(category, row, key, value)
-                    // console.log(`SET: iv[${category}][${row}][${key}] = "${value}"`)
                     notifyPartialDataChange()
                 }
 

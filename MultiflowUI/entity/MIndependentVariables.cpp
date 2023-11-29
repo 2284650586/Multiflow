@@ -46,7 +46,6 @@ QVariant MIndependentVariables::get(const QString& category, const int index, co
 
     const QMap<QString, QVariant>& m = v[index];
     if (!m.contains(key)) {
-        log_warn("IV at index {} does not contain key {}", index, key.toStdString());
         return QVariant::fromValue(QString{});
     }
     return m[key];
