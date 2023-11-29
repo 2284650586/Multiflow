@@ -5,9 +5,7 @@
       <map>
         <entry key="Debug">
           <value>
-            <PerProfileState>
-              <option name="myLSPEnabled" value="true" />
-            </PerProfileState>
+            <PerProfileState />
           </value>
         </entry>
         <entry key="Release">

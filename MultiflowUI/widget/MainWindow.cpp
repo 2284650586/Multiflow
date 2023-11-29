@@ -263,6 +263,7 @@ void MainWindow::createGraphicsView() {
     layout->addWidget(tView);
 
     tabWidget->insertTab(tabWidget->count(), tView, QString("场景 %1").arg(tabWidget->count() + 1));
+    tabWidget->setStyleSheet("border-radius: 12px;");
 
     connect(tScene, &MGraphicsScene::mulItemInserted, this, &MainWindow::mulItemInserted);
     connect(tScene, &MGraphicsScene::linePointerInserted, this, &MainWindow::linePointerInserted);

@@ -16,14 +16,39 @@ FluWindow {
     signal onDataChanged(var entity)
 
     id: window
-    width: 1200
+    width: 1400
     height: 800
     title: "管井数据"
     visible: true
-
     Component.onCompleted: {
         window.title += ` - ${well.general.value.name.value}`
-        onDataChanged.connect(bridge.onDataChanged)
+        onDataChanged.connect(g.handleDataChange)
+    }
+
+    QtObject {
+        id: g
+        property var hasChoke: false
+
+        function handleDataChange(entity) {
+            hasChoke = getHasChoke()
+            bridge.onDataChanged(entity)
+        }
+
+        function getHasChoke() {
+            return ivAny(
+                "downhole-equipment",
+                "equipment", (v) => v === "Choke")
+        }
+
+        function ivAny(category, key, predicate) {
+            const size = independentVariables.size(category)
+            for (let i = 0; i < size; ++i) {
+                if (predicate(independentVariables.get(category, i, key))) {
+                    return true
+                }
+            }
+            return false
+        }
     }
 
     RowLayout {
@@ -31,7 +56,7 @@ FluWindow {
         anchors.margins: 10
 
         FluArea {
-            Layout.preferredWidth: 300
+            Layout.preferredWidth: 400
             Layout.fillHeight: true
             border.color: Colors.border
             color: Colors.background
@@ -39,9 +64,11 @@ FluWindow {
             MWellVisualizer {
                 id: visualizer
                 anchors.fill: parent
+                anchors.margins: 10
                 well: entity
                 iv: independentVariables
                 cu: calculationUnit
+                hasChoke: g.hasChoke
             }
         }
 
