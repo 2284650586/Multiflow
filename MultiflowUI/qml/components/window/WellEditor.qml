@@ -26,26 +26,46 @@ FluWindow {
         onDataChanged.connect(bridge.onDataChanged)
     }
 
-    FluArea {
+    RowLayout {
         anchors.fill: parent
         anchors.margins: 10
-        border.color: Colors.border
-        color: Colors.background
-        radius: 8
-        clip: true
 
-        FluTabView {
-            id: tabView
-            addButtonVisibility: FluTabViewType.Nerver // 啊，这不是我拼错的啊
-            closeButtonVisibility: FluTabViewType.Nerver
-            anchors.fill: parent
-            Component.onCompleted: handleCreateTabs()
+        FluArea {
+            Layout.preferredWidth: 300
+            Layout.fillHeight: true
+            border.color: Colors.border
+            color: Colors.background
 
-            function handleCreateTabs() {
-                const keys = MUtils.wrapMEntityKeys(well.keys())
-                for (const key of keys) {
-                    const argument = {category: key, entity: well[key].value}
-                    addTab(well[key].name, tab, argument)
+            MWellVisualizer {
+                id: visualizer
+                anchors.fill: parent
+                well: entity
+                iv: independentVariables
+                cu: calculationUnit
+            }
+        }
+
+        FluArea {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            border.color: Colors.border
+            color: Colors.background
+            radius: 8
+            clip: true
+
+            FluTabView {
+                id: tabView
+                addButtonVisibility: FluTabViewType.Nerver // 啊，这不是我拼错的啊
+                closeButtonVisibility: FluTabViewType.Nerver
+                anchors.fill: parent
+                Component.onCompleted: handleCreateTabs()
+
+                function handleCreateTabs() {
+                    const keys = MUtils.wrapMEntityKeys(well.keys())
+                    for (const key of keys) {
+                        const argument = {category: key, entity: well[key].value}
+                        addTab(well[key].name, tab, argument)
+                    }
                 }
             }
         }

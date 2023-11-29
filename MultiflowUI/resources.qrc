@@ -52,6 +52,7 @@
         <file>qml/components/widget/MTableView.qml</file>
         <file>qml/components/widget/MEntityEditorView.qml</file>
         <file>qml/components/widget/MCompletionsView.qml</file>
+        <file>qml/components/widget/MWellVisualizer.qml</file>
 
         <file>qml/components/widget/FluentExtTableView.qml</file>
         <file>qml/components/widget/FluentExtTableModelColumn.qml</file>
