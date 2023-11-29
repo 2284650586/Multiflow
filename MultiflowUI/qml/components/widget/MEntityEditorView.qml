@@ -416,7 +416,6 @@ Item {
     }
 
     function reloadKeys() {
-        console.log(`Reloading keys for ${category}`)
         g.keys = getKeys()
         g.hfKeys = getHfKeys()
     }
