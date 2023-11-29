@@ -106,29 +106,34 @@ properties:
   - id: 原油相对密度
     name: 原油相对密度
     type: number
+    example: 0.83
     independent: Yes
 
   # yg
   - id: 天然气相对密度
     name: 天然气相对密度
     type: number
+    example: 0.9
     independent: Yes
 
   # rho-w
   - id: 水相对密度
     name: 水相对密度
     type: number
+    example: 1.2
     independent: Yes
 
   # Rsb
   - id: 饱和溶解油气比
     name: 饱和溶解油气比
     type: Builtin.GasRatio
+    example: 105.6
     independent: Yes
 
   - id: 实际含水率
     name: 实际含水率
     type: Builtin.RatioFraction
+    example: 32.6
     independent: Yes
 
     # fw0

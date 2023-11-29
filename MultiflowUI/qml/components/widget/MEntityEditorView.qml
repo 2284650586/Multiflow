@@ -259,6 +259,7 @@ Item {
                                 type: property.type,
                                 extra: property.extra,
                                 dataIndex: key,
+                                example: property.example,
                                 minimumWidth: shouldHide ? 1 : 100,
                                 maximumWidth: shouldHide ? 1 : 300,
                                 width: shouldHide ? 1 : 120,
@@ -278,7 +279,11 @@ Item {
                         for (let i = 0; i < size; ++i) {
                             const row = {}
                             for (const key of hfKeys) {
-                                row[key] = iv.get(category, i, key)
+                                const example = entity[key].example
+                                row[key] = iv.get(category, i, key) || example
+                                if (example) {
+                                    iv.set(category, i, key, example)
+                                }
                             }
                             row['action'] = tableView.customItem(componentActionArea)
                             rows.push(row)

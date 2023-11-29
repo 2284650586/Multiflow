@@ -30,7 +30,7 @@ static const auto PrimitiveTypeToDefaultValue = QMap<QString, QVariant>{
 };
 
 static QString qFromNode(const YAML::Node& node) {
-    return QString::fromStdString(node.as<std::string>());
+    return QString::fromStdString(node.as<std::string>(""));
 }
 
 // NOLINTNEXTLINE(misc-no-recursion)
@@ -136,6 +136,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
         const auto id = property["id"];
         const auto name = property["name"];
         const auto type = property["type"];
+        const auto example = property["example"];
         const bool isHighFrequency = property["independent"].IsDefined() && property["independent"].as<bool>();
 
         if (!id.IsDefined() || !name.IsDefined() || !type.IsDefined()) {
@@ -162,6 +163,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                 .entity = entity,
                 .propertyName = qFromNode(name),
                 .propertyId = qFromNode(id),
+                .exampleValue = qFromNode(example),
                 .node = property,
                 .isHighFrequency = isHighFrequency,
                 .enableConditions = conditions,
@@ -200,8 +202,9 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
         QVariant::fromValue(MProperty{
             .name = context.propertyName,
             .type = builtinType,
-            .value = 0,
+            .value = QVariant::fromValue(context.exampleValue.toDouble()),
             .extra = QVariant::fromValue(BuiltinTypeToConverter[builtinType]()),
+            .example = QVariant::fromValue(context.exampleValue),
             .isHighFrequency = context.isHighFrequency,
             .enableConditions = context.enableConditions,
         })
@@ -221,6 +224,7 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
             .type = QVariant::fromValue(referenceType),
             .value = QVariant::fromValue(new MEntity{*entityValue}),
             .extra = QVariant{},
+            .example = QVariant::fromValue(context.exampleValue),
             .isHighFrequency = context.isHighFrequency,
             .enableConditions = context.enableConditions,
         })
@@ -243,6 +247,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .type = QVariant::fromValue(primitiveType),
                 .value = QVariant::fromValue(enumList.first()),
                 .extra = QVariant::fromValue(enums),
+                .example = QVariant::fromValue(context.exampleValue),
                 .isHighFrequency = context.isHighFrequency,
                 .enableConditions = context.enableConditions,
             }));
@@ -258,8 +263,11 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
         context.propertyId, QVariant::fromValue(MProperty{
             .name = context.propertyName,
             .type = QVariant::fromValue(primitiveType),
-            .value = PrimitiveTypeToDefaultValue[primitiveType],
+            .value = context.exampleValue.isEmpty()
+                         ? PrimitiveTypeToDefaultValue[primitiveType]
+                         : QVariant::fromValue(context.exampleValue.toDouble()),
             .extra = QVariant{},
+            .example = QVariant::fromValue(context.exampleValue),
             .isHighFrequency = context.isHighFrequency,
             .enableConditions = context.enableConditions,
         }));

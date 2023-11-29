@@ -43,7 +43,7 @@ Rectangle {
         property var isEditing: false
 
         function obtEditDelegate(column, row, cellItem) {
-            var display = table_model.data(table_model.index(row, column), "display")
+            var display = table_model.data(table_model.index(row, column), "display") || columnSource[column].example
             var cellPosition = cellItem.mapToItem(scroll_table, 0, 0)
             item_loader.column = column
             item_loader.row = row
@@ -460,7 +460,7 @@ Rectangle {
                         }
                         FluLoader {
                             property var itemModel: model
-                            property var modelData: display
+                            property var modelData: display || currentProperty.example
                             property var tableView: table_view
                             property var tableModel: table_model
                             property var position: item_table.position
@@ -468,7 +468,7 @@ Rectangle {
                             property int column: position.x
                             property var currentItem: table_model.getRow(row)
                             property var currentProperty: columnSource[column]
-                            property var currentValue: currentItem[currentProperty.dataIndex]
+                            property var currentValue: currentItem[currentProperty.dataIndex] || currentProperty.example
                             property var triggerTableModelUpdate: (newValue) => {
                                 let obj = table_model.getRow(row)
                                 obj[currentProperty.dataIndex] = newValue

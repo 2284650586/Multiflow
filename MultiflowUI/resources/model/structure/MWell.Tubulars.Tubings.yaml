@@ -16,17 +16,20 @@ properties:
   - id: to-md
     name: To MD
     type: Builtin.Length
+    example: 1524
     independent: Yes
 
   - id: id
     name: ID
     type: Builtin.Length
+    example: 40.45373
     independent: Yes
 
   - id: od
     name: OD
     type: Builtin.Length
     independent: Yes
+    example: 52.58985
     enable-if:
       - enum-id: dimension-option
         value: OD
@@ -35,6 +38,7 @@ properties:
     name: Wall Thickness
     type: Builtin.Length
     independent: Yes
+    example: 0.00606806
     enable-if:
       - enum-id: dimension-option
         value: Wall Thickness
@@ -42,6 +46,7 @@ properties:
   - id: roughness
     name: Roughness
     type: Builtin.Length
+    example: 0.0000254
     independent: Yes
 
   - id: grade
@@ -58,6 +63,7 @@ properties:
   - id: thermal-conductivity
     name: Thermal Conductivity
     type: Builtin.Length # TODO
+    example: 48.0075
     independent: Yes
 
   - id: fluid
@@ -69,9 +75,11 @@ properties:
   - id: fluid-density
     name: Fluid Density
     type: Builtin.Length # TODO
+    example: 1200
     independent: Yes
 
   - id: fluid-thermal-conductivity
     name: Fluid Thermal Cond.
     type: Builtin.Length # TODO
+    example: 1.0034
     independent: Yes

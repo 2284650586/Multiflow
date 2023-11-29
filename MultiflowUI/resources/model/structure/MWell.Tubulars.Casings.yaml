@@ -17,27 +17,32 @@ properties:
   - id: name
     name: Name
     type: string
+    example: Casing
     independent: Yes
 
   - id: from-md
     name: From MD
     type: Builtin.Length
+    example: 0
     independent: Yes
 
   - id: to-md
     name: To MD
     independent: Yes
+    example: 3048
     type: Builtin.Length
 
   - id: id
     name: ID
     type: Builtin.Length
+    example: 121.3612
     independent: Yes
 
   - id: od
     name: OD
     type: Builtin.Length
     independent: Yes
+    example: 139.7
     enable-if:
       - enum-id: dimension-option
         value: OD
@@ -46,6 +51,7 @@ properties:
     name: Wall Thickness
     type: Builtin.Length
     independent: Yes
+    example: 0.0091694
     enable-if:
       - enum-id: dimension-option
         value: Wall Thickness
@@ -53,6 +59,7 @@ properties:
   - id: roughness
     name: Roughness
     type: Builtin.Length
+    example: 0.0000254
     independent: Yes
 
   - id: grade
@@ -69,6 +76,7 @@ properties:
   - id: thermal-conductivity
     name: Thermal Conductivity
     type: Builtin.Length # TODO
+    example: 48.0075
     independent: Yes
 
   - id: borehole-diameter
@@ -84,9 +92,11 @@ properties:
   - id: cement-density
     name: Cement Density
     type: Builtin.Length # TODO
+    example: 1900
     independent: Yes
 
   - id: cement-thermal-conductivity
     name: Cement Thermal Cond.
     type: Builtin.Length # TODO
+    example: 1.557
     independent: Yes

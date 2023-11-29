@@ -30,6 +30,7 @@ struct MProperty {
     Q_PROPERTY(QVariant type MEMBER type)
     Q_PROPERTY(QVariant value MEMBER value)
     Q_PROPERTY(QVariant extra MEMBER extra)
+    Q_PROPERTY(QVariant example MEMBER example)
     Q_PROPERTY(QVariant associateValue MEMBER associateValue)
     Q_PROPERTY(QVector<QPair<QString, QString>> enableConditions MEMBER enableConditions)
     Q_PROPERTY(bool isHighFrequency MEMBER isHighFrequency)
@@ -39,6 +40,7 @@ public:
     QVariant type;
     QVariant value;
     QVariant extra;
+    QVariant example;
     QVariant associateValue{QVariant::fromValue(0)};
     bool isHighFrequency{false};
     QVector<QPair<QString, QString>> enableConditions;

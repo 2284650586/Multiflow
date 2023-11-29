@@ -49,7 +49,6 @@
         <file>qml/components/widget/FormulaText.qml</file>
         <file>qml/components/widget/NavigationView.qml</file>
         <file>qml/components/widget/AutoSuggestBox.qml</file>
-        <file>qml/components/widget/MTableView.qml</file>
         <file>qml/components/widget/MEntityEditorView.qml</file>
         <file>qml/components/widget/MCompletionsView.qml</file>
         <file>qml/components/widget/MWellVisualizer.qml</file>
