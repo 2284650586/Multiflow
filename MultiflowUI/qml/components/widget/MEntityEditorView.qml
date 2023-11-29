@@ -278,7 +278,7 @@ Item {
                         for (let i = 0; i < size; ++i) {
                             const row = {}
                             for (const key of hfKeys) {
-                                row[key] = iv.get(category, i, key) || '0'
+                                row[key] = iv.get(category, i, key)
                             }
                             row['action'] = tableView.customItem(componentActionArea)
                             rows.push(row)
@@ -332,8 +332,10 @@ Item {
 
                 function handleCreateNewRow() {
                     iv.createEmpty(category)
-                    const hfArea = getHfArea()
-                        hfArea && hfArea.getTableView().reloadDataSource()
+                    const hfArea = tableLoader.item
+                    if (hfArea) {
+                        hfArea.getTableView().reloadDataSource()
+                    }
                     notifyPartialDataChange()
                 }
             }
@@ -356,16 +358,12 @@ Item {
         }
 
         function tryReloadTableDataSource() {
-            const hfArea = getHfArea()
+            const hfArea = tableLoader.item
             if (hfArea) {
                 const tableView = hfArea.getTableView()
                 tableView.closeEditor()
                 tableView.reloadDataSource()
             }
-        }
-
-        function getHfArea() {
-            return tableLoader.item
         }
     }
 

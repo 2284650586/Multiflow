@@ -30,17 +30,17 @@ Item {
         FluTheme.enableAnimation = true
         FluTheme.nativeText = false
         FluTextStyle.Body = Qt.font({
-            family: 'Microsoft YaHei',
+            family: MUtils.fontFamily,
             italic: false,
             pointSize: 10,
         })
         FluTextStyle.Subtitle = Qt.font({
-            family: 'Microsoft YaHei',
+            family: MUtils.fontFamily,
             italic: false,
             pointSize: 12,
         })
         FluTextStyle.TitleLarge = Qt.font({
-            family: 'Microsoft YaHei',
+            family: MUtils.fontFamily,
             italic: false,
             pointSize: 16,
         })

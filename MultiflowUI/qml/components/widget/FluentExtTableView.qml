@@ -54,25 +54,14 @@ Rectangle {
             item_loader_layout.height = table_view.rowHeightProvider(row)
             item_loader.display = display
             item_loader.currentItem = table_model.getRow(row)
-            var obj = columnSource[column].editDelegate
-            if (obj) {
-                return obj
+            var delegateObj = columnSource[column].editDelegate
+            if (delegateObj) {
+                return delegateObj
             }
             if (columnSource[column].editMultiline === true) {
                 return com_edit_multiline
             }
-
-            const type = columnSource[column].type
             item_loader.currentProperty = columnSource[column]
-            if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
-                if (columnSource[column].extra) {
-                    return com_conv
-                }
-                return com_loading
-            }
-            if (type === 'enum') {
-                return com_combo
-            }
             return com_edit
         }
     }
@@ -97,23 +86,21 @@ Rectangle {
                 forceActiveFocus()
                 selectAll()
             }
-
-            // 特制的逻辑，点击外部也视同为提交
-            Component.onDestruction: {
-                console.log("com_edit onDestruction")
-                save()
+            onChange: {
+                save(false)
             }
             onCommit: {
-                console.log("com_edit onCommit")
-                save()
+                save(true)
             }
 
-            function save() {
+            function save(shouldCloseEditor) {
                 if (!readOnly) {
                     display = text_box.text
                 }
+                if (shouldCloseEditor) {
+                    tableView.closeEditor()
+                }
                 cellUpdated(row, column, text_box.text)
-                tableView.closeEditor()
             }
         }
     }
@@ -133,8 +120,9 @@ Rectangle {
         id: com_conv
 
         RowLayout {
+            property var initialText: currentValue
             property var units: currentProperty.extra.units()
-            property var initialUnit: units.indexOf(currentValue)
+
             anchors.fill: parent
             spacing: 0
 
@@ -151,11 +139,13 @@ Rectangle {
                 Component.onCompleted: {
                     forceActiveFocus()
                     selectAll()
-                    textBox.text = currentValue
+                    textBox.text = initialText
                 }
                 onCommit: {
-                    console.log("com_conv onCommit")
-                    save()
+                    save(true)
+                }
+                onChange: {
+                    save(false)
                 }
             }
 
@@ -190,16 +180,18 @@ Rectangle {
                 Layout.preferredWidth: 6
             }
 
+            function save(shouldCloseEditor) {
+                if (shouldCloseEditor) {
+                    tableView.closeEditor()
+                }
+                cellUpdated(row, column, textBox.text)
+            }
+
             function _isNumeric(str) {
                 if (typeof str != "string") {
                     return false
                 }
                 return !isNaN(str) && !isNaN(parseFloat(str))
-            }
-
-            function save() {
-                cellUpdated(row, column, textBox.text)
-                tableView.closeEditor()
             }
         }
     }
@@ -207,6 +199,8 @@ Rectangle {
         id: com_combo
 
         RowLayout {
+            property var initialText: currentValue
+
             anchors.fill: parent
             spacing: 0
 
@@ -216,27 +210,28 @@ Rectangle {
 
             FluComboBox {
                 property var items: currentProperty.extra.split(", ")
-                property var initialIndex: items.indexOf(currentValue)
+                property var initialIndex: items.indexOf(initialText)
 
                 id: combo_box
                 model: items
                 Layout.fillWidth: true
                 Layout.preferredHeight: 30
                 Component.onCompleted: {
-                    forceActiveFocus()
-                    combo_box.currentIndex = initialIndex !== -1 ? initialIndex : 0
+                    if (initialIndex === -1) {
+                        initialIndex = 0
+                        save()
+                    }
+                    combo_box.currentIndex = initialIndex
                     combo_box.onCurrentTextChanged.connect(() => {
-                        if (items.includes(currentText)) {
-                            save(currentText)
+                        if (currentText !== '' && items.includes(currentText)) {
+                            save()
                         }
                     })
                 }
 
-                function save(text) {
-                    console.log("Setting value to " + text)
+                function save() {
                     // currentValue = text
-                    currentProperty.value = text
-                    cellUpdated(row, column, text)
+                    cellUpdated(row, column, combo_box.currentText)
                     tableView.closeEditor()
                 }
             }
@@ -487,9 +482,9 @@ Rectangle {
                                 if (typeof (modelData) == "object") {
                                     return modelData.comId
                                 }
-                                const type = columnSource[column].type
+                                const type = currentProperty.type
                                 if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
-                                    if (columnSource[column].extra) {
+                                    if (currentProperty.extra) {
                                         return com_conv
                                     }
                                     return com_loading
