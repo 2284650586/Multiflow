@@ -28,16 +28,38 @@ FluWindow {
     QtObject {
         id: g
         property var hasChoke: false
+        property var casings: []
 
         function handleDataChange(entity) {
             hasChoke = getHasChoke()
+            casings = getCasings()
             bridge.onDataChanged(entity)
+        }
+
+        function getCasings() {
+            return ivMap("tubulars-casings", (tubular) => {
+                return {
+                    length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
+                    displayLength: tubular['to-md'],
+                    innerMargin: tubular['od'] * 6 / 121,
+                    thickness: tubular['id'] * 6 / 121, // 121 ~= 6
+                }
+            })
         }
 
         function getHasChoke() {
             return ivAny(
                 "downhole-equipment",
                 "equipment", (v) => v === "Choke")
+        }
+
+        function ivMap(category, proc) {
+            const maps = independentVariables.getMaps(category)
+            const ret = []
+            for (let i = 0; i < maps.length; ++i) {
+                ret.push(proc(maps[i], i))
+            }
+            return ret
         }
 
         function ivAny(category, key, predicate) {
@@ -69,6 +91,7 @@ FluWindow {
                 iv: independentVariables
                 cu: calculationUnit
                 hasChoke: g.hasChoke
+                casings: g.casings
             }
         }
 

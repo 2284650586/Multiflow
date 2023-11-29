@@ -17,15 +17,24 @@ Item {
     required property var cu
     required property bool hasChoke
 
+    /**
+     * length, innerMargin, thickness
+     */
+    required property var casings
+
     QtObject {
         id: g
         readonly property var headerDesignedHeight: 10
         readonly property var masterTopMargin: 15
         readonly property var chokeRectangleSize: 8
 
-        property var headerActualHeight: 40
-        property var headerActualWidth: 0
-        property var standardTextHeight: 0
+        readonly property var sideLeft: "Left"
+        readonly property var sideRight: "Right"
+        readonly property var normalTubularMargin: 1
+
+        property var headerActualHeight: 48
+        property var headerActualWidth
+        property var standardTextHeight
 
         // I don't know why there was an invisible margin
         readonly property var magicPadding: 14
@@ -47,20 +56,37 @@ Item {
             Layout.topMargin: g.masterTopMargin
             Component.onCompleted: {
                 g.onStandardTextHeightChanged.connect(() => {
-                    // 当所有子元素都加载完成后，手动调整它们的位置
                     for (let i = 0; i < children.length; ++i) {
                         const child = children[i]
                         child.y = g.designedToActual(child.altitute) - g.standardTextHeight
                     }
+                    control.onCasingsChanged.connect(() => {
+                        for (let i = 0; i < repeaterAltituteMarks.count; ++i) {
+                            const child = repeaterAltituteMarks.itemAt(i)
+                            child.y = g.designedToActual(child.altitute) - g.standardTextHeight
+                        }
+                    })
                 })
             }
 
             AltituteMark {
                 altitute: 0
+                displayAltitute: -g.headerDesignedHeight
             }
 
             AltituteMark {
                 altitute: g.headerDesignedHeight
+                displayAltitute: 0
+            }
+
+            Repeater {
+                id: repeaterAltituteMarks
+                model: control.casings
+                AltituteMark {
+                    required property var modelData
+                    altitute: g.headerDesignedHeight + modelData.length
+                    displayAltitute: modelData.displayLength
+                }
             }
         }
 
@@ -89,10 +115,22 @@ Item {
                     id: tubularsRowLeft
                     spacing: 0
                     Layout.fillWidth: true
-                    Rectangle {
+
+                    Repeater {
+                        model: control.casings
+                        Casing {
+                            required property var modelData
+
+                            length: modelData.length
+                            innerMargin: modelData.innerMargin
+                            thickness: modelData.thickness
+                            side: g.sideLeft
+                        }
+                    }
+
+                    Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        color: "red"
                     }
                 }
                 Item {
@@ -116,7 +154,7 @@ Item {
 
                     Loader {
                         width: parent.width
-                        sourceComponent: hasChoke ? componentChoke : null
+                        sourceComponent: control.hasChoke ? componentChoke : null
                         Component {
                             id: componentChoke
                             Choke {
@@ -130,10 +168,22 @@ Item {
                     id: tubularsRowRight
                     spacing: 0
                     Layout.fillWidth: true
-                    Rectangle {
+
+                    Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        color: "red"
+                    }
+
+                    Repeater {
+                        model: control.casings && MUtils.reversed(control.casings)
+                        Casing {
+                            required property var modelData
+
+                            length: modelData.length
+                            innerMargin: modelData.innerMargin
+                            thickness: modelData.thickness
+                            side: g.sideRight
+                        }
                     }
                 }
             }
@@ -151,18 +201,18 @@ Item {
 
     component AltituteMark: Rectangle {
         required property var altitute
-        property var calculatedAltitute: altitute - g.headerDesignedHeight
+        required property var displayAltitute
         Layout.fillWidth: true
 
         ColumnLayout {
             spacing: 0
 
             FluText {
-                text: `${calculatedAltitute} m`
+                text: `${displayAltitute} m`
                 font.pixelSize: 12
 
                 Component.onCompleted: {
-                    if (g.standardTextHeight === 0) {
+                    if (!g.standardTextHeight) {
                         g.standardTextHeight = height + 1
                     }
                 }
@@ -209,5 +259,53 @@ Item {
             y: 0
             color: "darkgray"
         }
+    }
+
+    component Casing: Rectangle {
+        required property var length
+        required property var innerMargin
+        required property var thickness
+        required property var side
+
+        property var calculatedLength: g.designedToActual(length)
+        Layout.leftMargin: side === g.sideRight ? innerMargin : g.normalTubularMargin
+        Layout.rightMargin: side === g.sideLeft ? innerMargin : g.normalTubularMargin
+        Layout.preferredHeight: calculatedLength
+        Layout.preferredWidth: thickness
+        Layout.alignment: Qt.AlignTop
+        color: "gray"
+        border.color: "black"
+    }
+
+    component Liner: Rectangle {
+        required property var length
+        required property var innerMargin
+        required property var thickness
+        required property var side
+
+        property var calculatedLength: g.designedToActual(length)
+        Layout.leftMargin: side === g.sideRight ? innerMargin : g.normalTubularMargin
+        Layout.rightMargin: side === g.sideLeft ? innerMargin : g.normalTubularMargin
+        Layout.preferredHeight: calculatedLength
+        Layout.preferredWidth: thickness
+        Layout.alignment: Qt.AlignTop
+        color: "gray"
+        border.color: "black"
+    }
+
+    component OpenHole: Rectangle {
+        required property var length
+        required property var innerMargin
+        required property var thickness
+        required property var side
+
+        property var calculatedLength: g.designedToActual(length)
+        Layout.leftMargin: side === g.sideRight ? innerMargin : g.normalTubularMargin
+        Layout.rightMargin: side === g.sideLeft ? innerMargin : g.normalTubularMargin
+        Layout.preferredHeight: calculatedLength
+        Layout.preferredWidth: thickness
+        Layout.alignment: Qt.AlignTop
+        color: "gray"
+        border.color: "black"
     }
 }

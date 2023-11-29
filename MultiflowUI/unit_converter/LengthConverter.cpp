@@ -20,7 +20,8 @@ LengthConverter::LengthConverter(QObject* parent): AbstractUnitConverter(parent)
 }
 
 QVector<QString> LengthConverter::units() const {
-    return unitToMeter.keys();
+    // unitToMeter.keys() returns ordered list of keys which are not expected
+    return {"m", "cm", "dm", "km", "mm", "ft", "in"};
 }
 
 double LengthConverter::convert(const double value, const QString& from, const QString& to) const {

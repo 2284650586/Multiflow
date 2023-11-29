@@ -23,4 +23,8 @@ Item {
     function wrapMEntityKeys(keys) {
         return keys.filter(k => k !== "associateValue")
     }
+
+    function reversed(array) {
+        return array.slice().reverse()
+    }
 }

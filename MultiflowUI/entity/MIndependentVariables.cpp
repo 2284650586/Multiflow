@@ -51,6 +51,10 @@ QVariant MIndependentVariables::get(const QString& category, const int index, co
     return m[key];
 }
 
+QVariant MIndependentVariables::getMaps(const QString& category) const {
+    return QVariant::fromValue(get(category));
+}
+
 const QVector<QMap<QString, QVariant>>& MIndependentVariables::get(const QString& category) const {
     static const QVector<QMap<QString, QVariant>> empty{};
     if (const auto it = _variables.find(category); it != _variables.end()) {

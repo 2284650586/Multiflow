@@ -28,7 +28,9 @@ public:
 
     Q_INVOKABLE [[nodiscard]] QVariant get(const QString& category, int index, const QString& key) const;
 
-    Q_INVOKABLE [[nodiscard]] const QVector<QMap<QString, QVariant>>& get(const QString& category) const;
+    Q_INVOKABLE [[nodiscard]] QVariant getMaps(const QString& category) const;
+
+    [[nodiscard]] const QVector<QMap<QString, QVariant>>& get(const QString& category) const;
 
 signals:
     void sizeChanged(QString category);

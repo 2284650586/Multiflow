@@ -20,7 +20,8 @@ PressureConverter::PressureConverter(QObject* parent): AbstractUnitConverter(par
 }
 
 QVector<QString> PressureConverter::units() const {
-    return unitToKPa.keys();
+    // unitToMeter.keys() returns ordered list of keys which are not expected
+    return {"MPa", "kPa", "bar", "psi", "kgf/cm2", "psia", "psig"};
 }
 
 double PressureConverter::convert(const double value, const QString& from, const QString& to) const {
