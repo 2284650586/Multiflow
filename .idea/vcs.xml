@@ -6,6 +6,5 @@
     <mapping directory="$PROJECT_DIR$/FluentUIExt/framelesshelper" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/FluentUIExt/framelesshelper/cmake" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/FluentUIExt/zxing-cpp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/multiflow-backend" vcs="Git" />
   </component>
 </project>

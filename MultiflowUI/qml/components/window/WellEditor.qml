@@ -121,7 +121,9 @@ FluWindow {
                 addButtonVisibility: FluTabViewType.Nerver // 啊，这不是我拼错的啊
                 closeButtonVisibility: FluTabViewType.Nerver
                 anchors.fill: parent
-                Component.onCompleted: handleCreateTabs()
+                Component.onCompleted: {
+                    handleCreateTabs()
+                }
 
                 function handleCreateTabs() {
                     const keys = MUtils.wrapMEntityKeys(well.keys())

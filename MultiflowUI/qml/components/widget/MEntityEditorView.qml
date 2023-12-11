@@ -279,12 +279,19 @@ Item {
                         for (let i = 0; i < size; ++i) {
                             const row = {}
                             for (const key of hfKeys) {
-                                const example = entity[key].example
+                                const shouldHide = hidHfKeys.includes(key)
+                                if (shouldHide) {
+                                    row[key] = ""
+                                    continue
+                                }
+
                                 const actual = iv.get(category, i, key)
                                 if (actual) {
                                     row[key] = actual
                                     continue
                                 }
+
+                                const example = entity[key].example
                                 if (example) {
                                     iv.set(category, i, key, example)
                                     row[key] = example

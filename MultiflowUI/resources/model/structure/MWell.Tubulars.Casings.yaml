@@ -11,7 +11,7 @@ properties:
   - id: section-type
     name: Section Type
     type: enum
-    enum: Casing, Liner, Open Hole
+    enum: Casing, Liner, Open Hole, Tubing
     independent: Yes
 
   - id: name
