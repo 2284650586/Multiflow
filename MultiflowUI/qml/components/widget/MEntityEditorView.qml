@@ -256,7 +256,7 @@ Item {
 
                             columns.push({
                                 title: shouldHide ? '' : property.name,
-                                type: property.type,
+                                type: shouldHide ? 'string' : property.type,
                                 extra: property.extra,
                                 dataIndex: key,
                                 example: property.example,
