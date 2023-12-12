@@ -56,21 +56,21 @@ properties:
   - id: 压力定值
     name: 压力定值
     type: Builtin.Pressure
-    enable-if:
+    show-if:
       - enum-id: 压力类型
         value: 单一值
 
   - id: 压力范围起始
     name: 压力范围起始（含）
     type: Builtin.Pressure
-    enable-if:
+    show-if:
       - enum-id: 压力类型
         value: 范围
 
   - id: 压力范围终止
     name: 压力范围终止（含）
     type: Builtin.Pressure
-    enable-if:
+    show-if:
       - enum-id: 压力类型
         value: 范围
 
@@ -82,21 +82,21 @@ properties:
   - id: 温度定值
     name: 温度定值
     type: Builtin.Temperature
-    enable-if:
+    show-if:
       - enum-id: 温度类型
         value: 单一值
 
   - id: 温度范围起始
     name: 温度范围起始（含）
     type: Builtin.Temperature
-    enable-if:
+    show-if:
       - enum-id: 温度类型
         value: 范围
 
   - id: 温度范围终止
     name: 温度范围终止（含）
     type: Builtin.Temperature
-    enable-if:
+    show-if:
       - enum-id: 温度类型
         value: 范围
 
@@ -141,6 +141,6 @@ properties:
     name: 截断含水率
     type: Builtin.RatioFraction
     independent: Yes
-    enable-if:
+    show-if:
       - enum-id: 截断含水率模型
         value: 给定值

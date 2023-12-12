@@ -146,14 +146,14 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
             };
         }
 
-        const auto enableConditions = property["enable-if"];
+        const auto enableConditions = property["show-if"];
         QVector<QPair<QString, QString>> conditions{};
         for (const auto& condition: enableConditions) {
             const auto enumId = condition["enum-id"];
             const auto value = condition["value"];
             if (!enumId.IsDefined() || !value.IsDefined()) {
                 throw ParseException{
-                    fmt::format("Malformed enable-if of entity {}.", entityName.toStdString())
+                    fmt::format("Malformed show-if of entity {}.", entityName.toStdString())
                 };
             }
             conditions.emplace_back(qFromNode(enumId), qFromNode(value));

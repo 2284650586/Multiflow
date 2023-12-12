@@ -30,7 +30,7 @@ properties:
     type: Builtin.Length
     independent: Yes
     example: 52.58985
-    enable-if:
+    show-if:
       - enum-id: dimension-option
         value: OD
 
@@ -39,7 +39,7 @@ properties:
     type: Builtin.Length
     independent: Yes
     example: 0.00606806
-    enable-if:
+    show-if:
       - enum-id: dimension-option
         value: Wall Thickness
 

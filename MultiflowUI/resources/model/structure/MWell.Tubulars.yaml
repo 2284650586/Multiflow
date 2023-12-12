@@ -44,7 +44,7 @@ properties:
     preferred-unit: mm # TODO
     independent: Yes
     example: 139.7
-    enable-if:
+    show-if:
       - enum-id: dimension-option
         value: OD
 
@@ -53,7 +53,7 @@ properties:
     type: Builtin.Length
     independent: Yes
     example: 0.0091694
-    enable-if:
+    show-if:
       - enum-id: dimension-option
         value: Wall Thickness
 
