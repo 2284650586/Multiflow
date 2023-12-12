@@ -80,6 +80,7 @@ Item {
 
                         FluTextBox {
                             id: textBoxString
+                            Layout.preferredHeight: 24
                             onTextChanged: {
                                 currentEntity.value = text
                             }
@@ -93,24 +94,31 @@ Item {
                     Component {
                         id: componentEnum
 
-                        FluComboBox {
-                            property var items: currentEntity.extra.split(", ")
+                        RowLayout {
+                            spacing: 0
+                            FluComboBox {
+                                property var items: currentEntity.extra.split(", ")
 
-                            id: comboBoxEnum
-                            model: items
-                            currentIndex: -1
-                            Component.onCompleted: {
-                                comboBoxEnum.currentIndex = currentEntity.value ? items.indexOf(currentEntity.value) : 0
-                                comboBoxEnum.onCurrentTextChanged.connect(onSelected)
-                            }
+                                id: comboBoxEnum
+                                model: items
+                                currentIndex: -1
+                                Layout.preferredWidth: 200
+                                Layout.preferredHeight: 24
+                                Layout.fillHeight: true
+                                Component.onCompleted: {
+                                    comboBoxEnum.currentIndex = currentEntity.value ? items.indexOf(currentEntity.value) : 0
+                                    comboBoxEnum.onCurrentTextChanged.connect(onSelected)
+                                }
 
-                            function onSelected() {
-                                currentEntity.value = currentText
-                                reloadKeys()
-                                onReloadTableDataSource()
-                                notifyPartialDataChange()
+                                function onSelected() {
+                                    currentEntity.value = currentText
+                                    reloadKeys()
+                                    onReloadTableDataSource()
+                                    notifyPartialDataChange()
+                                }
                             }
                         }
+
                     }
 
                     Component {
@@ -123,6 +131,7 @@ Item {
                             FluTextBox {
                                 id: textBox
                                 Layout.preferredWidth: 125
+                                Layout.preferredHeight: 24
                                 Layout.fillHeight: true
                                 onTextChanged: {
                                     currentEntity.value = text
@@ -133,11 +142,14 @@ Item {
                             }
 
                             FluComboBox {
-                                property var lastUnit: currentEntity.associateValue ? units[currentEntity.associateValue] : units[0]
+                                property var lastUnit: currentEntity.associateValue
+                                    ? units[currentEntity.associateValue]
+                                    : (currentEntity.preferredUnit || units[0])
 
                                 id: comboBox
                                 model: units
                                 Layout.preferredWidth: 75
+                                Layout.preferredHeight: 24
                                 Layout.fillHeight: true
                                 Component.onCompleted: {
                                     comboBox.currentIndex = currentEntity.associateValue ? currentEntity.associateValue : 0
@@ -149,7 +161,7 @@ Item {
                                     let oldValue = parseFloat(textBox.text)
                                     let newUnit = currentText
                                     let newValue = currentEntity.extra.convert(oldValue, lastUnit, newUnit)
-                                    newValue = Number(newValue.toFixed(2))
+                                    newValue = Number(newValue.toFixed(4))
                                     textBox.text = `${newValue}`
                                     currentEntity.associateValue = currentIndex
                                     lastUnit = currentText
@@ -205,6 +217,7 @@ Item {
                 clip: true
                 Component.onCompleted: {
                     tableView.cellUpdated.connect(onTableViewCellUpdated)
+                    tableView.associateValueUpdated.connect(onAssociateValueUpdated)
                     iv.sizeChanged.connect(onIndependentVariablesSizeChanged)
                 }
 
@@ -232,6 +245,7 @@ Item {
                             FluButton {
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                                 text: "删除"
+                                Layout.preferredHeight: 24
                                 onClicked: handleDeleteSingleRow()
                             }
 
@@ -260,9 +274,11 @@ Item {
                                 extra: property.extra,
                                 dataIndex: key,
                                 example: property.example,
-                                minimumWidth: shouldHide ? 1 : 100,
+                                associateValue: property.associateValue,
+                                preferredUnit: property.preferredUnit,
+                                minimumWidth: shouldHide ? 1 : 40,
                                 maximumWidth: shouldHide ? 1 : 300,
-                                width: shouldHide ? 1 : 120,
+                                width: shouldHide ? 1 : 80,
                             })
                         }
                         // Reserve a column for actions
@@ -300,6 +316,7 @@ Item {
                                 row[key] = ""
                             }
                             row['action'] = tableView.customItem(componentActionArea)
+                            row['height'] = 30
                             rows.push(row)
                         }
                         return rows
@@ -312,6 +329,11 @@ Item {
                     function reloadColumnSource() {
                         tableView.columnSource = getColumnSource()
                     }
+                }
+
+                function onAssociateValueUpdated(property, value) {
+                    entity[property.dataIndex].associateValue = value
+                    notifyPartialDataChange()
                 }
 
                 function onTableViewCellUpdated(row, column, value) {

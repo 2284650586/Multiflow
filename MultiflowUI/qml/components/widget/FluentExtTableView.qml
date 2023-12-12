@@ -15,6 +15,7 @@ Rectangle {
     color: FluTheme.dark ? Qt.rgba(39 / 255, 39 / 255, 39 / 255, 1) : Qt.rgba(251 / 255, 251 / 255, 253 / 255, 1)
 
     signal cellUpdated(int row, int column, var value)
+    signal associateValueUpdated(var property, var value)
 
     onColumnSourceChanged: {
         if (columnSource.length !== 0) {
@@ -42,6 +43,8 @@ Rectangle {
         property var header_rows: []
         property var isEditing: false
 
+        property var dataIndexToTextBoxes: ({})
+
         function obtEditDelegate(column, row, cellItem) {
             var display = table_model.data(table_model.index(row, column), "display") || columnSource[column].example
             var cellPosition = cellItem.mapToItem(scroll_table, 0, 0)
@@ -64,6 +67,28 @@ Rectangle {
             item_loader.currentProperty = columnSource[column]
             return com_edit
         }
+
+        function registerUnitTextBox(dataIndex, textBox) {
+            if (!dataIndexToTextBoxes[dataIndex]) {
+                dataIndexToTextBoxes[dataIndex] = []
+            }
+            dataIndexToTextBoxes[dataIndex].push(textBox)
+        }
+
+        function unregisterUnitTextBox(dataIndex, textBox) {
+            const textBoxes = dataIndexToTextBoxes[dataIndex]
+            if (!textBoxes) {
+                return
+            }
+            textBoxes.splice(textBoxes.indexOf(textBox), 1)
+        }
+
+        function traverseUnitTextBoxes(dataIndex, callback) {
+            if (!dataIndexToTextBoxes[dataIndex]) {
+                return
+            }
+            dataIndexToTextBoxes[dataIndex].forEach(callback)
+        }
     }
     onDataSourceChanged: {
         table_model.clear()
@@ -81,6 +106,7 @@ Rectangle {
         FCellTextField {
             id: text_box
             text: display
+            Layout.preferredHeight: 24
             readOnly: true === columnSource[column].readOnly
             Component.onCompleted: {
                 forceActiveFocus()
@@ -134,10 +160,14 @@ Rectangle {
                 id: textBox
                 readOnly: true === columnSource[column].readOnly
                 cleanEnabled: false
-                Layout.preferredHeight: 30
+                Layout.preferredHeight: 24
                 Layout.fillWidth: true
                 Component.onCompleted: {
                     textBox.text = initialText
+                    d.registerUnitTextBox(currentProperty.dataIndex, textBox)
+                }
+                Component.onDestruction: {
+                    d.unregisterUnitTextBox(currentProperty.dataIndex, textBox)
                 }
                 onCommit: {
                     save(true)
@@ -147,50 +177,12 @@ Rectangle {
                 }
             }
 
-            FluComboBox {
-                property var lastUnit: currentProperty.associateValue ? units[currentProperty.associateValue] : units[0]
-
-                id: comboBox
-                model: units
-                width: 30
-                indicator: null
-                Layout.preferredHeight: 30
-                Layout.preferredWidth: 60
-                onCurrentTextChanged: {
-                    if (!_isNumeric(textBox.text)) {
-                        return
-                    }
-                    let oldValue = parseFloat(textBox.text)
-                    let newUnit = currentText
-                    let newValue = currentProperty.extra.convert(oldValue, lastUnit, newUnit)
-                    newValue = Number(newValue.toFixed(2))
-                    textBox.text = `${newValue}`
-                    currentProperty.associateValue = currentIndex
-                    lastUnit = currentText
-                }
-
-                Component.onCompleted: {
-                    comboBox.currentIndex = currentProperty.associateValue ? currentProperty.associateValue : 0
-                }
-            }
-
-            Item {
-                Layout.preferredWidth: 6
-            }
-
             function save(shouldCloseEditor) {
                 if (shouldCloseEditor) {
                     tableView.closeEditor()
                 }
                 triggerTableModelUpdate(textBox.text)
                 cellUpdated(row, column, textBox.text)
-            }
-
-            function _isNumeric(str) {
-                if (typeof str != "string") {
-                    return false
-                }
-                return !isNaN(str) && !isNaN(parseFloat(str))
             }
         }
     }
@@ -214,7 +206,7 @@ Rectangle {
                 id: combo_box
                 model: items
                 Layout.fillWidth: true
-                Layout.preferredHeight: 30
+                Layout.preferredHeight: 24
                 Component.onCompleted: {
                     if (initialIndex === -1) {
                         initialIndex = 0
@@ -398,7 +390,7 @@ Rectangle {
                 clip: true
                 delegate: MouseArea {
                     hoverEnabled: true
-                    implicitHeight: 40
+                    implicitHeight: 30
                     implicitWidth: {
                         var w = columnSource[column].width
                         if (!w) {
@@ -551,7 +543,65 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter
         }
     }
+    Component {
+        id: com_column_text_with_unit
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.margins: 0
+            spacing: 0
 
+            FluText {
+                id: column_text
+                text: modelData
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                Layout.alignment: Qt.AlignHCenter
+            }
+            FluComboBox {
+                property var units: currentProperty.extra.units()
+                property var lastUnit: getLastUnit()
+                id: comboBox
+                model: units
+                // indicator: null
+                Layout.preferredHeight: 24
+                Layout.preferredWidth: 60
+                Layout.alignment: Qt.AlignHCenter
+                Component.onCompleted: {
+                    comboBox.currentIndex = getLastUnitIndex()
+                    comboBox.onCurrentTextChanged.connect(() => {
+                        d.traverseUnitTextBoxes(currentProperty.dataIndex, (textBox) => {
+                            if (!MUtils.isNumeric(textBox.text)) {
+                                return
+                            }
+                            let oldValue = parseFloat(textBox.text)
+                            let newUnit = currentText
+                            let newValue = currentProperty.extra.convert(oldValue, lastUnit, newUnit)
+                            newValue = Number(newValue.toFixed(4))
+                            textBox.text = `${newValue}`
+                        })
+                        currentProperty.associateValue = currentIndex
+                        lastUnit = currentText
+                        associateValueUpdated(currentProperty, currentIndex)
+                    })
+                }
+
+                function getLastUnitIndex() {
+                    if (currentProperty.associateValue) {
+                        return currentProperty.associateValue
+                    }
+                    const preferredUnitIndex = units.indexOf(currentProperty.preferredUnit)
+                    if (preferredUnitIndex !== -1) {
+                        return preferredUnitIndex
+                    }
+                    return 0
+                }
+
+                function getLastUnit() {
+                    return units[getLastUnitIndex()]
+                }
+            }
+        }
+    }
     TableView {
         id: header_horizontal
         model: TableModel {
@@ -575,7 +625,7 @@ Rectangle {
             implicitWidth: {
                 return (item_column_loader.item && item_column_loader.item.implicitWidth) + (cellPadding * 2)
             }
-            implicitHeight: Math.max(36, (item_column_loader.item && item_column_loader.item.implicitHeight) + (cellPadding * 2))
+            implicitHeight: Math.max(30, (item_column_loader.item && item_column_loader.item.implicitHeight) + (cellPadding * 2))
             color: FluTheme.dark ? Qt.rgba(50 / 255, 50 / 255, 50 / 255, 1) : Qt.rgba(247 / 255, 247 / 255, 247 / 255, 1)
             Rectangle {
                 border.color: control.borderColor
@@ -633,6 +683,7 @@ Rectangle {
                 property var modelData: model.display
                 property var tableView: table_view
                 property var tableModel: table_model
+                property var currentProperty: (() => columnSource[column])() // One-time binding
                 property var options: {
                     if (typeof (modelData) == "object") {
                         return modelData.options
@@ -646,6 +697,13 @@ Rectangle {
                     if (typeof (modelData) == "object") {
                         return modelData.comId
                     }
+                    const type = currentProperty.type
+                    if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
+                        if (currentProperty.extra) {
+                            return com_column_text_with_unit
+                        }
+                        return com_loading
+                    }
                     return com_column_text
                 }
             }
@@ -658,8 +716,7 @@ Rectangle {
                 hoverEnabled: true
                 visible: !(obj.width === obj.minimumWidth && obj.width === obj.maximumWidth && obj.width)
                 cursorShape: Qt.SplitHCursor
-                onPressed:
-                        (mouse) => {
+                onPressed: (mouse) => {
                     header_horizontal.interactive = false
                     FluTools.setOverrideCursor(Qt.SplitHCursor)
                     clickPos = Qt.point(mouse.x, mouse.y)
@@ -672,8 +729,7 @@ Rectangle {
                     header_horizontal.interactive = true
                     FluTools.restoreOverrideCursor()
                 }
-                onPositionChanged:
-                        (mouse) => {
+                onPositionChanged: (mouse) => {
                     if (!pressed) {
                         return
                     }

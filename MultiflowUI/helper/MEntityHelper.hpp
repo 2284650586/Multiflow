@@ -5,8 +5,7 @@
 #pragma once
 
 #include "entity/MEntity.hpp"
-
-#include <QString>
+#include "expression/environment.hpp"
 
 class MEntityHelper {
 protected:
@@ -18,4 +17,8 @@ public:
     void setEntity(MEntity* entity);
 
     MProperty operator[](const char* property) const;
+
+    ml::Number valueAtUnit(const char* property, const char* unit) const;
+
+    ml::Number ivValueAtUnit(ml::Number value, const char* property, const char* unit) const;
 };

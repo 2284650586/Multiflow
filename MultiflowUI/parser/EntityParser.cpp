@@ -15,7 +15,7 @@
 #include <QVariant>
 #include <logging/logging.hpp>
 
-static const auto BuiltinTypeToConverter = QMap<QString, std::function<AbstractUnitConverter*()>>{
+static const auto BuiltinTypeToConverterFactory = QMap<QString, std::function<AbstractUnitConverter*()>>{
     {"Builtin.Length", [] { return new LengthConverter{}; }},
     {"Builtin.Pressure", [] { return new PressureConverter{}; }},
     {"Builtin.Temperature", [] { return new TemperatureConverter{}; }},
@@ -137,6 +137,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
         const auto name = property["name"];
         const auto type = property["type"];
         const auto example = property["example"];
+        const auto preferredUnit = property["preferred-unit"];
         const bool isHighFrequency = property["independent"].IsDefined() && property["independent"].as<bool>();
 
         if (!id.IsDefined() || !name.IsDefined() || !type.IsDefined()) {
@@ -164,6 +165,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                 .propertyName = qFromNode(name),
                 .propertyId = qFromNode(id),
                 .exampleValue = qFromNode(example),
+                .preferredUnit = qFromNode(preferredUnit),
                 .node = property,
                 .isHighFrequency = isHighFrequency,
                 .enableConditions = conditions,
@@ -192,7 +194,7 @@ void EntityParser::_handleType(const QString& typeName, const ParserContext& con
 }
 
 void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserContext& context) {
-    if (!BuiltinTypeToConverter.contains(builtinType)) {
+    if (!BuiltinTypeToConverterFactory.contains(builtinType)) {
         throw ParseException{
             fmt::format("Unknown builtin type: {}", builtinType.toStdString())
         };
@@ -203,8 +205,9 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
             .name = context.propertyName,
             .type = builtinType,
             .value = QVariant::fromValue(context.exampleValue.toDouble()),
-            .extra = QVariant::fromValue(BuiltinTypeToConverter[builtinType]()),
+            .extra = QVariant::fromValue(BuiltinTypeToConverterFactory[builtinType]()),
             .example = QVariant::fromValue(context.exampleValue),
+            .preferredUnit = QVariant::fromValue(context.preferredUnit),
             .isHighFrequency = context.isHighFrequency,
             .enableConditions = context.enableConditions,
         })
@@ -225,6 +228,7 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
             .value = QVariant::fromValue(new MEntity{*entityValue}),
             .extra = QVariant{},
             .example = QVariant::fromValue(context.exampleValue),
+            .preferredUnit = QVariant::fromValue(context.preferredUnit),
             .isHighFrequency = context.isHighFrequency,
             .enableConditions = context.enableConditions,
         })
@@ -248,6 +252,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .value = QVariant::fromValue(enumList.first()),
                 .extra = QVariant::fromValue(enums),
                 .example = QVariant::fromValue(context.exampleValue),
+                .preferredUnit = QVariant::fromValue(context.preferredUnit),
                 .isHighFrequency = context.isHighFrequency,
                 .enableConditions = context.enableConditions,
             }));
@@ -268,6 +273,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                          : QVariant::fromValue(context.exampleValue.toDouble()),
             .extra = QVariant{},
             .example = QVariant::fromValue(context.exampleValue),
+            .preferredUnit = QVariant::fromValue(context.preferredUnit),
             .isHighFrequency = context.isHighFrequency,
             .enableConditions = context.enableConditions,
         }));

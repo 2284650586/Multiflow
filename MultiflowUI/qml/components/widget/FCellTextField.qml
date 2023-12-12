@@ -6,6 +6,7 @@ import FluentUI
 
 TextField {
     signal commit(string text)
+
     signal change(string text)
 
     property bool disabled: false
@@ -18,8 +19,8 @@ TextField {
     property bool cleanEnabled: true
 
     id: control
-    padding: 7
-    leftPadding: padding + 4
+    padding: 4
+    leftPadding: 4
     enabled: !disabled
     color: {
         if (!enabled) {
@@ -48,6 +49,7 @@ TextField {
         }
         if (control.readOnly)
             w = 0
+        return 4
         return icon_end.visible ? w + 36 : w + 10
     }
     width: 240

@@ -39,7 +39,7 @@ FluWindow {
         }
 
         function getCasings() {
-            return ivMap("tubulars-casings", (tubular) => {
+            return ivMap("tubulars", (tubular) => {
                 return {
                     length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
                     displayLength: tubular['to-md'],
@@ -50,7 +50,7 @@ FluWindow {
         }
 
         function getLiners() {
-            return ivMap("tubulars-tubings", (tubular) => {
+            return ivMap("tubulars", (tubular) => {
                 return {
                     length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
                     innerMargin: tubular['od'] * 6 / 121,

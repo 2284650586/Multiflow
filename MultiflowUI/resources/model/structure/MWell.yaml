@@ -6,8 +6,7 @@ import:
   - MWell.HeatTransfer
   - MWell.Completions
   - MWell.DownholeEquipment
-  - MWell.Tubulars.Casings
-  - MWell.Tubulars.Tubings
+  - MWell.Tubulars
 
 name: MWell
 
@@ -24,13 +23,9 @@ properties:
     name: 热传递
     type: MWell.HeatTransfer
 
-  - id: tubulars-casings
-    name: Tubulars Casings
+  - id: tubulars
+    name: Tubulars
     type: MWell.Tubulars.Casings
-
-  - id: tubulars-tubings
-    name: Tubulars Tubings
-    type: MWell.Tubulars.Tubings
 
   - id: downhole-equipment
     name: Downhole
