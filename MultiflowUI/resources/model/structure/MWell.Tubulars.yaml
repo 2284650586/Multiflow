@@ -71,33 +71,84 @@ properties:
 
   - id: density
     name: Density
-    type: Builtin.Length # TODO
+    type: number # TODO
     independent: Yes
 
   - id: thermal-conductivity
     name: Thermal Conductivity
-    type: Builtin.Length # TODO
+    type: number # TODO
     example: 48.0075
     independent: Yes
 
   - id: borehole-diameter
     name: Borehole Diameter
-    type: Builtin.Length # TODO
+    type: number # TODO
     independent: Yes
+    disable-if:
+      - enum-id: section-type
+        value: Tubing
 
   - id: cement-top
     name: Cement Top
     type: Builtin.Length
     independent: Yes
+    disable-if:
+      - enum-id: section-type
+        value: Tubing
 
   - id: cement-density
     name: Cement Density
-    type: Builtin.Length # TODO
+    type: number # TODO
     example: 1900
     independent: Yes
+    disable-if:
+      - enum-id: section-type
+        value: Tubing
+
+  - id: fluid-density
+    name: Fluid Density
+    type: Builtin.Length # TODO
+    example: 1200
+    independent: Yes
+    disable-if:
+      - enum-id: section-type
+        value: Open Hole
+      - enum-id: section-type
+        value: Casing
+      - enum-id: section-type
+        value: Liner
 
   - id: cement-thermal-conductivity
     name: Cement Thermal Cond.
-    type: Builtin.Length # TODO
+    type: number # TODO
     example: 1.557
     independent: Yes
+    disable-if:
+      - enum-id: section-type
+        value: Tubing
+
+  - id: fluid-thermal-conductivity
+    name: Fluid Thermal Cond.
+    type: Builtin.Length # TODO
+    example: 1.0034
+    independent: Yes
+    disable-if:
+      - enum-id: section-type
+        value: Open Hole
+      - enum-id: section-type
+        value: Casing
+      - enum-id: section-type
+        value: Liner
+
+  - id: fluid
+    name: Fluid
+    type: enum
+    enum: Mud, Brine, Water, Gas, Oil, Diesel, Acid
+    independent: Yes
+    disable-if:
+      - enum-id: section-type
+        value: Open Hole
+      - enum-id: section-type
+        value: Casing
+      - enum-id: section-type
+        value: Liner

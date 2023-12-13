@@ -146,9 +146,13 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
             };
         }
 
-        const auto enableConditions = property["show-if"];
-        QVector<QPair<QString, QString>> conditions{};
-        for (const auto& condition: enableConditions) {
+        const auto showConditions = property["show-if"];
+        const auto disableConditions = property["disable-if"];
+
+        QVector<QPair<QString, QString>> showConditionsVector{};
+        QVector<QPair<QString, QString>> disableConditionsVector{};
+
+        for (const auto& condition: showConditions) {
             const auto enumId = condition["enum-id"];
             const auto value = condition["value"];
             if (!enumId.IsDefined() || !value.IsDefined()) {
@@ -156,7 +160,18 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                     fmt::format("Malformed show-if of entity {}.", entityName.toStdString())
                 };
             }
-            conditions.emplace_back(qFromNode(enumId), qFromNode(value));
+            showConditionsVector.emplace_back(qFromNode(enumId), qFromNode(value));
+        }
+
+        for (const auto& condition: disableConditions) {
+            const auto enumId = condition["enum-id"];
+            const auto value = condition["value"];
+            if (!enumId.IsDefined() || !value.IsDefined()) {
+                throw ParseException{
+                    fmt::format("Malformed disable-if of entity {}.", entityName.toStdString())
+                };
+            }
+            disableConditionsVector.emplace_back(qFromNode(enumId), qFromNode(value));
         }
 
         _handleType(
@@ -168,7 +183,8 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                 .preferredUnit = qFromNode(preferredUnit),
                 .node = property,
                 .isHighFrequency = isHighFrequency,
-                .enableConditions = conditions,
+                .showConditions = showConditionsVector,
+                .disableConditions = disableConditionsVector,
             });
     }
 
@@ -209,7 +225,8 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
             .example = QVariant::fromValue(context.exampleValue),
             .preferredUnit = QVariant::fromValue(context.preferredUnit),
             .isHighFrequency = context.isHighFrequency,
-            .enableConditions = context.enableConditions,
+            .showConditions = context.showConditions,
+            .disableConditions = context.disableConditions,
         })
     );
 }
@@ -230,7 +247,8 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
             .example = QVariant::fromValue(context.exampleValue),
             .preferredUnit = QVariant::fromValue(context.preferredUnit),
             .isHighFrequency = context.isHighFrequency,
-            .enableConditions = context.enableConditions,
+            .showConditions = context.showConditions,
+            .disableConditions = context.disableConditions,
         })
     );
 }
@@ -254,7 +272,8 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .example = QVariant::fromValue(context.exampleValue),
                 .preferredUnit = QVariant::fromValue(context.preferredUnit),
                 .isHighFrequency = context.isHighFrequency,
-                .enableConditions = context.enableConditions,
+                .showConditions = context.showConditions,
+                .disableConditions = context.disableConditions,
             }));
         return;
     }
@@ -275,6 +294,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
             .example = QVariant::fromValue(context.exampleValue),
             .preferredUnit = QVariant::fromValue(context.preferredUnit),
             .isHighFrequency = context.isHighFrequency,
-            .enableConditions = context.enableConditions,
+            .showConditions = context.showConditions,
+            .disableConditions = context.disableConditions,
         }));
 }

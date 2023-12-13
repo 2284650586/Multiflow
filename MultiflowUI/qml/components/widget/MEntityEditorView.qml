@@ -234,6 +234,8 @@ Item {
                     // Must bind directly, and immediately
                     // or the table will never be shown
                     columnSource: getColumnSource()
+                    ivRef: iv
+                    categoryRef: category
                     Component.onCompleted: {
                         reloadDataSource()
                     }
@@ -276,6 +278,7 @@ Item {
                                 example: property.example,
                                 associateValue: property.associateValue,
                                 preferredUnit: property.preferredUnit,
+                                shouldDisable: property.shouldDisable,
                                 minimumWidth: shouldHide ? 1 : 40,
                                 maximumWidth: shouldHide ? 1 : 300,
                                 width: shouldHide ? 1 : 80,
@@ -465,7 +468,7 @@ Item {
     function getKeys() {
         return MUtils.wrapMEntityKeys(entity.keys()).filter(
                 k => !entity[k].isHighFrequency
-                && entity[k].shouldEnable(entity)
+                && entity[k].shouldShow(entity)
         )
     }
 
@@ -478,7 +481,7 @@ Item {
     function getHidHfKeys() {
         return MUtils.wrapMEntityKeys(entity.keys()).filter(
                 k => entity[k].isHighFrequency
-                && !entity[k].shouldEnable(entity)
+                && !entity[k].shouldShow(entity)
         )
     }
 

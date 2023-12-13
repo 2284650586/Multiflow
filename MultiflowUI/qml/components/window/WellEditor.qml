@@ -22,6 +22,8 @@ FluWindow {
     visible: true
     Component.onCompleted: {
         window.title += ` - ${well.general.value.name.value}`
+
+        // 为了让 MWellVisualizer 能够正确显示，需要在这里触发一次 onDataChanged 事件
         onDataChanged.connect(g.handleDataChange)
     }
 
@@ -39,24 +41,35 @@ FluWindow {
         }
 
         function getCasings() {
-            return ivMap("tubulars", (tubular) => {
+            // console.log(JSON.stringify(well))
+            // const units = well['to-md'].extra.units()
+            // const unit = units[well['to-md'].associateValue]
+            // const desiredUnit = well['to-md'].preferredUnit
+
+            // console.log("units", units)
+            // console.log("unit", unit)
+            // console.log("desiredUnit", desiredUnit)
+
+            return ivFilter("tubulars", (t) => t['section-type'] !== 'Tubing')
+                .map((tubular) => {
                 return {
                     length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
                     displayLength: tubular['to-md'],
                     innerMargin: tubular['od'] * 6 / 121,
                     thickness: tubular['id'] * 6 / 121, // 121 ~= 6
                 }
-            })
+            });
         }
 
         function getLiners() {
-            return ivMap("tubulars", (tubular) => {
+            return ivFilter("tubulars", (t) => t['section-type'] === 'Tubing')
+                .map((tubular) => {
                 return {
                     length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
                     innerMargin: tubular['od'] * 6 / 121,
                     thickness: tubular['id'] * 6 / 121, // 121 ~= 6
                 }
-            })
+            });
         }
 
         function getHasChoke() {
@@ -65,11 +78,13 @@ FluWindow {
                 "equipment", (v) => v === "Choke")
         }
 
-        function ivMap(category, proc) {
+        function ivFilter(category, predicate) {
             const maps = independentVariables.getMaps(category)
             const ret = []
             for (let i = 0; i < maps.length; ++i) {
-                ret.push(proc(maps[i], i))
+                if (predicate(maps[i], i)) {
+                    ret.push(maps[i])
+                }
             }
             return ret
         }
@@ -165,14 +180,13 @@ FluWindow {
                         for (const result of results) {
                             resultString += `${result.map(p => `(${p[0]}, ${p[1]})`).join(", ")};\n`
                         }
-                        showAlert("计算结果", resultString)
-                        prepareChartViewer(results, "Q (STB/d)", "Pwf (psia)")
+                        prepareChartViewer(results, "Q (STB/d)", "Pwf (psia)", true)
                     })
                 }
 
-                function prepareChartViewer(results, yName, xName) {
-                    const xValues = []
-                    const yValues = []
+                function prepareChartViewer(results, yName, xName, invert = false) {
+                    const yValueSerieses = []
+                    const xValueSerieses = []
                     for (const series of results) {
                         const yValueSeries = []
                         const xValueSeries = []
@@ -180,10 +194,14 @@ FluWindow {
                             yValueSeries.push(pair[1])
                             xValueSeries.push(pair[0])
                         }
-                        yValues.push(yValueSeries)
-                        xValues.push(xValueSeries)
+                        yValueSerieses.push(yValueSeries)
+                        xValueSerieses.push(xValueSeries)
                     }
-                    showDiagram(category, yValues, xValues, yName, xName)
+                    if (invert) {
+                        showDiagram(category, xValueSerieses, yValueSerieses, xName, yName)
+                    } else {
+                        showDiagram(category, yValueSerieses, xValueSerieses, yName, xName)
+                    }
                 }
             }
         }
@@ -212,13 +230,13 @@ FluWindow {
         neutralText: "好"
     }
 
-    function showDiagram(category, yValues, xValues, yName, xName) {
+    function showDiagram(category, yValueSerieses, xValueSerieses, yName, xName) {
         const component = Qt.createComponent("qrc:/qml/components/window/ChartViewer.qml")
         if (component.status === Component.Ready) {
             const chartViewer = component.createObject(window, {
                 category: category,
-                yValues: yValues,
-                xValues: xValues,
+                yValueSerieses: yValueSerieses,
+                xValueSerieses: xValueSerieses,
                 yName: yName,
                 xName: xName,
             })

@@ -4,7 +4,8 @@
 
 #pragma once
 
-#include <QString>
+#include "entity/MIndependentVariables.hpp"
+
 #include <QQmlPropertyMap>
 
 class MEntity final : public QQmlPropertyMap {
@@ -33,7 +34,8 @@ struct MProperty {
     Q_PROPERTY(QVariant example MEMBER example)
     Q_PROPERTY(QVariant preferredUnit MEMBER preferredUnit)
     Q_PROPERTY(QVariant associateValue MEMBER associateValue)
-    Q_PROPERTY(QVector<QPair<QString, QString>> enableConditions MEMBER enableConditions)
+    Q_PROPERTY(QVector<QPair<QString, QString>> showConditions MEMBER showConditions)
+    Q_PROPERTY(QVector<QPair<QString, QString>> disableConditions MEMBER disableConditions)
     Q_PROPERTY(bool isHighFrequency MEMBER isHighFrequency)
 
 public:
@@ -45,9 +47,12 @@ public:
     QVariant preferredUnit;
     QVariant associateValue{QVariant::fromValue(nullptr)};
     bool isHighFrequency{false};
-    QVector<QPair<QString, QString>> enableConditions;
+    QVector<QPair<QString, QString>> showConditions;
+    QVector<QPair<QString, QString>> disableConditions;
 
-    Q_INVOKABLE [[nodiscard]] bool shouldEnable(const QVariant& root) const;
+    Q_INVOKABLE [[nodiscard]] bool shouldShow(const QVariant& root) const;
+
+    Q_INVOKABLE [[nodiscard]] bool shouldDisable(const MIndependentVariables* iv, const QString& category, int rowIndex) const;
 };
 
 Q_DECLARE_METATYPE(MProperty)

@@ -102,6 +102,11 @@ properties:
 
   ################################
 
+  - id: 流体名称
+    name: 流体名称
+    type: string
+    independent: Yes
+
   # y0, rho-0
   - id: 原油相对密度
     name: 原油相对密度

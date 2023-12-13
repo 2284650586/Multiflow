@@ -48,7 +48,6 @@ void MWellItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* event) {
 void MWellItem::onUserDataSaved() const {
     // TODO: 如存
     // _wellDisplayWindow->notifyDataChanged();
-    log_info("Well data saved");
 }
 
 bool MWellItem::canConnectWith(const MAbstractItem& other, const ConnectionKind kind) const {

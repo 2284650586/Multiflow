@@ -29,18 +29,32 @@ void MEntity::copy(MEntity* dst, const MEntity* src) {
     }
 }
 
-bool MProperty::shouldEnable(const QVariant& root) const {
+bool MProperty::shouldShow(const QVariant& root) const {
     const auto* propertyMap = root.value<QQmlPropertyMap*>();
     const auto* entity = dynamic_cast<const MEntity*>(propertyMap);
 
-    if (enableConditions.isEmpty()) {
+    if (showConditions.isEmpty()) {
         return true;
     }
 
-    return std::ranges::any_of(enableConditions, [entity](const auto& pair) {
+    return std::ranges::any_of(showConditions, [entity](const auto& pair) {
         const QVariant value = entity->get(pair.first);
         const auto actualValue = value.value<MProperty>().value.toString();
 
+        return actualValue == pair.second;
+    });
+}
+
+bool MProperty::shouldDisable(const MIndependentVariables* iv, const QString& category, int rowIndex) const {
+    const auto& rows = iv->get(category);
+    if (rowIndex >= rows.size()) {
+        log_critical("Row index {} is out of range (size={})", rowIndex, rows.size());
+        return false;
+    }
+
+    const auto& row = rows[rowIndex];
+    return std::ranges::any_of(disableConditions, [&row](const auto& pair) {
+        const auto actualValue = row[pair.first].toString();
         return actualValue == pair.second;
     });
 }

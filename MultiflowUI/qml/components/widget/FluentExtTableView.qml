@@ -7,6 +7,8 @@ import FluentUI
 import "qrc:/qml/components/singleton/"
 
 Rectangle {
+    property var ivRef
+    property var categoryRef
     property var columnSource
     property var dataSource
     property color borderColor: Colors.areaBorder
@@ -15,6 +17,7 @@ Rectangle {
     color: FluTheme.dark ? Qt.rgba(39 / 255, 39 / 255, 39 / 255, 1) : Qt.rgba(251 / 255, 251 / 255, 253 / 255, 1)
 
     signal cellUpdated(int row, int column, var value)
+
     signal associateValueUpdated(var property, var value)
 
     onColumnSourceChanged: {
@@ -139,6 +142,21 @@ Rectangle {
 
             FluText {
                 text: "Loading..."
+            }
+        }
+    }
+    Component {
+        id: com_disable
+
+        Rectangle {
+            anchors.fill: parent
+            color: Colors.background
+            radius: 4
+            anchors.margins: 4
+
+            FluText {
+                anchors.centerIn: parent
+                text: "N/A"
             }
         }
     }
@@ -390,6 +408,7 @@ Rectangle {
                 clip: true
                 delegate: MouseArea {
                     hoverEnabled: true
+                    clip: true
                     implicitHeight: 30
                     implicitWidth: {
                         var w = columnSource[column].width
@@ -475,6 +494,9 @@ Rectangle {
                             }
                             anchors.fill: parent
                             sourceComponent: {
+                                if (getShouldDisable()) {
+                                    return com_disable
+                                }
                                 if (typeof (modelData) == "object") {
                                     return modelData.comId
                                 }
@@ -489,6 +511,14 @@ Rectangle {
                                     return com_combo
                                 }
                                 return com_text
+                            }
+
+                            function getShouldDisable() {
+                                const f = currentProperty.shouldDisable
+                                if (f) {
+                                    return f(ivRef, categoryRef, row)
+                                }
+                                return false
                             }
                         }
                     }
@@ -558,38 +588,37 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter
             }
             FluComboBox {
-                property var units: currentProperty.extra.units()
                 property var lastUnit: getLastUnit()
                 id: comboBox
-                model: units
                 // indicator: null
                 Layout.preferredHeight: 24
                 Layout.preferredWidth: 60
                 Layout.alignment: Qt.AlignHCenter
                 Component.onCompleted: {
+                    model = columnSource[column].extra.units()
                     comboBox.currentIndex = getLastUnitIndex()
                     comboBox.onCurrentTextChanged.connect(() => {
-                        d.traverseUnitTextBoxes(currentProperty.dataIndex, (textBox) => {
+                        d.traverseUnitTextBoxes(columnSource[column].dataIndex, (textBox) => {
                             if (!MUtils.isNumeric(textBox.text)) {
                                 return
                             }
                             let oldValue = parseFloat(textBox.text)
                             let newUnit = currentText
-                            let newValue = currentProperty.extra.convert(oldValue, lastUnit, newUnit)
+                            let newValue = columnSource[column].extra.convert(oldValue, lastUnit, newUnit)
                             newValue = Number(newValue.toFixed(4))
                             textBox.text = `${newValue}`
                         })
-                        currentProperty.associateValue = currentIndex
+                        columnSource[column].associateValue = currentIndex
                         lastUnit = currentText
-                        associateValueUpdated(currentProperty, currentIndex)
+                        associateValueUpdated(columnSource[column], currentIndex)
                     })
                 }
 
                 function getLastUnitIndex() {
-                    if (currentProperty.associateValue) {
-                        return currentProperty.associateValue
+                    if (columnSource[column].associateValue) {
+                        return columnSource[column].associateValue
                     }
-                    const preferredUnitIndex = units.indexOf(currentProperty.preferredUnit)
+                    const preferredUnitIndex = model.indexOf(columnSource[column].preferredUnit)
                     if (preferredUnitIndex !== -1) {
                         return preferredUnitIndex
                     }
@@ -597,7 +626,7 @@ Rectangle {
                 }
 
                 function getLastUnit() {
-                    return units[getLastUnitIndex()]
+                    return model[getLastUnitIndex()]
                 }
             }
         }
@@ -627,6 +656,7 @@ Rectangle {
             }
             implicitHeight: Math.max(30, (item_column_loader.item && item_column_loader.item.implicitHeight) + (cellPadding * 2))
             color: FluTheme.dark ? Qt.rgba(50 / 255, 50 / 255, 50 / 255, 1) : Qt.rgba(247 / 255, 247 / 255, 247 / 255, 1)
+            clip: true
             Rectangle {
                 border.color: control.borderColor
                 width: parent.width
@@ -683,7 +713,6 @@ Rectangle {
                 property var modelData: model.display
                 property var tableView: table_view
                 property var tableModel: table_model
-                property var currentProperty: (() => columnSource[column])() // One-time binding
                 property var options: {
                     if (typeof (modelData) == "object") {
                         return modelData.options
@@ -697,9 +726,9 @@ Rectangle {
                     if (typeof (modelData) == "object") {
                         return modelData.comId
                     }
-                    const type = currentProperty.type
+                    const type = columnSource[column].type
                     if (typeof (type) === 'string' && type.startsWith("Builtin.")) {
-                        if (currentProperty.extra) {
+                        if (columnSource[column].extra) {
                             return com_column_text_with_unit
                         }
                         return com_loading

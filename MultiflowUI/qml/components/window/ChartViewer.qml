@@ -10,8 +10,8 @@ import "qrc:/qml/components/singleton/"
 
 FluWindow {
     required property var category
-    required property var yValues
-    required property var xValues
+    required property var yValueSerieses
+    required property var xValueSerieses
     required property var yName
     required property var xName
 
@@ -38,9 +38,9 @@ FluWindow {
             chartType: 'line'
             chartData: {
                 const datasets = []
-                const xValueLabels = xValues[0].map(x => `${x}`)
-                for (let i = 0; i < xValues.length; ++i) {
-                    const yValueSeries = yValues[i]
+                const xValueLabels = xValueSerieses[0].map(x => `${x}`)
+                for (let i = 0; i < xValueSerieses.length; ++i) {
+                    const yValueSeries = yValueSerieses[i]
                     datasets.push({
                         label: yName,
                         fill: true,
@@ -94,10 +94,6 @@ FluWindow {
                 }
             }
         }
-    }
-
-    function randomScalingFactor() {
-        return Math.random().toFixed(1);
     }
 
     function show() {

@@ -6,8 +6,6 @@
 #include <QMainWindow>
 #include <QQmlApplicationEngine>
 
-#include <memory>
-
 enum MItemKind {
     Well,
     Source,
