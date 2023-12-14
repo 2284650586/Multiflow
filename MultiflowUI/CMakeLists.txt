@@ -136,6 +136,8 @@ set(SOURCE_FILES
     service/PVTService.hpp
     entity/unit/PvtCalculationUnit.cpp
     entity/unit/PvtCalculationUnit.hpp
+    unit_converter/TimeConverter.cpp
+    unit_converter/TimeConverter.hpp
 )
 
 include_directories(

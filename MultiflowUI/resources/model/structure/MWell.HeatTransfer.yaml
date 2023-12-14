@@ -8,42 +8,108 @@ properties:
     type: enum
     enum: Specify, Calculate
 
+  - id: u-value-input
+    name: U Value Input
+    type: enum
+    enum: Single, Multiple
+    show-if:
+      - enum-id: heat-transfer-coefficient
+        value: Specify
+
+  - id: production-or-injection-time
+    name: Production/Injection Time
+    type: Builtin.Time
+    show-if:
+      - enum-id: heat-transfer-coefficient
+        value: Calculate
+
+  - id: average-u-value
+    name: Average U Value
+    type: number
+    show-if:
+      - enum-id: heat-transfer-coefficient
+        value: Specify
+      - enum-id: u-value-input
+        value: Single
+    show-if-policy: and
+
+  - id: u-value
+    name: U Value Input
+    type: number
+    independent: Yes
+    show-if:
+      - enum-id: u-value-input
+        value: Multiple
+
+  - id: ambient-temperature-input
+    name: Ambient Temperature Input
+    type: enum
+    enum: Single, Multiple
+
+  - id: soil-temperature-at-wellhead
+    name: Soil Temperature at Wellhead
+    type: Builtin.Temperature
+    show-if:
+      - enum-id: ambient-temperature-input
+        value: Single
+
   - id: depth-option
-    name: 深度选项
+    name: Depth Option
     type: enum
     enum: MD, TVD
+    show-if:
+      - enum-id: ambient-temperature-input
+        value: Multiple
+
+  ###
 
   - id: md
     name: MD
     type: number
     independent: Yes
+    show-if:
+      - enum-id: depth-option
+        value: MD
+      - enum-id: ambient-temperature-input
+        value: Multiple
+    show-if-policy: and
 
   - id: tvd
     name: TVD
     type: number
     independent: Yes
+    show-if:
+      - enum-id: depth-option
+        value: TVD
 
   - id: ambient-temperature
-    name: 环境温度
+    name: Ambient Temperature
     type: number
     independent: Yes
-
-  - id: u-value
-    name: U Value
-    type: number
-    independent: Yes
+    show-if:
+      - enum-id: ambient-temperature-input
+        value: Multiple
 
   - id: ground-density
     name: Ground Density
     type: number
     independent: Yes
+    show-if:
+      - enum-id: heat-transfer-coefficient
+        value: Calculate
 
   - id: ground-k
     name: Ground K
     type: number
     independent: Yes
+    show-if:
+      - enum-id: heat-transfer-coefficient
+        value: Calculate
 
   - id: ground-cp
     name: Ground Cp
     type: number
     independent: Yes
+    show-if:
+      - enum-id: heat-transfer-coefficient
+        value: Calculate

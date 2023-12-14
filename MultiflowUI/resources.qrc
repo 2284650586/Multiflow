@@ -25,6 +25,7 @@
         <file>resources/model/structure/MWell.HeatTransfer.yaml</file>
         <file>resources/model/structure/MWell.DownholeEquipment.yaml</file>
         <file>resources/model/structure/MWell.Tubulars.yaml</file>
+        <file>resources/model/structure/MWell.ArtificialList.yaml</file>
         <file>resources/model/structure/MFluid.yaml</file>
         <file>resources/model/structure/MPVT.yaml</file>
 

@@ -37,12 +37,17 @@ bool MProperty::shouldShow(const QVariant& root) const {
         return true;
     }
 
-    return std::ranges::any_of(showConditions, [entity](const auto& pair) {
+    const auto predicate = [entity](const auto& pair) {
         const QVariant value = entity->get(pair.first);
         const auto actualValue = value.value<MProperty>().value.toString();
 
         return actualValue == pair.second;
-    });
+    };
+
+    if (showIfPolicy.toString().toLower() == "and") {
+        return std::ranges::all_of(showConditions, predicate);
+    }
+    return std::ranges::any_of(showConditions, predicate);
 }
 
 bool MProperty::shouldDisable(const MIndependentVariables* iv, const QString& category, int rowIndex) const {

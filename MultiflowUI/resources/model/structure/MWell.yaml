@@ -6,13 +6,14 @@ import:
   - MWell.HeatTransfer
   - MWell.Completions
   - MWell.DownholeEquipment
+  - MWell.ArtificialLift
   - MWell.Tubulars
 
 name: MWell
 
 properties:
   - id: general
-    name: 基本信息
+    name: General
     type: MWell.General
 
   - id: deviation
@@ -20,7 +21,7 @@ properties:
     type: MWell.DeviationSurvey
 
   - id: heat-transfer
-    name: 热传递
+    name: Heat Transfer
     type: MWell.HeatTransfer
 
   - id: tubulars
@@ -28,9 +29,13 @@ properties:
     type: MWell.Tubulars.Casings
 
   - id: downhole-equipment
-    name: Downhole
+    name: Downhole Equipment
     type: MWell.DownholeEquipment
 
+  - id: artificial-lift
+    name: Artificial Lift
+    type: MWell.ArtificialLift
+
   - id: completions
-    name: 仿真
+    name: Completions
     type: MWell.Completions

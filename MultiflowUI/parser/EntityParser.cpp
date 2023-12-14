@@ -10,6 +10,7 @@
 #include "unit_converter/FluidUnitConverter.hpp"
 #include "unit_converter/GasRatioConverter.hpp"
 #include "unit_converter/RatioFractionConverter.hpp"
+#include "unit_converter/TimeConverter.hpp"
 
 #include <QDir>
 #include <QVariant>
@@ -22,6 +23,7 @@ static const auto BuiltinTypeToConverterFactory = QMap<QString, std::function<Ab
     {"Builtin.FluidUnit", [] { return new FluidUnitConverter{}; }},
     {"Builtin.GasRatio", [] { return new GasRatioConverter{}; }},
     {"Builtin.RatioFraction", [] { return new RatioFractionConverter{}; }},
+    {"Builtin.Time", [] { return new TimeConverter{}; }},
 };
 
 static const auto PrimitiveTypeToDefaultValue = QMap<QString, QVariant>{
@@ -148,6 +150,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
 
         const auto showConditions = property["show-if"];
         const auto disableConditions = property["disable-if"];
+        const auto showIfPolicy = property["show-if-policy"];
 
         QVector<QPair<QString, QString>> showConditionsVector{};
         QVector<QPair<QString, QString>> disableConditionsVector{};
@@ -182,6 +185,7 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                 .exampleValue = qFromNode(example),
                 .preferredUnit = qFromNode(preferredUnit),
                 .node = property,
+                .showIfPolicy = qFromNode(showIfPolicy),
                 .isHighFrequency = isHighFrequency,
                 .showConditions = showConditionsVector,
                 .disableConditions = disableConditionsVector,
@@ -224,6 +228,7 @@ void EntityParser::_handleBuiltinType(const QString& builtinType, const ParserCo
             .extra = QVariant::fromValue(BuiltinTypeToConverterFactory[builtinType]()),
             .example = QVariant::fromValue(context.exampleValue),
             .preferredUnit = QVariant::fromValue(context.preferredUnit),
+            .showIfPolicy = context.showIfPolicy,
             .isHighFrequency = context.isHighFrequency,
             .showConditions = context.showConditions,
             .disableConditions = context.disableConditions,
@@ -246,6 +251,7 @@ void EntityParser::_handleReferenceType(const QString& referenceType, const Pars
             .extra = QVariant{},
             .example = QVariant::fromValue(context.exampleValue),
             .preferredUnit = QVariant::fromValue(context.preferredUnit),
+            .showIfPolicy = context.showIfPolicy,
             .isHighFrequency = context.isHighFrequency,
             .showConditions = context.showConditions,
             .disableConditions = context.disableConditions,
@@ -271,6 +277,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
                 .extra = QVariant::fromValue(enums),
                 .example = QVariant::fromValue(context.exampleValue),
                 .preferredUnit = QVariant::fromValue(context.preferredUnit),
+                .showIfPolicy = context.showIfPolicy,
                 .isHighFrequency = context.isHighFrequency,
                 .showConditions = context.showConditions,
                 .disableConditions = context.disableConditions,
@@ -293,6 +300,7 @@ void EntityParser::_handlePrimitiveType(const QString& primitiveType, const Pars
             .extra = QVariant{},
             .example = QVariant::fromValue(context.exampleValue),
             .preferredUnit = QVariant::fromValue(context.preferredUnit),
+            .showIfPolicy = context.showIfPolicy,
             .isHighFrequency = context.isHighFrequency,
             .showConditions = context.showConditions,
             .disableConditions = context.disableConditions,
