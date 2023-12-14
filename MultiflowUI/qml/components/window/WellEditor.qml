@@ -41,22 +41,13 @@ FluWindow {
         }
 
         function getCasings() {
-            // console.log(JSON.stringify(well))
-            // const units = well['to-md'].extra.units()
-            // const unit = units[well['to-md'].associateValue]
-            // const desiredUnit = well['to-md'].preferredUnit
-
-            // console.log("units", units)
-            // console.log("unit", unit)
-            // console.log("desiredUnit", desiredUnit)
-
-            return ivFilter("tubulars", (t) => t['section-type'] !== 'Tubing')
+            return ivFilter("tubulars", (t) => t['section-type'] === 'Casing')
                 .map((tubular) => {
                 return {
-                    length: tubular['to-md'] * 30 / 3048, // 3048 ~= 30
-                    displayLength: tubular['to-md'],
-                    innerMargin: tubular['od'] * 6 / 121,
-                    thickness: tubular['id'] * 6 / 121, // 121 ~= 6
+                    length: MUtils.valueAtUnit(well, 'tubulars', 'to-md', tubular['to-md'], 'm') * 30 / 3048, // 3048 ~= 30
+                    displayLength: MUtils.valueAtUnit(well, 'tubulars', 'to-md', tubular['to-md'], 'm'),
+                    innerMargin: MUtils.valueAtUnit(well, 'tubulars', 'od', tubular['od'], 'mm') * 6 / 121,
+                    thickness: MUtils.valueAtUnit(well, 'tubulars', 'id', tubular['id'], 'mm') * 6 / 121, // 121 ~= 6
                 }
             });
         }

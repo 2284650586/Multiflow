@@ -35,13 +35,14 @@ properties:
   - id: id
     name: ID
     type: Builtin.Length
+    preferred-unit: mm
     example: 121.3612
     independent: Yes
 
   - id: od
     name: OD
     type: Builtin.Length
-    preferred-unit: mm # TODO
+    preferred-unit: mm
     independent: Yes
     example: 139.7
     show-if:
@@ -51,6 +52,7 @@ properties:
   - id: well-thickness
     name: Wall Thickness
     type: Builtin.Length
+    preferred-unit: mm
     independent: Yes
     example: 0.0091694
     show-if:
@@ -60,6 +62,7 @@ properties:
   - id: roughness
     name: Roughness
     type: Builtin.Length
+    preferred-unit: mm
     example: 0.0000254
     independent: Yes
 
