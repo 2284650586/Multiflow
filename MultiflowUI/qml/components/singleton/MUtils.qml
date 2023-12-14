@@ -28,7 +28,6 @@ Item {
         return array.slice().reverse()
     }
 
-
     function ivValueAtUnit(iv, root, category, index, key, toUnit = null) {
         const value = iv.get(category, index, key)
         return valueAtUnit(root, category, key, value, toUnit)
@@ -51,7 +50,6 @@ Item {
         const result = preferredUnit === desiredUnit
             ? value
             : converter.convert(value, fromUnit, desiredUnit)
-        console.log(`Converting ${category}.${key}: ${value} from ${fromUnit} to ${desiredUnit} -> ${result}`)
         return result
     }
 }

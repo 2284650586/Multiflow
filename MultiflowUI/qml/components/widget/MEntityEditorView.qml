@@ -276,6 +276,7 @@ Item {
                                 extra: property.extra,
                                 dataIndex: key,
                                 example: property.example,
+                                initialValue: property.value,
                                 associateValue: property.associateValue,
                                 preferredUnit: property.preferredUnit,
                                 shouldDisable: property.shouldDisable,
@@ -316,6 +317,7 @@ Item {
                                     row[key] = example
                                     continue
                                 }
+                                console.error(`No example value for ${key}`)
                                 row[key] = ""
                             }
                             row['action'] = tableView.customItem(componentActionArea)
@@ -375,6 +377,18 @@ Item {
 
                 function handleCreateNewRow() {
                     iv.createEmpty(category)
+                    const lastIndex = iv.size(category) - 1
+
+                    // Initialize iv
+                    const keys = getHfKeys()
+                    for (const key of keys) {
+                        const initialValue = entity[key].value
+                        if (initialValue) {
+                            iv.set(category, lastIndex, key, initialValue)
+                        }
+                    }
+
+                    // Reload table data source
                     const hfArea = tableLoader.item
                     if (hfArea) {
                         hfArea.getTableView().reloadDataSource()
