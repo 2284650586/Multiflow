@@ -30,11 +30,13 @@ FluWindow {
     QtObject {
         id: g
         property var hasChoke: false
+        property var hasArtificialLift: false
         property var casings: []
         property var liners: []
 
         function handleDataChange(entity) {
             hasChoke = getHasChoke()
+            hasArtificialLift = getHasArtificialLift()
             casings = getCasings()
             liners = getLiners()
             bridge.onDataChanged(entity)
@@ -67,6 +69,12 @@ FluWindow {
             return ivAny(
                 "downhole-equipment",
                 "equipment", (v) => v === "Choke")
+        }
+
+        function getHasArtificialLift() {
+            return ivAny(
+                "artificial-lift",
+                "active", (v) => v === "Yes")
         }
 
         function ivFilter(category, predicate) {
@@ -109,6 +117,7 @@ FluWindow {
                 iv: independentVariables
                 cu: calculationUnit
                 hasChoke: g.hasChoke
+                hasArtificialLift: g.hasArtificialLift
                 casings: g.casings
                 liners: g.liners
             }

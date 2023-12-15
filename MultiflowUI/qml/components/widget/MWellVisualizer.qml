@@ -16,6 +16,7 @@ Item {
     required property var iv
     required property var cu
     required property bool hasChoke
+    required property bool hasArtificialLift
 
     /**
      * length, innerMargin, thickness
@@ -32,6 +33,8 @@ Item {
         readonly property var headerDesignedHeight: 10
         readonly property var masterTopMargin: 15
         readonly property var chokeRectangleSize: 8
+        readonly property var artificialLiftLongerSideLength: 24
+        readonly property var artificialLiftShorterSideLength: 16
 
         readonly property var sideLeft: "Left"
         readonly property var sideRight: "Right"
@@ -196,6 +199,7 @@ Item {
                             Layout.fillWidth: true
                         }
 
+                        // 右侧Casings
                         ColumnLayout {
                             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                             spacing: 1
@@ -204,9 +208,11 @@ Item {
                                 id: repeaterLinerRight
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 model: control.liners.length
+
                                 Liner {
                                     required property var index
                                     property var modelData: control.liners[index]
+
                                     length: modelData.length - sumLinersLength(index)
                                     innerMargin: modelData.innerMargin
                                     thickness: modelData.thickness
@@ -229,13 +235,34 @@ Item {
 
                     Repeater {
                         model: control.casings && MUtils.reversed(control.casings)
-                        Casing {
-                            required property var modelData
 
-                            length: modelData.length
-                            innerMargin: modelData.innerMargin
-                            thickness: modelData.thickness
-                            side: g.sideRight
+                        RowLayout {
+                            required property var modelData
+                            required property var index
+
+                            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                            spacing: 0
+
+                            Loader {
+                                width: parent.width
+                                sourceComponent: (index === control.casings.length - 1 && control.hasArtificialLift) ? componentArtificialLift : null
+                                Layout.alignment: Qt.AlignTop
+
+                                Component {
+                                    id: componentArtificialLift
+                                    ArtificialLift {
+                                        altitute: 0
+                                        width: parent.width
+                                    }
+                                }
+                            }
+
+                            Casing {
+                                length: modelData.length
+                                innerMargin: modelData.innerMargin
+                                thickness: modelData.thickness
+                                side: g.sideRight
+                            }
                         }
                     }
                 }
@@ -318,6 +345,26 @@ Item {
             height: g.chokeRectangleSize
             x: parent.width - g.chokeRectangleSize
             y: 0
+            color: "darkgray"
+        }
+    }
+
+    component ArtificialLift: Item {
+        required property var altitute
+
+        Rectangle {
+            width: g.artificialLiftLongerSideLength - g.artificialLiftShorterSideLength
+            height: g.artificialLiftLongerSideLength
+            x: 0
+            y: 0
+            color: "darkgray"
+        }
+
+        Rectangle {
+            width: g.artificialLiftLongerSideLength
+            height: g.artificialLiftLongerSideLength - g.artificialLiftShorterSideLength
+            x: -g.artificialLiftShorterSideLength
+            y: g.artificialLiftShorterSideLength
             color: "darkgray"
         }
     }
