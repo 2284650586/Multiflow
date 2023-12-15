@@ -39,32 +39,10 @@ FluWindow {
 
             function handleCreateTabs() {
                 const argument = {}
-                addTab('基础参数', tabGeneral, argument)
-                addTab('参数校核', tabParameterCheck, argument)
+                addTab('基本参数校核', tabGeneral, argument)
                 addTab('拟合校正', tabFitting, argument)
                 addTab('校正图形', tabCorrection, argument)
             }
-        }
-    }
-
-    Component {
-        id: tabParameterCheck
-
-        Text {
-        }
-    }
-
-    Component {
-        id: tabFitting
-
-        Text {
-        }
-    }
-
-    Component {
-        id: tabCorrection
-
-        Text {
         }
     }
 
@@ -79,42 +57,81 @@ FluWindow {
             iv: pvtIv
             calculationUnit: pvtCalculationUnit
             category: pvtCategory
+            hideDefaultCalculateButton: true
+            extraRowActions: getExtraRowActions()
 
             Component.onCompleted: {
                 editor.onDataPartiallyChanged.connect(() => onDataChanged(pvtEntity))
-                pvtCalculationUnit.onError.connect((message) => {
-                    showAlert("计算时遇到错误", message)
-                })
-                editor.onDataEvaluated.connect((results) => {
-                    let resultString = ''
-                    for (let pressureIndex = 0; pressureIndex < results.length; ++pressureIndex) {
-                        for (let temperatureIndex = 0; temperatureIndex < results[pressureIndex].length; ++temperatureIndex) {
-                            const item = results[pressureIndex][temperatureIndex]
-                            const pb = item[0].toFixed(3)
-                            const Rs = item[1].toFixed(3)
-                            const b0b = item[2].toFixed(3)
-                            const miu0d = item[3].toFixed(3)
-                            const miu0 = item[4].toFixed(3)
-                            const miuU = item[5].toFixed(3)
-                            const miug = item[6].toFixed(3)
-                            const miuw = item[7].toFixed(3)
-                            const mium = item[8].toFixed(3)
-                            const rho0 = item[9].toFixed(3)
-                            resultString += `饱和压力：${pb}
-溶解油气比：${Rs}
-原油体积系数：${b0b}
-地面脱气原油粘度：${miu0d}
-饱和原油粘度：${miu0}
-未饱和原油粘度：${miuU}
-气体粘度：${miug}
-水粘度：${miuw}
-油水混合物粘度：${mium}
-原油密度：${rho0}; \n`
+                editor.onDataEvaluated.connect(handleDataEvaluated)
+                pvtCalculationUnit.onError.connect(handleCalculationError)
+            }
+
+            function getExtraRowActions() {
+                return [
+                    {
+                        text: '计算',
+                        onClicked: (args) => {
+                            const {category, iv, entity} = args
+                            pvtCalculationUnit.update(entity, iv)
+                            const results = pvtCalculationUnit.evaluate(category)
+                            handleDataEvaluated(results)
                         }
                     }
-                    showAlert("计算结果", resultString)
-                })
+                ]
             }
+
+            function handleCalculationError(message) {
+                showAlert("计算时遇到错误", message)
+            }
+
+            function handleDataEvaluated(results) {
+                let resultString = ''
+                for (let pressureIndex = 0; pressureIndex < results.length; ++pressureIndex) {
+                    for (let temperatureIndex = 0; temperatureIndex < results[pressureIndex].length; ++temperatureIndex) {
+                        const item = results[pressureIndex][temperatureIndex]
+                        const [
+                            pb,
+                            Rs,
+                            b0b,
+                            miu0d,
+                            miu0,
+                            miuU,
+                            miug,
+                            miuw,
+                            mium,
+                            rho0,
+                        ] = item.map((v) => v.toFixed(3))
+                        const resultStringComponents = [
+                            `饱和压力：${pb}`,
+                            `溶解油气比：${Rs}`,
+                            `原油体积系数：${b0b}`,
+                            `地面脱气原油粘度：${miu0d}`,
+                            `饱和原油粘度：${miu0}`,
+                            `未饱和原油粘度：${miuU}`,
+                            `气体粘度：${miug}`,
+                            `水粘度：${miuw}`,
+                            `油水混合物粘度：${mium}`,
+                            `原油密度：${rho0}`,
+                        ]
+                        resultString += resultStringComponents.join('\n') + '\n\n'
+                    }
+                }
+                showAlert("计算结果", resultString)
+            }
+        }
+    }
+
+    Component {
+        id: tabFitting
+
+        Text {
+        }
+    }
+
+    Component {
+        id: tabCorrection
+
+        Text {
         }
     }
 

@@ -134,7 +134,11 @@ FluWindow {
                 function handleCreateTabs() {
                     const keys = MUtils.wrapMEntityKeys(well.keys())
                     for (const key of keys) {
-                        const argument = {category: key, entity: well[key].value}
+                        const argument = {
+                            category: key,
+                            entity: well[key].value,
+                            hideDefaultCalculateButton: key !== 'completions',
+                        }
                         addTab(well[key].name, tab, argument)
                     }
                 }
@@ -163,6 +167,7 @@ FluWindow {
                 iv: independentVariables
                 calculationUnit: cu
                 category: argument.category
+                hideDefaultCalculateButton: argument.hideDefaultCalculateButton
 
                 Component.onCompleted: {
                     editor.onDataPartiallyChanged.connect(() => onDataChanged(well))

@@ -13,6 +13,23 @@ Item {
     required property var calculationUnit   /* QVariant(MAbstractCalculationUnit*) */
     required property string category
 
+    property bool hideDefaultCalculateButton: false
+
+    /**
+     * {
+     *     text: string,
+     *     onClicked: function({
+     *       category,
+     *       row,
+     *       iv,
+     *       tableView,
+     *       entity,
+     *       notifyPartialDataChange,
+     *     })
+     * }
+     */
+    property var extraRowActions: []
+
     signal onDataPartiallyChanged(var entity)
 
     signal onReloadTableDataSource()
@@ -257,6 +274,23 @@ Item {
                                 onClicked: handleDeleteSingleRow()
                             }
 
+                            Repeater {
+                                model: extraRowActions
+                                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                                delegate: FluFilledButton {
+                                    text: modelData.text
+                                    Layout.preferredHeight: 26
+                                    onClicked: modelData.onClicked({
+                                        category: category,
+                                        row: row,
+                                        iv: iv,
+                                        tableView: tableView,
+                                        entity: entity,
+                                        notifyPartialDataChange: notifyPartialDataChange,
+                                    })
+                                }
+                            }
+
                             function handleDeleteSingleRow() {
                                 notifyPartialDataChange()
                                 tableView.closeEditor()
@@ -406,7 +440,7 @@ Item {
             }
 
             FluFilledButton {
-                visible: g.keys.length > 0 || g.hfKeys.length > 0
+                visible: calculationUnit && !hideDefaultCalculateButton && (g.keys.length > 0 || g.hfKeys.length > 0)
                 text: "计算"
                 Layout.alignment: Qt.AlignRight | Qt.AlignBottom
                 onClicked: handleCalculation()

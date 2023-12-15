@@ -39,6 +39,7 @@ FluWindow {
             iv: fluidIv
             calculationUnit: null
             category: fluidCategory
+            hideDefaultCalculateButton: true
 
             Component.onCompleted: {
                 console.log(`Fluid count: ${fluidCategory} = ${fluidIv.size(fluidCategory)}`)
