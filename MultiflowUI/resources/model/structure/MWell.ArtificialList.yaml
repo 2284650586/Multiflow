@@ -3,11 +3,136 @@ multiflow-dist: 1.0
 name: MWell.ArtificialLift
 
 properties:
-  - id: name
-    name: 名称
+  - id: injection-option
+    name: Injection Option
+    type: enum
+    enum: Fixed Injection Ports, Injection Value System
+
+  - id: alhanati-stability-check
+    name: Alhanati Stability Check
+    type: enum
+    enum: Yes, No
+    show-if:
+      - enum-id: injection-option
+        value: Fixed Injection Ports
+
+  ###
+
+  - id: gas-lift
+    name: Gas Lift
+    independent: Yes
     type: string
 
-  - id: kind
-    name: 管井类型
+  - id: active
+    name: Active
+    independent: Yes
     type: enum
-    enum: Production, Injection
+    enum: Yes, No
+
+  - id: md
+    name: MD
+    type: Builtin.Length
+    independent: Yes
+
+  - id: manufacturer
+    name: Manufacturer
+    type: string # TODO
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Injection Value System
+
+  - id: series
+    name: Series
+    type: string # TODO
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Injection Value System
+
+  - id: valve-type
+    name: Valve Type
+    type: string # TODO
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Injection Value System
+
+  - id: injection-basis
+    name: Injection Basis
+    type: enum
+    enum: Injection Gas Rate, Set GLR to, Increase GLR by
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Fixed Injection Ports
+
+  - id: injection-quantity-injection-gas-rate
+    name: Inj. Quantity
+    type: number
+    independent: Yes
+    show-if:
+      - enum-id: injection-basis
+        value: Increase GLR by
+      - enum-id: injection-option
+        value: Fixed Injection Ports
+    show-if-policy: and
+
+  - id: injection-quantity-set-glr-to
+    name: Inj. Quantity
+    type: number
+    independent: Yes
+    show-if:
+      - enum-id: injection-basis
+        value: Set GLR to
+      - enum-id: injection-option
+        value: Fixed Injection Ports
+    show-if-policy: and
+
+  - id: injection-quantity-increase-glr-by
+    name: Inj. Quantity
+    type: number
+    independent: Yes
+    show-if:
+      - enum-id: injection-basis
+        value: Increase GLR by
+      - enum-id: injection-option
+        value: Fixed Injection Ports
+    show-if-policy: and
+
+  - id: port-size
+    name: Port Size
+    type: Builtin.Length
+    independent: Yes
+
+  - id: ptro
+    name: Ptro
+    type: Builtin.Pressure
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Injection Value System
+
+  - id: st
+    name: St
+    type: Builtin.Pressure
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Injection Value System
+
+  - id: discharge-coefficient
+    name: Discharge Coefficient
+    type: number
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Injection Value System
+
+  - id: dp-to-fully-open
+    name: DP to Fully Open
+    type: Builtin.Pressure
+    independent: Yes
+    show-if:
+      - enum-id: injection-option
+        value: Injection Value System

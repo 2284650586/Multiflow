@@ -139,7 +139,7 @@ Rectangle {
                 property var lastUnit: getLastUnit()
                 id: comboBox
                 // indicator: null
-                Layout.preferredHeight: 28
+                Layout.preferredHeight: 26
                 Layout.preferredWidth: 60
                 Layout.alignment: Qt.AlignHCenter
                 Component.onCompleted: {
@@ -186,7 +186,7 @@ Rectangle {
         FCellTextField {
             id: text_box
             text: display
-            Layout.preferredHeight: 28
+            Layout.preferredHeight: 26
             readOnly: true === columnSource[column].readOnly
             Component.onCompleted: {
                 forceActiveFocus()
@@ -255,7 +255,7 @@ Rectangle {
                 id: textBox
                 readOnly: columnSource[column].readOnly === true
                 cleanEnabled: false
-                Layout.preferredHeight: 28
+                Layout.preferredHeight: 26
                 Layout.fillWidth: true
                 Component.onCompleted: {
                     if (initialText) {
@@ -301,7 +301,7 @@ Rectangle {
                 id: combo_box
                 model: items
                 Layout.fillWidth: true
-                Layout.preferredHeight: 28
+                Layout.preferredHeight: 26
                 Component.onCompleted: {
                     if (initialText) {
                         combo_box.currentIndex = items.indexOf(initialText)

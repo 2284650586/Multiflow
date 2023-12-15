@@ -80,7 +80,7 @@ Item {
 
                         FluTextBox {
                             id: textBoxString
-                            Layout.preferredHeight: 28
+                            Layout.preferredHeight: 26
                             onTextChanged: {
                                 currentEntity.value = text
                             }
@@ -103,7 +103,7 @@ Item {
                                 model: items
                                 currentIndex: -1
                                 Layout.preferredWidth: 200
-                                Layout.preferredHeight: 28
+                                Layout.preferredHeight: 26
                                 Layout.fillHeight: true
                                 Component.onCompleted: {
                                     comboBoxEnum.currentIndex = currentEntity.value ? items.indexOf(currentEntity.value) : 0
@@ -137,7 +137,7 @@ Item {
                             FluTextBox {
                                 id: textBox
                                 Layout.preferredWidth: 121
-                                Layout.preferredHeight: 28
+                                Layout.preferredHeight: 26
                                 Layout.fillHeight: true
                                 onTextChanged: {
                                     currentEntity.value = text
@@ -155,7 +155,7 @@ Item {
                                 id: comboBox
                                 model: units
                                 Layout.preferredWidth: 75
-                                Layout.preferredHeight: 28
+                                Layout.preferredHeight: 26
                                 Layout.fillHeight: true
                                 Component.onCompleted: {
                                     comboBox.currentIndex = currentEntity.associateValue ? currentEntity.associateValue : 0
@@ -253,7 +253,7 @@ Item {
                             FluButton {
                                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                                 text: "删除"
-                                Layout.preferredHeight: 28
+                                Layout.preferredHeight: 26
                                 onClicked: handleDeleteSingleRow()
                             }
 
