@@ -78,11 +78,6 @@ Item {
             }
 
             AltituteMark {
-                altitute: 0
-                displayAltitute: -g.headerDesignedHeight
-            }
-
-            AltituteMark {
                 altitute: g.headerDesignedHeight
                 displayAltitute: 0
             }
