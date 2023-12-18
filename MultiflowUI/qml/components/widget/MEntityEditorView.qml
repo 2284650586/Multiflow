@@ -86,7 +86,6 @@ Item {
                     }
                 }
 
-
                 Loader {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                     Layout.preferredWidth: 200
@@ -295,7 +294,7 @@ Item {
                                 notifyPartialDataChange()
                                 tableView.closeEditor()
                                 iv.remove(category, row)
-                                tableView.reloadDataSource()
+                                tableView.reloadDataSource && tableView.reloadDataSource()
                             }
                         }
                     }

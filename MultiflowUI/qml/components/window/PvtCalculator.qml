@@ -71,8 +71,9 @@ FluWindow {
                     {
                         text: '计算',
                         onClicked: (args) => {
-                            const {category, iv, entity} = args
+                            const {category, row, iv, entity} = args
                             pvtCalculationUnit.update(entity, iv)
+                            pvtCalculationUnit.setIvIndex(row)
                             const results = pvtCalculationUnit.evaluate(category)
                             handleDataEvaluated(results)
                         }
@@ -116,7 +117,9 @@ FluWindow {
                         resultString += resultStringComponents.join('\n') + '\n\n'
                     }
                 }
-                showAlert("计算结果", resultString)
+                if (resultString !== '') {
+                    showAlert("计算结果", resultString)
+                }
             }
         }
     }

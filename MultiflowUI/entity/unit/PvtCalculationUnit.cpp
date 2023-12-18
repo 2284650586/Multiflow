@@ -230,12 +230,12 @@ QVector<Number> PvtCalculationUnit::evaluateOne(
 }
 
 QVector<QVector<QVector<Number>>> PvtCalculationUnit::evaluate(const QString& category) const {
-    const auto variables = _independentVariables->get(category);
-
-    if (variables.size() != 1) {
-        emit onError("PVT计算单元只能有一组输入数据");
+    if (_ivIndex == -1) {
+        emit onError("未指定对第几组数据进行计算");
         return {};
     }
+
+    const auto variables = _independentVariables->get(category);
 
     Number pressureStart;
     Number pressureEnd;
@@ -270,7 +270,7 @@ QVector<QVector<QVector<Number>>> PvtCalculationUnit::evaluate(const QString& ca
         // NOLINTNEXTLINE
         for (Number temperature = temperatureStart; temperature <= temperatureEnd; ++temperature) {
             try {
-                variableSet.append(evaluateOne(pressure, temperature, variables.first()));
+                variableSet.append(evaluateOne(pressure, temperature, variables[_ivIndex]));
             }
             catch (const std::exception& e) {
                 emit onError(e.what());
@@ -281,4 +281,8 @@ QVector<QVector<QVector<Number>>> PvtCalculationUnit::evaluate(const QString& ca
         ret.append(variableSet);
     }
     return ret;
+}
+
+void PvtCalculationUnit::setIvIndex(const int index) {
+    _ivIndex = index;
 }
