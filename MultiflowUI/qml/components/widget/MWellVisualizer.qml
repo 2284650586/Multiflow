@@ -16,7 +16,6 @@ Item {
     required property var iv
     required property var cu
     required property bool hasChoke
-    required property bool hasArtificialLift
 
     /**
      * length, innerMargin, thickness
@@ -27,6 +26,11 @@ Item {
      * length, innerMargin, thickness
      */
     required property var liners
+
+    /**
+     * altitude
+     */
+    required property var artificialLifts
 
     QtObject {
         id: g
@@ -40,6 +44,7 @@ Item {
         readonly property var sideRight: "Right"
         readonly property var normalTubularMargin: 1
 
+        property var repeaterAltificialLifts: []
         property var headerActualHeight: 48
         property var headerActualWidth
         property var standardTextHeight
@@ -49,6 +54,10 @@ Item {
 
         function designedToActual(designedHeight) {
             return designedHeight * g.headerActualHeight / g.headerDesignedHeight
+        }
+
+        function actualToDesigned(actualHeight) {
+            return actualHeight * g.headerDesignedHeight / g.headerActualHeight
         }
     }
 
@@ -66,29 +75,35 @@ Item {
                 g.onStandardTextHeightChanged.connect(() => {
                     for (let i = 0; i < children.length; ++i) {
                         const child = children[i]
-                        child.y = g.designedToActual(child.altitute) - g.standardTextHeight
+                        child.y = g.designedToActual(child.altitude) - g.standardTextHeight
                     }
-                    control.onCasingsChanged.connect(() => {
-                        for (let i = 0; i < repeaterAltituteMarks.count; ++i) {
-                            const child = repeaterAltituteMarks.itemAt(i)
-                            child.y = g.designedToActual(child.altitute) - g.standardTextHeight
-                        }
-                    })
+                })
+                control.onArtificialLiftsChanged.connect(() => {
+                    for (let i = 0; i < g.repeaterAltificialLifts.count; ++i) {
+                        const child = g.repeaterAltificialLifts.itemAt(i)
+                        child.y = g.designedToActual(child.altitude) - g.standardTextHeight
+                    }
+                })
+                control.onCasingsChanged.connect(() => {
+                    for (let i = 0; i < repeaterAltitudeMarks.count; ++i) {
+                        const child = repeaterAltitudeMarks.itemAt(i)
+                        child.y = g.designedToActual(child.altitude) - g.standardTextHeight
+                    }
                 })
             }
 
-            AltituteMark {
-                altitute: g.headerDesignedHeight
-                displayAltitute: 0
+            AltitudeMark {
+                altitude: g.headerDesignedHeight
+                displayAltitude: 0
             }
 
             Repeater {
-                id: repeaterAltituteMarks
+                id: repeaterAltitudeMarks
                 model: control.casings
-                AltituteMark {
+                AltitudeMark {
                     required property var modelData
-                    altitute: g.headerDesignedHeight + modelData.length
-                    displayAltitute: modelData.displayLength
+                    altitude: g.headerDesignedHeight + modelData.length
+                    displayAltitude: modelData.displayLength
                 }
             }
         }
@@ -149,7 +164,7 @@ Item {
                                 // Loader?
                                 if (child.item) {
                                     child = child.item
-                                    child.y = g.designedToActual(child.altitute)
+                                    child.y = g.designedToActual(child.altitude)
                                 }
                             }
                         })
@@ -161,7 +176,7 @@ Item {
                         Component {
                             id: componentChoke
                             Choke {
-                                altitute: 0
+                                altitude: 0
                                 width: parent.width
                             }
                         }
@@ -179,9 +194,11 @@ Item {
                                 id: repeaterLinerLeft
                                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
                                 model: control.liners.length
+
                                 Liner {
                                     required property var index
                                     property var modelData: control.liners[index]
+
                                     length: modelData.length - sumLinersLength(index)
                                     innerMargin: modelData.innerMargin
                                     thickness: modelData.thickness
@@ -204,14 +221,43 @@ Item {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                                 model: control.liners.length
 
-                                Liner {
+                                RowLayout {
                                     required property var index
                                     property var modelData: control.liners[index]
 
-                                    length: modelData.length - sumLinersLength(index)
-                                    innerMargin: modelData.innerMargin
-                                    thickness: modelData.thickness
-                                    side: g.sideRight
+                                    spacing: 0
+
+                                    Loader {
+                                        width: parent.width
+                                        sourceComponent: index === 0 ? componentArtificialLift : null
+                                        Layout.alignment: Qt.AlignTop
+
+                                        Component {
+                                            id: componentArtificialLift
+
+                                            Repeater {
+                                                id: repeaterAltificialLifts
+                                                model: control.artificialLifts
+
+                                                Component.onCompleted: {
+                                                    g.repeaterAltificialLifts = repeaterAltificialLifts
+                                                }
+
+                                                ArtificialLift {
+                                                    required property var modelData
+                                                    altitude: g.actualToDesigned(g.artificialLiftShorterSideLength) + modelData.topOffset
+                                                    width: parent.width
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    Liner {
+                                        length: modelData.length - sumLinersLength(index)
+                                        innerMargin: modelData.innerMargin
+                                        thickness: modelData.thickness
+                                        side: g.sideRight
+                                    }
                                 }
                             }
                         }
@@ -231,33 +277,16 @@ Item {
                     Repeater {
                         model: control.casings && MUtils.reversed(control.casings)
 
-                        RowLayout {
+                        Casing {
                             required property var modelData
                             required property var index
 
                             Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                            spacing: 0
 
-                            Loader {
-                                width: parent.width
-                                sourceComponent: (index === control.casings.length - 1 && control.hasArtificialLift) ? componentArtificialLift : null
-                                Layout.alignment: Qt.AlignTop
-
-                                Component {
-                                    id: componentArtificialLift
-                                    ArtificialLift {
-                                        altitute: 0
-                                        width: parent.width
-                                    }
-                                }
-                            }
-
-                            Casing {
-                                length: modelData.length
-                                innerMargin: modelData.innerMargin
-                                thickness: modelData.thickness
-                                side: g.sideRight
-                            }
+                            length: modelData.length
+                            innerMargin: modelData.innerMargin
+                            thickness: modelData.thickness
+                            side: g.sideRight
                         }
                     }
                 }
@@ -282,16 +311,16 @@ Item {
         return ret
     }
 
-    component AltituteMark: Rectangle {
-        required property var altitute
-        required property var displayAltitute
+    component AltitudeMark: Rectangle {
+        required property var altitude
+        required property var displayAltitude
         Layout.fillWidth: true
 
         ColumnLayout {
             spacing: 0
 
             FluText {
-                text: `${displayAltitute} m`
+                text: `${displayAltitude} m`
                 font.pixelSize: 12
 
                 Component.onCompleted: {
@@ -325,7 +354,7 @@ Item {
     }
 
     component Choke: Item {
-        required property var altitute
+        required property var altitude
 
         Rectangle {
             width: g.chokeRectangleSize
@@ -345,7 +374,7 @@ Item {
     }
 
     component ArtificialLift: Item {
-        required property var altitute
+        required property var altitude
 
         Rectangle {
             width: g.artificialLiftLongerSideLength - g.artificialLiftShorterSideLength

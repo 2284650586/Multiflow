@@ -30,13 +30,13 @@ FluWindow {
     QtObject {
         id: g
         property var hasChoke: false
-        property var hasArtificialLift: false
+        property var artificialLifts: []
         property var casings: []
         property var liners: []
 
         function handleDataChange(entity) {
             hasChoke = getHasChoke()
-            hasArtificialLift = getHasArtificialLift()
+            artificialLifts = getArtificialLifts()
             casings = getCasings()
             liners = getLiners()
             bridge.onDataChanged(entity)
@@ -65,16 +65,19 @@ FluWindow {
             });
         }
 
+        function getArtificialLifts() {
+            return ivFilter("artificial-lift", (t) => t['active'] === 'Yes')
+                .map((lift) => {
+                return {
+                    topOffset: lift['md'] * 6 / 121, // 3048 ~= 30
+                }
+            });
+        }
+
         function getHasChoke() {
             return ivAny(
                 "downhole-equipment",
                 "equipment", (v) => v === "Choke")
-        }
-
-        function getHasArtificialLift() {
-            return ivAny(
-                "artificial-lift",
-                "active", (v) => v === "Yes")
         }
 
         function ivFilter(category, predicate) {
@@ -117,9 +120,9 @@ FluWindow {
                 iv: independentVariables
                 cu: calculationUnit
                 hasChoke: g.hasChoke
-                hasArtificialLift: g.hasArtificialLift
                 casings: g.casings
                 liners: g.liners
+                artificialLifts: g.artificialLifts
             }
         }
 

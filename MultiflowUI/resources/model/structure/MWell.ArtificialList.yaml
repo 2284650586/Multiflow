@@ -32,6 +32,7 @@ properties:
   - id: md
     name: MD
     type: Builtin.Length
+    example: 0
     independent: Yes
 
   - id: manufacturer
