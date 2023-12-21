@@ -185,8 +185,8 @@ void EntityParser::_handleProperties(const QString& entityName, const YAML::Node
                 .exampleValue = qFromNode(example),
                 .preferredUnit = qFromNode(preferredUnit),
                 .node = property,
-                .showIfPolicy = qFromNode(showIfPolicy),
                 .isHighFrequency = isHighFrequency,
+                .showIfPolicy = qFromNode(showIfPolicy),
                 .showConditions = showConditionsVector,
                 .disableConditions = disableConditionsVector,
             });
